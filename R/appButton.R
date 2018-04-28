@@ -7,7 +7,7 @@
 #' @param icon button icon, if any. Should be written like "fa fa-times".
 #' @param enable_badge Whether to display a badge on the top-right corner of the button.
 #' @param badgeColor color of the badge: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param badgelabel text to display in the badge. I personally recommend you to only put numbers.
+#' @param badgeLabel text to display in the badge. I personally recommend you to only put numbers.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'

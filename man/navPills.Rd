@@ -24,6 +24,7 @@ if (interactive()) {
      box(
       title = "Nav Pills",
       status = "info",
+      "Box Body",
       footer = navPills(
         navPillsItem(
           pillName = "Item 1", 

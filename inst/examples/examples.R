@@ -2,56 +2,6 @@ library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
 
-# gradient box
-gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL, 
-                        boxToolSize = "sm", footer = NULL) {
-  cl <- "box box-solid"
-  if (!is.null(gradientColor)) cl <- paste0(cl, " bg-", gradientColor, "-gradient")
-  shiny::tags$div(
-    class = cl,
-    
-    # box header
-    shiny::tags$div(
-      class = "box-header",
-      style="cursor: move;",
-      
-      shiny::tags$i(class = icon),
-      shiny::tags$h3(class = "box-title", title),
-      
-      # box header buttons
-      shiny::tags$div(
-        class = "pull-right box-tools",
-        shiny::tags$button(
-          class = paste0("btn", " bg-", gradientColor, " btn-", boxToolSize),
-          `data-widget` = "collapse",
-          type = "button",
-          shiny::tags$i(class = "fa fa-minus")
-        ),
-        shiny::tags$button(
-          class = paste0("btn", " bg-", gradientColor, " btn-", boxToolSize),
-          `data-widget` = "remove",
-          type = "button",
-          shiny::tags$i(class = "fa fa-times")
-        )
-      )
-    ),
-    
-    # box body
-    shiny::tags$div(
-      class = "box-body border-radius-none",
-      ...
-    ),
-    
-    # box footer
-    shiny::tags$div(
-      class="box-footer no-border",
-      footer
-    )
-  )
-  
-}
-
-
 shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -282,7 +232,7 @@ shinyApp(
       )
       
     ),
-    title = "Dashboard example"
+    title = "shinyDashboardPlus showcase"
   ),
   server = function(input, output) { }
 )

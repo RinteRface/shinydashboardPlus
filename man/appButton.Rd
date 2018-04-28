@@ -18,7 +18,7 @@ appButton(url = NULL, label = NULL, icon = NULL, enable_badge = FALSE,
 
 \item{badgeColor}{color of the badge: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
-\item{badgelabel}{text to display in the badge. I personally recommend you to only put numbers.}
+\item{badgeLabel}{text to display in the badge. I personally recommend you to only put numbers.}
 }
 \description{
 Create a large button ideal for web applications
