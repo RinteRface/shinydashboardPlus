@@ -85,7 +85,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
       # box header
       shiny::tags$div(
         class = "box-header",
-        style="cursor: move;",
+        #style="cursor: move;",
         
         shiny::tags$i(class = icon),
         shiny::tags$h3(class = "box-title", title),
