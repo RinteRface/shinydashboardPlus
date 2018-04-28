@@ -1,158 +1,6 @@
-library(shinydashboard)
 library(shiny)
-
-# perfect for business boxes
-descriptionBlock <- function(number = NULL, number_color = NULL, number_icon = NULL,
-                             header = NULL, text = NULL, right_border = TRUE,
-                             margin_bottom = FALSE) {
-  
-  cl <- "description-block"
-  if (isTRUE(right_border)) cl <- paste0(cl, " border-right")
-  if (isTRUE(margin_bottom)) cl <- paste0(cl, " margin-bottom")
-  
-  numcl <- "description-percentage"
-  if (!is.null(number_color)) numcl <- paste0(numcl, " text-", number_color)
-  
-  shiny::tags$div(
-    class = cl,
-    shiny::tags$span(
-      class = numcl, number,
-      if (!is.null(number_icon)) shiny::tags$i(class = number_icon)
-    ),
-    shiny::tags$h5(class = "description-header", header),
-    shiny::tags$span(class = "description-text", text)
-  )
-}
-
-
-# rigth or left pad
-boxPad <- function(..., color = NULL, style = NULL) {
-  cl <- "pad box-pane-right"
-  if (!is.null(color)) cl <- paste0(cl, " bg-", color)
-  
-  shiny::tags$div(
-    class = cl,
-    style = style,
-    ...
-  )
-}
-
-# userlist: insert userListItem inside
-userList <- function(...) {
-  shiny::tags$div(
-    class = "box-body no-padding",
-    shiny::tags$ul(
-      class="users-list clearfix",
-      ...
-    )
-  )
-}
-
-userListItem <- function(src = NULL, user_name = NULL, date = NULL) {
-  shiny::tags$li(
-    shiny::tags$img(
-      src = src, alt = "User Image",
-      shiny::tags$a(class = "users-list-name", user_name),
-      shiny::tags$span(class="users-list-date", date)
-    )
-  )
-}
-
-# nav pills: include navPillsItem inside
-navPills <- function(...) {
-  shiny::tags$ul(
-    class = "nav nav-pills nav-stacked",
-    ...
-  )
-}
-
-navPillsItem <- function(pillName = NULL, pillColor = NULL, 
-                         pillIcon = NULL, pillNumber = NULL) {
-  cl <- "pull-right"
-  if (!is.null(pillColor)) paste0(cl, " text-", pillColor)
-  
-  shiny::tags$li(
-    shiny::tags$a(
-      href = "#", pillName,
-      shiny::tags$span(
-        class = cl,
-        shiny::tags$i(class = pillIcon),
-        pillNumber
-      )
-    )
-  )
-}
-
-# product list: include productListItem inside
-productList <- function(...) {
-  shiny::tags$ul(
-    class = "products-list product-list-in-box",
-    ...
-  )
-}
-
-productListItem <- function(..., src = NULL, productTitle = NULL, 
-                            productPrice = NULL, priceColor = NULL) {
-  cl <- "label pull-right"
-  if (!is.null(priceColor)) cl <- paste0(cl, " label-", priceColor)
-  
-  shiny::tags$li(
-    class = "item",
-    shiny::tags$div(
-      class = "product-img",
-      shiny::tags$img(src = src, alt = "Product Image")
-    ),
-    shiny::tags$div(
-      class = "product-info",
-      shiny::tags$a(
-        href = "javascript:void(0)", 
-        class = "product-title",
-        productTitle,
-        shiny::tags$span(class = cl, productPrice)
-      ),
-      shiny::tags$span(
-        class = "product-description",
-        ...
-      )
-    )
-  )
-}
-
-
-# blockquote
-blockQuote <- function(...) {
-  shiny::tags$blockquote(
-    ...
-  )
-}
-
-# app buttons
-appButton <- function(url = NULL, label = NULL, icon = NULL, enable_badge = FALSE, 
-                      badgeColor = NULL, badgeLabel = NULL) {
-  shiny::tags$a(
-    class = "btn btn-app",
-    if (isTRUE(enable_badge)) {
-      cl <- "badge"
-      if (!is.null(badgeColor)) cl <- paste0(cl, " bg-", badgeColor)
-      shiny::tags$span(class = cl, badgeLabel)
-    },
-    shiny::tags$i(class = icon),
-    label,
-    href = url
-  )
-}
-
-
-
-# loading spinner
-loadingState <- function() {
-  shiny::tags$div(
-    class = "overlay",
-    shiny::tags$i(class = "fa fa-refresh fa-spin")
-  )
-}
-
-
+library(shinydashboard)
+library(shinydashboardPlus)
 
 # gradient box
 gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL, 
@@ -404,7 +252,32 @@ shinyApp(
         icon = "fa fa-th",
         gradientColor = "teal", 
         boxToolSize = "sm", 
-        footer = NULL,
+        footer = fluidRow(
+          column(
+            width = 6,
+            descriptionBlock(
+              number = "17%", 
+              number_color = "green", 
+              number_icon = "fa fa-caret-up",
+              header = "$35,210.43", 
+              text = "TOTAL REVENUE", 
+              right_border = TRUE,
+              margin_bottom = FALSE
+            )
+          ),
+          column(
+            width = 6,
+            descriptionBlock(
+              number = "18%", 
+              number_color = "red", 
+              number_icon = "fa fa-caret-down",
+              header = "1200", 
+              text = "GOAL COMPLETION", 
+              right_border = FALSE,
+              margin_bottom = FALSE
+            )
+          )
+        ),
         "This is a gradient box"
       )
       
