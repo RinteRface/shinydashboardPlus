@@ -66,7 +66,8 @@ navPills <- function(...) {
   )
 }
 
-navPillsItem <- function(pillName = NULL, pillColor = NULL, pillIcon = NULL, pillNumber = NULL) {
+navPillsItem <- function(pillName = NULL, pillColor = NULL, 
+                         pillIcon = NULL, pillNumber = NULL) {
   cl <- "pull-right"
   if (!is.null(pillColor)) paste0(cl, " text-", pillColor)
   
@@ -86,13 +87,6 @@ navPillsItem <- function(pillName = NULL, pillColor = NULL, pillIcon = NULL, pil
 productList <- function(...) {
   shiny::tags$ul(
     class = "products-list product-list-in-box",
-    ...
-  )
-}
-
-# blockquote
-blockQuote <- function(...) {
-  shiny::tags$blockquote(
     ...
   )
 }
@@ -122,6 +116,91 @@ productListItem <- function(..., src = NULL, productTitle = NULL,
       )
     )
   )
+}
+
+
+# blockquote
+blockQuote <- function(...) {
+  shiny::tags$blockquote(
+    ...
+  )
+}
+
+# app buttons
+appButton <- function(url = NULL, label = NULL, icon = NULL, enable_badge = FALSE, 
+                      badgeColor = NULL, badgeLabel = NULL) {
+  shiny::tags$a(
+    class = "btn btn-app",
+    if (isTRUE(enable_badge)) {
+      cl <- "badge"
+      if (!is.null(badgeColor)) cl <- paste0(cl, " bg-", badgeColor)
+      shiny::tags$span(class = cl, badgeLabel)
+    },
+    shiny::tags$i(class = icon),
+    label,
+    href = url
+  )
+}
+
+
+
+# loading spinner
+loadingState <- function() {
+  shiny::tags$div(
+    class = "overlay",
+    shiny::tags$i(class = "fa fa-refresh fa-spin")
+  )
+}
+
+
+
+# gradient box
+gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL, 
+                        boxToolSize = "sm", footer = NULL) {
+  cl <- "box box-solid"
+  if (!is.null(gradientColor)) cl <- paste0(cl, " bg-", gradientColor, "-gradient")
+  shiny::tags$div(
+    class = cl,
+    
+    # box header
+    shiny::tags$div(
+      class = "box-header",
+      style="cursor: move;",
+      
+      shiny::tags$i(class = icon),
+      shiny::tags$h3(class = "box-title", title),
+      
+      # box header buttons
+      shiny::tags$div(
+        class = "pull-right box-tools",
+        shiny::tags$button(
+          class = paste0("btn", " bg-", gradientColor, " btn-", boxToolSize),
+          `data-widget` = "collapse",
+          type = "button",
+          shiny::tags$i(class = "fa fa-minus")
+        ),
+        shiny::tags$button(
+          class = paste0("btn", " bg-", gradientColor, " btn-", boxToolSize),
+          `data-widget` = "remove",
+          type = "button",
+          shiny::tags$i(class = "fa fa-times")
+        )
+      )
+    ),
+    
+    # box body
+    shiny::tags$div(
+      class = "box-body border-radius-none",
+      ...
+    ),
+    
+    # box footer
+    shiny::tags$div(
+      class="box-footer no-border",
+      footer
+    )
+  )
+  
 }
 
 
@@ -243,6 +322,7 @@ shinyApp(
       
       # navPills demo
       box(
+        title = "Nav Pills",
         status = "info",
         footer = navPills(
           navPillsItem(
@@ -262,6 +342,7 @@ shinyApp(
       
       # product list demo
       box(
+        title = "Product List",
         status = "primary",
         productList(
           productListItem(
@@ -279,6 +360,52 @@ shinyApp(
             "This is were I spend most of my time!"
           )
         )
+      ),
+      
+      # demo buttons
+      box(
+        title = "App Buttons",
+        status = NULL,
+        appButton(
+          url = "http://google.com",
+          label = "Users", 
+          icon = "fa fa-users", 
+          enable_badge = TRUE, 
+          badgeColor = "purple", 
+          badgeLabel = 891
+        ),
+        appButton(
+          label = "Edit", 
+          icon = "fa fa-edit", 
+          enable_badge = FALSE, 
+          badgeColor = NULL, 
+          badgeLabel = NULL
+        ),
+        appButton(
+          label = "Likes", 
+          icon = "fa fa-heart-o", 
+          enable_badge = TRUE, 
+          badgeColor = "red", 
+          badgeLabel = 3
+        )
+      ),
+      
+      
+      # demo loading spinner
+      box(
+        title = "loading spinner",
+        loadingState()
+      ),
+
+      
+      # demo gradient box
+      gradientBox(
+        title = "My gradient Box",
+        icon = "fa fa-th",
+        gradientColor = "teal", 
+        boxToolSize = "sm", 
+        footer = NULL,
+        "This is a gradient box"
       )
       
     ),
