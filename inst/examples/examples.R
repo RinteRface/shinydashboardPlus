@@ -1,5 +1,6 @@
 library(shiny)
 library(shinydashboard)
+library(shinyjqui)
 library(shinydashboardPlus)
 
 shinyApp(

@@ -6,7 +6,7 @@ Author: David Granjon
 Maintainer: The package maintainer <dgranjon@ymail.com>
 Description: Extend shinydashboard with adminLTE2 components
 License: What license is it under?
-Imports: shiny, shinydashboard
+Imports: shiny, shinydashboard, shinyjqui
 URL: https://github.com/DivadNojnarg/shinydashboardPlus
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
 Encoding: UTF-8

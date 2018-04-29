@@ -11,6 +11,7 @@
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinyjqui)
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
