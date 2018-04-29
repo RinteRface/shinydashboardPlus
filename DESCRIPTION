@@ -4,8 +4,9 @@ Title: Add some components to shinydashboard
 Version: 0.1.0
 Author: David Granjon
 Maintainer: The package maintainer <dgranjon@ymail.com>
-Description: Extend shinydashboard with adminLTE2 components
-License: What license is it under?
+Description: Extend shinydashboard with adminLTE2 components.
+             Still work in progress, stay connected!
+License: GPL-3
 Imports: shiny, shinydashboard, shinyjqui
 URL: https://github.com/DivadNojnarg/shinydashboardPlus
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
