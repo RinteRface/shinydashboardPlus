@@ -68,3 +68,55 @@ appButton <- function(url = NULL, label = NULL, icon = NULL, enable_badge = FALS
     href = url
   )
 }
+
+
+
+#' @title AdminLTE2 social button
+#'
+#' @description Create a social button
+#'
+#' @param url if the button should redirect somewhere.
+#' @param type social network name: see here for valid names \url{https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html}.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      box(
+#'       title = "Social Buttons",
+#'       status = NULL,
+#'       socialButton(
+#'         url = "http://dropbox.com",
+#'         type = "dropbox"
+#'       ),
+#'       socialButton(
+#'         url = "http://github.com",
+#'         type = "github"
+#'       )
+#'      )
+#'     ),
+#'     title = "Description Blocks"
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#'
+#' @export
+socialButton <- function(url, type = NULL) {
+  
+  cl <- "btn btn-social-icon"
+  if (!is.null(type)) cl <- paste0(cl, " btn-", type)
+  
+  shiny::tags$a(
+    href = url,
+    class = cl,
+    shiny::icon(type)
+  )
+}
