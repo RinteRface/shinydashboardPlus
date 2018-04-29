@@ -24,7 +24,7 @@ if (interactive()) {
     dashboardSidebar(),
     dashboardBody(
      box(
-      "Todo list demo",
+      "Sortable todo list demo",
       status = "warning",
       todoList(
         todoListItem(
@@ -42,7 +42,7 @@ if (interactive()) {
        )
       ),
       box(
-      "Todo list demo",
+      "Simple todo list demo",
       status = "warning",
       todoList(
       sortable = FALSE,
