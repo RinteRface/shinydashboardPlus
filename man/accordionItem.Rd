@@ -4,7 +4,7 @@
 \alias{accordionItem}
 \title{AdminLTE2 accordion item}
 \usage{
-accordionItem(..., id, title = NULL, color = NULL)
+accordionItem(..., id, title = NULL, color = NULL, collapsed = TRUE)
 }
 \arguments{
 \item{...}{text to write in the item.}
@@ -14,6 +14,8 @@ accordionItem(..., id, title = NULL, color = NULL)
 \item{title}{item title.}
 
 \item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
+
+\item{collapsed}{Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.}
 }
 \description{
 Create an accordion item to put inside an accordion container
