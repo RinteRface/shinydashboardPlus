@@ -65,11 +65,12 @@ navPills <- function(...) {
 navPillsItem <- function(pillName = NULL, pillColor = NULL, 
                          pillIcon = NULL, pillNumber = NULL) {
   cl <- "pull-right"
-  if (!is.null(pillColor)) paste0(cl, " text-", pillColor)
+  if (!is.null(pillColor)) cl <- paste0(cl, " text-", pillColor)
   
   shiny::tags$li(
     shiny::tags$a(
-      href = "#", pillName,
+      href = "#", 
+      pillName,
       shiny::tags$span(
         class = cl,
         shiny::tags$i(class = pillIcon),

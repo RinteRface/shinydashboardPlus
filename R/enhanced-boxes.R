@@ -340,6 +340,11 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
     style <- paste0("height: ", shiny::validateCssUnit(height))
   }
   
+  backgroundStyle <- NULL
+  if (isTRUE(background)) {
+    backgroundStyle <- paste0("background: url('", backgroundUrl, "') center center;")
+  }
+  
   shiny::column(
     width = width,
     shiny::tags$div(
@@ -349,6 +354,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
       # header
       shiny::tags$div(
         class = cl,
+        style = backgroundStyle,
         
         # box header buttons
         shiny::tags$div(
@@ -370,10 +376,6 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
             )
           }
         ),
-        
-        if (isTRUE(background)) {
-          style = paste0("background: url('", backgroundUrl, "') center center;")
-        },
         
         # image
         shiny::tags$div(
