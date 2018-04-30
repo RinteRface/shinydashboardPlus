@@ -1,11 +1,52 @@
 library(shiny)
 library(shinyjqui)
 library(shinydashboard)
+library(shinydashboardPlus)
 
 shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
+  ui = dashboardPagePlus(
+    dashboardHeaderPlus(
+      enable_rightsidebar = TRUE,
+      rightSidebarIcon = "bars"
+    ),
     dashboardSidebar(),
+    rightsidebar = rightSidebar(
+      background = "dark",
+      rightSidebarTabList(
+        rightSidebarTabItem(
+          id = 1,
+          icon = "desktop"
+        ),
+        rightSidebarTabItem(
+          id = 2
+        ),
+        rightSidebarTabItem(
+          id = 3,
+          icon = "paint-brush"
+        )
+      ),
+      rigthSidebarPanel(
+        rightSidebarTabContent(
+          id = 1,
+          title = "Tab 1",
+          sliderInput(
+            "obs", 
+            "Number of observations:",
+            min = 0, max = 1000, value = 500
+          )
+        ),
+        rightSidebarTabContent(
+          id = 2,
+          title = "Tab 2",
+          textInput("caption", "Caption", "Data Summary")
+        ),
+        rightSidebarTabContent(
+          id = 3,
+          title = "Tab 3",
+          numericInput("obs", "Observations:", 10, min = 1, max = 100)
+        )
+      )
+    ),
     dashboardBody(
       
       fluidRow(
@@ -357,7 +398,7 @@ shinyApp(
         )
         
       )
-
+      
     ),
     title = "shinyDashboardPlus showcase"
   ),
