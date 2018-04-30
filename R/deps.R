@@ -5,7 +5,7 @@ appendDependencies <- function(x, value) {
   
   old <- attr(x, "html_dependencies", TRUE)
   
-  htmlDependencies(x) <- c(old, value)
+  htmltools::htmlDependencies(x) <- c(old, value)
   x
 }
 
@@ -22,12 +22,12 @@ addDeps <- function(x) {
   }
   
   dashboardDeps <- list(
-    htmlDependency("AdminLTE", "2.0.6",
+    htmltools::htmlDependency("AdminLTE", "2.0.6",
                    c(file = system.file("AdminLTE", package = "shinydashboard")),
                    script = adminLTE_js,
                    stylesheet = adminLTE_css
     ),
-    htmlDependency("shinydashboard",
+    htmltools::htmlDependency("shinydashboard",
                    as.character(utils::packageVersion("shinydashboard")),
                    c(file = system.file(package = "shinydashboard")),
                    script = shinydashboard_js,

@@ -4,28 +4,72 @@
 \alias{rightSidebar}
 \title{AdminLTE2 dashboard right sidebar}
 \usage{
-rightSidebar()
+rightSidebar(..., background = "dark")
+}
+\arguments{
+\item{...}{slot for other elements such as rightSidebarTabList,
+rightSidebarTabItem, rigthSidebarPanel and rightSidebarTabContent.}
+
+\item{background}{background color: "dark" or "light".}
 }
 \description{
 This creates a right sidebar.
 }
 \examples{
-## Only run this example in interactive R sessions
 if (interactive()) {
-# Basic dashboard page template
-library(shiny)
-shinyApp(
-  ui = dashboardPage(
-    header = dashboardHeader(
-     enable_rightsidebar = TRUE,
-     rightSidebarIcon = "gears"
-    ),
-    sidebar = dashboardSidebar(),
-    body = dashboardBody(),
-    rightsidebar = rightSidebar(),
-    title = "Right Sidebar"
-  ),
-  server = function(input, output) { }
-)
+ library(shiny)
+ library(shinydashboard)
+ shinyApp(
+   ui = dashboardPagePlus(
+     header = dashboardHeaderPlus(
+      enable_rightsidebar = TRUE,
+      rightSidebarIcon = "gears"
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     rightsidebar = rightSidebar(
+      background = "dark",
+       rightSidebarTabList(
+        rightSidebarTabItem(
+         id = 1,
+         icon = "desktop"
+        ),
+        rightSidebarTabItem(
+         id = 2
+        ),
+        rightSidebarTabItem(
+         id = 3,
+         icon = "paint-brush"
+        )
+       ),
+       rigthSidebarPanel(
+        rightSidebarTabContent(
+         id = 1,
+         title = "Tab 1",
+         sliderInput(
+          "obs", 
+          "Number of observations:",
+           min = 0, max = 1000, value = 500
+          )
+        ),
+        rightSidebarTabContent(
+         id = 2,
+         title = "Tab 2",
+         textInput("caption", "Caption", "Data Summary")
+        ),
+        rightSidebarTabContent(
+         id = 3,
+         title = "Tab 3",
+         numericInput("obs", "Observations:", 10, min = 1, max = 100)
+        )
+       )
+     ),
+     title = "Right Sidebar"
+   ),
+   server = function(input, output) { }
+ )
 }
+}
+\author{
+David Granjon, \email{dgranjon@ymail.com}
 }

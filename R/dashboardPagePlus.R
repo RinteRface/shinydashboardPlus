@@ -12,16 +12,14 @@
 #'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
 #' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by default.
 #'
-#' @seealso \code{\link{dashboardHeader}}, \code{\link{dashboardSidebar}},
+#' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link{dashboardSidebar}},
 #'   \code{\link{dashboardBody}}.
 #' @examples
-#' ## Only run this example in interactive R sessions
 #' if (interactive()) {
-#' # Basic dashboard page template
 #' library(shiny)
 #' shinyApp(
-#'   ui = dashboardPage(
-#'     header = dashboardHeader(
+#'   ui = dashboardPagePlus(
+#'     header = dashboardHeaderPlus(
 #'      enable_rightsidebar = TRUE,
 #'      rightSidebarIcon = "gears"
 #'     ),
@@ -34,7 +32,7 @@
 #' )
 #' }
 #' @export
-dashboardPage <- function(header, sidebar, body, rightsidebar = NULL, title = NULL,
+dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title = NULL,
                           skin = c("blue", "blue-light","black","black-light", "purple","purple-light", "green","green-light",
                                    "red","red-light", "yellow","yellow-light"),
                           collapse_sidebar = FALSE) {

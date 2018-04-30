@@ -21,9 +21,9 @@
 #' @seealso \code{\link{dropdownMenu}}
 #'
 #' @examples
-#' ## Only run this example in interactive R sessions
 #' if (interactive()) {
 #' library(shiny)
+#' library(shinydashboard)
 #'
 #' # A dashboard header with 3 dropdown menus
 #' header <- dashboardHeader(
@@ -79,8 +79,8 @@
 #' )
 #'
 #' shinyApp(
-#'   ui = dashboardPage(
-#'     header,
+#'   ui = dashboardPagePlus(
+#'     dashboardHeaderPlus(),
 #'     dashboardSidebar(),
 #'     rightSidebar(),
 #'     dashboardBody()
@@ -89,7 +89,7 @@
 #' )
 #' }
 #' @export
-dashboardHeader <- function(..., title = NULL, titleWidth = NULL, 
+dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL, 
                             disable = FALSE, .list = NULL, 
                             enable_rightsidebar = FALSE,
                             rightSidebarIcon = "gears") {

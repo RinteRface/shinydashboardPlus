@@ -1,7 +1,6 @@
 library(shiny)
-library(shinydashboard)
 library(shinyjqui)
-library(shinydashboardPlus)
+library(shinydashboard)
 
 shinyApp(
   ui = dashboardPage(
