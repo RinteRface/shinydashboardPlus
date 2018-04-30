@@ -395,6 +395,30 @@ shinyApp(
           closable = TRUE,
           "Some text here!",
           footer = "The footer here!"
+        ),
+        
+        
+        fluidRow(
+          boxPlus(
+            title = "Closable Box", 
+            closable = TRUE, 
+            label_status = "danger",
+            status = "warning", 
+            solidHeader = FALSE, 
+            collapsible = TRUE,
+            p("Box Content")
+          ),
+          boxPlus(
+            title = "Closable box, with label", 
+            closable = TRUE, 
+            enable_label = TRUE,
+            label_text = 1,
+            label_status = "danger",
+            status = "warning", 
+            solidHeader = FALSE, 
+            collapsible = TRUE,
+            p("Box Content")
+          )
         )
         
       )
