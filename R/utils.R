@@ -11,6 +11,49 @@ validateStatus <- function(status) {
 
 validStatuses <- c("primary", "success", "info", "warning", "danger")
 
+
+# Returns TRUE if a color is a valid color defined in AdminLTE, throws error
+# otherwise.
+validateColor <- function(color) {
+  if (color %in% validColors) {
+    return(TRUE)
+  }
+  
+  stop("Invalid color: ", color, ". Valid colors are: ",
+       paste(validColors, collapse = ", "), ".")
+}
+
+#' Valid colors
+#'
+#' These are valid colors for various dashboard components. Valid colors are
+#' listed below.
+#'
+#' \itemize{
+#'   \item \code{red}
+#'   \item \code{yellow}
+#'   \item \code{aqua}
+#'   \item \code{blue}
+#'   \item \code{light-blue}
+#'   \item \code{green}
+#'   \item \code{navy}
+#'   \item \code{teal}
+#'   \item \code{olive}
+#'   \item \code{lime}
+#'   \item \code{orange}
+#'   \item \code{fuchsia}
+#'   \item \code{purple}
+#'   \item \code{maroon}
+#'   \item \code{black}
+#' }
+#'
+#' @usage NULL
+#' @format NULL
+#'
+#' @keywords internal
+validColors <- c("red", "yellow", "aqua", "blue", "light-blue", "green",
+                 "navy", "teal", "olive", "lime", "orange", "fuchsia",
+                 "purple", "maroon", "black")
+
 #' Assert that a tag has specified properties
 #' @param tag A tag object.
 #' @param type The type of a tag, like "div", "a", "span".

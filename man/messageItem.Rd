@@ -25,7 +25,7 @@ If NULL, no time will be displayed.}
 Create a message item to place in a dropdown message menu
 }
 \seealso{
-\code{\link{dashboardHeader}} for example usage.
+\code{\link{dashboardHeaderPlus}} for example usage.
 
 Other menu items: \code{\link{notificationItem}},
   \code{\link{taskItem}}

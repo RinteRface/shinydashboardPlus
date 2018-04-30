@@ -21,7 +21,7 @@ color. Valid statuses are listed in \link{validStatuses}.}
 Create a notification item to place in a dropdown notification menu
 }
 \seealso{
-\code{\link{dashboardHeader}} for example usage.
+\code{\link{dashboardHeaderPlus}} for example usage.
 
 Other menu items: \code{\link{messageItem}},
   \code{\link{taskItem}}

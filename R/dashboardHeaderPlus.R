@@ -6,7 +6,7 @@
 #' @param title An optional title to show in the header bar.. By default, this
 #'   will also be used as the title shown in the browser's title bar. If you
 #'   want that to be different from the text in the dashboard header bar, set
-#'   the \code{title} in \code{\link{dashboardPage}}.
+#'   the \code{title} in \code{\link{dashboardPagePlus}}.
 #' @param titleWidth The width of the title area. This must either be a number
 #'   which specifies the width in pixels, or a string that specifies the width
 #'   in CSS units.
@@ -90,13 +90,13 @@
 #' }
 #' @export
 dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL, 
-                            disable = FALSE, .list = NULL, 
-                            enable_rightsidebar = FALSE,
-                            rightSidebarIcon = "gears") {
+                                disable = FALSE, .list = NULL, 
+                                enable_rightsidebar = FALSE,
+                                rightSidebarIcon = "gears") {
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
   
-  titleWidth <- validateCssUnit(titleWidth)
+  titleWidth <- shiny::validateCssUnit(titleWidth)
   
   # Set up custom CSS for custom width.
   custom_css <- NULL
@@ -106,9 +106,9 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     # instead making changes to the global settings, we've put them in a media
     # query (min-width: 768px), so that it won't override other media queries
     # (like max-width: 767px) that work for narrower screens.
-    custom_css <- tags$head(
-      tags$style(
-        HTML(
+    custom_css <- shiny::tags$head(
+      shiny::tags$style(
+        shiny::HTML(
           gsub("_WIDTH_", 
                titleWidth, 
                fixed = TRUE, 
@@ -126,30 +126,35 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     )
   }
   
-  tags$header(
+  shiny::tags$header(
     class = "main-header",
     custom_css,
     style = if (disable) "display: none;",
-    span(class = "logo", title),
-    tags$nav(
+    shiny::tags$span(class = "logo", title),
+    shiny::tags$nav(
       class = "navbar navbar-static-top", role = "navigation",
       # Embed hidden icon so that we get the font-awesome dependency
-      span(shiny::icon("bars"), style = "display:none;"),
+      shiny::tags$span(shiny::icon("bars"), style = "display:none;"),
       # Sidebar toggle button
-      a(href = "#", class = "sidebar-toggle", `data-toggle` = "offcanvas",
+      shiny::tags$a(
+        href = "#", 
+        class = "sidebar-toggle", 
+        `data-toggle` = "offcanvas",
         role = "button",
-        span(class = "sr-only", "Toggle navigation")
+        shiny::tags$span(class = "sr-only", "Toggle navigation")
       ),
-      div(
+      shiny::tags$div(
         class = "navbar-custom-menu",
-        tags$ul(
+        shiny::tags$ul(
           class = "nav navbar-nav",
           items,
           
           if (isTRUE(enable_rightsidebar)) {
-            tags$li(
-              tags$a(
-                href = "#", `data-toggle` = "control-sidebar", shiny::icon(rightSidebarIcon)
+            shiny::tags$li(
+              shiny::tags$a(
+                href = "#", 
+                `data-toggle` = "control-sidebar", 
+                shiny::icon(rightSidebarIcon)
               )
             )
           }
@@ -185,7 +190,7 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
 #'   \code{...} arguments, but in list format. This can be useful when working
 #'   with programmatically generated items.
 #'
-#' @seealso \code{\link{dashboardHeader}} for example usage.
+#' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
 #'
 #' @export
 dropdownMenu <- function(...,
@@ -203,10 +208,11 @@ dropdownMenu <- function(...,
   dropdownClass <- paste0("dropdown ", type, "-menu")
   
   if (is.null(icon)) {
-    icon <- switch(type,
-                   messages = shiny::icon("envelope"),
-                   notifications = shiny::icon("warning"),
-                   tasks = shiny::icon("tasks")
+    icon <- switch(
+      type,
+      messages = shiny::icon("envelope"),
+      notifications = shiny::icon("warning"),
+      tasks = shiny::icon("tasks")
     )
   }
   
@@ -214,28 +220,38 @@ dropdownMenu <- function(...,
   if (is.null(badgeStatus)) {
     badge <- NULL
   } else {
-    badge <- span(class = paste0("label label-", badgeStatus), numItems)
+    badge <- shiny::tags$span(
+      class = paste0("label label-", badgeStatus), 
+      numItems
+    )
   }
   
   if (is.null(headerText)) {
     headerText <- paste("You have", numItems, type)
   }
   
-  tags$li(class = dropdownClass,
-          a(href = "#", class = "dropdown-toggle", `data-toggle` = "dropdown",
-            icon,
-            badge
-          ),
-          tags$ul(class = "dropdown-menu",
-                  tags$li(class = "header", headerText),
-                  tags$li(
-                    tags$ul(class = "menu",
-                            items
-                    )
-                  )
-                  # TODO: This would need to be added to the outer ul
-                  # tags$li(class = "footer", a(href="#", "View all"))
-          )
+  shiny::tags$li(
+    class = dropdownClass,
+    shiny::tags$a(
+      href = "#", 
+      class = "dropdown-toggle", 
+      `data-toggle` = "dropdown",
+      icon,
+      badge
+    ),
+    shiny::tags$ul(
+      class = "dropdown-menu",
+      shiny::tags$li(
+        class = "header", headerText),
+      shiny::tags$li(
+        shiny::tags$ul(
+          class = "menu",
+          items
+        )
+      )
+      # TODO: This would need to be added to the outer ul
+      # tags$li(class = "footer", a(href="#", "View all"))
+    )
   )
   
 }
@@ -254,7 +270,7 @@ dropdownMenu <- function(...,
 #' @param href An optional URL to link to.
 #'
 #' @family menu items
-#' @seealso \code{\link{dashboardHeader}} for example usage.
+#' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
 #' @export
 messageItem <- function(from, message, icon = shiny::icon("user"), time = NULL,
                         href = NULL)
@@ -262,14 +278,15 @@ messageItem <- function(from, message, icon = shiny::icon("user"), time = NULL,
   tagAssert(icon, type = "i")
   if (is.null(href)) href <- "#"
   
-  tags$li(
-    a(href = href,
+  shiny::tags$li(
+    shiny::tags$a(
+      href = href,
       icon,
-      h4(
+      shiny::tags$h4(
         from,
-        if (!is.null(time)) tags$small(shiny::icon("clock-o"), time)
+        if (!is.null(time)) shiny::tags$small(shiny::icon("clock-o"), time)
       ),
-      p(message)
+      shiny::tags$p(message)
     )
   )
 }
@@ -284,7 +301,7 @@ messageItem <- function(from, message, icon = shiny::icon("user"), time = NULL,
 #' @param href An optional URL to link to.
 #'
 #' @family menu items
-#' @seealso \code{\link{dashboardHeader}} for example usage.
+#' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
 #' @export
 notificationItem <- function(text, icon = shiny::icon("warning"),
                              status = "success", href = NULL)
@@ -294,10 +311,10 @@ notificationItem <- function(text, icon = shiny::icon("warning"),
   if (is.null(href)) href <- "#"
   
   # Add the status as another HTML class to the icon
-  icon <- tagAppendAttributes(icon, class = paste0("text-", status))
+  icon <- shiny::tagAppendAttributes(icon, class = paste0("text-", status))
   
-  tags$li(
-    a(href = href, icon, text)
+  shiny::tags$li(
+    shiny::tags$a(href = href, icon, text)
   )
 }
 
@@ -311,27 +328,30 @@ notificationItem <- function(text, icon = shiny::icon("warning"),
 #' @param href An optional URL to link to.
 #'
 #' @family menu items
-#' @seealso \code{\link{dashboardHeader}} for example usage.
+#' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
 #' @export
 taskItem <- function(text, value = 0, color = "aqua", href = NULL) {
   validateColor(color)
   if (is.null(href)) href <- "#"
   
-  tags$li(
-    a(href = href,
-      h3(text,
-         tags$small(class = "pull-right", paste0(value, "%"))
+  shiny::tags$li(
+    shiny::tags$a(
+      href = href,
+      shiny::tags$h3(
+        text,
+        shiny::tags$small(class = "pull-right", paste0(value, "%"))
       ),
-      div(class = "progress xs",
-          div(
-            class = paste0("progress-bar progress-bar-", color),
-            style = paste0("width: ", value, "%"),
-            role = "progressbar",
-            `aria-valuenow` = value,
-            `aria-valuemin` = "0",
-            `aria-valuemax` = "100",
-            span(class = "sr-only", paste0(value, "% complete"))
-          )
+      shiny::tags$div(
+        class = "progress xs",
+        shiny::tags$div(
+          class = paste0("progress-bar progress-bar-", color),
+          style = paste0("width: ", value, "%"),
+          role = "progressbar",
+          `aria-valuenow` = value,
+          `aria-valuemin` = "0",
+          `aria-valuemax` = "100",
+          shiny::tags$span(class = "sr-only", paste0(value, "% complete"))
+        )
       )
     )
   )

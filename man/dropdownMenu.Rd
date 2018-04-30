@@ -40,5 +40,5 @@ with programmatically generated items.}
 Create a dropdown menu to place in a dashboard header
 }
 \seealso{
-\code{\link{dashboardHeader}} for example usage.
+\code{\link{dashboardHeaderPlus}} for example usage.
 }

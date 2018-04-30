@@ -10,16 +10,16 @@ dashboardPagePlus(header, sidebar, body, rightsidebar = NULL, title = NULL,
   "yellow-light"), collapse_sidebar = FALSE)
 }
 \arguments{
-\item{header}{A header created by \code{dashboardHeader}.}
+\item{header}{A header created by \code{dashboardHeaderPlus}.}
 
 \item{sidebar}{A sidebar created by \code{dashboardSidebar}.}
 
 \item{body}{A body created by \code{dashboardBody}.}
 
-\item{rightsidebar}{A right sidebar created by \code{dashboardControlbar}. NULL by default.}
+\item{rightsidebar}{A right sidebar created by \code{rightSidebar}. NULL by default.}
 
 \item{title}{A title to display in the browser's title bar. If no value is
-provided, it will try to extract the title from the \code{dashboardHeader}.}
+provided, it will try to extract the title from the \code{dashboardHeaderPlus}.}
 
 \item{skin}{A color theme. One of \code{"blue"}, \code{"black"},
 \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.}

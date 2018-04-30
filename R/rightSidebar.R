@@ -65,9 +65,9 @@
 #' @export
 rightSidebar <- function(..., background = "dark") {
   shiny::withTags(
-    div(
+    shiny::tags$div(
       id = "right_sidebar",
-      aside(
+      shiny::tags$aside(
         class = paste0("control-sidebar control-sidebar-", background),
        ...
       ),
@@ -150,7 +150,7 @@ rightSidebarTabContent <- function(..., id, title = NULL) {
   shiny::tags$div(
     class = if (id == 1) "tab-pane active" else "tab-pane", 
     id = paste0("control-sidebar-", id, "-tab"),
-    h3(class = "control-sidebar-heading", title),
+    shiny::tags$h3(class = "control-sidebar-heading", title),
     ...
   )
 }

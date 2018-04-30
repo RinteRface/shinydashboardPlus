@@ -2,12 +2,12 @@
 #'
 #' This creates a dashboard page for use in a Shiny app.
 #'
-#' @param header A header created by \code{dashboardHeader}.
+#' @param header A header created by \code{dashboardHeaderPlus}.
 #' @param sidebar A sidebar created by \code{dashboardSidebar}.
 #' @param body A body created by \code{dashboardBody}.
-#' @param rightsidebar A right sidebar created by \code{dashboardControlbar}. NULL by default.
+#' @param rightsidebar A right sidebar created by \code{rightSidebar}. NULL by default.
 #' @param title A title to display in the browser's title bar. If no value is
-#'   provided, it will try to extract the title from the \code{dashboardHeader}.
+#'   provided, it will try to extract the title from the \code{dashboardHeaderPlus}.
 #' @param skin A color theme. One of \code{"blue"}, \code{"black"},
 #'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
 #' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by default.
@@ -59,11 +59,10 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
   
   title <- title %OR% extractTitle(header)
   
-  content <- div(class = "wrapper",
+  content <- shiny::tags$div(class = "wrapper",
                  header, sidebar, body, rightsidebar)
   
   addDeps(
-    
     shiny::tags$body(
       class = paste0("hold-transition skin-", skin, " sidebar-mini", ifelse(collapse_sidebar," sidebar-collapse","")),
       style = "min-height: 611px;",
