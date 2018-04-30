@@ -397,3 +397,153 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
     )
   )
 }
+
+
+
+
+#' Create a box for the main body of a dashboard
+#'
+#' Boxes can be used to hold content in the main body of a dashboard.
+#'
+#' @param title Optional title.
+#' @param footer Optional footer text.
+#' @param status The status of the item This determines the item's background
+#'   color. Valid statuses are listed in \link{validStatuses}.
+#' @param solidHeader Should the header be shown with a solid color background?
+#' @param background If NULL (the default), the background of the box will be
+#'   white. Otherwise, a color string. Valid colors are listed in
+#'   \link{validColors}.
+#' @param width The width of the box, using the Bootstrap grid system. This is
+#'   used for row-based layouts. The overall width of a region is 12, so the
+#'   default valueBox width of 4 occupies 1/3 of that width. For column-based
+#'   layouts, use \code{NULL} for the width; the width is set by the column that
+#'   contains the box.
+#' @param height The height of a box, in pixels or other CSS unit. By default
+#'   the height scales automatically with the content.
+#' @param collapsible If TRUE, display a button in the upper right that allows
+#'   the user to collapse the box.
+#' @param collapsed If TRUE, start collapsed. This must be used with
+#'   \code{collapsible=TRUE}.
+#' @param ... Contents of the box.
+#' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param enable_label Whether to display a label in the boxtool.
+#' @param label_status label text.
+#' @param label_status status of the box label: "danger", "success", "info", "primary", "warning".
+#'
+#' @family boxes
+#'
+#' @examples
+#' ## Only run this example in interactive R sessions
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#' 
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      dashboardHeaderPlus(),
+#'      dashboardSidebar(),
+#'      dashboardBody(
+#'       fluidRow(
+#'        boxPlus(
+#'         title = "Closable Box", 
+#'          closable = TRUE, 
+#'          label_status = "danger",
+#'          status = "warning", 
+#'          solidHeader = FALSE, 
+#'          collapsible = TRUE,
+#'          p("Box Content")
+#'        ),
+#'        boxPlus(
+#'         title = "Closable box, with label", 
+#'          closable = TRUE, 
+#'          enable_label = TRUE,
+#'          label_text = 1,
+#'          label_status = "danger",
+#'          status = "warning", 
+#'          solidHeader = FALSE, 
+#'          collapsible = TRUE,
+#'          p("Box Content")
+#'        )
+#'      )
+#'     )
+#'    ),
+#'    server = function(input, output) {}
+#'  )
+#' }
+#' @export
+boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
+                 background = NULL, width = 6, height = NULL, collapsible = FALSE, 
+                 collapsed = FALSE, closable = TRUE, enable_label = FALSE,
+                 label_text = NULL, label_status = "primary") 
+{
+  boxClass <- "box"
+  if (solidHeader || !is.null(background)) {
+    boxClass <- paste(boxClass, "box-solid")
+  }
+  if (!is.null(status)) {
+    validateStatus(status)
+    boxClass <- paste0(boxClass, " box-", status)
+  }
+  if (collapsible && collapsed) {
+    boxClass <- paste(boxClass, "collapsed-box")
+  }
+  if (!is.null(background)) {
+    validateColor(background)
+    boxClass <- paste0(boxClass, " bg-", background)
+  }
+  style <- NULL
+  if (!is.null(height)) {
+    style <- paste0("height: ", shiny::validateCssUnit(height))
+  }
+  titleTag <- NULL
+  if (!is.null(title)) {
+    titleTag <- shiny::tags$h3(class = "box-title", title)
+  }
+  
+  # the new boxtool section
+  boxToolTag <- NULL
+  if (collapsible || closable) {
+    boxToolTag <- shiny::tags$div(class = "box-tools pull-right")
+  }
+  
+  collapseTag <- NULL
+  if (collapsible) {
+    buttonStatus <- status %OR% "default"
+    collapseIcon <- if (collapsed) 
+      "plus"
+    else "minus"
+    collapseTag <- shiny::tags$button(
+      class = paste0("btn btn-box-tool"), 
+      `data-widget` = "collapse", shiny::icon(collapseIcon)
+    )
+  }
+  
+  closableTag <- NULL
+  if (closable) {
+    closableTag <- tags$button(
+      class = "btn btn-box-tool", 
+      `data-widget` = "remove", 
+      type = "button",
+      tags$i(shiny::icon("times"))
+    )
+  } 
+  
+  labelTag <- NULL
+  if (enable_label) {
+    labelTag <- dashboardLabel(label_text, status = label_status)
+  }
+    
+  
+  # update boxToolTag
+  boxToolTag <- shiny::tagAppendChildren(boxToolTag, labelTag, collapseTag, closableTag)
+  
+  headerTag <- NULL
+  if (!is.null(titleTag) || !is.null(collapseTag)) {
+    # replace by boxToolTag
+    headerTag <- shiny::tags$div(class = "box-header", titleTag, boxToolTag)
+  }
+  shiny::tags$div(class = if (!is.null(width)) 
+    paste0("col-sm-", width), shiny::tags$div(class = boxClass, style = if (!is.null(style)) 
+      style, headerTag, shiny::tags$div(class = "box-body", ...), if (!is.null(footer)) 
+        shiny::tags$div(class = "box-footer", footer)))
+}
