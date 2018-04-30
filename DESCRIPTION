@@ -1,13 +1,13 @@
 Package: shinydashboardPlus
 Type: Package
-Title: Add some components to shinydashboard
+Title: Add some adminLTE2 components to shinydashboard
 Version: 0.1.0
 Author: David Granjon
-Maintainer: The package maintainer <dgranjon@ymail.com>
+Maintainer: David Granjon <dgranjon@ymail.com>
 Description: Extend shinydashboard with adminLTE2 components.
              Still work in progress, stay connected!
 License: GPL-3
-Imports: shiny, shinydashboard, shinyjqui
+Imports: shiny, shinydashboard, shinyjqui, htmltools
 URL: https://github.com/DivadNojnarg/shinydashboardPlus
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
 Encoding: UTF-8
