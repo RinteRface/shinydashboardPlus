@@ -53,6 +53,6 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
         })
       }
     ),
-    br()
+    shiny::tags$br()
   )
 }

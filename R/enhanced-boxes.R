@@ -508,11 +508,11 @@ boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeade
   
   closableTag <- NULL
   if (closable) {
-    closableTag <- tags$button(
+    closableTag <- shiny::tags$button(
       class = "btn btn-box-tool", 
       `data-widget` = "remove", 
       type = "button",
-      tags$i(shiny::icon("times"))
+      shiny::tags$i(shiny::icon("times"))
     )
   } 
   
@@ -534,4 +534,171 @@ boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeade
     paste0("col-sm-", width), shiny::tags$div(class = boxClass, style = if (!is.null(style)) 
       style, headerTag, shiny::tags$div(class = "box-body", ...), if (!is.null(footer)) 
         shiny::tags$div(class = "box-footer", footer)))
+}
+
+
+
+
+
+#' @title AdminLTE2 social box
+#'
+#' @description Create social box
+#'
+#' @param ... body content. May include attachmentBlock for instance.
+#' @param src header image, if any.
+#' @param title box title.
+#' @param subtitle box subtitle.
+#' @param width box width (between 1 and 12). 
+#' @param height box height.
+#' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
+#' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param comments slot for boxComments.
+#' @param footer box footer, if any.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      socialBox(
+#'       title = "Social Box",
+#'       subtitle = "example-01.05.2018",
+#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+#'       "Some text here!",
+#'       attachmentBlock(
+#'        src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+#'        title = "Test",
+#'        title_url = "http://google.com",
+#'        "This is the content"
+#'       ),
+#'       comments = tagList(
+#'        boxComment(
+#'         src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'         title = "Comment 1",
+#'         date = "01.05.2018",
+#'         "The first comment"
+#'        ),
+#'        boxComment(
+#'         src = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg",
+#'         title = "Comment 2",
+#'         date = "01.05.2018",
+#'         "The second comment"
+#'        )
+#'       ),
+#'       footer = "The footer here!"
+#'      )
+#'     ),
+#'     title = "Description Blocks"
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#'
+#' @export
+socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL, 
+                      width = 6, height = NULL, collapsible = TRUE,
+                      closable = TRUE, comments = NULL, footer = NULL) {
+  
+  style <- NULL
+  if (!is.null(height)) {
+    style <- paste0("height: ", shiny::validateCssUnit(height))
+  }
+  
+  shiny::column(
+    width = width,
+    shiny::tags$div(
+      class = "box box-widget",
+      style = style,
+      
+      # header
+      shiny::tags$div(
+        class = "box-header with-border",
+        
+        # userblock
+        shiny::tags$div(
+          class = "user-block",
+          shiny::img(class = "img-circle", src = src),
+          shiny::tags$span(
+            class = "username",
+            shiny::a(href = "#", title)
+          ),
+          shiny::tags$span(class = "description", subtitle)
+        ),
+        
+        # boxTool
+        shiny::tags$div(
+          class = "box-tools",
+          if (collapsible) {
+            shiny::tags$button(
+              class = "btn btn-box-tool",
+              `data-widget` = "collapse",
+              type = "button",
+              shiny::tags$i(class = "fa fa-minus")
+            )
+          },
+          if (closable) {
+            shiny::tags$button(
+              class = "btn btn-box-tool",
+              `data-widget` = "remove",
+              type = "button",
+              shiny::tags$i(class = "fa fa-times")
+            )
+          }
+        )
+      ),
+      
+      # box body
+      shiny::tags$div(
+        class = "box-body",
+        ...
+      ),
+      
+      # box comments
+      shiny::tags$div(
+        class = "box-footer box-comments",
+        comments
+      ),
+      
+      # box footer
+      shiny::tags$div(
+        class = "box-footer",
+        footer
+      )
+    )
+  )
+}
+
+
+#' @title AdminLTE2 box comment
+#'
+#' @description Create box comment
+#'
+#' @param ... comment content.
+#' @param src author image, if any.
+#' @param title comment title.
+#' @param date date of publication.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @export
+boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
+  shiny::tags$div(
+    class = "box-comment",
+    shiny::img(class = "img-circle", src = src),
+    shiny::tags$div(
+      class = "comment-text",
+      shiny::tags$span(
+        class = "username", 
+        title,
+        shiny::tags$span(class = "text-muted pull-right", date)
+      ),
+      ...
+    )
+  )
 }
