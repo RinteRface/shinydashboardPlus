@@ -44,7 +44,7 @@ the user to collapse the box.}
 
 \item{enable_label}{Whether to display a label in the boxtool.}
 
-\item{label_status}{label text.}
+\item{label_text}{label text.}
 
 \item{label_status}{status of the box label: "danger", "success", "info", "primary", "warning".}
 }

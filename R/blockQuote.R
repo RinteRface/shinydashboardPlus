@@ -3,6 +3,7 @@
 #' @description If you want to quote text
 #'
 #' @param ... any element.
+#' @param side blockauote orientation. "left" by default, can be set to "right".
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -27,8 +28,9 @@
 #' }
 #'
 #' @export
-blockQuote <- function(...) {
+blockQuote <- function(..., side = "left") {
   shiny::tags$blockquote(
+    class = if (side == "right") "pull-right" else NULL,
     ...
   )
 }

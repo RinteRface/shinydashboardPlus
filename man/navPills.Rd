@@ -36,7 +36,8 @@ if (interactive()) {
           pillName = "Item 2", 
           pillColor = "red",
           pillIcon = "fa fa-angle-down", 
-          pillNumber = "10\%"
+          pillNumber = "10\%",
+          active = TRUE
         )
       )
      )

@@ -4,10 +4,12 @@
 \alias{blockQuote}
 \title{AdminLTE2 block quote}
 \usage{
-blockQuote(...)
+blockQuote(..., side = "left")
 }
 \arguments{
 \item{...}{any element.}
+
+\item{side}{blockauote orientation. "left" by default, can be set to "right".}
 }
 \description{
 If you want to quote text

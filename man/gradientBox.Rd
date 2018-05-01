@@ -46,32 +46,20 @@ if (interactive()) {
       icon = "fa fa-th",
       gradientColor = "teal", 
       boxToolSize = "sm", 
-      footer = fluidRow(
-        column(
-          width = 6,
-          descriptionBlock(
-            number = "17\%", 
-            number_color = "green", 
-            number_icon = "fa fa-caret-up",
-            header = "$35,210.43", 
-            text = "TOTAL REVENUE", 
-            right_border = TRUE,
-            margin_bottom = FALSE
-          )
-        ),
-        column(
-          width = 6,
-          descriptionBlock(
-            number = "18\%", 
-            number_color = "red", 
-            number_icon = "fa fa-caret-down",
-            header = "1200", 
-            text = "GOAL COMPLETION", 
-            right_border = FALSE,
-            margin_bottom = FALSE
-          )
-        )
+      footer = sliderInput(
+       "obs", 
+       "Number of observations:",
+        min = 0, max = 1000, value = 500
+       ),
+      "This is a gradient box"
       ),
+      gradientBox(
+      title = "My gradient Box",
+      icon = "fa fa-heart",
+      gradientColor = "maroon", 
+      boxToolSize = "xs", 
+      closable = TRUE,
+      footer = "The footer goes here. You can include anything",
       "This is a gradient box"
       )
     ),

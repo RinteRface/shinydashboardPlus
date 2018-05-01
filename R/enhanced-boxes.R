@@ -29,32 +29,20 @@
 #'       icon = "fa fa-th",
 #'       gradientColor = "teal", 
 #'       boxToolSize = "sm", 
-#'       footer = fluidRow(
-#'         column(
-#'           width = 6,
-#'           descriptionBlock(
-#'             number = "17%", 
-#'             number_color = "green", 
-#'             number_icon = "fa fa-caret-up",
-#'             header = "$35,210.43", 
-#'             text = "TOTAL REVENUE", 
-#'             right_border = TRUE,
-#'             margin_bottom = FALSE
-#'           )
-#'         ),
-#'         column(
-#'           width = 6,
-#'           descriptionBlock(
-#'             number = "18%", 
-#'             number_color = "red", 
-#'             number_icon = "fa fa-caret-down",
-#'             header = "1200", 
-#'             text = "GOAL COMPLETION", 
-#'             right_border = FALSE,
-#'             margin_bottom = FALSE
-#'           )
-#'         )
+#'       footer = sliderInput(
+#'        "obs", 
+#'        "Number of observations:",
+#'         min = 0, max = 1000, value = 500
+#'        ),
+#'       "This is a gradient box"
 #'       ),
+#'       gradientBox(
+#'       title = "My gradient Box",
+#'       icon = "fa fa-heart",
+#'       gradientColor = "maroon", 
+#'       boxToolSize = "xs", 
+#'       closable = TRUE,
+#'       footer = "The footer goes here. You can include anything",
 #'       "This is a gradient box"
 #'       )
 #'     ),
@@ -120,7 +108,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
       
       # box footer
       shiny::tags$div(
-        class="box-footer no-border",
+        class="box-footer text-black",
         footer
       )
     )
@@ -427,7 +415,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param ... Contents of the box.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
 #' @param enable_label Whether to display a label in the boxtool.
-#' @param label_status label text.
+#' @param label_text label text.
 #' @param label_status status of the box label: "danger", "success", "info", "primary", "warning".
 #'
 #' @family boxes
@@ -472,9 +460,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' }
 #' @export
 boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
-                 background = NULL, width = 6, height = NULL, collapsible = FALSE, 
-                 collapsed = FALSE, closable = TRUE, enable_label = FALSE,
-                 label_text = NULL, label_status = "primary") 
+                     background = NULL, width = 6, height = NULL, collapsible = FALSE, 
+                     collapsed = FALSE, closable = TRUE, enable_label = FALSE,
+                     label_text = NULL, label_status = "primary") 
 {
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
@@ -532,7 +520,7 @@ boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeade
   if (enable_label) {
     labelTag <- dashboardLabel(label_text, status = label_status)
   }
-    
+  
   
   # update boxToolTag
   boxToolTag <- shiny::tagAppendChildren(boxToolTag, labelTag, collapseTag, closableTag)
