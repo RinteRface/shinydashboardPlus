@@ -15,8 +15,8 @@
 shinydashboardPlusGallery <- function() { # nocov start
   if (!requireNamespace(package = "shinydashboard"))
     message("Package 'shinydashboard' is required to run this function")
-  if (!requireNamespace(package = "formatR"))
-    message("Package 'formatR' is required to run this function")
+  if (!requireNamespace(package = "styler"))
+    message("Package 'styler' is required to run this function")
   if (!requireNamespace(package = "shinyAce"))
     message("Package 'shinyAce' is required to run this function")
   if (!requireNamespace(package = "shinyWidgets"))
