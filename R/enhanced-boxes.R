@@ -12,6 +12,7 @@
 #' @param height box height.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -55,7 +56,7 @@
 #' @export
 gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL, 
                         boxToolSize = "sm", footer = NULL, width = 6, height = NULL,
-                        collapsible = TRUE, closable = FALSE) {
+                        collapsible = TRUE, closable = FALSE, footer_padding = TRUE) {
   cl <- "box box-solid"
   if (!is.null(gradientColor)) cl <- paste0(cl, " bg-", gradientColor, "-gradient")
   
@@ -108,7 +109,11 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
       
       # box footer
       shiny::tags$div(
-        class="box-footer text-black",
+        class = if (isTRUE(footer_padding)) {
+          "box-footer text-black"
+        } else {
+          "box-footer text-black no-padding"
+        },
         footer
       )
     )
@@ -260,6 +265,7 @@ mailForm <- function(..., mailto = "#") {
 #' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -312,7 +318,7 @@ mailForm <- function(..., mailto = "#") {
 #' @export
 widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
                           background = FALSE, backgroundUrl = NULL,
-                          src = NULL, color = NULL, footer = NULL,
+                          src = NULL, color = NULL, footer = NULL, footer_padding = TRUE,
                           width = 6, height = NULL, boxToolSize = "sm",
                           collapsible = TRUE, closable = FALSE) {
   
@@ -381,7 +387,10 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
       shiny::tags$div(class = "box-body", ...),
       
       # footer
-      shiny::tags$div(class = "box-footer", footer)
+      shiny::tags$div(
+        class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", 
+        footer
+      )
     )
   )
 }
@@ -417,6 +426,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param enable_label Whether to display a label in the boxtool.
 #' @param label_text label text.
 #' @param label_status status of the box label: "danger", "success", "info", "primary", "warning".
+#' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
 #'
@@ -459,10 +469,10 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'  )
 #' }
 #' @export
-boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
+boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
-                     label_text = NULL, label_status = "primary") 
+                     label_text = NULL, label_status = "primary", footer_padding = TRUE) 
 {
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
@@ -533,7 +543,7 @@ boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeade
   shiny::tags$div(class = if (!is.null(width)) 
     paste0("col-sm-", width), shiny::tags$div(class = boxClass, style = if (!is.null(style)) 
       style, headerTag, shiny::tags$div(class = "box-body", ...), if (!is.null(footer)) 
-        shiny::tags$div(class = "box-footer", footer)))
+        shiny::tags$div(class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", footer)))
 }
 
 
@@ -554,6 +564,7 @@ boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeade
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
 #' @param comments slot for boxComments.
 #' @param footer box footer, if any.
+#' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -603,7 +614,8 @@ boxPlus <- function (..., title = NULL, footer = NULL, status = NULL, solidHeade
 #' @export
 socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL, 
                       width = 6, height = NULL, collapsible = TRUE,
-                      closable = TRUE, comments = NULL, footer = NULL) {
+                      closable = TRUE, comments = NULL, footer = NULL,
+                      footer_padding = TRUE) {
   
   style <- NULL
   if (!is.null(height)) {
@@ -665,9 +677,9 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
         comments
       ),
       
-      # box footer
+      # footer
       shiny::tags$div(
-        class = "box-footer",
+        class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", 
         footer
       )
     )

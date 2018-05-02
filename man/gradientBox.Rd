@@ -6,7 +6,7 @@
 \usage{
 gradientBox(..., title = NULL, icon = NULL, gradientColor = NULL,
   boxToolSize = "sm", footer = NULL, width = 6, height = NULL,
-  collapsible = TRUE, closable = FALSE)
+  collapsible = TRUE, closable = FALSE, footer_padding = TRUE)
 }
 \arguments{
 \item{...}{body content.}
@@ -28,6 +28,8 @@ gradientBox(..., title = NULL, icon = NULL, gradientColor = NULL,
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the box.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
+
+\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Create an enhanced box

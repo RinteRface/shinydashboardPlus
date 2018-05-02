@@ -28,37 +28,37 @@ if (interactive()) {
         userListItem(
           src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
           user_name = "Shiny", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         ),
         userListItem(
           src = "https://www.rstudio.com/wp-content/uploads/2014/04/knitr.png", 
           user_name = "knitr", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         ),
         userListItem(
           src = "https://www.rstudio.com/wp-content/uploads/2017/05/rmarkdown.png", 
           user_name = "Rmarkdown", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         ),
         userListItem(
           src = "https://d33wubrfki0l68.cloudfront.net/071952491ec4a6a532a3f70ecfa2507af4d341f9/c167c/images/hex-dplyr.png", 
           user_name = "Tidyverse", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         ),
         userListItem(
           src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
           user_name = "tidyr", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         ),
         userListItem(
           src = "https://www.rstudio.com/wp-content/uploads/2014/04/packrat.png", 
           user_name = "packrat", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         ),
         userListItem(
           src = "https://www.rstudio.com/wp-content/uploads/2014/04/sparklyr.png", 
           user_name = "packrat", 
-          date = "28.04.2018"
+          description = "28.04.2018"
         )
       )
      )

@@ -30,13 +30,13 @@ if (interactive()) {
           pillName = "Item 1", 
           pillColor = "green",
           pillIcon = NULL, 
-          pillNumber = 10
+          pillText = 10
         ),
         navPillsItem(
           pillName = "Item 2", 
           pillColor = "red",
           pillIcon = "fa fa-angle-down", 
-          pillNumber = "10\%",
+          pillText = "10\%",
           active = TRUE
         )
       )

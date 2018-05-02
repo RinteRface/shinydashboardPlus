@@ -5,7 +5,7 @@
 \title{AdminLTE2 nav pill item}
 \usage{
 navPillsItem(pillName = NULL, pillColor = NULL, pillIcon = NULL,
-  pillNumber = NULL, active = FALSE)
+  pillText = NULL, active = FALSE)
 }
 \arguments{
 \item{pillName}{pill name.}
@@ -14,7 +14,7 @@ navPillsItem(pillName = NULL, pillColor = NULL, pillIcon = NULL,
 
 \item{pillIcon}{pill icon, if any. Should be written like "fa fa-times".}
 
-\item{pillNumber}{pill number.}
+\item{pillText}{pill text. Can also be a number.}
 
 \item{active}{Whether the item is active or not. FALSE by default.}
 }

@@ -6,7 +6,7 @@
 \usage{
 socialBox(..., src = NULL, title = NULL, subtitle = NULL, width = 6,
   height = NULL, collapsible = TRUE, closable = TRUE, comments = NULL,
-  footer = NULL)
+  footer = NULL, footer_padding = TRUE)
 }
 \arguments{
 \item{...}{body content. May include attachmentBlock for instance.}
@@ -28,6 +28,8 @@ socialBox(..., src = NULL, title = NULL, subtitle = NULL, width = 6,
 \item{comments}{slot for boxComments.}
 
 \item{footer}{box footer, if any.}
+
+\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Create social box

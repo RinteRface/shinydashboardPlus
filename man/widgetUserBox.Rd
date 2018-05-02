@@ -6,8 +6,8 @@
 \usage{
 widgetUserBox(..., title = NULL, subtitle = NULL, type = NULL,
   background = FALSE, backgroundUrl = NULL, src = NULL, color = NULL,
-  footer = NULL, width = 6, height = NULL, boxToolSize = "sm",
-  collapsible = TRUE, closable = FALSE)
+  footer = NULL, footer_padding = TRUE, width = 6, height = NULL,
+  boxToolSize = "sm", collapsible = TRUE, closable = FALSE)
 }
 \arguments{
 \item{...}{body content.}
@@ -27,6 +27,8 @@ widgetUserBox(..., title = NULL, subtitle = NULL, type = NULL,
 \item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
 \item{footer}{box footer.}
+
+\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 
 \item{width}{box width (between 1 and 12).}
 

@@ -7,7 +7,8 @@
 boxPlus(..., title = NULL, footer = NULL, status = NULL,
   solidHeader = FALSE, background = NULL, width = 6, height = NULL,
   collapsible = FALSE, collapsed = FALSE, closable = TRUE,
-  enable_label = FALSE, label_text = NULL, label_status = "primary")
+  enable_label = FALSE, label_text = NULL, label_status = "primary",
+  footer_padding = TRUE)
 }
 \arguments{
 \item{...}{Contents of the box.}
@@ -47,6 +48,8 @@ the user to collapse the box.}
 \item{label_text}{label text.}
 
 \item{label_status}{status of the box label: "danger", "success", "info", "primary", "warning".}
+
+\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Boxes can be used to hold content in the main body of a dashboard.

@@ -24,13 +24,13 @@
 #'           pillName = "Item 1", 
 #'           pillColor = "green",
 #'           pillIcon = NULL, 
-#'           pillNumber = 10
+#'           pillText = 10
 #'         ),
 #'         navPillsItem(
 #'           pillName = "Item 2", 
 #'           pillColor = "red",
 #'           pillIcon = "fa fa-angle-down", 
-#'           pillNumber = "10%",
+#'           pillText = "10%",
 #'           active = TRUE
 #'         )
 #'       )
@@ -58,14 +58,14 @@ navPills <- function(...) {
 #' @param pillName pill name.
 #' @param pillColor pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param pillIcon pill icon, if any. Should be written like "fa fa-times".
-#' @param pillNumber pill number.
+#' @param pillText pill text. Can also be a number.
 #' @param active Whether the item is active or not. FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 navPillsItem <- function(pillName = NULL, pillColor = NULL, 
-                         pillIcon = NULL, pillNumber = NULL,
+                         pillIcon = NULL, pillText = NULL,
                          active = FALSE) {
   cl <- "pull-right"
   if (!is.null(pillColor)) cl <- paste0(cl, " text-", pillColor)
@@ -78,7 +78,7 @@ navPillsItem <- function(pillName = NULL, pillColor = NULL,
       shiny::tags$span(
         class = cl,
         shiny::tags$i(class = pillIcon),
-        pillNumber
+        pillText
       )
     )
   )
