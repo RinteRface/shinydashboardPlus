@@ -3,7 +3,7 @@ library(shinyjqui)
 library(shinydashboard)
 library(shinydashboardPlus)
 library(shinyAce)
-library(formatR)
+library(styler)
 library(shinyWidgets)
 
 shinyApp(
@@ -106,7 +106,7 @@ shinyApp(
             mode = "r",
             outputId = "rightsidebar_code",
             readOnly = TRUE,
-            value = 'library(shiny)
+            value = paste(style_text('library(shiny)
             library(shinydashboard)
             shinyApp(
             ui = dashboardPagePlus(
@@ -156,7 +156,7 @@ shinyApp(
             title = "Right Sidebar"
             ),
             server = function(input, output) { }
-            )'
+            )'), collapse = "\n")
           )
           
         ),
@@ -319,46 +319,43 @@ shinyApp(
                   )
                 ),
                 footer = "The footer here!"
-              )#,
+              ),
               
               
-              #  aceEditor(
-              #    outputId = "socialBox_code",
-              #    readOnly = TRUE,
-              #    theme = "vibrant_ink",
-              #    mode = "r",
-              #    wordWrap = TRUE,
-              #    value = tidy_source(text = 'socialBox(
-              #    title = "Social Box",
-              #    subtitle = "example-01.05.2018",
-              #    src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
-              #    "Some text here!",
-              #    attachmentBlock(
-              #    src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
-              #    title = "Test",
-              #    title_url = "http://google.com",
-              #    "This is the content"
-              #    ),
-              #    comments = tagList(
-              #    boxComment(
-              #    src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-              #    title = "Comment 1",
-              #    date = "01.05.2018",
-              #    "The first comment"
-              #    ),
-              #    boxComment(
-              #    src = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg",
-              #    title = "Comment 2",
-              #    date = "01.05.2018",
-              #    "The second comment"
-              #    )
-              #    ),
-              #    footer = "The footer here!"
-              #  )', output = FALSE,
-              #                        width.cutoff = 30,
-              #                        indent = 2,
-              #                        brace.newline = FALSE)$text.tidy
-              # )
+               aceEditor(
+                 outputId = "socialBox_code",
+                 readOnly = TRUE,
+                 theme = "vibrant_ink",
+                 mode = "r",
+                 wordWrap = TRUE,
+                 value = paste(style_text('socialBox(
+                 title = "Social Box",
+                 subtitle = "example-01.05.2018",
+                 src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+                 "Some text here!",
+                 attachmentBlock(
+                 src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+                 title = "Test",
+                 title_url = "http://google.com",
+                 "This is the content"
+                 ),
+                 comments = tagList(
+                 boxComment(
+                 src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+                 title = "Comment 1",
+                 date = "01.05.2018",
+                 "The first comment"
+                 ),
+                 boxComment(
+                 src = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg",
+                 title = "Comment 2",
+                 date = "01.05.2018",
+                 "The second comment"
+                 )
+                 ),
+                 footer = "The footer here!"
+               )'), collapse = "\n")
+              )
             )
             
           )
