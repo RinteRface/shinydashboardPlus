@@ -5,6 +5,7 @@ library(shinydashboardPlus)
 library(shinyAce)
 library(styler)
 library(shinyWidgets)
+library(dashboardthemes)
 
 shinyApp(
   ui = dashboardPagePlus(
@@ -70,6 +71,8 @@ shinyApp(
       )
     ),
     dashboardBody(
+      
+      #shinyDashboardThemes("grey_light"),
       
       shiny::tags$head(
         # shiny::includeCSS(
@@ -1389,9 +1392,162 @@ shinyApp(
               collapse = "\n"
             )
           )
+        ),
+        
+        
+        br(),
+        column(
+          width = 12,
+          align = "center",
+          h1("timelineBlock()")
+        ),
+        br(),
+        
+        fluidRow(
+          box(
+            title = "Reversed Timeline: ideal to include in a box",
+            status = "info",
+            timelineBlock(
+             timelineEnd(color = "danger"),
+             timelineLabel(2018, color = "teal"),
+             timelineItem(
+              title = "Item 1",
+              icon = "gears",
+              color = "olive",
+              time = "now",
+              footer = "Here is the footer",
+              "This is the body"
+             ),
+             timelineItem(
+              title = "Item 2",
+              border = FALSE
+             ),
+             timelineLabel(2015, color = "orange"),
+             timelineItem(
+              title = "Item 3",
+              icon = "paint-brush",
+              color = "maroon",
+              timelineItemMedia(src = "http://placehold.it/150x100"),
+              timelineItemMedia(src = "http://placehold.it/150x100")
+             ),
+             timelineStart(color = "gray")
+            )
+          ),
+          
+          aceEditor(
+            theme = "vibrant_ink",
+            mode = "r",
+            height = "700px",
+            outputId = "timelineBlock1_code",
+            readOnly = TRUE,
+            value = paste(
+              style_text(
+                'timelineBlock(
+                 timelineEnd(color = "danger"),
+                timelineLabel(2018, color = "teal"),
+                timelineItem(
+                title = "Item 1",
+                icon = "gears",
+                color = "olive",
+                time = "now",
+                footer = "Here is the footer",
+                "This is the body"
+                ),
+                timelineItem(
+                title = "Item 2",
+                border = FALSE
+                ),
+                timelineLabel(2015, color = "orange"),
+                timelineItem(
+                title = "Item 3",
+                icon = "paint-brush",
+                color = "maroon",
+                timelineItemMedia(src = "http://placehold.it/150x100"),
+                timelineItemMedia(src = "http://placehold.it/150x100")
+                ),
+                timelineStart(color = "gray")
+              )'
+              ), 
+              collapse = "\n"
+            )
+          )
+        ),
+        
+        fluidRow(
+          h3("Timeline non reversed: ideal to include oustide of a box"),
+          column(
+            width = 6,
+            timelineBlock(
+              reversed = FALSE,
+              timelineEnd(color = "danger"),
+              timelineLabel(2018, color = "teal"),
+              timelineItem(
+                title = "Item 1",
+                icon = "gears",
+                color = "olive",
+                time = "now",
+                footer = "Here is the footer",
+                "This is the body"
+              ),
+              timelineItem(
+                title = "Item 2",
+                border = FALSE
+              ),
+              timelineLabel(2015, color = "orange"),
+              timelineItem(
+                title = "Item 3",
+                icon = "paint-brush",
+                color = "maroon",
+                timelineItemMedia(src = "http://placehold.it/150x100"),
+                timelineItemMedia(src = "http://placehold.it/150x100")
+              ),
+              timelineStart(color = "gray")
+            )
+          ),
+          
+          column(
+            width = 6,
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "600px",
+              outputId = "timelineBlock2_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'timelineBlock(
+                  reversed = FALSE,
+                  timelineEnd(color = "danger"),
+                  timelineLabel(2018, color = "teal"),
+                  timelineItem(
+                  title = "Item 1",
+                  icon = "gears",
+                  color = "olive",
+                  time = "now",
+                  footer = "Here is the footer",
+                  "This is the body"
+                  ),
+                  timelineItem(
+                  title = "Item 2",
+                  border = FALSE
+                  ),
+                  timelineLabel(2015, color = "orange"),
+                  timelineItem(
+                  title = "Item 3",
+                  icon = "paint-brush",
+                  color = "maroon",
+                  timelineItemMedia(src = "http://placehold.it/150x100"),
+                  timelineItemMedia(src = "http://placehold.it/150x100")
+                  ),
+                  timelineStart(color = "gray")
+                )'
+              ), 
+              collapse = "\n"
+              )
+            )
+          )
         )
       ),
-      
       
       tabItem(
         tabName = "extraelements",
