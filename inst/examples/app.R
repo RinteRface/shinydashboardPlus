@@ -193,15 +193,13 @@ shinyApp(
               theme = "vibrant_ink",
               mode = "r",
               height = "200px",
-              outputId = "boxplus2_code",
+              outputId = "boxplus1_code",
               readOnly = TRUE,
               value = paste(
                 style_text(
                   'boxPlus(
-                  title = "Closable box, with label", 
+                  title = "Closable Box", 
                   closable = TRUE, 
-                  enable_label = TRUE,
-                  label_text = 1,
                   label_status = "danger",
                   status = "warning", 
                   solidHeader = FALSE, 
@@ -232,13 +230,15 @@ shinyApp(
               theme = "vibrant_ink",
               mode = "r",
               height = "200px",
-              outputId = "boxplus1_code",
+              outputId = "boxplus2_code",
               readOnly = TRUE,
               value = paste(
                 style_text(
                   'boxPlus(
-                  title = "Closable Box", 
+                  title = "Closable box, with label", 
                   closable = TRUE, 
+                  enable_label = TRUE,
+                  label_text = 1,
                   label_status = "danger",
                   status = "warning", 
                   solidHeader = FALSE, 
