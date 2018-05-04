@@ -59,7 +59,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "Buttons"
   ),
   server = function(input, output) { }
  )

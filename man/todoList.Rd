@@ -62,7 +62,7 @@ if (interactive()) {
        )
       )
     ),
-    title = "Description Blocks"
+    title = "Todo Lists"
   ),
   server = function(input, output) { }
  )

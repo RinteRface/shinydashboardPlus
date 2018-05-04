@@ -28,7 +28,7 @@
 #'       )
 #'      )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "AttachmentBlock"
 #'   ),
 #'   server = function(input, output) { }
 #'  )

@@ -36,7 +36,7 @@
 #'       )
 #'      )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "Product List"
 #'   ),
 #'   server = function(input, output) { }
 #'  )

@@ -47,7 +47,7 @@
 #'       "This is a gradient box"
 #'       )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "gradientBox"
 #'   ),
 #'   server = function(input, output) { }
 #'  )
@@ -145,7 +145,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #'       mailForm(mailto = "dgranjon@ymail.com")
 #'      )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "mailForm"
 #'   ),
 #'   server = function(input, output) { }
 #'  )
@@ -309,7 +309,7 @@ mailForm <- function(..., mailto = "#") {
 #'       footer = "The footer here!"
 #'      )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "widgetUserBox"
 #'   ),
 #'   server = function(input, output) { }
 #'  )
@@ -605,7 +605,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
 #'       footer = "The footer here!"
 #'      )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "socialBox"
 #'   ),
 #'   server = function(input, output) { }
 #'  )

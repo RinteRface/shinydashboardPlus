@@ -78,7 +78,7 @@
 #'       )
 #'      )
 #'     ),
-#'     title = "Timeline"
+#'     title = "timelineBlock"
 #'   ),
 #'   server = function(input, output) { }
 #'  )
@@ -239,11 +239,11 @@ timelineEnd <- function(icon = "hourglass-end", color = NULL) {
   if (!is.null(icon)) cl <- paste0(cl, icon)
   if (!is.null(color)) cl <- paste0(cl, " bg-", color)
   
-  tagList(
+  shiny::tagList(
     shiny::tags$li(
       shiny::tags$i(class = cl)
     ),
-    br(), 
-    br()
+    shiny::br(), 
+    shiny::br()
   )
 }

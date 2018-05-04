@@ -85,7 +85,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Timeline"
+    title = "timelineBlock"
   ),
   server = function(input, output) { }
  )

@@ -71,7 +71,7 @@ if (interactive()) {
       footer = "The footer here!"
      )
     ),
-    title = "Description Blocks"
+    title = "socialBox"
   ),
   server = function(input, output) { }
  )

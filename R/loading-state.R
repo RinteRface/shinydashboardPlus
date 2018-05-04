@@ -20,7 +20,7 @@
 #'       loadingState()
 #'       )
 #'     ),
-#'     title = "Description Blocks"
+#'     title = "Loading State"
 #'   ),
 #'   server = function(input, output) { }
 #'  )

@@ -63,7 +63,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "User List"
   ),
   server = function(input, output) { }
  )

@@ -37,7 +37,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "AttachmentBlock"
   ),
   server = function(input, output) { }
  )

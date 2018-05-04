@@ -33,7 +33,7 @@ if (interactive()) {
       starBlock(grade = 3, color = "teal")
      )
     ),
-    title = "Description Blocks"
+    title = "starBlock"
   ),
   server = function(input, output) { }
  )

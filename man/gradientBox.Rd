@@ -65,7 +65,7 @@ if (interactive()) {
       "This is a gradient box"
       )
     ),
-    title = "Description Blocks"
+    title = "gradientBox"
   ),
   server = function(input, output) { }
  )

@@ -83,7 +83,7 @@ if (interactive()) {
       footer = "The footer here!"
      )
     ),
-    title = "Description Blocks"
+    title = "widgetUserBox"
   ),
   server = function(input, output) { }
  )

@@ -28,7 +28,7 @@ if (interactive()) {
       blockQuote("I quote some text here!")
      )
     ),
-    title = "Description Blocks"
+    title = "blockQuote"
   ),
   server = function(input, output) { }
  )

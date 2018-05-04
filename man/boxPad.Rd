@@ -56,7 +56,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "boxPad"
   ),
   server = function(input, output) { }
  )

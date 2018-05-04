@@ -28,7 +28,7 @@ if (interactive()) {
       mailForm(mailto = "dgranjon@ymail.com")
      )
     ),
-    title = "Description Blocks"
+    title = "mailForm"
   ),
   server = function(input, output) { }
  )

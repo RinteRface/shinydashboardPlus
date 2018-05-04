@@ -48,7 +48,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "Accordion"
   ),
   server = function(input, output) { }
  )

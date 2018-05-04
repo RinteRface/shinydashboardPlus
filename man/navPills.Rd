@@ -42,7 +42,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "Nav Pills"
   ),
   server = function(input, output) { }
  )
