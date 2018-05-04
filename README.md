@@ -12,9 +12,8 @@ devtools::install_github("DivadNojnarg/shinydashboardPlus")
 ## Motivations
 
 shinydashboardPlus is based on the idea of [ygdashboard](https://github.com/gyang274/ygdashboard/tree/master/R), 
-the later not compatible with shinydashboard (you cannot use shinydashboard and ygdashboard at the same time),
-and not updated. With shinydashboardPlus you can still work with the shinydashboard classic functions!
-At any moment you can switch to shinydashboardPlus. 
+the later not compatible with shinydashboard (you cannot use shinydashboard and ygdashboard at the same time). With shinydashboardPlus you can still work with the shinydashboard classic functions and enrich
+your dashboard with all additional functions of shinydashboardPlus!
 
 ## Main features
 
@@ -382,3 +381,8 @@ or run:
 ```{r}
 shinydashboardPlusGallery()
 ```
+
+## Aknowldegments
+
+- the [adminLTE team](https://adminlte.io)
+- [Victor Perrier](https://github.com/pvictor) from [Dream'R](https://www.dreamrs.fr)
