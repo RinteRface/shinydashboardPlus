@@ -546,58 +546,58 @@ shinyApp(
               )
             )
           )
-      ),
-      
-      
-      tabItem(
-        tabName = "buttons",
-        
-        column(
-          width = 12,
-          align = "center",
-          h1("appButton()")
         ),
-        br(),
         
-        fluidRow(
-          # demo app buttons
-          box(
-            width = 6,
-            title = "App Buttons",
-            status = NULL,
-            appButton(
-              url = "http://google.com",
-              label = "Users", 
-              icon = "fa fa-users", 
-              enable_badge = TRUE, 
-              badgeColor = "purple", 
-              badgeLabel = 891
-            ),
-            appButton(
-              label = "Edit", 
-              icon = "fa fa-edit", 
-              enable_badge = FALSE, 
-              badgeColor = NULL, 
-              badgeLabel = NULL
-            ),
-            appButton(
-              label = "Likes", 
-              icon = "fa fa-heart-o", 
-              enable_badge = TRUE, 
-              badgeColor = "red", 
-              badgeLabel = 3
-            )
-          ),
+        
+        tabItem(
+          tabName = "buttons",
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "200px",
-            outputId = "appbutton_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(
+          column(
+            width = 12,
+            align = "center",
+            h1("appButton()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo app buttons
+            box(
+              width = 6,
+              title = "App Buttons",
+              status = NULL,
+              appButton(
+                url = "http://google.com",
+                label = "Users", 
+                icon = "fa fa-users", 
+                enable_badge = TRUE, 
+                badgeColor = "purple", 
+                badgeLabel = 891
+              ),
+              appButton(
+                label = "Edit", 
+                icon = "fa fa-edit", 
+                enable_badge = FALSE, 
+                badgeColor = NULL, 
+                badgeLabel = NULL
+              ),
+              appButton(
+                label = "Likes", 
+                icon = "fa fa-heart-o", 
+                enable_badge = TRUE, 
+                badgeColor = "red", 
+                badgeLabel = 3
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "200px",
+              outputId = "appbutton_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                     title = "App Buttons",
                     status = NULL,
                     appButton(
@@ -623,44 +623,44 @@ shinyApp(
                     badgeLabel = 3
                     )
                   )'
-              ), 
-              collapse = "\n"
+                ), 
+                collapse = "\n"
+              )
             )
-          )
-          
-        ),
-        
-        column(
-          width = 12,
-          align = "center",
-          h1("socialButton()")
-        ),
-        br(),
-        
-        fluidRow(
-          # demo social button
-          box(
-            width = 6,
-            title = "Social Buttons",
-            status = NULL,
-            socialButton(
-              url = "http://dropbox.com",
-              type = "dropbox"
-            ),
-            socialButton(
-              url = "http://github.com",
-              type = "github"
-            )
+            
           ),
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "200px",
-            outputId = "socialbutton_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(
+          
+          column(
+            width = 12,
+            align = "center",
+            h1("socialButton()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo social button
+            box(
+              width = 6,
+              title = "Social Buttons",
+              status = NULL,
+              socialButton(
+                url = "http://dropbox.com",
+                type = "dropbox"
+              ),
+              socialButton(
+                url = "http://github.com",
+                type = "github"
+              )
+            ),
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "200px",
+              outputId = "socialbutton_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                     title = "Social Buttons",
                     status = NULL,
                     socialButton(
@@ -672,74 +672,74 @@ shinyApp(
                     type = "github"
                     )
                   )'
-              ), 
-              collapse = "\n"
+                ), 
+                collapse = "\n"
+              )
             )
           )
-        )
-      ),
-      
-      tabItem(
-        tabName = "boxelements",
-        
-        column(
-          width = 12,
-          align = "center",
-          h1("descriptionBlock()")
         ),
-        br(),
         
-        fluidRow(
+        tabItem(
+          tabName = "boxelements",
+          
           column(
-            width = 6,
-            #align = "center",
-            # descriptionBlock demo in footer
-            box(
-              solidHeader = FALSE,
-              title = "Status summary",
-              background = NULL,
-              width = 12,
-              status = "danger",
-              footer = fluidRow(
-                column(
-                  width = 6,
-                  descriptionBlock(
-                    number = "17%", 
-                    number_color = "green", 
-                    number_icon = "fa fa-caret-up",
-                    header = "$35,210.43", 
-                    text = "TOTAL REVENUE", 
-                    right_border = TRUE,
-                    margin_bottom = FALSE
-                  )
-                ),
-                column(
-                  width = 6,
-                  descriptionBlock(
-                    number = "18%", 
-                    number_color = "red", 
-                    number_icon = "fa fa-caret-down",
-                    header = "1200", 
-                    text = "GOAL COMPLETION", 
-                    right_border = FALSE,
-                    margin_bottom = FALSE
+            width = 12,
+            align = "center",
+            h1("descriptionBlock()")
+          ),
+          br(),
+          
+          fluidRow(
+            column(
+              width = 6,
+              #align = "center",
+              # descriptionBlock demo in footer
+              box(
+                solidHeader = FALSE,
+                title = "Status summary",
+                background = NULL,
+                width = 12,
+                status = "danger",
+                footer = fluidRow(
+                  column(
+                    width = 6,
+                    descriptionBlock(
+                      number = "17%", 
+                      number_color = "green", 
+                      number_icon = "fa fa-caret-up",
+                      header = "$35,210.43", 
+                      text = "TOTAL REVENUE", 
+                      right_border = TRUE,
+                      margin_bottom = FALSE
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    descriptionBlock(
+                      number = "18%", 
+                      number_color = "red", 
+                      number_icon = "fa fa-caret-down",
+                      header = "1200", 
+                      text = "GOAL COMPLETION", 
+                      right_border = FALSE,
+                      margin_bottom = FALSE
+                    )
                   )
                 )
               )
-            )
-          ),
-          
-          column(
-            width = 6,
-            aceEditor(
-              theme = "vibrant_ink",
-              mode = "r",
-              height = "200px",
-              outputId = "descriptionblock_code",
-              readOnly = TRUE,
-              value = paste(
-                style_text(
-                  'box(
+            ),
+            
+            column(
+              width = 6,
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "200px",
+                outputId = "descriptionblock_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'box(
                     solidHeader = FALSE,
                     title = "Status summary",
                     background = NULL,
@@ -772,63 +772,63 @@ shinyApp(
                     )
                     )
                   )'
-                ), 
-                collapse = "\n"
+                  ), 
+                  collapse = "\n"
+                )
               )
             )
-          )
-        ),
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("boxPad()")
-        ),
-        br(),
-        
-        fluidRow(
-          # descriptionBlock demo in box side
-          box(title = "Box with a green boxPad",
-              status = "warning",
-              fluidRow(
-                column(width = 6),
-                column(
-                  width = 6,
-                  boxPad(
-                    color = "green",
-                    descriptionBlock(
-                      header = "8390", 
-                      text = "VISITS", 
-                      right_border = FALSE,
-                      margin_bottom = TRUE
-                    ),
-                    descriptionBlock(
-                      header = "30%", 
-                      text = "REFERRALS", 
-                      right_border = FALSE,
-                      margin_bottom = TRUE
-                    ),
-                    descriptionBlock(
-                      header = "70%", 
-                      text = "ORGANIC", 
-                      right_border = FALSE,
-                      margin_bottom = FALSE
+          ),
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("boxPad()")
+          ),
+          br(),
+          
+          fluidRow(
+            # descriptionBlock demo in box side
+            box(title = "Box with a green boxPad",
+                status = "warning",
+                fluidRow(
+                  column(width = 6),
+                  column(
+                    width = 6,
+                    boxPad(
+                      color = "green",
+                      descriptionBlock(
+                        header = "8390", 
+                        text = "VISITS", 
+                        right_border = FALSE,
+                        margin_bottom = TRUE
+                      ),
+                      descriptionBlock(
+                        header = "30%", 
+                        text = "REFERRALS", 
+                        right_border = FALSE,
+                        margin_bottom = TRUE
+                      ),
+                      descriptionBlock(
+                        header = "70%", 
+                        text = "ORGANIC", 
+                        right_border = FALSE,
+                        margin_bottom = FALSE
+                      )
                     )
                   )
                 )
-              )
-          ),
-          
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "300px",
-            outputId = "boxPad1_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(title = "Box with a green boxPad",
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "300px",
+              outputId = "boxPad1_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(title = "Box with a green boxPad",
                     status = "warning",
                     fluidRow(
                     column(width = 6),
@@ -858,63 +858,63 @@ shinyApp(
                     )
                     )
                   )'
-              ), 
-              collapse = "\n"
-            )
-          )
-        ),
-        
-        fluidRow(
-          box(title = "Box with boxPad containing inputs",
-              status = "warning",
-              fluidRow(
-                column(
-                  width = 6,
-                  boxPad(
-                    color = "gray",
-                    sliderInput(
-                      "obs2", 
-                      "Number of observations:",
-                      min = 0, max = 1000, value = 500
-                    ),
-                    checkboxGroupInput(
-                      "variable", 
-                      "Variables to show:",
-                      c("Cylinders" = "cyl",
-                        "Transmission" = "am",
-                        "Gears" = "gear")
-                    ),
-                    
-                    knobInput(
-                      inputId = "myKnob",
-                      skin = "tron",
-                      readOnly = TRUE,
-                      label = "Display previous:",
-                      value = 50,
-                      min = -100,
-                      displayPrevious = TRUE,
-                      fgColor = "#428BCA",
-                      inputColor = "#428BCA"
-                    )
-                  )
-                ),
-                column(
-                  width = 6,
-                  plotOutput("distPlot2", height = "200px"),
-                  tableOutput("data")
-                )
+                ), 
+                collapse = "\n"
               )
+            )
           ),
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "500px",
-            outputId = "boxPad2_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(title = "Box with boxPad containing inputs",
+          fluidRow(
+            box(title = "Box with boxPad containing inputs",
+                status = "warning",
+                fluidRow(
+                  column(
+                    width = 6,
+                    boxPad(
+                      color = "gray",
+                      sliderInput(
+                        "obs2", 
+                        "Number of observations:",
+                        min = 0, max = 1000, value = 500
+                      ),
+                      checkboxGroupInput(
+                        "variable", 
+                        "Variables to show:",
+                        c("Cylinders" = "cyl",
+                          "Transmission" = "am",
+                          "Gears" = "gear")
+                      ),
+                      
+                      knobInput(
+                        inputId = "myKnob",
+                        skin = "tron",
+                        readOnly = TRUE,
+                        label = "Display previous:",
+                        value = 50,
+                        min = -100,
+                        displayPrevious = TRUE,
+                        fgColor = "#428BCA",
+                        inputColor = "#428BCA"
+                      )
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    plotOutput("distPlot2", height = "200px"),
+                    tableOutput("data")
+                  )
+                )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "500px",
+              outputId = "boxPad2_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(title = "Box with boxPad containing inputs",
                   status = "warning",
                   fluidRow(
                   column(
@@ -954,77 +954,77 @@ shinyApp(
                   )
                   )
                 )'
-              ), 
-              collapse = "\n"
-            )
-          )
-        ),
-        
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("userList()")
-        ),
-        br(),
-        
-        
-        fluidRow(
-          
-          # userList examples
-          box(
-            title = "User List example",
-            status = "success",
-            userList(
-              userListItem(
-                src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
-                user_name = "Shiny", 
-                description = "28.04.2018"
-              ),
-              userListItem(
-                src = "https://www.rstudio.com/wp-content/uploads/2014/04/knitr.png", 
-                user_name = "knitr", 
-                description = "28.04.2018"
-              ),
-              userListItem(
-                src = "https://www.rstudio.com/wp-content/uploads/2017/05/rmarkdown.png", 
-                user_name = "Rmarkdown", 
-                description = "28.04.2018"
-              ),
-              userListItem(
-                src = "https://d33wubrfki0l68.cloudfront.net/071952491ec4a6a532a3f70ecfa2507af4d341f9/c167c/images/hex-dplyr.png", 
-                user_name = "Tidyverse", 
-                description = "28.04.2018"
-              ),
-              userListItem(
-                src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
-                user_name = "tidyr", 
-                description = "28.04.2018"
-              ),
-              userListItem(
-                src = "https://www.rstudio.com/wp-content/uploads/2014/04/packrat.png", 
-                user_name = "packrat", 
-                description = "28.04.2018"
-              ),
-              userListItem(
-                src = "https://www.rstudio.com/wp-content/uploads/2014/04/sparklyr.png", 
-                user_name = "packrat", 
-                description = "28.04.2018"
+                ), 
+                collapse = "\n"
               )
             )
           ),
           
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "400px",
-            outputId = "userlist_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("userList()")
+          ),
+          br(),
+          
+          
+          fluidRow(
+            
+            # userList examples
+            box(
+              title = "User List example",
+              status = "success",
+              userList(
+                userListItem(
+                  src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
+                  user_name = "Shiny", 
+                  description = "28.04.2018"
+                ),
+                userListItem(
+                  src = "https://www.rstudio.com/wp-content/uploads/2014/04/knitr.png", 
+                  user_name = "knitr", 
+                  description = "28.04.2018"
+                ),
+                userListItem(
+                  src = "https://www.rstudio.com/wp-content/uploads/2017/05/rmarkdown.png", 
+                  user_name = "Rmarkdown", 
+                  description = "28.04.2018"
+                ),
+                userListItem(
+                  src = "https://d33wubrfki0l68.cloudfront.net/071952491ec4a6a532a3f70ecfa2507af4d341f9/c167c/images/hex-dplyr.png", 
+                  user_name = "Tidyverse", 
+                  description = "28.04.2018"
+                ),
+                userListItem(
+                  src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
+                  user_name = "tidyr", 
+                  description = "28.04.2018"
+                ),
+                userListItem(
+                  src = "https://www.rstudio.com/wp-content/uploads/2014/04/packrat.png", 
+                  user_name = "packrat", 
+                  description = "28.04.2018"
+                ),
+                userListItem(
+                  src = "https://www.rstudio.com/wp-content/uploads/2014/04/sparklyr.png", 
+                  user_name = "packrat", 
+                  description = "28.04.2018"
+                )
+              )
+            ),
+            
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "400px",
+              outputId = "userlist_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                    title = "User List example",
                    status = "success",
                    userList(
@@ -1065,54 +1065,54 @@ shinyApp(
                    )
                   )
                  )'
-              ), 
-              collapse = "\n"
-            )
-            
-          )
-        ),
-        
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("navPills()")
-        ),
-        br(),
-        
-        fluidRow(
-          # navPills demo
-          boxPlus(
-            title = "Nav Pills",
-            status = "info",
-            footer_padding = FALSE,
-            footer = navPills(
-              navPillsItem(
-                active = TRUE,
-                pillName = "Item 1", 
-                pillColor = "green",
-                pillIcon = NULL, 
-                pillText = "Some text here"
-              ),
-              navPillsItem(
-                pillName = "Item 2", 
-                pillColor = "red",
-                pillIcon = "fa fa-angle-down", 
-                pillText = "10%"
+                ), 
+                collapse = "\n"
               )
+              
             )
           ),
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "400px",
-            outputId = "navpills_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'boxPlus(
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("navPills()")
+          ),
+          br(),
+          
+          fluidRow(
+            # navPills demo
+            boxPlus(
+              title = "Nav Pills",
+              status = "info",
+              footer_padding = FALSE,
+              footer = navPills(
+                navPillsItem(
+                  active = TRUE,
+                  pillName = "Item 1", 
+                  pillColor = "green",
+                  pillIcon = NULL, 
+                  pillText = "Some text here"
+                ),
+                navPillsItem(
+                  pillName = "Item 2", 
+                  pillColor = "red",
+                  pillIcon = "fa fa-angle-down", 
+                  pillText = "10%"
+                )
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "400px",
+              outputId = "navpills_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'boxPlus(
                   title = "Nav Pills",
                   status = "info",
                   footer_padding = FALSE,
@@ -1132,55 +1132,55 @@ shinyApp(
                   )
                   )
                 )'
-              ), 
-              collapse = "\n"
+                ), 
+                collapse = "\n"
+              )
+              
             )
             
-          )
-          
-        ),
-        
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("productList()")
-        ),
-        br(),
-        
-        fluidRow(
-          # product list demo
-          box(
-            title = "Product List",
-            status = "primary",
-            productList(
-              productListItem(
-                src = "https://image.darty.com/hifi_video/televiseurs-led/grand_ecran_led/samsung_ue55mu9005_4k_uhd_s1703224306074A_140323143.jpg", 
-                productTitle = "Samsung TV", 
-                productPrice = "$1800", 
-                priceColor = "warning",
-                "This is an amazing TV, but I don't like TV!"
-              ),
-              productListItem(
-                src = "http://icon-park.com/imagefiles/imac.png", 
-                productTitle = "Imac 27", 
-                productPrice = "$2400", 
-                priceColor = "danger",
-                "This is were I spend most of my time!"
-              )
-            )
           ),
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "300px",
-            outputId = "productlist_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'productList(
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("productList()")
+          ),
+          br(),
+          
+          fluidRow(
+            # product list demo
+            box(
+              title = "Product List",
+              status = "primary",
+              productList(
+                productListItem(
+                  src = "https://image.darty.com/hifi_video/televiseurs-led/grand_ecran_led/samsung_ue55mu9005_4k_uhd_s1703224306074A_140323143.jpg", 
+                  productTitle = "Samsung TV", 
+                  productPrice = "$1800", 
+                  priceColor = "warning",
+                  "This is an amazing TV, but I don't like TV!"
+                ),
+                productListItem(
+                  src = "http://icon-park.com/imagefiles/imac.png", 
+                  productTitle = "Imac 27", 
+                  productPrice = "$2400", 
+                  priceColor = "danger",
+                  "This is were I spend most of my time!"
+                )
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "300px",
+              outputId = "productlist_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'productList(
                   productListItem(
                   src = "https://image.darty.com/hifi_video/televiseurs-led/grand_ecran_led/samsung_ue55mu9005_4k_uhd_s1703224306074A_140323143.jpg", 
                   productTitle = "Samsung TV", 
@@ -1196,59 +1196,59 @@ shinyApp(
                   "This is were I spend most of my time!"
                   )
                  )'
-              ), 
-              collapse = "\n"
-            )
-          )
-        ),
-        
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("accordion()")
-        ),
-        br(),
-        
-        fluidRow(
-          # demo accordion
-          box(
-            title = "Accordion Demo",
-            accordion(
-              accordionItem(
-                id = 1,
-                title = "Accordion Item 1",
-                color = "danger",
-                collapsed = TRUE,
-                "This is some text!"
-              ),
-              accordionItem(
-                id = 2,
-                title = "Accordion Item 2",
-                color = "warning",
-                collapsed = FALSE,
-                "This is some text!"
-              ),
-              accordionItem(
-                id = 3,
-                title = "Accordion Item 3",
-                color = "info",
-                collapsed = FALSE,
-                "This is some text!"
+                ), 
+                collapse = "\n"
               )
             )
           ),
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "400px",
-            outputId = "accordion_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("accordion()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo accordion
+            box(
+              title = "Accordion Demo",
+              accordion(
+                accordionItem(
+                  id = 1,
+                  title = "Accordion Item 1",
+                  color = "danger",
+                  collapsed = TRUE,
+                  "This is some text!"
+                ),
+                accordionItem(
+                  id = 2,
+                  title = "Accordion Item 2",
+                  color = "warning",
+                  collapsed = FALSE,
+                  "This is some text!"
+                ),
+                accordionItem(
+                  id = 3,
+                  title = "Accordion Item 3",
+                  color = "info",
+                  collapsed = FALSE,
+                  "This is some text!"
+                )
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "400px",
+              outputId = "accordion_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                   title = "Accordion Demo",
                   accordion(
                   accordionItem(
@@ -1274,49 +1274,49 @@ shinyApp(
                   )
                   )
                 )'
-              ), 
-              collapse = "\n"
-            )
-          )
-        ),
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("todoList()")
-        ),
-        br(),
-        
-        fluidRow(
-          box(
-            "Sortable todo list demo",
-            status = "warning",
-            todoList(
-              todoListItem(
-                label = "Design a nice theme",
-                "Some text here"
-              ),
-              todoListItem(
-                label = "Make the theme responsive",
-                "Some text here"
-              ),
-              todoListItem(
-                checked = TRUE,
-                label = "Let theme shine like a star"
+                ), 
+                collapse = "\n"
               )
             )
           ),
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "350px",
-            outputId = "todolist1_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("todoList()")
+          ),
+          br(),
+          
+          fluidRow(
+            box(
+              "Sortable todo list demo",
+              status = "warning",
+              todoList(
+                todoListItem(
+                  label = "Design a nice theme",
+                  "Some text here"
+                ),
+                todoListItem(
+                  label = "Make the theme responsive",
+                  "Some text here"
+                ),
+                todoListItem(
+                  checked = TRUE,
+                  label = "Let theme shine like a star"
+                )
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "350px",
+              outputId = "todolist1_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                   "Sortable todo list demo",
                   status = "warning",
                   todoList(
@@ -1334,42 +1334,42 @@ shinyApp(
                   )
                   )
                 )'
-              ), 
-              collapse = "\n"
-            )
-            
-          ),
-          
-          
-          box(
-            "Simple todo list demo",
-            status = "warning",
-            todoList(
-              sortable = FALSE,
-              todoListItem(
-                label = "Design a nice theme",
-                "Some text here"
-              ),
-              todoListItem(
-                label = "Make the theme responsive",
-                "Some text here"
-              ),
-              todoListItem(
-                checked = TRUE,
-                label = "Let theme shine like a star"
+                ), 
+                collapse = "\n"
               )
-            )
-          ),
-          
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "350px",
-            outputId = "todolist2_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'box(
+              
+            ),
+            
+            
+            box(
+              "Simple todo list demo",
+              status = "warning",
+              todoList(
+                sortable = FALSE,
+                todoListItem(
+                  label = "Design a nice theme",
+                  "Some text here"
+                ),
+                todoListItem(
+                  label = "Make the theme responsive",
+                  "Some text here"
+                ),
+                todoListItem(
+                  checked = TRUE,
+                  label = "Let theme shine like a star"
+                )
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "350px",
+              outputId = "todolist2_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                   "Simple todo list demo",
                   status = "warning",
                   todoList(
@@ -1388,61 +1388,61 @@ shinyApp(
                   )
                   )
                 )'
-              ), 
-              collapse = "\n"
-            )
-          )
-        ),
-        
-        
-        br(),
-        column(
-          width = 12,
-          align = "center",
-          h1("timelineBlock()")
-        ),
-        br(),
-        
-        fluidRow(
-          box(
-            title = "Reversed Timeline: ideal to include in a box",
-            status = "info",
-            timelineBlock(
-             timelineEnd(color = "danger"),
-             timelineLabel(2018, color = "teal"),
-             timelineItem(
-              title = "Item 1",
-              icon = "gears",
-              color = "olive",
-              time = "now",
-              footer = "Here is the footer",
-              "This is the body"
-             ),
-             timelineItem(
-              title = "Item 2",
-              border = FALSE
-             ),
-             timelineLabel(2015, color = "orange"),
-             timelineItem(
-              title = "Item 3",
-              icon = "paint-brush",
-              color = "maroon",
-              timelineItemMedia(src = "http://placehold.it/150x100"),
-              timelineItemMedia(src = "http://placehold.it/150x100")
-             ),
-             timelineStart(color = "gray")
+                ), 
+                collapse = "\n"
+              )
             )
           ),
           
-          aceEditor(
-            theme = "vibrant_ink",
-            mode = "r",
-            height = "700px",
-            outputId = "timelineBlock1_code",
-            readOnly = TRUE,
-            value = paste(
-              style_text(
-                'timelineBlock(
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("timelineBlock()")
+          ),
+          br(),
+          
+          fluidRow(
+            box(
+              title = "Reversed Timeline: ideal to include in a box",
+              status = "info",
+              timelineBlock(
+                timelineEnd(color = "danger"),
+                timelineLabel(2018, color = "teal"),
+                timelineItem(
+                  title = "Item 1",
+                  icon = "gears",
+                  color = "olive",
+                  time = "now",
+                  footer = "Here is the footer",
+                  "This is the body"
+                ),
+                timelineItem(
+                  title = "Item 2",
+                  border = FALSE
+                ),
+                timelineLabel(2015, color = "orange"),
+                timelineItem(
+                  title = "Item 3",
+                  icon = "paint-brush",
+                  color = "maroon",
+                  timelineItemMedia(src = "http://placehold.it/150x100"),
+                  timelineItemMedia(src = "http://placehold.it/150x100")
+                ),
+                timelineStart(color = "gray")
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "700px",
+              outputId = "timelineBlock1_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'timelineBlock(
                  timelineEnd(color = "danger"),
                 timelineLabel(2018, color = "teal"),
                 timelineItem(
@@ -1467,55 +1467,55 @@ shinyApp(
                 ),
                 timelineStart(color = "gray")
               )'
-              ), 
-              collapse = "\n"
-            )
-          )
-        ),
-        
-        fluidRow(
-          h3("Timeline non reversed: ideal to include oustide of a box"),
-          column(
-            width = 6,
-            timelineBlock(
-              reversed = FALSE,
-              timelineEnd(color = "danger"),
-              timelineLabel(2018, color = "teal"),
-              timelineItem(
-                title = "Item 1",
-                icon = "gears",
-                color = "olive",
-                time = "now",
-                footer = "Here is the footer",
-                "This is the body"
-              ),
-              timelineItem(
-                title = "Item 2",
-                border = FALSE
-              ),
-              timelineLabel(2015, color = "orange"),
-              timelineItem(
-                title = "Item 3",
-                icon = "paint-brush",
-                color = "maroon",
-                timelineItemMedia(src = "http://placehold.it/150x100"),
-                timelineItemMedia(src = "http://placehold.it/150x100")
-              ),
-              timelineStart(color = "gray")
+                ), 
+                collapse = "\n"
+              )
             )
           ),
           
-          column(
-            width = 6,
-            aceEditor(
-              theme = "vibrant_ink",
-              mode = "r",
-              height = "600px",
-              outputId = "timelineBlock2_code",
-              readOnly = TRUE,
-              value = paste(
-                style_text(
-                  'timelineBlock(
+          fluidRow(
+            h3("Timeline non reversed: ideal to include oustide of a box"),
+            column(
+              width = 6,
+              timelineBlock(
+                reversed = FALSE,
+                timelineEnd(color = "danger"),
+                timelineLabel(2018, color = "teal"),
+                timelineItem(
+                  title = "Item 1",
+                  icon = "gears",
+                  color = "olive",
+                  time = "now",
+                  footer = "Here is the footer",
+                  "This is the body"
+                ),
+                timelineItem(
+                  title = "Item 2",
+                  border = FALSE
+                ),
+                timelineLabel(2015, color = "orange"),
+                timelineItem(
+                  title = "Item 3",
+                  icon = "paint-brush",
+                  color = "maroon",
+                  timelineItemMedia(src = "http://placehold.it/150x100"),
+                  timelineItemMedia(src = "http://placehold.it/150x100")
+                ),
+                timelineStart(color = "gray")
+              )
+            ),
+            
+            column(
+              width = 6,
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "600px",
+                outputId = "timelineBlock2_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'timelineBlock(
                   reversed = FALSE,
                   timelineEnd(color = "danger"),
                   timelineLabel(2018, color = "teal"),
@@ -1541,248 +1541,402 @@ shinyApp(
                   ),
                   timelineStart(color = "gray")
                 )'
-              ), 
-              collapse = "\n"
-              )
-            )
-          )
-        )
-      ),
-      
-      tabItem(
-        tabName = "extraelements",
-        
-        fluidRow(
-          
-          column(
-            width = 12,
-            align = "center",
-            h1("loadingState()")
-          ),
-          br(),
-          
-          fluidRow(
-            # demo loading spinner
-            box(
-              title = "loading spinner",
-              loadingState()
-            ),
-            
-            aceEditor(
-              theme = "vibrant_ink",
-              mode = "r",
-              height = "20px",
-              outputId = "loadingstate_code",
-              readOnly = TRUE,
-              value = paste(
-                style_text(
-                  'loadingState()'
-                ), 
-                collapse = "\n"
-              )
-            )
-            
-          ),
-          
-          
-          
-          br(),
-          column(
-            width = 12,
-            align = "center",
-            h1("blockQuote()")
-          ),
-          br(),
-          
-          fluidRow(
-            # demo  blockQuote
-            box(
-              title = "BlockQuote example",
-              blockQuote("I quote some text here!")
-            ),
-            box(
-              title = "BlockQuote example",
-              blockQuote("I quote some text here!", side = "right")
-            ),
-            
-            column(
-              width = 6,
-              aceEditor(
-                theme = "vibrant_ink",
-                mode = "r",
-                height = "20px",
-                outputId = "blockquote1_code",
-                readOnly = TRUE,
-                value = paste(
-                  style_text(
-                    'blockQuote("I quote some text here!")'
-                  ), 
-                  collapse = "\n"
-                )
-              )
-            ),
-            
-            column(
-              width = 6,
-              aceEditor(
-                theme = "vibrant_ink",
-                mode = "r",
-                height = "20px",
-                outputId = "blockquote2_code",
-                readOnly = TRUE,
-                value = paste(
-                  style_text(
-                    'blockQuote("I quote some text here!", side = "right")'
                   ), 
                   collapse = "\n"
                 )
               )
             )
-            
-            
           ),
-          
           
           br(),
           column(
             width = 12,
             align = "center",
-            h1("dashboardLabel()")
+            h1("boxProfile()")
           ),
           br(),
           
           fluidRow(
-            # demo dashboardLabel
-            dashboardLabel("Label 1", status = "info"),
-            dashboardLabel("Label 2", status = "success"),
-            dashboardLabel("Label 3", status = "warning"),
-            dashboardLabel("Label 4", status = "primary"),
-            dashboardLabel("Label 5", status = "danger"),
-            
-            aceEditor(
-              theme = "vibrant_ink",
-              mode = "r",
-              height = "100px",
-              outputId = "dahboardlabel_code",
-              readOnly = TRUE,
-              value = paste(
-                style_text(
-                  'dashboardLabel("Label 1", status = "info")
-                     dashboardLabel("Label 2", status = "success")
-                    dashboardLabel("Label 3", status = "warning")
-                    dashboardLabel("Label 4", status = "primary")
-                    dashboardLabel("Label 5", status = "danger")'
-                ), 
-                collapse = "\n"
-              )
-            )
-            
-          ),
-          
-          
-          br(),
-          column(
-            width = 12,
-            align = "center",
-            h1("starBlock()")
-          ),
-          br(),
-          
-          fluidRow(
-            # demo starBlock
             box(
-              title = "Star example",
-              starBlock(grade = 5),
-              starBlock(grade = 5, color = "olive"),
-              starBlock(grade = 1, color = "maroon"),
-              starBlock(grade = 3, color = "teal")
+              title = "Box with profile",
+              status = "primary",
+              boxProfile(
+                src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+                title = "Nina Mcintire",
+                subtitle = "Software Engineer",
+                boxProfileItemList(
+                  bordered = TRUE,
+                  boxProfileItem(
+                    title = "Followers",
+                    description = 1322
+                  ),
+                  boxProfileItem(
+                    title = "Following",
+                    description = 543
+                  ),
+                  boxProfileItem(
+                    title = "Friends",
+                    description = 13287
+                  )
+                )
+              )
             ),
             
             aceEditor(
               theme = "vibrant_ink",
               mode = "r",
-              height = "100px",
-              outputId = "starblock_code",
+              height = "350px",
+              outputId = "boxProfile_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'boxProfile(
+                    src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+                    title = "Nina Mcintire",
+                    subtitle = "Software Engineer",
+                    boxProfileItemList(
+                    bordered = TRUE,
+                    boxProfileItem(
+                    title = "Followers",
+                    description = 1322
+                    ),
+                    boxProfileItem(
+                    title = "Following",
+                    description = 543
+                    ),
+                    boxProfileItem(
+                    title = "Friends",
+                    description = 13287
+                    )
+                    )
+                  )'
+                ), 
+                collapse = "\n"
+              )
+            )
+          ),
+          
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("userPost()")
+          ),
+          br(),
+          
+          fluidRow(
+            box(
+              title = "Box with user comment",
+              status = "primary",
+              userPost(
+                id = 1,
+                src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+                author = "Jonathan Burke Jr.",
+                description = "Shared publicly - 7:30 PM today",
+                "Lorem ipsum represents a long-held tradition for designers, 
+              typographers and the like. Some people hate it and argue for 
+              its demise, but others ignore the hate as they create awesome 
+              tools to help create filler text for everyone from bacon 
+              lovers to Charlie Sheen fans.",
+                userPostToolItemList(
+                  userPostToolItem(dashboardLabel("item 1")),
+                  userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+                )
+              ),
+              userPost(
+                id = 2,
+                src = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
+                author = "Adam Jones",
+                description = "Shared publicly - 5 days ago",
+                userPostMedia(src = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
+                userPostToolItemList(
+                  userPostToolItem(dashboardLabel("item 1")),
+                  userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+                )
+              )
+            ),
+            
+            aceEditor(
+              theme = "vibrant_ink",
+              mode = "r",
+              height = "500px",
+              outputId = "userPost_code",
               readOnly = TRUE,
               value = paste(
                 style_text(
                   'box(
+                    title = "Box with user comment",
+                    status = "primary",
+                    userPost(
+                     id = 1,
+                     src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+                     author = "Jonathan Burke Jr.",
+                     description = "Shared publicly - 7:30 PM today",
+                     "Lorem ipsum represents a long-held tradition for designers, 
+                     typographers and the like. Some people hate it and argue for 
+                     its demise, but others ignore the hate as they create awesome 
+                     tools to help create filler text for everyone from bacon 
+                     lovers to Charlie Sheen fans.",
+                     userPostToolItemList(
+                      userPostToolItem(dashboardLabel("item 1")),
+                      userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+                     )
+                    ),
+                    userPost(
+                     id = 2,
+                     src = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
+                     author = "Adam Jones",
+                     description = "Shared publicly - 5 days ago",
+                     userPostMedia(src = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
+                     userPostToolItemList(
+                      userPostToolItem(dashboardLabel("item 1")),
+                      userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+                     )
+                    )
+                  )'
+                ), 
+                collapse = "\n"
+              )
+            )
+          )
+          
+        ),
+        
+        tabItem(
+          tabName = "extraelements",
+          
+          fluidRow(
+            
+            column(
+              width = 12,
+              align = "center",
+              h1("loadingState()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo loading spinner
+              box(
+                title = "loading spinner",
+                loadingState()
+              ),
+              
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "20px",
+                outputId = "loadingstate_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'loadingState()'
+                  ), 
+                  collapse = "\n"
+                )
+              )
+              
+            ),
+            
+            
+            
+            br(),
+            column(
+              width = 12,
+              align = "center",
+              h1("blockQuote()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo  blockQuote
+              box(
+                title = "BlockQuote example",
+                blockQuote("I quote some text here!")
+              ),
+              box(
+                title = "BlockQuote example",
+                blockQuote("I quote some text here!", side = "right")
+              ),
+              
+              column(
+                width = 6,
+                aceEditor(
+                  theme = "vibrant_ink",
+                  mode = "r",
+                  height = "20px",
+                  outputId = "blockquote1_code",
+                  readOnly = TRUE,
+                  value = paste(
+                    style_text(
+                      'blockQuote("I quote some text here!")'
+                    ), 
+                    collapse = "\n"
+                  )
+                )
+              ),
+              
+              column(
+                width = 6,
+                aceEditor(
+                  theme = "vibrant_ink",
+                  mode = "r",
+                  height = "20px",
+                  outputId = "blockquote2_code",
+                  readOnly = TRUE,
+                  value = paste(
+                    style_text(
+                      'blockQuote("I quote some text here!", side = "right")'
+                    ), 
+                    collapse = "\n"
+                  )
+                )
+              )
+              
+              
+            ),
+            
+            
+            br(),
+            column(
+              width = 12,
+              align = "center",
+              h1("dashboardLabel()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo dashboardLabel
+              dashboardLabel("Label 1", status = "info"),
+              dashboardLabel("Label 2", status = "success"),
+              dashboardLabel("Label 3", status = "warning"),
+              dashboardLabel("Label 4", status = "primary"),
+              dashboardLabel("Label 5", status = "danger"),
+              
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "100px",
+                outputId = "dahboardlabel_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'dashboardLabel("Label 1", status = "info")
+                     dashboardLabel("Label 2", status = "success")
+                    dashboardLabel("Label 3", status = "warning")
+                    dashboardLabel("Label 4", status = "primary")
+                    dashboardLabel("Label 5", status = "danger")'
+                  ), 
+                  collapse = "\n"
+                )
+              )
+              
+            ),
+            
+            
+            br(),
+            column(
+              width = 12,
+              align = "center",
+              h1("starBlock()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo starBlock
+              box(
+                title = "Star example",
+                starBlock(grade = 5),
+                starBlock(grade = 5, color = "olive"),
+                starBlock(grade = 1, color = "maroon"),
+                starBlock(grade = 3, color = "teal")
+              ),
+              
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "100px",
+                outputId = "starblock_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'box(
                     title = "Star example",
                     starBlock(grade = 5),
                     starBlock(grade = 5, color = "olive"),
                     starBlock(grade = 1, color = "maroon"),
                     starBlock(grade = 3, color = "teal")
                    )'
-                ), 
-                collapse = "\n"
+                  ), 
+                  collapse = "\n"
+                )
               )
-            )
-            
-          ),
-          
-          
-          br(),
-          column(
-            width = 12,
-            align = "center",
-            h1("attachmentBlock()")
-          ),
-          br(),
-          
-          fluidRow(
-            # demo attachment block
-            box(
-              title = "Attachment example",
-              attachmentBlock(
-                src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
-                title = "Test",
-                title_url = "http://google.com",
-                "This is the content"
-              )
+              
             ),
             
-            aceEditor(
-              theme = "vibrant_ink",
-              mode = "r",
-              height = "100px",
-              outputId = "attachmentblock_code",
-              readOnly = TRUE,
-              value = paste(
-                style_text(
-                  'attachmentBlock(
+            
+            br(),
+            column(
+              width = 12,
+              align = "center",
+              h1("attachmentBlock()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo attachment block
+              box(
+                title = "Attachment example",
+                attachmentBlock(
+                  src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+                  title = "Test",
+                  title_url = "http://google.com",
+                  "This is the content"
+                )
+              ),
+              
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "100px",
+                outputId = "attachmentblock_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'attachmentBlock(
                      src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
                     title = "Test",
                     title_url = "http://google.com",
                     "This is the content"
                    )'
-                ), 
-                collapse = "\n"
+                  ), 
+                  collapse = "\n"
+                )
               )
+              
             )
             
           )
           
         )
-        
       )
-    )
-    
-    
+      
+      
+    ),
+    title = "shinyDashboardPlus"
   ),
-  title = "shinyDashboardPlus"
-),
-server = function(input, output) {
-  output$distPlot <- renderPlot({
-    hist(rnorm(input$obs))
-  })
-  
-  output$distPlot2 <- renderPlot({
-    hist(rnorm(input$obs2))
-  })
-  
-  output$data <- renderTable({
-    head(mtcars[, c("mpg", input$variable), drop = FALSE])
-  }, rownames = TRUE)
-  
-}
+  server = function(input, output) {
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
+    
+    output$distPlot2 <- renderPlot({
+      hist(rnorm(input$obs2))
+    })
+    
+    output$data <- renderTable({
+      head(mtcars[, c("mpg", input$variable), drop = FALSE])
+    }, rownames = TRUE)
+    
+  }
 )

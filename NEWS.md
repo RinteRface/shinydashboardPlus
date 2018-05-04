@@ -1,9 +1,17 @@
+## shinydashboardPlus V0.3
+- new userPost function: userPostToolItemList, userPostToolItem, userPostMedia, 
+userPostToolItem 
+- new boxProfile function: boxProfileItemList, boxProfileItem
+- update shinydashboardPlusGallery()
+
+
 ## shinydashboardPlus V0.2
 - new timelines: timeLineBlock either inside or outside a box
 - add shinydashboardPlusGallery()
 - update all examples 
 - some minor fixes
 - NOTE: mailForm is not working at the moment!
+
 
 ## ShinydashboardPlus V0.1
 - new right sidebar: rightSidebar

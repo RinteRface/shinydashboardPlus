@@ -714,3 +714,103 @@ boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
     )
   )
 }
+
+#' @title AdminLTE2 box profile
+#'
+#' @description Create box profile
+#'
+#' @param ... any element such as boxProfileItemList.
+#' @param src profile image, if any.
+#' @param title title.
+#' @param subtitle subtitle.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      box(
+#'       title = "Box with profile",
+#'       status = "primary",
+#'       boxProfile(
+#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+#'        title = "Nina Mcintire",
+#'        subtitle = "Software Engineer",
+#'        boxProfileItemList(
+#'         bordered = TRUE,
+#'         boxProfileItem(
+#'          title = "Followers",
+#'          description = 1322
+#'         ),
+#'         boxProfileItem(
+#'          title = "Following",
+#'          description = 543
+#'         ),
+#'         boxProfileItem(
+#'          title = "Friends",
+#'          description = 13287
+#'         )
+#'        )
+#'       )
+#'      )
+#'     ),
+#'     title = "boxProfile"
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#' 
+#' @export
+boxProfile <- function(..., src = NULL, title = NULL, subtitle = NULL) {
+  shiny::tags$div(
+    class = "box-body, box-profile",
+    shiny::img(class = "profile-user-img img-responsive img-circle", src = src),
+    shiny::h3(class = "profile-username text-center", title),
+    shiny::p(class = "text-muted text-center", subtitle),
+    ...
+  )
+}
+
+#' @title AdminLTE2 box profile item container
+#'
+#' @description Create box profile item list
+#'
+#' @param ... slot for boxProfileItem.
+#' @param bordered Whether the container should have a border or not. FALSE by default.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @export
+boxProfileItemList <- function(..., bordered = FALSE) {
+  
+  cl <- if (isTRUE(bordered)) "list-group" else "list-group list-group-unbordered"
+  
+  shiny::tags$ul(
+    class = cl,
+    ...
+  )
+}
+
+#' @title AdminLTE2 box profile item 
+#'
+#' @description Create box profile item 
+#'
+#' @param title item title.
+#' @param description item info.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @export
+boxProfileItem <- function(title = NULL, description = NULL) {
+  shiny::tags$li(
+    class = "list-group-item",
+    shiny::strong(title),
+    shiny::a(class = "pull-right", description)
+  )
+}
