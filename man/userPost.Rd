@@ -5,7 +5,7 @@
 \title{AdminLTE2 user post}
 \usage{
 userPost(..., id = NULL, src = NULL, author = NULL, description = NULL,
-  tools = NULL, collapsible = TRUE, closable = TRUE)
+  collapsible = TRUE)
 }
 \arguments{
 \item{...}{post content, slot for userPostToolItemList.}
@@ -19,8 +19,6 @@ userPost(..., id = NULL, src = NULL, author = NULL, description = NULL,
 \item{description}{post description.}
 
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the comment.}
-
-\item{closable}{If TRUE, display a button in the upper right that allows the user to close the comment.}
 }
 \description{
 Create a user post

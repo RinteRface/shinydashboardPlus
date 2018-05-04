@@ -1442,31 +1442,35 @@ shinyApp(
               readOnly = TRUE,
               value = paste(
                 style_text(
-                  'timelineBlock(
-                 timelineEnd(color = "danger"),
-                timelineLabel(2018, color = "teal"),
-                timelineItem(
-                title = "Item 1",
-                icon = "gears",
-                color = "olive",
-                time = "now",
-                footer = "Here is the footer",
-                "This is the body"
-                ),
-                timelineItem(
-                title = "Item 2",
-                border = FALSE
-                ),
-                timelineLabel(2015, color = "orange"),
-                timelineItem(
-                title = "Item 3",
-                icon = "paint-brush",
-                color = "maroon",
-                timelineItemMedia(src = "http://placehold.it/150x100"),
-                timelineItemMedia(src = "http://placehold.it/150x100")
-                ),
-                timelineStart(color = "gray")
-              )'
+                  'box(
+                   title = "Timeline",
+                   status = "info",
+                   timelineBlock(
+                    timelineEnd(color = "danger"),
+                    timelineLabel(2018, color = "teal"),
+                    timelineItem(
+                     title = "Item 1",
+                     icon = "gears",
+                     color = "olive",
+                     time = "now",
+                     footer = "Here is the footer",
+                     "This is the body"
+                    ),
+                    timelineItem(
+                     title = "Item 2",
+                     border = FALSE
+                    ),
+                    timelineLabel(2015, color = "orange"),
+                    timelineItem(
+                     title = "Item 3",
+                     icon = "paint-brush",
+                     color = "maroon",
+                     timelineItemMedia(src = "http://placehold.it/150x100"),
+                     timelineItemMedia(src = "http://placehold.it/150x100")
+                    ),
+                    timelineStart(color = "gray")
+                   )
+                  )'
                 ), 
                 collapse = "\n"
               )
@@ -1516,31 +1520,31 @@ shinyApp(
                 value = paste(
                   style_text(
                     'timelineBlock(
-                  reversed = FALSE,
-                  timelineEnd(color = "danger"),
-                  timelineLabel(2018, color = "teal"),
-                  timelineItem(
-                  title = "Item 1",
-                  icon = "gears",
-                  color = "olive",
-                  time = "now",
-                  footer = "Here is the footer",
-                  "This is the body"
-                  ),
-                  timelineItem(
-                  title = "Item 2",
-                  border = FALSE
-                  ),
-                  timelineLabel(2015, color = "orange"),
-                  timelineItem(
-                  title = "Item 3",
-                  icon = "paint-brush",
-                  color = "maroon",
-                  timelineItemMedia(src = "http://placehold.it/150x100"),
-                  timelineItemMedia(src = "http://placehold.it/150x100")
-                  ),
-                  timelineStart(color = "gray")
-                )'
+                      reversed = FALSE,
+                      timelineEnd(color = "danger"),
+                      timelineLabel(2018, color = "teal"),
+                      timelineItem(
+                      title = "Item 1",
+                      icon = "gears",
+                      color = "olive",
+                      time = "now",
+                      footer = "Here is the footer",
+                      "This is the body"
+                      ),
+                      timelineItem(
+                      title = "Item 2",
+                      border = FALSE
+                      ),
+                      timelineLabel(2015, color = "orange"),
+                      timelineItem(
+                      title = "Item 3",
+                      icon = "paint-brush",
+                      color = "maroon",
+                      timelineItemMedia(src = "http://placehold.it/150x100"),
+                      timelineItemMedia(src = "http://placehold.it/150x100")
+                      ),
+                      timelineStart(color = "gray")
+                    )'
                   ), 
                   collapse = "\n"
                 )
@@ -1590,26 +1594,30 @@ shinyApp(
               readOnly = TRUE,
               value = paste(
                 style_text(
-                  'boxProfile(
-                    src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
-                    title = "Nina Mcintire",
-                    subtitle = "Software Engineer",
-                    boxProfileItemList(
-                    bordered = TRUE,
-                    boxProfileItem(
-                    title = "Followers",
-                    description = 1322
-                    ),
-                    boxProfileItem(
-                    title = "Following",
-                    description = 543
-                    ),
-                    boxProfileItem(
-                    title = "Friends",
-                    description = 13287
-                    )
-                    )
-                  )'
+                  'box(
+                  title = "Box with profile",
+                  status = "primary",
+                  boxProfile(
+                  src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+                  title = "Nina Mcintire",
+                  subtitle = "Software Engineer",
+                  boxProfileItemList(
+                  bordered = TRUE,
+                  boxProfileItem(
+                  title = "Followers",
+                  description = 1322
+                  ),
+                  boxProfileItem(
+                  title = "Following",
+                  description = 543
+                  ),
+                  boxProfileItem(
+                  title = "Friends",
+                  description = 13287
+                  )
+                  )
+                  )
+                 )'
                 ), 
                 collapse = "\n"
               )

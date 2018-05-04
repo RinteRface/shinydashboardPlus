@@ -8,7 +8,6 @@
 #' @param author post author.
 #' @param description post description.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the comment. 
-#' @param closable If TRUE, display a button in the upper right that allows the user to close the comment.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
@@ -59,8 +58,8 @@
 #' }
 #' 
 #' @export
-userPost <- function(..., id = NULL, src = NULL, author = NULL, description = NULL,
-                     tools = NULL, collapsible = TRUE, closable = TRUE) {
+userPost <- function(..., id = NULL, src = NULL, author = NULL, 
+                     description = NULL, collapsible = TRUE) {
   
   cl <- "collapse"
   
