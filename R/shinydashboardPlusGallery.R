@@ -23,8 +23,6 @@ shinydashboardPlusGallery <- function() { # nocov start
     message("Package 'shinyWidgets' is required to run this function")
   if (!requireNamespace(package = "shinyjqui"))
     message("Package 'shinyjqui' is required to run this function")
-  if (!requireNamespace(package = "dashboardthemes"))
-    message("Package 'dashboardthemes' is required to run this function")
   
   shiny::shinyAppFile(system.file('examples/app.R', package = 'shinydashboardPlus', mustWork = TRUE))
 }

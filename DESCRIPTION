@@ -11,7 +11,7 @@ Description: Extend shinydashboard with adminLTE2 components.
              Still work in progress, stay connected!
 License: GPL-3
 Imports: shiny, shinydashboard, htmltools
-Suggests: styler, shinyAce, shinyWidgets, shinyjqui, dashboardthemes
+Suggests: styler, shinyAce, shinyWidgets, shinyjqui
 URL: https://github.com/DivadNojnarg/shinydashboardPlus
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
 Encoding: UTF-8

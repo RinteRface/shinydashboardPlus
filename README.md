@@ -1,5 +1,7 @@
 # shinydashboardPlus
-extensions for shinydashboard.
+> extensions for shinydashboard
+
+[![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 
 ## Installation
 

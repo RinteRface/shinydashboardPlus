@@ -5,7 +5,6 @@ library(shinydashboardPlus)
 library(shinyAce)
 library(styler)
 library(shinyWidgets)
-library(dashboardthemes)
 
 shinyApp(
   ui = dashboardPagePlus(
@@ -71,8 +70,6 @@ shinyApp(
       )
     ),
     dashboardBody(
-      
-      #shinyDashboardThemes("grey_light"),
       
       shiny::tags$head(
         # shiny::includeCSS(
