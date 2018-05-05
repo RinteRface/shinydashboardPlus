@@ -41,7 +41,7 @@ if (interactive()) {
           description = "28.04.2018"
         ),
         userListItem(
-          src = "https://d33wubrfki0l68.cloudfront.net/071952491ec4a6a532a3f70ecfa2507af4d341f9/c167c/images/hex-dplyr.png", 
+          src = "https://www.tidyverse.org/images/hex-tidyverse.png", 
           user_name = "Tidyverse", 
           description = "28.04.2018"
         ),

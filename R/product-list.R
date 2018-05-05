@@ -20,7 +20,7 @@
 #'       status = "primary",
 #'       productList(
 #'         productListItem(
-#'           src = "https://image.darty.com/hifi_video/televiseurs-led/grand_ecran_led/samsung_ue55mu9005_4k_uhd_s1703224306074A_140323143.jpg", 
+#'           src = "http://www.pngmart.com/files/1/Haier-TV-PNG.png", 
 #'           productTitle = "Samsung TV", 
 #'           productPrice = "$1800", 
 #'           priceColor = "warning",

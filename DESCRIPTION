@@ -1,13 +1,13 @@
 Package: shinydashboardPlus
 Type: Package
-Title: Add some adminLTE2 components to shinydashboard
-Version: 0.2
+Title: Add some AdminLTE2 Components to Shinydashboard
+Version: 0.2.0
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
           comment = "improved the shinydashboardPlusGallery"))
 Maintainer: David Granjon <dgranjon@ymail.com>
-Description: Extend shinydashboard with adminLTE2 components.
+Description: Extend shinydashboard with AdminLTE2 components.
              Still work in progress, stay connected!
 License: GPL-3
 Imports: shiny, shinydashboard, htmltools

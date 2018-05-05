@@ -1,6 +1,7 @@
 ## Test environments
 * local OS X install, R 3.4.4
-* ubuntu 14.04 (on travis-ci), R 3.4.4
+* ubuntu 14.04 (on travis-ci), R 3.5.0 (2017-01-27)
+* Windows (via devtools::build_win(), R-devel)
 
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 
@@ -25,5 +26,15 @@ There was 1 NOTE:
 These lines will be truncated in the PDF manual.
 
 
-It is not a crucial issue since it only concerns the size of url, that will be available
-in the help section of R.
+## Re-submission:
+
+I corrected all notes adressed in the previous build:
+
+- the examples lines are now all lower than 100 characters (in productList.Rd, userList.Rd and widgetUserBox.Rd)
+- the title field in description is now in title case
+
+There is a FALSE positive here, nothing is mis-spelled:
+
+Possibly mis-spelled words in DESCRIPTION:
+  adminLTE (3:17, 10:41)
+  shinydashboard (3:41, 10:21)
