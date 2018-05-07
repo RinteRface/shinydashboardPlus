@@ -1,18 +1,18 @@
 Package: shinydashboardPlus
 Type: Package
-Title: Add some AdminLTE2 Components to Shinydashboard
+Title: Add some 'AdminLTE2' Components to 'Shinydashboard'
 Version: 0.2.0
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
           comment = "improved the shinydashboardPlusGallery"))
 Maintainer: David Granjon <dgranjon@ymail.com>
-Description: Extend shinydashboard with AdminLTE2 components.
-             Still work in progress, stay connected!
+Description: Extend 'shinydashboard' with 'AdminLTE2' components.
+             Customize boxes, add timelines and a lot more. 
 License: GPL-3
 Imports: shiny, shinydashboard, htmltools
 Suggests: styler, shinyAce, shinyWidgets, shinyjqui
-URL: https://github.com/DivadNojnarg/shinydashboardPlus
+URL: https://github.com/DivadNojnarg/shinydashboardPlus, http://130.60.24.205/shinydashboardPlus/#
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
 Encoding: UTF-8
 LazyData: true

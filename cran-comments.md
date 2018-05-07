@@ -28,13 +28,4 @@ These lines will be truncated in the PDF manual.
 
 ## Re-submission:
 
-I corrected all notes adressed in the previous build:
-
-- the examples lines are now all lower than 100 characters (in productList.Rd, userList.Rd and widgetUserBox.Rd)
-- the title field in description is now in title case
-
-There is a FALSE positive here, nothing is mis-spelled:
-
-Possibly mis-spelled words in DESCRIPTION:
-  adminLTE (3:17, 10:41)
-  shinydashboard (3:41, 10:21)
+I added citations to package name in title and description
