@@ -1,12 +1,12 @@
 ## shinydashboardPlus V0.3
+- coming soon!
+
+## shinydashboardPlus V0.2
+- new timelines: timeLineBlock either inside or outside a box
 - new userPost function: userPostToolItemList, userPostToolItem, userPostMedia, 
 userPostToolItem 
 - new boxProfile function: boxProfileItemList, boxProfileItem
 - update shinydashboardPlusGallery()
-
-
-## shinydashboardPlus V0.2
-- new timelines: timeLineBlock either inside or outside a box
 - add shinydashboardPlusGallery()
 - update all examples 
 - some minor fixes

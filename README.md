@@ -2,6 +2,8 @@
 > extensions for shinydashboard
 
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
+[![version](http://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
+
 
 ## Installation
 
