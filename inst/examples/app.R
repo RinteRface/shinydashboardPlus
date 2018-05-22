@@ -180,32 +180,46 @@ shinyApp(
           fluidRow(
             # demo enhanced classic boxes from shinydashboard
             boxPlus(
-              title = "Closable Box", 
+              title = "Closable Box with dropdown menu", 
               closable = TRUE, 
-              label_status = "danger",
               status = "warning", 
               solidHeader = FALSE, 
               collapsible = TRUE,
+              enable_dropdown = TRUE,
+              dropdown_icon = "wrench",
+              dropdownItemList = dropdownItemList(
+                dropdownItem(target = "http://www.google.com", name = "Link to google"),
+                dropdownItem(target = "#", name = "item 2"),
+                dropdownDivider(),
+                dropdownItem(target = "#", name = "item 3")
+              ),
               p("Box Content")
             ),
             
             aceEditor(
               theme = "vibrant_ink",
               mode = "r",
-              height = "200px",
+              height = "300px",
               outputId = "boxplus1_code",
               readOnly = TRUE,
               value = paste(
                 style_text(
                   'boxPlus(
-                  title = "Closable Box", 
-                  closable = TRUE, 
-                  label_status = "danger",
-                  status = "warning", 
-                  solidHeader = FALSE, 
-                  collapsible = TRUE,
-                  p("Box Content")
-                )'
+                   title = "Closable Box with dropdown menu", 
+                   closable = TRUE, 
+                   status = "warning", 
+                   solidHeader = FALSE, 
+                   collapsible = TRUE,
+                   enable_dropdown = TRUE,
+                   dropdown_icon = "wrench",
+                   dropdownItemList = dropdownItemList(
+                    dropdownItem(target = "http://www.google.com", name = "Link to google"),
+                    dropdownItem(target = "#", name = "item 2"),
+                    dropdownDivider(),
+                    dropdownItem(target = "#", name = "item 3")
+                   ),
+                   p("Box Content")
+                 )'
                 ), 
                 collapse = "\n"
               )

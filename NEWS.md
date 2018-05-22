@@ -1,5 +1,6 @@
 ## shinydashboardPlus V0.3
-- coming soon!
+- new dropdown menu for boxPlus: add dropdownItemList, dropdownItem and dropdownDivider functions (see shinydashboardPlusGallery)
+
 
 ## shinydashboardPlus V0.2
 - new timelines: timeLineBlock either inside or outside a box

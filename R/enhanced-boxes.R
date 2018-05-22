@@ -426,6 +426,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param enable_label Whether to display a label in the boxtool.
 #' @param label_text label text.
 #' @param label_status status of the box label: "danger", "success", "info", "primary", "warning".
+#' @param enable_dropdown Whether to display a dropdown menu in the boxtool. FALSE by default.
+#' @param dropdown_icon Dropdown icon. "wrench" by default.
+#' @param dropdownItemList List of items in the the boxtool dropdown menu. Use dropdownItemList().
 #' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
@@ -443,12 +446,19 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'      dashboardBody(
 #'       fluidRow(
 #'        boxPlus(
-#'         title = "Closable Box", 
+#'         title = "Closable Box with dropdown", 
 #'          closable = TRUE, 
-#'          label_status = "danger",
 #'          status = "warning", 
 #'          solidHeader = FALSE, 
 #'          collapsible = TRUE,
+#'          enable_dropdown = TRUE,
+#'          dropdown_icon = "wrench",
+#'          dropdownItemList = dropdownItemList(
+#'           dropdownItem(target = "http://www.google.com", name = "Link to google"),
+#'           dropdownItem(target = "#", name = "item 2"),
+#'           dropdownDivider(),
+#'           dropdownItem(target = "#", name = "item 3")
+#'          ),
 #'          p("Box Content")
 #'        ),
 #'        boxPlus(
@@ -472,7 +482,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
-                     label_text = NULL, label_status = "primary", footer_padding = TRUE) 
+                     label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
+                     dropdown_icon = "wrench", dropdownItemList = NULL,
+                    footer_padding = TRUE) 
 {
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
@@ -530,10 +542,24 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
   if (enable_label) {
     labelTag <- dashboardLabel(label_text, status = label_status)
   }
+
+  dropdownTag <- NULL
+  if (enable_dropdown) {
+    dropdownTag <- shiny::tags$div(
+      class = "btn-group",
+      shiny::tags$button(
+        type = "button",
+        class = "btn btn-box-tool dropdown-toggle",
+        `data-toggle` = "dropdown",
+        shiny::icon(dropdown_icon)
+      ),
+      dropdownItemList
+    )
+  }
   
   
   # update boxToolTag
-  boxToolTag <- shiny::tagAppendChildren(boxToolTag, labelTag, collapseTag, closableTag)
+  boxToolTag <- shiny::tagAppendChildren(boxToolTag, labelTag, dropdownTag, collapseTag, closableTag)
   
   headerTag <- NULL
   if (!is.null(titleTag) || !is.null(collapseTag)) {
@@ -548,6 +574,46 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
 
 
 
+#' Create a box dropdown item list
+#'
+#' Can be used to add dropdown items to a boxtool.
+#'
+#' @param ... Slot for dropdownItem.
+#'
+#' @export
+dropdownItemList <- function(...) {
+  shiny::tags$ul(
+    class = "dropdown-menu",
+    role = "menu",
+    ...
+  )
+}
+
+
+#' Create a box dropdown item 
+#'
+#' @param target Target url or page.
+#' @param name Menu name.
+#'
+#' @export
+dropdownItem <- function(target = NULL, name = NULL) {
+  shiny::tags$li(
+    shiny::tags$a(
+      href = target,
+      name 
+    )
+  )
+}
+
+
+#' Create a box dropdown divider 
+#'
+#' @note Useful to separate 2 sections of dropdown items.
+#'
+#' @export
+dropdownDivider <- function() {
+  shiny::tags$li(class = "divider")
+}
 
 
 #' @title AdminLTE2 social box

@@ -3,6 +3,8 @@
 
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 [![version](http://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
+[![codecov](https://codecov.io/gh/DivadNojnarg/shinydashboardPlus/branch/master/graph/badge.svg)](https://codecov.io/gh/DivadNojnarg/shinydashboardPlus)
+
 
 
 ## Installation
@@ -121,7 +123,6 @@ library(shinydashboard)
        boxPlus(
         title = "Closable Box", 
          closable = TRUE, 
-         label_status = "danger",
          status = "warning", 
          solidHeader = FALSE, 
          collapsible = TRUE,
