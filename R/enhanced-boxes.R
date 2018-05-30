@@ -428,7 +428,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param label_status status of the box label: "danger", "success", "info", "primary", "warning".
 #' @param enable_dropdown Whether to display a dropdown menu in the boxtool. FALSE by default.
 #' @param dropdown_icon Dropdown icon. "wrench" by default.
-#' @param dropdownItemList List of items in the the boxtool dropdown menu. Use dropdownItemList().
+#' @param dropdown_menu List of items in the the boxtool dropdown menu. Use dropdownItemList().
 #' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
@@ -453,7 +453,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'          collapsible = TRUE,
 #'          enable_dropdown = TRUE,
 #'          dropdown_icon = "wrench",
-#'          dropdownItemList = dropdownItemList(
+#'          dropdown_menu = dropdownItemList(
 #'           dropdownItem(target = "http://www.google.com", name = "Link to google"),
 #'           dropdownItem(target = "#", name = "item 2"),
 #'           dropdownDivider(),
@@ -483,7 +483,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
                      label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
-                     dropdown_icon = "wrench", dropdownItemList = NULL,
+                     dropdown_icon = "wrench", dropdown_menu = NULL,
                     footer_padding = TRUE) 
 {
   boxClass <- "box"
@@ -553,7 +553,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
         `data-toggle` = "dropdown",
         shiny::icon(dropdown_icon)
       ),
-      dropdownItemList
+      dropdown_menu
     )
   }
   

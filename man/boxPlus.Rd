@@ -8,8 +8,8 @@ boxPlus(..., title = NULL, footer = NULL, status = NULL,
   solidHeader = FALSE, background = NULL, width = 6, height = NULL,
   collapsible = FALSE, collapsed = FALSE, closable = TRUE,
   enable_label = FALSE, label_text = NULL, label_status = "primary",
-  enable_dropdown = FALSE, dropdown_icon = "wrench",
-  dropdownItemList = NULL, footer_padding = TRUE)
+  enable_dropdown = FALSE, dropdown_icon = "wrench", dropdown_menu = NULL,
+  footer_padding = TRUE)
 }
 \arguments{
 \item{...}{Contents of the box.}
@@ -54,7 +54,7 @@ the user to collapse the box.}
 
 \item{dropdown_icon}{Dropdown icon. "wrench" by default.}
 
-\item{dropdownItemList}{List of items in the the boxtool dropdown menu. Use dropdownItemList().}
+\item{dropdown_menu}{List of items in the the boxtool dropdown menu. Use dropdownItemList().}
 
 \item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
@@ -81,7 +81,7 @@ if (interactive()) {
          collapsible = TRUE,
          enable_dropdown = TRUE,
          dropdown_icon = "wrench",
-         dropdownItemList = dropdownItemList(
+         dropdown_menu = dropdownItemList(
           dropdownItem(target = "http://www.google.com", name = "Link to google"),
           dropdownItem(target = "#", name = "item 2"),
           dropdownDivider(),

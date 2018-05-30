@@ -9,14 +9,13 @@ Authors@R: c(
 Maintainer: David Granjon <dgranjon@ymail.com>
 Description: Extend 'shinydashboard' with 'AdminLTE2' components.
              Customize boxes, add timelines and a lot more. 
-License: GPL-3
+License: GPL-2
 Imports: shiny, shinydashboard, htmltools
 Suggests: 
     styler,
     shinyAce,
     shinyWidgets,
-    shinyjqui,
-    covr
+    shinyjqui
 URL: https://github.com/DivadNojnarg/shinydashboardPlus, http://130.60.24.205/shinydashboardPlus/#
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
 Encoding: UTF-8
