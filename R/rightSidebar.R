@@ -103,6 +103,7 @@ rightSidebarTabList <- function(...) {
 #' 
 #' @param id unique item id. If id = 1, the tab is set to active.
 #' @param icon tab icon.
+#' @param active whether the tab item is active or not. FALSE by default.
 #' 
 #' @export
 rightSidebarTabItem <- function(id, icon = "database", active = FALSE) {
@@ -141,6 +142,7 @@ rigthSidebarPanel <- function(...) {
 #' @param ... any element such as sliderInput, ...
 #' @param id should correspond to the id given in rightSidebarTabItem.
 #' @param title content title.
+#' @param active whether the tab content is active or not. FALSE by default.
 #' 
 #' @export
 rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE) {
