@@ -105,12 +105,12 @@ rightSidebarTabList <- function(...) {
 #' @param icon tab icon.
 #' 
 #' @export
-rightSidebarTabItem <- function(id, icon = "database") {
+rightSidebarTabItem <- function(id, icon = "database", active = FALSE) {
   
   stopifnot(!is.null(id))
   
   shiny::tags$li(
-    class = if (id == 1) "active" else NULL,
+    class = if (isTRUE(active)) "active" else NULL,
     shiny::tags$a(
       href = paste0("#control-sidebar-", id, "-tab"), 
       `data-toggle` = "tab",
@@ -143,12 +143,12 @@ rigthSidebarPanel <- function(...) {
 #' @param title content title.
 #' 
 #' @export
-rightSidebarTabContent <- function(..., id, title = NULL) {
+rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE) {
   
   stopifnot(!is.null(id))
   
   shiny::tags$div(
-    class = if (id == 1) "tab-pane active" else "tab-pane", 
+    class = if (isTRUE(active)) "tab-pane active" else "tab-pane", 
     id = paste0("control-sidebar-", id, "-tab"),
     shiny::tags$h3(class = "control-sidebar-heading", title),
     ...
