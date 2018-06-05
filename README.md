@@ -3,13 +3,16 @@
 
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 [![version](http://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
-[![codecov](https://codecov.io/gh/DivadNojnarg/shinydashboardPlus/branch/master/graph/badge.svg)](https://codecov.io/gh/DivadNojnarg/shinydashboardPlus)
+[![cranlogs](http://cranlogs.r-pkg.org/badges/shinydashboardPlus)](http://cran.rstudio.com/web/packages/shinydashboardPlus/index.html)
 
 
 
 ## Installation
 
 ```{r}
+# for the CRAN version
+install.packages("shinydashboardPlus")
+# for the latest version
 devtools::install_github("DivadNojnarg/shinydashboardPlus")
 ```
 
