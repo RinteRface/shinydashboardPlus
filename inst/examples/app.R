@@ -129,7 +129,8 @@ shinyApp(
             rightSidebarTabList(
             rightSidebarTabItem(
             id = 1,
-            icon = "desktop"
+            icon = "desktop",
+            active = TRUE
             ),
             rightSidebarTabItem(
             id = 2
@@ -143,6 +144,7 @@ shinyApp(
             rightSidebarTabContent(
             id = 1,
             title = "Tab 1",
+            active = TRUE,
             sliderInput(
             "obs", 
             "Number of observations:",
@@ -182,18 +184,18 @@ shinyApp(
           fluidRow(
             # demo enhanced classic boxes from shinydashboard
             boxPlus(
-              title = "Closable Box with dropdown menu", 
+              title = "Closable Box with dropdown", 
               closable = TRUE, 
               status = "warning", 
               solidHeader = FALSE, 
               collapsible = TRUE,
               enable_dropdown = TRUE,
               dropdown_icon = "wrench",
-              dropdownItemList = dropdownItemList(
-                dropdownItem(target = "http://www.google.com", name = "Link to google"),
-                dropdownItem(target = "#", name = "item 2"),
+              dropdown_menu = dropdownItemList(
+                dropdownItem(url = "http://www.google.com", name = "Link to google"),
+                dropdownItem(url = "#", name = "item 2"),
                 dropdownDivider(),
-                dropdownItem(target = "#", name = "item 3")
+                dropdownItem(url = "#", name = "item 3")
               ),
               p("Box Content")
             ),
@@ -207,21 +209,21 @@ shinyApp(
               value = paste(
                 style_text(
                   'boxPlus(
-                   title = "Closable Box with dropdown menu", 
-                   closable = TRUE, 
-                   status = "warning", 
-                   solidHeader = FALSE, 
-                   collapsible = TRUE,
-                   enable_dropdown = TRUE,
-                   dropdown_icon = "wrench",
-                   dropdownItemList = dropdownItemList(
-                    dropdownItem(target = "http://www.google.com", name = "Link to google"),
-                    dropdownItem(target = "#", name = "item 2"),
-                    dropdownDivider(),
-                    dropdownItem(target = "#", name = "item 3")
-                   ),
-                   p("Box Content")
-                 )'
+                   title = "Closable Box with dropdown", 
+                    closable = TRUE, 
+                    status = "warning", 
+                    solidHeader = FALSE, 
+                    collapsible = TRUE,
+                    enable_dropdown = TRUE,
+                    dropdown_icon = "wrench",
+                    dropdown_menu = dropdownItemList(
+                     dropdownItem(url = "http://www.google.com", name = "Link to google"),
+                     dropdownItem(url = "#", name = "item 2"),
+                     dropdownDivider(),
+                     dropdownItem(url = "#", name = "item 3")
+                    ),
+                    p("Box Content")
+                  )'
                 ), 
                 collapse = "\n"
               )
@@ -1976,7 +1978,7 @@ shinyApp(
               aceEditor(
                 theme = "vibrant_ink",
                 mode = "r",
-                height = "100px",
+                height = "400px",
                 outputId = "rightSidebarMenu_code",
                 readOnly = TRUE,
                 value = paste(
@@ -2011,7 +2013,73 @@ shinyApp(
                 )
               )
               
+            ),
+            
+            br(),
+            column(
+              width = 12,
+              align = "center",
+              h1("verticalProgress()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo rightSidebarMenu
+              box(
+                title = "verticalProgress",
+                verticalProgress(
+                  value = 10,
+                  striped = TRUE,
+                  active = TRUE
+                ),
+                verticalProgress(
+                  value = 50,
+                  active = TRUE,
+                  status = "warning",
+                  size = "xs"
+                ),
+                verticalProgress(
+                  value = 20,
+                  status = "danger",
+                  size = "sm",
+                  height = "60%"
+                )
+              ),
+              
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "350px",
+                outputId = "verticalProgress_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'box(
+                     title = "verticalProgress",
+                     verticalProgress(
+                       value = 10,
+                       striped = TRUE,
+                       active = TRUE
+                     ),
+                     verticalProgress(
+                       value = 50,
+                       active = TRUE,
+                       status = "warning",
+                       size = "xs"
+                     ),
+                     verticalProgress(
+                       value = 20,
+                       status = "danger",
+                       size = "sm",
+                       height = "60%"
+                     )
+                    )'
+                  ), 
+                  collapse = "\n"
+                )
               )
+              
+            )
             
           )
           

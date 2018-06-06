@@ -82,10 +82,10 @@ if (interactive()) {
          enable_dropdown = TRUE,
          dropdown_icon = "wrench",
          dropdown_menu = dropdownItemList(
-          dropdownItem(target = "http://www.google.com", name = "Link to google"),
-          dropdownItem(target = "#", name = "item 2"),
+          dropdownItem(url = "http://www.google.com", name = "Link to google"),
+          dropdownItem(url = "#", name = "item 2"),
           dropdownDivider(),
-          dropdownItem(target = "#", name = "item 3")
+          dropdownItem(url = "#", name = "item 3")
          ),
          p("Box Content")
        ),

@@ -454,10 +454,10 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'          enable_dropdown = TRUE,
 #'          dropdown_icon = "wrench",
 #'          dropdown_menu = dropdownItemList(
-#'           dropdownItem(target = "http://www.google.com", name = "Link to google"),
-#'           dropdownItem(target = "#", name = "item 2"),
+#'           dropdownItem(url = "http://www.google.com", name = "Link to google"),
+#'           dropdownItem(url = "#", name = "item 2"),
 #'           dropdownDivider(),
-#'           dropdownItem(target = "#", name = "item 3")
+#'           dropdownItem(url = "#", name = "item 3")
 #'          ),
 #'          p("Box Content")
 #'        ),
@@ -592,14 +592,15 @@ dropdownItemList <- function(...) {
 
 #' Create a box dropdown item 
 #'
-#' @param target Target url or page.
+#' @param url Target url or page.
 #' @param name Menu name.
 #'
 #' @export
-dropdownItem <- function(target = NULL, name = NULL) {
+dropdownItem <- function(url = NULL, name = NULL) {
   shiny::tags$li(
     shiny::tags$a(
-      href = target,
+      href = url,
+      target = "_blank",
       name 
     )
   )

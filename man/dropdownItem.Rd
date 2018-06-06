@@ -4,10 +4,10 @@
 \alias{dropdownItem}
 \title{Create a box dropdown item}
 \usage{
-dropdownItem(target = NULL, name = NULL)
+dropdownItem(url = NULL, name = NULL)
 }
 \arguments{
-\item{target}{Target url or page.}
+\item{url}{Target url or page.}
 
 \item{name}{Menu name.}
 }
