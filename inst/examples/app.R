@@ -37,7 +37,8 @@ shinyApp(
       rightSidebarTabList(
         rightSidebarTabItem(
           id = 1,
-          icon = "desktop"
+          icon = "desktop",
+          active = TRUE
         ),
         rightSidebarTabItem(
           id = 2
@@ -51,6 +52,7 @@ shinyApp(
         rightSidebarTabContent(
           id = 1,
           title = "Tab 1",
+          active = TRUE,
           sliderInput(
             "inputsidebar1", 
             "Number of observations:",
@@ -1933,7 +1935,83 @@ shinyApp(
                 )
               )
               
-            )
+            ),
+            
+            br(),
+            column(
+              width = 12,
+              align = "center",
+              h1("rightSidebarMenu()")
+            ),
+            br(),
+            
+            fluidRow(
+              # demo rightSidebarMenu
+              box(
+                title = "rightSidebarMenu",
+                rightSidebarMenu(
+                  rightSidebarMenuItem(
+                    icon = menuIcon(
+                      name = "birthday-cake",
+                      color = "red"
+                    ),
+                    info = menuInfo(
+                      title = "Langdon's Birthday",
+                      description = "Will be 23 on April 24th"
+                    )
+                  ),
+                  rightSidebarMenuItem(
+                    icon = menuIcon(
+                      name = "user",
+                      color = "yellow"
+                    ),
+                    info = menuInfo(
+                      title = "Frodo Updated His Profile",
+                      description = "New phone +1(800)555-1234"
+                    )
+                  )
+                )
+              ),
+              
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "100px",
+                outputId = "rightSidebarMenu_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'box(
+                    title = "rightSidebarMenu example",
+                    rightSidebarMenu(
+                    rightSidebarMenuItem(
+                    icon = menuIcon(
+                    name = "birthday-cake",
+                    color = "red"
+                    ),
+                    info = menuInfo(
+                    title = "Langdon\'s Birthday",
+                    description = "Will be 23 on April 24th"
+                    )
+                    ),
+                    rightSidebarMenuItem(
+                    icon = menuIcon(
+                    name = "user",
+                    color = "yellow"
+                    ),
+                    info = menuInfo(
+                    title = "Frodo Updated His Profile",
+                    description = "New phone +1(800)555-1234"
+                    )
+                    )
+                    )
+                  )'
+                  ), 
+                  collapse = "\n"
+                )
+              )
+              
+              )
             
           )
           

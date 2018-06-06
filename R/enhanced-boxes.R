@@ -553,7 +553,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
         `data-toggle` = "dropdown",
         shiny::icon(dropdown_icon)
       ),
-      dropdown_menu
+      shiny::tagList(dropdown_menu)
     )
   }
   

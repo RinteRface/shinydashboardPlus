@@ -4,6 +4,7 @@
 and menuInfo (see shinydashboardPlusGallery)
 - add an active argument to rightSidebarTabItem and rightSidebarTabContent: see [#4](https://github.com/DivadNojnarg/shinydashboardPlus/issues/4)
 - add cran downloads to readme
+- fix an issue in the dropdown menu (boxPlus)
 
 
 ## shinydashboardPlus V0.2
