@@ -32,7 +32,8 @@ if (interactive()) {
        rightSidebarTabList(
         rightSidebarTabItem(
          id = 1,
-         icon = "desktop"
+         icon = "desktop",
+         active = TRUE
         ),
         rightSidebarTabItem(
          id = 2
@@ -46,6 +47,7 @@ if (interactive()) {
         rightSidebarTabContent(
          id = 1,
          title = "Tab 1",
+         active = TRUE,
          sliderInput(
           "obs", 
           "Number of observations:",

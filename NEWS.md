@@ -1,6 +1,8 @@
 ## shinydashboardPlus V0.3
 - new dropdown menu for boxPlus: add dropdownItemList, dropdownItem and dropdownDivider functions (see shinydashboardPlusGallery)
-- add an active argument to rightSidebarTabItem: see [#4](https://github.com/DivadNojnarg/shinydashboardPlus/issues/4)
+- new functions in the rightSidebar: rightSidebarMenu, rightSidebarMenuItem, menuIcon
+and menuInfo (see shinydashboardPlusGallery)
+- add an active argument to rightSidebarTabItem and rightSidebarTabContent: see [#4](https://github.com/DivadNojnarg/shinydashboardPlus/issues/4)
 - add cran downloads to readme
 
 
