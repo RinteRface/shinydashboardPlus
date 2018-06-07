@@ -4,7 +4,7 @@
 and menuInfo (see shinydashboardPlusGallery)
 - new verticalProgress bars!
 - add an active argument to rightSidebarTabItem and rightSidebarTabContent: see [#4](https://github.com/DivadNojnarg/shinydashboardPlus/issues/4)
-- 
+- add width and height args to timelineItemMedia and userPostMedia
 - add cran downloads to readme
 - change argument name in dropdownItem (boxPlus): target is replaced by url.
 
