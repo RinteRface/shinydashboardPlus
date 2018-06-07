@@ -190,12 +190,19 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
 #' @description Create a timeline media item
 #'
 #' @param src media url or path.
+#' @param height media height in pixels.
+#' @param width media width in pixels.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-timelineItemMedia <- function(src = NULL) {
-  shiny::img(class = "margin", src = src)
+timelineItemMedia <- function(src = NULL, height = NULL, width = NULL) {
+  shiny::img(
+    class = "margin", 
+    src = src, 
+    height = height,
+    width = width
+  )
 }
 
 

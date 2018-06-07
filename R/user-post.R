@@ -146,10 +146,17 @@ userPostToolItem <- function(..., side = "left") {
 #' @description Create a user post media (image)
 #'
 #' @param src image path or url ...
+#' @param height media height in pixels.
+#' @param width media width in pixels.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-userPostMedia <- function(src = NULL) {
-  shiny::img(class = "img-responsive", src = src)
+userPostMedia <- function(src = NULL, height = NULL, width = NULL) {
+  shiny::img(
+    class = "img-responsive", 
+    src = src,
+    height = height,
+    width = width
+  )
 }
