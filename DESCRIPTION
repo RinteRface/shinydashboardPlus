@@ -5,7 +5,7 @@ Version: 0.2.0
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person(family = "Almasaeed Studio", role = c("ctb", "cph"), comment = "AdminLTE2 theme for Bootstrap 3"),
-  person("Winston", "Chang", role = c("ctb", "cph"), comment = "Utils functions from shinydashboard"),
+  person("Winston", "Chang", role = c("ctb", "cph"), comment = "Functions from shinydashboard"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
           comment = "improved the shinydashboardPlusGallery"))
 Maintainer: David Granjon <dgranjon@ymail.com>

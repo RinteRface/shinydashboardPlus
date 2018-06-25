@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 [![version](http://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![cranlogs](http://cranlogs.r-pkg.org/badges/shinydashboardPlus)](http://cran.rstudio.com/web/packages/shinydashboardPlus/index.html)
+[![total](http://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://www.rpackages.io/package/shinydashboardPlus)
 
 
 
@@ -21,6 +22,14 @@ devtools::install_github("DivadNojnarg/shinydashboardPlus")
 shinydashboardPlus is based on the idea of [ygdashboard](https://github.com/gyang274/ygdashboard/tree/master/R), 
 the later not compatible with shinydashboard (you cannot use shinydashboard and ygdashboard at the same time). With shinydashboardPlus you can still work with the shinydashboard classic functions and enrich
 your dashboard with all additional functions of shinydashboardPlus!
+
+## Demo
+
+See a demonstration [here](http://130.60.24.205/shinydashboardPlus/)
+or run:
+```{r}
+shinydashboardPlusGallery()
+```
 
 ## Main features
 
@@ -378,15 +387,6 @@ library(shiny)
 ```
 
 and a lot more (see the demo).
-
-
-## Demo
-
-See a demonstration [here](http://130.60.24.205/shinydashboardPlus/)
-or run:
-```{r}
-shinydashboardPlusGallery()
-```
 
 ## Aknowldegments
 
