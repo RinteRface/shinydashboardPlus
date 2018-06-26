@@ -54,7 +54,8 @@ rightSidebar(
   rightSidebarTabList(
    rightSidebarTabItem(
     id = 1,
-    icon = "desktop"
+    icon = "desktop",
+    active = TRUE
    ),
    rightSidebarTabItem(
     id = 2
@@ -67,6 +68,7 @@ rightSidebar(
   rigthSidebarPanel(
    rightSidebarTabContent(
     id = 1,
+    active = TRUE,
     title = "Tab 1",
     sliderInput(
      "obs", 
