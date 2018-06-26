@@ -13,8 +13,6 @@ vignette: >
 
 ### boxPlus
 
-![](inst/img/boxPlus.png)
-
 ```r
 library(shiny)
 library(shinydashboard)
@@ -54,7 +52,6 @@ library(shinydashboardPlus)
 
 ### gradientBox
 
-![](inst/img/gradientBox.png)
 
 ```r
 library(shiny)
@@ -96,7 +93,6 @@ library(shiny)
 
 ### widgetUserBox
 
-![](inst/img/widgetUserBox.png)
 
 ```r
  library(shiny)
@@ -147,7 +143,6 @@ library(shiny)
 
 ### socialBox
 
-![](inst/img/socialBox.png)
 
 ```r
 library(shiny)
@@ -197,7 +192,6 @@ library(shiny)
 
 ### descriptionBlock
 
-![](inst/img/descriptionBlock.png)
 
 ```r
  library(shiny)
@@ -251,7 +245,6 @@ library(shiny)
 
 ### boxPad
 
-![](inst/img/boxPad.png)
 
 ```r
  library(shiny)
