@@ -7,6 +7,7 @@ and menuInfo (see shinydashboardPlusGallery)
 - add width and height args to timelineItemMedia and userPostMedia
 - add cran downloads to readme
 - change argument name in dropdownItem (boxPlus): target is replaced by url.
+- add a pkgdown website
 
 
 ## shinydashboardPlus V0.2

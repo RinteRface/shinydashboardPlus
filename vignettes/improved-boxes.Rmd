@@ -1,0 +1,303 @@
+---
+title: "Improved boxes"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Improved boxes
+
+### boxPlus
+
+![](inst/img/boxPlus.png)
+
+```r
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+
+ shinyApp(
+   ui = dashboardPagePlus(
+     dashboardHeaderPlus(),
+     dashboardSidebar(),
+     dashboardBody(
+      fluidRow(
+       boxPlus(
+        title = "Closable Box", 
+         closable = TRUE, 
+         status = "warning", 
+         solidHeader = FALSE, 
+         collapsible = TRUE,
+         p("Box Content")
+       ),
+       boxPlus(
+        title = "Closable box, with label", 
+         closable = TRUE, 
+         enable_label = TRUE,
+         label_text = 1,
+         label_status = "danger",
+         status = "warning", 
+         solidHeader = FALSE, 
+         collapsible = TRUE,
+         p("Box Content")
+       )
+     )
+    )
+   ),
+   server = function(input, output) {}
+ )
+```
+
+### gradientBox
+
+![](inst/img/gradientBox.png)
+
+```r
+library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     gradientBox(
+      title = "My gradient Box",
+      icon = "fa fa-th",
+      gradientColor = "teal", 
+      boxToolSize = "sm", 
+      footer = sliderInput(
+       "obs", 
+       "Number of observations:",
+        min = 0, max = 1000, value = 500
+       ),
+      "This is a gradient box"
+      ),
+      gradientBox(
+      title = "My gradient Box",
+      icon = "fa fa-heart",
+      gradientColor = "maroon", 
+      boxToolSize = "xs", 
+      closable = TRUE,
+      footer = "The footer goes here. You can include anything",
+      "This is a gradient box"
+      )
+    ),
+    title = "Description Blocks"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+### widgetUserBox
+
+![](inst/img/widgetUserBox.png)
+
+```r
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     widgetUserBox(
+      title = "Nadia Carmichael",
+      subtitle = "lead Developer",
+      type = 2,
+      src = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+      color = "yellow",
+      "Some text here!",
+      footer = "The footer here!"
+     ),
+     widgetUserBox(
+      title = "Alexander Pierce",
+      subtitle = "Founder & CEO",
+      type = NULL,
+      src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+      color = "aqua-active",
+      closable = TRUE,
+      "Some text here!",
+      footer = "The footer here!"
+     ),
+     widgetUserBox(
+      title = "Elizabeth Pierce",
+      subtitle = "Web Designer",
+      type = NULL,
+      src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+      background = TRUE,
+      backgroundUrl = "https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&h=350",
+      closable = TRUE,
+      "Some text here!",
+      footer = "The footer here!"
+     )
+    ),
+    title = "Description Blocks"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+### socialBox
+
+![](inst/img/socialBox.png)
+
+```r
+library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     socialBox(
+      title = "Social Box",
+      subtitle = "example-01.05.2018",
+      src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+      "Some text here!",
+      attachmentBlock(
+       src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+       title = "Test",
+       title_url = "http://google.com",
+       "This is the content"
+      ),
+      comments = tagList(
+       boxComment(
+        src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+        title = "Comment 1",
+        date = "01.05.2018",
+        "The first comment"
+       ),
+       boxComment(
+        src = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg",
+        title = "Comment 2",
+        date = "01.05.2018",
+        "The second comment"
+       )
+      ),
+      footer = "The footer here!"
+     )
+    ),
+    title = "Description Blocks"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+## Boxes components
+
+### descriptionBlock
+
+![](inst/img/descriptionBlock.png)
+
+```r
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     box(
+      solidHeader = FALSE,
+      title = "Status summary",
+      background = NULL,
+      width = 4,
+      status = "danger",
+      footer = fluidRow(
+        column(
+          width = 6,
+          descriptionBlock(
+            number = "17%", 
+            number_color = "green", 
+            number_icon = "fa fa-caret-up",
+            header = "$35,210.43", 
+            text = "TOTAL REVENUE", 
+            right_border = TRUE,
+            margin_bottom = FALSE
+          )
+        ),
+        column(
+          width = 6,
+          descriptionBlock(
+            number = "18%", 
+            number_color = "red", 
+            number_icon = "fa fa-caret-down",
+            header = "1200", 
+            text = "GOAL COMPLETION", 
+            right_border = FALSE,
+            margin_bottom = FALSE
+          )
+        )
+      )
+     )
+    ),
+    title = "Description Blocks"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+### boxPad
+
+![](inst/img/boxPad.png)
+
+```r
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     box(title = "Box with right pad",
+      status = "warning",
+      fluidRow(
+        column(width = 6),
+        column(
+          width = 6,
+          boxPad(
+            color = "green",
+            descriptionBlock(
+              header = "8390", 
+              text = "VISITS", 
+              right_border = FALSE,
+              margin_bottom = TRUE
+            ),
+            descriptionBlock(
+              header = "30%", 
+              text = "REFERRALS", 
+              right_border = FALSE,
+              margin_bottom = TRUE
+            ),
+            descriptionBlock(
+              header = "70%", 
+              text = "ORGANIC", 
+              right_border = FALSE,
+              margin_bottom = FALSE
+            )
+          )
+        )
+      )
+     )
+    ),
+    title = "Description Blocks"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+and a lot more (see the demo).

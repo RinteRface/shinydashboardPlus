@@ -122,127 +122,127 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 
 
 
-#' @title AdminLTE2 mail form
-#'
-#' @description Create a mail form
-#'
-#' @param ... message text.
-#' @param mailto person who should receive the mail.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  shinyApp(
-#'   ui = dashboardPage(
-#'     dashboardHeader(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'      box(
-#'       title = "Mail box demo",
-#'       mailForm(mailto = "dgranjon@ymail.com")
-#'      )
-#'     ),
-#'     title = "mailForm"
-#'   ),
-#'   server = function(input, output) { }
-#'  )
-#' }
-#'
-#' @export
-mailForm <- function(..., mailto = "#") {
-  shiny::tags$form(
-    action = paste0("mailto:", mailto),
-    method = "post",
-    
-    # subject input
-    shiny::tags$div(
-      class = "form-group",
-      shiny::tags$input(
-        type = "text",
-        class = "form-control",
-        name = "subject",
-        placeholder = "Subject"
-      )
-    ),
-    
-    # body
-    shiny::tags$div(
-      
-      ## mail toolbar
-      # shiny::tags$ul(
-      #   class = "wysihtml5-toolbar",
-      #   shiny::tags$li(
-      #     class = "dropdown",
-      #     shiny::tags$a(
-      #       class = "btn btn-default dropdown-toggle",
-      #       `data-toggle` = "dropdown",
-      #       `aria-expanded` = "false",
-      #       
-      #     )
-      #   )
-      # ),
-      
-      shiny::tags$textarea(
-        class = "textarea",
-        style = "width: 100%; height: 125px; font-size: 14px; line-height: 18px; 
-                 border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;",
-        placeholder = "Message"
-      ),
-      
-      shiny::tags$input(type = "hidden", name = "_wysihtml5_mode", value = "1"),
-      
-      shiny::tags$iframe(
-        class = "wysihtml5-sandbox",
-        security = "restricted",
-        allowtransparency = "true",
-        frameborder = "0",
-        width = "0",
-        height = "0",
-        marginwidth = "0",
-        marginheight = "0",
-        style = "display: inline-block; background-color: rgb(255, 255, 255); 
-                border-collapse: separate; border: 1px solid rgb(221, 221, 221); 
-                clear: none; float: none; margin: 0px; outline: rgb(51, 51, 51) none 0px; 
-                outline-offset: 0px; padding: 10px; position: static; top: auto; left: auto; 
-                right: auto; bottom: auto; z-index: auto; vertical-align: baseline; 
-                text-align: start; box-sizing: border-box; -webkit-box-shadow: none; 
-                box-shadow: none; border-top-right-radius: 0px; border-bottom-right-radius: 0px; 
-                border-bottom-left-radius: 0px; border-top-left-radius: 0px; width: 100%; height: 125px;",
-        
-        shiny::tags$html(
-          shiny::tags$body(
-            marginwidth = "0",
-            marginheight = "0",
-            class = "textarea wysihtml5-editor",
-            spellcheck = "true",
-            contenteditable = "true",
-            style = "font-variant-ligatures: normal; font-variant-caps: normal; 
-                     font-variant-east-asian: normal; font-variant-position: normal; 
-                     background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); 
-                     cursor: auto; font-family: &quot;Source Sans Pro&quot;, 
-                     &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; 
-                     font-size: 14px; font-style: normal; font-weight: normal; line-height: 18px; 
-                     letter-spacing: normal; text-align: start; text-decoration: none; text-indent: 0px; 
-                     text-rendering: auto; word-break: normal; word-wrap: break-word; word-spacing: 0px;",
-            ...
-          )
-        )
-      )
-      
-    ),
-    
-    # send button
-    shiny::tags$input(
-      type = "submit",
-      #class = "pull-right btn btn-default",
-      value = "Send"
-      #shiny::tags$i(class = "fa fa-arrow-circle-right")
-    )
-  )
-}
+# #' @title AdminLTE2 mail form
+# #'
+# #' @description Create a mail form
+# #'
+# #' @param ... message text.
+# #' @param mailto person who should receive the mail.
+# #'
+# #' @author David Granjon, \email{dgranjon@@ymail.com}
+# #'
+# #' @examples
+# #' if (interactive()) {
+# #'  library(shiny)
+# #'  library(shinydashboard)
+# #'  shinyApp(
+# #'   ui = dashboardPage(
+# #'     dashboardHeader(),
+# #'     dashboardSidebar(),
+# #'     dashboardBody(
+# #'      box(
+# #'       title = "Mail box demo",
+# #'       mailForm(mailto = "dgranjon@ymail.com")
+# #'      )
+# #'     ),
+# #'     title = "mailForm"
+# #'   ),
+# #'   server = function(input, output) { }
+# #'  )
+# #' }
+# #'
+# #' @export
+# mailForm <- function(..., mailto = "#") {
+#   shiny::tags$form(
+#     action = paste0("mailto:", mailto),
+#     method = "post",
+#     
+#     # subject input
+#     shiny::tags$div(
+#       class = "form-group",
+#       shiny::tags$input(
+#         type = "text",
+#         class = "form-control",
+#         name = "subject",
+#         placeholder = "Subject"
+#       )
+#     ),
+#     
+#     # body
+#     shiny::tags$div(
+#       
+#       ## mail toolbar
+#       # shiny::tags$ul(
+#       #   class = "wysihtml5-toolbar",
+#       #   shiny::tags$li(
+#       #     class = "dropdown",
+#       #     shiny::tags$a(
+#       #       class = "btn btn-default dropdown-toggle",
+#       #       `data-toggle` = "dropdown",
+#       #       `aria-expanded` = "false",
+#       #       
+#       #     )
+#       #   )
+#       # ),
+#       
+#       shiny::tags$textarea(
+#         class = "textarea",
+#         style = "width: 100%; height: 125px; font-size: 14px; line-height: 18px; 
+#                  border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;",
+#         placeholder = "Message"
+#       ),
+#       
+#       shiny::tags$input(type = "hidden", name = "_wysihtml5_mode", value = "1"),
+#       
+#       shiny::tags$iframe(
+#         class = "wysihtml5-sandbox",
+#         security = "restricted",
+#         allowtransparency = "true",
+#         frameborder = "0",
+#         width = "0",
+#         height = "0",
+#         marginwidth = "0",
+#         marginheight = "0",
+#         style = "display: inline-block; background-color: rgb(255, 255, 255); 
+#                 border-collapse: separate; border: 1px solid rgb(221, 221, 221); 
+#                 clear: none; float: none; margin: 0px; outline: rgb(51, 51, 51) none 0px; 
+#                 outline-offset: 0px; padding: 10px; position: static; top: auto; left: auto; 
+#                 right: auto; bottom: auto; z-index: auto; vertical-align: baseline; 
+#                 text-align: start; box-sizing: border-box; -webkit-box-shadow: none; 
+#                 box-shadow: none; border-top-right-radius: 0px; border-bottom-right-radius: 0px; 
+#                 border-bottom-left-radius: 0px; border-top-left-radius: 0px; width: 100%; height: 125px;",
+#         
+#         shiny::tags$html(
+#           shiny::tags$body(
+#             marginwidth = "0",
+#             marginheight = "0",
+#             class = "textarea wysihtml5-editor",
+#             spellcheck = "true",
+#             contenteditable = "true",
+#             style = "font-variant-ligatures: normal; font-variant-caps: normal; 
+#                      font-variant-east-asian: normal; font-variant-position: normal; 
+#                      background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); 
+#                      cursor: auto; font-family: &quot;Source Sans Pro&quot;, 
+#                      &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; 
+#                      font-size: 14px; font-style: normal; font-weight: normal; line-height: 18px; 
+#                      letter-spacing: normal; text-align: start; text-decoration: none; text-indent: 0px; 
+#                      text-rendering: auto; word-break: normal; word-wrap: break-word; word-spacing: 0px;",
+#             ...
+#           )
+#         )
+#       )
+#       
+#     ),
+#     
+#     # send button
+#     shiny::tags$input(
+#       type = "submit",
+#       #class = "pull-right btn btn-default",
+#       value = "Send"
+#       #shiny::tags$i(class = "fa fa-arrow-circle-right")
+#     )
+#   )
+# }
 
 
 

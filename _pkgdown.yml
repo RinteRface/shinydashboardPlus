@@ -1,0 +1,124 @@
+reference:
+- title: Skeleton Functions
+  desc: Page and header wrappers
+  contents: 
+  - '`dashboardPagePlus`'
+  - '`dashboardHeaderPlus`'
+
+- title: Right Sidebar
+  desc: Right sidebar elements
+  contents: 
+  - '`rightSidebar`'
+  - '`rightSidebarTabList`'
+  - '`rightSidebarTabItem`'
+  - '`rightSidebarPanel`'
+  - '`rightSidebarTabContent`'
+  - '`rightSidebarMenu`'
+  - '`rightSidebarMenuItem`'
+  - '`menuIcon`'
+  - '`menuInfo`'
+  
+- title: Box functions
+  desc: Functions that are designed to create new boxes
+  contents:
+  - '`boxPlus`'
+  - '`gradientBox`'
+  - '`widgetUserBox`'
+  - '`socialBox`'
+
+- title: Items that are internal to box function 
+  desc: do not use when developing a shiny app
+  contents:
+  - '`dropdownItem`'
+  - '`dropdownItemList`'
+  - '`dropdownDivider`'
+
+- title: Box extra elements
+  desc: Functions that are designed to be inserted inside boxes
+  contents:
+  - '`boxComment`'
+  - '`descriptionBlock`'
+  - '`boxPad`'
+  - '`userList`'
+  - '`userListItem`'
+  - '`todoList`'
+  - '`todoListItem`'
+  - '`navPills`'
+  - '`navPillsItem`'
+  - '`productList`'
+  - '`productListItem`'
+  - '`accordion`'
+  - '`accordionItem`'
+  - '`timelineBlock`'
+  - '`timelineStart`'
+  - '`timelineEnd`'
+  - '`timelineLabel`'
+  - '`timelineItem`'
+  - '`timelineItemMedia`'
+  - '`boxProfile`'
+  - '`boxProfileItemList`'
+  - '`boxProfileItem`'
+  - '`userPost`'
+  - '`userPostToolItemList`'
+  - '`userPostToolItem`'
+  - '`userPostMedia`'
+
+- title: Buttons
+  desc: new buttons (not action buttons as in shiny! Only for external or internal link)
+  contents:
+  - '`appButton`'
+  - '`socialButton`'
+
+- title: Extra elements
+  desc: Elements to be placed everywhere
+  contents:
+  - '`loadingState`'
+  - '`blockQuote`'
+  - '`dashboardLabel`'
+  - '`starBlock`'
+  - '`attachmentBlock`'
+  - '`verticalProgress`'
+  
+- title: The Gallery
+  desc: a showcase for shinydashboardPlus
+  contents:
+  - '`shinydashboardPlusGallery`'
+  
+  
+template:
+  params:
+    bootswatch: journal
+    
+    
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/DivadNojnarg/bs4Dash
+      
+      
+articles:
+- title: All vignettes
+  desc: ~
+  contents:
+  - '`rightSidebar`'
+  - '`improved-boxes`'
+    

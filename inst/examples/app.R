@@ -9,7 +9,7 @@ library(shinyWidgets)
 shinyApp(
   ui = dashboardPagePlus(
     dashboardHeaderPlus(
-      title = "shinyDashboardPlus",
+      title = "shinydashboardPlus",
       enable_rightsidebar = TRUE,
       rightSidebarIcon = "bars"
     ),
