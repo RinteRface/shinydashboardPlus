@@ -2,6 +2,7 @@ pandoc: 1.19.2.1
 pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
+  box-elements: box-elements.html
   improved-boxes: improved-boxes.html
   rightSidebar: rightSidebar.html
 
