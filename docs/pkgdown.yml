@@ -3,6 +3,7 @@ pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
   box-elements: box-elements.html
+  extra-css-effects: extra-css-effects.html
   improved-boxes: improved-boxes.html
   rightSidebar: rightSidebar.html
 

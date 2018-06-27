@@ -1,10 +1,12 @@
 ## shinydashboardPlus V0.3
+- new function setShadow to set shadow and hover effects on any elements
 - new dropdown menu for boxPlus: add dropdownItemList, dropdownItem and dropdownDivider functions (see shinydashboardPlusGallery)
 - new functions in the rightSidebar: rightSidebarMenu, rightSidebarMenuItem, menuIcon
 and menuInfo (see shinydashboardPlusGallery)
 - new verticalProgress bars!
 - add an active argument to rightSidebarTabItem and rightSidebarTabContent: see [#4](https://github.com/DivadNojnarg/shinydashboardPlus/issues/4)
 - add width and height args to timelineItemMedia and userPostMedia
+- add a sidebar_background argument to dashboardPagePlus
 - add cran downloads to readme
 - change argument name in dropdownItem (boxPlus): target is replaced by url.
 - add a pkgdown website

@@ -11,6 +11,8 @@
 #' @param skin A color theme. One of \code{"blue"}, \code{"black"},
 #'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
 #' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by default.
+#' @param sidebar_background Main sidebar background color: either "light" or NULL.
+#' NULL by default.
 #'
 #' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link{dashboardSidebar}},
 #'   \code{\link{dashboardBody}}.
@@ -33,9 +35,10 @@
 #' }
 #' @export
 dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title = NULL,
-                          skin = c("blue", "blue-light","black","black-light", "purple","purple-light", "green","green-light",
-                                   "red","red-light", "yellow","yellow-light"),
-                          collapse_sidebar = FALSE) {
+                              skin = c("blue", "blue-light","black","black-light", 
+                                       "purple","purple-light", "green","green-light",
+                                       "red","red-light", "yellow","yellow-light"),
+                              collapse_sidebar = FALSE, sidebar_background = NULL) {
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
@@ -60,11 +63,16 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
   title <- title %OR% extractTitle(header)
   
   content <- shiny::tags$div(class = "wrapper",
-                 header, sidebar, body, rightsidebar)
+                             header, sidebar, body, rightsidebar)
   
   addDeps(
     shiny::tags$body(
-      class = paste0("hold-transition skin-", skin, " sidebar-mini", ifelse(collapse_sidebar," sidebar-collapse","")),
+      class = paste0(
+        "hold-transition skin-", skin, 
+        if (!is.null(sidebar_background)) paste0("-", sidebar_background), 
+        " sidebar-mini", 
+        ifelse(collapse_sidebar," sidebar-collapse","")
+      ),
       style = "min-height: 611px;",
       shiny::bootstrapPage(content, title = title)
     )

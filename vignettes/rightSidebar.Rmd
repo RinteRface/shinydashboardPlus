@@ -11,10 +11,10 @@ vignette: >
 
 ## The rightSidebar
 
-The most interesting feature of this package is the **rightSidebar**. This concept was
+The most interesting feature of this package is the `rightSidebar()`. This concept was
 not implemented (in R) in ygdashboard (pure HTML), that's why I translated 
-the corresponding HTML code to R. To use it, you will have to replace **dashboardPage**
-by **dashboardPagePlus** and **dashboardHeader** by **dashboardHeaderPlus**. Creating this
+the corresponding HTML code to R. To use it, you will have to replace `dashboardPage()`
+by `dashboardPagePlus()` and `dashboardHeader()` by `dashboardHeaderPlus()`. Creating this
 two additional functions let you choose whether you want to use this extra sidebar or not.
 
 The template below will create the most basic shinydashboardPlus page:
@@ -41,12 +41,12 @@ shinyApp(
 The rightSidebar function takes the following arguments:
 
 - background: you can display it either in light or dark mode
-- rightSidebarTabList() will create a menu for your tabPanels. Populate it with
-rightSidebarTabItem(), with a **unique id** and icons
-- rightSidebarPanel is the body of your panels. Fill it with rightSidebarTabContent(),
-which id should be the same as in the rightSidebarTabItem(). You can include inputs,
+- `rightSidebarTabList()` will create a menu for your tabPanels. Populate it with
+`rightSidebarTabItem()`, with a **unique id** and icons
+- `rightSidebarPanel()` is the body of your panels. Fill it with `rightSidebarTabContent()`,
+which id should be the same as in the `rightSidebarTabItem()`. You can include inputs,
 text or custom HTML elements.
-- in the **dashboardHeaderPlus()** function, you can customize the sidebar trigger.
+- in the `dashboardHeaderPlus()` function, you can customize the sidebar trigger.
 
 ```r
 rightSidebar(
@@ -90,6 +90,6 @@ rightSidebar(
 )
 ```
 
-**WARNINGS**: there is a limitation of a maximum of **5** rightSidebarTabItem() in the
-rightSidebarTabList()! This makes sense since above, the rightSidebar would not
+**WARNINGS**: there is a limitation of a maximum of **5** `rightSidebarTabItem()` in the
+`rightSidebarTabList()`! This makes sense since above, the rightSidebar would not
 be easy to use.

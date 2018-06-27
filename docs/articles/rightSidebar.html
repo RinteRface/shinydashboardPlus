@@ -55,6 +55,9 @@
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
+      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
+    </li>
+    <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
     <li>
@@ -100,7 +103,7 @@
 <div id="the-rightsidebar" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-rightsidebar" class="anchor"></a>The rightSidebar</h2>
-<p>The most interesting feature of this package is the <strong>rightSidebar</strong>. This concept was not implemented (in R) in ygdashboard (pure HTML), that’s why I translated the corresponding HTML code to R. To use it, you will have to replace <strong>dashboardPage</strong> by <strong>dashboardPagePlus</strong> and <strong>dashboardHeader</strong> by <strong>dashboardHeaderPlus</strong>. Creating this two additional functions let you choose whether you want to use this extra sidebar or not.</p>
+<p>The most interesting feature of this package is the <code><a href="../reference/rightSidebar.html">rightSidebar()</a></code>. This concept was not implemented (in R) in ygdashboard (pure HTML), that’s why I translated the corresponding HTML code to R. To use it, you will have to replace <code><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardPage">dashboardPage()</a></code> by <code><a href="../reference/dashboardPagePlus.html">dashboardPagePlus()</a></code> and <code><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader">dashboardHeader()</a></code> by <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code>. Creating this two additional functions let you choose whether you want to use this extra sidebar or not.</p>
 <p>The template below will create the most basic shinydashboardPlus page:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
 <span class="kw">library</span>(shinydashboard)
@@ -121,9 +124,11 @@
 <p>The rightSidebar function takes the following arguments:</p>
 <ul>
 <li>background: you can display it either in light or dark mode</li>
-<li>rightSidebarTabList() will create a menu for your tabPanels. Populate it with rightSidebarTabItem(), with a <strong>unique id</strong> and icons</li>
-<li>rightSidebarPanel is the body of your panels. Fill it with rightSidebarTabContent(), which id should be the same as in the rightSidebarTabItem(). You can include inputs, text or custom HTML elements.</li>
-<li>in the <strong>dashboardHeaderPlus()</strong> function, you can customize the sidebar trigger.</li>
+<li>
+<code><a href="../reference/rightSidebarTabList.html">rightSidebarTabList()</a></code> will create a menu for your tabPanels. Populate it with <code><a href="../reference/rightSidebarTabItem.html">rightSidebarTabItem()</a></code>, with a <strong>unique id</strong> and icons</li>
+<li>
+<code>rightSidebarPanel()</code> is the body of your panels. Fill it with <code><a href="../reference/rightSidebarTabContent.html">rightSidebarTabContent()</a></code>, which id should be the same as in the <code><a href="../reference/rightSidebarTabItem.html">rightSidebarTabItem()</a></code>. You can include inputs, text or custom HTML elements.</li>
+<li>in the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> function, you can customize the sidebar trigger.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(
  <span class="dt">background =</span> <span class="st">"dark"</span>,
@@ -164,7 +169,7 @@
    )
   )
 )</code></pre></div>
-<p><strong>WARNINGS</strong>: there is a limitation of a maximum of <strong>5</strong> rightSidebarTabItem() in the rightSidebarTabList()! This makes sense since above, the rightSidebar would not be easy to use.</p>
+<p><strong>WARNINGS</strong>: there is a limitation of a maximum of <strong>5</strong> <code><a href="../reference/rightSidebarTabItem.html">rightSidebarTabItem()</a></code> in the <code><a href="../reference/rightSidebarTabList.html">rightSidebarTabList()</a></code>! This makes sense since above, the rightSidebar would not be easy to use.</p>
 </div>
   </div>
 

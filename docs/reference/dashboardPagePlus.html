@@ -87,6 +87,9 @@
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
+      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
+    </li>
+    <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
     <li>
@@ -132,7 +135,7 @@
     <pre class="usage"><span class='fu'>dashboardPagePlus</span>(<span class='no'>header</span>, <span class='no'>sidebar</span>, <span class='no'>body</span>, <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>skin</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"blue"</span>, <span class='st'>"blue-light"</span>, <span class='st'>"black"</span>, <span class='st'>"black-light"</span>, <span class='st'>"purple"</span>,
   <span class='st'>"purple-light"</span>, <span class='st'>"green"</span>, <span class='st'>"green-light"</span>, <span class='st'>"red"</span>, <span class='st'>"red-light"</span>, <span class='st'>"yellow"</span>,
-  <span class='st'>"yellow-light"</span>), <span class='kw'>collapse_sidebar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='st'>"yellow-light"</span>), <span class='kw'>collapse_sidebar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sidebar_background</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,6 +169,11 @@ provided, it will try to extract the title from the <code>dashboardHeaderPlus</c
     <tr>
       <th>collapse_sidebar</th>
       <td><p>Whether to collapse the left sidebar. TRUE by default.</p></td>
+    </tr>
+    <tr>
+      <th>sidebar_background</th>
+      <td><p>Main sidebar background color: either "light" or NULL.
+NULL by default.</p></td>
     </tr>
     </table>
     

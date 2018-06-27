@@ -1,0 +1,112 @@
+---
+title: "Extra CSS effects"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+With **shinydashboardPlus**, you will be able to customize the style of any elements.
+
+## Set shadows and hover effects
+
+Use the `setShadow()` function as shown below.
+
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/shadow.mp4" type="video/mp4">
+</video>
+
+<br>
+
+```r
+  library(shiny)
+  library(shinyWidgets)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+  
+  shinyApp(
+   ui = dashboardPagePlus(
+     header = dashboardHeaderPlus(
+       enable_rightsidebar = TRUE,
+       rightSidebarIcon = "gears"
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(
+      tags$h2("Add shadow and hover interactions to any element"),
+
+      setShadow("box"),
+      setShadow("info-box"),
+      setShadow("progress"),
+ 
+      fluidRow(
+       boxPlus(
+         title = "Closable Box with dropdown",
+         closable = TRUE,
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         enable_dropdown = TRUE,
+         dropdown_icon = "wrench",
+         dropdown_menu = dropdownItemList(
+           dropdownItem(url = "http://www.google.com", name = "Link to google"),
+           dropdownItem(url = "#", name = "item 2"),
+           dropdownDivider(),
+           dropdownItem(url = "#", name = "item 3")
+         ),
+         p("Box Content")
+       ),
+       boxPlus(
+         title = "Closable box, with label",
+         closable = TRUE,
+         enable_label = TRUE,
+         label_text = 1,
+         label_status = "danger",
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         p("Box Content")
+       )
+      ),
+      fluidRow(
+       infoBox(
+       "Orders",
+       "50",
+       "Subtitle", icon = icon("credit-card")
+       )
+      ),
+      fluidRow(
+       verticalProgress(
+        value = 10,
+        striped = TRUE,
+        active = TRUE
+       ),
+       verticalProgress(
+         value = 50,
+         active = TRUE,
+         status = "warning",
+         size = "xs"
+       ),
+       verticalProgress(
+         value = 20,
+         status = "danger",
+         size = "sm",
+         height = "60%"
+       )
+      )
+     ),
+     rightsidebar = rightSidebar(),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+  )
+```

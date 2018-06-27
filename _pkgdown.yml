@@ -78,6 +78,11 @@ reference:
   - '`starBlock`'
   - '`attachmentBlock`'
   - '`verticalProgress`'
+
+- title: CSS effects
+  desc: Pimp your app
+  contents:
+  - '`setShadow`'
   
 - title: The Gallery
   desc: a showcase for shinydashboardPlus
@@ -122,4 +127,5 @@ articles:
   - '`rightSidebar`'
   - '`improved-boxes`'
   - '`box-elements`'
+  - '``extra-css-effects'
     

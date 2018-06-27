@@ -7,7 +7,7 @@
 dashboardPagePlus(header, sidebar, body, rightsidebar = NULL, title = NULL,
   skin = c("blue", "blue-light", "black", "black-light", "purple",
   "purple-light", "green", "green-light", "red", "red-light", "yellow",
-  "yellow-light"), collapse_sidebar = FALSE)
+  "yellow-light"), collapse_sidebar = FALSE, sidebar_background = NULL)
 }
 \arguments{
 \item{header}{A header created by \code{dashboardHeaderPlus}.}
@@ -25,6 +25,9 @@ provided, it will try to extract the title from the \code{dashboardHeaderPlus}.}
 \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.}
 
 \item{collapse_sidebar}{Whether to collapse the left sidebar. TRUE by default.}
+
+\item{sidebar_background}{Main sidebar background color: either "light" or NULL.
+NULL by default.}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.

@@ -11,6 +11,12 @@ vignette: >
 
 ## Improved boxes
 
+With **shinydashboardPlus**, you can add labels and dropdown menus to your
+boxes. You just have to use `boxPlus()` instead of `box()` from **shinydashboard**.
+
+There are also other boxes such as `gradientBox()`, `socialBox()` as well as
+`widgetUserBox()`, to help you making outstanding shiny apps.
+
 ### boxPlus
 
 ![](figures/boxPlus.png)
