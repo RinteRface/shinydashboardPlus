@@ -52,6 +52,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/box-elements.html">Box Elements</a>
+    </li>
+    <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
     <li>
@@ -85,7 +88,7 @@
       <h1>Improved boxes</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2018-06-26</h4>
+            <h4 class="date">2018-06-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/DivadNojnarg/shinydashboardPlus/blob/master/vignettes/improved-boxes.Rmd"><code>vignettes/improved-boxes.Rmd</code></a></small>
       <div class="hidden name"><code>improved-boxes.Rmd</code></div>
@@ -100,6 +103,7 @@
 <div id="boxplus" class="section level3">
 <h3 class="hasAnchor">
 <a href="#boxplus" class="anchor"></a>boxPlus</h3>
+<p><img src="figures/boxPlus.png"><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
 <span class="kw">library</span>(shinydashboard)
 <span class="kw">library</span>(shinydashboardPlus)
@@ -138,6 +142,7 @@
 <div id="gradientbox" class="section level3">
 <h3 class="hasAnchor">
 <a href="#gradientbox" class="anchor"></a>gradientBox</h3>
+<p><img src="figures/gradientBox.png"><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
  <span class="kw">library</span>(shinydashboard)
  <span class="kw">library</span>(shinydashboardPlus)
@@ -177,6 +182,7 @@
 <div id="widgetuserbox" class="section level3">
 <h3 class="hasAnchor">
 <a href="#widgetuserbox" class="anchor"></a>widgetUserBox</h3>
+<p><img src="figures/widgetUserBox.png"><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(shiny)
  <span class="kw">library</span>(shinydashboard)
  <span class="kw">library</span>(shinydashboardPlus)
@@ -225,6 +231,7 @@
 <div id="socialbox" class="section level3">
 <h3 class="hasAnchor">
 <a href="#socialbox" class="anchor"></a>socialBox</h3>
+<p><img src="figures/socialBox.png"><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
  <span class="kw">library</span>(shinydashboard)
  <span class="kw">library</span>(shinydashboardPlus)
@@ -268,110 +275,6 @@
  )</code></pre></div>
 </div>
 </div>
-<div id="boxes-components" class="section level2">
-<h2 class="hasAnchor">
-<a href="#boxes-components" class="anchor"></a>Boxes components</h2>
-<div id="descriptionblock" class="section level3">
-<h3 class="hasAnchor">
-<a href="#descriptionblock" class="anchor"></a>descriptionBlock</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(shiny)
- <span class="kw">library</span>(shinydashboard)
- <span class="kw">library</span>(shinydashboardPlus)
- 
- <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(
-  <span class="dt">ui =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardPage">dashboardPage</a></span>(
-    <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader">dashboardHeader</a></span>(),
-    <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),
-    <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(
-     <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/box">box</a></span>(
-      <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
-      <span class="dt">title =</span> <span class="st">"Status summary"</span>,
-      <span class="dt">background =</span> <span class="ot">NULL</span>,
-      <span class="dt">width =</span> <span class="dv">4</span>,
-      <span class="dt">status =</span> <span class="st">"danger"</span>,
-      <span class="dt">footer =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
-        <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/column">column</a></span>(
-          <span class="dt">width =</span> <span class="dv">6</span>,
-          <span class="kw"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-            <span class="dt">number =</span> <span class="st">"17%"</span>, 
-            <span class="dt">number_color =</span> <span class="st">"green"</span>, 
-            <span class="dt">number_icon =</span> <span class="st">"fa fa-caret-up"</span>,
-            <span class="dt">header =</span> <span class="st">"$35,210.43"</span>, 
-            <span class="dt">text =</span> <span class="st">"TOTAL REVENUE"</span>, 
-            <span class="dt">right_border =</span> <span class="ot">TRUE</span>,
-            <span class="dt">margin_bottom =</span> <span class="ot">FALSE</span>
-          )
-        ),
-        <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/column">column</a></span>(
-          <span class="dt">width =</span> <span class="dv">6</span>,
-          <span class="kw"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-            <span class="dt">number =</span> <span class="st">"18%"</span>, 
-            <span class="dt">number_color =</span> <span class="st">"red"</span>, 
-            <span class="dt">number_icon =</span> <span class="st">"fa fa-caret-down"</span>,
-            <span class="dt">header =</span> <span class="st">"1200"</span>, 
-            <span class="dt">text =</span> <span class="st">"GOAL COMPLETION"</span>, 
-            <span class="dt">right_border =</span> <span class="ot">FALSE</span>,
-            <span class="dt">margin_bottom =</span> <span class="ot">FALSE</span>
-          )
-        )
-      )
-     )
-    ),
-    <span class="dt">title =</span> <span class="st">"Description Blocks"</span>
-  ),
-  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
- )</code></pre></div>
-</div>
-<div id="boxpad" class="section level3">
-<h3 class="hasAnchor">
-<a href="#boxpad" class="anchor"></a>boxPad</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(shiny)
- <span class="kw">library</span>(shinydashboard)
- <span class="kw">library</span>(shinydashboardPlus)
- 
- <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(
-  <span class="dt">ui =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardPage">dashboardPage</a></span>(
-    <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader">dashboardHeader</a></span>(),
-    <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),
-    <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(
-     <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/box">box</a></span>(<span class="dt">title =</span> <span class="st">"Box with right pad"</span>,
-      <span class="dt">status =</span> <span class="st">"warning"</span>,
-      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
-        <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/column">column</a></span>(<span class="dt">width =</span> <span class="dv">6</span>),
-        <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/column">column</a></span>(
-          <span class="dt">width =</span> <span class="dv">6</span>,
-          <span class="kw"><a href="../reference/boxPad.html">boxPad</a></span>(
-            <span class="dt">color =</span> <span class="st">"green"</span>,
-            <span class="kw"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-              <span class="dt">header =</span> <span class="st">"8390"</span>, 
-              <span class="dt">text =</span> <span class="st">"VISITS"</span>, 
-              <span class="dt">right_border =</span> <span class="ot">FALSE</span>,
-              <span class="dt">margin_bottom =</span> <span class="ot">TRUE</span>
-            ),
-            <span class="kw"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-              <span class="dt">header =</span> <span class="st">"30%"</span>, 
-              <span class="dt">text =</span> <span class="st">"REFERRALS"</span>, 
-              <span class="dt">right_border =</span> <span class="ot">FALSE</span>,
-              <span class="dt">margin_bottom =</span> <span class="ot">TRUE</span>
-            ),
-            <span class="kw"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-              <span class="dt">header =</span> <span class="st">"70%"</span>, 
-              <span class="dt">text =</span> <span class="st">"ORGANIC"</span>, 
-              <span class="dt">right_border =</span> <span class="ot">FALSE</span>,
-              <span class="dt">margin_bottom =</span> <span class="ot">FALSE</span>
-            )
-          )
-        )
-      )
-     )
-    ),
-    <span class="dt">title =</span> <span class="st">"Description Blocks"</span>
-  ),
-  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
- )</code></pre></div>
-<p>and a lot more (see the demo).</p>
-</div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -380,7 +283,6 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#improved-boxes">Improved boxes</a></li>
-      <li><a href="#boxes-components">Boxes components</a></li>
       </ul>
 </div>
       </div>
