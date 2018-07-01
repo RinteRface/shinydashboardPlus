@@ -14,7 +14,7 @@ Description: Extend 'shinydashboard' with 'AdminLTE2' components.
 License: GPL-2
 Imports: shiny, shinydashboard, htmltools
 Suggests:
-    styler,
+    styler (>= 1.0.2),
     shinyAce,
     shinyWidgets,
     shinyjqui,
