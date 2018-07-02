@@ -9,9 +9,6 @@ reference:
   desc: Right sidebar elements
   contents: 
   - '`rightSidebar`'
-  - '`rightSidebarTabList`'
-  - '`rightSidebarTabItem`'
-  - '`rightSidebarPanel`'
   - '`rightSidebarTabContent`'
   - '`rightSidebarMenu`'
   - '`rightSidebarMenuItem`'

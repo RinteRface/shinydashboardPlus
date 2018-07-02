@@ -7,6 +7,9 @@
 #' @param background background color: "dark" or "light".
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @note Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
+#' support more items.
 #'
 #' @examples
 #' if (interactive()) {
@@ -22,41 +25,27 @@
 #'      body = dashboardBody(),
 #'      rightsidebar = rightSidebar(
 #'       background = "dark",
-#'        rightSidebarTabList(
-#'         rightSidebarTabItem(
-#'          id = 1,
-#'          icon = "desktop",
-#'          active = TRUE
-#'         ),
-#'         rightSidebarTabItem(
-#'          id = 2
-#'         ),
-#'         rightSidebarTabItem(
-#'          id = 3,
-#'          icon = "paint-brush"
-#'         )
+#'        rightSidebarTabContent(
+#'         id = 1,
+#'         icon = "desktop",
+#'         title = "Tab 1",
+#'         active = TRUE,
+#'         sliderInput(
+#'          "obs", 
+#'          "Number of observations:",
+#'           min = 0, max = 1000, value = 500
+#'          )
 #'        ),
-#'        rigthSidebarPanel(
-#'         rightSidebarTabContent(
-#'          id = 1,
-#'          title = "Tab 1",
-#'          active = TRUE,
-#'          sliderInput(
-#'           "obs", 
-#'           "Number of observations:",
-#'            min = 0, max = 1000, value = 500
-#'           )
-#'         ),
-#'         rightSidebarTabContent(
-#'          id = 2,
-#'          title = "Tab 2",
-#'          textInput("caption", "Caption", "Data Summary")
-#'         ),
-#'         rightSidebarTabContent(
-#'          id = 3,
-#'          title = "Tab 3",
-#'          numericInput("obs", "Observations:", 10, min = 1, max = 100)
-#'         )
+#'        rightSidebarTabContent(
+#'         id = 2,
+#'         title = "Tab 2",
+#'         textInput("caption", "Caption", "Data Summary")
+#'        ),
+#'        rightSidebarTabContent(
+#'         id = 3,
+#'         title = "Tab 3",
+#'         icon = "paint-brush",
+#'         numericInput("obs", "Observations:", 10, min = 1, max = 100)
 #'        )
 #'      ),
 #'      title = "Right Sidebar"
@@ -70,7 +59,10 @@ rightSidebar <- function(..., background = "dark") {
     id = "right_sidebar",
     shiny::tags$aside(
       class = paste0("control-sidebar control-sidebar-", background),
-      ...
+      
+      # automatically create the tab menu
+      rightSidebarTabList(rigthSidebarPanel(...)),
+      rigthSidebarPanel(...)
     ),
     # Add the sidebar background. This div must be placed
     # immediately after the control sidebar
@@ -84,15 +76,33 @@ rightSidebar <- function(..., background = "dark") {
 #'
 #' This creates a right sidebar tab list.
 #' 
-#' @param ... slot for rightSidebarTabItem.
+#' @param ... slot that takes all rightSidebarTabContent as input to automatically
+#' generate the same number of items in the tab menu with corresponding icons,
+#' ids, ...
 #' 
-#' @note Until a maximum of 5 rightSidebarTabItem!
-#' 
-#' @export
 rightSidebarTabList <- function(...) {
+  
+  tabItems <- list(...)
+  tabItems <- tabItems[[1]]$children
+  len <- length(tabItems)
+  
+  # generate tab items based on panel items
+  tabItemList <- lapply(1:len, FUN = function(i) {
+
+    item <- tabItems[[i]]
+    id <- item$attribs$id
+    id <- gsub(x = id, pattern = "control-sidebar-", replacement = "")
+    id <- gsub(x = id, pattern = "-tab", replacement = "")
+    active <- sum(grep(x = item$attribs$class, pattern = "active")) == 1
+    icon <- item$attribs$icon
+
+    rightSidebarTabItem(id = id, icon = icon, active = active)
+  })
+
+  # put everything inside the container
   shiny::tags$ul(
     class = "nav nav-tabs nav-justified control-sidebar-tabs",
-    ...
+    tabItemList
   )
 }
 
@@ -101,12 +111,11 @@ rightSidebarTabList <- function(...) {
 #'
 #' This creates a right sidebar tab item to be inserted in a rightSidebarTabList.
 #' 
-#' @param id unique item id. If id = 1, the tab is set to active.
+#' @param id unique item id.
 #' @param icon tab icon.
-#' @param active whether the tab item is active or not. FALSE by default.
+#' @param active Whether the tab item is active or not.
 #' 
-#' @export
-rightSidebarTabItem <- function(id, icon = "database", active = FALSE) {
+rightSidebarTabItem <- function(id, icon, active) {
   
   stopifnot(!is.null(id))
   
@@ -127,7 +136,6 @@ rightSidebarTabItem <- function(id, icon = "database", active = FALSE) {
 #' 
 #' @param ... slot for rightSidebarTabContent.
 #' 
-#' @export
 rigthSidebarPanel <- function(...) {
   shiny::tags$div(
     class = "tab-content",
@@ -140,18 +148,21 @@ rigthSidebarPanel <- function(...) {
 #' This creates a wrapper that will contain rightSidebarTabContent.
 #' 
 #' @param ... any element such as sliderInput, ...
-#' @param id should correspond to the id given in rightSidebarTabItem.
+#' @param id should be unique.
 #' @param title content title.
 #' @param active whether the tab content is active or not. FALSE by default.
+#' @param icon tab icon.
 #' 
 #' @export
-rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE) {
+rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE,
+                                   icon = "database") {
   
   stopifnot(!is.null(id))
   
   shiny::tags$div(
     class = if (isTRUE(active)) "tab-pane active" else "tab-pane", 
     id = paste0("control-sidebar-", id, "-tab"),
+    icon = icon,
     shiny::tags$h3(class = "control-sidebar-heading", title),
     ...
   )
@@ -182,58 +193,44 @@ rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE) {
 #'      body = dashboardBody(),
 #'      rightsidebar = rightSidebar(
 #'        background = "dark",
-#'        rightSidebarTabList(
-#'          rightSidebarTabItem(
-#'            id = 1,
-#'            icon = "desktop",
-#'            active = TRUE
-#'          ),
-#'          rightSidebarTabItem(
-#'            id = 2
-#'          ),
-#'          rightSidebarTabItem(
-#'            id = 3,
-#'            icon = "paint-brush"
+#'        rightSidebarTabContent(
+#'          id = 1,
+#'          icon = "desktop",
+#'          title = "Tab 1",
+#'          active = TRUE,
+#'          rightSidebarMenu(
+#'           rightSidebarMenuItem(
+#'            icon = menuIcon(
+#'             name = "birthday-cake",
+#'             color = "red"
+#'            ),
+#'            info = menuInfo(
+#'             title = "Langdon's Birthday",
+#'             description = "Will be 23 on April 24th"
+#'            )
+#'           ),
+#'           rightSidebarMenuItem(
+#'            icon = menuIcon(
+#'             name = "user",
+#'             color = "yellow"
+#'            ),
+#'            info = menuInfo(
+#'             title = "Frodo Updated His Profile",
+#'             description = "New phone +1(800)555-1234"
+#'            )
+#'           )
 #'          )
 #'        ),
-#'        rigthSidebarPanel(
-#'          rightSidebarTabContent(
-#'            id = 1,
-#'            title = "Tab 1",
-#'            active = TRUE,
-#'            rightSidebarMenu(
-#'             rightSidebarMenuItem(
-#'              icon = menuIcon(
-#'               name = "birthday-cake",
-#'               color = "red"
-#'              ),
-#'              info = menuInfo(
-#'               title = "Langdon's Birthday",
-#'               description = "Will be 23 on April 24th"
-#'              )
-#'             ),
-#'             rightSidebarMenuItem(
-#'              icon = menuIcon(
-#'               name = "user",
-#'               color = "yellow"
-#'              ),
-#'              info = menuInfo(
-#'               title = "Frodo Updated His Profile",
-#'               description = "New phone +1(800)555-1234"
-#'              )
-#'             )
-#'            )
-#'          ),
-#'          rightSidebarTabContent(
-#'            id = 2,
-#'            title = "Tab 2",
-#'            textInput("caption", "Caption", "Data Summary")
-#'          ),
-#'          rightSidebarTabContent(
-#'            id = 3,
-#'            title = "Tab 3",
-#'            numericInput("obs", "Observations:", 10, min = 1, max = 100)
-#'          )
+#'        rightSidebarTabContent(
+#'          id = 2,
+#'          title = "Tab 2",
+#'          textInput("caption", "Caption", "Data Summary")
+#'        ),
+#'        rightSidebarTabContent(
+#'          id = 3,
+#'          icon = "paint-brush",
+#'          title = "Tab 3",
+#'          numericInput("obs", "Observations:", 10, min = 1, max = 100)
 #'        )
 #'      ),
 #'      title = "Right Sidebar"

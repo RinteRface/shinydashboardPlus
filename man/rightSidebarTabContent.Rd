@@ -4,16 +4,19 @@
 \alias{rightSidebarTabContent}
 \title{AdminLTE2 tab content}
 \usage{
-rightSidebarTabContent(..., id, title = NULL, active = FALSE)
+rightSidebarTabContent(..., id, title = NULL, active = FALSE,
+  icon = "database")
 }
 \arguments{
 \item{...}{any element such as sliderInput, ...}
 
-\item{id}{should correspond to the id given in rightSidebarTabItem.}
+\item{id}{should be unique.}
 
 \item{title}{content title.}
 
 \item{active}{whether the tab content is active or not. FALSE by default.}
+
+\item{icon}{tab icon.}
 }
 \description{
 This creates a wrapper that will contain rightSidebarTabContent.

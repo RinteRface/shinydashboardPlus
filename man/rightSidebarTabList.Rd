@@ -7,11 +7,10 @@
 rightSidebarTabList(...)
 }
 \arguments{
-\item{...}{slot for rightSidebarTabItem.}
+\item{...}{slot that takes all rightSidebarTabContent as input to automatically
+generate the same number of items in the tab menu with corresponding icons,
+ids, ...}
 }
 \description{
 This creates a right sidebar tab list.
-}
-\note{
-Until a maximum of 5 rightSidebarTabItem!
 }

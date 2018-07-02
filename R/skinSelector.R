@@ -20,39 +20,24 @@
 # #'      body = dashboardBody(),
 # #'      rightsidebar = rightSidebar(
 # #'       background = "dark",
-# #'        rightSidebarTabList(
-# #'         rightSidebarTabItem(
-# #'          id = 1,
-# #'          icon = "desktop"
-# #'         ),
-# #'         rightSidebarTabItem(
-# #'          id = 2
-# #'         ),
-# #'         rightSidebarTabItem(
-# #'          id = 3,
-# #'          icon = "paint-brush"
+# #'        rightSidebarTabContent(
+# #'         id = 1,
+# #'         title = "Tab 1",
+# #'         skinSelector(
+# #'          skinSelectorItem(color = "red"),
+# #'          skinSelectorItem(color = "green"),
+# #'          skinSelectorItem(color = "yellow-light")
 # #'         )
 # #'        ),
-# #'        rigthSidebarPanel(
-# #'         rightSidebarTabContent(
-# #'          id = 1,
-# #'          title = "Tab 1",
-# #'          skinSelector(
-# #'           skinSelectorItem(color = "red"),
-# #'           skinSelectorItem(color = "green"),
-# #'           skinSelectorItem(color = "yellow-light")
-# #'          )
-# #'         ),
-# #'         rightSidebarTabContent(
-# #'          id = 2,
-# #'          title = "Tab 2",
-# #'          textInput("caption", "Caption", "Data Summary")
-# #'         ),
-# #'         rightSidebarTabContent(
-# #'          id = 3,
-# #'          title = "Tab 3",
-# #'          numericInput("obs", "Observations:", 10, min = 1, max = 100)
-# #'         )
+# #'        rightSidebarTabContent(
+# #'         id = 2,
+# #'         title = "Tab 2",
+# #'         textInput("caption", "Caption", "Data Summary")
+# #'        ),
+# #'        rightSidebarTabContent(
+# #'         id = 3,
+# #'         title = "Tab 3",
+# #'         numericInput("obs", "Observations:", 10, min = 1, max = 100)
 # #'        )
 # #'      ),
 # #'      title = "Right Sidebar"

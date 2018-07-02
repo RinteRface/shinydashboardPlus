@@ -148,6 +148,11 @@ rightSidebarTabItem, rigthSidebarPanel and rightSidebarTabContent.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
+support more items.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'>interactive</span>()) {
@@ -163,41 +168,27 @@ rightSidebarTabItem, rigthSidebarPanel and rightSidebarTabContent.</p></td>
      <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(),
      <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='fu'>rightSidebar</span>(
       <span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"dark"</span>,
-       <span class='fu'><a href='rightSidebarTabList.html'>rightSidebarTabList</a></span>(
-        <span class='fu'><a href='rightSidebarTabItem.html'>rightSidebarTabItem</a></span>(
-         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-         <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"desktop"</span>,
-         <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-        ),
-        <span class='fu'><a href='rightSidebarTabItem.html'>rightSidebarTabItem</a></span>(
-         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>
-        ),
-        <span class='fu'><a href='rightSidebarTabItem.html'>rightSidebarTabItem</a></span>(
-         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-         <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"paint-brush"</span>
-        )
+       <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
+        <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+        <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"desktop"</span>,
+        <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 1"</span>,
+        <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+        <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/sliderInput'>sliderInput</a></span>(
+         <span class='st'>"obs"</span>,
+         <span class='st'>"Number of observations:"</span>,
+          <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
+         )
        ),
-       <span class='fu'><a href='rigthSidebarPanel.html'>rigthSidebarPanel</a></span>(
-        <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
-         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 1"</span>,
-         <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-         <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/sliderInput'>sliderInput</a></span>(
-          <span class='st'>"obs"</span>,
-          <span class='st'>"Number of observations:"</span>,
-           <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
-          )
-        ),
-        <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
-         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 2"</span>,
-         <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/textInput'>textInput</a></span>(<span class='st'>"caption"</span>, <span class='st'>"Caption"</span>, <span class='st'>"Data Summary"</span>)
-        ),
-        <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
-         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 3"</span>,
-         <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/numericInput'>numericInput</a></span>(<span class='st'>"obs"</span>, <span class='st'>"Observations:"</span>, <span class='fl'>10</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
-        )
+       <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
+        <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+        <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 2"</span>,
+        <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/textInput'>textInput</a></span>(<span class='st'>"caption"</span>, <span class='st'>"Caption"</span>, <span class='st'>"Data Summary"</span>)
+       ),
+       <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
+        <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+        <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 3"</span>,
+        <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"paint-brush"</span>,
+        <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/numericInput'>numericInput</a></span>(<span class='st'>"obs"</span>, <span class='st'>"Observations:"</span>, <span class='fl'>10</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
        )
      ),
      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Right Sidebar"</span>
@@ -210,7 +201,9 @@ rightSidebarTabItem, rigthSidebarPanel and rightSidebarTabContent.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#note">Note</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

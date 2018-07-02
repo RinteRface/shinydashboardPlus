@@ -34,41 +34,27 @@ shinyApp(
     ),
     rightsidebar = rightSidebar(
       background = "dark",
-      rightSidebarTabList(
-        rightSidebarTabItem(
-          id = 1,
-          icon = "desktop",
-          active = TRUE
-        ),
-        rightSidebarTabItem(
-          id = 2
-        ),
-        rightSidebarTabItem(
-          id = 3,
-          icon = "paint-brush"
+      rightSidebarTabContent(
+        id = 1,
+        title = "Tab 1",
+        icon = "desktop",
+        active = TRUE,
+        sliderInput(
+          "inputsidebar1", 
+          "Number of observations:",
+          min = 0, max = 1000, value = 500
         )
       ),
-      rigthSidebarPanel(
-        rightSidebarTabContent(
-          id = 1,
-          title = "Tab 1",
-          active = TRUE,
-          sliderInput(
-            "inputsidebar1", 
-            "Number of observations:",
-            min = 0, max = 1000, value = 500
-          )
-        ),
-        rightSidebarTabContent(
-          id = 2,
-          title = "Tab 2",
-          textInput("inputsidebar2", "Caption", "Data Summary")
-        ),
-        rightSidebarTabContent(
-          id = 3,
-          title = "Tab 3",
-          numericInput("inputsidebar3", "Observations:", 10, min = 1, max = 100)
-        )
+      rightSidebarTabContent(
+        id = 2,
+        title = "Tab 2",
+        textInput("inputsidebar2", "Caption", "Data Summary")
+      ),
+      rightSidebarTabContent(
+        id = 3,
+        icon = "paint-brush",
+        title = "Tab 3",
+        numericInput("inputsidebar3", "Observations:", 10, min = 1, max = 100)
       )
     ),
     dashboardBody(
@@ -126,24 +112,10 @@ shinyApp(
             body = dashboardBody(),
             rightsidebar = rightSidebar(
             background = "dark",
-            rightSidebarTabList(
-            rightSidebarTabItem(
-            id = 1,
-            icon = "desktop",
-            active = TRUE
-            ),
-            rightSidebarTabItem(
-            id = 2
-            ),
-            rightSidebarTabItem(
-            id = 3,
-            icon = "paint-brush"
-            )
-            ),
-            rigthSidebarPanel(
             rightSidebarTabContent(
             id = 1,
             title = "Tab 1",
+            icon = "desktop",
             active = TRUE,
             sliderInput(
             "obs", 
@@ -158,9 +130,9 @@ shinyApp(
             ),
             rightSidebarTabContent(
             id = 3,
+            icon = "paint-brush",
             title = "Tab 3",
             numericInput("obs", "Observations:", 10, min = 1, max = 100)
-            )
             )
             ),
             title = "Right Sidebar"

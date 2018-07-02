@@ -132,7 +132,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>rightSidebarTabContent</span>(<span class='no'>...</span>, <span class='no'>id</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>rightSidebarTabContent</span>(<span class='no'>...</span>, <span class='no'>id</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"database"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,7 +144,7 @@
     </tr>
     <tr>
       <th>id</th>
-      <td><p>should correspond to the id given in rightSidebarTabItem.</p></td>
+      <td><p>should be unique.</p></td>
     </tr>
     <tr>
       <th>title</th>
@@ -152,6 +153,10 @@
     <tr>
       <th>active</th>
       <td><p>whether the tab content is active or not. FALSE by default.</p></td>
+    </tr>
+    <tr>
+      <th>icon</th>
+      <td><p>tab icon.</p></td>
     </tr>
     </table>
     

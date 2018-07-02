@@ -158,58 +158,44 @@
      <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(),
      <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='fu'><a href='rightSidebar.html'>rightSidebar</a></span>(
        <span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"dark"</span>,
-       <span class='fu'><a href='rightSidebarTabList.html'>rightSidebarTabList</a></span>(
-         <span class='fu'><a href='rightSidebarTabItem.html'>rightSidebarTabItem</a></span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-           <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"desktop"</span>,
-           <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-         ),
-         <span class='fu'><a href='rightSidebarTabItem.html'>rightSidebarTabItem</a></span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>
-         ),
-         <span class='fu'><a href='rightSidebarTabItem.html'>rightSidebarTabItem</a></span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-           <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"paint-brush"</span>
+       <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
+         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+         <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"desktop"</span>,
+         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 1"</span>,
+         <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+         <span class='fu'>rightSidebarMenu</span>(
+          <span class='fu'><a href='rightSidebarMenuItem.html'>rightSidebarMenuItem</a></span>(
+           <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='menuIcon.html'>menuIcon</a></span>(
+            <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"birthday-cake"</span>,
+            <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>
+           ),
+           <span class='kw'>info</span> <span class='kw'>=</span> <span class='fu'><a href='menuInfo.html'>menuInfo</a></span>(
+            <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Langdon's Birthday"</span>,
+            <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"Will be 23 on April 24th"</span>
+           )
+          ),
+          <span class='fu'><a href='rightSidebarMenuItem.html'>rightSidebarMenuItem</a></span>(
+           <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='menuIcon.html'>menuIcon</a></span>(
+            <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"user"</span>,
+            <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"yellow"</span>
+           ),
+           <span class='kw'>info</span> <span class='kw'>=</span> <span class='fu'><a href='menuInfo.html'>menuInfo</a></span>(
+            <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Frodo Updated His Profile"</span>,
+            <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"New phone +1(800)555-1234"</span>
+           )
+          )
          )
        ),
-       <span class='fu'><a href='rigthSidebarPanel.html'>rigthSidebarPanel</a></span>(
-         <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-           <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 1"</span>,
-           <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-           <span class='fu'>rightSidebarMenu</span>(
-            <span class='fu'><a href='rightSidebarMenuItem.html'>rightSidebarMenuItem</a></span>(
-             <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='menuIcon.html'>menuIcon</a></span>(
-              <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"birthday-cake"</span>,
-              <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>
-             ),
-             <span class='kw'>info</span> <span class='kw'>=</span> <span class='fu'><a href='menuInfo.html'>menuInfo</a></span>(
-              <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Langdon's Birthday"</span>,
-              <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"Will be 23 on April 24th"</span>
-             )
-            ),
-            <span class='fu'><a href='rightSidebarMenuItem.html'>rightSidebarMenuItem</a></span>(
-             <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='menuIcon.html'>menuIcon</a></span>(
-              <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"user"</span>,
-              <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"yellow"</span>
-             ),
-             <span class='kw'>info</span> <span class='kw'>=</span> <span class='fu'><a href='menuInfo.html'>menuInfo</a></span>(
-              <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Frodo Updated His Profile"</span>,
-              <span class='kw'>description</span> <span class='kw'>=</span> <span class='st'>"New phone +1(800)555-1234"</span>
-             )
-            )
-           )
-         ),
-         <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-           <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 2"</span>,
-           <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/textInput'>textInput</a></span>(<span class='st'>"caption"</span>, <span class='st'>"Caption"</span>, <span class='st'>"Data Summary"</span>)
-         ),
-         <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-           <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 3"</span>,
-           <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/numericInput'>numericInput</a></span>(<span class='st'>"obs"</span>, <span class='st'>"Observations:"</span>, <span class='fl'>10</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
-         )
+       <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
+         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 2"</span>,
+         <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/textInput'>textInput</a></span>(<span class='st'>"caption"</span>, <span class='st'>"Caption"</span>, <span class='st'>"Data Summary"</span>)
+       ),
+       <span class='fu'><a href='rightSidebarTabContent.html'>rightSidebarTabContent</a></span>(
+         <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+         <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"paint-brush"</span>,
+         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Tab 3"</span>,
+         <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/numericInput'>numericInput</a></span>(<span class='st'>"obs"</span>, <span class='st'>"Observations:"</span>, <span class='fl'>10</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
        )
      ),
      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Right Sidebar"</span>
