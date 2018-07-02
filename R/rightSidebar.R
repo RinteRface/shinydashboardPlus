@@ -4,6 +4,7 @@
 #' 
 #' @param ... slot for rightSidebarTabContent.
 #' @param background background color: "dark" or "light".
+#' @param width Sidebar width in pixels. Numeric value expected. 230 by default.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
@@ -53,19 +54,50 @@
 #'  )
 #' }
 #' @export
-rightSidebar <- function(..., background = "dark") {
-  shiny::tags$div(
+rightSidebar <- function(..., background = "dark", width = 230) {
+  
+  sidebarTag <- shiny::tags$div(
     id = "right_sidebar",
     shiny::tags$aside(
       class = paste0("control-sidebar control-sidebar-", background),
-      
+      style = paste0("width: ", width, "px;"),
       # automatically create the tab menu
       rightSidebarTabList(rigthSidebarPanel(...)),
       rigthSidebarPanel(...)
     ),
     # Add the sidebar background. This div must be placed
     # immediately after the control sidebar
-    shiny::tags$div(class = "control-sidebar-bg", "")
+    shiny::tags$div(class = "control-sidebar-bg", style = paste0("width: ", width, "px;"))
+  )
+  
+  shiny::tagList(
+    shiny::singleton(
+      shiny::tags$head(
+        # Will be usefull to fix issue #4 on github
+        # shiny::includeScript(
+        #   system.file(file.path("js", "rightSidebar.js"), package = "shinydashboardPlus")
+        # ),
+        
+        # custom css to correctly handle the width of the rightSidebar
+        shiny::tags$style(
+          shiny::HTML(
+            paste0(
+              ".control-sidebar-bg,
+               .control-sidebar {
+                  top: 0;
+                  right: ", -width, "px;
+                  width: ", width, "px;
+                  -webkit-transition: right 0.3s ease-in-out;
+                  -o-transition: right 0.3s ease-in-out;
+                  transition: right 0.3s ease-in-out;
+                }
+              "
+            )
+          )
+        )
+      )
+    ),
+    sidebarTag
   )
 }
 

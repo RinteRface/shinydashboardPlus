@@ -97,8 +97,22 @@
     </li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Changelog
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Releases</li>
+    <li class="dropdown-header">shinydashboardPlus 0.3.0.9000</li>
+    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
+    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
@@ -132,7 +146,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>rightSidebar</span>(<span class='no'>...</span>, <span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"dark"</span>)</pre>
+    <pre class="usage"><span class='fu'>rightSidebar</span>(<span class='no'>...</span>, <span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"dark"</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>230</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,6 +158,10 @@
     <tr>
       <th>background</th>
       <td><p>background color: "dark" or "light".</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>Sidebar width in pixels. Numeric value expected. 230 by default.</p></td>
     </tr>
     </table>
     

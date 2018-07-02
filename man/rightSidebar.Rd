@@ -4,12 +4,14 @@
 \alias{rightSidebar}
 \title{AdminLTE2 dashboard right sidebar}
 \usage{
-rightSidebar(..., background = "dark")
+rightSidebar(..., background = "dark", width = 230)
 }
 \arguments{
 \item{...}{slot for rightSidebarTabContent.}
 
 \item{background}{background color: "dark" or "light".}
+
+\item{width}{Sidebar width in pixels. Numeric value expected. 230 by default.}
 }
 \description{
 This creates a right sidebar.

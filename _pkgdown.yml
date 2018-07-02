@@ -124,5 +124,12 @@ articles:
   - '`rightSidebar`'
   - '`improved-boxes`'
   - '`box-elements`'
-  - '``extra-css-effects'
+  - '`extra-css-effects`'
+  
+
+news:
+ releases:
+ - text: "shinydashboardPlus 0.3.0.9000"
+ - text: "shinydashboardPlus 0.2.0"
+ - text: "shinydashboardPlus 0.1.0"
     
