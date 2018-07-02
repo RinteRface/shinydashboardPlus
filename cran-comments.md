@@ -13,9 +13,11 @@ There were no ERRORs or WARNINGs
   
 This is not impacting the package nor the related website
 
-## Reverse dependencies:
 
+## Reverse dependencies:
 using `devtools::revdep()` and R CMD check shinyWidgets
 
-There were no ERRORs or WARNINGs or NOTES
+I made a [pull request](https://github.com/dreamRs/shinyWidgets/commit/186a0306371a6bb2bc60ed1e4247640de7b8f8f5) 
+so that shinyWidgets is ready for the next version of shinydashboardPlus and
+the check was successfull for shinyWidget, there were no ERRORs or WARNINGs or NOTES
 
