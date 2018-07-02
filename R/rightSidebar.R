@@ -2,8 +2,7 @@
 #'
 #' This creates a right sidebar.
 #' 
-#' @param ... slot for other elements such as rightSidebarTabList,
-#' rightSidebarTabItem, rigthSidebarPanel and rightSidebarTabContent.
+#' @param ... slot for rightSidebarTabContent.
 #' @param background background color: "dark" or "light".
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}

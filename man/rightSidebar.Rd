@@ -7,8 +7,7 @@
 rightSidebar(..., background = "dark")
 }
 \arguments{
-\item{...}{slot for other elements such as rightSidebarTabList,
-rightSidebarTabItem, rigthSidebarPanel and rightSidebarTabContent.}
+\item{...}{slot for rightSidebarTabContent.}
 
 \item{background}{background color: "dark" or "light".}
 }
