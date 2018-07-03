@@ -20,3 +20,8 @@ the check was successfull for shinyWidget, there were no ERRORs or WARNINGs or N
 I fixed previous NOTES:
 - regarding the _pkgdown.yml file
 - cross reference with shinydashboard in the documentation
+
+According to Uwe Ligges comments:
+
+- I added an external link to the AdminLTE2 library in the description file
+- I changed http to https in my links in the readme.md 
