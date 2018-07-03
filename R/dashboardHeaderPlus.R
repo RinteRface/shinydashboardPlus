@@ -2,6 +2,8 @@
 #'
 #' A dashboard header can be left blank, or it can include dropdown menu items
 #' on the right side.
+#' 
+#' @importFrom shinydashboard dropdownMenu
 #'
 #' @param title An optional title to show in the header bar.. By default, this
 #'   will also be used as the title shown in the browser's title bar. If you
@@ -24,6 +26,7 @@
 #' if (interactive()) {
 #' library(shiny)
 #' library(shinydashboard)
+#' library(shinydashboardPlus)
 #'
 #' # A dashboard header with 3 dropdown menus
 #' header <- dashboardHeader(

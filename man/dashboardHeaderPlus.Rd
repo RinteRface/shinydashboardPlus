@@ -37,6 +37,7 @@ on the right side.
 if (interactive()) {
 library(shiny)
 library(shinydashboard)
+library(shinydashboardPlus)
 
 # A dashboard header with 3 dropdown menus
 header <- dashboardHeader(

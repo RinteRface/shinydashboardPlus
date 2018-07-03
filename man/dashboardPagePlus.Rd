@@ -38,6 +38,9 @@ This creates a dashboard page for use in a Shiny app.
 \examples{
 if (interactive()) {
 library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+
 shinyApp(
   ui = dashboardPagePlus(
     header = dashboardHeaderPlus(

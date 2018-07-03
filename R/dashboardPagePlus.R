@@ -1,6 +1,9 @@
 #' Dashboard Page with a right sidebar
 #'
 #' This creates a dashboard page for use in a Shiny app.
+#' 
+#' @importFrom shinydashboard dashboardSidebar
+#' @importFrom shinydashboard dashboardBody
 #'
 #' @param header A header created by \code{dashboardHeaderPlus}.
 #' @param sidebar A sidebar created by \code{\link[shinydashboard]{dashboardSidebar}}.
@@ -22,6 +25,9 @@
 #' @examples
 #' if (interactive()) {
 #' library(shiny)
+#' library(shinydashboard)
+#' library(shinydashboardPlus)
+#' 
 #' shinyApp(
 #'   ui = dashboardPagePlus(
 #'     header = dashboardHeaderPlus(
