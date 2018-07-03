@@ -33,7 +33,7 @@ and `menuInfo()` (see `shinydashboardPlusGallery()`)
 - NOTE: mailForm is not working at the moment!
 
 
-# ShinydashboardPlus 0.1.0
+# shinydashboardPlus 0.1.0
 - new right sidebar: `rightSidebar()`
 - improved classic boxes: `boxPlus()`
 - new boxes: `gradientBox()`, `widgetUserBox()`, `socialBox()`

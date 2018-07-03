@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 [![version](https://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
-[![cranlogs](https://cranlogs.r-pkg.org/badges/shinydashboardPlus)](https://cran.rstudio.com/web/packages/shinydashboardPlus/index.html)
+[![cranlogs](https://cranlogs.r-pkg.org/badges/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://www.rpackages.io/package/shinydashboardPlus)
 
 > extensions for shinydashboard
