@@ -3,19 +3,22 @@
 #' This creates a dashboard page for use in a Shiny app.
 #'
 #' @param header A header created by \code{dashboardHeaderPlus}.
-#' @param sidebar A sidebar created by \code{dashboardSidebar}.
-#' @param body A body created by \code{dashboardBody}.
-#' @param rightsidebar A right sidebar created by \code{rightSidebar}. NULL by default.
+#' @param sidebar A sidebar created by \code{\link[shinydashboard]{dashboardSidebar}}.
+#' @param body A body created by \code{\link[shinydashboard]{dashboardBody}}.
+#' @param rightsidebar A right sidebar created by \code{rightSidebar}. NULL by
+#'   default.
 #' @param title A title to display in the browser's title bar. If no value is
-#'   provided, it will try to extract the title from the \code{dashboardHeaderPlus}.
+#'   provided, it will try to extract the title from the
+#'   \code{dashboardHeaderPlus}.
 #' @param skin A color theme. One of \code{"blue"}, \code{"black"},
 #'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
-#' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by default.
-#' @param sidebar_background Main sidebar background color: either "light" or NULL.
-#' NULL by default.
+#' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by
+#'   default.
+#' @param sidebar_background Main sidebar background color: either "light" or
+#'   NULL. NULL by default.
 #'
-#' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link{dashboardSidebar}},
-#'   \code{\link{dashboardBody}}.
+#' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link[shinydashboard]{dashboardSidebar}},
+#'   \code{\link[shinydashboard]{dashboardBody}}.
 #' @examples
 #' if (interactive()) {
 #' library(shiny)

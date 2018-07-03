@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^cran-comments\.md$
 ^\.travis\.yml$
+^_pkgdown\.yml$
+^docs$

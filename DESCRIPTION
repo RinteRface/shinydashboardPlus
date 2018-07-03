@@ -12,7 +12,7 @@ Maintainer: David Granjon <dgranjon@ymail.com>
 Description: Extend 'shinydashboard' with 'AdminLTE2' components.
              Customize boxes, add timelines and a lot more. 
 License: GPL-2
-Imports: shiny, shinydashboard, htmltools
+Imports: shiny, htmltools, shinydashboard
 Suggests:
     styler (>= 1.0.2),
     shinyAce,

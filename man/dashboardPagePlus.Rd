@@ -12,22 +12,25 @@ dashboardPagePlus(header, sidebar, body, rightsidebar = NULL, title = NULL,
 \arguments{
 \item{header}{A header created by \code{dashboardHeaderPlus}.}
 
-\item{sidebar}{A sidebar created by \code{dashboardSidebar}.}
+\item{sidebar}{A sidebar created by \code{\link[shinydashboard]{dashboardSidebar}}.}
 
-\item{body}{A body created by \code{dashboardBody}.}
+\item{body}{A body created by \code{\link[shinydashboard]{dashboardBody}}.}
 
-\item{rightsidebar}{A right sidebar created by \code{rightSidebar}. NULL by default.}
+\item{rightsidebar}{A right sidebar created by \code{rightSidebar}. NULL by
+default.}
 
 \item{title}{A title to display in the browser's title bar. If no value is
-provided, it will try to extract the title from the \code{dashboardHeaderPlus}.}
+provided, it will try to extract the title from the
+\code{dashboardHeaderPlus}.}
 
 \item{skin}{A color theme. One of \code{"blue"}, \code{"black"},
 \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.}
 
-\item{collapse_sidebar}{Whether to collapse the left sidebar. TRUE by default.}
+\item{collapse_sidebar}{Whether to collapse the left sidebar. TRUE by
+default.}
 
-\item{sidebar_background}{Main sidebar background color: either "light" or NULL.
-NULL by default.}
+\item{sidebar_background}{Main sidebar background color: either "light" or
+NULL. NULL by default.}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.
@@ -51,6 +54,6 @@ shinyApp(
 }
 }
 \seealso{
-\code{\link{dashboardHeaderPlus}}, \code{\link{dashboardSidebar}},
-  \code{\link{dashboardBody}}.
+\code{\link{dashboardHeaderPlus}}, \code{\link[shinydashboard]{dashboardSidebar}},
+  \code{\link[shinydashboard]{dashboardBody}}.
 }

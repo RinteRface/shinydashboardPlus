@@ -11,14 +11,14 @@
 #'   which specifies the width in pixels, or a string that specifies the width
 #'   in CSS units.
 #' @param disable If \code{TRUE}, don't display the header bar.
-#' @param ... Items to put in the header. Should be \code{\link{dropdownMenu}}s.
+#' @param ... Items to put in the header. Should be \code{\link[shinydashboard]{dropdownMenu}}s.
 #' @param .list An optional list containing items to put in the header. Same as
 #'   the \code{...} arguments, but in list format. This can be useful when
 #'   working with programmatically generated items.
 #' @param enable_rightsidebar Whether to enable the right sidebar. FALSE by default.
 #' @param rightSidebarIcon Customize the trigger icon of the right sidebar.
 #'
-#' @seealso \code{\link{dropdownMenu}}
+#' @seealso \code{\link[shinydashboard]{dropdownMenu}}
 #'
 #' @examples
 #' if (interactive()) {

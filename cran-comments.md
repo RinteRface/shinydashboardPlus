@@ -6,12 +6,7 @@
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs 
-1 NOTE: checking top-level files ... NOTE
-        Non-standard files/directories found at top level:
-        ‘_pkgdown.yml’ ‘docs’
-  
-This is not impacting the package nor the related website
+There were no ERRORs or WARNINGs or NOTEs
 
 
 ## Reverse dependencies:
@@ -21,3 +16,7 @@ I made a [pull request](https://github.com/dreamRs/shinyWidgets/commit/186a03063
 so that shinyWidgets is ready for the next version of shinydashboardPlus and
 the check was successfull for shinyWidget, there were no ERRORs or WARNINGs or NOTES
 
+## Resubmission
+I fixed previous NOTES:
+- regarding the _pkgdown.yml file
+- cross reference with shinydashboard in the documentation
