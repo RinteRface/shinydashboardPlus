@@ -1,4 +1,6 @@
 # shinydashboardPlus 0.4.0.9000
+- Fix an important issue in the `rightSidebar()`. When the function was called without
+any element, it triggered an error because the number of items was 0
 - clicking on `starBlock()`, `navPillsItem()` and the `socialBlock()` title does not reload 
 or redirect at the top of the page
 - clicking on the `attachmentBlock()` link open a new page in a new tab (target = "_blank")

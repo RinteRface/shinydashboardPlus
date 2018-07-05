@@ -117,24 +117,26 @@ rightSidebarTabList <- function(...) {
   tabItems <- tabItems[[1]]$children
   len <- length(tabItems)
   
-  # generate tab items based on panel items
-  tabItemList <- lapply(1:len, FUN = function(i) {
-
-    item <- tabItems[[i]]
-    id <- item$attribs$id
-    id <- gsub(x = id, pattern = "control-sidebar-", replacement = "")
-    id <- gsub(x = id, pattern = "-tab", replacement = "")
-    active <- sum(grep(x = item$attribs$class, pattern = "active")) == 1
-    icon <- item$attribs$icon
-
-    rightSidebarTabItem(id = id, icon = icon, active = active)
-  })
-
-  # put everything inside the container
-  shiny::tags$ul(
-    class = "nav nav-tabs nav-justified control-sidebar-tabs",
-    tabItemList
-  )
+  if (len > 0) {
+    # generate tab items based on panel items
+    tabItemList <- lapply(1:len, FUN = function(i) {
+      
+      item <- tabItems[[i]]
+      id <- item$attribs$id
+      id <- gsub(x = id, pattern = "control-sidebar-", replacement = "")
+      id <- gsub(x = id, pattern = "-tab", replacement = "")
+      active <- sum(grep(x = item$attribs$class, pattern = "active")) == 1
+      icon <- item$attribs$icon
+      
+      rightSidebarTabItem(id = id, icon = icon, active = active)
+    })
+    
+    # put everything inside the container
+    shiny::tags$ul(
+      class = "nav nav-tabs nav-justified control-sidebar-tabs",
+      tabItemList
+    )
+  }
 }
 
 
