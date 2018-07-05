@@ -1,7 +1,7 @@
 Package: shinydashboardPlus
 Type: Package
 Title: Add some 'AdminLTE2' Components to 'shinydashboard'
-Version: 0.3.0
+Version: 0.5.0
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person(family = "Almasaeed Studio", role = c("ctb", "cph"), comment = "AdminLTE2 theme for Bootstrap 3"),

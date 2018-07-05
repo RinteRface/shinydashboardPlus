@@ -18,4 +18,5 @@ the check was successfull for shinyWidget, there were no ERRORs or WARNINGs or N
 
 ## Resubmission
 - this is a fix for the 0.3.0 release. The function rightSidebar was not working 
-when no argument was provided.  
+when no argument was provided.  I also changed the version number to 0.5.0, regarding the
+quantity of changes made from the 0.2.0.

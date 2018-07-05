@@ -1,4 +1,4 @@
-# shinydashboardPlus 0.3.0
+# shinydashboardPlus 0.5.0
 ## Bug fixes
 - Fix an important issue in the `rightSidebar()`. When the function was called without
 any element, it triggered an error because the number of items was 0
