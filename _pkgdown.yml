@@ -129,7 +129,8 @@ articles:
 
 news:
  releases:
- - text: "shinydashboardPlus 0.3.0.9000"
+ - text: "shinydashboardPlus 0.4.0.9000"
+ - text: "shinydashboardPlus 0.3.0"
  - text: "shinydashboardPlus 0.2.0"
  - text: "shinydashboardPlus 0.1.0"
     

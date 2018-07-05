@@ -41,7 +41,7 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
   shiny::tags$td(
     class = "mailbox-star",
     shiny::tags$a(
-      href = "#",
+      href = "javascript:void(0)",
       if (grade > 0) {
         full_star <- lapply(1:grade, FUN = function(i) {
           shiny::tags$i(class = paste0("fa text-", color, " fa-star"))

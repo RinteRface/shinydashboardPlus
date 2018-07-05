@@ -73,7 +73,7 @@ navPillsItem <- function(pillName = NULL, pillColor = NULL,
   shiny::tags$li(
     class = if (isTRUE(active)) "active" else NULL,
     shiny::tags$a(
-      href = "#", 
+      href = "javascript:void(0)", 
       pillName,
       shiny::tags$span(
         class = cl,

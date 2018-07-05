@@ -49,6 +49,7 @@ attachmentBlock <- function(..., src = NULL, title = NULL, title_url = NULL) {
         class = "attachment-heading",
         shiny::tags$a(
           href = title_url,
+          target = "_blank",
           title
         )
       ),

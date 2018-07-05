@@ -1,4 +1,10 @@
-# shinydashboardPlus 0.3.0.9000
+# shinydashboardPlus 0.4.0.9000
+- clicking on `starBlock()`, `navPillsItem()` and the `socialBlock()` title does not reload 
+or redirect at the top of the page
+- clicking on the `attachmentBlock()` link open a new page in a new tab (target = "_blank")
+- correct vignettes title (https://cran.r-project.org/package=shinydashboardPlus)
+
+# shinydashboardPlus 0.3.0
 ## Breaking changes
 - change argument name in `dropdownItem()` (`boxPlus()`): "target" is replaced by "url".
 - Widely simplify the `rightSidebar()` function: remove `rightSidebarTabList()`, `rightSidebarTabItem()` and

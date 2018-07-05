@@ -705,7 +705,7 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
           shiny::img(class = "img-circle", src = src),
           shiny::tags$span(
             class = "username",
-            shiny::a(href = "#", title)
+            shiny::a(href = "javascript:void(0)", title)
           ),
           shiny::tags$span(class = "description", subtitle)
         ),
