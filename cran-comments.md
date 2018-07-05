@@ -17,11 +17,5 @@ so that shinyWidgets is ready for the next version of shinydashboardPlus and
 the check was successfull for shinyWidget, there were no ERRORs or WARNINGs or NOTES
 
 ## Resubmission
-I fixed previous NOTES:
-- regarding the _pkgdown.yml file
-- cross reference with shinydashboard in the documentation
-
-According to Uwe Ligges comments:
-
-- I added an external link to the AdminLTE2 library in the description file
-- I changed http to https in my links in the readme.md 
+- this is a fix for the 0.3.0 release. The function rightSidebar was not working 
+when no argument was provided.  
