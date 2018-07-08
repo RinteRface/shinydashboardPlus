@@ -429,6 +429,8 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param enable_dropdown Whether to display a dropdown menu in the boxtool. FALSE by default.
 #' @param dropdown_icon Dropdown icon. "wrench" by default.
 #' @param dropdown_menu List of items in the the boxtool dropdown menu. Use dropdownItemList().
+#' @param enable_sidebar Whether to display the box sidebar. FALSE by default.
+#' @param sidebar_content Box sidebar content, if any.
 #' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
@@ -483,8 +485,8 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
                      label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
-                     dropdown_icon = "wrench", dropdown_menu = NULL,
-                    footer_padding = TRUE) 
+                     dropdown_icon = "wrench", dropdown_menu = NULL, enable_sidebar = FALSE,
+                     sidebar_content = NULL, footer_padding = TRUE) 
 {
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
@@ -500,6 +502,9 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
   if (!is.null(background)) {
     validateColor(background)
     boxClass <- paste0(boxClass, " bg-", background)
+  }
+  if (enable_sidebar) {
+    boxClass <- paste0(boxClass, " direct-chat")
   }
   style <- NULL
   if (!is.null(height)) {
@@ -557,19 +562,54 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
     )
   }
   
+  sidebarTag <- NULL
+  if (enable_sidebar) {
+    sidebarTag <- shiny::tags$button(
+      class = "btn btn-box-tool",
+      `data-widget` = "chat-pane-toggle",
+      `data-toggle` = "tooltip",
+      `data-original-title` = "More",
+      title = NA,
+      type = "button",
+      shiny::icon("info")
+    )
+  }
+  
   
   # update boxToolTag
-  boxToolTag <- shiny::tagAppendChildren(boxToolTag, labelTag, dropdownTag, collapseTag, closableTag)
+  boxToolTag <- shiny::tagAppendChildren(
+    boxToolTag, 
+    labelTag, 
+    dropdownTag, 
+    sidebarTag, 
+    collapseTag, 
+    closableTag
+  )
   
   headerTag <- NULL
   if (!is.null(titleTag) || !is.null(collapseTag)) {
     # replace by boxToolTag
     headerTag <- shiny::tags$div(class = "box-header", titleTag, boxToolTag)
   }
-  shiny::tags$div(class = if (!is.null(width)) 
-    paste0("col-sm-", width), shiny::tags$div(class = boxClass, style = if (!is.null(style)) 
-      style, headerTag, shiny::tags$div(class = "box-body", ...), if (!is.null(footer)) 
-        shiny::tags$div(class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", footer)))
+  shiny::tags$div(
+    class = if (!is.null(width)) paste0("col-sm-", width), 
+    shiny::tags$div(
+      class = boxClass, 
+      style = if (!is.null(style)) style, 
+      headerTag, 
+      shiny::tags$div(
+        class = "box-body", 
+        ...,
+        shiny::tags$div(
+          style = "width: 100%; height: 100%; background-color: ghostwhite; z-index: 10000;",
+          class = "direct-chat-contacts",
+          shiny::tags$ul(class = "contacts-list", shiny::tags$li(sidebar_content))
+        )
+      ), 
+      if (!is.null(footer)) shiny::tags$div(
+        class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", footer)
+    )
+  )
 }
 
 

@@ -9,7 +9,7 @@ boxPlus(..., title = NULL, footer = NULL, status = NULL,
   collapsible = FALSE, collapsed = FALSE, closable = TRUE,
   enable_label = FALSE, label_text = NULL, label_status = "primary",
   enable_dropdown = FALSE, dropdown_icon = "wrench", dropdown_menu = NULL,
-  footer_padding = TRUE)
+  enable_sidebar = FALSE, sidebar_content = NULL, footer_padding = TRUE)
 }
 \arguments{
 \item{...}{Contents of the box.}
@@ -55,6 +55,10 @@ the user to collapse the box.}
 \item{dropdown_icon}{Dropdown icon. "wrench" by default.}
 
 \item{dropdown_menu}{List of items in the the boxtool dropdown menu. Use dropdownItemList().}
+
+\item{enable_sidebar}{Whether to display the box sidebar. FALSE by default.}
+
+\item{sidebar_content}{Box sidebar content, if any.}
 
 \item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
