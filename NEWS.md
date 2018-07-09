@@ -1,3 +1,12 @@
+# shinydashboardPlus 0.6.0.9000
+## New features
+- new sidebar in the `boxPlus()` function: set up with the following arguments
+"enable_sidebar", "sidebar_content", "sidebar_width", "sidebar_background" and
+"sidebar_start_open"
+- update the `shinydashboardPlusGallery()`
+- change the website images
+
+
 # shinydashboardPlus 0.5.0
 ## Bug fixes
 - Fix an important issue in the `rightSidebar()`. When the function was called without

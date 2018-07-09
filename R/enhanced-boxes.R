@@ -431,6 +431,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param dropdown_menu List of items in the the boxtool dropdown menu. Use dropdownItemList().
 #' @param enable_sidebar Whether to display the box sidebar. FALSE by default.
 #' @param sidebar_content Box sidebar content, if any.
+#' @param sidebar_width Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.
+#' @param sidebar_background Box sidebar background color. Dark by default.
+#' @param sidebar_start_open Whether the box sidebar is open at start. FALSE by default.
 #' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
@@ -479,6 +482,42 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'    ),
 #'    server = function(input, output) {}
 #'  )
+#'  
+#'  # boxPlus with sidebar
+#'  shinyApp(
+#'   ui = dashboardPagePlus(
+#'     dashboardHeaderPlus(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'       setShadow("box"),
+#'       fluidRow(
+#'         boxPlus(
+#'           title = "Closable Box with dropdown", 
+#'           closable = TRUE, 
+#'           status = "warning", 
+#'           solidHeader = FALSE, 
+#'           collapsible = TRUE,
+#'           enable_sidebar = TRUE,
+#'           sidebar_width = 25,
+#'           sidebar_start_open = TRUE,
+#'           sidebar_content = sliderInput(
+#'            "obs", 
+#'            "Number of observations:",
+#'            min = 0, 
+#'            max = 1000, 
+#'            value = 500
+#'           ),
+#'           plotOutput("distPlot")
+#'         )
+#'       )
+#'     )
+#'   ),
+#'   server = function(input, output) {
+#'     output$distPlot <- renderPlot({
+#'       hist(rnorm(input$obs))
+#'     })
+#'   }
+#'  )
 #' }
 #' @export
 boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
@@ -486,8 +525,13 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
                      label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
                      dropdown_icon = "wrench", dropdown_menu = NULL, enable_sidebar = FALSE,
-                     sidebar_content = NULL, footer_padding = TRUE) 
+                     sidebar_content = NULL, sidebar_width = 25, sidebar_background = "#222d32", 
+                     sidebar_start_open = FALSE, footer_padding = TRUE) 
 {
+  
+  if (sidebar_width < 0 || sidebar_width > 100) 
+    stop("The box sidebar should be between 0 and 100")
+  
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
     boxClass <- paste(boxClass, "box-solid")
@@ -504,7 +548,11 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
     boxClass <- paste0(boxClass, " bg-", background)
   }
   if (enable_sidebar) {
-    boxClass <- paste0(boxClass, " direct-chat")
+    if (sidebar_start_open) {
+      boxClass <- paste0(boxClass, " direct-chat direct-chat-contacts-open")
+    } else {
+      boxClass <- paste0(boxClass, " direct-chat")
+    }
   }
   style <- NULL
   if (!is.null(height)) {
@@ -591,7 +639,8 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
     # replace by boxToolTag
     headerTag <- shiny::tags$div(class = "box-header", titleTag, boxToolTag)
   }
-  shiny::tags$div(
+  
+  boxPlusTag <- shiny::tags$div(
     class = if (!is.null(width)) paste0("col-sm-", width), 
     shiny::tags$div(
       class = boxClass, 
@@ -600,16 +649,64 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
       shiny::tags$div(
         class = "box-body", 
         ...,
-        shiny::tags$div(
-          style = "width: 100%; height: 100%; background-color: ghostwhite; z-index: 10000;",
-          class = "direct-chat-contacts",
-          shiny::tags$ul(class = "contacts-list", shiny::tags$li(sidebar_content))
-        )
+        if (enable_sidebar) {
+          shiny::tags$div(
+            style = "z-index: 10000;",
+            class = "direct-chat-contacts",
+            shiny::tags$ul(
+              class = "contacts-list", 
+              shiny::tags$li(
+                style = paste0("width: ", sidebar_width, "%;"), 
+                sidebar_content
+              )
+            )
+          )
+        }
       ), 
       if (!is.null(footer)) shiny::tags$div(
         class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", footer)
     )
   )
+  
+  translation_rate <- paste0(100 - sidebar_width, "%")
+  
+  shiny::tagList(
+    shiny::singleton(
+      shiny::tags$head(
+        shiny::tags$style(
+          shiny::HTML(
+            # the first CSS class will be useful maybe for
+            # later release but is useless right now
+            paste0(
+              ".direct-chat-contacts {
+                 -webkit-transform: translate(100%, 0);
+                 -ms-transform: translate(100%, 0);
+                 -o-transform: translate(100%, 0);
+                 transform: translate(100%, 0);
+                 position: absolute;
+                 top: 0;
+                 bottom: 0;
+                 height: 100%;
+                 width: 100%;
+                 background: ", sidebar_background, ";
+                 color: #fff;
+                 overflow: auto;
+              }
+              .direct-chat-contacts-open .direct-chat-contacts {
+                -webkit-transform: translate(", translation_rate, ", 0);
+                -ms-transform: translate(", translation_rate, ", 0);
+                -o-transform: translate(", translation_rate, ", 0);
+                transform: translate(", translation_rate, ", 0);
+              }
+              "
+            )
+          )
+        )
+      )
+    ),
+    boxPlusTag
+  )
+  
 }
 
 

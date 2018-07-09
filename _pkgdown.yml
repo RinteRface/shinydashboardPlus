@@ -125,10 +125,12 @@ articles:
   - '`improved-boxes`'
   - '`box-elements`'
   - '`extra-css-effects`'
+  - '`boxPlus-sidebar`'
   
 
 news:
  releases:
+ - text: "shinydashboardPlus 0.6.0.9000"
  - text: "shinydashboardPlus 0.5.0"
  - text: "shinydashboardPlus 0.2.0"
  - text: "shinydashboardPlus 0.1.0"

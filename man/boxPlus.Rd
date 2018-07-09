@@ -9,7 +9,9 @@ boxPlus(..., title = NULL, footer = NULL, status = NULL,
   collapsible = FALSE, collapsed = FALSE, closable = TRUE,
   enable_label = FALSE, label_text = NULL, label_status = "primary",
   enable_dropdown = FALSE, dropdown_icon = "wrench", dropdown_menu = NULL,
-  enable_sidebar = FALSE, sidebar_content = NULL, footer_padding = TRUE)
+  enable_sidebar = FALSE, sidebar_content = NULL, sidebar_width = 25,
+  sidebar_background = "#222d32", sidebar_start_open = FALSE,
+  footer_padding = TRUE)
 }
 \arguments{
 \item{...}{Contents of the box.}
@@ -60,6 +62,12 @@ the user to collapse the box.}
 
 \item{sidebar_content}{Box sidebar content, if any.}
 
+\item{sidebar_width}{Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.}
+
+\item{sidebar_background}{Box sidebar background color. Dark by default.}
+
+\item{sidebar_start_open}{Whether the box sidebar is open at start. FALSE by default.}
+
 \item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
@@ -108,6 +116,42 @@ if (interactive()) {
     )
    ),
    server = function(input, output) {}
+ )
+ 
+ # boxPlus with sidebar
+ shinyApp(
+  ui = dashboardPagePlus(
+    dashboardHeaderPlus(),
+    dashboardSidebar(),
+    dashboardBody(
+      setShadow("box"),
+      fluidRow(
+        boxPlus(
+          title = "Closable Box with dropdown", 
+          closable = TRUE, 
+          status = "warning", 
+          solidHeader = FALSE, 
+          collapsible = TRUE,
+          enable_sidebar = TRUE,
+          sidebar_width = 25,
+          sidebar_start_open = TRUE,
+          sidebar_content = sliderInput(
+           "obs", 
+           "Number of observations:",
+           min = 0, 
+           max = 1000, 
+           value = 500
+          ),
+          plotOutput("distPlot")
+        )
+      )
+    )
+  ),
+  server = function(input, output) {
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
+  }
  )
 }
 }

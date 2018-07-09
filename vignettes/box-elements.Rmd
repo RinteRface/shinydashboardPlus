@@ -22,7 +22,8 @@ knitr::opts_chunk$set(
 
 ### `descriptionBlock()`
 
-![](figures/descriptionBlock.png)
+<img src="figures/descriptionBlock.png" width="768" height="365">
+
 <br>
 
 ```r
@@ -77,7 +78,7 @@ knitr::opts_chunk$set(
 
 ### `boxPad()`
 
-![](figures/boxPad.png)
+<img src="figures/boxPad.png" width="848" height="408">
 <br>
 
 ```r

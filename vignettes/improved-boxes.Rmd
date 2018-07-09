@@ -19,7 +19,8 @@ There are also other boxes such as `gradientBox()`, `socialBox()` as well as
 
 ### boxPlus
 
-![](figures/boxPlus.png)
+<img src="figures/boxPlus.png" width="840" height="88">
+
 <br>
 
 ```r
@@ -61,7 +62,7 @@ library(shinydashboardPlus)
 
 ### gradientBox
 
-![](figures/gradientBox.png)
+<img src="figures/gradientBox.png" width="840" height="163">
 <br>
 
 ```r
@@ -104,7 +105,7 @@ library(shiny)
 
 ### widgetUserBox
 
-![](figures/widgetUserBox.png)
+<img src="figures/widgetUserBox.png" width="840" height="345">
 <br>
 
 ```r
@@ -156,7 +157,7 @@ library(shiny)
 
 ### socialBox
 
-![](figures/socialBox.png)
+<img src="figures/socialBox.png" width="730" height="480">
 <br>
 
 ```r

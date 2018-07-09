@@ -27,6 +27,9 @@ shinyApp(
         menuItem("New Box elements", tabName = "boxelements",
                  badgeLabel = "new", badgeColor = "green",
                  icon = icon("th")),
+        menuItem("Extra CSS effects", tabName = "extracss",
+                 badgeLabel = "new", badgeColor = "green",
+                 icon = icon("magic")),
         menuItem("New extra elements", tabName = "extraelements",
                  badgeLabel = "new", badgeColor = "green",
                  icon = icon("plus-circle"))
@@ -668,6 +671,82 @@ shinyApp(
         
         tabItem(
           tabName = "boxelements",
+          
+          column(
+            width = 12,
+            align = "center",
+            h1("Create box with sidebar")
+          ),
+          br(),
+          
+          fluidRow(
+            column(
+              width = 6,
+              boxPlus(
+                width = 12,
+                title = "boxPlus with sidebar", 
+                closable = TRUE, 
+                status = "warning", 
+                solidHeader = FALSE, 
+                collapsible = TRUE,
+                enable_sidebar = TRUE,
+                sidebar_width = 25,
+                sidebar_start_open = TRUE,
+                sidebar_content = tagList(
+                  checkboxInput("somevalue", "Some value", FALSE),
+                  verbatimTextOutput("value"),
+                  sliderInput(
+                    "slider_boxsidebar", 
+                    "Number of observations:",
+                    min = 0, 
+                    max = 1000, 
+                    value = 500
+                  )
+                ),
+                plotOutput("boxSidebarPlot")
+              )
+            ),
+            
+            column(
+              width = 6,
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "300px",
+                outputId = "boxPlus-sidebar_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'boxPlus(
+                    width = 12,
+                    title = "boxPlus with sidebar", 
+                    closable = TRUE, 
+                    status = "warning", 
+                    solidHeader = FALSE, 
+                    collapsible = TRUE,
+                    enable_sidebar = TRUE,
+                    sidebar_width = 25,
+                    sidebar_start_open = TRUE,
+                    sidebar_content = tagList(
+                    checkboxInput("somevalue", "Some value", FALSE),
+                    verbatimTextOutput("value"),
+                    sliderInput(
+                    "slider_boxsidebar", 
+                    "Number of observations:",
+                    min = 0, 
+                    max = 1000, 
+                    value = 500
+                    )
+                    ),
+                    plotOutput("boxSidebarPlot")
+                  )
+                    '
+                  ), 
+                  collapse = "\n"
+                )
+              )
+            )
+          ),
           
           column(
             width = 12,
@@ -1699,6 +1778,54 @@ shinyApp(
         ),
         
         tabItem(
+          tabName = "extracss",
+        
+          column(
+            width = 12,
+            align = "center",
+            h1("Add shadows to any dashboard element: setShadow()")
+          ),
+          br(),
+          
+          fluidRow(
+            column(
+              width = 6,
+              setShadow("box"),
+              box(
+                width = 12,
+                background = "light-blue",
+                p("This is content. The background color is set to light-blue")
+              )
+            ),
+            
+            column(
+              width = 6,
+              aceEditor(
+                theme = "vibrant_ink",
+                mode = "r",
+                height = "300px",
+                outputId = "box-shadow_code",
+                readOnly = TRUE,
+                value = paste(
+                  style_text(
+                    'setShadow("box")
+                     box(
+                       width = 12,
+                       background = "light-blue",
+                       p("This is content. The background color is set to light-blue")
+                     )
+                    '
+                  ), 
+                  collapse = "\n"
+                )
+              )
+            )
+          )
+          
+          
+        ),
+        
+        tabItem(
           tabName = "extraelements",
           
           fluidRow(
@@ -2050,30 +2177,31 @@ shinyApp(
                   collapse = "\n"
                 )
               )
-              
             )
-            
           )
-          
         )
-      )
-      
-      
+       )
+      ),
+      title = "shinyDashboardPlus"
     ),
-    title = "shinyDashboardPlus"
-  ),
-  server = function(input, output) {
-    output$distPlot <- renderPlot({
-      hist(rnorm(input$obs))
-    })
-    
-    output$distPlot2 <- renderPlot({
-      hist(rnorm(input$obs2))
-    })
-    
-    output$data <- renderTable({
-      head(mtcars[, c("mpg", input$variable), drop = FALSE])
-    }, rownames = TRUE)
-    
-  }
-)
+    server = function(input, output) {
+      output$distPlot <- renderPlot({
+        hist(rnorm(input$obs))
+      })
+      
+      output$distPlot2 <- renderPlot({
+        hist(rnorm(input$obs2))
+      })
+      
+      output$data <- renderTable({
+        head(mtcars[, c("mpg", input$variable), drop = FALSE])
+      }, rownames = TRUE)
+      
+      output$value <- renderText({input$somevalue})
+      
+      output$boxSidebarPlot <- renderPlot({
+        hist(rnorm(input$slider_boxsidebar))
+      })
+      
+    }
+  )

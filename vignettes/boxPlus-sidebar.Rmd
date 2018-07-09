@@ -1,0 +1,126 @@
+---
+title: "Sidebar in boxes?"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Sidebar in boxes?}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## boxPlus sidebar: Getting started
+
+**shinydashboardPlus** comes with a new customization in the `boxPlus()` function to allow you to create sidebar inside boxes:
+
+```r
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+
+shinyApp(
+  ui = dashboardPagePlus(
+    dashboardHeaderPlus(),
+    dashboardSidebar(),
+    dashboardBody(
+      setShadow("box"),
+      fluidRow(
+        boxPlus(
+          title = "Closable Box with dropdown", 
+          closable = TRUE, 
+          status = "warning", 
+          solidHeader = FALSE, 
+          collapsible = TRUE,
+          enable_sidebar = TRUE,
+          sidebar_width = 25,
+          sidebar_start_open = TRUE,
+          sidebar_content = sliderInput(
+           "obs", 
+           "Number of observations:",
+           min = 0, 
+           max = 1000, 
+           value = 500
+          ),
+          plotOutput("distPlot")
+        )
+      )
+    )
+  ),
+  server = function(input, output) {
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
+  }
+ )
+
+```
+
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/boxPlus-sidebar.mp4" type="video/mp4">
+</video>
+
+To toggle the sidebar, you just have to click on the **i** icon next to the collapse
+and close icons.
+
+You can currently modify the width and the background color of the box sidebar.
+The **sidebar_start_open** argument allow you to control if the sidebar should
+be opened or collapsed at start.
+The box sidebar works very well to embed inputs elements such as slider inputs, as
+in the example above. Never use the sidebar when the box body is empty, since the
+sidebar height depends on the body height. 
+
+## Including shiny output elements
+This not exactly how I was thinking this sidebar to be used, but it is definitely possible.
+See below:
+
+```r
+library(shiny)
+library(shinydashboard)
+library(leaflet)
+
+map <- leaflet() %>% addTiles()
+
+shinyApp(
+  ui = dashboardPagePlus(
+    dashboardHeaderPlus(),
+    dashboardSidebar(),
+    dashboardBody(
+      setShadow("box"),
+      fluidRow(
+        boxPlus(
+          title = "Closable Box with dropdown", 
+          closable = TRUE, 
+          status = "warning", 
+          solidHeader = FALSE, 
+          collapsible = TRUE,
+          enable_sidebar = TRUE,
+          sidebar_width = 25,
+          sidebar_start_open = TRUE,
+          sidebar_content = tagList(
+            checkboxInput("somevalue", "Some value", FALSE),
+            verbatimTextOutput("value")
+          ),
+          map
+        )
+      )
+    )
+  ),
+  server = function(input, output) {
+    output$value <- renderText({ input$somevalue })
+  }
+)
+```
+
+## Notes
+When including an image in the box sidebar and to make sure it is correctly displayed,
+you have to add a *style* attribute to the img tag as follows:
+```r
+img(style = "width: 100%; height: 100%;", src = "http://i.imgur.com/aBayW5C.png")
+```
