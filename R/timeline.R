@@ -176,10 +176,12 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
       ),
       
       # timelineItem footer
-      shiny::tags$div(
-        class = "timeline-footer",
-        footer
-      )
+      if (!is.null(footer)) {
+        shiny::tags$div(
+          class = "timeline-footer",
+          footer
+        )
+      }
     )
   )
 }

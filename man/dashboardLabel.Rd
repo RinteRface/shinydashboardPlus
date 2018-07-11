@@ -4,12 +4,14 @@
 \alias{dashboardLabel}
 \title{AdminLTE2 label}
 \usage{
-dashboardLabel(..., status = "primary")
+dashboardLabel(..., status = "primary", style = "default")
 }
 \arguments{
 \item{...}{any text.}
 
 \item{status}{label status: "danger", "success", "info", "primary", "warning".}
+
+\item{style}{labebl border style: "default" (rounded angles), "circled" or "square".}
 }
 \description{
 Create a label
@@ -23,7 +25,9 @@ if (interactive()) {
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     dashboardLabel("Label 1", status = "info")
+     dashboardLabel("Label 1", status = "info"),
+     dashboardLabel("Label 2", status = "danger", style = "circle"),
+     dashboardLabel("Label 3", status = "success", style = "square")
     )
   ),
   server = function(input, output) { }

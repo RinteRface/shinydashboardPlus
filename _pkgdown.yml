@@ -80,6 +80,10 @@ reference:
   desc: Pimp your app
   contents:
   - '`setShadow`'
+  - '`setZoom`'
+  - '`setPulse`'
+  - '`setShake`'
+  - '`preloader`'
   
 - title: The Gallery
   desc: a showcase for shinydashboardPlus
@@ -126,6 +130,7 @@ articles:
   - '`box-elements`'
   - '`extra-css-effects`'
   - '`boxPlus-sidebar`'
+  - '`css-preloader`'
   
 
 news:

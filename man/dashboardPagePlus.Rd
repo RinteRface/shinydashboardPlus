@@ -7,7 +7,8 @@
 dashboardPagePlus(header, sidebar, body, rightsidebar = NULL, title = NULL,
   skin = c("blue", "blue-light", "black", "black-light", "purple",
   "purple-light", "green", "green-light", "red", "red-light", "yellow",
-  "yellow-light"), collapse_sidebar = FALSE, sidebar_background = NULL)
+  "yellow-light"), collapse_sidebar = FALSE, sidebar_background = NULL,
+  enable_preloader = FALSE, loading_duration = 2)
 }
 \arguments{
 \item{header}{A header created by \code{dashboardHeaderPlus}.}
@@ -31,6 +32,10 @@ default.}
 
 \item{sidebar_background}{Main sidebar background color: either "light" or
 NULL. NULL by default.}
+
+\item{enable_preloader}{Whether to enable a page loader. FALSE by default.}
+
+\item{loading_duration}{Loader duration in seconds. 2s by default.}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.

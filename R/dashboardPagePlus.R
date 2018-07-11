@@ -19,6 +19,8 @@
 #'   default.
 #' @param sidebar_background Main sidebar background color: either "light" or
 #'   NULL. NULL by default.
+#' @param enable_preloader Whether to enable a page loader. FALSE by default.
+#' @param loading_duration Loader duration in seconds. 2s by default.
 #'
 #' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link[shinydashboard]{dashboardSidebar}},
 #'   \code{\link[shinydashboard]{dashboardBody}}.
@@ -47,7 +49,8 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
                               skin = c("blue", "blue-light","black","black-light", 
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light"),
-                              collapse_sidebar = FALSE, sidebar_background = NULL) {
+                              collapse_sidebar = FALSE, sidebar_background = NULL,
+                              enable_preloader = FALSE, loading_duration = 2) {
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
@@ -71,11 +74,30 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
   
   title <- title %OR% extractTitle(header)
   
-  content <- shiny::tags$div(class = "wrapper",
-                             header, sidebar, body, rightsidebar)
+  content <- shiny::tags$div(
+    class = "wrapper",
+    header, 
+    sidebar, 
+    if (enable_preloader) preloader(),
+    body, 
+    rightsidebar
+  )
   
   addDeps(
     shiny::tags$body(
+      # preloader, if any
+      onload = if (enable_preloader) {
+        duration <- loading_duration * 1000
+        paste0(
+          "$(document).ready(function() {
+            setTimeout(function(){
+            $('body').addClass('loaded');
+            $('h1').css('color','#222222');
+            }, ", duration, ");
+          });
+          "
+        )
+      },
       class = paste0(
         "hold-transition skin-", skin, 
         if (!is.null(sidebar_background)) paste0("-", sidebar_background), 

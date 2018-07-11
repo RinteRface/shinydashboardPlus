@@ -58,6 +58,9 @@
       <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
     </li>
     <li>
+      <a href="../articles/css-preloader.html">CSS preloaders</a>
+    </li>
+    <li>
       <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
     </li>
     <li>
@@ -109,7 +112,7 @@
       <h1>Extra CSS effects</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2018-07-09</h4>
+            <h4 class="date">2018-07-11</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/DivadNojnarg/shinydashboardPlus/blob/master/vignettes/extra-css-effects.Rmd"><code>vignettes/extra-css-effects.Rmd</code></a></small>
       <div class="hidden name"><code>extra-css-effects.Rmd</code></div>
@@ -205,6 +208,269 @@
    <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
   )</code></pre></div>
 </div>
+<div id="set-zoom-effect-on-any-elements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#set-zoom-effect-on-any-elements" class="anchor"></a>Set zoom effect on any elements</h2>
+<p>Use the <code><a href="../reference/setZoom.html">setZoom()</a></code> function as shown below. You can choose the zoom level via the “scale” argument. By default, the zoom is 5% bigger than the original element size ( which is widely enough).</p>
+<video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/zoom.mp4" type="video/mp4"></source></video><p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">library</span>(shiny)
+  <span class="kw">library</span>(shinyWidgets)
+  <span class="kw">library</span>(shinydashboard)
+  <span class="kw">library</span>(shinydashboardPlus)
+  
+  <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(
+   <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
+     <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
+       <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,
+       <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span>
+     ),
+     <span class="dt">sidebar =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),
+     <span class="dt">body =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(
+      tags<span class="op">$</span><span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">h2</a></span>(<span class="st">"Add zoom and hover interactions to any element"</span>),
+
+      <span class="kw"><a href="../reference/setZoom.html">setZoom</a></span>(<span class="st">"box"</span>, <span class="dt">scale =</span> <span class="fl">1.05</span>),
+      <span class="kw"><a href="../reference/setZoom.html">setZoom</a></span>(<span class="st">"info-box"</span>, <span class="dt">scale =</span> <span class="fl">1.05</span>),
+      <span class="kw"><a href="../reference/setZoom.html">setZoom</a></span>(<span class="st">"progress"</span>, <span class="dt">scale =</span> <span class="fl">1.05</span>),
+ 
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="../reference/boxPlus.html">boxPlus</a></span>(
+         <span class="dt">title =</span> <span class="st">"Closable Box with dropdown"</span>,
+         <span class="dt">closable =</span> <span class="ot">TRUE</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
+         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,
+         <span class="dt">enable_dropdown =</span> <span class="ot">TRUE</span>,
+         <span class="dt">dropdown_icon =</span> <span class="st">"wrench"</span>,
+         <span class="dt">dropdown_menu =</span> <span class="kw"><a href="../reference/dropdownItemList.html">dropdownItemList</a></span>(
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"http://www.google.com"</span>, <span class="dt">name =</span> <span class="st">"Link to google"</span>),
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"#"</span>, <span class="dt">name =</span> <span class="st">"item 2"</span>),
+           <span class="kw"><a href="../reference/dropdownDivider.html">dropdownDivider</a></span>(),
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"#"</span>, <span class="dt">name =</span> <span class="st">"item 3"</span>)
+         ),
+         <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">p</a></span>(<span class="st">"Box Content"</span>)
+       ),
+       <span class="kw"><a href="../reference/boxPlus.html">boxPlus</a></span>(
+         <span class="dt">title =</span> <span class="st">"Closable box, with label"</span>,
+         <span class="dt">closable =</span> <span class="ot">TRUE</span>,
+         <span class="dt">enable_label =</span> <span class="ot">TRUE</span>,
+         <span class="dt">label_text =</span> <span class="dv">1</span>,
+         <span class="dt">label_status =</span> <span class="st">"danger"</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
+         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,
+         <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">p</a></span>(<span class="st">"Box Content"</span>)
+       )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/infoBox">infoBox</a></span>(
+       <span class="st">"Orders"</span>,
+       <span class="st">"50"</span>,
+       <span class="st">"Subtitle"</span>, <span class="dt">icon =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"credit-card"</span>)
+       )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+        <span class="dt">value =</span> <span class="dv">10</span>,
+        <span class="dt">striped =</span> <span class="ot">TRUE</span>,
+        <span class="dt">active =</span> <span class="ot">TRUE</span>
+       ),
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+         <span class="dt">value =</span> <span class="dv">50</span>,
+         <span class="dt">active =</span> <span class="ot">TRUE</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">size =</span> <span class="st">"xs"</span>
+       ),
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+         <span class="dt">value =</span> <span class="dv">20</span>,
+         <span class="dt">status =</span> <span class="st">"danger"</span>,
+         <span class="dt">size =</span> <span class="st">"sm"</span>,
+         <span class="dt">height =</span> <span class="st">"60%"</span>
+       )
+      )
+     ),
+     <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),
+     <span class="dt">title =</span> <span class="st">"DashboardPage"</span>
+   ),
+   <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
+  )</code></pre></div>
+</div>
+<div id="set-pulse-effect-on-any-elements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#set-pulse-effect-on-any-elements" class="anchor"></a>Set pulse effect on any elements</h2>
+<p>Use the <code><a href="../reference/setPulse.html">setPulse()</a></code> function as shown below. You can choose the number of iterations (5 by default), as well as the pulse frequency (1 beat/s by default).</p>
+<video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/pulse.mp4" type="video/mp4"></source></video><p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">library</span>(shiny)
+  <span class="kw">library</span>(shinyWidgets)
+  <span class="kw">library</span>(shinydashboard)
+  <span class="kw">library</span>(shinydashboardPlus)
+  
+  <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(
+   <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
+     <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
+       <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,
+       <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span>
+     ),
+     <span class="dt">sidebar =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),
+     <span class="dt">body =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(
+      tags<span class="op">$</span><span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">h2</a></span>(<span class="st">"Add zoom and hover interactions to any element"</span>),
+
+      <span class="kw"><a href="../reference/setZoom.html">setZoom</a></span>(<span class="st">"box"</span>, <span class="dt">scale =</span> <span class="fl">1.05</span>),
+      <span class="kw"><a href="../reference/setZoom.html">setZoom</a></span>(<span class="st">"info-box"</span>, <span class="dt">scale =</span> <span class="fl">1.05</span>),
+      <span class="kw"><a href="../reference/setZoom.html">setZoom</a></span>(<span class="st">"progress"</span>, <span class="dt">scale =</span> <span class="fl">1.05</span>),
+ 
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="../reference/boxPlus.html">boxPlus</a></span>(
+         <span class="dt">title =</span> <span class="st">"Closable Box with dropdown"</span>,
+         <span class="dt">closable =</span> <span class="ot">TRUE</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
+         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,
+         <span class="dt">enable_dropdown =</span> <span class="ot">TRUE</span>,
+         <span class="dt">dropdown_icon =</span> <span class="st">"wrench"</span>,
+         <span class="dt">dropdown_menu =</span> <span class="kw"><a href="../reference/dropdownItemList.html">dropdownItemList</a></span>(
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"http://www.google.com"</span>, <span class="dt">name =</span> <span class="st">"Link to google"</span>),
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"#"</span>, <span class="dt">name =</span> <span class="st">"item 2"</span>),
+           <span class="kw"><a href="../reference/dropdownDivider.html">dropdownDivider</a></span>(),
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"#"</span>, <span class="dt">name =</span> <span class="st">"item 3"</span>)
+         ),
+         <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">p</a></span>(<span class="st">"Box Content"</span>)
+       ),
+       <span class="kw"><a href="../reference/boxPlus.html">boxPlus</a></span>(
+         <span class="dt">title =</span> <span class="st">"Closable box, with label"</span>,
+         <span class="dt">closable =</span> <span class="ot">TRUE</span>,
+         <span class="dt">enable_label =</span> <span class="ot">TRUE</span>,
+         <span class="dt">label_text =</span> <span class="dv">1</span>,
+         <span class="dt">label_status =</span> <span class="st">"danger"</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
+         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,
+         <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">p</a></span>(<span class="st">"Box Content"</span>)
+       )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/infoBox">infoBox</a></span>(
+       <span class="st">"Orders"</span>,
+       <span class="st">"50"</span>,
+       <span class="st">"Subtitle"</span>, <span class="dt">icon =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"credit-card"</span>)
+       )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+        <span class="dt">value =</span> <span class="dv">10</span>,
+        <span class="dt">striped =</span> <span class="ot">TRUE</span>,
+        <span class="dt">active =</span> <span class="ot">TRUE</span>
+       ),
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+         <span class="dt">value =</span> <span class="dv">50</span>,
+         <span class="dt">active =</span> <span class="ot">TRUE</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">size =</span> <span class="st">"xs"</span>
+       ),
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+         <span class="dt">value =</span> <span class="dv">20</span>,
+         <span class="dt">status =</span> <span class="st">"danger"</span>,
+         <span class="dt">size =</span> <span class="st">"sm"</span>,
+         <span class="dt">height =</span> <span class="st">"60%"</span>
+       )
+      )
+     ),
+     <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),
+     <span class="dt">title =</span> <span class="st">"DashboardPage"</span>
+   ),
+   <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
+  )</code></pre></div>
+</div>
+<div id="set-shake-effect-on-any-elements-on-hover" class="section level2">
+<h2 class="hasAnchor">
+<a href="#set-shake-effect-on-any-elements-on-hover" class="anchor"></a>Set shake effect on any elements (on hover)</h2>
+<p>Use the <code><a href="../reference/setShake.html">setShake()</a></code> function as shown below. You can choose the shake frequency (0.82/s by default).</p>
+<video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/shake.mp4" type="video/mp4"></source></video><p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+  <span class="kw">library</span>(shinyWidgets)
+  <span class="kw">library</span>(shinydashboard)
+  <span class="kw">library</span>(shinydashboardPlus)
+  
+  <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(
+   <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
+     <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
+       <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,
+       <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span>
+     ),
+     <span class="dt">sidebar =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),
+     <span class="dt">body =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(
+      tags<span class="op">$</span><span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">h2</a></span>(<span class="st">"Add pulse animation to any element"</span>),
+
+      <span class="kw"><a href="../reference/setShake.html">setShake</a></span>(<span class="st">"box"</span>),
+      <span class="kw"><a href="../reference/setShake.html">setShake</a></span>(<span class="st">"info-box"</span>),
+      <span class="kw"><a href="../reference/setShake.html">setShake</a></span>(<span class="st">"progress"</span>),
+ 
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="../reference/boxPlus.html">boxPlus</a></span>(
+         <span class="dt">title =</span> <span class="st">"Closable Box with dropdown"</span>,
+         <span class="dt">closable =</span> <span class="ot">TRUE</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
+         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,
+         <span class="dt">enable_dropdown =</span> <span class="ot">TRUE</span>,
+         <span class="dt">dropdown_icon =</span> <span class="st">"wrench"</span>,
+         <span class="dt">dropdown_menu =</span> <span class="kw"><a href="../reference/dropdownItemList.html">dropdownItemList</a></span>(
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"http://www.google.com"</span>, <span class="dt">name =</span> <span class="st">"Link to google"</span>),
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"#"</span>, <span class="dt">name =</span> <span class="st">"item 2"</span>),
+           <span class="kw"><a href="../reference/dropdownDivider.html">dropdownDivider</a></span>(),
+           <span class="kw"><a href="../reference/dropdownItem.html">dropdownItem</a></span>(<span class="dt">url =</span> <span class="st">"#"</span>, <span class="dt">name =</span> <span class="st">"item 3"</span>)
+         ),
+         <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">p</a></span>(<span class="st">"Box Content"</span>)
+       ),
+       <span class="kw"><a href="../reference/boxPlus.html">boxPlus</a></span>(
+         <span class="dt">title =</span> <span class="st">"Closable box, with label"</span>,
+         <span class="dt">closable =</span> <span class="ot">TRUE</span>,
+         <span class="dt">enable_label =</span> <span class="ot">TRUE</span>,
+         <span class="dt">label_text =</span> <span class="dv">1</span>,
+         <span class="dt">label_status =</span> <span class="st">"danger"</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>,
+         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,
+         <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/builder">p</a></span>(<span class="st">"Box Content"</span>)
+       )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/infoBox">infoBox</a></span>(
+       <span class="st">"Orders"</span>,
+       <span class="st">"50"</span>,
+       <span class="st">"Subtitle"</span>, <span class="dt">icon =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"credit-card"</span>)
+       )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidRow</a></span>(
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+        <span class="dt">value =</span> <span class="dv">10</span>,
+        <span class="dt">striped =</span> <span class="ot">TRUE</span>,
+        <span class="dt">active =</span> <span class="ot">TRUE</span>
+       ),
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+         <span class="dt">value =</span> <span class="dv">50</span>,
+         <span class="dt">active =</span> <span class="ot">TRUE</span>,
+         <span class="dt">status =</span> <span class="st">"warning"</span>,
+         <span class="dt">size =</span> <span class="st">"xs"</span>
+       ),
+       <span class="kw"><a href="../reference/verticalProgress.html">verticalProgress</a></span>(
+         <span class="dt">value =</span> <span class="dv">20</span>,
+         <span class="dt">status =</span> <span class="st">"danger"</span>,
+         <span class="dt">size =</span> <span class="st">"sm"</span>,
+         <span class="dt">height =</span> <span class="st">"60%"</span>
+       )
+      )
+     ),
+     <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),
+     <span class="dt">title =</span> <span class="st">"DashboardPage"</span>
+   ),
+   <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
+  )</code></pre></div>
+</div>
+<div id="combine-css-effects" class="section level2">
+<h2 class="hasAnchor">
+<a href="#combine-css-effects" class="anchor"></a>Combine CSS effects</h2>
+<p>You can combine all the previous effects according to your needs.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -213,6 +479,10 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#set-shadows-and-hover-effects">Set shadows and hover effects</a></li>
+      <li><a href="#set-zoom-effect-on-any-elements">Set zoom effect on any elements</a></li>
+      <li><a href="#set-pulse-effect-on-any-elements">Set pulse effect on any elements</a></li>
+      <li><a href="#set-shake-effect-on-any-elements-on-hover">Set shake effect on any elements (on hover)</a></li>
+      <li><a href="#combine-css-effects">Combine CSS effects</a></li>
       </ul>
 </div>
       </div>

@@ -69,7 +69,7 @@ shinyApp(
         # shiny::includeScript(
         #   system.file("js", "highlight.pack.js", package = "shinydashboardPlus")
         # )
-        
+    
         shiny::tags$style(
           rel = "stylesheet",
           type = "text/css",
@@ -1945,9 +1945,9 @@ shinyApp(
                   style_text(
                     'dashboardLabel("Label 1", status = "info")
                      dashboardLabel("Label 2", status = "success")
-                    dashboardLabel("Label 3", status = "warning")
-                    dashboardLabel("Label 4", status = "primary")
-                    dashboardLabel("Label 5", status = "danger")'
+                     dashboardLabel("Label 3", status = "warning")
+                     dashboardLabel("Label 4", status = "primary")
+                     dashboardLabel("Label 5", status = "danger")'
                   ), 
                   collapse = "\n"
                 )

@@ -110,3 +110,288 @@ Use the `setShadow()` function as shown below.
    server = function(input, output) { }
   )
 ```
+
+## Set zoom effect on any elements
+
+Use the `setZoom()` function as shown below. You can choose the zoom level via the
+"scale" argument. By default, the zoom is 5% bigger than the original element size (
+which is widely enough).
+
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/zoom.mp4" type="video/mp4">
+</video>
+
+<br>
+
+```r
+  library(shiny)
+  library(shinyWidgets)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+  
+  shinyApp(
+   ui = dashboardPagePlus(
+     header = dashboardHeaderPlus(
+       enable_rightsidebar = TRUE,
+       rightSidebarIcon = "gears"
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(
+      tags$h2("Add zoom and hover interactions to any element"),
+
+      setZoom("box", scale = 1.05),
+      setZoom("info-box", scale = 1.05),
+      setZoom("progress", scale = 1.05),
+ 
+      fluidRow(
+       boxPlus(
+         title = "Closable Box with dropdown",
+         closable = TRUE,
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         enable_dropdown = TRUE,
+         dropdown_icon = "wrench",
+         dropdown_menu = dropdownItemList(
+           dropdownItem(url = "http://www.google.com", name = "Link to google"),
+           dropdownItem(url = "#", name = "item 2"),
+           dropdownDivider(),
+           dropdownItem(url = "#", name = "item 3")
+         ),
+         p("Box Content")
+       ),
+       boxPlus(
+         title = "Closable box, with label",
+         closable = TRUE,
+         enable_label = TRUE,
+         label_text = 1,
+         label_status = "danger",
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         p("Box Content")
+       )
+      ),
+      fluidRow(
+       infoBox(
+       "Orders",
+       "50",
+       "Subtitle", icon = icon("credit-card")
+       )
+      ),
+      fluidRow(
+       verticalProgress(
+        value = 10,
+        striped = TRUE,
+        active = TRUE
+       ),
+       verticalProgress(
+         value = 50,
+         active = TRUE,
+         status = "warning",
+         size = "xs"
+       ),
+       verticalProgress(
+         value = 20,
+         status = "danger",
+         size = "sm",
+         height = "60%"
+       )
+      )
+     ),
+     rightsidebar = rightSidebar(),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+  )
+```
+
+## Set pulse effect on any elements
+
+Use the `setPulse()` function as shown below. You can choose the number of iterations
+(5 by default), as well as the pulse frequency (1 beat/s by default).
+
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/pulse.mp4" type="video/mp4">
+</video>
+
+<br>
+
+```r
+  library(shiny)
+  library(shinyWidgets)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+  
+  shinyApp(
+   ui = dashboardPagePlus(
+     header = dashboardHeaderPlus(
+       enable_rightsidebar = TRUE,
+       rightSidebarIcon = "gears"
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(
+      tags$h2("Add zoom and hover interactions to any element"),
+
+      setZoom("box", scale = 1.05),
+      setZoom("info-box", scale = 1.05),
+      setZoom("progress", scale = 1.05),
+ 
+      fluidRow(
+       boxPlus(
+         title = "Closable Box with dropdown",
+         closable = TRUE,
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         enable_dropdown = TRUE,
+         dropdown_icon = "wrench",
+         dropdown_menu = dropdownItemList(
+           dropdownItem(url = "http://www.google.com", name = "Link to google"),
+           dropdownItem(url = "#", name = "item 2"),
+           dropdownDivider(),
+           dropdownItem(url = "#", name = "item 3")
+         ),
+         p("Box Content")
+       ),
+       boxPlus(
+         title = "Closable box, with label",
+         closable = TRUE,
+         enable_label = TRUE,
+         label_text = 1,
+         label_status = "danger",
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         p("Box Content")
+       )
+      ),
+      fluidRow(
+       infoBox(
+       "Orders",
+       "50",
+       "Subtitle", icon = icon("credit-card")
+       )
+      ),
+      fluidRow(
+       verticalProgress(
+        value = 10,
+        striped = TRUE,
+        active = TRUE
+       ),
+       verticalProgress(
+         value = 50,
+         active = TRUE,
+         status = "warning",
+         size = "xs"
+       ),
+       verticalProgress(
+         value = 20,
+         status = "danger",
+         size = "sm",
+         height = "60%"
+       )
+      )
+     ),
+     rightsidebar = rightSidebar(),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+  )
+```
+
+## Set shake effect on any elements (on hover)
+
+Use the `setShake()` function as shown below. You can choose the shake frequency (0.82/s by default).
+
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/shake.mp4" type="video/mp4">
+</video>
+
+<br>
+
+```r
+library(shiny)
+  library(shinyWidgets)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+  
+  shinyApp(
+   ui = dashboardPagePlus(
+     header = dashboardHeaderPlus(
+       enable_rightsidebar = TRUE,
+       rightSidebarIcon = "gears"
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(
+      tags$h2("Add pulse animation to any element"),
+
+      setShake("box"),
+      setShake("info-box"),
+      setShake("progress"),
+ 
+      fluidRow(
+       boxPlus(
+         title = "Closable Box with dropdown",
+         closable = TRUE,
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         enable_dropdown = TRUE,
+         dropdown_icon = "wrench",
+         dropdown_menu = dropdownItemList(
+           dropdownItem(url = "http://www.google.com", name = "Link to google"),
+           dropdownItem(url = "#", name = "item 2"),
+           dropdownDivider(),
+           dropdownItem(url = "#", name = "item 3")
+         ),
+         p("Box Content")
+       ),
+       boxPlus(
+         title = "Closable box, with label",
+         closable = TRUE,
+         enable_label = TRUE,
+         label_text = 1,
+         label_status = "danger",
+         status = "warning",
+         solidHeader = FALSE,
+         collapsible = TRUE,
+         p("Box Content")
+       )
+      ),
+      fluidRow(
+       infoBox(
+       "Orders",
+       "50",
+       "Subtitle", icon = icon("credit-card")
+       )
+      ),
+      fluidRow(
+       verticalProgress(
+        value = 10,
+        striped = TRUE,
+        active = TRUE
+       ),
+       verticalProgress(
+         value = 50,
+         active = TRUE,
+         status = "warning",
+         size = "xs"
+       ),
+       verticalProgress(
+         value = 20,
+         status = "danger",
+         size = "sm",
+         height = "60%"
+       )
+      )
+     ),
+     rightsidebar = rightSidebar(),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+  )
+```
+## Combine CSS effects
+
+You can combine all the previous effects according to your needs.

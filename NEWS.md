@@ -3,7 +3,13 @@
 - new sidebar in the `boxPlus()` function: set up with the following arguments
 "enable_sidebar", "sidebar_content", "sidebar_width", "sidebar_background" and
 "sidebar_start_open"
+- new `setZoom()` function (similar as `setShadow()`)
+- new `setPulse()` function
+- new `setShake()` function
+- add "enable_preloader" and "loading_duration" to `dashboardPagePlus()` (custom preloader)
 - update the `shinydashboardPlusGallery()`
+- disable timelineItem footer when NULL
+- add a "style" argument to `dashboardLabel()`
 - change the website images
 
 

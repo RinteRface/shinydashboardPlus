@@ -4,6 +4,7 @@ pkgdown_sha: ~
 articles:
   box-elements: box-elements.html
   boxPlus-sidebar: boxPlus-sidebar.html
+  css-preloader: css-preloader.html
   extra-css-effects: extra-css-effects.html
   improved-boxes: improved-boxes.html
   rightSidebar: rightSidebar.html

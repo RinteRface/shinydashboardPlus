@@ -90,6 +90,9 @@
       <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
     </li>
     <li>
+      <a href="../articles/css-preloader.html">CSS preloaders</a>
+    </li>
+    <li>
       <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
     </li>
     <li>
@@ -150,7 +153,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dashboardLabel</span>(<span class='no'>...</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"primary"</span>)</pre>
+    <pre class="usage"><span class='fu'>dashboardLabel</span>(<span class='no'>...</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"primary"</span>, <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"default"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,6 +165,10 @@
     <tr>
       <th>status</th>
       <td><p>label status: "danger", "success", "info", "primary", "warning".</p></td>
+    </tr>
+    <tr>
+      <th>style</th>
+      <td><p>labebl border style: "default" (rounded angles), "circled" or "square".</p></td>
     </tr>
     </table>
     
@@ -175,7 +182,9 @@
     <span class='fu'><a href='http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader'>dashboardHeader</a></span>(),
     <span class='fu'><a href='http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(
-     <span class='fu'>dashboardLabel</span>(<span class='st'>"Label 1"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"info"</span>)
+     <span class='fu'>dashboardLabel</span>(<span class='st'>"Label 1"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"info"</span>),
+     <span class='fu'>dashboardLabel</span>(<span class='st'>"Label 2"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"danger"</span>, <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"circle"</span>),
+     <span class='fu'>dashboardLabel</span>(<span class='st'>"Label 3"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"success"</span>, <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"square"</span>)
     )
   ),
   <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
