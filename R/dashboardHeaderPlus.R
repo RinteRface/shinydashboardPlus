@@ -17,6 +17,8 @@
 #' @param .list An optional list containing items to put in the header. Same as
 #'   the \code{...} arguments, but in list format. This can be useful when
 #'   working with programmatically generated items.
+#' @param left_menu Items that will appear on the left part of the navbar. Should
+#' be wrapped in a tagList.
 #' @param enable_rightsidebar Whether to enable the right sidebar. FALSE by default.
 #' @param rightSidebarIcon Customize the trigger icon of the right sidebar.
 #'
@@ -24,80 +26,73 @@
 #'
 #' @examples
 #' if (interactive()) {
-#' library(shiny)
-#' library(shinydashboard)
-#' library(shinydashboardPlus)
-#'
-#' # A dashboard header with 3 dropdown menus
-#' header <- dashboardHeader(
-#'   title = "Dashboard Demo",
-#'
-#'   # Dropdown menu for messages
-#'   dropdownMenu(type = "messages", badgeStatus = "success",
-#'     messageItem("Support Team",
-#'       "This is the content of a message.",
-#'       time = "5 mins"
-#'     ),
-#'     messageItem("Support Team",
-#'       "This is the content of another message.",
-#'       time = "2 hours"
-#'     ),
-#'     messageItem("New User",
-#'       "Can I get some help?",
-#'       time = "Today"
-#'     )
-#'   ),
-#'
-#'   # Dropdown menu for notifications
-#'   dropdownMenu(type = "notifications", badgeStatus = "warning",
-#'     notificationItem(icon = icon("users"), status = "info",
-#'       "5 new members joined today"
-#'     ),
-#'     notificationItem(icon = icon("warning"), status = "danger",
-#'       "Resource usage near limit."
-#'     ),
-#'     notificationItem(icon = icon("shopping-cart", lib = "glyphicon"),
-#'       status = "success", "25 sales made"
-#'     ),
-#'     notificationItem(icon = icon("user", lib = "glyphicon"),
-#'       status = "danger", "You changed your username"
-#'     )
-#'   ),
-#'
-#'   # Dropdown menu for tasks, with progress bar
-#'   dropdownMenu(type = "tasks", badgeStatus = "danger",
-#'     taskItem(value = 20, color = "aqua",
-#'       "Refactor code"
-#'     ),
-#'     taskItem(value = 40, color = "green",
-#'       "Design new layout"
-#'     ),
-#'     taskItem(value = 60, color = "yellow",
-#'       "Another task"
-#'     ),
-#'     taskItem(value = 80, color = "red",
-#'       "Write documentation"
-#'     )
-#'   )
-#' )
-#'
-#' shinyApp(
-#'   ui = dashboardPagePlus(
-#'     dashboardHeaderPlus(),
-#'     dashboardSidebar(),
-#'     rightSidebar(),
-#'     dashboardBody()
-#'   ),
-#'   server = function(input, output) { }
-#' )
+#'  library(shiny)
+#'  library(shinyWidgets)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      header = dashboardHeaderPlus(
+#'        enable_rightsidebar = TRUE,
+#'        rightSidebarIcon = "gears",
+#'        left_menu = tagList(
+#'          dropdownButton(
+#'            label = "Controls",
+#'            icon = icon("sliders"),
+#'            status = "primary",
+#'            circle = FALSE,
+#'            sliderInput(
+#'              inputId = "n",
+#'              label = "Number of observations",
+#'              min = 10, max = 100, value = 30
+#'            ),
+#'            prettyToggle(
+#'              inputId = "na",
+#'              label_on = "NAs keeped",
+#'              label_off = "NAs removed",
+#'              icon_on = icon("check"),
+#'              icon_off = icon("remove")
+#'            )
+#'          )
+#'        ),
+#'        dropdownMenu(
+#'         type = "tasks", 
+#'         badgeStatus = "danger",
+#'         taskItem(value = 20, color = "aqua", "Refactor code"),
+#'         taskItem(value = 40, color = "green", "Design new layout"),
+#'         taskItem(value = 60, color = "yellow", "Another task"),
+#'         taskItem(value = 80, color = "red", "Write documentation")
+#'        )
+#'      ),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(
+#'        setShadow(class = "dropdown-menu")
+#'      ),
+#'      rightsidebar = rightSidebar(),
+#'      title = "DashboardPage"
+#'    ),
+#'    server = function(input, output) { }
+#'  )
 #' }
 #' @export
 dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL, 
-                                disable = FALSE, .list = NULL, 
+                                disable = FALSE, .list = NULL, left_menu = NULL,
                                 enable_rightsidebar = FALSE,
                                 rightSidebarIcon = "gears") {
+  # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
+  
+  # handle left menu items
+  dropdownTag <- shiny::tags$li(class = "dropdown")
+  left_menu_items <- lapply(1:length(left_menu), FUN = function(i) {
+    left_menu_item <- shiny::tagAppendChild(dropdownTag, left_menu[[i]])
+    left_menu_item <- shiny::tagAppendAttributes(
+      left_menu_item, 
+      style = "margin-top: 7.5px; margin-left: 5px; margin-right: 5px;"
+    )
+  })
   
   titleWidth <- shiny::validateCssUnit(titleWidth)
   
@@ -112,18 +107,20 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     custom_css <- shiny::tags$head(
       shiny::tags$style(
         shiny::HTML(
-          gsub("_WIDTH_", 
-               titleWidth, 
-               fixed = TRUE, 
-               '@media (min-width: 768px) {
+          gsub(
+            "_WIDTH_", 
+            titleWidth, 
+            fixed = TRUE, 
+            '@media (min-width: 768px) {
               .main-header > .navbar {
-              margin-left: _WIDTH_;
+                margin-left: _WIDTH_;
               }
               .main-header .logo {
-              width: _WIDTH_;
+                width: _WIDTH_;
               }
-              }
-              ')
+             }
+              '
+          )
         )
       )
     )
@@ -146,12 +143,22 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
         role = "button",
         shiny::tags$span(class = "sr-only", "Toggle navigation")
       ),
+      # left menu
+      shiny::tags$div(
+        class = "navbar-custom-menu-left",
+        shiny::tags$ul(
+          class = "nav navbar-nav",
+          style = "float: left; margin-left: 10px;",
+          left_menu_items
+        )
+      ),
+      # right menu
       shiny::tags$div(
         class = "navbar-custom-menu",
         shiny::tags$ul(
           class = "nav navbar-nav",
           items,
-          
+          # right sidebar
           if (isTRUE(enable_rightsidebar)) {
             shiny::tags$li(
               shiny::tags$a(

@@ -45,6 +45,12 @@ The rightSidebar function takes the following arguments:
 text or custom HTML elements.
 - In the `dashboardHeaderPlus()` function, you can customize the sidebar trigger.
 
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/right-sidebar.mp4" type="video/mp4">
+</video>
+
+<br>
+
 ```r
 rightSidebar(
  background = "dark",

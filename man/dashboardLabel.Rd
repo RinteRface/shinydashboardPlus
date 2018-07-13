@@ -11,7 +11,7 @@ dashboardLabel(..., status = "primary", style = "default")
 
 \item{status}{label status: "danger", "success", "info", "primary", "warning".}
 
-\item{style}{labebl border style: "default" (rounded angles), "circled" or "square".}
+\item{style}{label border style: "default" (rounded angles), "circle" or "square".}
 }
 \description{
 Create a label

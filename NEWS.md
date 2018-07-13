@@ -3,6 +3,9 @@
 - new sidebar in the `boxPlus()` function: set up with the following arguments
 "enable_sidebar", "sidebar_content", "sidebar_width", "sidebar_background" and
 "sidebar_start_open"
+- new "left_menu" argument in the `dashboardHeaderPlus()` to include elements
+in the left part of the navbar. (In addition to what you can already do in the
+right part with shinydashboard)
 - new `setZoom()` function (similar as `setShadow()`)
 - new `setPulse()` function
 - new `setShake()` function

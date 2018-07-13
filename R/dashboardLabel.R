@@ -4,7 +4,7 @@
 #'
 #' @param ... any text.
 #' @param status label status: "danger", "success", "info", "primary", "warning".
-#' @param style labebl border style: "default" (rounded angles), "circled" or "square".
+#' @param style label border style: "default" (rounded angles), "circle" or "square".
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
