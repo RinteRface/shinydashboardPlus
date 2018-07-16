@@ -11,7 +11,35 @@ shinyApp(
     dashboardHeaderPlus(
       title = "shinydashboardPlus",
       enable_rightsidebar = TRUE,
-      rightSidebarIcon = "bars"
+      rightSidebarIcon = "bars",
+      left_menu = tagList(
+        dropdownButton(
+          label = "New navbar left menu",
+          icon = icon("sliders"),
+          status = "primary",
+          circle = FALSE,
+          sliderInput(
+            inputId = "n",
+            label = "Number of observations",
+            min = 10, max = 100, value = 30
+          ),
+          prettyToggle(
+            inputId = "na",
+            label_on = "NAs keeped",
+            label_off = "NAs removed",
+            icon_on = icon("check"),
+            icon_off = icon("remove")
+          )
+        )
+      ),
+      dropdownMenu(
+        type = "tasks", 
+        badgeStatus = "danger",
+        taskItem(value = 20, color = "aqua", "Refactor code"),
+        taskItem(value = 40, color = "green", "Design new layout"),
+        taskItem(value = 60, color = "yellow", "Another task"),
+        taskItem(value = 80, color = "red", "Write documentation")
+      )
     ),
     dashboardSidebar(
       sidebarMenu(
@@ -61,6 +89,8 @@ shinyApp(
       )
     ),
     dashboardBody(
+      
+      setShadow("dropdown-menu"),
       
       shiny::tags$head(
         # shiny::includeCSS(

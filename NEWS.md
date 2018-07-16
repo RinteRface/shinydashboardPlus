@@ -14,6 +14,8 @@ right part with shinydashboard)
 - disable timelineItem footer when NULL
 - add a "style" argument to `dashboardLabel()`
 - change the website images
+## Bug fixes
+- do not show comments when there are no comments in `socialBox()`
 
 
 # shinydashboardPlus 0.5.0

@@ -876,10 +876,12 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
       ),
       
       # box comments
-      shiny::tags$div(
-        class = "box-footer box-comments",
-        comments
-      ),
+      if (!is.null(comments)) {
+        shiny::tags$div(
+          class = "box-footer box-comments",
+          comments
+        ) 
+      },
       
       # footer
       shiny::tags$div(
