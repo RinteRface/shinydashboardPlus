@@ -21,6 +21,7 @@
 #' be wrapped in a tagList.
 #' @param enable_rightsidebar Whether to enable the right sidebar. FALSE by default.
 #' @param rightSidebarIcon Customize the trigger icon of the right sidebar.
+#' @param fixed Whether the navbar is fixed-top or not. FALSE by default.
 #'
 #' @seealso \code{\link[shinydashboard]{dropdownMenu}}
 #'
@@ -79,7 +80,7 @@
 dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL, 
                                 disable = FALSE, .list = NULL, left_menu = NULL,
                                 enable_rightsidebar = FALSE,
-                                rightSidebarIcon = "gears") {
+                                rightSidebarIcon = "gears", fixed = FALSE) {
   # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
@@ -132,7 +133,8 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     style = if (disable) "display: none;",
     shiny::tags$span(class = "logo", title),
     shiny::tags$nav(
-      class = "navbar navbar-static-top", role = "navigation",
+      class = paste0("navbar navbar-", if (fixed) "fixed" else "static", "-top"), 
+      role = "navigation",
       # Embed hidden icon so that we get the font-awesome dependency
       shiny::tags$span(shiny::icon("bars"), style = "display:none;"),
       # Sidebar toggle button

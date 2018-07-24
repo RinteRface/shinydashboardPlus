@@ -6,6 +6,8 @@
 - new "left_menu" argument in the `dashboardHeaderPlus()` to include elements
 in the left part of the navbar. (In addition to what you can already do in the
 right part with shinydashboard)
+- new "fixed" argument to the navbar (`dashboardHeaderPlus()`). 
+If TRUE, the navbar is fixed-top. (static-top by default)
 - new `setZoom()` function (similar as `setShadow()`)
 - new `setPulse()` function
 - new `setShake()` function

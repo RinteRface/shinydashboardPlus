@@ -6,7 +6,7 @@
 \usage{
 dashboardHeaderPlus(..., title = NULL, titleWidth = NULL, disable = FALSE,
   .list = NULL, left_menu = NULL, enable_rightsidebar = FALSE,
-  rightSidebarIcon = "gears")
+  rightSidebarIcon = "gears", fixed = FALSE)
 }
 \arguments{
 \item{...}{Items to put in the header. Should be \code{\link[shinydashboard]{dropdownMenu}}s.}
@@ -32,6 +32,8 @@ be wrapped in a tagList.}
 \item{enable_rightsidebar}{Whether to enable the right sidebar. FALSE by default.}
 
 \item{rightSidebarIcon}{Customize the trigger icon of the right sidebar.}
+
+\item{fixed}{Whether the navbar is fixed-top or not. FALSE by default.}
 }
 \description{
 A dashboard header can be left blank, or it can include dropdown menu items
