@@ -124,6 +124,9 @@
 
     
     
+<div id="introduction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h2>
 <p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <strong>shinydashboardPlus</strong> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> function. All elements should be embbeded in a <code><a href="http://www.rdocumentation.org/packages/shiny/topics/tag">tagList()</a></code>, as shown below.</p>
 <video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/navbar-left-menu.mp4" type="video/mp4"></source></video><p><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(shiny)
@@ -181,10 +184,91 @@
    ),
    <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
  )</code></pre></div>
-<p>This new feature perfectly works with the <code><a href="http://www.rdocumentation.org/packages/shinyWidgets/topics/dropdownButton">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as shown in example), as well as the classic <code><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="http://www.rdocumentation.org/packages/shiny/topics/sliderInput">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <strong>shinydashboardPlus</strong> to change basic shiny elements.</p>
+<p>This new feature perfectly works with the <code><a href="http://www.rdocumentation.org/packages/shinyWidgets/topics/dropdownButton">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="http://www.rdocumentation.org/packages/shiny/topics/sliderInput">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <strong>shinydashboardPlus</strong> to change basic shiny elements.</p>
+</div>
+<div id="improved-dropdownmenu" class="section level2">
+<h2 class="hasAnchor">
+<a href="#improved-dropdownmenu" class="anchor"></a>Improved <code><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code>
+</h2>
+<p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed input elements in a left navbar menu. It does not hide when the user click inside but only outside and is optimized to correctly render with mobiles (contrary to <code><a href="http://www.rdocumentation.org/packages/shinyWidgets/topics/dropdownButton">dropdownButton()</a></code>, see above).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+<span class="kw">library</span>(shinyWidgets)
+<span class="kw">library</span>(shinydashboard)
+<span class="kw">library</span>(shinydashboardPlus)
+
+<span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(
+  <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
+    <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
+      <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,
+      <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span>,
+      <span class="dt">left_menu =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/tag">tagList</a></span>(
+        <span class="kw"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
+          <span class="dt">id =</span> <span class="st">"mydropdown"</span>,
+          <span class="dt">title =</span> <span class="st">"Dropdown 1"</span>,
+          <span class="dt">icon =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"sliders"</span>),
+          <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/sliderInput">sliderInput</a></span>(
+            <span class="dt">inputId =</span> <span class="st">"n"</span>,
+            <span class="dt">label =</span> <span class="st">"Number of observations"</span>,
+            <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">100</span>, <span class="dt">value =</span> <span class="dv">30</span>
+          ),
+          <span class="kw"><a href="http://www.rdocumentation.org/packages/shinyWidgets/topics/prettyToggle">prettyToggle</a></span>(
+            <span class="dt">inputId =</span> <span class="st">"na"</span>,
+            <span class="dt">label_on =</span> <span class="st">"NAs keeped"</span>,
+            <span class="dt">label_off =</span> <span class="st">"NAs removed"</span>,
+            <span class="dt">icon_on =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"check"</span>),
+            <span class="dt">icon_off =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"remove"</span>)
+          )
+        ),
+        <span class="kw"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
+          <span class="dt">id =</span> <span class="st">"mydropdown2"</span>,
+          <span class="dt">title =</span> <span class="st">"Dropdown 2"</span>,
+          <span class="dt">icon =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"sliders"</span>),
+          <span class="kw"><a href="http://www.rdocumentation.org/packages/shinyWidgets/topics/prettySwitch">prettySwitch</a></span>(
+            <span class="dt">inputId =</span> <span class="st">"switch4"</span>,
+            <span class="dt">label =</span> <span class="st">"Fill switch with status:"</span>,
+            <span class="dt">fill =</span> <span class="ot">TRUE</span>, 
+            <span class="dt">status =</span> <span class="st">"primary"</span>
+          ),
+          <span class="kw"><a href="http://www.rdocumentation.org/packages/shinyWidgets/topics/prettyCheckboxGroup">prettyCheckboxGroup</a></span>(
+            <span class="dt">inputId =</span> <span class="st">"checkgroup2"</span>,
+            <span class="dt">label =</span> <span class="st">"Click me!"</span>, 
+            <span class="dt">thick =</span> <span class="ot">TRUE</span>,
+            <span class="dt">choices =</span> <span class="kw">c</span>(<span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span>),
+            <span class="dt">animation =</span> <span class="st">"pulse"</span>, 
+            <span class="dt">status =</span> <span class="st">"info"</span>
+          )
+        )
+      ),
+      <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu</a></span>(
+        <span class="dt">type =</span> <span class="st">"tasks"</span>, 
+        <span class="dt">badgeStatus =</span> <span class="st">"danger"</span>,
+        <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
+        <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">40</span>, <span class="dt">color =</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
+        <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
+        <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">80</span>, <span class="dt">color =</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
+      )
+    ),
+    <span class="dt">sidebar =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),
+    <span class="dt">body =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(
+      <span class="kw"><a href="../reference/setShadow.html">setShadow</a></span>(<span class="dt">class =</span> <span class="st">"dropdown-menu"</span>)
+    ),
+    <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),
+    <span class="dt">title =</span> <span class="st">"DashboardPage"</span>
+  ),
+  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }
+)</code></pre></div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#introduction">Introduction</a></li>
+      <li><a href="#improved-dropdownmenu">Improved <code><a href="http://www-rdocumentation-org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code></a></li>
+      </ul>
+</div>
       </div>
 
 </div>

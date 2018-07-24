@@ -156,6 +156,7 @@
 <ul>
 <li>new sidebar in the <code><a href="../reference/boxPlus.html">boxPlus()</a></code> function: set up with the following arguments “enable_sidebar”, “sidebar_content”, “sidebar_width”, “sidebar_background” and “sidebar_start_open”</li>
 <li>new “left_menu” argument in the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</li>
+<li>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</li>
 <li>new “fixed” argument to the navbar (<code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code>). If TRUE, the navbar is fixed-top. (static-top by default)</li>
 <li>new <code><a href="../reference/setZoom.html">setZoom()</a></code> function (similar as <code><a href="../reference/setShadow.html">setShadow()</a></code>)</li>
 <li>new <code><a href="../reference/setPulse.html">setPulse()</a></code> function</li>
@@ -163,14 +164,16 @@
 <li>add “enable_preloader” and “loading_duration” to <code><a href="../reference/dashboardPagePlus.html">dashboardPagePlus()</a></code> (custom preloader)</li>
 <li>update the <code><a href="../reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery()</a></code>
 </li>
-<li>disable timelineItem footer when NULL</li>
 <li>add a “style” argument to <code><a href="../reference/dashboardLabel.html">dashboardLabel()</a></code>
 </li>
 <li>
 <p>change the website images</p>
 <h2 id="bug-fixes">Bug fixes</h2>
 </li>
-<li><p>do not show comments when there are no comments in <code><a href="../reference/socialBox.html">socialBox()</a></code></p></li>
+<li>do not show comments when there are no comments in <code><a href="../reference/socialBox.html">socialBox()</a></code>
+</li>
+<li>on mobiles (or small screens), navbar left menu items display inline, instead of column…</li>
+<li><p>disable <code><a href="../reference/timelineItem.html">timelineItem()</a></code> footer when NULL</p></li>
 </ul>
 </div>
 </div>

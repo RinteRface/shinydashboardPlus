@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction
+
 By default with shinydashboard, all elements included in the navbar will be 
 displayed on the right side. **shinydashboardPlus** has a new option to add
 elements in the left part of the navbar. You just have to pass the "left_menu" argument
@@ -87,10 +89,85 @@ as shown below.
 ```
 
 This new feature perfectly works with the `dropdownButton()` from shinyWidgets packages
-by [dreamRs](https://twitter.com/_pvictorr) (as shown in example), 
+by [dreamRs](https://twitter.com/_pvictorr) (as long as the screen size is large enough), 
 as well as the classic `dropdownMenu()` from shinydashboard. 
 It works less with other individual elements, for a space reason, mainly.
 Indeed, a `sliderInput()` would not be optimized to be inserted in the header 
 because of the label which takes too much space. This would require
 some CSS tricks, namely, reducing the slider size, and this is not the philosophy of 
 **shinydashboardPlus** to change basic shiny elements. 
+
+## Improved `dropdownMenu()`
+
+The new function `dropdownBlock()` make it easy to embed input elements in a left navbar
+menu. It does not hide when the user click inside but only outside and is optimized to
+correctly render with mobiles (contrary to `dropdownButton()`, see above).
+
+```r
+library(shiny)
+library(shinyWidgets)
+library(shinydashboard)
+library(shinydashboardPlus)
+
+shinyApp(
+  ui = dashboardPagePlus(
+    header = dashboardHeaderPlus(
+      enable_rightsidebar = TRUE,
+      rightSidebarIcon = "gears",
+      left_menu = tagList(
+        dropdownBlock(
+          id = "mydropdown",
+          title = "Dropdown 1",
+          icon = icon("sliders"),
+          sliderInput(
+            inputId = "n",
+            label = "Number of observations",
+            min = 10, max = 100, value = 30
+          ),
+          prettyToggle(
+            inputId = "na",
+            label_on = "NAs keeped",
+            label_off = "NAs removed",
+            icon_on = icon("check"),
+            icon_off = icon("remove")
+          )
+        ),
+        dropdownBlock(
+          id = "mydropdown2",
+          title = "Dropdown 2",
+          icon = icon("sliders"),
+          prettySwitch(
+            inputId = "switch4",
+            label = "Fill switch with status:",
+            fill = TRUE, 
+            status = "primary"
+          ),
+          prettyCheckboxGroup(
+            inputId = "checkgroup2",
+            label = "Click me!", 
+            thick = TRUE,
+            choices = c("Click me !", "Me !", "Or me !"),
+            animation = "pulse", 
+            status = "info"
+          )
+        )
+      ),
+      dropdownMenu(
+        type = "tasks", 
+        badgeStatus = "danger",
+        taskItem(value = 20, color = "aqua", "Refactor code"),
+        taskItem(value = 40, color = "green", "Design new layout"),
+        taskItem(value = 60, color = "yellow", "Another task"),
+        taskItem(value = 80, color = "red", "Write documentation")
+      )
+    ),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(
+      setShadow(class = "dropdown-menu")
+    ),
+    rightsidebar = rightSidebar(),
+    title = "DashboardPage"
+  ),
+  server = function(input, output) { }
+)
+```

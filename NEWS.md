@@ -6,6 +6,8 @@
 - new "left_menu" argument in the `dashboardHeaderPlus()` to include elements
 in the left part of the navbar. (In addition to what you can already do in the
 right part with shinydashboard)
+- new `dropdownBlock()` to include shiny input elements in a navbar left menu 
+(optimized for all screen sizes)
 - new "fixed" argument to the navbar (`dashboardHeaderPlus()`). 
 If TRUE, the navbar is fixed-top. (static-top by default)
 - new `setZoom()` function (similar as `setShadow()`)
@@ -13,11 +15,12 @@ If TRUE, the navbar is fixed-top. (static-top by default)
 - new `setShake()` function
 - add "enable_preloader" and "loading_duration" to `dashboardPagePlus()` (custom preloader)
 - update the `shinydashboardPlusGallery()`
-- disable timelineItem footer when NULL
 - add a "style" argument to `dashboardLabel()`
 - change the website images
 ## Bug fixes
 - do not show comments when there are no comments in `socialBox()`
+- on mobiles (or small screens), navbar left menu items display inline, instead of column...
+- disable `timelineItem()` footer when NULL
 
 
 # shinydashboardPlus 0.5.0

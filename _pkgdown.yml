@@ -4,6 +4,11 @@ reference:
   contents: 
   - '`dashboardPagePlus`'
   - '`dashboardHeaderPlus`'
+  
+- title: Navbar Functions
+  desc: Items to insert in the left navbar menu
+  contents: 
+  - '`dropdownBlock`'
 
 - title: Right Sidebar
   desc: Right sidebar elements

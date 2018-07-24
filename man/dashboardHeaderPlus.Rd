@@ -39,6 +39,11 @@ be wrapped in a tagList.}
 A dashboard header can be left blank, or it can include dropdown menu items
 on the right side.
 }
+\note{
+We do not recommend to insert shiny input elements (such as sliderInput) 
+in the left menu, since they will not be well displayed. Instead, wrap them in a 
+ \code{\link[shinydashboardPlus]{dropdownBlock}}
+}
 \examples{
 if (interactive()) {
  library(shiny)
@@ -47,47 +52,65 @@ if (interactive()) {
  library(shinydashboardPlus)
  
  shinyApp(
-   ui = dashboardPagePlus(
-     header = dashboardHeaderPlus(
-       enable_rightsidebar = TRUE,
-       rightSidebarIcon = "gears",
-       left_menu = tagList(
-         dropdownButton(
-           label = "Controls",
-           icon = icon("sliders"),
-           status = "primary",
-           circle = FALSE,
-           sliderInput(
-             inputId = "n",
-             label = "Number of observations",
-             min = 10, max = 100, value = 30
-           ),
-           prettyToggle(
-             inputId = "na",
-             label_on = "NAs keeped",
-             label_off = "NAs removed",
-             icon_on = icon("check"),
-             icon_off = icon("remove")
-           )
-         )
-       ),
-       dropdownMenu(
+  ui = dashboardPagePlus(
+    header = dashboardHeaderPlus(
+      enable_rightsidebar = TRUE,
+      rightSidebarIcon = "gears",
+      left_menu = tagList(
+        dropdownBlock(
+          id = "mydropdown",
+          title = "Dropdown 1",
+          icon = icon("sliders"),
+          sliderInput(
+            inputId = "n",
+            label = "Number of observations",
+            min = 10, max = 100, value = 30
+          ),
+          prettyToggle(
+            inputId = "na",
+            label_on = "NAs keeped",
+            label_off = "NAs removed",
+            icon_on = icon("check"),
+            icon_off = icon("remove")
+          )
+        ),
+        dropdownBlock(
+          id = "mydropdown2",
+          title = "Dropdown 2",
+          icon = icon("sliders"),
+          prettySwitch(
+            inputId = "switch4",
+            label = "Fill switch with status:",
+            fill = TRUE, 
+            status = "primary"
+          ),
+          prettyCheckboxGroup(
+            inputId = "checkgroup2",
+            label = "Click me!", 
+            thick = TRUE,
+            choices = c("Click me !", "Me !", "Or me !"),
+            animation = "pulse", 
+            status = "info"
+          )
+        )
+      ),
+      dropdownMenu(
         type = "tasks", 
         badgeStatus = "danger",
         taskItem(value = 20, color = "aqua", "Refactor code"),
         taskItem(value = 40, color = "green", "Design new layout"),
         taskItem(value = 60, color = "yellow", "Another task"),
         taskItem(value = 80, color = "red", "Write documentation")
-       )
-     ),
-     sidebar = dashboardSidebar(),
-     body = dashboardBody(
-       setShadow(class = "dropdown-menu")
-     ),
-     rightsidebar = rightSidebar(),
-     title = "DashboardPage"
-   ),
-   server = function(input, output) { }
+      )
+    ),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(
+      setShadow(class = "dropdown-menu")
+    ),
+    rightsidebar = rightSidebar(),
+    title = "DashboardPage"
+  ),
+  server = function(input, output) { }
  )
 }
 }

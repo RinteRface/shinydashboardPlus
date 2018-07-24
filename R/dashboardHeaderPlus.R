@@ -24,6 +24,10 @@
 #' @param fixed Whether the navbar is fixed-top or not. FALSE by default.
 #'
 #' @seealso \code{\link[shinydashboard]{dropdownMenu}}
+#' 
+#' @note We do not recommend to insert shiny input elements (such as sliderInput) 
+#' in the left menu, since they will not be well displayed. Instead, wrap them in a 
+#'  \code{\link[shinydashboardPlus]{dropdownBlock}}
 #'
 #' @examples
 #' if (interactive()) {
@@ -33,47 +37,65 @@
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(
-#'        enable_rightsidebar = TRUE,
-#'        rightSidebarIcon = "gears",
-#'        left_menu = tagList(
-#'          dropdownButton(
-#'            label = "Controls",
-#'            icon = icon("sliders"),
-#'            status = "primary",
-#'            circle = FALSE,
-#'            sliderInput(
-#'              inputId = "n",
-#'              label = "Number of observations",
-#'              min = 10, max = 100, value = 30
-#'            ),
-#'            prettyToggle(
-#'              inputId = "na",
-#'              label_on = "NAs keeped",
-#'              label_off = "NAs removed",
-#'              icon_on = icon("check"),
-#'              icon_off = icon("remove")
-#'            )
-#'          )
-#'        ),
-#'        dropdownMenu(
+#'   ui = dashboardPagePlus(
+#'     header = dashboardHeaderPlus(
+#'       enable_rightsidebar = TRUE,
+#'       rightSidebarIcon = "gears",
+#'       left_menu = tagList(
+#'         dropdownBlock(
+#'           id = "mydropdown",
+#'           title = "Dropdown 1",
+#'           icon = icon("sliders"),
+#'           sliderInput(
+#'             inputId = "n",
+#'             label = "Number of observations",
+#'             min = 10, max = 100, value = 30
+#'           ),
+#'           prettyToggle(
+#'             inputId = "na",
+#'             label_on = "NAs keeped",
+#'             label_off = "NAs removed",
+#'             icon_on = icon("check"),
+#'             icon_off = icon("remove")
+#'           )
+#'         ),
+#'         dropdownBlock(
+#'           id = "mydropdown2",
+#'           title = "Dropdown 2",
+#'           icon = icon("sliders"),
+#'           prettySwitch(
+#'             inputId = "switch4",
+#'             label = "Fill switch with status:",
+#'             fill = TRUE, 
+#'             status = "primary"
+#'           ),
+#'           prettyCheckboxGroup(
+#'             inputId = "checkgroup2",
+#'             label = "Click me!", 
+#'             thick = TRUE,
+#'             choices = c("Click me !", "Me !", "Or me !"),
+#'             animation = "pulse", 
+#'             status = "info"
+#'           )
+#'         )
+#'       ),
+#'       dropdownMenu(
 #'         type = "tasks", 
 #'         badgeStatus = "danger",
 #'         taskItem(value = 20, color = "aqua", "Refactor code"),
 #'         taskItem(value = 40, color = "green", "Design new layout"),
 #'         taskItem(value = 60, color = "yellow", "Another task"),
 #'         taskItem(value = 80, color = "red", "Write documentation")
-#'        )
-#'      ),
-#'      sidebar = dashboardSidebar(),
-#'      body = dashboardBody(
-#'        setShadow(class = "dropdown-menu")
-#'      ),
-#'      rightsidebar = rightSidebar(),
-#'      title = "DashboardPage"
-#'    ),
-#'    server = function(input, output) { }
+#'       )
+#'     ),
+#'     sidebar = dashboardSidebar(),
+#'     body = dashboardBody(
+#'       setShadow(class = "dropdown-menu")
+#'     ),
+#'     rightsidebar = rightSidebar(),
+#'     title = "DashboardPage"
+#'   ),
+#'   server = function(input, output) { }
 #'  )
 #' }
 #' @export
@@ -86,14 +108,26 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
   lapply(items, tagAssert, type = "li", class = "dropdown")
   
   # handle left menu items
-  dropdownTag <- shiny::tags$li(class = "dropdown")
   left_menu_items <- lapply(1:length(left_menu), FUN = function(i) {
-    left_menu_item <- shiny::tagAppendChild(dropdownTag, left_menu[[i]])
-    left_menu_item <- shiny::tagAppendAttributes(
-      left_menu_item, 
-      style = "margin-top: 7.5px; margin-left: 5px; margin-right: 5px;"
-    )
+   left_menu_item <- left_menu[[i]]
+   name <- left_menu_item$name
+   class <- left_menu_item$attribs$class
+   
+   # if the left menu item is not a li tag and does not have
+   # the dropdown class, create a wrapper to make it work
+   if (name != "li" || !is.null(class) || class != "dropdown") {
+     dropdownTag <- shiny::tags$li(class = "dropdown")
+     left_menu_item <- shiny::tagAppendChild(dropdownTag, left_menu_item)
+     # add some custom css to make it nicer
+     left_menu_item <- shiny::tagAppendAttributes(
+       left_menu_item,
+       style = "margin-top: 7.5px; margin-left: 5px; margin-right: 5px;"
+     )
+   } else {
+     left_menu_item
+   }
   })
+  
   
   titleWidth <- shiny::validateCssUnit(titleWidth)
   
@@ -147,10 +181,10 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
       ),
       # left menu
       shiny::tags$div(
-        class = "navbar-custom-menu-left",
+        class = "navbar-custom-menu",
+        style = "float: left; margin-left: 10px;",
         shiny::tags$ul(
           class = "nav navbar-nav",
-          style = "float: left; margin-left: 10px;",
           left_menu_items
         )
       ),
@@ -177,194 +211,87 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
 }
 
 
-# #' Create a dropdown menu to place in a dashboard header
-# #'
-# #' @param type The type of menu. Should be one of "messages", "notifications",
-# #'   "tasks".
-# #' @param badgeStatus The status of the badge which displays the number of items
-# #'   in the menu. This determines the badge's color. Valid statuses are listed
-# #'   in \link{validStatuses}. A value of \code{NULL} means to not display a
-# #'   badge.
-# #' @param ... Items to put in the menu. Typically, message menus should contain
-# #'   \code{\link{messageItem}}s, notification menus should contain
-# #'   \code{\link{notificationItem}}s, and task menus should contain
-# #'   \code{\link{taskItem}}s.
-# #' @param icon An icon to display in the header. By default, the icon is
-# #'   automatically selected depending on \code{type}, but it can be overriden
-# #'   with this argument.
-# #' @param headerText An optional text argument used for the header of the
-# #'   dropdown menu (this is only visible when the menu is expanded). If none is
-# #'   provided by the user, the default is "You have \code{x} messages," where
-# #'   \code{x} is the number of items in the menu (if the \code{type} is
-# #'   specified to be "notifications" or "tasks," the default text shows "You
-# #'   have \code{x} notifications" or  "You have \code{x} tasks," respectively).
-# #' @param .list An optional list containing items to put in the menu Same as the
-# #'   \code{...} arguments, but in list format. This can be useful when working
-# #'   with programmatically generated items.
-# #'
-# #' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
-# #'
-# #' @export
-# dropdownMenu <- function(...,
-#                          type = c("messages", "notifications", "tasks"),
-#                          badgeStatus = "primary", icon = NULL, headerText = NULL,
-#                          .list = NULL)
-# {
-#   type <- match.arg(type)
-#   if (!is.null(badgeStatus)) validateStatus(badgeStatus)
-#   items <- c(list(...), .list)
-#   
-#   # Make sure the items are li tags
-#   lapply(items, tagAssert, type = "li")
-#   
-#   dropdownClass <- paste0("dropdown ", type, "-menu")
-#   
-#   if (is.null(icon)) {
-#     icon <- switch(
-#       type,
-#       messages = shiny::icon("envelope"),
-#       notifications = shiny::icon("warning"),
-#       tasks = shiny::icon("tasks")
-#     )
-#   }
-#   
-#   numItems <- length(items)
-#   if (is.null(badgeStatus)) {
-#     badge <- NULL
-#   } else {
-#     badge <- shiny::tags$span(
-#       class = paste0("label label-", badgeStatus), 
-#       numItems
-#     )
-#   }
-#   
-#   if (is.null(headerText)) {
-#     headerText <- paste("You have", numItems, type)
-#   }
-#   
-#   shiny::tags$li(
-#     class = dropdownClass,
-#     shiny::tags$a(
-#       href = "#", 
-#       class = "dropdown-toggle", 
-#       `data-toggle` = "dropdown",
-#       icon,
-#       badge
-#     ),
-#     shiny::tags$ul(
-#       class = "dropdown-menu",
-#       shiny::tags$li(
-#         class = "header", headerText),
-#       shiny::tags$li(
-#         shiny::tags$ul(
-#           class = "menu",
-#           items
-#         )
-#       )
-#       # TODO: This would need to be added to the outer ul
-#       # tags$li(class = "footer", a(href="#", "View all"))
-#     )
-#   )
-#   
-# }
-# 
-# 
-# 
-# #' Create a message item to place in a dropdown message menu
-# #'
-# #' @param from Who the message is from.
-# #' @param message Text of the message.
-# #' @param icon An icon tag, created by \code{\link[shiny]{icon}}.
-# #' @param time String representing the time the message was sent. Any string may
-# #'   be used. For example, it could be a relative date/time like "5 minutes",
-# #'   "today", or "12:30pm yesterday", or an absolute time, like "2014-12-01 13:45".
-# #'   If NULL, no time will be displayed.
-# #' @param href An optional URL to link to.
-# #'
-# #' @family menu items
-# #' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
-# #' @export
-# messageItem <- function(from, message, icon = shiny::icon("user"), time = NULL,
-#                         href = NULL)
-# {
-#   tagAssert(icon, type = "i")
-#   if (is.null(href)) href <- "#"
-#   
-#   shiny::tags$li(
-#     shiny::tags$a(
-#       href = href,
-#       icon,
-#       shiny::tags$h4(
-#         from,
-#         if (!is.null(time)) shiny::tags$small(shiny::icon("clock-o"), time)
-#       ),
-#       shiny::tags$p(message)
-#     )
-#   )
-# }
-# 
-# 
-# #' Create a notification item to place in a dropdown notification menu
-# #'
-# #' @param text The notification text.
-# #' @param icon An icon tag, created by \code{\link[shiny]{icon}}.
-# #' @param status The status of the item This determines the item's background
-# #'   color. Valid statuses are listed in \link{validStatuses}.
-# #' @param href An optional URL to link to.
-# #'
-# #' @family menu items
-# #' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
-# #' @export
-# notificationItem <- function(text, icon = shiny::icon("warning"),
-#                              status = "success", href = NULL)
-# {
-#   tagAssert(icon, type = "i")
-#   validateStatus(status)
-#   if (is.null(href)) href <- "#"
-#   
-#   # Add the status as another HTML class to the icon
-#   icon <- shiny::tagAppendAttributes(icon, class = paste0("text-", status))
-#   
-#   shiny::tags$li(
-#     shiny::tags$a(href = href, icon, text)
-#   )
-# }
-# 
-# 
-# #' Create a task item to place in a dropdown task menu
-# #'
-# #' @param text The task text.
-# #' @param value A percent value to use for the bar.
-# #' @param color A color for the bar. Valid colors are listed in
-# #'   \link{validColors}.
-# #' @param href An optional URL to link to.
-# #'
-# #' @family menu items
-# #' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
-# #' @export
-# taskItem <- function(text, value = 0, color = "aqua", href = NULL) {
-#   validateColor(color)
-#   if (is.null(href)) href <- "#"
-#   
-#   shiny::tags$li(
-#     shiny::tags$a(
-#       href = href,
-#       shiny::tags$h3(
-#         text,
-#         shiny::tags$small(class = "pull-right", paste0(value, "%"))
-#       ),
-#       shiny::tags$div(
-#         class = "progress xs",
-#         shiny::tags$div(
-#           class = paste0("progress-bar progress-bar-", color),
-#           style = paste0("width: ", value, "%"),
-#           role = "progressbar",
-#           `aria-valuenow` = value,
-#           `aria-valuemin` = "0",
-#           `aria-valuemax` = "100",
-#           shiny::tags$span(class = "sr-only", paste0(value, "% complete"))
-#         )
-#       )
-#     )
-#   )
-# }
+#' Create a dropdown block to place in a dashboard header
+#'
+#' @param ... Items to put in the menu.
+#' @param id Dropdown block id.
+#' @param icon An icon to display in the header. By default, the icon is
+#'   automatically selected depending on \code{type}, but it can be overriden
+#'   with this argument.
+#' @param title Dropdown block title.
+#' @param badgeStatus Dropdown badge status.
+#'
+#' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
+#'
+#' @export
+dropdownBlock <- function(..., id, icon = NULL, title = NULL, 
+                          badgeStatus = "danger") {
+  
+  if (!is.null(badgeStatus)) 
+    validateStatus(badgeStatus)
+  items <- c(list(...))
+
+  # Make sure the items are li tags
+  #lapply(items, tagAssert, type = "li")
+  # items <- lapply(1:length(items), FUN = function(i) {
+  #   item <- items[[i]]
+  #   name <- item$name
+  #   if (name != "li") {
+  #     wrapper <- shiny::tags$li()
+  #     item <- shiny::tagAppendChild(wrapper, item)
+  #   }
+  # })
+  
+  dropdownClass <- paste0("dropdown")
+
+  numItems <- length(items)
+  if (is.null(badgeStatus)) {
+    badge <- NULL
+  } else {
+    badge <- dashboardLabel(status = badgeStatus, numItems)
+  }
+
+  shiny::tags$li(
+    shiny::singleton(
+      shiny::tags$head(
+        # custom javascript so that the dropdown
+        #is not hidden when the user click on it
+        shiny::tags$script(
+          shiny::HTML(
+            paste0(
+              "$(document).ready(function(){
+                $('#", id, "').find('ul').click(function(e){
+                  e.stopPropagation();
+                });
+              });
+              "
+            )
+          )
+        )
+      )
+    ),
+    class = dropdownClass,
+    id = id,
+    shiny::tags$a(
+      href = "#",
+      class = "dropdown-toggle",
+      `data-toggle` = "dropdown",
+      shiny::icon(icon),
+      title, 
+      badge
+    ),
+    shiny::tags$ul(
+      class = "dropdown-menu",
+      style = "left: 0; right: auto;",
+      shiny::tags$li(
+        shiny::tags$ul(
+          class = "menu",
+          shiny::tags$div(
+            style = "margin-left: auto; margin-right: auto; width: 80%;",
+            items
+          )
+        )
+      )
+    )
+  )
+}
