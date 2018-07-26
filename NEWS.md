@@ -21,6 +21,7 @@ If TRUE, the navbar is fixed-top. (static-top by default)
 - do not show comments when there are no comments in `socialBox()`
 - on mobiles (or small screens), navbar left menu items display inline, instead of column...
 - disable `timelineItem()` footer when NULL
+- center images in `userPostMedia()`
 
 
 # shinydashboardPlus 0.5.0

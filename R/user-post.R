@@ -154,6 +154,7 @@ userPostToolItem <- function(..., side = "left") {
 #' @export
 userPostMedia <- function(src = NULL, height = NULL, width = NULL) {
   shiny::img(
+    style = "margin: auto;",
     class = "img-responsive", 
     src = src,
     height = height,
