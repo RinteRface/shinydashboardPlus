@@ -221,7 +221,7 @@ shinyApp(
           aceEditor(
             theme = "vibrant_ink",
             mode = "r",
-            height = "600px",
+            height = "800px",
             outputId = "left_menu_header_code",
             readOnly = TRUE,
             value = paste(

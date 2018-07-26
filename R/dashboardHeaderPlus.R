@@ -108,26 +108,30 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
   lapply(items, tagAssert, type = "li", class = "dropdown")
   
   # handle left menu items
-  left_menu_items <- lapply(1:length(left_menu), FUN = function(i) {
-   left_menu_item <- left_menu[[i]]
-   name <- left_menu_item$name
-   class <- left_menu_item$attribs$class
-   
-   # if the left menu item is not a li tag and does not have
-   # the dropdown class, create a wrapper to make it work
-   if (name != "li" || !is.null(class) || class != "dropdown") {
-     dropdownTag <- shiny::tags$li(class = "dropdown")
-     left_menu_item <- shiny::tagAppendChild(dropdownTag, left_menu_item)
-     # add some custom css to make it nicer
-     left_menu_item <- shiny::tagAppendAttributes(
-       left_menu_item,
-       style = "margin-top: 7.5px; margin-left: 5px; margin-right: 5px;"
-     )
-   } else {
-     left_menu_item
-   }
-  })
-  
+  if (!is.null(left_menu)) {
+    left_menu_items <- lapply(1:length(left_menu), FUN = function(i) {
+      left_menu_item <- left_menu[[i]]
+      name <- left_menu_item$name
+      class <- left_menu_item$attribs$class
+      
+      # if the left menu item is not a li tag and does not have
+      # the dropdown class, create a wrapper to make it work
+      if (name != "li" || !is.null(class) || class != "dropdown") {
+        dropdownTag <- shiny::tags$li(class = "dropdown")
+        left_menu_item <- shiny::tagAppendChild(dropdownTag, left_menu_item)
+        # add some custom css to make it nicer
+        left_menu_item <- shiny::tagAppendAttributes(
+          left_menu_item,
+          style = "margin-top: 7.5px; margin-left: 5px; margin-right: 5px;"
+        )
+      } else {
+        left_menu_item
+      }
+    })
+    # when left_menu is null, left_menu_items are also NULL 
+  } else {
+    left_menu_items <- left_menu
+  }
   
   titleWidth <- shiny::validateCssUnit(titleWidth)
   
