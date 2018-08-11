@@ -60,7 +60,7 @@ if (interactive()) {
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
-          icon = icon("sliders"),
+          icon = "sliders",
           sliderInput(
             inputId = "n",
             label = "Number of observations",
@@ -77,7 +77,7 @@ if (interactive()) {
         dropdownBlock(
           id = "mydropdown2",
           title = "Dropdown 2",
-          icon = icon("sliders"),
+          icon = "sliders",
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",

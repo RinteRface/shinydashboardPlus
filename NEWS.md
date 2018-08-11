@@ -22,6 +22,7 @@ If TRUE, the navbar is fixed-top. (static-top by default)
 - on mobiles (or small screens), navbar left menu items display inline, instead of column...
 - disable `timelineItem()` footer when NULL
 - center images in `userPostMedia()`
+- fix #8 thanks to @scottyraymond (`dropdownBlock()` icon not displaying)
 
 
 # shinydashboardPlus 0.5.0
