@@ -65,7 +65,7 @@ userPost <- function(..., id = NULL, src = NULL, author = NULL,
   
   cl <- "collapse"
   if (collapsed) collapsed <- "true" else collapsed <- "false"
-  if (collapsed) cl <- paste0(cl, " in")
+  if (!isTRUE(collapsed)) cl <- paste0(cl, " in")
   
   shiny::tags$div(
     class = "post",
