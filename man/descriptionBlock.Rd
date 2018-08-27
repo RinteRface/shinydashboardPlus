@@ -4,9 +4,9 @@
 \alias{descriptionBlock}
 \title{AdminLTE2 description block}
 \usage{
-descriptionBlock(number = NULL, number_color = NULL, number_icon = NULL,
-  header = NULL, text = NULL, right_border = TRUE,
-  margin_bottom = FALSE)
+descriptionBlock(number = NULL, number_color = NULL,
+  number_icon = NULL, header = NULL, text = NULL,
+  right_border = TRUE, margin_bottom = FALSE)
 }
 \arguments{
 \item{number}{any number.}

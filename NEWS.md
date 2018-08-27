@@ -17,6 +17,8 @@ If TRUE, the navbar is fixed-top. (static-top by default)
 - update the `shinydashboardPlusGallery()`
 - add a "style" argument to `dashboardLabel()`
 - change the website images
+- add "collapsed argument" to `userPost()` to show or hide comments when the
+application starts.
 ## Bug fixes
 - do not show comments when there are no comments in `socialBox()`
 - on mobiles (or small screens), navbar left menu items display inline, instead of column...

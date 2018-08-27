@@ -4,8 +4,8 @@
 \alias{appButton}
 \title{AdminLTE2 special large button}
 \usage{
-appButton(url = NULL, label = NULL, icon = NULL, enable_badge = FALSE,
-  badgeColor = NULL, badgeLabel = NULL)
+appButton(url = NULL, label = NULL, icon = NULL,
+  enable_badge = FALSE, badgeColor = NULL, badgeLabel = NULL)
 }
 \arguments{
 \item{url}{if the button should redirect somewhere.}

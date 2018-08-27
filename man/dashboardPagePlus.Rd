@@ -4,11 +4,12 @@
 \alias{dashboardPagePlus}
 \title{Dashboard Page with a right sidebar}
 \usage{
-dashboardPagePlus(header, sidebar, body, rightsidebar = NULL, title = NULL,
-  skin = c("blue", "blue-light", "black", "black-light", "purple",
-  "purple-light", "green", "green-light", "red", "red-light", "yellow",
-  "yellow-light"), collapse_sidebar = FALSE, sidebar_background = NULL,
-  enable_preloader = FALSE, loading_duration = 2)
+dashboardPagePlus(header, sidebar, body, rightsidebar = NULL,
+  title = NULL, skin = c("blue", "blue-light", "black", "black-light",
+  "purple", "purple-light", "green", "green-light", "red", "red-light",
+  "yellow", "yellow-light"), collapse_sidebar = FALSE,
+  sidebar_background = NULL, enable_preloader = FALSE,
+  loading_duration = 2)
 }
 \arguments{
 \item{header}{A header created by \code{dashboardHeaderPlus}.}

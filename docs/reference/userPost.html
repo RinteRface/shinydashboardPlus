@@ -156,8 +156,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>userPost</span>(<span class='no'>...</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>src</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>author</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>collapsible</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>userPost</span>(<span class='no'>...</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>src</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>author</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>collapsible</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,6 +185,10 @@
     <tr>
       <th>collapsible</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to collapse the comment.</p></td>
+    </tr>
+    <tr>
+      <th>collapsed</th>
+      <td><p>Whether the comment is collapsed when the application starts, FALSE by default.</p></td>
     </tr>
     </table>
     

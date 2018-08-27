@@ -8,6 +8,7 @@
 #' @param author post author.
 #' @param description post description.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the comment. 
+#' @param collapsed Whether the comment is collapsed when the application starts, FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
@@ -59,9 +60,12 @@
 #' 
 #' @export
 userPost <- function(..., id = NULL, src = NULL, author = NULL, 
-                     description = NULL, collapsible = TRUE) {
+                     description = NULL, collapsible = TRUE, 
+                     collapsed = FALSE) {
   
   cl <- "collapse"
+  if (collapsed) collapsed <- "true" else collapsed <- "false"
+  if (collapsed) cl <- paste0(cl, " in")
   
   shiny::tags$div(
     class = "post",
@@ -79,6 +83,7 @@ userPost <- function(..., id = NULL, src = NULL, author = NULL,
             class = "pull-right btn-box-tool",
             `data-toggle` = "collapse",
             `data-target` = paste0("#", id),
+            `aria-expanded` = collapsed,
             type = "button",
             shiny::tags$i(class = "fa fa-eye")
           )
@@ -90,6 +95,7 @@ userPost <- function(..., id = NULL, src = NULL, author = NULL,
     shiny::tags$p(
       class = cl,
       id = id,
+      `aria-expanded` = collapsed,
       ...
     )
   )

@@ -4,7 +4,8 @@
 \alias{dropdownBlock}
 \title{Create a dropdown block to place in a dashboard header}
 \usage{
-dropdownBlock(..., id, icon = NULL, title = NULL, badgeStatus = "danger")
+dropdownBlock(..., id, icon = NULL, title = NULL,
+  badgeStatus = "danger")
 }
 \arguments{
 \item{...}{Items to put in the menu.}

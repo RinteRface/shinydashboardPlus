@@ -4,8 +4,8 @@
 \alias{timelineItem}
 \title{AdminLTE2 timeline item}
 \usage{
-timelineItem(..., icon = NULL, color = NULL, time = NULL, title = NULL,
-  border = TRUE, footer = NULL)
+timelineItem(..., icon = NULL, color = NULL, time = NULL,
+  title = NULL, border = TRUE, footer = NULL)
 }
 \arguments{
 \item{...}{any element such as timeLineItemMedia ...}

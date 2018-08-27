@@ -8,8 +8,9 @@ boxPlus(..., title = NULL, footer = NULL, status = NULL,
   solidHeader = FALSE, background = NULL, width = 6, height = NULL,
   collapsible = FALSE, collapsed = FALSE, closable = TRUE,
   enable_label = FALSE, label_text = NULL, label_status = "primary",
-  enable_dropdown = FALSE, dropdown_icon = "wrench", dropdown_menu = NULL,
-  enable_sidebar = FALSE, sidebar_content = NULL, sidebar_width = 25,
+  enable_dropdown = FALSE, dropdown_icon = "wrench",
+  dropdown_menu = NULL, enable_sidebar = FALSE,
+  sidebar_content = NULL, sidebar_width = 25,
   sidebar_background = "#222d32", sidebar_start_open = FALSE,
   footer_padding = TRUE)
 }
@@ -155,3 +156,4 @@ if (interactive()) {
  )
 }
 }
+\concept{boxes}

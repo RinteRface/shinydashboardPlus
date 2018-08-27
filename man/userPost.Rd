@@ -4,8 +4,8 @@
 \alias{userPost}
 \title{AdminLTE2 user post}
 \usage{
-userPost(..., id = NULL, src = NULL, author = NULL, description = NULL,
-  collapsible = TRUE)
+userPost(..., id = NULL, src = NULL, author = NULL,
+  description = NULL, collapsible = TRUE, collapsed = FALSE)
 }
 \arguments{
 \item{...}{post content, slot for userPostToolItemList.}
@@ -19,6 +19,8 @@ userPost(..., id = NULL, src = NULL, author = NULL, description = NULL,
 \item{description}{post description.}
 
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the comment.}
+
+\item{collapsed}{Whether the comment is collapsed when the application starts, FALSE by default.}
 }
 \description{
 Create a user post

@@ -5,9 +5,10 @@
 \title{AdminLTE2 widget user box}
 \usage{
 widgetUserBox(..., title = NULL, subtitle = NULL, type = NULL,
-  background = FALSE, backgroundUrl = NULL, src = NULL, color = NULL,
-  footer = NULL, footer_padding = TRUE, width = 6, height = NULL,
-  boxToolSize = "sm", collapsible = TRUE, closable = FALSE)
+  background = FALSE, backgroundUrl = NULL, src = NULL,
+  color = NULL, footer = NULL, footer_padding = TRUE, width = 6,
+  height = NULL, boxToolSize = "sm", collapsible = TRUE,
+  closable = FALSE)
 }
 \arguments{
 \item{...}{body content.}
