@@ -884,10 +884,12 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
       },
       
       # footer
-      shiny::tags$div(
-        class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", 
-        footer
-      )
+      if (!is.null(footer)) {
+        shiny::tags$div(
+          class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", 
+          footer
+        ) 
+      }
     )
   )
 }
