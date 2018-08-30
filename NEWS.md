@@ -22,6 +22,7 @@ application starts.
 ## Bug fixes
 - do not show comments when there are no comments in `socialBox()`
 - do not show the footer when it is NULL in `socialBox()`
+- add style overflow-y auto to `socialBox()` in case there are more than 2 comments (avoid "infinite" height boxes)
 - on mobiles (or small screens), navbar left menu items display inline, instead of column...
 - disable `timelineItem()` footer when NULL
 - center images in `userPostMedia()`

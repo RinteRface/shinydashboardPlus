@@ -793,18 +793,14 @@ dropdownDivider <- function() {
 #'        "This is the content"
 #'       ),
 #'       comments = tagList(
-#'        boxComment(
-#'         src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-#'         title = "Comment 1",
-#'         date = "01.05.2018",
-#'         "The first comment"
-#'        ),
-#'        boxComment(
-#'         src = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg",
-#'         title = "Comment 2",
-#'         date = "01.05.2018",
-#'         "The second comment"
-#'        )
+#'        lapply(X = 1:10, FUN = function(i) {
+#'         boxComment(
+#'           src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'           title = paste("Comment", i),
+#'           date = "01.05.2018",
+#'           paste0("The ", i, "-th comment")
+#'         )
+#'        })
 #'       ),
 #'       footer = "The footer here!"
 #'      )
@@ -879,6 +875,7 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
       if (!is.null(comments)) {
         shiny::tags$div(
           class = "box-footer box-comments",
+          style = "overflow-y: auto; max-height: 150px;",
           comments
         ) 
       },
