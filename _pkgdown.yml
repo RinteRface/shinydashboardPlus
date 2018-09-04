@@ -27,6 +27,7 @@ reference:
   - '`gradientBox`'
   - '`widgetUserBox`'
   - '`socialBox`'
+  - '`flipBox`'
 
 - title: Items that are internal to box function 
   desc: do not use when developing a shiny app
