@@ -65,7 +65,8 @@ appButton <- function(url = NULL, label = NULL, icon = NULL, enable_badge = FALS
     },
     shiny::tags$i(class = icon),
     label,
-    href = url
+    href = url,
+    target = "_blank"
   )
 }
 
