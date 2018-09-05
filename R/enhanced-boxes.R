@@ -1178,7 +1178,7 @@ flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL
       # Front
       shiny::tags$div(
         class = paste0("card card-front-", id , " text-center"),
-        style = "background-color: #ffffff",
+        style = "background-color: #ffffff;",
         # background
         shiny::tags$div(class = paste0("card-background-", id)),
         shiny::tags$div(
@@ -1201,7 +1201,7 @@ flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL
       # back
       shiny::tags$div(
         class = paste0("card card-back-", id , " text-center"),
-        style = "background-color: #ffffff; overflow-y: auto; max-height: 800px;",
+        style = "background-color: #ffffff;",
         shiny::br(),
         shiny::tags$div(
           class = "card-header",
