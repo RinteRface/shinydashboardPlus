@@ -59,7 +59,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Buttons"
+    title = "App buttons"
   ),
   server = function(input, output) { }
  )

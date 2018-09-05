@@ -21,7 +21,8 @@ If TRUE, the navbar is fixed-top. (static-top by default)
 - add "collapsed argument" to `userPost()` to show or hide comments when the
 application starts.
 ## Bug fixes
-- now `appButton()` open a new window when clicked.
+- now `appButton()` open a new window when clicked
+- now `socialButton()` open a new window when clicked
 - do not show comments when there are no comments in `socialBox()`
 - do not show the footer when it is NULL in `socialBox()`
 - add style overflow-y auto to `socialBox()` in case there are more than 2 comments (avoid "infinite" height boxes)

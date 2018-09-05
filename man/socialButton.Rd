@@ -36,7 +36,7 @@ if (interactive()) {
       )
      )
     ),
-    title = "Description Blocks"
+    title = "Social Buttons"
   ),
   server = function(input, output) { }
  )
