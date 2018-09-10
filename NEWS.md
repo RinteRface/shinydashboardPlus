@@ -1,4 +1,4 @@
-# shinydashboardPlus 0.6.0.9000
+# shinydashboardPlus 0.6.0
 ## New features
 - add new `flipBox()`
 - new sidebar in the `boxPlus()` function: set up with the following arguments
