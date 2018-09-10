@@ -11,12 +11,3 @@ There were no ERRORs or WARNINGs or NOTEs
 
 ## Reverse dependencies:
 using `devtools::revdep()` and R CMD check shinyWidgets
-
-I made a [pull request](https://github.com/dreamRs/shinyWidgets/commit/186a0306371a6bb2bc60ed1e4247640de7b8f8f5) 
-so that shinyWidgets is ready for the next version of shinydashboardPlus and
-the check was successfull for shinyWidget, there were no ERRORs or WARNINGs or NOTES
-
-## Resubmission
-- this is a fix for the 0.3.0 release. The function rightSidebar was not working 
-when no argument was provided.  I also changed the version number to 0.5.0, regarding the
-quantity of changes made from the 0.2.0.
