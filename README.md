@@ -30,6 +30,11 @@ or run:
 shinydashboardPlusGallery()
 ```
 
+Below an example of application in medicine:
+
+<img src="man/figures/shinydashPlus_demo.png" width="848" height="530">
+<br>
+
 ## Aknowldegments
 
 - the [adminLTE team](https://adminlte.io)
