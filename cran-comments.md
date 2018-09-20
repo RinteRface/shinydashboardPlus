@@ -11,3 +11,6 @@ There were no ERRORs or WARNINGs or NOTEs
 
 ## Reverse dependencies:
 using `devtools::revdep()` and R CMD check shinyWidgets
+
+## Re-submission notes 
+The help section is < 5MB

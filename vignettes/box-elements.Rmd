@@ -78,7 +78,7 @@ knitr::opts_chunk$set(
 
 ### `boxPad()`
 
-<img src="figures/boxPad.png" width="848" height="408">
+<img src="figures/boxPad.png">
 <br>
 
 ```r

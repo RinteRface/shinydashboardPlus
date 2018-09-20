@@ -105,7 +105,7 @@ library(shiny)
 
 ### widgetUserBox
 
-<img src="figures/widgetUserBox.png" width="840" height="345">
+<img src="figures/widgetUserBox.png">
 <br>
 
 ```r
@@ -157,7 +157,7 @@ library(shiny)
 
 ### socialBox
 
-<img src="figures/socialBox.png" width="730" height="480">
+<img src="figures/socialBox.png">
 <br>
 
 ```r
@@ -207,7 +207,7 @@ library(shiny)
 
 ### flipBox
 
-<img src="figures/flipBox.jpeg" width="730" height="480">
+<img src="figures/flipBox.png">
 <br>
 
 ```r
