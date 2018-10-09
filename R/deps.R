@@ -22,16 +22,25 @@ addDeps <- function(x) {
   }
   
   dashboardDeps <- list(
-    htmltools::htmlDependency("AdminLTE", "2.0.6",
-                   c(file = system.file("AdminLTE", package = "shinydashboard")),
-                   script = adminLTE_js,
-                   stylesheet = adminLTE_css
+    htmltools::htmlDependency(
+      "AdminLTE", 
+      "2.0.6",
+      c(file = system.file("AdminLTE", package = "shinydashboard")),
+      #script = adminLTE_js,
+      stylesheet = adminLTE_css
     ),
-    htmltools::htmlDependency("shinydashboard",
-                   as.character(utils::packageVersion("shinydashboard")),
-                   c(file = system.file(package = "shinydashboard")),
-                   script = shinydashboard_js,
-                   stylesheet = "shinydashboard.css"
+    htmltools::htmlDependency(
+      "shinydashboardPlus",
+      as.character(utils::packageVersion("shinydashboardPlus")),
+      c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
+      script = adminLTE_js
+    ),
+    htmltools::htmlDependency(
+      "shinydashboard",
+      as.character(utils::packageVersion("shinydashboard")),
+      c(file = system.file(package = "shinydashboard")),
+      script = shinydashboard_js,
+      stylesheet = "shinydashboard.css"
     )
   )
   

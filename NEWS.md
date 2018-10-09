@@ -1,3 +1,8 @@
+# shinydashboardPlus 0.7.0.9000
+## New features
+- by default, opening the right sidebar shifts the body content to the left,
+similarly as the left sidebar
+
 # shinydashboardPlus 0.6.0
 ## New features
 - add new `flipBox()`
