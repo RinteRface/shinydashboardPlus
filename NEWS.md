@@ -3,6 +3,9 @@
 - by default, opening the right sidebar shifts the body content to the left,
 similarly as the left sidebar
 
+## Minor changes
+- new hex icons
+
 # shinydashboardPlus 0.6.0
 ## New features
 - add new `flipBox()`

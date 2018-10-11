@@ -1,4 +1,4 @@
-# shinydashboardPlus
+# shinydashboardPlus <img src="man/figures/ShinyDashboardPlus_FINAL.png" width=200 align="right" />
 
 [![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
 [![version](https://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
