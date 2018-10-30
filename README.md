@@ -35,7 +35,7 @@ Below an example of application in medicine:
 <img src="man/figures/shinydashPlus_demo.png" width="848" height="530">
 <br>
 
-## Aknowldegments
+## Acknowledgements
 
 - the [adminLTE team](https://adminlte.io)
 - [Victor Perrier](https://github.com/pvictor) from [Dream'R](https://www.dreamrs.fr)
