@@ -121,7 +121,7 @@ shinyApp(
         # shiny::includeScript(
         #   system.file("js", "highlight.pack.js", package = "shinydashboardPlus")
         # )
-    
+        
         shiny::tags$style(
           rel = "stylesheet",
           type = "text/css",
@@ -152,7 +152,7 @@ shinyApp(
              dashboardPagePlus and dashboardHeader by dashboardHeaderPlus:"),
           
           aceEditor(
-            theme = "vibrant_ink",
+            theme = "dracula",
             mode = "r",
             height = "600px",
             outputId = "rightsidebar_code",
@@ -219,7 +219,7 @@ shinyApp(
              dropdownBlock, which was specially built for the left menu."),
           
           aceEditor(
-            theme = "vibrant_ink",
+            theme = "dracula",
             mode = "r",
             height = "800px",
             outputId = "left_menu_header_code",
@@ -333,7 +333,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "300px",
               outputId = "boxplus1_code",
@@ -377,7 +377,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "boxplus2_code",
@@ -430,7 +430,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "400px",
               outputId = "gradientbox1_code",
@@ -473,7 +473,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "gradientbox2_code",
@@ -516,7 +516,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "widgetuserbox1_code",
@@ -552,7 +552,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "widgetuserbox2_code",
@@ -590,7 +590,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "widgetuserbox3_code",
@@ -656,7 +656,7 @@ shinyApp(
             aceEditor(
               outputId = "socialBox_code",
               readOnly = TRUE,
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               wordWrap = TRUE,
               value = paste(
@@ -762,7 +762,7 @@ shinyApp(
               aceEditor(
                 outputId = "flipBox_code",
                 readOnly = TRUE,
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
                 wordWrap = TRUE,
                 value = paste(
@@ -865,7 +865,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "appbutton_code",
@@ -928,7 +928,7 @@ shinyApp(
               )
             ),
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "200px",
               outputId = "socialbutton_code",
@@ -997,7 +997,7 @@ shinyApp(
             column(
               width = 6,
               aceEditor(
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
                 height = "300px",
                 outputId = "boxPlus-sidebar_code",
@@ -1085,7 +1085,7 @@ shinyApp(
             column(
               width = 6,
               aceEditor(
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
                 height = "200px",
                 outputId = "descriptionblock_code",
@@ -1174,7 +1174,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "300px",
               outputId = "boxPad1_code",
@@ -1260,7 +1260,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "500px",
               outputId = "boxPad2_code",
@@ -1370,7 +1370,7 @@ shinyApp(
             
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "400px",
               outputId = "userlist_code",
@@ -1458,7 +1458,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "400px",
               outputId = "navpills_code",
@@ -1526,7 +1526,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "300px",
               outputId = "productlist_code",
@@ -1594,7 +1594,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "400px",
               outputId = "accordion_code",
@@ -1662,7 +1662,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "350px",
               outputId = "todolist1_code",
@@ -1715,7 +1715,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "350px",
               outputId = "todolist2_code",
@@ -1788,7 +1788,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "700px",
               outputId = "timelineBlock1_code",
@@ -1865,7 +1865,7 @@ shinyApp(
             column(
               width = 6,
               aceEditor(
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
                 height = "600px",
                 outputId = "timelineBlock2_code",
@@ -1940,7 +1940,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "350px",
               outputId = "boxProfile_code",
@@ -2019,7 +2019,7 @@ shinyApp(
             ),
             
             aceEditor(
-              theme = "vibrant_ink",
+              theme = "dracula",
               mode = "r",
               height = "500px",
               outputId = "userPost_code",
@@ -2068,7 +2068,7 @@ shinyApp(
           tabName = "extracss",
           
           br(),
-        
+          
           column(
             width = 12,
             align = "center",
@@ -2090,7 +2090,7 @@ shinyApp(
             column(
               width = 6,
               aceEditor(
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
                 height = "300px",
                 outputId = "box-shadow_code",
@@ -2117,263 +2117,260 @@ shinyApp(
         tabItem(
           tabName = "extraelements",
           
+          br(),
+          
+          column(
+            width = 12,
+            align = "center",
+            h1("loadingState()")
+          ),
+          br(),
+          
           fluidRow(
+            # demo loading spinner
+            box(
+              title = "loading spinner",
+              loadingState()
+            ),
             
-            br(),
+            aceEditor(
+              theme = "dracula",
+              mode = "r",
+              height = "20px",
+              outputId = "loadingstate_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'loadingState()'
+                ), 
+                collapse = "\n"
+              )
+            )
+            
+          ),
+          
+          
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("blockQuote()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo  blockQuote
+            box(
+              title = "BlockQuote example",
+              blockQuote("I quote some text here!")
+            ),
+            box(
+              title = "BlockQuote example",
+              blockQuote("I quote some text here!", side = "right")
+            ),
             
             column(
-              width = 12,
-              align = "center",
-              h1("loadingState()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo loading spinner
-              box(
-                title = "loading spinner",
-                loadingState()
-              ),
-              
+              width = 6,
               aceEditor(
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
                 height = "20px",
-                outputId = "loadingstate_code",
+                outputId = "blockquote1_code",
                 readOnly = TRUE,
                 value = paste(
                   style_text(
-                    'loadingState()'
+                    'blockQuote("I quote some text here!")'
                   ), 
                   collapse = "\n"
                 )
               )
-              
             ),
             
-            
-            
-            br(),
             column(
-              width = 12,
-              align = "center",
-              h1("blockQuote()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo  blockQuote
-              box(
-                title = "BlockQuote example",
-                blockQuote("I quote some text here!")
-              ),
-              box(
-                title = "BlockQuote example",
-                blockQuote("I quote some text here!", side = "right")
-              ),
-              
-              column(
-                width = 6,
-                aceEditor(
-                  theme = "vibrant_ink",
-                  mode = "r",
-                  height = "20px",
-                  outputId = "blockquote1_code",
-                  readOnly = TRUE,
-                  value = paste(
-                    style_text(
-                      'blockQuote("I quote some text here!")'
-                    ), 
-                    collapse = "\n"
-                  )
-                )
-              ),
-              
-              column(
-                width = 6,
-                aceEditor(
-                  theme = "vibrant_ink",
-                  mode = "r",
-                  height = "20px",
-                  outputId = "blockquote2_code",
-                  readOnly = TRUE,
-                  value = paste(
-                    style_text(
-                      'blockQuote("I quote some text here!", side = "right")'
-                    ), 
-                    collapse = "\n"
-                  )
-                )
-              )
-              
-              
-            ),
-            
-            
-            br(),
-            column(
-              width = 12,
-              align = "center",
-              h1("dashboardLabel()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo dashboardLabel
-              dashboardLabel("Label 1", status = "info"),
-              dashboardLabel("Label 2", status = "success"),
-              dashboardLabel("Label 3", status = "warning"),
-              dashboardLabel("Label 4", status = "primary"),
-              dashboardLabel("Label 5", status = "danger"),
-              
+              width = 6,
               aceEditor(
-                theme = "vibrant_ink",
+                theme = "dracula",
                 mode = "r",
-                height = "100px",
-                outputId = "dahboardlabel_code",
+                height = "20px",
+                outputId = "blockquote2_code",
                 readOnly = TRUE,
                 value = paste(
                   style_text(
-                    'dashboardLabel("Label 1", status = "info")
+                    'blockQuote("I quote some text here!", side = "right")'
+                  ), 
+                  collapse = "\n"
+                )
+              )
+            )
+            
+            
+          ),
+          
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("dashboardLabel()")
+          ),
+          br(),
+          
+          # demo dashboardLabel
+          dashboardLabel("Label 1", status = "info"),
+          dashboardLabel("Label 2", status = "success"),
+          dashboardLabel("Label 3", status = "warning"),
+          dashboardLabel("Label 4", status = "primary"),
+          dashboardLabel("Label 5", status = "danger"),
+          
+          br(),
+          
+          aceEditor(
+            theme = "dracula",
+            mode = "r",
+            height = "100px",
+            outputId = "dahboardlabel_code",
+            readOnly = TRUE,
+            value = paste(
+              style_text(
+                'dashboardLabel("Label 1", status = "info")
                      dashboardLabel("Label 2", status = "success")
                      dashboardLabel("Label 3", status = "warning")
                      dashboardLabel("Label 4", status = "primary")
                      dashboardLabel("Label 5", status = "danger")'
-                  ), 
-                  collapse = "\n"
-                )
-              )
-              
+              ), 
+              collapse = "\n"
+            )
+          ),
+          
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("starBlock()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo starBlock
+            box(
+              title = "Star example",
+              starBlock(grade = 5),
+              starBlock(grade = 5, color = "olive"),
+              starBlock(grade = 1, color = "maroon"),
+              starBlock(grade = 3, color = "teal")
             ),
             
-            
-            br(),
-            column(
-              width = 12,
-              align = "center",
-              h1("starBlock()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo starBlock
-              box(
-                title = "Star example",
-                starBlock(grade = 5),
-                starBlock(grade = 5, color = "olive"),
-                starBlock(grade = 1, color = "maroon"),
-                starBlock(grade = 3, color = "teal")
-              ),
-              
-              aceEditor(
-                theme = "vibrant_ink",
-                mode = "r",
-                height = "100px",
-                outputId = "starblock_code",
-                readOnly = TRUE,
-                value = paste(
-                  style_text(
-                    'box(
+            aceEditor(
+              theme = "dracula",
+              mode = "r",
+              height = "100px",
+              outputId = "starblock_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                     title = "Star example",
                     starBlock(grade = 5),
                     starBlock(grade = 5, color = "olive"),
                     starBlock(grade = 1, color = "maroon"),
                     starBlock(grade = 3, color = "teal")
                    )'
-                  ), 
-                  collapse = "\n"
-                )
+                ), 
+                collapse = "\n"
               )
-              
+            )
+            
+          ),
+          
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("attachmentBlock()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo attachment block
+            box(
+              title = "Attachment example",
+              attachmentBlock(
+                src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+                title = "Test",
+                title_url = "http://google.com",
+                "This is the content"
+              )
             ),
             
-            
-            br(),
-            column(
-              width = 12,
-              align = "center",
-              h1("attachmentBlock()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo attachment block
-              box(
-                title = "Attachment example",
-                attachmentBlock(
-                  src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
-                  title = "Test",
-                  title_url = "http://google.com",
-                  "This is the content"
-                )
-              ),
-              
-              aceEditor(
-                theme = "vibrant_ink",
-                mode = "r",
-                height = "100px",
-                outputId = "attachmentblock_code",
-                readOnly = TRUE,
-                value = paste(
-                  style_text(
-                    'attachmentBlock(
+            aceEditor(
+              theme = "dracula",
+              mode = "r",
+              height = "100px",
+              outputId = "attachmentblock_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'attachmentBlock(
                      src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
                     title = "Test",
                     title_url = "http://google.com",
                     "This is the content"
                    )'
-                  ), 
-                  collapse = "\n"
-                )
+                ), 
+                collapse = "\n"
               )
-              
-            ),
+            )
             
-            br(),
-            column(
-              width = 12,
-              align = "center",
-              h1("rightSidebarMenu()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo rightSidebarMenu
-              box(
-                title = "rightSidebarMenu",
-                rightSidebarMenu(
-                  rightSidebarMenuItem(
-                    icon = menuIcon(
-                      name = "birthday-cake",
-                      color = "red"
-                    ),
-                    info = menuInfo(
-                      title = "Langdon's Birthday",
-                      description = "Will be 23 on April 24th"
-                    )
+          ),
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("rightSidebarMenu()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo rightSidebarMenu
+            box(
+              title = "rightSidebarMenu",
+              rightSidebarMenu(
+                rightSidebarMenuItem(
+                  icon = menuIcon(
+                    name = "birthday-cake",
+                    color = "red"
                   ),
-                  rightSidebarMenuItem(
-                    icon = menuIcon(
-                      name = "user",
-                      color = "yellow"
-                    ),
-                    info = menuInfo(
-                      title = "Frodo Updated His Profile",
-                      description = "New phone +1(800)555-1234"
-                    )
+                  info = menuInfo(
+                    title = "Langdon's Birthday",
+                    description = "Will be 23 on April 24th"
+                  )
+                ),
+                rightSidebarMenuItem(
+                  icon = menuIcon(
+                    name = "user",
+                    color = "yellow"
+                  ),
+                  info = menuInfo(
+                    title = "Frodo Updated His Profile",
+                    description = "New phone +1(800)555-1234"
                   )
                 )
-              ),
-              
-              aceEditor(
-                theme = "vibrant_ink",
-                mode = "r",
-                height = "400px",
-                outputId = "rightSidebarMenu_code",
-                readOnly = TRUE,
-                value = paste(
-                  style_text(
-                    'box(
+              )
+            ),
+            
+            aceEditor(
+              theme = "dracula",
+              mode = "r",
+              height = "400px",
+              outputId = "rightSidebarMenu_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                     title = "rightSidebarMenu example",
                     rightSidebarMenu(
                     rightSidebarMenuItem(
@@ -2398,53 +2395,53 @@ shinyApp(
                     )
                     )
                   )'
-                  ), 
-                  collapse = "\n"
-                )
+                ), 
+                collapse = "\n"
               )
-              
-            ),
+            )
             
-            br(),
-            column(
-              width = 12,
-              align = "center",
-              h1("verticalProgress()")
-            ),
-            br(),
-            
-            fluidRow(
-              # demo rightSidebarMenu
-              box(
-                title = "verticalProgress",
-                verticalProgress(
-                  value = 10,
-                  striped = TRUE,
-                  active = TRUE
-                ),
-                verticalProgress(
-                  value = 50,
-                  active = TRUE,
-                  status = "warning",
-                  size = "xs"
-                ),
-                verticalProgress(
-                  value = 20,
-                  status = "danger",
-                  size = "sm",
-                  height = "60%"
-                )
+          ),
+          
+          br(),
+          column(
+            width = 12,
+            align = "center",
+            h1("verticalProgress()")
+          ),
+          br(),
+          
+          fluidRow(
+            # demo rightSidebarMenu
+            box(
+              title = "verticalProgress",
+              verticalProgress(
+                value = 10,
+                striped = TRUE,
+                active = TRUE
               ),
-              
-              aceEditor(
-                theme = "vibrant_ink",
-                mode = "r",
-                height = "350px",
-                outputId = "verticalProgress_code",
-                readOnly = TRUE,
-                value = paste(
-                  style_text(
-                    'box(
+              verticalProgress(
+                value = 50,
+                active = TRUE,
+                status = "warning",
+                size = "xs"
+              ),
+              verticalProgress(
+                value = 20,
+                status = "danger",
+                size = "sm",
+                height = "60%"
+              )
+            ),
+            
+            aceEditor(
+              theme = "dracula",
+              mode = "r",
+              height = "350px",
+              outputId = "verticalProgress_code",
+              readOnly = TRUE,
+              value = paste(
+                style_text(
+                  'box(
                      title = "verticalProgress",
                      verticalProgress(
                        value = 10,
@@ -2464,39 +2461,38 @@ shinyApp(
                        height = "60%"
                      )
                     )'
-                  ), 
-                  collapse = "\n"
-                )
+                ), 
+                collapse = "\n"
               )
             )
           )
         )
-       )
-      ),
-      title = "shinyDashboardPlus"
+      )
     ),
-    server = function(input, output) {
-      output$distPlot <- renderPlot({
-        hist(rnorm(input$obs))
-      })
-      
-      output$distPlot2 <- renderPlot({
-        hist(rnorm(input$obs2))
-      })
-      
-      output$flipPlot <- renderPlot({
-        hist(rnorm(input$flip_obs))
-      })
-      
-      output$data <- renderTable({
-        head(mtcars[, c("mpg", input$variable), drop = FALSE])
-      }, rownames = TRUE)
-      
-      output$value <- renderText({input$somevalue})
-      
-      output$boxSidebarPlot <- renderPlot({
-        hist(rnorm(input$slider_boxsidebar))
-      })
-      
-    }
-  )
+    title = "shinyDashboardPlus"
+  ),
+  server = function(input, output) {
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
+    
+    output$distPlot2 <- renderPlot({
+      hist(rnorm(input$obs2))
+    })
+    
+    output$flipPlot <- renderPlot({
+      hist(rnorm(input$flip_obs))
+    })
+    
+    output$data <- renderTable({
+      head(mtcars[, c("mpg", input$variable), drop = FALSE])
+    }, rownames = TRUE)
+    
+    output$value <- renderText({input$somevalue})
+    
+    output$boxSidebarPlot <- renderPlot({
+      hist(rnorm(input$slider_boxsidebar))
+    })
+    
+  }
+)
