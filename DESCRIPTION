@@ -24,6 +24,7 @@ Suggests:
     shinyjqui,
     knitr,
     rmarkdown
+Remotes: DivadNojnarg/shinyEffects
 URL: https://github.com/DivadNojnarg/shinydashboardPlus, http://130.60.24.205/shinydashboardPlus/#
 BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
 Encoding: UTF-8
