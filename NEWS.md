@@ -1,10 +1,15 @@
 # shinydashboardPlus 0.7.0.9000
+## Breaking Changes
+- remove all CSS functions, namely `setShadow()`, `setPulse()`, `setShake()` and
+`setZoom()`, since they are contained in [shinyEffects](https://divadnojnarg.github.io/shinyEffects/)
+
 ## New features
 - by default, opening the right sidebar shifts the body content to the left,
 similarly as the left sidebar
 
 ## Minor changes
 - new hex icons
+- update gallery
 
 # shinydashboardPlus 0.6.0
 ## New features

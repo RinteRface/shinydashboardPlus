@@ -151,6 +151,14 @@
 <h1 class="page-header">
 <a href="#shinydashboardplus-0-7-0-9000" class="anchor"></a>shinydashboardPlus 0.7.0.9000<small> Unreleased </small>
 </h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking Changes</h2>
+<ul>
+<li>remove all CSS functions, namely <code>setShadow()</code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://divadnojnarg.github.io/shinyEffects/">shinyEffects</a>
+</li>
+</ul>
+</div>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
@@ -163,6 +171,7 @@
 <a href="#minor-changes" class="anchor"></a>Minor changes</h2>
 <ul>
 <li>new hex icons</li>
+<li>update gallery</li>
 </ul>
 </div>
 </div>
@@ -180,9 +189,9 @@
 <li>new “left_menu” argument in the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</li>
 <li>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</li>
 <li>new “fixed” argument to the navbar (<code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code>). If TRUE, the navbar is fixed-top. (static-top by default)</li>
-<li>new <code><a href="../reference/setZoom.html">setZoom()</a></code> function (similar as <code><a href="../reference/setShadow.html">setShadow()</a></code>)</li>
-<li>new <code><a href="../reference/setPulse.html">setPulse()</a></code> function</li>
-<li>new <code><a href="../reference/setShake.html">setShake()</a></code> function</li>
+<li>new <code>setZoom()</code> function (similar as <code>setShadow()</code>)</li>
+<li>new <code>setPulse()</code> function</li>
+<li>new <code>setShake()</code> function</li>
 <li>add “enable_preloader” and “loading_duration” to <code><a href="../reference/dashboardPagePlus.html">dashboardPagePlus()</a></code> (custom preloader)</li>
 <li>update the <code><a href="../reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery()</a></code>
 </li>
@@ -221,7 +230,7 @@
 <li>clicking on the <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> link open a new page in a new tab (target = "_blank")</li>
 <li>
 <p>correct vignettes title (<a href="https://cran.r-project.org/package=shinydashboardPlus" class="uri">https://cran.r-project.org/package=shinydashboardPlus</a>)</p>
-<h2 id="breaking-changes">Breaking changes</h2>
+<h2 id="breaking-changes-1">Breaking changes</h2>
 </li>
 <li>change argument name in <code><a href="../reference/dropdownItem.html">dropdownItem()</a></code> (<code><a href="../reference/boxPlus.html">boxPlus()</a></code>): “target” is replaced by “url”.</li>
 <li>
@@ -229,7 +238,7 @@
 <h2 id="major-changes">Major changes</h2>
 </li>
 <li>add a “width” argument to the <code><a href="../reference/rightSidebar.html">rightSidebar()</a></code> (set to 230 pixels by default) to improve customization.</li>
-<li>new function <code><a href="../reference/setShadow.html">setShadow()</a></code> to set shadow and hover effects on any elements</li>
+<li>new function <code>setShadow()</code> to set shadow and hover effects on any elements</li>
 <li>add an “active” argument to <code><a href="../reference/rightSidebarTabContent.html">rightSidebarTabContent()</a></code>: see <a href="https://github.com/DivadNojnarg/shinydashboardPlus/issues/4"><a href='https://github.com/DivadNojnarg/shinydashboardPlus/issues/4'>#4</a></a>
 </li>
 <li>add a “sidebar_background” argument to <code><a href="../reference/dashboardPagePlus.html">dashboardPagePlus()</a></code>

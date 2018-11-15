@@ -82,13 +82,9 @@ reference:
   - '`attachmentBlock`'
   - '`verticalProgress`'
 
-- title: CSS effects
+- title: CSS extras
   desc: Pimp your app
   contents:
-  - '`setShadow`'
-  - '`setZoom`'
-  - '`setPulse`'
-  - '`setShake`'
   - '`preloader`'
   
 - title: The Gallery
