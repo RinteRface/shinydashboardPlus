@@ -4,7 +4,9 @@ Title: Add some 'AdminLTE2' Components to 'shinydashboard'
 Version: 0.7.0.9000
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
+  person(family = "RinteRface", role = "cph"),
   person(family = "Almasaeed Studio", role = c("ctb", "cph"), comment = "AdminLTE2 theme for Bootstrap 3"),
+  person("Guang", "Yang", comment = "ygdashboard original template"),
   person("Winston", "Chang", role = c("ctb", "cph"), comment = "Functions from shinydashboard"),
   person("Petr", "Tichy", role = c("ctb", "cph"), comment = "CSS preloader"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
