@@ -13,7 +13,7 @@
 # for the CRAN version
 install.packages("shinydashboardPlus")
 # for the latest version
-devtools::install_github("DivadNojnarg/shinydashboardPlus")
+devtools::install_github("RinteRface/shinydashboardPlus")
 ```
 
 ## Motivations
