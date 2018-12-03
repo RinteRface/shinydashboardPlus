@@ -1,12 +1,12 @@
 Package: shinydashboardPlus
 Type: Package
-Title: Add some 'AdminLTE2' Components to 'shinydashboard'
-Version: 0.7.0.9000
+Title: Add More 'AdminLTE2' Components to 'shinydashboard'
+Version: 0.7.0
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person(family = "RinteRface", role = "cph"),
   person(family = "Almasaeed Studio", role = c("ctb", "cph"), comment = "AdminLTE2 theme for Bootstrap 3"),
-  person("Guang", "Yang", comment = "ygdashboard original template"),
+  person("Guang", "Yang", role = c("ctb", "cph"), comment = "ygdashboard original template"),
   person("Winston", "Chang", role = c("ctb", "cph"), comment = "Functions from shinydashboard"),
   person("Petr", "Tichy", role = c("ctb", "cph"), comment = "CSS preloader"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
@@ -14,9 +14,8 @@ Authors@R: c(
 Maintainer: David Granjon <dgranjon@ymail.com>
 Description: Extend 'shinydashboard' with 'AdminLTE2' components. 
              'AdminLTE2' is a free 'Bootstrap 3' dashboard template available
-             at <https://adminlte.io>.
-             Customize boxes, add timelines and a lot more. 
-License: GPL-2
+             at <https://adminlte.io>. Customize boxes, add timelines and a lot more. 
+License: GPL (>= 2) | file LICENSE
 Imports: shiny, htmltools, shinydashboard
 Suggests:
     styler (>= 1.0.2),
@@ -26,9 +25,8 @@ Suggests:
     shinyjqui,
     knitr,
     rmarkdown
-Remotes: DivadNojnarg/shinyEffects
-URL: https://github.com/DivadNojnarg/shinydashboardPlus, http://130.60.24.205/shinydashboardPlus/#
-BugReports: https://github.com/DivadNojnarg/shinydashboardPlus/issues
+URL: https://github.com/RinteRface/shinydashboardPlus, https://rinterface.com/shiny/shinydashboardPlus/
+BugReports: https://github.com/RinteRface/shinydashboardPlus/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

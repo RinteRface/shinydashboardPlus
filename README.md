@@ -1,6 +1,6 @@
-# shinydashboardPlus <img src="man/figures/ShinyDashboardPlus_FINAL.png" width=200 align="right" />
+# shinydashboardPlus <img src="https://rinterface.com/inst/images/shinydashboardPlus.svg" width="200px" align="right"/>
 
-[![Build Status](https://travis-ci.org/DivadNojnarg/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/DivadNojnarg/shinydashboardPlus)
+[![Build Status](https://travis-ci.org/RinteRface/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/RinteRface/shinydashboardPlus)
 [![version](https://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![cranlogs](https://cranlogs.r-pkg.org/badges/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://www.rpackages.io/package/shinydashboardPlus)
@@ -24,7 +24,7 @@ your dashboard with all additional functions of shinydashboardPlus!
 
 ## Demo
 
-See a demonstration [here](http://130.60.24.205/shinydashboardPlus/)
+See a demonstration [here](https://rinterface.com/shiny/shinydashboardPlus/)
 or run:
 ```r
 shinydashboardPlusGallery()

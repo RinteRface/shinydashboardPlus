@@ -1,15 +1,22 @@
-# shinydashboardPlus 0.7.0.9000
+# shinydashboardPlus 0.7.0
 ## Breaking Changes
 - remove all CSS functions, namely `setShadow()`, `setPulse()`, `setShake()` and
-`setZoom()`, since they are contained in [shinyEffects](https://divadnojnarg.github.io/shinyEffects/)
+`setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
 - by default, opening the right sidebar shifts the body content to the left,
 similarly as the left sidebar
 
+## major changes
+- shindashboardPlus is now moved on [RinteRface](https://github.com/RinteRface/shinydashboardPlus)
+
 ## Minor changes
 - new hex icons
 - update gallery
+- update vignettes (RinteRface)
+
+## Fixes
+- fix #22 thanks to @trallard (missing licence)
 
 # shinydashboardPlus 0.6.0
 ## New features

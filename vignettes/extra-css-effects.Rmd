@@ -16,4 +16,4 @@ knitr::opts_chunk$set(
 )
 ```
 
-**shinydashboardPlus** is fully compatible with [shinyEffects](https://divadnojnarg.github.io/shinyEffects/).
+**shinydashboardPlus** is fully compatible with [shinyEffects](https://rinterface.github.io/shinyEffects/).

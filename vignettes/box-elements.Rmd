@@ -128,4 +128,4 @@ knitr::opts_chunk$set(
  )
 ```
 
-and a lot more [here](http://130.60.24.205/shinydashboardPlus/).
+and a lot more [here](https://rinterface.com/shiny/shinydashboardPlus/).

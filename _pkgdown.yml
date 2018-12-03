@@ -120,7 +120,7 @@ navbar:
       href: news/index.html
     github:
       icon: fa-github fa-lg
-      href: https://github.com/DivadNojnarg/shinydashboardPlus
+      href: https://github.com/RinteRface/shinydashboardPlus
       
       
 articles:
@@ -138,7 +138,7 @@ articles:
 
 news:
  releases:
- - text: "shinydashboardPlus 0.7.0.9000"
+ - text: "shinydashboardPlus 0.7.0"
  - text: "shinydashboardPlus 0.6.0"
  - text: "shinydashboardPlus 0.5.0"
  - text: "shinydashboardPlus 0.2.0"
