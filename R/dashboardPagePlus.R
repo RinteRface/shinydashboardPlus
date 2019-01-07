@@ -19,6 +19,8 @@
 #'   default.
 #' @param sidebar_background Main sidebar background color: either "light" or
 #'   NULL. NULL by default.
+#' @param sidebar_fullCollapse Whether to fully collapse the sidebar as with shinydashboard.
+#' FALSE by default.
 #' @param enable_preloader Whether to enable a page loader. FALSE by default.
 #' @param loading_duration Loader duration in seconds. 2s by default.
 #'
@@ -50,7 +52,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light"),
                               collapse_sidebar = FALSE, sidebar_background = NULL,
-                              enable_preloader = FALSE, loading_duration = 2) {
+                              sidebar_fullCollapse = FALSE, enable_preloader = FALSE, loading_duration = 2) {
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
@@ -58,6 +60,13 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
   # tagAssert(footer, type = "footer", class = "main-footer")
   # tagAssert(controlbar, type = "aside", class = "control-sidebar")
   skin <- match.arg(skin)
+  
+  bodyCl <- paste0(
+    "hold-transition skin-", 
+    skin, 
+    if (!is.null(sidebar_background)) paste0("-", sidebar_background))
+  if (!sidebar_fullCollapse) bodyCl <- paste0(bodyCl, " sidebar-mini")
+  if (collapse_sidebar) bodyCl <- paste0(bodyCl, " sidebar-collapse")
   
   extractTitle <- function(header) {
     x <- header$children[[1]]
@@ -98,12 +107,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
           "
         )
       },
-      class = paste0(
-        "hold-transition skin-", skin, 
-        if (!is.null(sidebar_background)) paste0("-", sidebar_background), 
-        " sidebar-mini", 
-        ifelse(collapse_sidebar," sidebar-collapse","")
-      ),
+      class = bodyCl,
       style = "min-height: 611px;",
       shiny::bootstrapPage(content, title = title)
     )

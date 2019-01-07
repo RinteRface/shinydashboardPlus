@@ -4,6 +4,8 @@
 `setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
+- new argument to dashboardPagePlus: sidebar_fullCollapse enable the
+sidebar to be fully collapsed as in shinydashboard. Fix #24, thanks @serkserk
 - by default, opening the right sidebar shifts the body content to the left,
 similarly as the left sidebar
 

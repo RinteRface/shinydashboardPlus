@@ -8,8 +8,8 @@ dashboardPagePlus(header, sidebar, body, rightsidebar = NULL,
   title = NULL, skin = c("blue", "blue-light", "black", "black-light",
   "purple", "purple-light", "green", "green-light", "red", "red-light",
   "yellow", "yellow-light"), collapse_sidebar = FALSE,
-  sidebar_background = NULL, enable_preloader = FALSE,
-  loading_duration = 2)
+  sidebar_background = NULL, sidebar_fullCollapse = FALSE,
+  enable_preloader = FALSE, loading_duration = 2)
 }
 \arguments{
 \item{header}{A header created by \code{dashboardHeaderPlus}.}
@@ -33,6 +33,9 @@ default.}
 
 \item{sidebar_background}{Main sidebar background color: either "light" or
 NULL. NULL by default.}
+
+\item{sidebar_fullCollapse}{Whether to fully collapse the sidebar as with shinydashboard.
+FALSE by default.}
 
 \item{enable_preloader}{Whether to enable a page loader. FALSE by default.}
 
