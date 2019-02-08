@@ -1735,3 +1735,118 @@ verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped 
     )
   )
 }
+
+
+
+
+
+#' AdminLTE2 carousel container
+#'
+#' This creates a carousel
+#' 
+#' @param ... Slot for \link{carouselItem}
+#' @param id Carousel id. Must be unique.
+#' @param indicators Whether to display left and right indicators.
+#' @param width Carousel width. 6 by default.
+#' 
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      header = dashboardHeaderPlus(
+#'       enable_rightsidebar = TRUE,
+#'       rightSidebarIcon = "gears"
+#'      ),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(
+#'       carousel(
+#'        id = "mycarousel",
+#'        carouselItem(
+#'         caption = "Item 1",
+#'         tags$img(src = "http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
+#'        ),
+#'        carouselItem(
+#'         caption = "Item 2",
+#'         tags$img(src = "http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
+#'        )
+#'       )
+#'      ),
+#'      rightsidebar = rightSidebar(),
+#'      title = "Right Sidebar"
+#'    ),
+#'    server = function(input, output) { }
+#'  )
+#' }
+#' @export
+carousel <- function(..., id, indicators = TRUE, width = 6) {
+  
+  items <- list(...)
+  indicatorsId <- paste0("#", id)
+  
+  items[[1]]$attribs$class <- "item active"
+  
+  carouselTag <- shiny::tags$div(
+    class = "carousel slide",
+    id = id,
+    `data-ride` = "carousel",
+    shiny::tags$ol(
+      class="carousel-indicators",
+      lapply(
+        seq_along(items), 
+        FUN = function(i) {
+          shiny::tags$li( 
+            `data-target` = indicatorsId,
+            `data-slide-to` = i - 1,
+            class = ""
+          )
+        }
+      )
+    ),
+    shiny::tags$div(class = "carousel-inner", items),
+    # display indicators if needed
+    if (indicators) {
+      shiny::tagList(
+        shiny::tags$a(
+          class = "left carousel-control",
+          href= indicatorsId,
+          `data-slide` = "prev",
+          shiny::tags$span(class="fa fa-angle-left")
+        ),
+        shiny::tags$a(
+          class = "right carousel-control",
+          href= indicatorsId,
+          `data-slide` = "next",
+          shiny::tags$span(class="fa fa-angle-right")
+        )
+      )
+    }
+  )
+  
+  shiny::column(width = width, carouselTag)
+  
+}
+
+
+
+
+#' AdminLTE2 carousel item
+#'
+#' This creates a carousel item
+#' 
+#' @param ... Element such as images, iframe, ...
+#' @param caption Item caption.
+#' 
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @export
+carouselItem <- function(..., caption = "") {
+  shiny::tags$div(
+    class = "item",
+    ...,
+    shiny::tags$div(class = "carousel-caption", caption)
+  )
+}

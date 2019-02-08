@@ -77,6 +77,8 @@ reference:
   contents:
   - '`loadingState`'
   - '`blockQuote`'
+  - '`carousel`'
+  - '`carouselItem`'
   - '`dashboardLabel`'
   - '`starBlock`'
   - '`attachmentBlock`'

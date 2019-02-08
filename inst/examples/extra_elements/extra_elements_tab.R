@@ -313,5 +313,46 @@ extra_elements_tab <- tabItem(
         value = paste(vertical_progress, collapse = "\n")
       ) 
     )
+  ),
+  
+  
+  # ################
+  # demo carousel()
+  # ################
+  
+  br(),
+  column(
+    width = 12,
+    align = "center",
+    h1("carousel()")
+  ),
+  br(),
+  
+  # demo carousel
+  fluidRow(
+    carousel(
+      id = "mycarousel",
+      carouselItem(
+        caption = "Item 1",
+        tags$img(src = "http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
+      ),
+      carouselItem(
+        caption = "Item 2",
+        tags$img(src = "http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
+      )
+    ),
+    
+    column(
+      width = 6,
+      # ace editor
+      aceEditor(
+        theme = "dracula",
+        mode = "r",
+        height = "200px",
+        outputId = "carousel_code",
+        readOnly = TRUE,
+        value = paste(carousel, collapse = "\n")
+      ) 
+    )
   )
 )
