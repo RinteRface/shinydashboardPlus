@@ -169,7 +169,7 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     class = "main-header",
     custom_css,
     style = if (disable) "display: none;",
-    shiny::tags$span(class = "logo", title),
+    if (!is.null(title)) shiny::tags$span(class = "logo", title),
     shiny::tags$nav(
       class = paste0("navbar navbar-", if (fixed) "fixed" else "static", "-top"), 
       role = "navigation",
@@ -213,6 +213,154 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     )
   )
 }
+
+
+
+
+#' Create a dashboard user profile.
+#'
+#' @param ... Body content. Slot for \link{dashboardUserItem}.
+#' @param name User name.
+#' @param src User profile picture.
+#' @param title A title.
+#' @param subtitle A subtitle.
+#' @param footer Footer is any.
+#'
+#' @seealso \code{\link{userOutput}} and \code{\link{renderUser}} for
+#' dynamically-generating \code{\link{dashboardUser}}.
+#' 
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinyWidgets)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPagePlus(
+#'     header = dashboardHeaderPlus(
+#'       enable_rightsidebar = TRUE,
+#'       rightSidebarIcon = "gears",
+#'       left_menu = NULL,
+#'       userOutput("user")
+#'     ),
+#'     sidebar = dashboardSidebar(),
+#'     body = dashboardBody(),
+#'     rightsidebar = rightSidebar(),
+#'     title = "DashboardPage"
+#'   ),
+#'   server = function(input, output) {
+#'    output$user <- renderUser({
+#'     dashboardUser(
+#'        name = "Divad Nojnarg", 
+#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+#'        title = "shinydashboardPlus",
+#'        subtitle = "Author", 
+#'        footer = p("The footer", class = "text-center"),
+#'        fluidRow(
+#'         dashboardUserItem(
+#'          width = 6,
+#'          socialButton(
+#'           url = "http://dropbox.com",
+#'           type = "dropbox"
+#'          )
+#'         ),
+#'         dashboardUserItem(
+#'          width = 6,
+#'          socialButton(
+#'           url = "http://github.com",
+#'           type = "github"
+#'          )
+#'         )
+#'        )
+#'       )
+#'    })
+#'   }
+#'  )
+#' }
+#' 
+#' @export
+dashboardUser <- function(..., name = NULL, src = NULL, title = NULL,
+                          subtitle = NULL, footer = NULL) {
+  
+  # create user account menu
+  userTag <- shiny::tagList(
+    # menu toggle button
+    shiny::tags$a(
+      href = "#", 
+      class = "dropdown-toggle", 
+      `data-toggle` = "dropdown",
+      # user img and name in navbar (controlbar - header)
+      shiny::tags$img(src = src, class = "user-image", alt = "User Image"),
+      shiny::tags$span(class = "hidden-xs", name)
+    ),
+    # menu dropdown main
+    shiny::tags$ul(
+      class = "dropdown-menu",
+      # user img in the menu
+      shiny::tags$li(
+        class = "user-header",
+        shiny::tags$img(src = src, class = "img-circle", alt = "User Image"),
+        shiny::tags$p(paste0(name, " - ", title), shiny::tags$small(subtitle))
+      ),
+      # menu body
+      shiny::tags$li(class = "user-body", ...),
+      # menu footer. Do not show if NULL
+      if(!is.null(footer)) shiny::tags$li(class = "user-footer", footer)
+    )
+  )
+  
+  userTag
+}
+
+
+
+
+#' Create a dashboard user profile item 
+#'
+#' This can be inserted in a \code{\link{dashboardUser}}.
+#'
+#' @param item HTML Tag.
+#' @param width Item width between 1 and 12.
+#'
+#' @export
+dashboardUserItem <- function(item, width) {
+  item <- shiny::div(
+    align = "center", 
+    class = paste0("col-xs-", width),
+    item
+  ) 
+}
+
+
+
+
+#' Create a dynamic user output (client side)
+#'
+#' This can be used as a placeholder for dynamically-generated \code{\link{dashboardUser}}.
+#'
+#' @param id Output variable name.
+#' @param tag A tag function, like \code{tags$li} or \code{tags$ul}.
+#'
+#' @seealso \code{\link{renderUser}} for the corresponding server side function
+#'   and examples.
+#' @family user outputs
+#' @export
+userOutput <- function(id, tag = shiny::tags$li) {
+  shiny::uiOutput(outputId = id, container = tag, class = "dropdown user user-menu")
+}
+
+#' Create dynamic user output (server side)
+#'
+#' @inheritParams shiny::renderUI
+#'
+#' @seealso \code{\link{userOutput}} for the corresponding client side function
+#'   and examples.
+#' @family user outputs
+#' @export
+renderUser <- shiny::renderUI
+
+
 
 
 #' Create a dropdown block to place in a dashboard header

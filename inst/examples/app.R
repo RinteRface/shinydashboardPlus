@@ -56,7 +56,8 @@ shinyApp(
         taskItem(value = 40, color = "green", "Design new layout"),
         taskItem(value = 60, color = "yellow", "Another task"),
         taskItem(value = 80, color = "red", "Write documentation")
-      )
+      ),
+      userOutput("user")
     ),
     dashboardSidebar(
       sidebarMenu(
@@ -198,6 +199,42 @@ shinyApp(
     
     output$boxSidebarPlot <- renderPlot({
       hist(rnorm(input$slider_boxsidebar))
+    })
+    
+    output$user <- renderUser({
+      dashboardUser(
+        name = "Divad Nojnarg", 
+        src = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+        title = "shinydashboardPlus",
+        subtitle = "Author", 
+        footer = p("The footer", class = "text-center"),
+        fluidRow(
+          dashboardUserItem(
+            width = 6,
+            descriptionBlock(
+              number = "17%", 
+              number_color = "green", 
+              number_icon = "fa fa-caret-up",
+              header = "$35,210.43", 
+              text = "TOTAL REVENUE", 
+              right_border = TRUE,
+              margin_bottom = FALSE
+            )
+          ),
+          dashboardUserItem(
+            width = 6,
+            descriptionBlock(
+              number = "18%", 
+              number_color = "red", 
+              number_icon = "fa fa-caret-down",
+              header = "1200", 
+              text = "GOAL COMPLETION", 
+              right_border = FALSE,
+              margin_bottom = FALSE
+            )
+          )
+        )
+      )
     })
     
   }

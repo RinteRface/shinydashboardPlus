@@ -8,7 +8,11 @@ reference:
 - title: Navbar Functions
   desc: Items to insert in the left navbar menu
   contents: 
+  - '`dashboardUser`'
+  - '`dashboardUserItem`'
   - '`dropdownBlock`'
+  - '`renderUser`'
+  - '`userOutput`'
 
 - title: Right Sidebar
   desc: Right sidebar elements

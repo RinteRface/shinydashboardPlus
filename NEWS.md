@@ -4,6 +4,7 @@
 `setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
+- add `dashboardUser()`, `dashboardUserItem()`, `renderUser()` and `userOutput()`
 - add `carousel()` and `carouselItem()`
 - new argument to dashboardPagePlus: sidebar_fullCollapse enable the
 sidebar to be fully collapsed as in shinydashboard. Fix #24, thanks @serkserk
@@ -19,6 +20,7 @@ similarly as the left sidebar
 - update vignettes (RinteRface)
 
 ## Fixes
+- fix issue when the `dashboardHeaderPlus()` title was NULL
 - fix #22 thanks to @trallard (missing licence)
 
 # shinydashboardPlus 0.6.0
