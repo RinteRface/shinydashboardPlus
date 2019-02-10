@@ -4,7 +4,8 @@
 \alias{renderUser}
 \title{Create dynamic user output (server side)}
 \usage{
-renderUser(expr, env = parent.frame(), quoted = FALSE)
+renderUser(expr, env = parent.frame(), quoted = FALSE,
+  outputArgs = list())
 }
 \arguments{
 \item{expr}{An expression that returns a Shiny tag object, \code{\link{HTML}},
@@ -14,6 +15,10 @@ or a list of such objects.}
 
 \item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
 is useful if you want to save an expression in a variable.}
+
+\item{outputArgs}{A list of arguments to be passed through to the implicit
+call to \code{\link{uiOutput}} when \code{renderUI} is used in an
+interactive R Markdown document.}
 }
 \description{
 Create dynamic user output (server side)

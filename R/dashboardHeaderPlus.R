@@ -360,6 +360,8 @@ userOutput <- function(id, tag = shiny::tags$li) {
 #' @export
 renderUser <- shiny::renderUI
 
+# make R CMD check happy
+globalVariables("func")
 
 
 
