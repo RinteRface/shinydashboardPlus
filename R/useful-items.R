@@ -1748,6 +1748,8 @@ verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped 
 #' @param id Carousel id. Must be unique.
 #' @param indicators Whether to display left and right indicators.
 #' @param width Carousel width. 6 by default.
+#' @param .list Should you need to pass \link{carouselItem} via \link{lapply} or similar,
+#' put these item here instead of passing them in ...
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -1782,9 +1784,9 @@ verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped 
 #'  )
 #' }
 #' @export
-carousel <- function(..., id, indicators = TRUE, width = 6) {
+carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
   
-  items <- list(...)
+  items <- c(list(...), .list)
   indicatorsId <- paste0("#", id)
   
   items[[1]]$attribs$class <- "item active"

@@ -4,7 +4,7 @@
 \alias{carousel}
 \title{AdminLTE2 carousel container}
 \usage{
-carousel(..., id, indicators = TRUE, width = 6)
+carousel(..., id, indicators = TRUE, width = 6, .list = NULL)
 }
 \arguments{
 \item{...}{Slot for \link{carouselItem}}
@@ -14,6 +14,9 @@ carousel(..., id, indicators = TRUE, width = 6)
 \item{indicators}{Whether to display left and right indicators.}
 
 \item{width}{Carousel width. 6 by default.}
+
+\item{.list}{Should you need to pass \link{carouselItem} via \link{lapply} or similar,
+put these item here instead of passing them in ...}
 }
 \description{
 This creates a carousel
