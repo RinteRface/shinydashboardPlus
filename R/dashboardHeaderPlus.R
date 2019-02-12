@@ -169,7 +169,8 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     class = "main-header",
     custom_css,
     style = if (disable) "display: none;",
-    if (!is.null(title)) shiny::tags$span(class = "logo", title),
+    # only hide on small screen devices when title is NULL
+    shiny::tags$span(class = if (is.null(title)) "logo hidden-xs" else "logo", title),
     shiny::tags$nav(
       class = paste0("navbar navbar-", if (fixed) "fixed" else "static", "-top"), 
       role = "navigation",
