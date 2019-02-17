@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard Page with a right sidebar — dashboardPagePlus • shinydashboardPlus</title>
+<title>Dashboard Footer — dashboardFooter • shinydashboardPlus</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Dashboard Page with a right sidebar — dashboardPagePlus" />
+<meta property="og:title" content="Dashboard Footer — dashboardFooter" />
 
-<meta property="og:description" content="This creates a dashboard page for use in a Shiny app." />
+<meta property="og:description" content="This creates a dashboard footer" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -148,89 +148,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Dashboard Page with a right sidebar</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/dashboardPagePlus.R'><code>R/dashboardPagePlus.R</code></a></small>
-    <div class="hidden name"><code>dashboardPagePlus.Rd</code></div>
+    <h1>Dashboard Footer</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/dashboardFooter.R'><code>R/dashboardFooter.R</code></a></small>
+    <div class="hidden name"><code>dashboardFooter.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This creates a dashboard page for use in a Shiny app.</p>
+    <p>This creates a dashboard footer</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dashboardPagePlus</span>(<span class='no'>header</span>, <span class='no'>sidebar</span>, <span class='no'>body</span>, <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>footer</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>skin</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"blue"</span>, <span class='st'>"blue-light"</span>,
-  <span class='st'>"black"</span>, <span class='st'>"black-light"</span>, <span class='st'>"purple"</span>, <span class='st'>"purple-light"</span>, <span class='st'>"green"</span>, <span class='st'>"green-light"</span>,
-  <span class='st'>"red"</span>, <span class='st'>"red-light"</span>, <span class='st'>"yellow"</span>, <span class='st'>"yellow-light"</span>),
-  <span class='kw'>collapse_sidebar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sidebar_background</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>sidebar_fullCollapse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>enable_preloader</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>loading_duration</span> <span class='kw'>=</span> <span class='fl'>2</span>)</pre>
+    <pre class="usage"><span class='fu'>dashboardFooter</span>(<span class='kw'>left_text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>right_text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>header</th>
-      <td><p>A header created by <code>dashboardHeaderPlus</code>.</p></td>
+      <th>left_text</th>
+      <td><p>Left text.</p></td>
     </tr>
     <tr>
-      <th>sidebar</th>
-      <td><p>A sidebar created by <code><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>body</th>
-      <td><p>A body created by <code><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>rightsidebar</th>
-      <td><p>A right sidebar created by <code>rightSidebar</code>. NULL by
-default.</p></td>
-    </tr>
-    <tr>
-      <th>footer</th>
-      <td><p>A footer created by <code>dashboardFooter</code>.</p></td>
-    </tr>
-    <tr>
-      <th>title</th>
-      <td><p>A title to display in the browser's title bar. If no value is
-provided, it will try to extract the title from the
-<code>dashboardHeaderPlus</code>.</p></td>
-    </tr>
-    <tr>
-      <th>skin</th>
-      <td><p>A color theme. One of <code>"blue"</code>, <code>"black"</code>,
-<code>"purple"</code>, <code>"green"</code>, <code>"red"</code>, or <code>"yellow"</code>.</p></td>
-    </tr>
-    <tr>
-      <th>collapse_sidebar</th>
-      <td><p>Whether to collapse the left sidebar. TRUE by
-default.</p></td>
-    </tr>
-    <tr>
-      <th>sidebar_background</th>
-      <td><p>Main sidebar background color: either "light" or
-NULL. NULL by default.</p></td>
-    </tr>
-    <tr>
-      <th>sidebar_fullCollapse</th>
-      <td><p>Whether to fully collapse the sidebar as with shinydashboard.
-FALSE by default.</p></td>
-    </tr>
-    <tr>
-      <th>enable_preloader</th>
-      <td><p>Whether to enable a page loader. FALSE by default.</p></td>
-    </tr>
-    <tr>
-      <th>loading_duration</th>
-      <td><p>Loader duration in seconds. 2s by default.</p></td>
+      <th>right_text</th>
+      <td><p>Right text.</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></code>, <code><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></code>,
-  <code><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></code>.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -240,7 +182,7 @@ FALSE by default.</p></td>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shinydashboardPlus</span>)
 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'>dashboardPagePlus</span>(
+  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardPagePlus.html'>dashboardPagePlus</a></span>(
     <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(
      <span class='kw'>enable_rightsidebar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
      <span class='kw'>rightSidebarIcon</span> <span class='kw'>=</span> <span class='st'>"gears"</span>
@@ -248,6 +190,10 @@ FALSE by default.</p></td>
     <span class='kw'>sidebar</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></span>(),
     <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(),
     <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='fu'><a href='rightSidebar.html'>rightSidebar</a></span>(),
+    <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'>dashboardFooter</span>(
+     <span class='kw'>left_text</span> <span class='kw'>=</span> <span class='st'>"By Divad Nojnarg"</span>,
+     <span class='kw'>right_text</span> <span class='kw'>=</span> <span class='st'>"Zurich, 2019"</span>
+    ),
     <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"DashboardPage"</span>
   ),
   <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
@@ -258,9 +204,7 @@ FALSE by default.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#see-also">See also</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

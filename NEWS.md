@@ -4,6 +4,7 @@
 `setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
+- add `dashboardFooter()`
 - add `dashboardUser()`, `dashboardUserItem()`, `renderUser()` and `userOutput()`
 - add `carousel()` and `carouselItem()`
 - new argument to dashboardPagePlus: sidebar_fullCollapse enable the

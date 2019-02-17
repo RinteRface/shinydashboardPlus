@@ -10,6 +10,7 @@
 #' @param body A body created by \code{\link[shinydashboard]{dashboardBody}}.
 #' @param rightsidebar A right sidebar created by \code{rightSidebar}. NULL by
 #'   default.
+#' @param footer A footer created by \code{dashboardFooter}.
 #' @param title A title to display in the browser's title bar. If no value is
 #'   provided, it will try to extract the title from the
 #'   \code{dashboardHeaderPlus}.
@@ -47,7 +48,7 @@
 #' )
 #' }
 #' @export
-dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title = NULL,
+dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer = NULL, title = NULL,
                               skin = c("blue", "blue-light","black","black-light", 
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light"),
@@ -89,6 +90,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, title 
     sidebar, 
     if (enable_preloader) preloader(),
     body, 
+    footer,
     rightsidebar
   )
   

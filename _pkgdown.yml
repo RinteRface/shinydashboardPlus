@@ -2,8 +2,9 @@ reference:
 - title: Skeleton Functions
   desc: Page and header wrappers
   contents: 
-  - '`dashboardPagePlus`'
+  - '`dashboardFooter`'
   - '`dashboardHeaderPlus`'
+  - '`dashboardPagePlus`'
   
 - title: Navbar Functions
   desc: Items to insert in the left navbar menu
