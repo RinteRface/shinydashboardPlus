@@ -57,7 +57,7 @@
 rightSidebar <- function(..., background = "dark", width = 230) {
   
   sidebarTag <- shiny::tags$div(
-    id = "right_sidebar",
+    id = "controlbar",
     shiny::tags$aside(
       class = paste0("control-sidebar control-sidebar-", background),
       style = paste0("width: ", width, "px;"),
@@ -171,7 +171,7 @@ rightSidebarTabItem <- function(id, icon, active) {
 #' 
 rigthSidebarPanel <- function(...) {
   shiny::tags$div(
-    class = "tab-content",
+    class = "controlbar tab-content",
     ...
   )
 }
