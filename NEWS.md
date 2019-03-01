@@ -4,6 +4,8 @@
 `setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
+- add new argument .items to `rightSidebar()`: useful if we do not want to 
+embed elements in tabs. 
 - add `dashboardFooter()`
 - add `dashboardUser()`, `dashboardUserItem()`, `renderUser()` and `userOutput()`
 - add `carousel()` and `carouselItem()`

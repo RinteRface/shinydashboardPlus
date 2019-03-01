@@ -2,14 +2,15 @@
 #'
 #' This creates a right sidebar.
 #' 
-#' @param ... slot for rightSidebarTabContent.
+#' @param ... slot for rightSidebarTabContent. Not compatible with .items.
 #' @param background background color: "dark" or "light".
 #' @param width Sidebar width in pixels. Numeric value expected. 230 by default.
+#' @param .items Pass element here if you do not want to embed them in panels. Not compatible with ...
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @note Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
-#' support more items.
+#' support more panels.
 #'
 #' @examples
 #' if (interactive()) {
@@ -54,7 +55,9 @@
 #'  )
 #' }
 #' @export
-rightSidebar <- function(..., background = "dark", width = 230) {
+rightSidebar <- function(..., background = "dark", width = 230, .items = NULL) {
+  
+  panels <- list(...)
   
   sidebarTag <- shiny::tags$div(
     id = "controlbar",
@@ -62,8 +65,8 @@ rightSidebar <- function(..., background = "dark", width = 230) {
       class = paste0("control-sidebar control-sidebar-", background),
       style = paste0("width: ", width, "px;"),
       # automatically create the tab menu
-      rightSidebarTabList(rigthSidebarPanel(...)),
-      rigthSidebarPanel(...)
+      if (length(panels) > 0) rightSidebarTabList(rigthSidebarPanel(...)),
+      if (length(panels) > 0) rigthSidebarPanel(...) else rigthSidebarPanel(.items)
     ),
     # Add the sidebar background. This div must be placed
     # immediately after the control sidebar

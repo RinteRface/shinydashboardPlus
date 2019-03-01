@@ -4,21 +4,23 @@
 \alias{rightSidebar}
 \title{AdminLTE2 dashboard right sidebar}
 \usage{
-rightSidebar(..., background = "dark", width = 230)
+rightSidebar(..., background = "dark", width = 230, .items = NULL)
 }
 \arguments{
-\item{...}{slot for rightSidebarTabContent.}
+\item{...}{slot for rightSidebarTabContent. Not compatible with .items.}
 
 \item{background}{background color: "dark" or "light".}
 
 \item{width}{Sidebar width in pixels. Numeric value expected. 230 by default.}
+
+\item{.items}{Pass element here if you do not want to embed them in panels. Not compatible with ...}
 }
 \description{
 This creates a right sidebar.
 }
 \note{
 Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
-support more items.
+support more panels.
 }
 \examples{
 if (interactive()) {
