@@ -10,7 +10,7 @@ dashboardPagePlus(header, sidebar, body, rightsidebar = NULL,
   "red", "red-light", "yellow", "yellow-light"),
   collapse_sidebar = FALSE, sidebar_background = NULL,
   sidebar_fullCollapse = FALSE, enable_preloader = FALSE,
-  loading_duration = 2)
+  loading_duration = 2, md = FALSE)
 }
 \arguments{
 \item{header}{A header created by \code{dashboardHeaderPlus}.}
@@ -43,6 +43,8 @@ FALSE by default.}
 \item{enable_preloader}{Whether to enable a page loader. FALSE by default.}
 
 \item{loading_duration}{Loader duration in seconds. 2s by default.}
+
+\item{md}{Whether to enable material design. Experimental...}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.

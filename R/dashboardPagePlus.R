@@ -24,6 +24,7 @@
 #' FALSE by default.
 #' @param enable_preloader Whether to enable a page loader. FALSE by default.
 #' @param loading_duration Loader duration in seconds. 2s by default.
+#' @param md Whether to enable material design. Experimental...
 #'
 #' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link[shinydashboard]{dashboardSidebar}},
 #'   \code{\link[shinydashboard]{dashboardBody}}.
@@ -53,7 +54,8 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light"),
                               collapse_sidebar = FALSE, sidebar_background = NULL,
-                              sidebar_fullCollapse = FALSE, enable_preloader = FALSE, loading_duration = 2) {
+                              sidebar_fullCollapse = FALSE, enable_preloader = FALSE, loading_duration = 2,
+                              md = FALSE) {
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
@@ -95,6 +97,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
   )
   
   addDeps(
+    md = md,
     shiny::tags$body(
       # preloader, if any
       onload = if (enable_preloader) {

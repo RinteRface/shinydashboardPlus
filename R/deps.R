@@ -10,7 +10,7 @@ appendDependencies <- function(x, value) {
 }
 
 # Add dashboard dependencies to a tag object
-addDeps <- function(x) {
+addDeps <- function(x, md) {
   if (getOption("shiny.minified", TRUE)) {
     adminLTE_js <- "app.min.js"
     shinydashboard_js <- "shinydashboard.min.js"
@@ -21,7 +21,21 @@ addDeps <- function(x) {
     adminLTE_css <- c("AdminLTE.css", "_all-skins.css")
   }
   
+  # material design deps
+  if (md) {
+    # CSS
+    md_bootstrap_css <- "css/bootstrap-material-design.min.css"
+    ripples_css <- "css/ripples.min.css"
+    md_adminLTE_css <- "css/MaterialAdminLTE.min.css"
+    md_skins_css <- "css/all-md-skins.min.css"
+    # JS
+    md_js <- "js/material.min.js"
+    ripples_js <- "js/ripples.min.js"
+    md_init_js <- "js/init.js"
+  }
+  
   dashboardDeps <- list(
+    # vanilla adminLTE css from shinydashboard
     htmltools::htmlDependency(
       "AdminLTE", 
       "2.0.6",
@@ -29,19 +43,31 @@ addDeps <- function(x) {
       #script = adminLTE_js,
       stylesheet = adminLTE_css
     ),
+    # custom js for shinydashboardPlus
     htmltools::htmlDependency(
       "shinydashboardPlus",
       as.character(utils::packageVersion("shinydashboardPlus")),
       c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
       script = adminLTE_js
     ),
+    # shinydashboard css and js deps
     htmltools::htmlDependency(
       "shinydashboard",
       as.character(utils::packageVersion("shinydashboard")),
       c(file = system.file(package = "shinydashboard")),
       script = shinydashboard_js,
       stylesheet = "shinydashboard.css"
-    )
+    ),
+    # material design deps
+    if (md) {
+      htmltools::htmlDependency(
+        "materialDesign",
+        as.character(utils::packageVersion("shinydashboardPlus")),
+        c(file = system.file("materialDesign", package = "shinydashboardPlus")),
+        script = c(md_js, ripples_js, md_init_js),
+        stylesheet = c(md_bootstrap_css, ripples_css, md_adminLTE_css, md_skins_css)
+      )
+    }
   )
   
   appendDependencies(x, dashboardDeps)
