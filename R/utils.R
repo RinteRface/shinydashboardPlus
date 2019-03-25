@@ -9,7 +9,66 @@ validateStatus <- function(status) {
        paste(validStatuses, collapse = ", "), ".")
 }
 
+
+#' Valid statuses
+#'
+#' These status strings correspond to colors as defined in Bootstrap's CSS.
+#' Although the colors can vary depending on the particular CSS selector, they
+#' generally appear as follows:
+#'
+#' \itemize{
+#'   \item \code{primary} Blue (sometimes dark blue)
+#'   \item \code{success} Green
+#'   \item \code{info} Blue
+#'   \item \code{warning} Orange
+#'   \item \code{danger} Red
+#' }
+#'
+#' @usage NULL
+#' @format NULL
+#'
+#' @keywords internal
 validStatuses <- c("primary", "success", "info", "warning", "danger")
+
+
+# Returns TRUE if a status is valid; throws error otherwise.
+validateStatusPlus <- function(status) {
+  
+  if (status %in% validStatusesPlus) {
+    return(TRUE)
+  }
+  
+  stop("Invalid status: ", status, ". Valid statuses are: ",
+       paste(validStatusesPlus, collapse = ", "), ".")
+}
+
+
+#' Valid statuses extra
+#'
+#' These status strings correspond to colors as defined in adminLTE extra colors.
+#' Although the colors can vary depending on the particular CSS selector, they
+#' generally appear as follows:
+#'
+#' \itemize{
+#'   \item \code{primary} Blue (sometimes dark blue)
+#'   \item \code{success} Green
+#'   \item \code{info} Blue
+#'   \item \code{warning} Orange
+#'   \item \code{danger} Red
+#'   \item \code{navy} Dark Grey/Blue
+#'   \item \code{teal} Blue/Green
+#'   \item \code{orange} Orange
+#'   \item \code{purle} Purple
+#'   \item \code{maroon} Pink
+#'   \item \code{black} Black
+#' }
+#'
+#' @usage NULL
+#' @format NULL
+#'
+#' @keywords internal
+validStatusesPlus <- c("primary", "success", "info", "warning", "danger", 
+                       "navy", "teal", "purple", "orange", "maroon", "black")
 
 
 # Returns TRUE if a color is a valid color defined in AdminLTE, throws error

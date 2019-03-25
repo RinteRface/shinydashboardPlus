@@ -125,7 +125,6 @@ if (interactive()) {
     dashboardHeaderPlus(),
     dashboardSidebar(),
     dashboardBody(
-      setShadow("box"),
       fluidRow(
         boxPlus(
           title = "Closable Box with dropdown", 

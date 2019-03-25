@@ -1,7 +1,7 @@
 source("global.R")
 
 shinyApp(
-  ui = dashboardPagePlus(
+  ui = dashboardPagePlus(md = TRUE,
     dashboardHeaderPlus(
       fixed = TRUE,
       title = tagList(
