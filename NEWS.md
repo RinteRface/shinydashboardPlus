@@ -4,6 +4,7 @@
 `setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
+- 6 new color statuses for `boxPlus()` headers: navy, teal, orange, maroon, black and purple 
 - add new argument .items to `rightSidebar()`: useful if we do not want to 
 embed elements in tabs. 
 - add `dashboardFooter()`

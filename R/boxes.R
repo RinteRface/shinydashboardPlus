@@ -489,7 +489,6 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'     dashboardHeaderPlus(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'       setShadow("box"),
 #'       fluidRow(
 #'         boxPlus(
 #'           title = "Closable Box with dropdown", 
@@ -537,7 +536,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
     boxClass <- paste(boxClass, "box-solid")
   }
   if (!is.null(status)) {
-    validateStatus(status)
+    validateStatusPlus(status)
     boxClass <- paste0(boxClass, " box-", status)
   }
   if (collapsible && collapsed) {
