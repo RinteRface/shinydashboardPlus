@@ -5,6 +5,12 @@ $(function () {
   var $selectedTab = $tabs.filter(".active");
   var $index = $selectedTab.index();
   
+  $(".control-sidebar").on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+    function() {
+      $(window).trigger("resize");
+    }
+  );
+  
   //$('#right_sidebar .nav.nav-tabs li a').tab('show');
   
   //if ($selectedTab.length === 0) {
