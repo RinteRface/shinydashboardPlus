@@ -13,4 +13,4 @@ There were no ERRORs or WARNINGs or NOTEs
 using `devtools::revdep()` and R CMD check shinyWidgets
 
 ## Re-submission notes 
-The help section is < 5MB
+Fix the following invalid URLs in vignette (rightSidebar). Thanks @Uwe Ligges
