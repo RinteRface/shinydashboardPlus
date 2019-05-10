@@ -1,7 +1,7 @@
 Package: shinydashboardPlus
 Type: Package
 Title: Add More 'AdminLTE2' Components to 'shinydashboard'
-Version: 0.7.0
+Version: 0.7.5
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person(family = "RinteRface", role = "cph"),

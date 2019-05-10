@@ -14,6 +14,7 @@ addDeps <- function(x, md) {
   
   # always use minified files (https://www.minifier.org)
   adminLTE_js <- "js/app.min.js"
+  custom_js <- "js/custom.js"
   shinydashboard_js <- "shinydashboard.js"
   adminLTE_css <- c("css/AdminLTE.min.css", "css/_all-skins.min.css")
   
@@ -36,7 +37,7 @@ addDeps <- function(x, md) {
       "shinydashboardPlus",
       as.character(utils::packageVersion("shinydashboardPlus")),
       c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
-      script = adminLTE_js,
+      script = c(adminLTE_js, custom_js),
       stylesheet = adminLTE_css
     ),
     # shinydashboard css and js deps
