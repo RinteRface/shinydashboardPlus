@@ -434,6 +434,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param sidebar_width Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.
 #' @param sidebar_background Box sidebar background color. Dark by default.
 #' @param sidebar_start_open Whether the box sidebar is open at start. FALSE by default.
+#' @param sidebar_icon Box sidebar icon. 
 #' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
@@ -525,7 +526,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
                      label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
                      dropdown_icon = "wrench", dropdown_menu = NULL, enable_sidebar = FALSE,
                      sidebar_content = NULL, sidebar_width = 25, sidebar_background = "#222d32", 
-                     sidebar_start_open = FALSE, footer_padding = TRUE) 
+                     sidebar_start_open = FALSE, sidebar_icon = "cogs", footer_padding = TRUE) 
 {
   
   if (sidebar_width < 0 || sidebar_width > 100) 
@@ -618,7 +619,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
       `data-original-title` = "More",
       title = NA,
       type = "button",
-      shiny::icon("info")
+      shiny::icon(sidebar_icon)
     )
   }
   

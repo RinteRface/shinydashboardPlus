@@ -12,7 +12,7 @@ boxPlus(..., title = NULL, footer = NULL, status = NULL,
   dropdown_menu = NULL, enable_sidebar = FALSE,
   sidebar_content = NULL, sidebar_width = 25,
   sidebar_background = "#222d32", sidebar_start_open = FALSE,
-  footer_padding = TRUE)
+  sidebar_icon = "cogs", footer_padding = TRUE)
 }
 \arguments{
 \item{...}{Contents of the box.}
@@ -68,6 +68,8 @@ the user to collapse the box.}
 \item{sidebar_background}{Box sidebar background color. Dark by default.}
 
 \item{sidebar_start_open}{Whether the box sidebar is open at start. FALSE by default.}
+
+\item{sidebar_icon}{Box sidebar icon.}
 
 \item{footer_padding}{TRUE by default: whether the footer has margin or not.}
 }
