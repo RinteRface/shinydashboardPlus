@@ -1,0 +1,12 @@
+name: shinydashboardPlusDemo
+title: shinydashboardPlusDemo
+username:
+account: dgranjon
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 985033
+bundleId: 2161840
+url: https://dgranjon.shinyapps.io/shinydashboardPlusDemo/
+when: 1560876512.0841
+asMultiple: FALSE
+asStatic: FALSE
