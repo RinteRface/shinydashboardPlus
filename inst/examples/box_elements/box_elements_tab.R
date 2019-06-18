@@ -428,5 +428,41 @@ box_elements_tab <- tabItem(
         value = paste(user_post, collapse = "\n")
       ) 
     )
+  ),
+  
+  
+  # ##################### #
+  #   demo userMessages()   # 
+  # ##################### #
+  
+  br(),
+  
+  column(
+    width = 12,
+    align = "center",
+    h1("userMessages()")
+  ),
+  
+  br(),
+  
+  fluidRow(
+    # element
+    column(
+      width = 6,
+      eval(parse(text = user_messages)) 
+    ),
+    # ace editor
+    column(
+      width = 6,
+      aceEditor(
+        theme = "dracula",
+        mode = "r",
+        height = "400px",
+        outputId = "userMessages_code",
+        readOnly = TRUE,
+        value = paste(user_messages, collapse = "\n")
+      ) 
+    )
   )
+  
 )

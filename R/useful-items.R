@@ -1852,3 +1852,146 @@ carouselItem <- function(..., caption = "") {
     shiny::tags$div(class = "carousel-caption", caption)
   )
 }
+
+
+
+
+
+#' @title AdminLTE2 user message container
+#'
+#' @description Create a user message container
+#'
+#' @param ... Slot for \link{userMessage}.
+#' @param status Messages status. See here for a list of valid colors 
+#' \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' @param width Container width: between 1 and 12.
+#' 
+#' @note Better to include in a \link{boxPlus}.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPagePlus(
+#'     dashboardHeaderPlus(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      boxPlus(
+#'       "Box with messages",
+#'       solidheader = TRUE,
+#'       status = "warning",
+#'       userMessages(
+#'        width = 12,
+#'        status = "success",
+#'         userMessage(
+#'          author = "Alexander Pierce",
+#'          date = "20 Jan 2:00 pm",
+#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'          side = NULL,
+#'          "Is this template really for free? That's unbelievable!"
+#'        ),
+#'        userMessage(
+#'          author = "Sarah Bullock",
+#'          date = "23 Jan 2:05 pm",
+#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'          side = "right",
+#'          "You better believe it!"
+#'        )
+#'       )
+#'      ),
+#'      userMessages(
+#'        width = 6,
+#'        status = "danger",
+#'         userMessage(
+#'          author = "Alexander Pierce",
+#'          date = "20 Jan 2:00 pm",
+#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'          side = NULL,
+#'          "Is this template really for free? That's unbelievable!"
+#'        ),
+#'        userMessage(
+#'          author = "Sarah Bullock",
+#'          date = "23 Jan 2:05 pm",
+#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'          side = "right",
+#'          "You better believe it!"
+#'        )
+#'       )
+#'     ),
+#'     title = "user Message"
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#'
+#' @export
+userMessages <- function(..., status, width = 4) {
+  cl <- "direct-chat-messages direct-chat"
+  if (!is.null(status)) cl <- paste0(cl, " direct-chat-", status)
+  msgtag <- shiny::tags$div(class = cl, ...)
+  
+  shiny::tags$div(
+    class = if (!is.null(width)) paste0("col-sm-", width),
+    msgtag
+  )
+  
+}
+
+#' @title AdminLTE2 user message 
+#'
+#' @description Create a user message
+#'
+#' @param ... Message text.
+#' @param author Message author.
+#' @param date Message date.
+#' @param src Message author image path or url.
+#' @param side Side where author is displayed: NULL (left, by default) or "right".
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @export
+userMessage <- function(..., author = NULL, date = NULL, 
+                        src = NULL, side = NULL) {
+  
+  messageCl <- "direct-chat-msg"
+  if (!is.null(side)) messageCl <- paste0(messageCl, " right")
+  
+  # message info
+  messageInfo <- shiny::tags$div(
+    class = "direct-chat-info clearfix",
+    shiny::tags$span(
+      class = if (!is.null(side)) {
+        "direct-chat-name float-left"
+      } else {
+        "direct-chat-name float-right"
+      }, 
+      author
+    ),
+    shiny::tags$span(
+      class = if (!is.null(side)) {
+        "direct-chat-timestamp float-right"
+      } else {
+        "direct-chat-timestamp float-left"
+      }, 
+      date
+    )
+  )
+  
+  # message Text
+  messageTxt <- shiny::tags$div(class = "direct-chat-text", ...)
+  
+  # message author image
+  messageImg <- shiny::tags$img(class = "direct-chat-img", src = src)
+  
+  shiny::tags$div(
+    class = messageCl,
+    messageInfo,
+    messageImg, 
+    messageTxt
+  )
+}

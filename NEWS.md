@@ -1,4 +1,7 @@
-# shinydashboardPlus 0.7.5
+# shinydashboardPlus 0.7.5.9000
+
+## New features
+- add `userMessages()` and `userMessage()`
 
 ## Minor Changes
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
