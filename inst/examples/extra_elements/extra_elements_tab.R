@@ -216,7 +216,7 @@ extra_elements_tab <- tabItem(
         title = "Attachment example",
         width = NULL,
         attachmentBlock(
-          src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+          src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
           title = "Test",
           title_url = "http://google.com",
           "This is the content"
@@ -235,7 +235,7 @@ extra_elements_tab <- tabItem(
         value = paste(
           style_text(
             'attachmentBlock(
-            src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+            src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
             title = "Test",
             title_url = "http://google.com",
             "This is the content"
@@ -334,11 +334,11 @@ extra_elements_tab <- tabItem(
       id = "mycarousel",
       carouselItem(
         caption = "Item 1",
-        tags$img(src = "http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
+        tags$img(src = "https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
       ),
       carouselItem(
         caption = "Item 2",
-        tags$img(src = "http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
+        tags$img(src = "https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
       )
     ),
     

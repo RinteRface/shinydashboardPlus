@@ -47,8 +47,8 @@ if (interactive()) {
         title = "Item 3",
         icon = "paint-brush",
         color = "maroon",
-        timelineItemMedia(src = "http://placehold.it/150x100"),
-        timelineItemMedia(src = "http://placehold.it/150x100")
+        timelineItemMedia(src = "https://placehold.it/150x100"),
+        timelineItemMedia(src = "https://placehold.it/150x100")
        ),
        timelineStart(color = "gray")
       )
@@ -78,8 +78,8 @@ if (interactive()) {
         title = "Item 3",
         icon = "paint-brush",
         color = "maroon",
-        timelineItemMedia(src = "http://placehold.it/150x100"),
-        timelineItemMedia(src = "http://placehold.it/150x100")
+        timelineItemMedia(src = "https://placehold.it/150x100"),
+        timelineItemMedia(src = "https://placehold.it/150x100")
        ),
        timelineStart(color = "gray")
       )

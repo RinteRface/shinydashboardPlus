@@ -1,5 +1,6 @@
 box_profile <- 'box(
   title = "Box with profile",
+  width = 12,
   status = "primary",
   boxProfile(
     src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",

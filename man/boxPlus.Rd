@@ -97,7 +97,7 @@ if (interactive()) {
          enable_dropdown = TRUE,
          dropdown_icon = "wrench",
          dropdown_menu = dropdownItemList(
-          dropdownItem(url = "http://www.google.com", name = "Link to google"),
+          dropdownItem(url = "https://www.google.com", name = "Link to google"),
           dropdownItem(url = "#", name = "item 2"),
           dropdownDivider(),
           dropdownItem(url = "#", name = "item 3")

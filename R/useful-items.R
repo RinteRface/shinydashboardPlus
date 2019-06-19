@@ -138,9 +138,9 @@ accordionItem <- function(..., id, title = NULL, color = NULL,
 #'      box(
 #'       title = "Attachment example",
 #'       attachmentBlock(
-#'        src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
 #'        title = "Test",
-#'        title_url = "http://google.com",
+#'        title_url = "https://google.com",
 #'        "This is the content"
 #'       )
 #'      )
@@ -315,7 +315,7 @@ boxPad <- function(..., color = NULL, style = NULL) {
 #'       title = "App Buttons",
 #'       status = NULL,
 #'       appButton(
-#'         url = "http://google.com",
+#'         url = "https://google.com",
 #'         label = "Users", 
 #'         icon = "fa fa-users", 
 #'         enable_badge = TRUE, 
@@ -385,11 +385,11 @@ appButton <- function(url = NULL, label = NULL, icon = NULL, enable_badge = FALS
 #'       title = "Social Buttons",
 #'       status = NULL,
 #'       socialButton(
-#'         url = "http://dropbox.com",
+#'         url = "https://dropbox.com",
 #'         type = "dropbox"
 #'       ),
 #'       socialButton(
-#'         url = "http://github.com",
+#'         url = "https://github.com",
 #'         type = "github"
 #'       )
 #'      )
@@ -870,16 +870,16 @@ preloader <- function() {
 #'       status = "primary",
 #'       productList(
 #'         productListItem(
-#'           src = "http://www.pngmart.com/files/1/Haier-TV-PNG.png", 
+#'           src = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
 #'           productTitle = "Samsung TV", 
 #'           productPrice = "$1800", 
 #'           priceColor = "warning",
 #'           "This is an amazing TV, but I don't like TV!"
 #'         ),
 #'         productListItem(
-#'           src = "http://icon-park.com/imagefiles/imac.png", 
+#'           src = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
 #'           productTitle = "Imac 27", 
-#'           productPrice = "$2400", 
+#'           productPrice = "$4999", 
 #'           priceColor = "danger",
 #'           "This is were I spend most of my time!"
 #'         )
@@ -1046,8 +1046,8 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'         title = "Item 3",
 #'         icon = "paint-brush",
 #'         color = "maroon",
-#'         timelineItemMedia(src = "http://placehold.it/150x100"),
-#'         timelineItemMedia(src = "http://placehold.it/150x100")
+#'         timelineItemMedia(src = "https://placehold.it/150x100"),
+#'         timelineItemMedia(src = "https://placehold.it/150x100")
 #'        ),
 #'        timelineStart(color = "gray")
 #'       )
@@ -1077,8 +1077,8 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'         title = "Item 3",
 #'         icon = "paint-brush",
 #'         color = "maroon",
-#'         timelineItemMedia(src = "http://placehold.it/150x100"),
-#'         timelineItemMedia(src = "http://placehold.it/150x100")
+#'         timelineItemMedia(src = "https://placehold.it/150x100"),
+#'         timelineItemMedia(src = "https://placehold.it/150x100")
 #'        ),
 #'        timelineStart(color = "gray")
 #'       )
@@ -1769,11 +1769,11 @@ verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped 
 #'        id = "mycarousel",
 #'        carouselItem(
 #'         caption = "Item 1",
-#'         tags$img(src = "http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
+#'         tags$img(src = "https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
 #'        ),
 #'        carouselItem(
 #'         caption = "Item 2",
-#'         tags$img(src = "http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
+#'         tags$img(src = "https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
 #'        )
 #'       )
 #'      ),

@@ -460,7 +460,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'          enable_dropdown = TRUE,
 #'          dropdown_icon = "wrench",
 #'          dropdown_menu = dropdownItemList(
-#'           dropdownItem(url = "http://www.google.com", name = "Link to google"),
+#'           dropdownItem(url = "https://www.google.com", name = "Link to google"),
 #'           dropdownItem(url = "#", name = "item 2"),
 #'           dropdownDivider(),
 #'           dropdownItem(url = "#", name = "item 3")
@@ -787,9 +787,9 @@ dropdownDivider <- function() {
 #'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
 #'       "Some text here!",
 #'       attachmentBlock(
-#'        src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
 #'        title = "Test",
-#'        title_url = "http://google.com",
+#'        title_url = "https://google.com",
 #'        "This is the content"
 #'       ),
 #'       comments = tagList(
@@ -1090,7 +1090,7 @@ boxProfileItem <- function(title = NULL, description = NULL) {
 #'                  width = 6,
 #'                  align = "center",
 #'                  appButton(
-#'                    url = "http://google.com",
+#'                    url = "https://google.com",
 #'                    label = "Users",
 #'                    icon = "fa fa-users",
 #'                    enable_badge = TRUE,

@@ -22,8 +22,8 @@ timeline1 <- 'box(
       title = "Item 3",
       icon = "paint-brush",
       color = "maroon",
-      timelineItemMedia(src = "http://placehold.it/150x100"),
-      timelineItemMedia(src = "http://placehold.it/150x100")
+      timelineItemMedia(src = "https://placehold.it/150x100"),
+      timelineItemMedia(src = "https://placehold.it/150x100")
     ),
     timelineStart(color = "gray")
   )
@@ -51,8 +51,8 @@ timeline2 <- 'timelineBlock(
     title = "Item 3",
     icon = "paint-brush",
     color = "maroon",
-    timelineItemMedia(src = "http://placehold.it/150x100"),
-    timelineItemMedia(src = "http://placehold.it/150x100")
+    timelineItemMedia(src = "https://placehold.it/150x100"),
+    timelineItemMedia(src = "https://placehold.it/150x100")
   ),
   timelineStart(color = "gray")
 )'

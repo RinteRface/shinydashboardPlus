@@ -36,7 +36,7 @@ if (interactive()) {
       title = "App Buttons",
       status = NULL,
       appButton(
-        url = "http://google.com",
+        url = "https://google.com",
         label = "Users", 
         icon = "fa fa-users", 
         enable_badge = TRUE, 

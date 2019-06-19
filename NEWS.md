@@ -7,6 +7,7 @@
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
 
 ## Bug Fixes
+- Replace http links by https
 - Fix #36: make sure that a `carousel()` item is displayed when it is generated via a shiny Output function. Thanks @daattali for the report
 
 

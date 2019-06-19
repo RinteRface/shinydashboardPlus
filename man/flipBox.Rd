@@ -82,7 +82,7 @@ if (interactive()) {
                  width = 6,
                  align = "center",
                  appButton(
-                   url = "http://google.com",
+                   url = "https://google.com",
                    label = "Users",
                    icon = "fa fa-users",
                    enable_badge = TRUE,

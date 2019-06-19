@@ -55,14 +55,14 @@ if (interactive()) {
         dashboardUserItem(
          width = 6,
          socialButton(
-          url = "http://dropbox.com",
+          url = "https://dropbox.com",
           type = "dropbox"
          )
         ),
         dashboardUserItem(
          width = 6,
          socialButton(
-          url = "http://github.com",
+          url = "https://github.com",
           type = "github"
          )
         )

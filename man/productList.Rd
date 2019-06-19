@@ -26,16 +26,16 @@ if (interactive()) {
       status = "primary",
       productList(
         productListItem(
-          src = "http://www.pngmart.com/files/1/Haier-TV-PNG.png", 
+          src = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
           productTitle = "Samsung TV", 
           productPrice = "$1800", 
           priceColor = "warning",
           "This is an amazing TV, but I don't like TV!"
         ),
         productListItem(
-          src = "http://icon-park.com/imagefiles/imac.png", 
+          src = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
           productTitle = "Imac 27", 
-          productPrice = "$2400", 
+          productPrice = "$4999", 
           priceColor = "danger",
           "This is were I spend most of my time!"
         )
