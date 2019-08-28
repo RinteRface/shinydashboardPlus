@@ -4,7 +4,7 @@
 #' 
 #' @param ... slot for rightSidebarTabContent. Not compatible with .items.
 #' @param background background color: "dark" or "light".
-#' @param width Sidebar width in pixels. Numeric value expected. 230 by default.
+#' @param width Sidebar width in pixels as numeric value. Sidebar width in percentage as string value ending in %. 230 by default.
 #' @param .items Pass element here if you do not want to embed them in panels. Not compatible with ...
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -59,18 +59,20 @@ rightSidebar <- function(..., background = "dark", width = 230, .items = NULL) {
   
   panels <- list(...)
   
+  width <- shiny::validateCssUnit(width)
+  
   sidebarTag <- shiny::tags$div(
     id = "controlbar",
     shiny::tags$aside(
       class = paste0("control-sidebar control-sidebar-", background),
-      style = paste0("width: ", width, "px;"),
+      style = paste0("width: ", width, ";"),
       # automatically create the tab menu
       if (length(panels) > 0) rightSidebarTabList(rigthSidebarPanel(...)),
       if (length(panels) > 0) rigthSidebarPanel(...) else rigthSidebarPanel(.items)
     ),
     # Add the sidebar background. This div must be placed
     # immediately after the control sidebar
-    shiny::tags$div(class = "control-sidebar-bg", style = paste0("width: ", width, "px;"))
+    shiny::tags$div(class = "control-sidebar-bg", style = paste0("width: ", width, ";"))
   )
   
   shiny::tagList(
@@ -88,8 +90,8 @@ rightSidebar <- function(..., background = "dark", width = 230, .items = NULL) {
               ".control-sidebar-bg,
                .control-sidebar {
                   top: 0;
-                  right: ", -width, "px;
-                  width: ", width, "px;
+                  right: -", width, ";
+                  width: ", width, ";
                   -webkit-transition: right 0.3s ease-in-out;
                   -o-transition: right 0.3s ease-in-out;
                   transition: right 0.3s ease-in-out;
