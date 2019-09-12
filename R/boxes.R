@@ -975,7 +975,9 @@ boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
 boxProfile <- function(..., src = NULL, title = NULL, subtitle = NULL) {
   shiny::tags$div(
     class = "box-body, box-profile",
-    shiny::img(class = "profile-user-img img-responsive img-circle", src = src),
+    if (!is.null(src)) {
+      shiny::img(class = "profile-user-img img-responsive img-circle", src = src)
+    },
     shiny::h3(class = "profile-username text-center", title),
     shiny::p(class = "text-muted text-center", subtitle),
     ...
