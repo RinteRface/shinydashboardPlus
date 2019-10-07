@@ -651,7 +651,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
         ...,
         if (enable_sidebar) {
           shiny::tags$div(
-            style = "z-index: 10000;",
+            style = "z-index: 1000;",
             class = "direct-chat-contacts",
             shiny::tags$ul(
               class = "contacts-list", 
