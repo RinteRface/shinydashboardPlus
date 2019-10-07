@@ -1,6 +1,6 @@
 user_messages <- 'boxPlus(
   width = 12,
-  "Box with messages",
+  title = "Box with messages",
   solidheader = TRUE,
   status = "warning",
   userMessages(
