@@ -8,7 +8,7 @@ widgetUserBox(..., title = NULL, subtitle = NULL, type = NULL,
   background = FALSE, backgroundUrl = NULL, src = NULL,
   color = NULL, footer = NULL, footer_padding = TRUE, width = 6,
   height = NULL, boxToolSize = "sm", collapsible = TRUE,
-  closable = FALSE)
+  collapsed = FALSE, closable = FALSE)
 }
 \arguments{
 \item{...}{body content.}
@@ -38,6 +38,8 @@ widgetUserBox(..., title = NULL, subtitle = NULL, type = NULL,
 \item{boxToolSize}{size of the toolbox: choose among "xs", "sm", "md", "lg".}
 
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the box.}
+
+\item{collapsed}{If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 }

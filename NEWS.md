@@ -3,10 +3,14 @@
 ## New features
 - add `userMessages()` and `userMessage()`
 
-## Minor Changes
+## Minor Change
+- Fix #52: add collapsed arg to `widgetUserBox()`. Thanks @terpsrule
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
 
 ## Bug Fixes
+- Fix #51: change card sidebar z-index so that it is not displayed on top of
+ the page preloader. Thanks @leungi
+- Fix #53: missing title in demo message card
 - Fix #55: when no image is provided, no circle is displayed. Thanks @nschwamm
 - Replace http links by https
 - Fix #36: make sure that a `carousel()` item is displayed when it is generated via a shiny Output function. Thanks @daattali for the report

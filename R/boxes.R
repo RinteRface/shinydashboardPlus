@@ -264,6 +264,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #' @param height box height.
 #' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
+#' @param collapsed If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
 #' @param footer_padding TRUE by default: whether the footer has margin or not.
 #'
@@ -320,7 +321,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
                           background = FALSE, backgroundUrl = NULL,
                           src = NULL, color = NULL, footer = NULL, footer_padding = TRUE,
                           width = 6, height = NULL, boxToolSize = "sm",
-                          collapsible = TRUE, closable = FALSE) {
+                          collapsible = TRUE, collapsed = FALSE, closable = FALSE) {
   
   cl <- "widget-user-header"
   if (!is.null(color) && background == FALSE) cl <- paste0(cl, " bg-", color)
@@ -328,6 +329,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
   
   boxCl <- "box box-widget widget-user"
   if (!is.null(type)) boxCl <- paste0(boxCl, "-", type)
+  if (collapsible && collapsed) {
+    boxCl <- paste(boxCl, "collapsed-box")
+  }
   
   style <- NULL
   if (!is.null(height)) {
@@ -337,6 +341,31 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
   backgroundStyle <- NULL
   if (isTRUE(background)) {
     backgroundStyle <- paste0("background: url('", backgroundUrl, "') center center;")
+  }
+  
+  # collapseTag
+  collapseTag <- NULL
+  if (collapsible) {
+    collapseIcon <- if (collapsed) 
+      "plus"
+    else "minus"
+    collapseTag <- shiny::tags$button(
+      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize), 
+      type = "button",
+      `data-widget` = "collapse", 
+      shiny::icon(collapseIcon)
+    )
+  }
+  
+  # closeTag
+  closeTag <- NULL
+  if (closable) {
+    closeTag <- shiny::tags$button(
+      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize),
+      `data-widget` = "remove",
+      type = "button",
+      shiny::tags$i(class = "fa fa-times")
+    )
   }
   
   shiny::column(
@@ -353,22 +382,8 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
         # box header buttons
         shiny::tags$div(
           class = "pull-right box-tools",
-          if (collapsible) {
-            shiny::tags$button(
-              class = paste0("btn", " bg-", color, " btn-", boxToolSize),
-              `data-widget` = "collapse",
-              type = "button",
-              shiny::tags$i(class = "fa fa-minus")
-            )
-          },
-          if (closable) {
-            shiny::tags$button(
-              class = paste0("btn", " bg-", color, " btn-", boxToolSize),
-              `data-widget` = "remove",
-              type = "button",
-              shiny::tags$i(class = "fa fa-times")
-            )
-          }
+          collapseTag,
+          closeTag
         ),
         
         # image

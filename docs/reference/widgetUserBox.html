@@ -164,7 +164,7 @@
   <span class='kw'>background</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>backgroundUrl</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>src</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>footer</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>footer_padding</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
   <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>boxToolSize</span> <span class='kw'>=</span> <span class='st'>"sm"</span>, <span class='kw'>collapsible</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>closable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>closable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -224,6 +224,10 @@
     <tr>
       <th>collapsible</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to collapse the box.</p></td>
+    </tr>
+    <tr>
+      <th>collapsed</th>
+      <td><p>If TRUE, start collapsed. This must be used with <code>collapsible=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>closable</th>
