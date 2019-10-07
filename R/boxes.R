@@ -1244,12 +1244,6 @@ flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL
                     front_btn_text = "More", back_btn_text = "Back to main", 
                     header_img = NULL, main_img = NULL, width = 6) {
   
-  # this is to make sure that each id is unique
-  # this is not a very nice approach since it does not
-  # garanty uniquness of id in theory. In practice, it is
-  # very unlikely that user create 10000 boxes in a dashboard
-  id_front <- id
-  id_back <- id_front + 10000
   if (is.null(id)) stop("card id cannot be null and must be unique")
   
   flipBoxTag <- shiny::tags$div(
@@ -1272,7 +1266,7 @@ flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL
           shiny::tags$h3(class = "card-title", front_title),
           shiny::tags$p(...),
           shiny::tags$button(
-            id = paste0("btn-", id_front),
+            id = paste0("btn-", id, "-front"),
             class = "btn btn-primary btn-rotate",
             shiny::tags$i(class = "fa fa-long-arrow-right"), 
             front_btn_text      
@@ -1288,7 +1282,7 @@ flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL
           class = "card-header",
           shiny::tags$p(
             shiny::tags$button(
-              id = paste0("btn-", id_back),
+              id = paste0("btn-", id, "-back"),
               class = "btn btn-primary btn-rotate",
               shiny::tags$i(class = "fa fa-long-arrow-left"), 
               back_btn_text      
@@ -1385,11 +1379,11 @@ flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL
             paste0(
               "$(function() {
                 // For card rotation
-                $('#btn-", id_front,"').click(function(){
+                $('#btn-", id,"-front').click(function(){
                   $('.card-front-", id,"').addClass(' rotate-card-front-", id, "');
                   $('.card-back-", id,"').addClass(' rotate-card-back-", id, "');
                 });
-                $('#btn-", id_back,"').click(function(){
+                $('#btn-", id,"-back').click(function(){
                   $('.card-front-", id,"').removeClass(' rotate-card-front-", id, "');
                   $('.card-back-", id,"').removeClass(' rotate-card-back-", id, "');
                 });

@@ -8,6 +8,9 @@
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
 
 ## Bug Fixes
+- Fix #23: rework id arg in `flipBox()`. Thanks @vinpogo
+- Add class btn-box-tool to close button in `widgetUserBox()`. 
+Prevent from ugly rendering
 - Fix #51: change card sidebar z-index so that it is not displayed on top of
  the page preloader. Thanks @leungi
 - Fix #53: missing title in demo message card
