@@ -4,12 +4,10 @@
 \alias{accordionItem}
 \title{AdminLTE2 accordion item}
 \usage{
-accordionItem(..., id, title = NULL, color = NULL, collapsed = TRUE)
+accordionItem(..., title = NULL, color = NULL, collapsed = TRUE)
 }
 \arguments{
 \item{...}{text to write in the item.}
-
-\item{id}{unique item id.}
 
 \item{title}{item title.}
 

@@ -3,6 +3,7 @@
 #' @description Create an accordion container
 #'
 #' @param ... slot for accordionItem.
+#' @param inputId Unique accordion id.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -15,32 +16,36 @@
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'      box(
-#'       title = "Accordion Demo",
 #'       accordion(
+#'        inputId = "accordion1",
 #'         accordionItem(
-#'           id = 1,
-#'           title = "Accordion Item 1",
+#'           title = "Accordion 1 Item 1",
 #'           color = "danger",
 #'           collapsed = TRUE,
 #'           "This is some text!"
 #'         ),
 #'         accordionItem(
-#'           id = 2,
-#'           title = "Accordion Item 2",
+#'           title = "Accordion 1 Item 2",
 #'           color = "warning",
 #'           collapsed = FALSE,
 #'           "This is some text!"
+#'         )
+#'       ),
+#'       accordion(
+#'        inputId = "accordion2",
+#'         accordionItem(
+#'           title = "Accordion 2 Item 1",
+#'           color = "danger",
+#'           collapsed = TRUE,
+#'           "This is some text!"
 #'         ),
 #'         accordionItem(
-#'           id = 3,
-#'           title = "Accordion Item 3",
-#'           color = "info",
+#'           title = "Accordion 2 Item 2",
+#'           color = "warning",
 #'           collapsed = FALSE,
 #'           "This is some text!"
 #'         )
 #'       )
-#'      )
 #'     ),
 #'     title = "Accordion"
 #'   ),
@@ -49,12 +54,26 @@
 #' }
 #'
 #' @export
-accordion <- function(...) {
+accordion <- function(..., inputId = NULL) {
+  
+  items <- list(...)
+  len <- length(items)
+  
+  # patch that enables a proper accordion behavior
+  # we add the data-parent non standard attribute to each
+  # item. Each accordion must have a unique id.
+  lapply(seq_len(len), FUN = function(i) {
+    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["data-parent"]] <<- paste0("#", inputId) 
+    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["href"]] <<- paste0("#collapse_", inputId, "_", i)
+    items[[i]]$children[[2]]$attribs[["id"]] <<- paste0("collapse_", inputId, "_", i)
+  })
+  
   shiny::tags$div(
     class = "box-group",
-    id = "accordion",
-    ...
+    id = inputId,
+    items
   )
+  
 }
 
 
@@ -63,7 +82,6 @@ accordion <- function(...) {
 #' @description Create an accordion item to put inside an accordion container
 #'
 #' @param ... text to write in the item.
-#' @param id unique item id.
 #' @param title item title.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param collapsed Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.
@@ -71,10 +89,8 @@ accordion <- function(...) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-accordionItem <- function(..., id, title = NULL, color = NULL,
+accordionItem <- function(..., title = NULL, color = NULL,
                           collapsed = TRUE) {
-  
-  stopifnot(!is.null(id))
   
   cl <- "panel box"
   if (!is.null(color)) cl <- paste0(cl, " box-", color)
@@ -88,9 +104,9 @@ accordionItem <- function(..., id, title = NULL, color = NULL,
       shiny::tags$h4(
         class = "box-title",
         shiny::tags$a(
-          href = paste0("#collapse", id),
+          href = NULL,
           `data-toggle` = "collapse",
-          `data-parent` = "#accordion",
+          `data-parent` = NULL,
           `aria-expanded` = if (isTRUE(collapsed)) "false" else "true",
           class = if (isTRUE(collapsed)) "collapsed",
           title
@@ -99,7 +115,7 @@ accordionItem <- function(..., id, title = NULL, color = NULL,
     ),
     
     shiny::tags$div(
-      id = paste0("collapse", id), 
+      id = NULL,  
       class = if (isTRUE(collapsed)) {
         "panel-collapse collapse"
       } else {
@@ -109,7 +125,6 @@ accordionItem <- function(..., id, title = NULL, color = NULL,
       style = if (isTRUE(collapsed)) "height: 0px;" else NULL,
       shiny::tags$div(class = "box-body", ...)
     )
-    
   )
 }
 

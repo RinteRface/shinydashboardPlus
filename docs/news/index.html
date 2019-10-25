@@ -154,6 +154,14 @@
 <h1 class="page-header">
 <a href="#shinydashboardplus-0-7-5-9000" class="anchor"></a>shinydashboardPlus 0.7.5.9000<small> Unreleased </small>
 </h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking Changes</h2>
+<ul>
+<li>
+<code><a href="../reference/accordion.html">accordion()</a></code> id becomes inputId. <code><a href="../reference/accordionItem.html">accordionItem()</a></code> id parameter is removed</li>
+</ul>
+</div>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
@@ -174,6 +182,7 @@
 <h2 class="hasAnchor">
 <a href="#bug-fixes" class="anchor"></a>Bug Fixes</h2>
 <ul>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/61'>#61</a>: uniqness of <code><a href="../reference/accordion.html">accordion()</a></code> id. Thanks <a href='https://github.com/RegaCaska'>@RegaCaska</a></li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/23'>#23</a>: rework id arg in <code><a href="../reference/flipBox.html">flipBox()</a></code>. Thanks <a href='https://github.com/vinpogo'>@vinpogo</a></li>
 <li>Add class btn-box-tool to close button in <code><a href="../reference/widgetUserBox.html">widgetUserBox()</a></code>. Prevent from ugly rendering</li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/51'>#51</a>: change card sidebar z-index so that it is not displayed on top of the page preloader. Thanks <a href='https://github.com/leungi'>@leungi</a></li>
@@ -188,9 +197,9 @@
 <h1 class="page-header">
 <a href="#shinydashboardplus-0-7-0" class="anchor"></a>shinydashboardPlus 0.7.0<small> 2019-04-08 </small>
 </h1>
-<div id="breaking-changes" class="section level2">
+<div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking Changes</h2>
+<a href="#breaking-changes-1" class="anchor"></a>Breaking Changes</h2>
 <ul>
 <li>remove all CSS functions, namely <code>setShadow()</code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
 </li>
@@ -293,7 +302,7 @@
 <li>clicking on the <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> link open a new page in a new tab (target = "_blank")</li>
 <li>
 <p>correct vignettes title (<a href="https://cran.r-project.org/package=shinydashboardPlus" class="uri">https://cran.r-project.org/package=shinydashboardPlus</a>)</p>
-<h2 id="breaking-changes-1">Breaking changes</h2>
+<h2 id="breaking-changes-2">Breaking changes</h2>
 </li>
 <li>change argument name in <code><a href="../reference/dropdownItem.html">dropdownItem()</a></code> (<code><a href="../reference/boxPlus.html">boxPlus()</a></code>): “target” is replaced by “url”.</li>
 <li>

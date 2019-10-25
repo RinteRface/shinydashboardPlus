@@ -160,7 +160,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>accordion</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>accordion</span>(<span class='no'>...</span>, <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,6 +168,10 @@
     <tr>
       <th>...</th>
       <td><p>slot for accordionItem.</p></td>
+    </tr>
+    <tr>
+      <th>inputId</th>
+      <td><p>Unique accordion id.</p></td>
     </tr>
     </table>
     
@@ -181,32 +185,36 @@
     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader'>dashboardHeader</a></span>(),
     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(
-     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/box'>box</a></span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion Demo"</span>,
       <span class='fu'>accordion</span>(
+       <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"accordion1"</span>,
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion Item 1"</span>,
+          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 1 Item 1"</span>,
           <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"danger"</span>,
           <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion Item 2"</span>,
+          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 1 Item 2"</span>,
           <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
           <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
           <span class='st'>"This is some text!"</span>
+        )
+      ),
+      <span class='fu'>accordion</span>(
+       <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"accordion2"</span>,
+        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
+          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 2 Item 1"</span>,
+          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"danger"</span>,
+          <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+          <span class='st'>"This is some text!"</span>
         ),
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion Item 3"</span>,
-          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"info"</span>,
+          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 2 Item 2"</span>,
+          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
           <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
           <span class='st'>"This is some text!"</span>
         )
       )
-     )
     ),
     <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion"</span>
   ),

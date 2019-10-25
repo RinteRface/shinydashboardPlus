@@ -1,5 +1,8 @@
 # shinydashboardPlus 0.7.5.9000
 
+## Breaking Changes
+- `accordion()` id becomes inputId. `accordionItem()` id parameter is removed
+
 ## New features
 - add `userMessages()` and `userMessage()`
 
@@ -8,6 +11,7 @@
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
 
 ## Bug Fixes
+- Fix #61: uniqness of `accordion()` id. Thanks @RegaCaska
 - Fix #23: rework id arg in `flipBox()`. Thanks @vinpogo
 - Add class btn-box-tool to close button in `widgetUserBox()`. 
 Prevent from ugly rendering
