@@ -16,7 +16,7 @@
 #'   \code{dashboardHeaderPlus}.
 #' @param skin A color theme. One of \code{"blue"}, \code{"black"},
 #'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
-#' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by
+#' @param collapse_sidebar Whether to collapse the left sidebar. FALSE by
 #'   default.
 #' @param sidebar_background Main sidebar background color: either "light" or
 #'   NULL. NULL by default.
