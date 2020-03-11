@@ -446,6 +446,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param dropdown_menu List of items in the the boxtool dropdown menu. Use dropdownItemList().
 #' @param enable_sidebar Whether to display the box sidebar. FALSE by default.
 #' @param sidebar_content Box sidebar content, if any.
+#' @param sidebar_title Box sidebar title.
 #' @param sidebar_width Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.
 #' @param sidebar_background Box sidebar background color. Dark by default.
 #' @param sidebar_start_open Whether the box sidebar is open at start. FALSE by default.
@@ -514,6 +515,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'           collapsible = TRUE,
 #'           enable_sidebar = TRUE,
 #'           sidebar_width = 25,
+#'           side_bar_title = "Title",
 #'           sidebar_start_open = TRUE,
 #'           sidebar_content = sliderInput(
 #'            "obs", 
@@ -540,7 +542,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
                      label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
                      dropdown_icon = "wrench", dropdown_menu = NULL, enable_sidebar = FALSE,
-                     sidebar_content = NULL, sidebar_width = 25, sidebar_background = "#222d32", 
+                     sidebar_content = NULL, sidebar_title = NA_character_, sidebar_width = 25, sidebar_background = "#222d32", 
                      sidebar_start_open = FALSE, sidebar_icon = "cogs", footer_padding = TRUE) 
 {
   
@@ -632,7 +634,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
       `data-widget` = "chat-pane-toggle",
       `data-toggle` = "tooltip",
       `data-original-title` = "More",
-      title = NA,
+      title = sidebar_title,
       type = "button",
       shiny::icon(sidebar_icon)
     )
