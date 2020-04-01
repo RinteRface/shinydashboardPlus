@@ -14,8 +14,7 @@
 #' @param title A title to display in the browser's title bar. If no value is
 #'   provided, it will try to extract the title from the
 #'   \code{dashboardHeaderPlus}.
-#' @param skin A color theme. One of \code{"blue"}, \code{"black"},
-#'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
+#' @param skin A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by
 #'   default.
 #' @param sidebar_background Main sidebar background color: either "light" or
@@ -52,7 +51,7 @@
 dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer = NULL, title = NULL,
                               skin = c("blue", "blue-light","black","black-light", 
                                        "purple","purple-light", "green","green-light",
-                                       "red","red-light", "yellow","yellow-light"),
+                                       "red","red-light", "yellow","yellow-light", "midnight"),
                               collapse_sidebar = FALSE, sidebar_background = NULL,
                               sidebar_fullCollapse = FALSE, enable_preloader = FALSE, loading_duration = 2,
                               md = FALSE) {

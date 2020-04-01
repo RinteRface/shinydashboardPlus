@@ -4,9 +4,19 @@
 \alias{socialBox}
 \title{AdminLTE2 social box}
 \usage{
-socialBox(..., src = NULL, title = NULL, subtitle = NULL,
-  width = 6, height = NULL, collapsible = TRUE, closable = TRUE,
-  comments = NULL, footer = NULL, footer_padding = TRUE)
+socialBox(
+  ...,
+  src = NULL,
+  title = NULL,
+  subtitle = NULL,
+  width = 6,
+  height = NULL,
+  collapsible = TRUE,
+  closable = TRUE,
+  comments = NULL,
+  footer = NULL,
+  footer_padding = TRUE
+)
 }
 \arguments{
 \item{...}{body content. May include attachmentBlock for instance.}

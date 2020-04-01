@@ -4,9 +4,19 @@
 \alias{gradientBox}
 \title{AdminLTE2 gradient box}
 \usage{
-gradientBox(..., title = NULL, icon = NULL, gradientColor = NULL,
-  boxToolSize = "sm", footer = NULL, width = 6, height = NULL,
-  collapsible = TRUE, closable = FALSE, footer_padding = TRUE)
+gradientBox(
+  ...,
+  title = NULL,
+  icon = NULL,
+  gradientColor = NULL,
+  boxToolSize = "sm",
+  footer = NULL,
+  width = 6,
+  height = NULL,
+  collapsible = TRUE,
+  closable = FALSE,
+  footer_padding = TRUE
+)
 }
 \arguments{
 \item{...}{body content.}

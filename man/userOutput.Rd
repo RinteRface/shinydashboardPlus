@@ -18,6 +18,7 @@ This can be used as a placeholder for dynamically-generated \code{\link{dashboar
 \code{\link{renderUser}} for the corresponding server side function
   and examples.
 
-Other user outputs: \code{\link{renderUser}}
+Other user outputs: 
+\code{\link{renderUser}()}
 }
 \concept{user outputs}

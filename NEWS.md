@@ -1,5 +1,8 @@
 # shinydashboardPlus 0.7.5.9000
 
+## Experimental
+- New dark theme: midnight (still work in progress, some elements are missing)
+
 ## Breaking Changes
 - `accordion()` id becomes inputId. `accordionItem()` id parameter is removed
 

@@ -4,8 +4,13 @@
 \alias{rightSidebarTabContent}
 \title{AdminLTE2 tab content}
 \usage{
-rightSidebarTabContent(..., id, title = NULL, active = FALSE,
-  icon = "database")
+rightSidebarTabContent(
+  ...,
+  id,
+  title = NULL,
+  active = FALSE,
+  icon = "database"
+)
 }
 \arguments{
 \item{...}{any element such as sliderInput, ...}

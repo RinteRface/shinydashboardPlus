@@ -4,8 +4,15 @@
 \alias{userPost}
 \title{AdminLTE2 user post}
 \usage{
-userPost(..., id = NULL, src = NULL, author = NULL,
-  description = NULL, collapsible = TRUE, collapsed = FALSE)
+userPost(
+  ...,
+  id = NULL,
+  src = NULL,
+  author = NULL,
+  description = NULL,
+  collapsible = TRUE,
+  collapsed = FALSE
+)
 }
 \arguments{
 \item{...}{post content, slot for userPostToolItemList.}

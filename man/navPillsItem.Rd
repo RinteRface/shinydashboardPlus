@@ -4,8 +4,13 @@
 \alias{navPillsItem}
 \title{AdminLTE2 nav pill item}
 \usage{
-navPillsItem(pillName = NULL, pillColor = NULL, pillIcon = NULL,
-  pillText = NULL, active = FALSE)
+navPillsItem(
+  pillName = NULL,
+  pillColor = NULL,
+  pillIcon = NULL,
+  pillText = NULL,
+  active = FALSE
+)
 }
 \arguments{
 \item{pillName}{pill name.}

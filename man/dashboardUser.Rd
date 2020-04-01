@@ -4,8 +4,14 @@
 \alias{dashboardUser}
 \title{Create a dashboard user profile.}
 \usage{
-dashboardUser(..., name = NULL, src = NULL, title = NULL,
-  subtitle = NULL, footer = NULL)
+dashboardUser(
+  ...,
+  name = NULL,
+  src = NULL,
+  title = NULL,
+  subtitle = NULL,
+  footer = NULL
+)
 }
 \arguments{
 \item{...}{Body content. Slot for \link{dashboardUserItem}.}

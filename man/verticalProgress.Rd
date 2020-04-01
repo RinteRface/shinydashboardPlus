@@ -4,8 +4,16 @@
 \alias{verticalProgress}
 \title{AdminLTE2 vertical progress bar}
 \usage{
-verticalProgress(value, min = 0, max = 100, height = "40\%",
-  striped = FALSE, active = FALSE, status = "primary", size = NULL)
+verticalProgress(
+  value,
+  min = 0,
+  max = 100,
+  height = "40\%",
+  striped = FALSE,
+  active = FALSE,
+  status = "primary",
+  size = NULL
+)
 }
 \arguments{
 \item{value}{Progress bar value. Must be between min and max.}

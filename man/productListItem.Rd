@@ -4,8 +4,13 @@
 \alias{productListItem}
 \title{AdminLTE2 product item}
 \usage{
-productListItem(..., src = NULL, productTitle = NULL,
-  productPrice = NULL, priceColor = NULL)
+productListItem(
+  ...,
+  src = NULL,
+  productTitle = NULL,
+  productPrice = NULL,
+  priceColor = NULL
+)
 }
 \arguments{
 \item{...}{product description.}

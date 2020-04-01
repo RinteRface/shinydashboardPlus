@@ -4,8 +4,7 @@
 \alias{userMessage}
 \title{AdminLTE2 user message}
 \usage{
-userMessage(..., author = NULL, date = NULL, src = NULL,
-  side = NULL)
+userMessage(..., author = NULL, date = NULL, src = NULL, side = NULL)
 }
 \arguments{
 \item{...}{Message text.}
