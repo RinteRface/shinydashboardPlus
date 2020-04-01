@@ -39,8 +39,7 @@ provided, it will try to extract the title from the
 
 \item{skin}{A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
-\item{collapse_sidebar}{Whether to collapse the left sidebar. TRUE by
-default.}
+\item{collapse_sidebar}{Whether to collapse the left sidebar. TRUE by default.}
 
 \item{sidebar_background}{Main sidebar background color: either "light" or
 NULL. NULL by default.}

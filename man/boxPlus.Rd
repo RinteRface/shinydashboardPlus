@@ -24,6 +24,7 @@ boxPlus(
   dropdown_menu = NULL,
   enable_sidebar = FALSE,
   sidebar_content = NULL,
+  sidebar_title = NA_character_,
   sidebar_width = 25,
   sidebar_background = "#222d32",
   sidebar_start_open = FALSE,
@@ -79,6 +80,8 @@ the user to collapse the box.}
 \item{enable_sidebar}{Whether to display the box sidebar. FALSE by default.}
 
 \item{sidebar_content}{Box sidebar content, if any.}
+
+\item{sidebar_title}{Box sidebar title.}
 
 \item{sidebar_width}{Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.}
 
@@ -153,6 +156,7 @@ if (interactive()) {
           collapsible = TRUE,
           enable_sidebar = TRUE,
           sidebar_width = 25,
+          side_bar_title = "Title",
           sidebar_start_open = TRUE,
           sidebar_content = sliderInput(
            "obs", 

@@ -167,6 +167,7 @@
   <span class='kw'>dropdown_menu</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>enable_sidebar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>sidebar_content</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>sidebar_title</span> <span class='kw'>=</span> <span class='fl'>NA_character_</span>,
   <span class='kw'>sidebar_width</span> <span class='kw'>=</span> <span class='fl'>25</span>,
   <span class='kw'>sidebar_background</span> <span class='kw'>=</span> <span class='st'>"#222d32"</span>,
   <span class='kw'>sidebar_start_open</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -264,6 +265,10 @@ the user to collapse the box.</p></td>
       <td><p>Box sidebar content, if any.</p></td>
     </tr>
     <tr>
+      <th>sidebar_title</th>
+      <td><p>Box sidebar title.</p></td>
+    </tr>
+    <tr>
       <th>sidebar_width</th>
       <td><p>Box sidebar width in percentage. 25% by default. Numeric value between 0 and 100.</p></td>
     </tr>
@@ -346,6 +351,7 @@ the user to collapse the box.</p></td>
           <span class='kw'>collapsible</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
           <span class='kw'>enable_sidebar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
           <span class='kw'>sidebar_width</span> <span class='kw'>=</span> <span class='fl'>25</span>,
+          <span class='kw'>side_bar_title</span> <span class='kw'>=</span> <span class='st'>"Title"</span>,
           <span class='kw'>sidebar_start_open</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
           <span class='kw'>sidebar_content</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span>(
            <span class='st'>"obs"</span>,

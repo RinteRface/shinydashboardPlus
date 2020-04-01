@@ -15,8 +15,7 @@
 #'   provided, it will try to extract the title from the
 #'   \code{dashboardHeaderPlus}.
 #' @param skin A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by
-#'   default.
+#' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by default.
 #' @param sidebar_background Main sidebar background color: either "light" or
 #'   NULL. NULL by default.
 #' @param sidebar_fullCollapse Whether to fully collapse the sidebar as with shinydashboard.
