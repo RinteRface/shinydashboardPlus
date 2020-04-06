@@ -306,14 +306,10 @@ boxPad <- function(..., color = NULL, style = NULL) {
 
 #' @title AdminLTE2 special large button
 #'
-#' @description Create a large button ideal for web applications
+#' @description Create a large button ideal for web applications but identical
+#' to the classic Shiny action button.
 #'
-#' @param url if the button should redirect somewhere.
-#' @param label button label.
-#' @param icon button icon, if any. Should be written like "fa fa-times".
-#' @param enable_badge Whether to display a badge on the top-right corner of the button.
-#' @param badgeColor color of the badge: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param badgeLabel text to display in the badge. I personally recommend you to only put numbers.
+#' @inheritParams shiny::actionButton
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -330,49 +326,26 @@ boxPad <- function(..., color = NULL, style = NULL) {
 #'       title = "App Buttons",
 #'       status = NULL,
 #'       appButton(
-#'         url = "https://google.com",
+#'         inputId = "myAppButton",
 #'         label = "Users", 
-#'         icon = "fa fa-users", 
-#'         enable_badge = TRUE, 
-#'         badgeColor = "purple", 
-#'         badgeLabel = 891
-#'       ),
-#'       appButton(
-#'         label = "Edit", 
-#'         icon = "fa fa-edit", 
-#'         enable_badge = FALSE, 
-#'         badgeColor = NULL, 
-#'         badgeLabel = NULL
-#'       ),
-#'       appButton(
-#'         label = "Likes", 
-#'         icon = "fa fa-heart-o", 
-#'         enable_badge = TRUE, 
-#'         badgeColor = "red", 
-#'         badgeLabel = 3
+#'         icon = icon("users"), 
+#'         dashboardBadge(textOutput("btnVal"))
 #'       )
 #'      )
 #'     ),
 #'     title = "App buttons"
 #'   ),
-#'   server = function(input, output) { }
+#'   server = function(input, output) {
+#'    output$btnVal <- renderText(input$myAppButton)
+#'   }
 #'  )
 #' }
 #'
 #' @export
-appButton <- function(url = NULL, label = NULL, icon = NULL, enable_badge = FALSE, 
-                      badgeColor = NULL, badgeLabel = NULL) {
-  shiny::tags$a(
-    class = "btn btn-app",
-    if (isTRUE(enable_badge)) {
-      cl <- "badge"
-      if (!is.null(badgeColor)) cl <- paste0(cl, " bg-", badgeColor)
-      shiny::tags$span(class = cl, badgeLabel)
-    },
-    shiny::tags$i(class = icon),
-    label,
-    href = url,
-    target = "_blank"
+appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
+  shiny::tagAppendAttributes(
+    shiny::actionButton(inputId, label, icon, width, ...),
+    class = "btn-app"
   )
 }
 
@@ -471,6 +444,46 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
     } else NULL,
     ...
   )
+}
+
+
+
+#' @title AdminLTE2 badge
+#'
+#' @description Create a badge. Contrary to the label
+#'
+#' @param ... Any html text element.
+#' @param status label status.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      dashboardBadge("Label 1", status = "info"),
+#'      actionButton(
+#'       inputId = "badge", 
+#'       label = "Hello", 
+#'       icon = NULL, 
+#'       width = NULL, 
+#'       dashboardBadge(1, status = "orange")
+#'      )
+#'     )
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#'
+#' @export
+dashboardBadge <- function(..., status = "primary") {
+  validateStatusPlus(status)
+  shiny::tags$span(class = paste0("badge bg-", status), ...)
 }
 
 

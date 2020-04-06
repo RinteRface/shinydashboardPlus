@@ -5,9 +5,12 @@
 
 ## Breaking Changes
 - `accordion()` id becomes inputId. `accordionItem()` id parameter is removed
+- rework `appButton()` : this is a classic shiny actionButton, with improved styling.
 
 ## New features
 - add `userMessages()` and `userMessage()`
+- add `dashboardBadge()`: use in elements like `appButton()`. This is different from 
+`dashboardLabel()`
 
 ## Minor Change
 - Fix #52: add collapsed arg to `widgetUserBox()`. Thanks @terpsrule

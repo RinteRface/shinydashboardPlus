@@ -86,6 +86,7 @@ reference:
   - '`blockQuote`'
   - '`carousel`'
   - '`carouselItem`'
+  - '`dashboardBadge`'
   - '`dashboardLabel`'
   - '`starBlock`'
   - '`attachmentBlock`'

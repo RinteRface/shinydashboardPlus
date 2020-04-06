@@ -183,6 +183,17 @@ shinyApp(
     )
   ),
   server = function(input, output) {
+    
+    # app button
+    output$appBtnVal <- renderText(input$myAppButton)
+    observeEvent(input$myAppButton, {
+      showModal(modalDialog(
+        title = "Important message",
+        "Thanks for clicking on me!"
+      ))
+    })
+    
+    
     output$distPlot <- renderPlot({
       hist(rnorm(input$obs))
     })
