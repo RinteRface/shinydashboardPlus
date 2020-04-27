@@ -36,20 +36,20 @@ if (interactive()) {
             descriptionBlock(
               header = "8390", 
               text = "VISITS", 
-              right_border = FALSE,
-              margin_bottom = TRUE
+              rightBorder = FALSE,
+              marginBottom = TRUE
             ),
             descriptionBlock(
               header = "30\%", 
               text = "REFERRALS", 
-              right_border = FALSE,
-              margin_bottom = TRUE
+              rightBorder = FALSE,
+              marginBottom = TRUE
             ),
             descriptionBlock(
               header = "70\%", 
               text = "ORGANIC", 
-              right_border = FALSE,
-              margin_bottom = FALSE
+              rightBorder = FALSE,
+              marginBottom = FALSE
             )
           )
         )

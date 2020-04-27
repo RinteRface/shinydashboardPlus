@@ -7,7 +7,8 @@
 - `accordion()` id becomes inputId. `accordionItem()` id parameter is removed
 - rework `appButton()` : this is a classic shiny actionButton, with improved styling.
 - change title_url in titleUrl in `attachmentBlock()`
-
+change number_color, number_icon, margin_bottom and rightBorder to camelcase params
+in `descriptionBlock()`
 ## New features
 - add `userMessages()` and `userMessage()`
 - add `dashboardBadge()`: use in elements like `appButton()`. This is different from 

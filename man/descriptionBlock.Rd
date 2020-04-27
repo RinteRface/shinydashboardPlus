@@ -6,29 +6,29 @@
 \usage{
 descriptionBlock(
   number = NULL,
-  number_color = NULL,
-  number_icon = NULL,
+  numberColor = NULL,
+  numberIcon = NULL,
   header = NULL,
   text = NULL,
-  right_border = TRUE,
-  margin_bottom = FALSE
+  rightBorder = TRUE,
+  marginBottom = FALSE
 )
 }
 \arguments{
 \item{number}{any number.}
 
-\item{number_color}{number color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
+\item{numberColor}{number color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
-\item{number_icon}{number icon, if any. Should be written like "fa fa-times".}
+\item{numberIcon}{number icon, if any. Should be written like "fa fa-times".}
 
 \item{header}{bold text.}
 
 \item{text}{additional text.}
 
-\item{right_border}{TRUE by default. Whether to display a right border to
+\item{rightBorder}{TRUE by default. Whether to display a right border to
 separate two blocks. The last block on the right should not have a right border.}
 
-\item{margin_bottom}{FALSE by default. Set it to TRUE when the
+\item{marginBottom}{FALSE by default. Set it to TRUE when the
 descriptionBlock is used in a boxPad context.}
 }
 \description{
@@ -54,24 +54,24 @@ if (interactive()) {
           width = 6,
           descriptionBlock(
             number = "17\%", 
-            number_color = "green", 
-            number_icon = "fa fa-caret-up",
+            numberColor = "green", 
+            numberIcon = "fa fa-caret-up",
             header = "$35,210.43", 
             text = "TOTAL REVENUE", 
-            right_border = TRUE,
-            margin_bottom = FALSE
+            rightBorder = TRUE,
+            marginBottom = FALSE
           )
         ),
         column(
           width = 6,
           descriptionBlock(
             number = "18\%", 
-            number_color = "red", 
-            number_icon = "fa fa-caret-down",
+            numberColor = "red", 
+            numberIcon = "fa fa-caret-down",
             header = "1200", 
             text = "GOAL COMPLETION", 
-            right_border = FALSE,
-            margin_bottom = FALSE
+            rightBorder = FALSE,
+            marginBottom = FALSE
           )
         )
       )

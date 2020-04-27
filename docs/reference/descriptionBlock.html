@@ -149,12 +149,12 @@
 
     <pre class="usage"><span class='fu'>descriptionBlock</span>(
   <span class='kw'>number</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>number_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>number_icon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>numberColor</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>numberIcon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>right_border</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>margin_bottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  <span class='kw'>rightBorder</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>marginBottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -165,11 +165,11 @@
       <td><p>any number.</p></td>
     </tr>
     <tr>
-      <th>number_color</th>
+      <th>numberColor</th>
       <td><p>number color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.</p></td>
     </tr>
     <tr>
-      <th>number_icon</th>
+      <th>numberIcon</th>
       <td><p>number icon, if any. Should be written like "fa fa-times".</p></td>
     </tr>
     <tr>
@@ -181,12 +181,12 @@
       <td><p>additional text.</p></td>
     </tr>
     <tr>
-      <th>right_border</th>
+      <th>rightBorder</th>
       <td><p>TRUE by default. Whether to display a right border to
 separate two blocks. The last block on the right should not have a right border.</p></td>
     </tr>
     <tr>
-      <th>margin_bottom</th>
+      <th>marginBottom</th>
       <td><p>FALSE by default. Set it to TRUE when the
 descriptionBlock is used in a boxPad context.</p></td>
     </tr>
@@ -213,24 +213,24 @@ descriptionBlock is used in a boxPad context.</p></td>
           <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
           <span class='fu'>descriptionBlock</span>(
             <span class='kw'>number</span> <span class='kw'>=</span> <span class='st'>"17%"</span>,
-            <span class='kw'>number_color</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
-            <span class='kw'>number_icon</span> <span class='kw'>=</span> <span class='st'>"fa fa-caret-up"</span>,
+            <span class='kw'>numberColor</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
+            <span class='kw'>numberIcon</span> <span class='kw'>=</span> <span class='st'>"fa fa-caret-up"</span>,
             <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"$35,210.43"</span>,
             <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"TOTAL REVENUE"</span>,
-            <span class='kw'>right_border</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-            <span class='kw'>margin_bottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+            <span class='kw'>rightBorder</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+            <span class='kw'>marginBottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
           )
         ),
         <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span>(
           <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
           <span class='fu'>descriptionBlock</span>(
             <span class='kw'>number</span> <span class='kw'>=</span> <span class='st'>"18%"</span>,
-            <span class='kw'>number_color</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-            <span class='kw'>number_icon</span> <span class='kw'>=</span> <span class='st'>"fa fa-caret-down"</span>,
+            <span class='kw'>numberColor</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
+            <span class='kw'>numberIcon</span> <span class='kw'>=</span> <span class='st'>"fa fa-caret-down"</span>,
             <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"1200"</span>,
             <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"GOAL COMPLETION"</span>,
-            <span class='kw'>right_border</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-            <span class='kw'>margin_bottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+            <span class='kw'>rightBorder</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+            <span class='kw'>marginBottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
           )
         )
       )
