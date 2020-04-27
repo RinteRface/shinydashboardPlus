@@ -6,6 +6,7 @@
 ## Breaking Changes
 - `accordion()` id becomes inputId. `accordionItem()` id parameter is removed
 - rework `appButton()` : this is a classic shiny actionButton, with improved styling.
+- change title_url in titleUrl in `attachmentBlock()`
 
 ## New features
 - add `userMessages()` and `userMessage()`

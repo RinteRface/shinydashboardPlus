@@ -137,7 +137,7 @@ accordionItem <- function(..., title = NULL, color = NULL,
 #' @param ... any element.
 #' @param src url or path to the image.
 #' @param title attachment title.
-#' @param title_url external link.
+#' @param titleUrl external link.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -155,7 +155,7 @@ accordionItem <- function(..., title = NULL, color = NULL,
 #'       attachmentBlock(
 #'        src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
 #'        title = "Test",
-#'        title_url = "https://google.com",
+#'        titleUrl = "https://google.com",
 #'        "This is the content"
 #'       )
 #'      )
@@ -168,7 +168,7 @@ accordionItem <- function(..., title = NULL, color = NULL,
 #'
 #' @export
 
-attachmentBlock <- function(..., src = NULL, title = NULL, title_url = NULL) {
+attachmentBlock <- function(..., src = NULL, title = NULL, titleUrl = NULL) {
   shiny::tags$div(
     class = "attachment-block clearfix",
     shiny::img(
@@ -180,7 +180,7 @@ attachmentBlock <- function(..., src = NULL, title = NULL, title_url = NULL) {
       shiny::tags$h4(
         class = "attachment-heading",
         shiny::tags$a(
-          href = title_url,
+          href = titleUrl,
           target = "_blank",
           title
         )
