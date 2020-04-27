@@ -9,6 +9,7 @@
 - change title_url in titleUrl in `attachmentBlock()`
 change number_color, number_icon, margin_bottom and rightBorder to camelcase params
 in `descriptionBlock()`
+- numberIcon in `descriptionBlock()` only need the name of the icon ('times') instead of the full class (like fa fa-times)
 ## New features
 - add `userMessages()` and `userMessage()`
 - add `dashboardBadge()`: use in elements like `appButton()`. This is different from 

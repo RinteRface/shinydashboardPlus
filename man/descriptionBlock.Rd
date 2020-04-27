@@ -55,7 +55,7 @@ if (interactive()) {
           descriptionBlock(
             number = "17\%", 
             numberColor = "green", 
-            numberIcon = "fa fa-caret-up",
+            numberIcon = "caret-up",
             header = "$35,210.43", 
             text = "TOTAL REVENUE", 
             rightBorder = TRUE,
@@ -67,7 +67,7 @@ if (interactive()) {
           descriptionBlock(
             number = "18\%", 
             numberColor = "red", 
-            numberIcon = "fa fa-caret-down",
+            numberIcon = "caret-down",
             header = "1200", 
             text = "GOAL COMPLETION", 
             rightBorder = FALSE,

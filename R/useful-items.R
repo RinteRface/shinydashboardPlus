@@ -525,7 +525,7 @@ dashboardBadge <- function(..., status = "primary") {
 #'           descriptionBlock(
 #'             number = "17%", 
 #'             numberColor = "green", 
-#'             numberIcon = "fa fa-caret-up",
+#'             numberIcon = "caret-up",
 #'             header = "$35,210.43", 
 #'             text = "TOTAL REVENUE", 
 #'             rightBorder = TRUE,
@@ -537,7 +537,7 @@ dashboardBadge <- function(..., status = "primary") {
 #'           descriptionBlock(
 #'             number = "18%", 
 #'             numberColor = "red", 
-#'             numberIcon = "fa fa-caret-down",
+#'             numberIcon = "caret-down",
 #'             header = "1200", 
 #'             text = "GOAL COMPLETION", 
 #'             rightBorder = FALSE,
@@ -570,7 +570,7 @@ descriptionBlock <- function(number = NULL, numberColor = NULL, numberIcon = NUL
     shiny::tags$span(
       class = numcl, 
       number,
-      if (!is.null(numberIcon)) shiny::tags$i(class = numberIcon)
+      if (!is.null(numberIcon)) shiny::icon(numberIcon)
     ),
     shiny::tags$h5(class = "description-header", header),
     shiny::tags$span(class = "description-text", text)
