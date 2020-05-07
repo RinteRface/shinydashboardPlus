@@ -47,7 +47,7 @@ header_tab <- tabItem(
                    ),
                    prettyToggle(
                      inputId = "na",
-                     label_on = "NAs keeped",
+                     label_on = "NAs kept",
                      label_off = "NAs removed",
                      icon_on = icon("check"),
                      icon_off = icon("remove")
