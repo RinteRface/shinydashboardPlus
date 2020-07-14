@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="AdminLTE2 badge — dashboardBadge" />
-<meta property="og:description" content="Create a badge. Contrary to the label" />
+<meta property="og:description" content="Create a badge." />
 
 
 
@@ -120,10 +120,10 @@
     </div>
 
     <div class="ref-description">
-    <p>Create a badge. Contrary to the label</p>
+    <p>Create a badge.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dashboardBadge</span>(<span class='no'>...</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"primary"</span>)</pre>
+    <pre class="usage"><span class='fu'>dashboardBadge</span>(<span class='no'>...</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,8 +133,8 @@
       <td><p>Any html text element.</p></td>
     </tr>
     <tr>
-      <th>status</th>
-      <td><p>label status.</p></td>
+      <th>color</th>
+      <td><p>label color.</p></td>
     </tr>
     </table>
 
@@ -148,13 +148,13 @@
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html'>dashboardHeader</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>dashboardBadge</span>(<span class='st'>"Label 1"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"info"</span>),
+     <span class='fu'>dashboardBadge</span>(<span class='st'>"Badge 1"</span>),
      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(
       <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"badge"</span>,
       <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Hello"</span>,
       <span class='kw'>icon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
       <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-      <span class='fu'>dashboardBadge</span>(<span class='fl'>1</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"orange"</span>)
+      <span class='fu'>dashboardBadge</span>(<span class='fl'>1</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"orange"</span>)
      )
     )
   ),

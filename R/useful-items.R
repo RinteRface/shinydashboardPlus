@@ -450,10 +450,10 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
 
 #' @title AdminLTE2 badge
 #'
-#' @description Create a badge. Contrary to the label
+#' @description Create a badge.
 #'
 #' @param ... Any html text element.
-#' @param status label status.
+#' @param color label color.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -466,13 +466,13 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'      dashboardBadge("Label 1", status = "info"),
+#'      dashboardBadge("Badge 1"),
 #'      actionButton(
 #'       inputId = "badge", 
 #'       label = "Hello", 
 #'       icon = NULL, 
 #'       width = NULL, 
-#'       dashboardBadge(1, status = "orange")
+#'       dashboardBadge(1, color = "orange")
 #'      )
 #'     )
 #'   ),
@@ -481,9 +481,9 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
 #' }
 #'
 #' @export
-dashboardBadge <- function(..., status = "primary") {
-  validateStatusPlus(status)
-  shiny::tags$span(class = paste0("badge bg-", status), ...)
+dashboardBadge <- function(..., color = "blue") {
+  validateColor(color)
+  shiny::tags$span(class = paste0("badge bg-", color), ...)
 }
 
 

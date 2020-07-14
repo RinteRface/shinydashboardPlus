@@ -4,15 +4,15 @@
 \alias{dashboardBadge}
 \title{AdminLTE2 badge}
 \usage{
-dashboardBadge(..., status = "primary")
+dashboardBadge(..., color = "blue")
 }
 \arguments{
 \item{...}{Any html text element.}
 
-\item{status}{label status.}
+\item{color}{label color.}
 }
 \description{
-Create a badge. Contrary to the label
+Create a badge.
 }
 \examples{
 if (interactive()) {
@@ -23,13 +23,13 @@ if (interactive()) {
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     dashboardBadge("Label 1", status = "info"),
+     dashboardBadge("Badge 1"),
      actionButton(
       inputId = "badge", 
       label = "Hello", 
       icon = NULL, 
       width = NULL, 
-      dashboardBadge(1, status = "orange")
+      dashboardBadge(1, color = "orange")
      )
     )
   ),
