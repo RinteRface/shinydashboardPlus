@@ -16,7 +16,7 @@ or a list of such objects.}
 is useful if you want to save an expression in a variable.}
 
 \item{outputArgs}{A list of arguments to be passed through to the implicit
-call to \code{\link[shiny:uiOutput]{uiOutput()}} when \code{renderUI} is used in an
+call to \code{\link[shiny:htmlOutput]{uiOutput()}} when \code{renderUI} is used in an
 interactive R Markdown document.}
 }
 \description{
