@@ -1,4 +1,4 @@
-# shinydashboardPlus 0.7.5.9000
+# shinydashboardPlus 0.7.5
 
 ## Experimental
 - New dark theme: midnight (still work in progress, some elements are missing)

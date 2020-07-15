@@ -7,6 +7,7 @@
 ## R CMD check results
 There were no ERRORs or WARNINGs or NOTEs
 
+The [error](https://www.r-project.org/nosvn/R.check/r-release-macos-x86_64/shinydashboardPlus-00check.html) should also be fixed
 
 ## Reverse dependencies:
 using `devtools::revdep()` 
