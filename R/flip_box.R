@@ -1,10 +1,9 @@
+#' flip_button_front
+#' 
+#' @export
 #' @param id the flipbox id
 #' @param text the button text
-#'
-#' @export
-#'
 #' @importFrom htmltools tags
-#' @describeIn flip_box flip_button_front button to flip to the front of the \code{flip_box}.
 flip_button_front <- function(id, text) {
   htmltools::tags$button(
     id = paste0("btn-flip-front-", id),
@@ -14,13 +13,12 @@ flip_button_front <- function(id, text) {
 }
 
 
+#' flip_button_back 
+#' 
+#' @export
 #' @param id the flipbox id
 #' @param text the button text
-#'
-#' @export
-#'
 #' @importFrom htmltools tags
-#' @describeIn flip_box flip_button_back button to flip to the back of the \code{flip_box}.
 flip_button_back <- function(id, text) {
   htmltools::tags$button(
     id = paste0("btn-flip-back-", id),
@@ -31,16 +29,15 @@ flip_button_back <- function(id, text) {
 
 
 #' flip_box
-#'
-#' UI for the flip_box - based off of \href{https://rinterface.github.io/shinydashboardPlus/}{shinydashboardplus::flipBox}
-#'
+#' 
+#' AdminLTE flipBox.
+#' 
 #' @param id the flipbox id
 #' @param front_content ui for the front of the flip box
 #' @param back_content ui for the back of the flip box
-#'
-#' @importFrom htmltools tagList tags h1
-#' @importFrom shiny singleton
-#'
+#' @param front_text text for front button
+#' @param back_text text for back button
+#' 
 #' @section Warning: this function is experimental.
 #'
 #' @references \url{https://rinterface.github.io/shinydashboardPlus/reference/flipBox.html}
@@ -56,91 +53,82 @@ flip_button_back <- function(id, text) {
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'       box(
-#'         width = 12,
-#'         style = paste0("background-color: #000; color: #FFF;"),
-#'         fluidRow(
-#'           column(
-#'             width = 12,
-#'             flip_box(
-#'               id = "id",
-#'               front_content = img(
-#'                 src = "https://image.flaticon.com/icons/svg/149/149076.svg",
-#'                 width = "100%",
-#'                 height = "300px",
-#'                 style = "border: 1px solid black"
-#'               ),
-#'               back_content = div(
-#'                 style = "border: 1px solid black; height: 300px; background-color: #FFFFFF; color: #000000;",
-#'                 h1(
-#'                   class = "text-center",
-#'                   "Details...."
-#'                 ),
-#'                 p("More information....")
-#'               )
-#'             )
+#'       flip_box(
+#'         id = "id",
+#'         front_content = div(
+#'           class = "text-center",
+#'           img(
+#'             src = "https://image.flaticon.com/icons/svg/149/149076.svg",
+#'             height = "300px",
+#'             width = "100%"
 #'           )
 #'         ),
-#'         
-#'         fluidRow(
-#'           column(
-#'             width = 12,
-#'             br(),
-#'             div(
-#'               id = "go_to_back",
-#'               class = "pull_right",
-#'               style = "display: inline-block; margin-right: 5px;",
-#'               flip_button_front("id", "More Info")
-#'             ),
-#'             div(
-#'               id = "go_to_front",
-#'               class = "pull-right",
-#'               style = "display: inline-block; margin-right: 5px;",
-#'               flip_button_back("id", "Back to Front")
-#'             )
-#'           )
+#'         back_content = div(
+#'           class = "text-center",
+#'           height = "300px",
+#'           width = "100%",
+#'           h1("Details...."),
+#'           p("More information....")
 #'         )
 #'       )
 #'     )
 #'   ),
 #'   
-#'   server = function(input, output) {
-#'     
+#'   server = function(input, output, session) {
 #'   }
 #' )
 #'    
-#'
 #' @export
+#' @importFrom htmltools tagList div tags
+#' @importFrom shiny singleton
 flip_box <- function(
-  id,
-  front_content = htmltools::h1("Hi From the Front"),
-  back_content = tags$div(
-    style = "background-color: #FFF; height: 380px;",
-    back_content
-  )
+  id, 
+  front_content, 
+  back_content, 
+  front_text = "More Info",
+  back_text = "Back to Front"
 ) {
   
   if (is.null(id)) stop("card id cannot be null and must be unique")
   
+  front_content <- htmltools::tagList(
+    front_content,
+    htmltools::tagList(
+      class = "text-center",
+      id = "go_to_back",
+      htmltools::div("id", front_text)
+    )
+  )
+  
+  back_content <- htmltools::tagList(
+    back_content,
+    htmltools::div(
+      class = "text-center",
+      id = "go_to_front",
+      flip_button_back("id", back_text)
+    )
+  )
+  
   htmltools::tagList(
-    tags$div(
+    htmltools::tags$div(
       class = "rotate-container",
-      tags$div(
+      id = id,
+      htmltools::tags$div(
         class = paste0("card-front-", id),
         style = "background-color: white;",
         front_content
       ),
-      tags$div(
+      htmltools::tags$div(
         class = paste0("card-back-", id),
+        style = "background-color: white;",
         back_content
-      )
-    ),
-    tagList(
-      shiny::singleton(
-        tags$head(
-          tags$style(
-            paste0(
-              "/* Card styles for rotation */
+      ),
+      htmltools::tagList(
+        shiny::singleton(
+          htmltools::tags$head(
+            htmltools::tags$style(
+              paste0(
+                "/* Card styles for rotation */
 
              .rotate-container {
                 position: relative;
@@ -180,11 +168,11 @@ flip_box <- function(
             }
 
           "
-            )
-          ),
-          tags$script(
-            paste0(
-              "$(function() {
+              )
+            ),
+            htmltools::tags$script(
+              paste0(
+                "$(function() {
 
                 // For card rotation
                 $('#btn-flip-front-", id, "').click(function(){
@@ -199,11 +187,11 @@ flip_box <- function(
                 });
 
               });"
-            )
-          ),
-          tags$script(
-            paste0(
-              "$(function() {
+              )
+            ),
+            htmltools::tags$script(
+              paste0(
+                "$(function() {
                 $('#go_to_back').click(function(){
                   $('#go_to_back').hide()
                   $('#go_to_front').show()
@@ -214,6 +202,7 @@ flip_box <- function(
               });
               });
               "
+              )
             )
           )
         )
