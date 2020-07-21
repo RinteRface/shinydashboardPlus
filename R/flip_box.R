@@ -3,9 +3,8 @@
 #' @export
 #' @param id the flipbox id
 #' @param text the button text
-#' @importFrom htmltools tags
 flip_button_front <- function(id, text) {
-  htmltools::tags$button(
+  tags$button(
     id = paste0("btn-flip-front-", id),
     class = "btn btn-primary btn-rotate",
     text
@@ -18,9 +17,8 @@ flip_button_front <- function(id, text) {
 #' @export
 #' @param id the flipbox id
 #' @param text the button text
-#' @importFrom htmltools tags
 flip_button_back <- function(id, text) {
-  htmltools::tags$button(
+  tags$button(
     id = paste0("btn-flip-back-", id),
     class = "btn btn-primary btn-rotate",
     text
@@ -79,7 +77,7 @@ flip_button_back <- function(id, text) {
 #' )
 #'    
 #' @export
-#' @importFrom htmltools tagList div tags
+#' @importFrom htmltools tagList
 #' @importFrom shiny singleton
 flip_box <- function(
   id, 
@@ -93,16 +91,16 @@ flip_box <- function(
   
   front_content <- htmltools::tagList(
     front_content,
-    htmltools::tagList(
+    div(
       class = "text-center",
       id = "go_to_back",
-      htmltools::div("id", front_text)
+      flip_button_front("id", front_text)
     )
   )
   
   back_content <- htmltools::tagList(
     back_content,
-    htmltools::div(
+    div(
       class = "text-center",
       id = "go_to_front",
       flip_button_back("id", back_text)
@@ -110,23 +108,23 @@ flip_box <- function(
   )
   
   htmltools::tagList(
-    htmltools::tags$div(
+    tags$div(
       class = "rotate-container",
       id = id,
-      htmltools::tags$div(
+      tags$div(
         class = paste0("card-front-", id),
         style = "background-color: white;",
         front_content
       ),
-      htmltools::tags$div(
+      tags$div(
         class = paste0("card-back-", id),
         style = "background-color: white;",
         back_content
       ),
       htmltools::tagList(
         shiny::singleton(
-          htmltools::tags$head(
-            htmltools::tags$style(
+          tags$head(
+            tags$style(
               paste0(
                 "/* Card styles for rotation */
 
@@ -170,7 +168,7 @@ flip_box <- function(
           "
               )
             ),
-            htmltools::tags$script(
+            tags$script(
               paste0(
                 "$(function() {
 
@@ -189,7 +187,7 @@ flip_box <- function(
               });"
               )
             ),
-            htmltools::tags$script(
+            tags$script(
               paste0(
                 "$(function() {
                 $('#go_to_back').click(function(){
@@ -209,4 +207,24 @@ flip_box <- function(
       )
     )
   )
+}
+
+#' flip_box_demo
+#' 
+#' runs an internal flip_box_demo application.
+#'
+#' @return shinyApp
+#' @export
+#'
+#' @importFrom shiny runApp
+#'
+#' @examples
+#' \dontrun{
+#' library(shinydashboardPlus)
+#' flip_box_demo()
+#' }
+flip_box_demo <- function() {
+  
+  shiny::runApp(appDir = system.file("flip_box_demo", "app.R", package = "shinydashboardPlus"))
+  
 }

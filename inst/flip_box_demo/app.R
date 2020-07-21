@@ -1,61 +1,41 @@
+#' @examples
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
-
 shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-      box(
-        width = 12,
-        style = paste0("background-color: #000; color: #FFF;"),
-        fluidRow(
-          column(
-            width = 12,
-        flip_box(
-          id = "id",
-          front_content = img(
-              src = "https://image.flaticon.com/icons/svg/149/149076.svg",
-              width = "100%",
-              height = "300px",
-              style = "border: 1px solid black"
-          ),
-          back_content = div(
-            style = "border: 1px solid black; height: 300px; background-color: #FFFFFF; color: #000000;",
-            h1(
-              class = "text-center",
-              "Details...."
-            ),
-            p("More information....")
-          )
-        )
+      flip_box(
+        id = "id",
+        front_content = div(
+          class = "text-center",
+          img(
+            src = "https://image.flaticon.com/icons/svg/149/149076.svg",
+            height = "300px",
+            width = "100%"
           )
         ),
-        
-        fluidRow(
-          column(
-            width = 12,
-            br(),
-            div(
-              id = "go_to_back",
-              class = "pull_right",
-              style = "display: inline-block; margin-right: 5px;",
-              flip_button_front("id", "More Info")
-            ),
-            div(
-              id = "go_to_front",
-              class = "pull-right",
-              style = "display: none; margin-right: 5px;",
-              flip_button_back("id", "Back to Front")
-            )
-          )
+        back_content = div(
+          class = "text-center",
+          height = "300px",
+          width = "100%",
+          h1("Details...."),
+          p("More information....")
         )
       )
     )
-    ),
+  ),
   
   server = function(input, output, session) {
+    
+    # observe({
+    #   
+    #   browser()
+    #   
+    #   print(list("flipBox Status: " = input$id))
+    # })
     
   }
 )
