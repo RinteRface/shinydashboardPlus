@@ -417,6 +417,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'
 #' Boxes can be used to hold content in the main body of a dashboard.
 #'
+#' @param inputId Box unique id. \link{updateBoxPlus} target.
 #' @param title Optional title.
 #' @param footer Optional footer text.
 #' @param status The status of the item This determines the item's background
@@ -537,7 +538,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'  )
 #' }
 #' @export
-boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
+boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = TRUE, enable_label = FALSE,
                      label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
@@ -660,6 +661,7 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
   boxPlusTag <- shiny::tags$div(
     class = if (!is.null(width)) paste0("col-sm-", width), 
     shiny::tags$div(
+      id = inputId,
       class = boxClass, 
       style = if (!is.null(style)) style, 
       headerTag, 
@@ -724,6 +726,61 @@ boxPlus <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader
     boxPlusTag
   )
   
+}
+
+
+
+#' Collapse a \link{boxPlus} tag.
+#'
+#' @param inputId Box to toggle.
+#' @param session Shiny session object.
+#' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  ui <- dashboardPagePlus(
+#'    dashboardHeaderPlus(),
+#'    dashboardSidebar(),
+#'    dashboardBody(
+#'      tags$style("body { background-color: ghostwhite};"),
+#'      
+#'      br(),
+#'      boxPlus(
+#'        title = textOutput("box_state"),
+#'        "Box body",
+#'        inputId = "mybox",
+#'        collapsible = TRUE,
+#'        plotOutput("plot")
+#'      ),
+#'      actionButton("toggle_box", "Toggle Box", class = "bg-success")
+#'    )
+#'  )
+#'  
+#'  server <- function(input, output, session) {
+#'    output$plot <- renderPlot({
+#'      req(!input$mybox$collapsed)
+#'      plot(rnorm(200))
+#'    })
+#'    
+#'    output$box_state <- renderText({
+#'      state <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
+#'      paste("My box is", state)
+#'    })
+#'    
+#'    observeEvent(input$toggle_box, {
+#'      updateBoxPlus("mybox")
+#'    })
+#'    
+#'  }
+#'  
+#'  shinyApp(ui, server)
+#' }
+updateBoxPlus <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(inputId, message = NULL)
 }
 
 

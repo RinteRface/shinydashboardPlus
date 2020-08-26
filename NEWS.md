@@ -3,6 +3,7 @@
 ## Breaking changes
 
 ## New features
+- Toggle `boxPlus()` with `updateBoxPlus()`
 
 ## Minor change
 
