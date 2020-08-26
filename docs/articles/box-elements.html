@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
       </span>
     </div>
 
@@ -76,7 +76,7 @@
       <h1 data-toc-skip>Box Elements</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-07-15</h4>
+            <h4 class="date">2020-08-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/box-elements.Rmd"><code>vignettes/box-elements.Rmd</code></a></small>
       <div class="hidden name"><code>box-elements.Rmd</code></div>
@@ -99,7 +99,7 @@
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
 
- <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(
+ <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html">dashboardPage</a></span>(
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html">dashboardHeader</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html">dashboardSidebar</a></span>(),
@@ -110,8 +110,8 @@
       <span class="kw">background</span> <span class="kw">=</span> <span class="kw">NULL</span>,
       <span class="kw">width</span> <span class="kw">=</span> <span class="fl">4</span>,
       <span class="kw">status</span> <span class="kw">=</span> <span class="st">"danger"</span>,
-      <span class="kw">footer</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span>(
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
+      <span class="kw">footer</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
           <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
           <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
             <span class="kw">number</span> <span class="kw">=</span> <span class="st">"17%"</span>,
@@ -123,7 +123,7 @@
             <span class="kw">margin_bottom</span> <span class="kw">=</span> <span class="fl">FALSE</span>
           )
         ),
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
           <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
           <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
             <span class="kw">number</span> <span class="kw">=</span> <span class="st">"18%"</span>,
@@ -152,16 +152,16 @@
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
 
- <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(
+ <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html">dashboardPage</a></span>(
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html">dashboardHeader</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/box.html">box</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Box with right pad"</span>,
       <span class="kw">status</span> <span class="kw">=</span> <span class="st">"warning"</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span>(
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(<span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(<span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
           <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
           <span class="fu"><a href="../reference/boxPad.html">boxPad</a></span>(
             <span class="kw">color</span> <span class="kw">=</span> <span class="st">"green"</span>,

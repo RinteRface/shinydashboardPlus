@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
       </span>
     </div>
 
@@ -76,7 +76,7 @@
       <h1 data-toc-skip>Using the rightSidebar</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-07-15</h4>
+            <h4 class="date">2020-08-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/rightSidebar.Rmd"><code>vignettes/rightSidebar.Rmd</code></a></small>
       <div class="hidden name"><code>rightSidebar.Rmd</code></div>
@@ -93,7 +93,7 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
     <span class="kw">header</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
      <span class="kw">enable_rightsidebar</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
@@ -120,7 +120,7 @@
    <span class="kw">icon</span> <span class="kw">=</span> <span class="st">"desktop"</span>,
    <span class="kw">active</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
    <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Tab 1"</span>,
-   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(
+   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
     <span class="st">"obs"</span>,
     <span class="st">"Number of observations:"</span>,
      <span class="kw">min</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">1000</span>, <span class="kw">value</span> <span class="kw">=</span> <span class="fl">500</span>
@@ -129,13 +129,13 @@
   <span class="fu"><a href="../reference/rightSidebarTabContent.html">rightSidebarTabContent</a></span>(
    <span class="kw">id</span> <span class="kw">=</span> <span class="fl">2</span>,
    <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Tab 2"</span>,
-   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span>(<span class="st">"caption"</span>, <span class="st">"Caption"</span>, <span class="st">"Data Summary"</span>)
+   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textInput.html">textInput</a></span>(<span class="st">"caption"</span>, <span class="st">"Caption"</span>, <span class="st">"Data Summary"</span>)
   ),
   <span class="fu"><a href="../reference/rightSidebarTabContent.html">rightSidebarTabContent</a></span>(
    <span class="kw">id</span> <span class="kw">=</span> <span class="fl">3</span>,
    <span class="kw">icon</span> <span class="kw">=</span> <span class="st">"paint-brush"</span>,
    <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Tab 3"</span>,
-   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span>(<span class="st">"obs"</span>, <span class="st">"Observations:"</span>, <span class="fl">10</span>, <span class="kw">min</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">100</span>)
+   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/numericInput.html">numericInput</a></span>(<span class="st">"obs"</span>, <span class="st">"Observations:"</span>, <span class="fl">10</span>, <span class="kw">min</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">100</span>)
   )
 )</pre></body></html></div>
 <p><strong>WARNINGS</strong>: there is a limitation of a maximum of <strong>5</strong> <code><a href="../reference/rightSidebarTabContent.html">rightSidebarTabContent()</a></code> in the <code><a href="../reference/rightSidebar.html">rightSidebar()</a></code>. This limitation is internal to AdminLTE2.</p>

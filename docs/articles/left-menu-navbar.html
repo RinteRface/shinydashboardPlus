@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
       </span>
     </div>
 
@@ -76,7 +76,7 @@
       <h1 data-toc-skip>Left menu in the navbar</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-07-15</h4>
+            <h4 class="date">2020-08-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/left-menu-navbar.Rmd"><code>vignettes/left-menu-navbar.Rmd</code></a></small>
       <div class="hidden name"><code>left-menu-navbar.Rmd</code></div>
@@ -88,25 +88,25 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <strong>shinydashboardPlus</strong> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> function. All elements should be embbeded in a <code><a href="https://rdrr.io/pkg/shiny/man/tag.html">tagList()</a></code>, as shown below.</p>
+<p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <strong>shinydashboardPlus</strong> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> function. All elements should be embbeded in a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/tag.html">tagList()</a></code>, as shown below.</p>
 <video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/navbar-left-menu.mp4" type="video/mp4"></source></video><p><br></p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"> <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinyWidgets</span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
 
- <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(
+ <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
    <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
      <span class="kw">header</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
        <span class="kw">enable_rightsidebar</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
        <span class="kw">rightSidebarIcon</span> <span class="kw">=</span> <span class="st">"gears"</span>,
-       <span class="kw">left_menu</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tag.html">tagList</a></span>(
+       <span class="kw">left_menu</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tag.html">tagList</a></span>(
          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton</a></span>(
            <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Controls"</span>,
-           <span class="kw">icon</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"sliders"</span>),
+           <span class="kw">icon</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"sliders"</span>),
            <span class="kw">status</span> <span class="kw">=</span> <span class="st">"primary"</span>,
            <span class="kw">circle</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(
+           <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
              <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"n"</span>,
              <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Number of observations"</span>,
              <span class="kw">min</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">value</span> <span class="kw">=</span> <span class="fl">30</span>
@@ -115,8 +115,8 @@
              <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"na"</span>,
              <span class="kw">label_on</span> <span class="kw">=</span> <span class="st">"NAs kept"</span>,
              <span class="kw">label_off</span> <span class="kw">=</span> <span class="st">"NAs removed"</span>,
-             <span class="kw">icon_on</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"check"</span>),
-             <span class="kw">icon_off</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"remove"</span>)
+             <span class="kw">icon_on</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
+             <span class="kw">icon_off</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
            )
          ),
          <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
@@ -145,7 +145,7 @@
    ),
    <span class="kw">server</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) { }
  )</pre></body></html></div>
-<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <strong>shinydashboardPlus</strong> to change basic shiny elements.</p>
+<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <strong>shinydashboardPlus</strong> to change basic shiny elements.</p>
 </div>
 <div id="improved-dropdownmenu" class="section level2">
 <h2 class="hasAnchor">
@@ -157,17 +157,17 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
     <span class="kw">header</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
       <span class="kw">enable_rightsidebar</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
       <span class="kw">rightSidebarIcon</span> <span class="kw">=</span> <span class="st">"gears"</span>,
-      <span class="kw">left_menu</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tag.html">tagList</a></span>(
+      <span class="kw">left_menu</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tag.html">tagList</a></span>(
         <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
           <span class="kw">id</span> <span class="kw">=</span> <span class="st">"mydropdown"</span>,
           <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Dropdown 1"</span>,
           <span class="kw">icon</span> <span class="kw">=</span> <span class="st">"sliders"</span>,
-          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
             <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"n"</span>,
             <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Number of observations"</span>,
             <span class="kw">min</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">value</span> <span class="kw">=</span> <span class="fl">30</span>
@@ -176,8 +176,8 @@
             <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"na"</span>,
             <span class="kw">label_on</span> <span class="kw">=</span> <span class="st">"NAs kept"</span>,
             <span class="kw">label_off</span> <span class="kw">=</span> <span class="st">"NAs removed"</span>,
-            <span class="kw">icon_on</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"check"</span>),
-            <span class="kw">icon_off</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"remove"</span>)
+            <span class="kw">icon_on</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
+            <span class="kw">icon_off</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
           )
         ),
         <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(

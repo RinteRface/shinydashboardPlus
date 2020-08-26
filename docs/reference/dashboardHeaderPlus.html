@@ -73,7 +73,7 @@ on the right side." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
       </span>
     </div>
 
@@ -202,17 +202,17 @@ in the left menu, since they will not be well displayed. Instead, wrap them in a
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboardPlus</span>)
 
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardPagePlus.html'>dashboardPagePlus</a></span>(
     <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'>dashboardHeaderPlus</span>(
       <span class='kw'>enable_rightsidebar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
       <span class='kw'>rightSidebarIcon</span> <span class='kw'>=</span> <span class='st'>"gears"</span>,
-      <span class='kw'>left_menu</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/tag.html'>tagList</a></span>(
+      <span class='kw'>left_menu</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/tag.html'>tagList</a></span>(
         <span class='fu'><a href='dropdownBlock.html'>dropdownBlock</a></span>(
           <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"mydropdown"</span>,
           <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Dropdown 1"</span>,
           <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"sliders"</span>,
-          <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span>(
+          <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>sliderInput</a></span>(
             <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"n"</span>,
             <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Number of observations"</span>,
             <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>30</span>
@@ -221,8 +221,8 @@ in the left menu, since they will not be well displayed. Instead, wrap them in a
             <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"na"</span>,
             <span class='kw'>label_on</span> <span class='kw'>=</span> <span class='st'>"NAs kept"</span>,
             <span class='kw'>label_off</span> <span class='kw'>=</span> <span class='st'>"NAs removed"</span>,
-            <span class='kw'>icon_on</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span>(<span class='st'>"check"</span>),
-            <span class='kw'>icon_off</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span>(<span class='st'>"remove"</span>)
+            <span class='kw'>icon_on</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"check"</span>),
+            <span class='kw'>icon_off</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"remove"</span>)
           )
         ),
         <span class='fu'><a href='dropdownBlock.html'>dropdownBlock</a></span>(
