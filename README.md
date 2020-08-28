@@ -1,6 +1,6 @@
 # shinydashboardPlus <img src="https://rinterface.com/inst/images/shinydashboardPlus.svg" width="200px" align="right"/>
 
-[![Build Status](https://travis-ci.org/RinteRface/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/RinteRface/shinydashboardPlus)
+[![R build status](https://github.com/RinteRface/shinydashboardPlus/workflows/R-CMD-check/badge.svg)](https://github.com/RinteRface/shinydashboardPlus/actions)
 [![version](https://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![cranlogs](https://cranlogs.r-pkg.org/badges/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://www.rpackages.io/package/shinydashboardPlus)
