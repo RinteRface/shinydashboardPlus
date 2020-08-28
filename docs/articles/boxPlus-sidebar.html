@@ -70,13 +70,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="boxPlus-sidebar_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Sidebar in boxes?</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-08-26</h4>
+            <h4 class="date">2020-08-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/boxPlus-sidebar.Rmd"><code>vignettes/boxPlus-sidebar.Rmd</code></a></small>
       <div class="hidden name"><code>boxPlus-sidebar.Rmd</code></div>
@@ -156,9 +156,9 @@
           <span class="kw">enable_sidebar</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
           <span class="kw">sidebar_width</span> <span class="kw">=</span> <span class="fl">25</span>,
           <span class="kw">sidebar_start_open</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-          <span class="kw">sidebar_content</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tag.html">tagList</a></span>(
+          <span class="kw">sidebar_content</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">tagList</a></span>(
             <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/checkboxInput.html">checkboxInput</a></span>(<span class="st">"somevalue"</span>, <span class="st">"Some value"</span>, <span class="fl">FALSE</span>),
-            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/verbatimTextOutput.html">verbatimTextOutput</a></span>(<span class="st">"value"</span>)
+            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">verbatimTextOutput</a></span>(<span class="st">"value"</span>)
           ),
           <span class="no">map</span>
         )
@@ -174,7 +174,7 @@
 <h2 class="hasAnchor">
 <a href="#notes" class="anchor"></a>Notes</h2>
 <p>When including an image in the box sidebar and to make sure it is correctly displayed, you have to add a <em>style</em> attribute to the img tag as follows:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/builder.html">img</a></span>(<span class="kw">style</span> <span class="kw">=</span> <span class="st">"width: 100%; height: 100%;"</span>, <span class="kw">src</span> <span class="kw">=</span> <span class="st">"http://i.imgur.com/aBayW5C.png"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">img</a></span>(<span class="kw">style</span> <span class="kw">=</span> <span class="st">"width: 100%; height: 100%;"</span>, <span class="kw">src</span> <span class="kw">=</span> <span class="st">"http://i.imgur.com/aBayW5C.png"</span>)</pre></body></html></div>
 </div>
   </div>
 
