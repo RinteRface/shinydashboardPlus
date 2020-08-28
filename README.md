@@ -37,5 +37,10 @@ Below an example of application in medicine:
 
 ## Acknowledgements
 
-- the [adminLTE team](https://adminlte.io)
+- The [adminLTE team](https://adminlte.io)
 - [Victor Perrier](https://github.com/pvictor) from [Dream'R](https://www.dreamrs.fr)
+
+
+## Code of Conduct
+  
+  Please note that the shinydashboardPlus project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
