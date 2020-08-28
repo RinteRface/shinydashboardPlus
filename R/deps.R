@@ -1,16 +1,5 @@
-# Add an html dependency, without overwriting existing ones
-appendDependencies <- function(x, value) {
-  if (inherits(value, "html_dependency"))
-    value <- list(value)
-  
-  old <- attr(x, "html_dependencies", TRUE)
-  
-  htmltools::htmlDependencies(x) <- c(old, value)
-  x
-}
-
 # Add dashboard dependencies to a tag object
-addDeps <- function(x, md) {
+addDeps <- function(tag, md) {
   
   # always use minified files (https://www.minifier.org)
   adminLTE_js <- "js/app.min.js"
@@ -60,5 +49,5 @@ addDeps <- function(x, md) {
     }
   )
   
-  appendDependencies(x, dashboardDeps)
+  shiny::tagList(tag, dashboardDeps, append = TRUE)
 }

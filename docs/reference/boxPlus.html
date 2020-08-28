@@ -125,6 +125,7 @@
 
     <pre class="usage"><span class='fu'>boxPlus</span>(
   <span class='no'>...</span>,
+  <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>footer</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>status</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -157,6 +158,10 @@
     <tr>
       <th>...</th>
       <td><p>Contents of the box.</p></td>
+    </tr>
+    <tr>
+      <th>inputId</th>
+      <td><p>Box unique id. <a href='updateBoxPlus.html'>updateBoxPlus</a> target.</p></td>
     </tr>
     <tr>
       <th>title</th>
@@ -293,7 +298,7 @@ the user to collapse the box.</p></td>
           <span class='fu'><a href='dropdownDivider.html'>dropdownDivider</a></span>(),
           <span class='fu'><a href='dropdownItem.html'>dropdownItem</a></span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"#"</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"item 3"</span>)
          ),
-         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/builder.html'>p</a></span>(<span class='st'>"Box Content"</span>)
+         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>p</a></span>(<span class='st'>"Box Content"</span>)
        ),
        <span class='fu'>boxPlus</span>(
         <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Closable box, with label"</span>,
@@ -304,7 +309,7 @@ the user to collapse the box.</p></td>
          <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
          <span class='kw'>solidHeader</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
          <span class='kw'>collapsible</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/builder.html'>p</a></span>(<span class='st'>"Box Content"</span>)
+         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>p</a></span>(<span class='st'>"Box Content"</span>)
        )
      )
     )

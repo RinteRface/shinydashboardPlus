@@ -6,6 +6,7 @@
 \usage{
 boxPlus(
   ...,
+  inputId = NULL,
   title = NULL,
   footer = NULL,
   status = NULL,
@@ -34,6 +35,8 @@ boxPlus(
 }
 \arguments{
 \item{...}{Contents of the box.}
+
+\item{inputId}{Box unique id. \link{updateBoxPlus} target.}
 
 \item{title}{Optional title.}
 

@@ -3,8 +3,10 @@
 ## Breaking changes
 
 ## New features
+- Toggle `boxPlus()` with `updateBoxPlus()`
 
 ## Minor change
+- Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
 

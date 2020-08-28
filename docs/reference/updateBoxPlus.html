@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AdminLTE2 special large button — appButton • shinydashboardPlus</title>
+<title>Collapse a <a href='boxPlus.html'>boxPlus</a> tag. — updateBoxPlus • shinydashboardPlus</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 special large button — appButton" />
-<meta property="og:description" content="Create a large button ideal for web applications but identical
-to the classic Shiny action button." />
+<meta property="og:title" content="Collapse a <a href='boxPlus.html'>boxPlus</a> tag. — updateBoxPlus" />
+<meta property="og:description" content="Collapse a boxPlus tag." />
 
 
 
@@ -115,42 +114,27 @@ to the classic Shiny action button." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>AdminLTE2 special large button</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/useful-items.R'><code>R/useful-items.R</code></a></small>
-    <div class="hidden name"><code>appButton.Rd</code></div>
+    <h1>Collapse a <a href='boxPlus.html'>boxPlus</a> tag.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a></small>
+    <div class="hidden name"><code>updateBoxPlus.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a large button ideal for web applications but identical
-to the classic Shiny action button.</p>
+    <p>Collapse a <a href='boxPlus.html'>boxPlus</a> tag.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>appButton</span>(<span class='no'>...</span>, <span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>updateBoxPlus</span>(<span class='no'>inputId</span>, <span class='kw'>session</span> <span class='kw'>=</span> <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>Named attributes to be applied to the button or link.</p></td>
-    </tr>
-    <tr>
       <th>inputId</th>
-      <td><p>The <code>input</code> slot that will be used to access the value.</p></td>
+      <td><p>Box to toggle.</p></td>
     </tr>
     <tr>
-      <th>label</th>
-      <td><p>The contents of the button or link--usually a text label, but
-you could also use any other HTML, like an image.</p></td>
-    </tr>
-    <tr>
-      <th>icon</th>
-      <td><p>An optional <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon()</a></code> to appear on the button.</p></td>
-    </tr>
-    <tr>
-      <th>width</th>
-      <td><p>The width of the input, e.g. <code>'400px'</code>, or <code>'100%'</code>;
-see <code><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>validateCssUnit()</a></code>.</p></td>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
     </tr>
     </table>
 
@@ -159,28 +143,44 @@ see <code><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.ht
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/box.html'>box</a></span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"App Buttons"</span>,
-      <span class='kw'>status</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-      <span class='fu'>appButton</span>(
-        <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"myAppButton"</span>,
-        <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Users"</span>,
-        <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"users"</span>),
-        <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span>(<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"btnVal"</span>))
-      )
-     )
-    ),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"App buttons"</span>
-  ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
-   <span class='no'>output</span>$<span class='no'>btnVal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderText.html'>renderText</a></span>(<span class='no'>input</span>$<span class='no'>myAppButton</span>)
-  }
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboardPlus</span>)
+
+ <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dashboardPagePlus.html'>dashboardPagePlus</a></span>(
+   <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(),
+   <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
+   <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='no'>tags</span>$<span class='fu'>style</span>(<span class='st'>"body { background-color: ghostwhite};"</span>),
+
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>br</a></span>(),
+     <span class='fu'><a href='boxPlus.html'>boxPlus</a></span>(
+       <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"box_state"</span>),
+       <span class='st'>"Box body"</span>,
+       <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"mybox"</span>,
+       <span class='kw'>collapsible</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"plot"</span>)
+     ),
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"toggle_box"</span>, <span class='st'>"Toggle Box"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"bg-success"</span>)
+   )
  )
+
+ <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>, <span class='no'>session</span>) {
+   <span class='no'>output</span>$<span class='no'>plot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html'>renderPlot</a></span>({
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/req.html'>req</a></span>(!<span class='no'>input</span>$<span class='no'>mybox</span>$<span class='no'>collapsed</span>)
+     <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>200</span>))
+   })
+
+   <span class='no'>output</span>$<span class='no'>box_state</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderText.html'>renderText</a></span>({
+     <span class='no'>state</span> <span class='kw'>&lt;-</span> <span class='kw'>if</span> (<span class='no'>input</span>$<span class='no'>mybox</span>$<span class='no'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='kw'>else</span> <span class='st'>"uncollapsed"</span>
+     <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='no'>state</span>)
+   })
+
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>toggle_box</span>, {
+     <span class='fu'>updateBoxPlus</span>(<span class='st'>"mybox"</span>)
+   })
+
+ }
+
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
