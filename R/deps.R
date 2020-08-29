@@ -49,5 +49,5 @@ addDeps <- function(tag, md) {
     }
   )
   
-  shiny::tagList(tag, dashboardDeps, append = TRUE)
+  shiny::tagList(tag, dashboardDeps)
 }
