@@ -284,6 +284,23 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
 dashboardUser <- function(..., name = NULL, src = NULL, title = NULL,
                           subtitle = NULL, footer = NULL) {
   
+  # Create line 1 for menu
+  if (!is.null(title)) {
+    line_1 <- paste0(name, " - ", title)
+  } else {
+    line_1 <- name
+  }
+  
+  # Create user_text based on if subtitle exists
+  # If subtitle doesn't exist, make the menu height smaller
+  if (!is.null(subtitle)) {
+    user_text <- shiny::tags$p(line_1, shiny::tags$small(subtitle))
+    user_header_height <- NULL
+  } else {
+    user_text <- shiny::tags$p(line_1)
+    user_header_height <- shiny::tags$script(shiny::HTML('$(".user-header").css("height", "145px")'));
+  }
+  
   # create user account menu
   userTag <- shiny::tagList(
     # menu toggle button
@@ -301,11 +318,12 @@ dashboardUser <- function(..., name = NULL, src = NULL, title = NULL,
       # user img in the menu
       shiny::tags$li(
         class = "user-header",
+        if(!is.null(user_header_height)) user_header_height,
         shiny::tags$img(src = src, class = "img-circle", alt = "User Image"),
-        shiny::tags$p(paste0(name, " - ", title), shiny::tags$small(subtitle))
+        user_text
       ),
       # menu body
-      shiny::tags$li(class = "user-body", ...),
+      if(length(list(...)) > 0) shiny::tags$li(class = "user-body", ...),
       # menu footer. Do not show if NULL
       if(!is.null(footer)) shiny::tags$li(class = "user-footer", footer)
     )
