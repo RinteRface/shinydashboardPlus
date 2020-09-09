@@ -95,7 +95,6 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
   )
   
   addDeps(
-    md = md,
     shiny::tags$body(
       # preloader, if any
       onload = if (enable_preloader) {
@@ -113,6 +112,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
       class = bodyCl,
       style = "min-height: 611px;",
       shiny::bootstrapPage(content, title = title)
-    )
+    ),
+    md = md
   )
 }
