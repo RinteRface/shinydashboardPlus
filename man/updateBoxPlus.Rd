@@ -75,7 +75,7 @@ if (interactive()) {
      collapsed <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
      visible <- if (input$mybox$visible) "visible" else "hidden"
      message <- paste("My box is", collapsed, "and", visible)
-     showNotification(message, type = "warning", duration = 1500)
+     showNotification(message, type = "warning", duration = 1)
    })
    
  }
