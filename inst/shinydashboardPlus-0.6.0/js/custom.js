@@ -6,13 +6,12 @@ $(function(){
     $(this).trigger("shown");
   });
   
+  // overwrite box animation speed. Putting 500 ms add unnecessary delay for Shiny.
+  $.AdminLTE.boxWidget.animationSpeed = 10;
   
   // This code creates an input binding for the boxPlus component
   var boxBinding = new Shiny.InputBinding();
-  $.extend(boxBinding, {
-    initialize: function(el) {
-      $(el).activateBox(); // box activation
-    },
+  $.extend(boxBinding, { 
     find: function(scope) {
       return $(scope).find('.box');
     },
@@ -34,19 +33,19 @@ $(function(){
         if ($(el).css('display') == 'none') {
           $(el).show();
         } else {
-          console.log("This box is already visible!");
+          console.warn("This box is already visible!");
         }
       } else if (value === "toggle") {
         if ($(el).css('display') !== 'none') {
           $(el).toggleBox();
         } else {
-          console.log("This box is not visible. It does not make sense to collapse it!");
+          console.warn("This box is not visible. It does not make sense to collapse it!");
         }
       } else {
         if ($(el).css('display') !== 'none') {
           $(el).removeBox();
         } else {
-          console.log("This box is not visible!");
+          console.warn("This box is not visible!");
         }
       }
     },
@@ -59,21 +58,21 @@ $(function(){
       $(el).on('click', '[data-widget="collapse"]', function(event) {
         setTimeout(function() {
           callback();
-        }, 550);
+        }, 50);
       });
       
       // handle manual click on remove button
       $(el).on('click', '[data-widget="remove"]', function(event) {
         setTimeout(function() {
           callback();
-        }, 550);
+        }, 50);
       });
 
       // handle change event triggered in the setValue method 
       $(el).on('change', function(event) {
         setTimeout(function() {
           callback();
-        }, 550);
+        }, 50);
       });
     },
     unsubscribe: function(el) {
