@@ -4,7 +4,7 @@
 
 ## New features
 - new `options` parameter to `dashboardPagePlus()`. See [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
-list of available options.
+list of available options
 - Toggle `boxPlus()` with `updateBoxPlus()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change

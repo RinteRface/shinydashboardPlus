@@ -24,7 +24,8 @@ Suggests:
     shinyEffects,
     shinyjqui,
     knitr,
-    rmarkdown
+    rmarkdown,
+    jsonlite
 URL: https://github.com/RinteRface/shinydashboardPlus, https://rinterface.com/shiny/shinydashboardPlus/
 BugReports: https://github.com/RinteRface/shinydashboardPlus/issues
 Encoding: UTF-8
