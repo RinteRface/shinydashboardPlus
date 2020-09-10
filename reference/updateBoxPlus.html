@@ -202,7 +202,7 @@
      <span class='kw'>collapsed</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='co'>else</span> <span class='st'>"uncollapsed"</span>
      <span class='kw'>visible</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>) <span class='st'>"visible"</span> <span class='co'>else</span> <span class='st'>"hidden"</span>
      <span class='kw'>message</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>collapsed</span>, <span class='st'>"and"</span>, <span class='kw'>visible</span>)
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='kw'>message</span>, type = <span class='st'>"warning"</span>, duration = <span class='fl'>1500</span>)
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='kw'>message</span>, type = <span class='st'>"warning"</span>, duration = <span class='fl'>1</span>)
    })
    
  }
