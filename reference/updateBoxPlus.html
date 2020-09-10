@@ -123,7 +123,11 @@
     <p>Collapse a <a href='boxPlus.html'>boxPlus</a> tag.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>updateBoxPlus</span>(<span class='kw'>inputId</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
+    <pre class="usage"><span class='fu'>updateBoxPlus</span>(
+  <span class='kw'>inputId</span>,
+  action = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"remove"</span>, <span class='st'>"toggle"</span>, <span class='st'>"restore"</span>),
+  session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>()
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -131,6 +135,10 @@
     <tr>
       <th>inputId</th>
       <td><p>Box to toggle.</p></td>
+    </tr>
+    <tr>
+      <th>action</th>
+      <td><p>Action to trigger: either collapse, remove or restore.</p></td>
     </tr>
     <tr>
       <th>session</th>
@@ -149,17 +157,21 @@
    <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(),
    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>style</span>(<span class='st'>"body { background-color: ghostwhite};"</span>),
-     
+     <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>style</span>(<span class='st'>"body { background-color: ghostwhite}"</span>),
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"toggle_box"</span>, <span class='st'>"Toggle Box"</span>),
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"remove_box"</span>, <span class='st'>"Remove Box"</span>, class = <span class='st'>"bg-danger"</span>),
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"restore_box"</span>, <span class='st'>"Restore Box"</span>, class = <span class='st'>"bg-success"</span>)
+     ),
      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
      <span class='fu'><a href='boxPlus.html'>boxPlus</a></span>(
        title = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"box_state"</span>),
        <span class='st'>"Box body"</span>,
        inputId = <span class='st'>"mybox"</span>,
        collapsible = <span class='fl'>TRUE</span>,
+       closable = <span class='fl'>TRUE</span>,
        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"plot"</span>)
-     ),
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"toggle_box"</span>, <span class='st'>"Toggle Box"</span>, class = <span class='st'>"bg-success"</span>)
+     )
    )
  )
  
@@ -175,7 +187,22 @@
    })
    
    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>toggle_box</span>, {
-     <span class='fu'>updateBoxPlus</span>(<span class='st'>"mybox"</span>)
+     <span class='fu'>updateBoxPlus</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"toggle"</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>remove_box</span>, {
+     <span class='fu'>updateBoxPlus</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"remove"</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>restore_box</span>, {
+     <span class='fu'>updateBoxPlus</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"restore"</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>, {
+     <span class='kw'>collapsed</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='co'>else</span> <span class='st'>"uncollapsed"</span>
+     <span class='kw'>visible</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>) <span class='st'>"visible"</span> <span class='co'>else</span> <span class='st'>"hidden"</span>
+     <span class='kw'>message</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>collapsed</span>, <span class='st'>"and"</span>, <span class='kw'>visible</span>)
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='kw'>message</span>, type = <span class='st'>"warning"</span>, duration = <span class='fl'>1500</span>)
    })
    
  }
