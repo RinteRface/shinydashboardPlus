@@ -137,8 +137,7 @@
   sidebar_fullCollapse = <span class='fl'>FALSE</span>,
   enable_preloader = <span class='fl'>FALSE</span>,
   loading_duration = <span class='fl'>2</span>,
-  md = <span class='fl'>FALSE</span>,
-  options = <span class='kw'>NULL</span>
+  md = <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -177,7 +176,7 @@ provided, it will try to extract the title from the
     </tr>
     <tr>
       <th>collapse_sidebar</th>
-      <td><p>Whether to collapse the left sidebar. FALSE by default.</p></td>
+      <td><p>Whether to collapse the left sidebar. TRUE by default.</p></td>
     </tr>
     <tr>
       <th>sidebar_background</th>
@@ -201,12 +200,6 @@ FALSE by default.</p></td>
       <th>md</th>
       <td><p>Whether to enable material design. Experimental...</p></td>
     </tr>
-    <tr>
-      <th>options</th>
-      <td><p>Extra option to overwrite the vanilla AdminLTE configuration. See 
-<a href='https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options'>https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options</a>.
-Expect a list.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -216,25 +209,23 @@ Expect a list.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
- 
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-   ui = <span class='fu'>dashboardPagePlus</span>(
-     collapse_sidebar = <span class='fl'>TRUE</span>,
-     options = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(sidebarExpandOnHover = <span class='fl'>TRUE</span>),
-     header = <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(
-      enable_rightsidebar = <span class='fl'>TRUE</span>,
-      rightSidebarIcon = <span class='st'>"gears"</span>
-     ),
-     sidebar = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
-     body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(),
-     rightsidebar = <span class='fu'><a href='rightSidebar.html'>rightSidebar</a></span>(),
-     title = <span class='st'>"DashboardPage"</span>
-   ),
-   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+
+<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'>dashboardPagePlus</span>(
+    header = <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(
+     enable_rightsidebar = <span class='fl'>TRUE</span>,
+     rightSidebarIcon = <span class='st'>"gears"</span>
+    ),
+    sidebar = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(),
+    rightsidebar = <span class='fu'><a href='rightSidebar.html'>rightSidebar</a></span>(),
+    title = <span class='st'>"DashboardPage"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
+)
 }
 </div></pre>
   </div>
