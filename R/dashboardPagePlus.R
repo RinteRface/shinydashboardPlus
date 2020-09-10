@@ -15,7 +15,7 @@
 #'   provided, it will try to extract the title from the
 #'   \code{dashboardHeaderPlus}.
 #' @param skin A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param collapse_sidebar Whether to collapse the left sidebar. TRUE by default.
+#' @param collapse_sidebar Whether to collapse the left sidebar. FALSE by default.
 #' @param sidebar_background Main sidebar background color: either "light" or
 #'   NULL. NULL by default.
 #' @param sidebar_fullCollapse Whether to fully collapse the sidebar as with shinydashboard.
@@ -23,28 +23,33 @@
 #' @param enable_preloader Whether to enable a page loader. FALSE by default.
 #' @param loading_duration Loader duration in seconds. 2s by default.
 #' @param md Whether to enable material design. Experimental...
+#' @param options Extra option to overwrite the vanilla AdminLTE configuration. See 
+#' \url{https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options}.
+#' Expect a list.
 #'
 #' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link[shinydashboard]{dashboardSidebar}},
 #'   \code{\link[shinydashboard]{dashboardBody}}.
 #' @examples
 #' if (interactive()) {
-#' library(shiny)
-#' library(shinydashboard)
-#' library(shinydashboardPlus)
-#' 
-#' shinyApp(
-#'   ui = dashboardPagePlus(
-#'     header = dashboardHeaderPlus(
-#'      enable_rightsidebar = TRUE,
-#'      rightSidebarIcon = "gears"
-#'     ),
-#'     sidebar = dashboardSidebar(),
-#'     body = dashboardBody(),
-#'     rightsidebar = rightSidebar(),
-#'     title = "DashboardPage"
-#'   ),
-#'   server = function(input, output) { }
-#' )
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      collapse_sidebar = TRUE,
+#'      options = list(sidebarExpandOnHover = TRUE),
+#'      header = dashboardHeaderPlus(
+#'       enable_rightsidebar = TRUE,
+#'       rightSidebarIcon = "gears"
+#'      ),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(),
+#'      rightsidebar = rightSidebar(),
+#'      title = "DashboardPage"
+#'    ),
+#'    server = function(input, output) { }
+#'  )
 #' }
 #' @export
 dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer = NULL, title = NULL,
@@ -53,7 +58,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
                                        "red","red-light", "yellow","yellow-light", "midnight"),
                               collapse_sidebar = FALSE, sidebar_background = NULL,
                               sidebar_fullCollapse = FALSE, enable_preloader = FALSE, loading_duration = 2,
-                              md = FALSE) {
+                              md = FALSE, options = NULL) {
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
@@ -113,6 +118,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
       style = "min-height: 611px;",
       shiny::bootstrapPage(content, title = title)
     ),
-    md = md
+    md = md,
+    options = options
   )
 }

@@ -18,7 +18,8 @@ dashboardPagePlus(
   sidebar_fullCollapse = FALSE,
   enable_preloader = FALSE,
   loading_duration = 2,
-  md = FALSE
+  md = FALSE,
+  options = NULL
 )
 }
 \arguments{
@@ -39,7 +40,7 @@ provided, it will try to extract the title from the
 
 \item{skin}{A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
-\item{collapse_sidebar}{Whether to collapse the left sidebar. TRUE by default.}
+\item{collapse_sidebar}{Whether to collapse the left sidebar. FALSE by default.}
 
 \item{sidebar_background}{Main sidebar background color: either "light" or
 NULL. NULL by default.}
@@ -52,29 +53,35 @@ FALSE by default.}
 \item{loading_duration}{Loader duration in seconds. 2s by default.}
 
 \item{md}{Whether to enable material design. Experimental...}
+
+\item{options}{Extra option to overwrite the vanilla AdminLTE configuration. See 
+\url{https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options}.
+Expect a list.}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.
 }
 \examples{
 if (interactive()) {
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-
-shinyApp(
-  ui = dashboardPagePlus(
-    header = dashboardHeaderPlus(
-     enable_rightsidebar = TRUE,
-     rightSidebarIcon = "gears"
-    ),
-    sidebar = dashboardSidebar(),
-    body = dashboardBody(),
-    rightsidebar = rightSidebar(),
-    title = "DashboardPage"
-  ),
-  server = function(input, output) { }
-)
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+   ui = dashboardPagePlus(
+     collapse_sidebar = TRUE,
+     options = list(sidebarExpandOnHover = TRUE),
+     header = dashboardHeaderPlus(
+      enable_rightsidebar = TRUE,
+      rightSidebarIcon = "gears"
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     rightsidebar = rightSidebar(),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+ )
 }
 }
 \seealso{

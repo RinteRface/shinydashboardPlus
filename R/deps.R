@@ -1,5 +1,5 @@
 # Add dashboard dependencies to a tag object
-addDeps <- function(tag, md) {
+addDeps <- function(tag, md, options) {
   
   # always use minified files (https://www.minifier.org)
   adminLTE_js <- "js/app.min.js"
@@ -21,6 +21,23 @@ addDeps <- function(tag, md) {
   }
   
   dashboardDeps <- list(
+    # additional options (this needs to be loaded before shinydashboardPlus deps)
+    htmltools::htmlDependency(
+      "options",
+      as.character(utils::packageVersion("shinydashboardPlus")),
+      src = c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
+      head = if (!is.null(options)) {
+        paste0(
+          "<script>var AdminLTEOptions = ", 
+          jsonlite::toJSON(
+            options, 
+            auto_unbox = TRUE,
+            pretty = TRUE
+          ),
+          ";</script>"
+        )
+      }
+    ),
     # custom adminLTE js and css for shinydashboardPlus
     htmltools::htmlDependency(
       "shinydashboardPlus",
