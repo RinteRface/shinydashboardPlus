@@ -3,7 +3,7 @@
 ## Breaking changes
 
 ## New features
-- Toggle `boxPlus()` with `updateBoxPlus()`
+- Toggle `boxPlus()` with `updateBoxPlus()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
 - Simplified dependencies code (No end-user impact)

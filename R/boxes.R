@@ -733,6 +733,7 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
 #' Collapse a \link{boxPlus} tag.
 #'
 #' @param inputId Box to toggle.
+#' @param action Action to trigger: either collapse, remove or restore.
 #' @param session Shiny session object.
 #' @export
 #'
@@ -746,17 +747,21 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
 #'    dashboardHeaderPlus(),
 #'    dashboardSidebar(),
 #'    dashboardBody(
-#'      tags$style("body { background-color: ghostwhite};"),
-#'      
+#'      tags$style("body { background-color: ghostwhite}"),
+#'      fluidRow(
+#'        actionButton("toggle_box", "Toggle Box"),
+#'        actionButton("remove_box", "Remove Box", class = "bg-danger"),
+#'        actionButton("restore_box", "Restore Box", class = "bg-success")
+#'      ),
 #'      br(),
 #'      boxPlus(
 #'        title = textOutput("box_state"),
 #'        "Box body",
 #'        inputId = "mybox",
 #'        collapsible = TRUE,
+#'        closable = TRUE,
 #'        plotOutput("plot")
-#'      ),
-#'      actionButton("toggle_box", "Toggle Box", class = "bg-success")
+#'      )
 #'    )
 #'  )
 #'  
@@ -772,15 +777,31 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
 #'    })
 #'    
 #'    observeEvent(input$toggle_box, {
-#'      updateBoxPlus("mybox")
+#'      updateBoxPlus("mybox", action = "toggle")
+#'    })
+#'    
+#'    observeEvent(input$remove_box, {
+#'      updateBoxPlus("mybox", action = "remove")
+#'    })
+#'    
+#'    observeEvent(input$restore_box, {
+#'      updateBoxPlus("mybox", action = "restore")
+#'    })
+#'    
+#'    observeEvent(input$mybox$visible, {
+#'      collapsed <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
+#'      visible <- if (input$mybox$visible) "visible" else "hidden"
+#'      message <- paste("My box is", collapsed, "and", visible)
+#'      showNotification(message, type = "warning", duration = 1500)
 #'    })
 #'    
 #'  }
 #'  
 #'  shinyApp(ui, server)
 #' }
-updateBoxPlus <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
-  session$sendInputMessage(inputId, message = NULL)
+updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"), 
+                          session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(inputId, message = match.arg(action))
 }
 
 

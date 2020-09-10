@@ -7,7 +7,7 @@
 renderUser(expr, env = parent.frame(), quoted = FALSE, outputArgs = list())
 }
 \arguments{
-\item{expr}{An expression that returns a Shiny tag object, \code{\link[shiny:HTML]{HTML()}},
+\item{expr}{An expression that returns a Shiny tag object, \code{\link[shiny:reexports]{HTML()}},
 or a list of such objects.}
 
 \item{env}{The environment in which to evaluate \code{expr}.}
