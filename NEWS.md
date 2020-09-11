@@ -11,7 +11,8 @@ list of available options
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
-
+- Fix #85: controlbar should also trigger a window resize, like the left
+shinydashboard sidebar. Thanks @ajfisher83 
 
 # shinydashboardPlus 0.7.5
 

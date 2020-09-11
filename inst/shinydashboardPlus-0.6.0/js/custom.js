@@ -8,4 +8,16 @@ $(function(){
   
   // overwrite box animation speed. Putting 500 ms add unnecessary delay for Shiny.
   $.AdminLTE.boxWidget.animationSpeed = 10;
+  
+  
+  var controlbarChange = function() {
+    // 1) Trigger the resize event (so images are responsive and resize)
+    $(window).trigger("resize");
+  };
+  
+  // Whenever the right sidebar (controlbar) finishes a transition (which it does every time it
+  // changes from collapsed to expanded and vice versa), call controlbarChange()
+  $(".control-sidebar").on(
+  'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+    controlbarChange);
 });
