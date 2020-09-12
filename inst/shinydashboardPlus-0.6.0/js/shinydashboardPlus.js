@@ -182,8 +182,7 @@ $(function() {
   if (disableControlbar === "false") {
     $("[data-toggle='control-sidebar']").hide();
   }
-  
-  
+
   
   var controlbarChange = function() {
     // 1) Trigger the resize event (so images are responsive and resize)
@@ -483,7 +482,7 @@ $(function() {
       return $(boxWrapper).hasClass("direct-chat-contacts-open");
     },
     
-    // see updatebs4Card
+    // see updateBoxSidebar
     receiveMessage: function(el, data) {
       $(el).trigger('click');
       $(el).trigger("shown");
@@ -520,17 +519,26 @@ $(function() {
   var controlbarBinding = new Shiny.InputBinding();
   
   $.extend(controlbarBinding, {
-  
+    initialize: function(el) {
+      // this step is to overwrite global adminLTE options
+      // to set the controlbar slide value
+      var overlay = ($(el).attr('data-overlay') === "true");
+      $.AdminLTE.options.controlSidebarOptions.slide = overlay;
+    },
     find: function(scope) {
+      // we need to re-activate the controlbar to consider the new options
+      $.AdminLTE.controlSidebar.activate();
       return $(scope).find(".control-sidebar");
     },
   
     // Given the DOM element for the input, return the value
     getValue: function(el) {
-      return $("body").hasClass("control-sidebar-open");
+      // this depends on the overlay value. If overlay, the sidebar will have the class.
+      // If overlay is false, the body will have the class.
+      return $("body").hasClass("control-sidebar-open") || $(el).hasClass("control-sidebar-open");
     },
   
-    // see updatebs4Controlbar
+    // see updateControlbar
     receiveMessage: function(el, data) {
       $("[data-toggle='control-sidebar']").click();
     },
