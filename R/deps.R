@@ -5,6 +5,7 @@ addDeps <- function(tag, md, options) {
   adminLTE_js <- "js/app.min.js"
   custom_js <- "js/custom.js"
   bindings_js <- "js/bindings.js"
+  sidebar_js <- "js/sidebar.js"
   shinydashboard_js <- "shinydashboard.js"
   adminLTE_css <- c("css/AdminLTE.min.css", "css/_all-skins.min.css")
   
@@ -44,7 +45,7 @@ addDeps <- function(tag, md, options) {
       "shinydashboardPlus",
       as.character(utils::packageVersion("shinydashboardPlus")),
       c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
-      script = c(bindings_js, adminLTE_js, custom_js),
+      script = c(bindings_js, adminLTE_js, custom_js, sidebar_js),
       stylesheet = adminLTE_css
     ),
     # shinydashboard css and js deps

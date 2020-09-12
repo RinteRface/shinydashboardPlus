@@ -55,7 +55,7 @@
 #'  )
 #' }
 #' @export
-rightSidebar <- function(..., background = "dark", width = 230, .items = NULL) {
+dashboardControlbar <- function(..., background = "dark", width = 230, .items = NULL) {
   
   panels <- list(...)
   

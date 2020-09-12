@@ -1,27 +1,21 @@
 #' Dashboard Page with a right sidebar
 #'
 #' This creates a dashboard page for use in a Shiny app.
-#' 
-#' @importFrom shinydashboard dashboardSidebar
-#' @importFrom shinydashboard dashboardBody
 #'
 #' @param header A header created by \code{dashboardHeaderPlus}.
-#' @param sidebar A sidebar created by \code{\link[shinydashboard]{dashboardSidebar}}.
+#' @param sidebar A sidebar created by \code{\link[shinydashboard]{dashboardSidebar}} or 
+#' \code{\link{dashboardSidebarPlus}}.
 #' @param body A body created by \code{\link[shinydashboard]{dashboardBody}}.
-#' @param rightsidebar A right sidebar created by \code{rightSidebar}. NULL by
+#' @param controlbar A right sidebar created by \link{dashboardControlbar}. NULL by
 #'   default.
-#' @param footer A footer created by \code{dashboardFooter}.
+#' @param footer A footer created by \link{dashboardFooter}.
 #' @param title A title to display in the browser's title bar. If no value is
 #'   provided, it will try to extract the title from the
 #'   \code{dashboardHeaderPlus}.
 #' @param skin A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param collapse_sidebar Whether to collapse the left sidebar. FALSE by default.
-#' @param sidebar_background Main sidebar background color: either "light" or
-#'   NULL. NULL by default.
-#' @param sidebar_fullCollapse Whether to fully collapse the sidebar as with shinydashboard.
-#' FALSE by default.
-#' @param enable_preloader Whether to enable a page loader. FALSE by default.
-#' @param loading_duration Loader duration in seconds. 2s by default.
+#' If the skin is light, the sidebar will have a light background.
+#' @param preloader Whether to enable a page loader. FALSE by default.
+#' @param duration Loader duration in seconds. 2s by default.
 #' @param md Whether to enable material design. Experimental...
 #' @param options Extra option to overwrite the vanilla AdminLTE configuration. See 
 #' \url{https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options}.
@@ -52,27 +46,25 @@
 #'  )
 #' }
 #' @export
-dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer = NULL, title = NULL,
+dashboardPagePlus <- function(header, sidebar, body, controlbar = NULL, footer = NULL, title = NULL,
                               skin = c("blue", "blue-light","black","black-light", 
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light", "midnight"),
-                              collapse_sidebar = FALSE, sidebar_background = NULL,
-                              sidebar_fullCollapse = FALSE, enable_preloader = FALSE, loading_duration = 2,
+                              preloader = FALSE, duration = 2,
                               md = FALSE, options = NULL) {
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
   tagAssert(body, type = "div", class = "content-wrapper")
-  # tagAssert(footer, type = "footer", class = "main-footer")
-  # tagAssert(controlbar, type = "aside", class = "control-sidebar")
+  if (!is.null(footer)) {
+    tagAssert(footer, type = "footer", class = "main-footer")
+  } 
+  if (!is.null(controlbar)) {
+    tagAssert(controlbar, type = "aside", class = "control-sidebar")
+  }
   skin <- match.arg(skin)
   
-  bodyCl <- paste0(
-    "hold-transition skin-", 
-    skin, 
-    if (!is.null(sidebar_background)) paste0("-", sidebar_background))
-  if (!sidebar_fullCollapse) bodyCl <- paste0(bodyCl, " sidebar-mini")
-  if (collapse_sidebar) bodyCl <- paste0(bodyCl, " sidebar-collapse")
+  bodyCl <- paste0("hold-transition skin-", skin)
   
   extractTitle <- function(header) {
     x <- header$children[[1]]
@@ -93,17 +85,17 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
     class = "wrapper",
     header, 
     sidebar, 
-    if (enable_preloader) preloader(),
+    if (preloader) preloader(),
     body, 
     footer,
-    rightsidebar
+    controlbar
   )
   
   addDeps(
     shiny::tags$body(
       # preloader, if any
-      onload = if (enable_preloader) {
-        duration <- loading_duration * 1000
+      onload = if (preloader) {
+        duration <- duration * 1000
         paste0(
           "$(document).ready(function() {
             setTimeout(function(){
@@ -115,6 +107,7 @@ dashboardPagePlus <- function(header, sidebar, body, rightsidebar = NULL, footer
         )
       },
       class = bodyCl,
+      `data-skin` = skin,
       style = "min-height: 611px;",
       shiny::bootstrapPage(content, title = title)
     ),

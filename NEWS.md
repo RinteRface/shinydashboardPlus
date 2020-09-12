@@ -1,16 +1,20 @@
 # shinydashboardPlus 0.8.0.9000
 
 ## Breaking changes
-- remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
-- remove dropdownIcon parameter from `boxPlus()`. It is now part of the `dropdownItemList()`
-- remove all label params from `boxPlus()`. This is to reduce the number of parameters of cards. Now part of `boxPlusLabel()`
+- Remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
+- remove _dropdownIcon_ parameter from `boxPlus()`. It is now part of the `dropdownItemList()`
+- Remove all label params from `boxPlus()`. This is to reduce the number of parameters of cards. Now part of `boxPlusLabel()`
 - _footer_padding_ becomes _footerPadding_ in `boxPlus()`, `gradientBox()`, `widgetUserBox()` and `socialBox()` to be consistent with the style (camelCase) ...
 - In `dropdownItemList()` _icon_ must be provided as `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
 - Replace _left_text_ and _right_text_ by _left_ and _right_, respectively in `dashboardFooter()`
+- Remove all sidebar related parameters of `dashboardPagePlus()`. They now belong to `dashboardSidebarPlus()` to Align with {shinydashboard}
+- In `dashboardSidebarPlus()`: replace _rightSidebar_ by _controlbar_ (align with {bs4Dash}). Rename _enable_preloader_ to _preloader_ and _loading_duration_ to _duration_
+- Rename `rightSidebar()` to `dashboardControlbar` to align with {bs4Dash}
 
 ## New features
-- new `boxPlusLabel()` to add text labels in `boxPlus()`
-- new `boxPlusSidebar()`: access the status via input$id. Add `updateBoxPlusSidebar()` to toggle the box sidebar
+- New `dashboardSidebarPlus()`
+- New `boxPlusLabel()` to add text labels in `boxPlus()`
+- New `boxPlusSidebar()`: access the status via input$id. Add `updateBoxPlusSidebar()` to toggle the box sidebar
 - new `options` parameter to `dashboardPagePlus()`. See [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
 list of available options
 - Toggle `boxPlus()` with `updateBoxPlus()` (see #10 and #69, @happyshows and @daatali)
