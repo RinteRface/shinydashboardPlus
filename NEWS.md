@@ -12,6 +12,7 @@
 - Rename `rightSidebar()` to `dashboardControlbar` to align with {bs4Dash}
 
 ## New features
+- Add _inputId_ to `dashboardSidebarPlus()` to be able to use `updateSidebar()`
 - New `dashboardSidebarPlus()`
 - New `boxPlusLabel()` to add text labels in `boxPlus()`
 - New `boxPlusSidebar()`: access the status via input$id. Add `updateBoxPlusSidebar()` to toggle the box sidebar

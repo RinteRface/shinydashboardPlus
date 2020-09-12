@@ -6,6 +6,7 @@
 \usage{
 dashboardSidebarPlus(
   ...,
+  inputId = NULL,
   disable = FALSE,
   width = NULL,
   collapsed = FALSE,
@@ -14,6 +15,8 @@ dashboardSidebarPlus(
 }
 \arguments{
 \item{...}{Items to put in the sidebar.}
+
+\item{inputId}{Sidebar input id. Returns the current state of the sidebar.}
 
 \item{disable}{If \code{TRUE}, the sidebar will be disabled.}
 

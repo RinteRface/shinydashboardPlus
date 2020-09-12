@@ -4,6 +4,7 @@
 #' it may also contain a \code{\link{sidebarSearchForm}}, or other Shiny inputs.
 #'
 #' @param ... Items to put in the sidebar.
+#' @param inputId Sidebar input id. Returns the current state of the sidebar.
 #' @param disable If \code{TRUE}, the sidebar will be disabled.
 #' @param width The width of the sidebar. This must either be a number which
 #'   specifies the width in pixels, or a string that specifies the width in CSS
@@ -12,7 +13,7 @@
 #' @param minified Whether to slightly close the sidebar but still show item icons. Default
 #' to FALSE.
 #' @export
-dashboardSidebarPlus <- function(..., disable = FALSE, width = NULL, collapsed = FALSE,
+dashboardSidebarPlus <- function(..., inputId = NULL, disable = FALSE, width = NULL, collapsed = FALSE,
                              minified = FALSE) {
   width <- shiny::validateCssUnit(width)
   
@@ -73,7 +74,7 @@ dashboardSidebarPlus <- function(..., disable = FALSE, width = NULL, collapsed =
   # If we're restoring a bookmarked app, this holds the value of whether or not the
   # sidebar was collapsed. If this is not the case, the default is whatever the user
   # specified in the `collapsed` argument.
-  dataValue <- shiny::restoreInput(id = "sidebarCollapsed", default = collapsed)
+  dataValue <- shiny::restoreInput(id = inputId, default = collapsed)
   if (disable) dataValue <- TRUE # this is a workaround to fix #209
   dataValueString <- if (dataValue) "true" else "false"
   
@@ -83,7 +84,7 @@ dashboardSidebarPlus <- function(..., disable = FALSE, width = NULL, collapsed =
   # just passed through (as the `data-collapsed` attribute) to the
   # `dashboardPage()` function
   shiny::tags$aside(
-    id = "sidebarCollapsed",
+    id = inputId,
     class = "main-sidebar", 
     `data-minified` = if (minified) "true" else "false", 
     `data-collapsed` = dataValueString, 
@@ -95,4 +96,54 @@ dashboardSidebarPlus <- function(..., disable = FALSE, width = NULL, collapsed =
       list(...)
     )
   )
+}
+
+
+
+
+#' Function to programmatically toggle the state of the sidebar
+#'
+#' @param inputId Sidebar id.
+#' @param session Shiny session object.
+#' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      header = dashboardHeaderPlus(),
+#'      sidebar = dashboardSidebarPlus(inputId = "sidebar"),
+#'      body = dashboardBody(
+#'        actionButton(inputId = "sidebarToggle", label = "Toggle Sidebar")
+#'      )
+#'    ),
+#'    server = function(input, output, session) {
+#'      
+#'      observeEvent(input$sidebar, {
+#'        if (input$sidebar) {
+#'          showModal(modalDialog(
+#'            title = "Alert",
+#'            "The sidebar is opened.",
+#'            easyClose = TRUE,
+#'            footer = NULL
+#'          ))
+#'        }
+#'      })
+#'      
+#'      observeEvent(input$sidebarToggle, {
+#'        updateSidebar(inputId = "sidebar")
+#'      })
+#'      
+#'      observe({
+#'        print(input$sidebar)
+#'      })
+#'    }
+#'  )
+#' }
+updateSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
+  message <- list(value = !session$input[[inputId]])
+  session$sendInputMessage(inputId, message)
 }
