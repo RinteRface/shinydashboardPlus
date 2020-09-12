@@ -14,7 +14,7 @@
 _controlbarIcon_ that accepts `shiny::icon` instead of a simple string containing the icon name to be consistent with {shinydashboard}. _left_menu_ becomes _leftUi_ like in {bs4Dash}
 
 ## New features
-- Add `updateControlbar()`
+- Add _inputId_ to `dashboardControlbar()` to be able to use `updateControlbar()`
 - Add _inputId_ to `dashboardSidebarPlus()` to be able to use `updateSidebar()`
 - New `dashboardSidebarPlus()`
 - New `boxPlusLabel()` to add text labels in `boxPlus()`
