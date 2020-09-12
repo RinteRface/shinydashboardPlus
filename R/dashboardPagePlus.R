@@ -31,15 +31,11 @@
 #'  
 #'  shinyApp(
 #'    ui = dashboardPagePlus(
-#'      collapse_sidebar = TRUE,
 #'      options = list(sidebarExpandOnHover = TRUE),
-#'      header = dashboardHeaderPlus(
-#'       enable_rightsidebar = TRUE,
-#'       rightSidebarIcon = "gears"
-#'      ),
+#'      header = dashboardHeaderPlus(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(),
-#'      rightsidebar = rightSidebar(),
+#'      controlbar = dashboardControlbar(),
 #'      title = "DashboardPage"
 #'    ),
 #'    server = function(input, output) { }
