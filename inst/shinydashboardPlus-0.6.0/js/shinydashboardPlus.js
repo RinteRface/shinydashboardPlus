@@ -173,7 +173,7 @@ $(function() {
   // hide the right sidebar toggle 
   // if no right sidebar is specified
   var noControlbar = ($(".control-sidebar").length === 0);
-  if (noControlbar === "true") {
+  if (noControlbar) {
     $("[data-toggle='control-sidebar']").hide();
   }
   
