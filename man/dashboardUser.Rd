@@ -41,7 +41,7 @@ if (interactive()) {
     header = dashboardHeaderPlus(
       enable_rightsidebar = TRUE,
       rightSidebarIcon = "gears",
-      left_menu = NULL,
+      leftUi = NULL,
       userOutput("user")
     ),
     sidebar = dashboardSidebar(),

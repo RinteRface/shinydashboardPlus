@@ -10,8 +10,11 @@
 - Remove all sidebar related parameters of `dashboardPagePlus()`. They now belong to `dashboardSidebarPlus()` to Align with {shinydashboard}
 - In `dashboardSidebarPlus()`: replace _rightSidebar_ by _controlbar_ (align with {bs4Dash}). Rename _enable_preloader_ to _preloader_ and _loading_duration_ to _duration_
 - Rename `rightSidebar()` to `dashboardControlbar` to align with {bs4Dash}
+- Remove _enable_rightSidebar_ from `dashboardHeaderPlus()`. This is now part of `dashboardControlbar()` as _disable_ like in {shinydashboard}. _rightSidebarIcon_ becomes
+_controlbarIcon_ that accepts `shiny::icon` instead of a simple string containing the icon name to be consistent with {shinydashboard}. _left_menu_ becomes _leftUi_ like in {bs4Dash}
 
 ## New features
+- Add `updateControlbar()`
 - Add _inputId_ to `dashboardSidebarPlus()` to be able to use `updateSidebar()`
 - New `dashboardSidebarPlus()`
 - New `boxPlusLabel()` to add text labels in `boxPlus()`
@@ -27,6 +30,10 @@ list of available options
 - Fix #86: controlbar should also trigger a window resize, like the left
 shinydashboard sidebar. Thanks @ajfisher83 
 - Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `boxPlus()`...
+
+
+
+
 
 # shinydashboardPlus 0.7.5
 

@@ -3,7 +3,12 @@
 #' This creates a right sidebar.
 #' 
 #' @param ... slot for rightSidebarTabContent. Not compatible with .items.
-#' @param background background color: "dark" or "light".
+#' @param inputId To acces the current state of the controlbar. Open is TRUE, closed
+#' is FALSE. NULL by default.
+#' @param skin background color: "dark" or "light".
+#' @param disable If \code{TRUE}, the sidebar will be disabled.
+#' @param collapsed Whether the control bar on the right side is collapsed or not at start. TRUE by default.
+#' @param overlay Whether the sidebar covers the content when expanded. Default to TRUE.
 #' @param width Sidebar width in pixels. Numeric value expected. 230 by default.
 #' @param .items Pass element here if you do not want to embed them in panels. Not compatible with ...
 #' 
@@ -24,8 +29,8 @@
 #'      ),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(),
-#'      rightsidebar = rightSidebar(
-#'       background = "dark",
+#'      controlbar = dashboardControlbar(
+#'       skin = "dark",
 #'        rightSidebarTabContent(
 #'         id = 1,
 #'         icon = "desktop",
@@ -55,14 +60,21 @@
 #'  )
 #' }
 #' @export
-dashboardControlbar <- function(..., background = "dark", width = 230, .items = NULL) {
+dashboardControlbar <- function(..., inputId = NULL, skin = "dark", 
+                                disable = FALSE, collapsed = TRUE, overlay = TRUE, 
+                                width = 230, .items = NULL) {
   
   panels <- list(...)
   
-  sidebarTag <- shiny::tags$div(
-    id = "controlbar",
+  if (is.null(inputId)) inputId <- "controlbarId"
+  
+  controlbarTag <- shiny::tagList(
     shiny::tags$aside(
-      class = paste0("control-sidebar control-sidebar-", background),
+      id = inputId,
+      `data-collapsed` = if (collapsed) "true" else "false",
+      `data-overlay` = if (overlay) "true" else "false",
+      `data-show` = if (disable) "false" else "true",
+      class = paste0("control-sidebar control-sidebar-", skin),
       style = paste0("width: ", width, "px;"),
       # automatically create the tab menu
       if (length(panels) > 0) rightSidebarTabList(rigthSidebarPanel(...)),
@@ -76,11 +88,6 @@ dashboardControlbar <- function(..., background = "dark", width = 230, .items = 
   shiny::tagList(
     shiny::singleton(
       shiny::tags$head(
-        # Will be usefull to fix issue #4 on github
-        # shiny::includeScript(
-        #   system.file(file.path("js", "rightSidebar.js"), package = "shinydashboardPlus")
-        # ),
-        
         # custom css to correctly handle the width of the rightSidebar
         shiny::tags$style(
           shiny::HTML(
@@ -100,9 +107,60 @@ dashboardControlbar <- function(..., background = "dark", width = 230, .items = 
         )
       )
     ),
-    sidebarTag
+    controlbarTag
   )
 }
+
+
+
+
+#' Function to programmatically toggle the state of the controlbar
+#'
+#' @param inputId Controlbar id.
+#' @param session Shiny session object.
+#' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      header = dashboardHeaderPlus(),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(
+#'        actionButton(inputId = "controlbarToggle", label = "Toggle Controlbar")
+#'      ),
+#'      controlbar = dashboardControlbar(inputId = "controlbar")
+#'    ),
+#'    server = function(input, output, session) {
+#'      
+#'      observeEvent(input$controlbar, {
+#'        if (input$controlbar) {
+#'          showModal(modalDialog(
+#'            title = "Alert",
+#'            "The controlbar is opened.",
+#'            easyClose = TRUE,
+#'            footer = NULL
+#'          ))
+#'        }
+#'      })
+#'      
+#'      observeEvent(input$controlbarToggle, {
+#'        updateControlbar(inputId = "controlbar")
+#'      })
+#'      
+#'      observe({
+#'        print(input$controlbar)
+#'      })
+#'    }
+#'  )
+#' }
+updateControlbar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(inputId, NULL)
+}
+
 
 
 

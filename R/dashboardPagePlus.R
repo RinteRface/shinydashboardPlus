@@ -60,7 +60,8 @@ dashboardPagePlus <- function(header, sidebar, body, controlbar = NULL, footer =
     tagAssert(footer, type = "footer", class = "main-footer")
   } 
   if (!is.null(controlbar)) {
-    tagAssert(controlbar, type = "aside", class = "control-sidebar")
+    tagAssert(controlbar[[2]][[1]], type = "aside", class = "control-sidebar")
+    tagAssert(controlbar[[2]][[2]], type = "div", class = "control-sidebar-bg")
   }
   skin <- match.arg(skin)
   

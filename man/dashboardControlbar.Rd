@@ -4,12 +4,30 @@
 \alias{dashboardControlbar}
 \title{AdminLTE2 dashboard right sidebar}
 \usage{
-dashboardControlbar(..., background = "dark", width = 230, .items = NULL)
+dashboardControlbar(
+  ...,
+  inputId = NULL,
+  skin = "dark",
+  disable = FALSE,
+  collapsed = TRUE,
+  overlay = TRUE,
+  width = 230,
+  .items = NULL
+)
 }
 \arguments{
 \item{...}{slot for rightSidebarTabContent. Not compatible with .items.}
 
-\item{background}{background color: "dark" or "light".}
+\item{inputId}{To acces the current state of the controlbar. Open is TRUE, closed
+is FALSE. NULL by default.}
+
+\item{skin}{background color: "dark" or "light".}
+
+\item{disable}{If \code{TRUE}, the sidebar will be disabled.}
+
+\item{collapsed}{Whether the control bar on the right side is collapsed or not at start. TRUE by default.}
+
+\item{overlay}{Whether the sidebar covers the content when expanded. Default to TRUE.}
 
 \item{width}{Sidebar width in pixels. Numeric value expected. 230 by default.}
 
@@ -34,8 +52,8 @@ if (interactive()) {
      ),
      sidebar = dashboardSidebar(),
      body = dashboardBody(),
-     rightsidebar = rightSidebar(
-      background = "dark",
+     controlbar = dashboardControlbar(
+      skin = "dark",
        rightSidebarTabContent(
         id = 1,
         icon = "desktop",

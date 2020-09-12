@@ -17,10 +17,9 @@
 #' @param .list An optional list containing items to put in the header. Same as
 #'   the \code{...} arguments, but in list format. This can be useful when
 #'   working with programmatically generated items.
-#' @param left_menu Items that will appear on the left part of the navbar. Should
+#' @param leftUi Items that will appear on the left part of the navbar. Should
 #' be wrapped in a tagList.
-#' @param enable_rightsidebar Whether to enable the right sidebar. FALSE by default.
-#' @param rightSidebarIcon Customize the trigger icon of the right sidebar.
+#' @param controlbarIcon Customize the trigger icon of the right sidebar.
 #' @param fixed Whether the navbar is fixed-top or not. FALSE by default.
 #'
 #' @seealso \code{\link[shinydashboard]{dropdownMenu}}
@@ -39,9 +38,8 @@
 #'  shinyApp(
 #'   ui = dashboardPagePlus(
 #'     header = dashboardHeaderPlus(
-#'       enable_rightsidebar = TRUE,
-#'       rightSidebarIcon = "gears",
-#'       left_menu = tagList(
+#'       controlbarIcon = "gears",
+#'       leftUi = tagList(
 #'         dropdownBlock(
 #'           id = "mydropdown",
 #'           title = "Dropdown 1",
@@ -100,17 +98,16 @@
 #' }
 #' @export
 dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL, 
-                                disable = FALSE, .list = NULL, left_menu = NULL,
-                                enable_rightsidebar = FALSE,
-                                rightSidebarIcon = "gears", fixed = FALSE) {
+                                disable = FALSE, .list = NULL, leftUi = NULL,
+                                controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
   # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
   
   # handle left menu items
-  if (!is.null(left_menu)) {
-    left_menu_items <- lapply(1:length(left_menu), FUN = function(i) {
-      left_menu_item <- left_menu[[i]]
+  if (!is.null(leftUi)) {
+    left_menu_items <- lapply(seq_along(leftUi), FUN = function(i) {
+      left_menu_item <- leftUi[[i]]
       name <- left_menu_item$name
       class <- left_menu_item$attribs$class
       
@@ -130,7 +127,7 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
     })
     # when left_menu is null, left_menu_items are also NULL 
   } else {
-    left_menu_items <- left_menu
+    left_menu_items <- leftUi
   }
   
   titleWidth <- shiny::validateCssUnit(titleWidth)
@@ -200,15 +197,13 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
           class = "nav navbar-nav",
           items,
           # right sidebar
-          if (isTRUE(enable_rightsidebar)) {
-            shiny::tags$li(
-              shiny::tags$a(
-                href = "#", 
-                `data-toggle` = "control-sidebar", 
-                shiny::icon(rightSidebarIcon)
-              )
+          shiny::tags$li(
+            shiny::tags$a(
+              href = "#", 
+              `data-toggle` = "control-sidebar", 
+              controlbarIcon
             )
-          }
+          )
         )
       )
     )
@@ -242,7 +237,7 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
 #'     header = dashboardHeaderPlus(
 #'       enable_rightsidebar = TRUE,
 #'       rightSidebarIcon = "gears",
-#'       left_menu = NULL,
+#'       leftUi = NULL,
 #'       userOutput("user")
 #'     ),
 #'     sidebar = dashboardSidebar(),

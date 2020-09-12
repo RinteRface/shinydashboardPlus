@@ -10,9 +10,8 @@ dashboardHeaderPlus(
   titleWidth = NULL,
   disable = FALSE,
   .list = NULL,
-  left_menu = NULL,
-  enable_rightsidebar = FALSE,
-  rightSidebarIcon = "gears",
+  leftUi = NULL,
+  controlbarIcon = shiny::icon("gears"),
   fixed = FALSE
 )
 }
@@ -34,12 +33,10 @@ in CSS units.}
 the \code{...} arguments, but in list format. This can be useful when
 working with programmatically generated items.}
 
-\item{left_menu}{Items that will appear on the left part of the navbar. Should
+\item{leftUi}{Items that will appear on the left part of the navbar. Should
 be wrapped in a tagList.}
 
-\item{enable_rightsidebar}{Whether to enable the right sidebar. FALSE by default.}
-
-\item{rightSidebarIcon}{Customize the trigger icon of the right sidebar.}
+\item{controlbarIcon}{Customize the trigger icon of the right sidebar.}
 
 \item{fixed}{Whether the navbar is fixed-top or not. FALSE by default.}
 }
@@ -62,9 +59,8 @@ if (interactive()) {
  shinyApp(
   ui = dashboardPagePlus(
     header = dashboardHeaderPlus(
-      enable_rightsidebar = TRUE,
-      rightSidebarIcon = "gears",
-      left_menu = tagList(
+      controlbarIcon = "gears",
+      leftUi = tagList(
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",

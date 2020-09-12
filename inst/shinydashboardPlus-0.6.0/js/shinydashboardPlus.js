@@ -163,6 +163,28 @@ $(function() {
 
   //---------------------------------------------------------------------
   // Source file: ../srcjs/controlbar.js
+  
+  // toggle controlbar at start
+  var controlbarCollapsed = $('.control-sidebar').attr('data-collapsed');
+  if (controlbarCollapsed === "false") {
+    $('body').addClass('control-sidebar-open');
+  }
+  
+  // hide the right sidebar toggle 
+  // if no right sidebar is specified
+  var noControlbar = ($(".control-sidebar").length === 0);
+  if (noControlbar === "true") {
+    $("[data-toggle='control-sidebar']").hide();
+  }
+  
+  // hide the right sidebar toggle if the controlbar is disable
+  var disableControlbar = $(".control-sidebar").attr("data-show");
+  if (disableControlbar === "false") {
+    $("[data-toggle='control-sidebar']").hide();
+  }
+  
+  
+  
   var controlbarChange = function() {
     // 1) Trigger the resize event (so images are responsive and resize)
     $(window).trigger("resize");
@@ -447,7 +469,7 @@ $(function() {
   
   // boxSidebarBinding
   // ------------------------------------------------------------------
-  // This code creates an input binding for the boxPlus component
+  // This code creates an input binding for the boxPlus sidebar component
   var boxSidebarBinding = new Shiny.InputBinding();
   $.extend(boxSidebarBinding, {
     
@@ -486,6 +508,47 @@ $(function() {
   Shiny.inputBindings.register(boxSidebarBinding, "box-sidebar-input");
   
 
+  
+  //---------------------------------------------------------------------
+  // Source file: ../srcjs/input_binding_controlbar.js
+  
+  /* global Shiny */
+  
+  // boxSidebarBinding
+  // ------------------------------------------------------------------
+  // This code creates an input binding for the dashboard controlbar component
+  var controlbarBinding = new Shiny.InputBinding();
+  
+  $.extend(controlbarBinding, {
+  
+    find: function(scope) {
+      return $(scope).find(".control-sidebar");
+    },
+  
+    // Given the DOM element for the input, return the value
+    getValue: function(el) {
+      return $("body").hasClass("control-sidebar-open");
+    },
+  
+    // see updatebs4Controlbar
+    receiveMessage: function(el, data) {
+      $("[data-toggle='control-sidebar']").click();
+    },
+  
+    subscribe: function(el, callback) {
+      $("[data-toggle='control-sidebar']").on("click", function(e) {
+        callback();
+      });
+    },
+  
+    unsubscribe: function(el) {
+      $(el).off(".controlbarBinding");
+    }
+  });
+  
+  Shiny.inputBindings.register(controlbarBinding, "controlbar-input");
+
+  
   //---------------------------------------------------------------------
   // Source file: ../srcjs/_end.js
 
