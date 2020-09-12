@@ -4,10 +4,12 @@
 \alias{dropdownItemList}
 \title{Create a box dropdown item list}
 \usage{
-dropdownItemList(...)
+dropdownItemList(..., icon = shiny::icon("wrench"))
 }
 \arguments{
 \item{...}{Slot for dropdownItem.}
+
+\item{icon}{Dropdown menu icon.}
 }
 \description{
 Can be used to add dropdown items to a boxtool.

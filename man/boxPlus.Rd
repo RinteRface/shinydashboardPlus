@@ -17,20 +17,10 @@ boxPlus(
   collapsible = FALSE,
   collapsed = FALSE,
   closable = TRUE,
-  enable_label = FALSE,
-  label_text = NULL,
-  label_status = "primary",
-  enable_dropdown = FALSE,
-  dropdown_icon = "wrench",
-  dropdown_menu = NULL,
-  enable_sidebar = FALSE,
-  sidebar_content = NULL,
-  sidebar_title = NA_character_,
-  sidebar_width = 25,
-  sidebar_background = "#222d32",
-  sidebar_start_open = FALSE,
-  sidebar_icon = "cogs",
-  footer_padding = TRUE
+  label = NULL,
+  dropdownMenu = NULL,
+  sidebar = NULL,
+  footerPadding = TRUE
 )
 }
 \arguments{
@@ -68,33 +58,13 @@ the user to collapse the box.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
-\item{enable_label}{Whether to display a label in the boxtool.}
+\item{label}{Slot for \link{boxPlusLabel}.}
 
-\item{label_text}{label text.}
+\item{dropdownMenu}{List of items in the boxtool dropdown menu. Use \link{dropdownItemList}.}
 
-\item{label_status}{status of the box label: "danger", "success", "info", "primary", "warning".}
+\item{sidebar}{Slot for \link{boxPlusSidebar}.}
 
-\item{enable_dropdown}{Whether to display a dropdown menu in the boxtool. FALSE by default.}
-
-\item{dropdown_icon}{Dropdown icon. "wrench" by default.}
-
-\item{dropdown_menu}{List of items in the the boxtool dropdown menu. Use dropdownItemList().}
-
-\item{enable_sidebar}{Whether to display the box sidebar. FALSE by default.}
-
-\item{sidebar_content}{Box sidebar content, if any.}
-
-\item{sidebar_title}{Box sidebar title.}
-
-\item{sidebar_width}{Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.}
-
-\item{sidebar_background}{Box sidebar background color. Dark by default.}
-
-\item{sidebar_start_open}{Whether the box sidebar is open at start. FALSE by default.}
-
-\item{sidebar_icon}{Box sidebar icon.}
-
-\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
+\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Boxes can be used to hold content in the main body of a dashboard.
@@ -110,74 +80,44 @@ if (interactive()) {
      dashboardHeaderPlus(),
      dashboardSidebar(),
      dashboardBody(
-      fluidRow(
-       boxPlus(
+      boxPlus(
         title = "Closable Box with dropdown", 
-         closable = TRUE, 
-         status = "warning", 
-         solidHeader = FALSE, 
-         collapsible = TRUE,
-         enable_dropdown = TRUE,
-         dropdown_icon = "wrench",
-         dropdown_menu = dropdownItemList(
-          dropdownItem(url = "https://www.google.com", name = "Link to google"),
-          dropdownItem(url = "#", name = "item 2"),
-          dropdownDivider(),
-          dropdownItem(url = "#", name = "item 3")
-         ),
-         p("Box Content")
-       ),
-       boxPlus(
-        title = "Closable box, with label", 
-         closable = TRUE, 
-         enable_label = TRUE,
-         label_text = 1,
-         label_status = "danger",
-         status = "warning", 
-         solidHeader = FALSE, 
-         collapsible = TRUE,
-         p("Box Content")
+        closable = TRUE, 
+        width = 12,
+        status = "warning", 
+        solidHeader = FALSE, 
+        collapsible = TRUE,
+        label = boxPlusLabel(
+         text = 1,
+         status = "danger",
+         style = "circle"
+        ),
+        dropdownMenu = dropdownItemList(
+         dropdownItem(url = "http://www.google.com", name = "Link to google"),
+         dropdownItem(url = "#", name = "item 2"),
+         dropdownDivider(),
+         dropdownItem(url = "#", name = "item 3")
+        ),
+        sidebar = boxPlusSidebar(
+         startOpen = TRUE,
+         inputId = "mycardsidebar",
+         sliderInput(
+          "obs", 
+          "Number of observations:",
+          min = 0, 
+          max = 1000, 
+          value = 500
+         )
+        ),
+        plotOutput("distPlot")
        )
      )
-    )
    ),
-   server = function(input, output) {}
- )
- 
- # boxPlus with sidebar
- shinyApp(
-  ui = dashboardPagePlus(
-    dashboardHeaderPlus(),
-    dashboardSidebar(),
-    dashboardBody(
-      fluidRow(
-        boxPlus(
-          title = "Closable Box with dropdown", 
-          closable = TRUE, 
-          status = "warning", 
-          solidHeader = FALSE, 
-          collapsible = TRUE,
-          enable_sidebar = TRUE,
-          sidebar_width = 25,
-          side_bar_title = "Title",
-          sidebar_start_open = TRUE,
-          sidebar_content = sliderInput(
-           "obs", 
-           "Number of observations:",
-           min = 0, 
-           max = 1000, 
-           value = 500
-          ),
-          plotOutput("distPlot")
-        )
-      )
-    )
-  ),
-  server = function(input, output) {
+   server = function(input, output) {
     output$distPlot <- renderPlot({
-      hist(rnorm(input$obs))
+     hist(rnorm(input$obs))
     })
-  }
+   }
  )
 }
 }

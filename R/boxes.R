@@ -439,20 +439,10 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'   \code{collapsible=TRUE}.
 #' @param ... Contents of the box.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param enable_label Whether to display a label in the boxtool.
-#' @param label_text label text.
-#' @param label_status status of the box label: "danger", "success", "info", "primary", "warning".
-#' @param enable_dropdown Whether to display a dropdown menu in the boxtool. FALSE by default.
-#' @param dropdown_icon Dropdown icon. "wrench" by default.
-#' @param dropdown_menu List of items in the the boxtool dropdown menu. Use dropdownItemList().
-#' @param enable_sidebar Whether to display the box sidebar. FALSE by default.
-#' @param sidebar_content Box sidebar content, if any.
-#' @param sidebar_title Box sidebar title.
-#' @param sidebar_width Box sidebar width in percentage. 25\% by default. Numeric value between 0 and 100.
-#' @param sidebar_background Box sidebar background color. Dark by default.
-#' @param sidebar_start_open Whether the box sidebar is open at start. FALSE by default.
-#' @param sidebar_icon Box sidebar icon. 
-#' @param footer_padding TRUE by default: whether the footer has margin or not.
+#' @param label Slot for \link{boxPlusLabel}.
+#' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{dropdownItemList}.
+#' @param sidebar Slot for \link{boxPlusSidebar}.
+#' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
 #'
@@ -467,111 +457,81 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'      dashboardHeaderPlus(),
 #'      dashboardSidebar(),
 #'      dashboardBody(
-#'       fluidRow(
-#'        boxPlus(
+#'       boxPlus(
 #'         title = "Closable Box with dropdown", 
-#'          closable = TRUE, 
-#'          status = "warning", 
-#'          solidHeader = FALSE, 
-#'          collapsible = TRUE,
-#'          enable_dropdown = TRUE,
-#'          dropdown_icon = "wrench",
-#'          dropdown_menu = dropdownItemList(
-#'           dropdownItem(url = "https://www.google.com", name = "Link to google"),
-#'           dropdownItem(url = "#", name = "item 2"),
-#'           dropdownDivider(),
-#'           dropdownItem(url = "#", name = "item 3")
-#'          ),
-#'          p("Box Content")
-#'        ),
-#'        boxPlus(
-#'         title = "Closable box, with label", 
-#'          closable = TRUE, 
-#'          enable_label = TRUE,
-#'          label_text = 1,
-#'          label_status = "danger",
-#'          status = "warning", 
-#'          solidHeader = FALSE, 
-#'          collapsible = TRUE,
-#'          p("Box Content")
+#'         closable = TRUE, 
+#'         width = 12,
+#'         status = "warning", 
+#'         solidHeader = FALSE, 
+#'         collapsible = TRUE,
+#'         label = boxPlusLabel(
+#'          text = 1,
+#'          status = "danger",
+#'          style = "circle"
+#'         ),
+#'         dropdownMenu = dropdownItemList(
+#'          dropdownItem(url = "http://www.google.com", name = "Link to google"),
+#'          dropdownItem(url = "#", name = "item 2"),
+#'          dropdownDivider(),
+#'          dropdownItem(url = "#", name = "item 3")
+#'         ),
+#'         sidebar = boxPlusSidebar(
+#'          startOpen = TRUE,
+#'          inputId = "mycardsidebar",
+#'          sliderInput(
+#'           "obs", 
+#'           "Number of observations:",
+#'           min = 0, 
+#'           max = 1000, 
+#'           value = 500
+#'          )
+#'         ),
+#'         plotOutput("distPlot")
 #'        )
 #'      )
-#'     )
 #'    ),
-#'    server = function(input, output) {}
-#'  )
-#'  
-#'  # boxPlus with sidebar
-#'  shinyApp(
-#'   ui = dashboardPagePlus(
-#'     dashboardHeaderPlus(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'       fluidRow(
-#'         boxPlus(
-#'           title = "Closable Box with dropdown", 
-#'           closable = TRUE, 
-#'           status = "warning", 
-#'           solidHeader = FALSE, 
-#'           collapsible = TRUE,
-#'           enable_sidebar = TRUE,
-#'           sidebar_width = 25,
-#'           side_bar_title = "Title",
-#'           sidebar_start_open = TRUE,
-#'           sidebar_content = sliderInput(
-#'            "obs", 
-#'            "Number of observations:",
-#'            min = 0, 
-#'            max = 1000, 
-#'            value = 500
-#'           ),
-#'           plotOutput("distPlot")
-#'         )
-#'       )
-#'     )
-#'   ),
-#'   server = function(input, output) {
+#'    server = function(input, output) {
 #'     output$distPlot <- renderPlot({
-#'       hist(rnorm(input$obs))
+#'      hist(rnorm(input$obs))
 #'     })
-#'   }
+#'    }
 #'  )
 #' }
 #' @export
 boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
-                     collapsed = FALSE, closable = TRUE, enable_label = FALSE,
-                     label_text = NULL, label_status = "primary", enable_dropdown = FALSE,
-                     dropdown_icon = "wrench", dropdown_menu = NULL, enable_sidebar = FALSE,
-                     sidebar_content = NULL, sidebar_title = NA_character_, sidebar_width = 25, sidebar_background = "#222d32", 
-                     sidebar_start_open = FALSE, sidebar_icon = "cogs", footer_padding = TRUE) 
-{
-  
-  if (sidebar_width < 0 || sidebar_width > 100) 
-    stop("The box sidebar should be between 0 and 100")
+                     collapsed = FALSE, closable = TRUE, label = NULL, dropdownMenu = NULL,
+                    sidebar = NULL, footerPadding = TRUE) {
   
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
     boxClass <- paste(boxClass, "box-solid")
   }
+  
   if (!is.null(status)) {
     validateStatusPlus(status)
     boxClass <- paste0(boxClass, " box-", status)
   }
+  
   if (collapsible && collapsed) {
     boxClass <- paste(boxClass, "collapsed-box")
   }
+  
   if (!is.null(background)) {
     validateColor(background)
     boxClass <- paste0(boxClass, " bg-", background)
   }
-  if (enable_sidebar) {
-    if (sidebar_start_open) {
+  
+  if (!is.null(sidebar)) {
+    sidebarToggle <- sidebar[[2]]
+    startOpen <- sidebar[[2]]$attribs$`data-start-open`
+    if (startOpen == "true") {
       boxClass <- paste0(boxClass, " direct-chat direct-chat-contacts-open")
     } else {
       boxClass <- paste0(boxClass, " direct-chat")
     }
   }
+  
   style <- NULL
   if (!is.null(height)) {
     style <- paste0("height: ", shiny::validateCssUnit(height))
@@ -609,47 +569,15 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
     )
   } 
   
-  labelTag <- NULL
-  if (enable_label) {
-    labelTag <- dashboardLabel(label_text, status = label_status)
-  }
-
-  dropdownTag <- NULL
-  if (enable_dropdown) {
-    dropdownTag <- shiny::tags$div(
-      class = "btn-group",
-      shiny::tags$button(
-        type = "button",
-        class = "btn btn-box-tool dropdown-toggle",
-        `data-toggle` = "dropdown",
-        shiny::icon(dropdown_icon)
-      ),
-      shiny::tagList(dropdown_menu)
-    )
-  }
-  
-  sidebarTag <- NULL
-  if (enable_sidebar) {
-    sidebarTag <- shiny::tags$button(
-      class = "btn btn-box-tool",
-      `data-widget` = "chat-pane-toggle",
-      `data-toggle` = "tooltip",
-      `data-original-title` = "More",
-      title = sidebar_title,
-      type = "button",
-      shiny::icon(sidebar_icon)
-    )
-  }
-  
   
   # update boxToolTag
   boxToolTag <- shiny::tagAppendChildren(
     boxToolTag, 
-    labelTag, 
-    dropdownTag, 
-    sidebarTag, 
+    if (!is.null(label)) label, 
+    if (!is.null(dropdownMenu)) dropdownMenu, 
     collapseTag, 
-    closableTag
+    closableTag,
+    if (!is.null(sidebar)) sidebar[[2]]
   )
   
   headerTag <- NULL
@@ -663,53 +591,113 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
     shiny::tags$div(
       id = inputId,
       class = boxClass, 
-      style = if (!is.null(style)) style, 
       headerTag, 
       shiny::tags$div(
         class = "box-body", 
-        ...,
-        if (enable_sidebar) {
+        style = if (is.null(sidebar)) {
+          if (!is.null(style)) style
+        },
+        if (!is.null(sidebar)) {
           shiny::tags$div(
-            style = "z-index: 1000;",
-            class = "direct-chat-contacts",
-            shiny::tags$ul(
-              class = "contacts-list", 
-              shiny::tags$li(
-                style = paste0("width: ", sidebar_width, "%;"), 
-                sidebar_content
-              )
-            )
+            class = "direct-chat-messages",
+            shiny::tags$div(
+              class = "direct-chat-msg", 
+              ...,
+              style = if (!is.null(style)) style
+            ),
+            sidebar[c(1, 3)],
           )
+        } else {
+          shiny::tagList(...)
         }
       ), 
       if (!is.null(footer)) shiny::tags$div(
-        class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", footer)
+        class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", footer)
     )
   )
   
-  translation_rate <- paste0(100 - sidebar_width, "%")
+  boxPlusTag
   
-  shiny::tagList(
-    shiny::singleton(
-      shiny::tags$head(
-        shiny::tags$style(
-          shiny::HTML(
-            # the first CSS class will be useful maybe for
-            # later release but is useless right now
-            paste0(
-              ".direct-chat-contacts {
-                 -webkit-transform: translate(100%, 0);
-                 -ms-transform: translate(100%, 0);
-                 -o-transform: translate(100%, 0);
-                 transform: translate(100%, 0);
-                 position: absolute;
-                 top: 0;
-                 bottom: 0;
-                 height: 100%;
-                 width: 100%;
-                 background: ", sidebar_background, ";
-                 color: #fff;
-                 overflow: auto;
+}
+
+
+
+#' Create a label for \link{boxPlus} 
+#'
+#' @param text Label text. In practice only few letters or a number.
+#' @param status label color status. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' @param style label border style: "default" (rounded angles), "circle" or "square".
+#' @export
+#' @seealso \link{dashboardLabel}
+boxPlusLabel <- function(text, status, style = "default") {
+  
+  if (nchar(text) > 10) warning("Avoid long texts in boxPlusLabel.")
+  dashboardLabel(text, status = status, style = style)
+}
+
+
+
+
+#' Create a sidebar for a box
+#' 
+#' To insert in the sidebar slot of \link{boxPlus}.
+#'
+#' @param ... Sidebar content.
+#' @param inputId Unique sidebar id. Useful if you want to use \link{updateBoxPlusSidebar}.
+#' @param width Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").
+#' @param background Sidebar background color. Dark by default.
+#' @param startOpen Whether the sidebar is open at start. FALSE by default.
+#' @param icon Sidebar icon.
+#' 
+#' @export
+boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40", 
+                           startOpen = FALSE, icon = shiny::icon("cogs")) {
+  
+  # Toggle to insert in bs4Card
+  toolbarTag <- shiny::tags$button(
+    class = "btn btn-box-tool",
+    id = inputId,
+    `data-widget` = "chat-pane-toggle",
+    `data-toggle` = "tooltip",
+    `data-original-title` = "More",
+    `data-start-open` = tolower(startOpen),
+    type = "button",
+    icon
+  )
+  
+  # sidebar content
+  contentTag <- shiny::tags$div(
+    style = "z-index: 10000;",
+    class = "direct-chat-contacts",
+    shiny::tags$ul(
+      class = "contacts-list", 
+      shiny::tags$li(
+        style = paste0("width: ", width, ";"), 
+        ...
+      )
+    )
+  )
+  
+  # custom CSS
+  translation_rate <- paste0("calc(100% - ", width, ")")
+  sidebarCSS <- shiny::singleton(
+    shiny::tags$head(
+      shiny::tags$style(
+        shiny::HTML(
+          paste0(
+            ".direct-chat-contacts {
+                -webkit-transform: translate(100%, 0);
+                -ms-transform: translate(100%, 0);
+                -o-transform: translate(100%, 0);
+                transform: translate(100%, 0);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                background: ", background, ";
+                color: #fff;
+                overflow: auto;
               }
               .direct-chat-contacts-open .direct-chat-contacts {
                 -webkit-transform: translate(", translation_rate, ", 0);
@@ -718,15 +706,15 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
                 transform: translate(", translation_rate, ", 0);
               }
               "
-            )
           )
         )
       )
-    ),
-    boxPlusTag
+    )
   )
   
+  shiny::tagList(sidebarCSS, toolbarTag, contentTag)
 }
+
 
 
 
@@ -806,20 +794,87 @@ updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"),
 
 
 
+
+#' Programmatically toggle a \link{boxPlusSidebar}
+#'
+#' @param inputId Sidebar id.
+#' @param session Shiny session object.
+#' 
+#' @export
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPagePlus(
+#'     header = dashboardHeader(),
+#'     body = dashboardBody(
+#'       boxPlus(
+#'         title = "Update box sidebar", 
+#'         closable = TRUE, 
+#'         width = 12,
+#'         height = "500px",
+#'         solidHeader = FALSE, 
+#'         collapsible = TRUE,
+#'         actionButton("update", "Toggle card sidebar"),
+#'         sidebar = boxPlusSidebar(
+#'           inputId = "mycardsidebar",
+#'           p("Sidebar Content")
+#'         )
+#'       )
+#'     ),
+#'     sidebar = dashboardSidebar()
+#'   ),
+#'   server = function(input, output, session) {
+#'     observe(print(input$mycardsidebar))
+#'     
+#'     observeEvent(input$update, {
+#'       updateBoxPlusSidebar(inputId = "mycardsidebar")
+#'     })
+#'     
+#'   }
+#'  )
+#' }
+updateBoxPlusSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(inputId, NULL)
+}
+
+
+
+
 #' Create a box dropdown item list
 #'
 #' Can be used to add dropdown items to a boxtool.
 #'
 #' @param ... Slot for dropdownItem.
+#' @param icon Dropdown menu icon.
 #'
 #' @export
-dropdownItemList <- function(...) {
-  shiny::tags$ul(
-    class = "dropdown-menu",
+dropdownItemList <- function(..., icon = shiny::icon("wrench")) {
+  contentTag <- shiny::tags$div(
+    class = "dropdown-menu dropdown-menu-right",
     role = "menu",
     ...
   )
+  
+  # for bs4Card toolbar
+  toolbarTag <- shiny::tags$div(
+    class = "btn-group",
+    shiny::tags$button(
+      type = "button",
+      class = "btn btn-box-tool dropdown-toggle",
+      `data-toggle` = "dropdown",
+      icon
+    ),
+    contentTag
+  )
+  
+  toolbarTag
+  
 }
+
 
 
 #' Create a box dropdown item 

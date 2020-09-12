@@ -70,3 +70,46 @@ $.extend(boxBinding, {
 });
 
 Shiny.inputBindings.register(boxBinding, 'box-input');
+
+
+
+
+
+// boxPlus sidebar input binding
+var boxPlusSidebarBinding = new Shiny.InputBinding();
+$.extend(boxPlusSidebarBinding, {
+  
+  find: function(scope) {
+    return $(scope).find('[data-widget="chat-pane-toggle"]');
+  },
+  
+  // Given the DOM element for the input, return the value
+  getValue: function(el) {
+    var boxWrapper = $(el).closest(".box");
+    return $(boxWrapper).hasClass("direct-chat-contacts-open");
+  },
+  
+  // see updatebs4Card
+  receiveMessage: function(el, data) {
+    console.log(data);
+    $(el).trigger('click');
+    $(el).trigger("shown");
+  },
+  
+  subscribe: function(el, callback) {
+    $(el).on('click', function(e) {
+      // set a delay so that Shiny get the input value when the collapse animation
+      // is finished. 
+      setTimeout(
+        function() {
+          callback();
+        }, 10);
+    });
+  },
+  
+  unsubscribe: function(el) {
+    $(el).off(".boxPlusSidebarBinding");
+  }
+});
+
+Shiny.inputBindings.register(boxPlusSidebarBinding, "box-sidebar-input");
