@@ -59,7 +59,6 @@ if (interactive()) {
  shinyApp(
   ui = dashboardPagePlus(
     header = dashboardHeaderPlus(
-      controlbarIcon = "gears",
       leftUi = tagList(
         dropdownBlock(
           id = "mydropdown",
@@ -111,7 +110,6 @@ if (interactive()) {
     body = dashboardBody(
       setShadow(class = "dropdown-menu")
     ),
-    rightsidebar = rightSidebar(),
     title = "DashboardPage"
   ),
   server = function(input, output) { }
