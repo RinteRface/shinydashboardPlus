@@ -12,7 +12,7 @@
 #' @param height box height.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param footer_padding TRUE by default: whether the footer has margin or not.
+#' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -56,7 +56,7 @@
 #' @export
 gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL, 
                         boxToolSize = "sm", footer = NULL, width = 6, height = NULL,
-                        collapsible = TRUE, closable = FALSE, footer_padding = TRUE) {
+                        collapsible = TRUE, closable = FALSE, footerPadding = TRUE) {
   cl <- "box box-solid"
   if (!is.null(gradientColor)) cl <- paste0(cl, " bg-", gradientColor, "-gradient")
   
@@ -109,7 +109,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
       
       # box footer
       shiny::tags$div(
-        class = if (isTRUE(footer_padding)) {
+        class = if (isTRUE(footerPadding)) {
           "box-footer text-black"
         } else {
           "box-footer text-black no-padding"
@@ -119,130 +119,6 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
     )
   )
 }
-
-
-
-# #' @title AdminLTE2 mail form
-# #'
-# #' @description Create a mail form
-# #'
-# #' @param ... message text.
-# #' @param mailto person who should receive the mail.
-# #'
-# #' @author David Granjon, \email{dgranjon@@ymail.com}
-# #'
-# #' @examples
-# #' if (interactive()) {
-# #'  library(shiny)
-# #'  library(shinydashboard)
-# #'  shinyApp(
-# #'   ui = dashboardPage(
-# #'     dashboardHeader(),
-# #'     dashboardSidebar(),
-# #'     dashboardBody(
-# #'      box(
-# #'       title = "Mail box demo",
-# #'       mailForm(mailto = "dgranjon@ymail.com")
-# #'      )
-# #'     ),
-# #'     title = "mailForm"
-# #'   ),
-# #'   server = function(input, output) { }
-# #'  )
-# #' }
-# #'
-# #' @export
-# mailForm <- function(..., mailto = "#") {
-#   shiny::tags$form(
-#     action = paste0("mailto:", mailto),
-#     method = "post",
-#     
-#     # subject input
-#     shiny::tags$div(
-#       class = "form-group",
-#       shiny::tags$input(
-#         type = "text",
-#         class = "form-control",
-#         name = "subject",
-#         placeholder = "Subject"
-#       )
-#     ),
-#     
-#     # body
-#     shiny::tags$div(
-#       
-#       ## mail toolbar
-#       # shiny::tags$ul(
-#       #   class = "wysihtml5-toolbar",
-#       #   shiny::tags$li(
-#       #     class = "dropdown",
-#       #     shiny::tags$a(
-#       #       class = "btn btn-default dropdown-toggle",
-#       #       `data-toggle` = "dropdown",
-#       #       `aria-expanded` = "false",
-#       #       
-#       #     )
-#       #   )
-#       # ),
-#       
-#       shiny::tags$textarea(
-#         class = "textarea",
-#         style = "width: 100%; height: 125px; font-size: 14px; line-height: 18px; 
-#                  border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;",
-#         placeholder = "Message"
-#       ),
-#       
-#       shiny::tags$input(type = "hidden", name = "_wysihtml5_mode", value = "1"),
-#       
-#       shiny::tags$iframe(
-#         class = "wysihtml5-sandbox",
-#         security = "restricted",
-#         allowtransparency = "true",
-#         frameborder = "0",
-#         width = "0",
-#         height = "0",
-#         marginwidth = "0",
-#         marginheight = "0",
-#         style = "display: inline-block; background-color: rgb(255, 255, 255); 
-#                 border-collapse: separate; border: 1px solid rgb(221, 221, 221); 
-#                 clear: none; float: none; margin: 0px; outline: rgb(51, 51, 51) none 0px; 
-#                 outline-offset: 0px; padding: 10px; position: static; top: auto; left: auto; 
-#                 right: auto; bottom: auto; z-index: auto; vertical-align: baseline; 
-#                 text-align: start; box-sizing: border-box; -webkit-box-shadow: none; 
-#                 box-shadow: none; border-top-right-radius: 0px; border-bottom-right-radius: 0px; 
-#                 border-bottom-left-radius: 0px; border-top-left-radius: 0px; width: 100%; height: 125px;",
-#         
-#         shiny::tags$html(
-#           shiny::tags$body(
-#             marginwidth = "0",
-#             marginheight = "0",
-#             class = "textarea wysihtml5-editor",
-#             spellcheck = "true",
-#             contenteditable = "true",
-#             style = "font-variant-ligatures: normal; font-variant-caps: normal; 
-#                      font-variant-east-asian: normal; font-variant-position: normal; 
-#                      background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); 
-#                      cursor: auto; font-family: &quot;Source Sans Pro&quot;, 
-#                      &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; 
-#                      font-size: 14px; font-style: normal; font-weight: normal; line-height: 18px; 
-#                      letter-spacing: normal; text-align: start; text-decoration: none; text-indent: 0px; 
-#                      text-rendering: auto; word-break: normal; word-wrap: break-word; word-spacing: 0px;",
-#             ...
-#           )
-#         )
-#       )
-#       
-#     ),
-#     
-#     # send button
-#     shiny::tags$input(
-#       type = "submit",
-#       #class = "pull-right btn btn-default",
-#       value = "Send"
-#       #shiny::tags$i(class = "fa fa-arrow-circle-right")
-#     )
-#   )
-# }
 
 
 
@@ -266,7 +142,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param collapsed If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param footer_padding TRUE by default: whether the footer has margin or not.
+#' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -319,7 +195,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #' @export
 widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
                           background = FALSE, backgroundUrl = NULL,
-                          src = NULL, color = NULL, footer = NULL, footer_padding = TRUE,
+                          src = NULL, color = NULL, footer = NULL, footerPadding = TRUE,
                           width = 6, height = NULL, boxToolSize = "sm",
                           collapsible = TRUE, collapsed = FALSE, closable = FALSE) {
   
@@ -403,7 +279,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
       
       # footer
       shiny::tags$div(
-        class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", 
+        class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", 
         footer
       )
     )
@@ -416,7 +292,8 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' Create a box for the main body of a dashboard
 #'
 #' Boxes can be used to hold content in the main body of a dashboard.
-#'
+#' 
+#' @param ... Contents of the box.
 #' @param inputId Box unique id. \link{updateBoxPlus} target.
 #' @param title Optional title.
 #' @param footer Optional footer text.
@@ -437,7 +314,6 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'   the user to collapse the box.
 #' @param collapsed If TRUE, start collapsed. This must be used with
 #'   \code{collapsible=TRUE}.
-#' @param ... Contents of the box.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
 #' @param label Slot for \link{boxPlusLabel}.
 #' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{dropdownItemList}.
@@ -918,7 +794,7 @@ dropdownDivider <- function() {
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
 #' @param comments slot for boxComments.
 #' @param footer box footer, if any.
-#' @param footer_padding TRUE by default: whether the footer has margin or not.
+#' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -965,7 +841,7 @@ dropdownDivider <- function() {
 socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL, 
                       width = 6, height = NULL, collapsible = TRUE,
                       closable = TRUE, comments = NULL, footer = NULL,
-                      footer_padding = TRUE) {
+                      footerPadding = TRUE) {
   
   style <- NULL
   if (!is.null(height)) {
@@ -1033,7 +909,7 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
       # footer
       if (!is.null(footer)) {
         shiny::tags$div(
-          class = if (isTRUE(footer_padding)) "box-footer" else "box-footer no-padding", 
+          class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", 
           footer
         ) 
       }

@@ -4,7 +4,7 @@
 - remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
 - remove dropdownIcon parameter from `boxPlus()`. It is now part of the `dropdownItemList()`
 - remove all label params from `boxPlus()`. This is to reduce the number of parameters of cards. Now part of `boxPlusLabel()`
-- footer_padding becomes footerPadding in `boxPlus()` to be consistent with the style (camelCase) ...
+- footer_padding becomes footerPadding in `boxPlus()`, `gradientBox()`, `widgetUserBox()` and `socialBox()` to be consistent with the style (camelCase) ...
 - In `dropdownItemList()` icon must be provided as `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with shinydashboard
 
 ## New features

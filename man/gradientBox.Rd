@@ -15,7 +15,7 @@ gradientBox(
   height = NULL,
   collapsible = TRUE,
   closable = FALSE,
-  footer_padding = TRUE
+  footerPadding = TRUE
 )
 }
 \arguments{
@@ -39,7 +39,7 @@ gradientBox(
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
-\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
+\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Create an enhanced box

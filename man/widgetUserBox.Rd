@@ -14,7 +14,7 @@ widgetUserBox(
   src = NULL,
   color = NULL,
   footer = NULL,
-  footer_padding = TRUE,
+  footerPadding = TRUE,
   width = 6,
   height = NULL,
   boxToolSize = "sm",
@@ -42,7 +42,7 @@ widgetUserBox(
 
 \item{footer}{box footer.}
 
-\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
+\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
 \item{width}{box width (between 1 and 12).}
 

@@ -15,7 +15,7 @@ socialBox(
   closable = TRUE,
   comments = NULL,
   footer = NULL,
-  footer_padding = TRUE
+  footerPadding = TRUE
 )
 }
 \arguments{
@@ -39,7 +39,7 @@ socialBox(
 
 \item{footer}{box footer, if any.}
 
-\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
+\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Create social box

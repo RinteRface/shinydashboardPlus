@@ -91,7 +91,6 @@ $.extend(boxPlusSidebarBinding, {
   
   // see updatebs4Card
   receiveMessage: function(el, data) {
-    console.log(data);
     $(el).trigger('click');
     $(el).trigger("shown");
   },
