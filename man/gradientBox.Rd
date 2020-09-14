@@ -23,7 +23,7 @@ gradientBox(
 
 \item{title}{box title.}
 
-\item{icon}{header icon, if any. Should be written like "fa fa-times".}
+\item{icon}{header icon, if any. Expect \code{\link[shiny]{icon}}.}
 
 \item{gradientColor}{color of the box: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
@@ -57,7 +57,7 @@ if (interactive()) {
     dashboardBody(
      gradientBox(
       title = "My gradient Box",
-      icon = "fa fa-th",
+      icon = icon("th"),
       gradientColor = "teal", 
       boxToolSize = "sm", 
       footer = sliderInput(
@@ -69,7 +69,7 @@ if (interactive()) {
       ),
       gradientBox(
       title = "My gradient Box",
-      icon = "fa fa-heart",
+      icon = icon("heart"),
       gradientColor = "maroon", 
       boxToolSize = "xs", 
       closable = TRUE,

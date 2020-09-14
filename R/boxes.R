@@ -4,7 +4,7 @@
 #'
 #' @param ... body content.
 #' @param title box title.
-#' @param icon header icon, if any. Should be written like "fa fa-times".
+#' @param icon header icon, if any. Expect \code{\link[shiny]{icon}}.
 #' @param gradientColor color of the box: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param footer the box footer. 
@@ -29,7 +29,7 @@
 #'     dashboardBody(
 #'      gradientBox(
 #'       title = "My gradient Box",
-#'       icon = "fa fa-th",
+#'       icon = icon("th"),
 #'       gradientColor = "teal", 
 #'       boxToolSize = "sm", 
 #'       footer = sliderInput(
@@ -41,7 +41,7 @@
 #'       ),
 #'       gradientBox(
 #'       title = "My gradient Box",
-#'       icon = "fa fa-heart",
+#'       icon = icon("heart"),
 #'       gradientColor = "maroon", 
 #'       boxToolSize = "xs", 
 #'       closable = TRUE,
@@ -78,7 +78,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
         class = "box-header",
         #style="cursor: move;",
         
-        shiny::tags$i(class = icon),
+        icon,
         shiny::tags$h3(class = "box-title", title),
         
         # box header buttons
