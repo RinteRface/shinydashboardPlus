@@ -699,6 +699,72 @@ navPills <- function(..., inputId = NULL) {
 }
 
 
+
+
+#' Update navPills on the client
+#'
+#' @param inputId \link{navPills} unique id to target.
+#' @param selected Index of the \link{navPillsItem} to select. Index is seen from the R side.
+#' @param session Shiny session object.
+#' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      radioButtons("controller", "Controller", choices = c(1, 2, 3)),
+#'      br(),
+#'      box(
+#'       title = "Nav Pills",
+#'       status = "info",
+#'       "Box Body",
+#'       footer = navPills(
+#'         inputId = "pills",
+#'         navPillsItem(
+#'           left = "Item 1", 
+#'           color = "green",
+#'           right = 10
+#'         ),
+#'         navPillsItem(
+#'           left = "Item 2", 
+#'           color = "red",
+#'           icon = icon("angle-down"), 
+#'           right = "10%"
+#'         ),
+#'         navPillsItem(
+#'           left = "Item 3", 
+#'           color = "blue",
+#'           icon = icon("angle-up"), 
+#'           right = "30%"
+#'         )
+#'       )
+#'      )
+#'     ),
+#'     title = "Nav Pills"
+#'   ),
+#'   server = function(input, output, session) {
+#'    observeEvent(input$controller, {
+#'     updateNavPills(inputId = "pills", selected = input$controller)
+#'    })
+#'    observeEvent(input$pills, {
+#'     showNotification(sprintf("You selected pill N° %s", input$pills), type = "message")
+#'    })
+#'   }
+#'  )
+#' }
+updateNavPills <- function(inputId, selected, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(inputId, selected)
+}
+
+
+
 #' @title AdminLTE2 nav pill item
 #'
 #' @description Create a nav pill item

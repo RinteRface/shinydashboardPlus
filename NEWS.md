@@ -30,6 +30,7 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `userListItem()`, _user_name_ becomes _title_, _description_ becomes _subtitle_
 
 ## New features
+- New `updateNavPills()` to programmatically change the selected item in `navPills()`
 - Add _freshTheme_ parameter to `dashboardPage()`. This allows to use the awsesome `{fresh}` package. See [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details.
 - Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.
 - Add `updateControlbarMenu()` to programmatically change the selected controlbar item

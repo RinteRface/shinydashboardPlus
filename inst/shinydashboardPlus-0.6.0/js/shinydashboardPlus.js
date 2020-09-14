@@ -633,17 +633,19 @@ $(function() {
     },
     
     setValue: function(el, value) {
-      //$(el)
+      $(el)
+       .children()
+       .eq(value - 1)
+       .trigger("click");
     },
   
     // see updateControlbar
     receiveMessage: function(el, data) {
-      //this.setValue(el, data);
+      this.setValue(el, data);
     },
   
     subscribe: function(el, callback) {
       $(el).on("click", "li", function(e) {
-        console.log(this);
         if (!$(this).hasClass("active")) {
           $(el).find(".active").removeClass("active");
           $(this).addClass("active");
