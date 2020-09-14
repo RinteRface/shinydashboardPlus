@@ -4,10 +4,12 @@
 \alias{navPills}
 \title{AdminLTE2 nav pill container}
 \usage{
-navPills(...)
+navPills(..., inputId = NULL)
 }
 \arguments{
 \item{...}{slot for navPillsItem.}
+
+\item{inputId}{Item unique id. If not NULL, behaves like an action button.}
 }
 \description{
 Create a container for nav elements
@@ -28,17 +30,17 @@ if (interactive()) {
       status = "info",
       "Box Body",
       footer = navPills(
+        inputId = "pillItem",
         navPillsItem(
-          pillName = "Item 1", 
-          pillColor = "green",
-          pillIcon = NULL, 
-          pillText = 10
+          left = "Item 1", 
+          color = "green",
+          right = 10
         ),
         navPillsItem(
-          pillName = "Item 2", 
-          pillColor = "red",
-          pillIcon = "fa fa-angle-down", 
-          pillText = "10\%",
+          left = "Item 2", 
+          color = "red",
+          icon = icon("angle-down"), 
+          right = "10\%",
           active = TRUE
         )
       )
@@ -46,7 +48,11 @@ if (interactive()) {
     ),
     title = "Nav Pills"
   ),
-  server = function(input, output) { }
+  server = function(input, output) {
+   observeEvent(input$pillItem, {
+    showNotification("Clicked on the pill!", type = "message")
+   })
+  }
  )
 }
 

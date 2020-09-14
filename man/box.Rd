@@ -16,7 +16,7 @@ box(
   height = NULL,
   collapsible = FALSE,
   collapsed = FALSE,
-  closable = TRUE,
+  closable = FALSE,
   label = NULL,
   dropdownMenu = NULL,
   sidebar = NULL,

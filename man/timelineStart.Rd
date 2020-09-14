@@ -4,10 +4,10 @@
 \alias{timelineStart}
 \title{AdminLTE2 timeline starting point}
 \usage{
-timelineStart(icon = "clock-o", color = NULL)
+timelineStart(icon = shiny::icon("clock-o"), color = NULL)
 }
 \arguments{
-\item{icon}{item icon such as "clock-o", "times", ...}
+\item{icon}{item icon. Expect \code{\link[shiny]{icon}}.}
 
 \item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 }

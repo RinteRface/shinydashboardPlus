@@ -100,7 +100,6 @@ reference:
 - title: CSS extras
   desc: Pimp your app
   contents:
-  - '`preloader`'
   - '`skinSelector`'
   
 - title: The Gallery

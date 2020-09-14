@@ -4,14 +4,14 @@
 \alias{userListItem}
 \title{AdminLTE2 user list item}
 \usage{
-userListItem(src = NULL, user_name = NULL, description = NULL)
+userListItem(src = NULL, title = NULL, subtitle = NULL)
 }
 \arguments{
 \item{src}{image url or path.}
 
-\item{user_name}{user name.}
+\item{title}{Item title.}
 
-\item{description}{any date element.}
+\item{subtitle}{Item subitle.}
 }
 \description{
 Create a user list item

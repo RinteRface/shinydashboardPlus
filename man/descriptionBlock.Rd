@@ -19,7 +19,7 @@ descriptionBlock(
 
 \item{numberColor}{number color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
-\item{numberIcon}{number icon, if any. Should be written like "fa fa-times".}
+\item{numberIcon}{number icon, if any. Expect \code{\link[shiny]{icon}}.}
 
 \item{header}{bold text.}
 
@@ -57,7 +57,7 @@ if (interactive()) {
           descriptionBlock(
             number = "17\%", 
             numberColor = "green", 
-            numberIcon = "caret-up",
+            numberIcon = icon("caret-up"),
             header = "$35,210.43", 
             text = "TOTAL REVENUE", 
             rightBorder = TRUE,
@@ -69,7 +69,7 @@ if (interactive()) {
           descriptionBlock(
             number = "18\%", 
             numberColor = "red", 
-            numberIcon = "caret-down",
+            numberIcon = icon("caret-down"),
             header = "1200", 
             text = "GOAL COMPLETION", 
             rightBorder = FALSE,

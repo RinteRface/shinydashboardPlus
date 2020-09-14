@@ -77,7 +77,7 @@ library(shiny)
     dashboardBody(
      gradientBox(
       title = "My gradient Box",
-      icon = "fa fa-th",
+      icon = icon("th"),
       gradientColor = "teal", 
       boxToolSize = "sm", 
       footer = sliderInput(
@@ -89,7 +89,7 @@ library(shiny)
       ),
       gradientBox(
       title = "My gradient Box",
-      icon = "fa fa-heart",
+      icon = icon("heart"),
       gradientColor = "maroon", 
       boxToolSize = "xs", 
       closable = TRUE,

@@ -24,7 +24,7 @@ boxSidebar(
 
 \item{startOpen}{Whether the sidebar is open at start. FALSE by default.}
 
-\item{icon}{Sidebar icon.}
+\item{icon}{Sidebar icon. Expect \code{\link[shiny]{icon}}.}
 }
 \description{
 To insert in the sidebar slot of \link{box}.

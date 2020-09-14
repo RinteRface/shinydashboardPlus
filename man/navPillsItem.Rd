@@ -5,21 +5,21 @@
 \title{AdminLTE2 nav pill item}
 \usage{
 navPillsItem(
-  pillName = NULL,
-  pillColor = NULL,
-  pillIcon = NULL,
-  pillText = NULL,
+  left = NULL,
+  right = NULL,
+  color = NULL,
+  icon = NULL,
   active = FALSE
 )
 }
 \arguments{
-\item{pillName}{pill name.}
+\item{left}{pill left text.}
 
-\item{pillColor}{pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
+\item{right}{pill right text.}
 
-\item{pillIcon}{pill icon, if any. Should be written like "fa fa-times".}
+\item{color}{pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
-\item{pillText}{pill text. Can also be a number.}
+\item{icon}{pill icon, if any.}
 
 \item{active}{Whether the item is active or not. FALSE by default.}
 }

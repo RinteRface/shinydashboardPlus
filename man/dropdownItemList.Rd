@@ -9,7 +9,7 @@ dropdownItemList(..., icon = shiny::icon("wrench"))
 \arguments{
 \item{...}{Slot for dropdownItem.}
 
-\item{icon}{Dropdown menu icon.}
+\item{icon}{Dropdown menu icon. Expect \code{\link[shiny]{icon}}.}
 }
 \description{
 Can be used to add dropdown items to a boxtool.

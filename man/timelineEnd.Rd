@@ -4,10 +4,10 @@
 \alias{timelineEnd}
 \title{AdminLTE2 timeline ending point}
 \usage{
-timelineEnd(icon = "hourglass-end", color = NULL)
+timelineEnd(icon = shiny::icon("hourglass-end"), color = NULL)
 }
 \arguments{
-\item{icon}{item icon such as "clock-o", "times", ...}
+\item{icon}{item icon. Expect \code{\link[shiny]{icon}}.}
 
 \item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 }

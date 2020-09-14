@@ -510,7 +510,7 @@ dashboardBadge <- function(..., color = "blue") {
 #'
 #' @param number any number.
 #' @param numberColor number color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param numberIcon number icon, if any. Should be written like "fa fa-times".
+#' @param numberIcon number icon, if any. Expect \code{\link[shiny]{icon}}.
 #' @param header bold text.
 #' @param text additional text.
 #' @param rightBorder TRUE by default. Whether to display a right border to
@@ -543,7 +543,7 @@ dashboardBadge <- function(..., color = "blue") {
 #'           descriptionBlock(
 #'             number = "17%", 
 #'             numberColor = "green", 
-#'             numberIcon = "caret-up",
+#'             numberIcon = icon("caret-up"),
 #'             header = "$35,210.43", 
 #'             text = "TOTAL REVENUE", 
 #'             rightBorder = TRUE,
@@ -555,7 +555,7 @@ dashboardBadge <- function(..., color = "blue") {
 #'           descriptionBlock(
 #'             number = "18%", 
 #'             numberColor = "red", 
-#'             numberIcon = "caret-down",
+#'             numberIcon = icon("caret-down"),
 #'             header = "1200", 
 #'             text = "GOAL COMPLETION", 
 #'             rightBorder = FALSE,
@@ -588,7 +588,7 @@ descriptionBlock <- function(number = NULL, numberColor = NULL, numberIcon = NUL
     shiny::tags$span(
       class = numcl, 
       number,
-      if (!is.null(numberIcon)) shiny::icon(numberIcon)
+      if (!is.null(numberIcon)) numberIcon
     ),
     shiny::tags$h5(class = "description-header", header),
     shiny::tags$span(class = "description-text", text)
@@ -642,6 +642,7 @@ loadingState <- function() {
 #' @description Create a container for nav elements
 #'
 #' @param ... slot for navPillsItem.
+#' @param inputId Item unique id. If not NULL, behaves like an action button.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -661,17 +662,17 @@ loadingState <- function() {
 #'       status = "info",
 #'       "Box Body",
 #'       footer = navPills(
+#'         inputId = "pillItem",
 #'         navPillsItem(
-#'           pillName = "Item 1", 
-#'           pillColor = "green",
-#'           pillIcon = NULL, 
-#'           pillText = 10
+#'           left = "Item 1", 
+#'           color = "green",
+#'           right = 10
 #'         ),
 #'         navPillsItem(
-#'           pillName = "Item 2", 
-#'           pillColor = "red",
-#'           pillIcon = "fa fa-angle-down", 
-#'           pillText = "10%",
+#'           left = "Item 2", 
+#'           color = "red",
+#'           icon = icon("angle-down"), 
+#'           right = "10%",
 #'           active = TRUE
 #'         )
 #'       )
@@ -679,14 +680,19 @@ loadingState <- function() {
 #'     ),
 #'     title = "Nav Pills"
 #'   ),
-#'   server = function(input, output) { }
+#'   server = function(input, output) {
+#'    observeEvent(input$pillItem, {
+#'     showNotification("Clicked on the pill!", type = "message")
+#'    })
+#'   }
 #'  )
 #' }
 #'
 #' @export
-navPills <- function(...) {
+navPills <- function(..., inputId = NULL) {
   shiny::tags$ul(
     class = "nav nav-pills nav-stacked",
+    id = if (!is.null(inputId)) inputId,
     ...
   )
 }
@@ -696,205 +702,35 @@ navPills <- function(...) {
 #'
 #' @description Create a nav pill item
 #'
-#' @param pillName pill name.
-#' @param pillColor pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param pillIcon pill icon, if any. Should be written like "fa fa-times".
-#' @param pillText pill text. Can also be a number.
+#' @param left pill left text.
+#' @param right pill right text.
+#' @param color pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' @param icon pill icon, if any. 
 #' @param active Whether the item is active or not. FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-navPillsItem <- function(pillName = NULL, pillColor = NULL, 
-                         pillIcon = NULL, pillText = NULL,
+navPillsItem <- function(left = NULL, right = NULL, 
+                         color = NULL, icon = NULL, 
                          active = FALSE) {
   cl <- "pull-right"
-  if (!is.null(pillColor)) cl <- paste0(cl, " text-", pillColor)
+  if (!is.null(color)) cl <- paste0(cl, " text-", color)
   
   shiny::tags$li(
     class = if (isTRUE(active)) "active" else NULL,
     shiny::tags$a(
       href = "javascript:void(0)", 
-      pillName,
+      left,
       shiny::tags$span(
         class = cl,
-        shiny::tags$i(class = pillIcon),
-        pillText
+        icon,
+        right
       )
     )
   )
 }
 
-
-
-#' AdminLTE2 preloader
-#'
-#' This creates a preloader.
-#' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @note This function is only for internal use of shinydashboardPlus.
-#' @export
-preloader <- function() {
-  loaderTag <- shiny::tags$div(
-    id = "loader-wrapper",
-    shiny::tags$div(id = "loader"),
-    shiny::tags$div(class = "loader-section section-left"),
-    shiny::tags$div(class = "loader-section section-right")
-  )
-  
-  shiny::tagList(
-    shiny::singleton(
-      shiny::tags$head(
-        shiny::tags$style(
-          shiny::HTML(
-            paste0(
-              '#loader-wrapper {
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              z-index: 5000;
-              }
-              #loader {
-              display: block;
-              position: relative;
-              left: 50%;
-              top: 50%;
-              width: 150px;
-              height: 150px;
-              margin: -75px 0 0 -75px;
-              border: 3px solid transparent;
-              border-top-color: #3498db;
-              border-radius: 50%;
-              z-index: 5001;
-              -webkit-animation: spin 2s linear infinite;
-              animation: spin 2s linear infinite;
-              }
-              #loader:before {
-              content: "";
-              position: absolute;
-              top: 5px;
-              left: 5px;
-              right: 5px;
-              bottom: 5px;
-              border: 3px solid transparent;
-              border-top-color: #e74c3c;
-              border-radius: 50%;
-              -webkit-animation: spin 3s linear infinite;
-              animation: spin 3s linear infinite;
-              }
-              #loader:after {
-              content: "";
-              position: absolute;
-              top: 15px;
-              left: 15px;
-              right: 15px;
-              bottom: 15px;
-              border: 3px solid transparent;
-              border-top-color: #f9c922;
-              border-radius: 50%;
-              }
-              
-              
-              /* copy and paste the animation inside all 3 elements */
-              /* #loader, #loader:before, #loader:after */
-              -webkit-animation: spin 1.5s linear infinite;
-              animation: spin 1.5s linear infinite;
-              
-              /* include this only once */
-              @-webkit-keyframes spin {
-              0%   {
-              -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: rotate(0deg);  /* IE 9 */
-              transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-              }
-              100% {
-              -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: rotate(360deg);  /* IE 9 */
-              transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-              }
-              }
-              @keyframes spin {
-              0%   {
-              -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: rotate(0deg);  /* IE 9 */
-              transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-              }
-              100% {
-              -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: rotate(360deg);  /* IE 9 */
-              transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-              }
-              }
-              
-              
-              #loader-wrapper .loader-section {
-              position: fixed;
-              top: 0;
-              width: 51%;
-              height: 100%;
-              background: #222222;
-              z-index: 5000;
-              }
-              #loader-wrapper .loader-section.section-left {
-              left: 0;
-              }
-              #loader-wrapper .loader-section.section-right {
-              right: 0;
-              }
-              
-              
-              /* Loaded */
-              .loaded #loader-wrapper .loader-section.section-left {
-              -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: translateX(-100%);  /* IE 9 */
-              transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
-              }
-              .loaded #loader-wrapper .loader-section.section-right {
-              -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: translateX(100%);  /* IE 9 */
-              transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
-              }
-              
-              .loaded #loader {
-              opacity: 0;
-              }
-              
-              .loaded #loader-wrapper {
-              visibility: hidden;
-              }
-              
-              .loaded #loader {
-              opacity: 0;
-              -webkit-transition: all 0.3s ease-out; 
-              transition: all 0.3s ease-out;
-              }
-              
-              .loaded #loader-wrapper .loader-section.section-right,
-              .loaded #loader-wrapper .loader-section.section-left {
-              
-              -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-              transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-              }
-              .loaded #loader-wrapper {
-              -webkit-transform: translateY(-100%);
-              -ms-transform: translateY(-100%);
-              transform: translateY(-100%);
-              
-              -webkit-transition: all 0.3s 1s ease-out; 
-              transition: all 0.3s 1s ease-out;
-              }
-              '
-            )
-          )
-        )
-      )
-    ),
-    loaderTag
-  )
-}
 
 
 
@@ -923,16 +759,16 @@ preloader <- function() {
 #'       productList(
 #'         productListItem(
 #'           src = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
-#'           productTitle = "Samsung TV", 
-#'           productPrice = "$1800", 
-#'           priceColor = "warning",
+#'           title = "Samsung TV", 
+#'           subtitle = "$1800", 
+#'           color = "warning",
 #'           "This is an amazing TV, but I don't like TV!"
 #'         ),
 #'         productListItem(
 #'           src = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
-#'           productTitle = "Imac 27", 
-#'           productPrice = "$4999", 
-#'           priceColor = "danger",
+#'           title = "Imac 27", 
+#'           subtitle = "$4999", 
+#'           color = "danger",
 #'           "This is were I spend most of my time!"
 #'         )
 #'       )
@@ -953,23 +789,25 @@ productList <- function(...) {
 }
 
 
+
+
 #' @title AdminLTE2 product item
 #'
 #' @description Create a product item
 #'
 #' @param ... product description.
 #' @param src image url, if any.
-#' @param productTitle product name.
-#' @param productPrice product price.
-#' @param priceColor price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' @param title product name.
+#' @param subtitle product price.
+#' @param color price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-productListItem <- function(..., src = NULL, productTitle = NULL, 
-                            productPrice = NULL, priceColor = NULL) {
+productListItem <- function(..., src = NULL, title = NULL, 
+                            subtitle = NULL, color = NULL) {
   cl <- "label pull-right"
-  if (!is.null(priceColor)) cl <- paste0(cl, " label-", priceColor)
+  if (!is.null(color)) cl <- paste0(cl, " label-", color)
   
   shiny::tags$li(
     class = "item",
@@ -982,8 +820,8 @@ productListItem <- function(..., src = NULL, productTitle = NULL,
       shiny::tags$a(
         href = "javascript:void(0)", 
         class = "product-title",
-        productTitle,
-        shiny::tags$span(class = cl, productPrice)
+        title,
+        shiny::tags$span(class = cl, subtitle)
       ),
       shiny::tags$span(
         class = "product-description",
@@ -1189,7 +1027,7 @@ timelineLabel <- function(..., color = NULL) {
 #' @description Create a timeline item
 #'
 #' @param ... any element such as timeLineItemMedia ...
-#' @param icon item icon such as "clock-o", "times", ...
+#' @param icon item icon. Expect \code{\link[shiny]{icon}}.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param time item date or time.
 #' @param title item title.
@@ -1202,8 +1040,6 @@ timelineLabel <- function(..., color = NULL) {
 timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
                          title = NULL, border = TRUE, footer = NULL) {
   
-  cl <- "fa fa-"
-  if (!is.null(icon)) cl <- paste0(cl, icon)
   if (!is.null(color)) cl <- paste0(cl, " bg-", color)
   
   itemCl <- "timeline-header no-border"
@@ -1212,7 +1048,7 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
   shiny::tags$li(
     
     # timelineItem icon and color
-    shiny::tags$i(class = cl),
+    if (!is.null(icon)) icon,
     
     # timelineItem container
     shiny::tags$div(
@@ -1276,21 +1112,17 @@ timelineItemMedia <- function(src = NULL, height = NULL, width = NULL) {
 #'
 #' @description Create a timeline starting point
 #'
-#' @param icon item icon such as "clock-o", "times", ...
+#' @param icon item icon. Expect \code{\link[shiny]{icon}}.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-timelineStart <- function(icon = "clock-o", color = NULL) {
+timelineStart <- function(icon = shiny::icon("clock-o"), color = NULL) {
   
-  cl <- "fa fa-"
-  if (!is.null(icon)) cl <- paste0(cl, icon)
-  if (!is.null(color)) cl <- paste0(cl, " bg-", color)
-  
-  shiny::tags$li(
-    shiny::tags$i(class = cl)
-  )
+  iconTag <- icon
+  if (!is.null(color)) iconTag$attribs$class <- paste0(iconTag$attribs$class, " bg-", color)
+  shiny::tags$li(iconTag)
 }
 
 
@@ -1298,22 +1130,19 @@ timelineStart <- function(icon = "clock-o", color = NULL) {
 #'
 #' @description Create a timeline ending point
 #'
-#' @param icon item icon such as "clock-o", "times", ...
+#' @param icon item icon. Expect \code{\link[shiny]{icon}}.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-timelineEnd <- function(icon = "hourglass-end", color = NULL) {
+timelineEnd <- function(icon = shiny::icon("hourglass-end"), color = NULL) {
   
-  cl <- "fa fa-"
-  if (!is.null(icon)) cl <- paste0(cl, icon)
-  if (!is.null(color)) cl <- paste0(cl, " bg-", color)
+  iconTag <- icon
+  if (!is.null(color)) iconTag$attribs$class <- paste0(iconTag$attribs$class, " bg-", color)
   
   shiny::tagList(
-    shiny::tags$li(
-      shiny::tags$i(class = cl)
-    ),
+    shiny::tags$li(iconTag),
     shiny::br(), 
     shiny::br()
   )
@@ -1468,38 +1297,18 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 #'       userList(
 #'         userListItem(
 #'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
-#'           user_name = "Shiny", 
-#'           description = "28.04.2018"
-#'         ),
-#'         userListItem(
-#'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/knitr.png", 
-#'           user_name = "knitr", 
-#'           description = "28.04.2018"
-#'         ),
-#'         userListItem(
-#'           src = "https://www.rstudio.com/wp-content/uploads/2017/05/rmarkdown.png", 
-#'           user_name = "Rmarkdown", 
-#'           description = "28.04.2018"
+#'           title = "Shiny", 
+#'           subtitle = "Package 1"
 #'         ),
 #'         userListItem(
 #'           src = "https://www.tidyverse.org/images/hex-tidyverse.png", 
-#'           user_name = "Tidyverse", 
-#'           description = "28.04.2018"
+#'           title = "Tidyverse", 
+#'           subtitle = "Package 2"
 #'         ),
 #'         userListItem(
 #'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
-#'           user_name = "tidyr", 
-#'           description = "28.04.2018"
-#'         ),
-#'         userListItem(
-#'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/packrat.png", 
-#'           user_name = "packrat", 
-#'           description = "28.04.2018"
-#'         ),
-#'         userListItem(
-#'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/sparklyr.png", 
-#'           user_name = "packrat", 
-#'           description = "28.04.2018"
+#'           title = "tidyr", 
+#'           subtitle = "Package 3"
 #'         )
 #'       )
 #'      )
@@ -1527,18 +1336,18 @@ userList <- function(...) {
 #' @description Create a user list item
 #'
 #' @param src image url or path.
-#' @param user_name user name.
-#' @param description any date element.
+#' @param title Item title.
+#' @param subtitle Item subitle.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-userListItem <- function(src = NULL, user_name = NULL, description = NULL) {
+userListItem <- function(src = NULL, title = NULL, subtitle = NULL) {
   shiny::tags$li(
     shiny::tags$img(
       src = src, alt = "User Image",
-      shiny::tags$a(class = "users-list-name", user_name),
-      shiny::tags$span(class = "users-list-date", description)
+      shiny::tags$a(class = "users-list-name", title),
+      shiny::tags$span(class = "users-list-date", subtitle)
     )
   )
 }

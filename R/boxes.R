@@ -381,7 +381,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @export
 box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
-                     collapsed = FALSE, closable = TRUE, label = NULL, dropdownMenu = NULL,
+                     collapsed = FALSE, closable = FALSE, label = NULL, dropdownMenu = NULL,
                     sidebar = NULL, footerPadding = TRUE) {
   
   boxClass <- "box"
@@ -528,7 +528,7 @@ boxLabel <- function(text, status, style = "default") {
 #' @param width Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").
 #' @param background Sidebar background color. Dark by default.
 #' @param startOpen Whether the sidebar is open at start. FALSE by default.
-#' @param icon Sidebar icon.
+#' @param icon Sidebar icon. Expect \code{\link[shiny]{icon}}.
 #' 
 #' @export
 boxSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40", 
@@ -730,7 +730,7 @@ updateBoxSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain(
 #' Can be used to add dropdown items to a boxtool.
 #'
 #' @param ... Slot for dropdownItem.
-#' @param icon Dropdown menu icon.
+#' @param icon Dropdown menu icon. Expect \code{\link[shiny]{icon}}.
 #'
 #' @export
 dropdownItemList <- function(..., icon = shiny::icon("wrench")) {

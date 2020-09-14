@@ -4,24 +4,18 @@
 \alias{productListItem}
 \title{AdminLTE2 product item}
 \usage{
-productListItem(
-  ...,
-  src = NULL,
-  productTitle = NULL,
-  productPrice = NULL,
-  priceColor = NULL
-)
+productListItem(..., src = NULL, title = NULL, subtitle = NULL, color = NULL)
 }
 \arguments{
 \item{...}{product description.}
 
 \item{src}{image url, if any.}
 
-\item{productTitle}{product name.}
+\item{title}{product name.}
 
-\item{productPrice}{product price.}
+\item{subtitle}{product price.}
 
-\item{priceColor}{price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
+\item{color}{price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 }
 \description{
 Create a product item

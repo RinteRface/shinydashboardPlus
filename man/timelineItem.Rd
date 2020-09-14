@@ -17,7 +17,7 @@ timelineItem(
 \arguments{
 \item{...}{any element such as timeLineItemMedia ...}
 
-\item{icon}{item icon such as "clock-o", "times", ...}
+\item{icon}{item icon. Expect \code{\link[shiny]{icon}}.}
 
 \item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
