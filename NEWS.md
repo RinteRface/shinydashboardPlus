@@ -16,6 +16,7 @@ _controlbarIcon_ that accepts `shiny::icon` instead of a simple string containin
 - Remove `rightSidebarMenuItem()`, `menuIcon()` and `menuInfo()`
 
 ## New features
+- Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.
 - Add `updateControlbarMenu()` to programmatically change the selected controlbar item
 - Add _inputId_ to `dashboardControlbar()` to be able to use `updateControlbar()`
 - Add _inputId_ to `dashboardSidebarPlus()` to be able to use `updateSidebar()`

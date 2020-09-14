@@ -2,7 +2,6 @@
 // Source file: ../srcjs/_start.js
 
 $(function() {
-  
   // code to make sure that a carousel item is displayed
   // when it is generated via a shiny Output function
   // Thanks Dean Attali for the report
@@ -12,6 +11,56 @@ $(function() {
   
   // overwrite box animation speed. Putting 500 ms add unnecessary delay for Shiny.
   $.AdminLTE.boxWidget.animationSpeed = 10;
+
+  /**
+  * List of all the available skins
+  *
+  * @type Array
+  */
+  var mySkins = [
+    'skin-blue',
+    'skin-black',
+    'skin-red',
+    'skin-yellow',
+    'skin-purple',
+    'skin-green',
+    'skin-blue-light',
+    'skin-black-light',
+    'skin-red-light',
+    'skin-yellow-light',
+    'skin-purple-light',
+    'skin-green-light'
+  ];
+  
+  /**
+  * Store a new settings in the browser
+  *
+  * @param String name Name of the setting
+  * @param String val Value of the setting
+  * @returns void
+  */
+  function store(name, val) {
+    if (typeof (Storage) !== 'undefined') {
+      localStorage.setItem(name, val);
+    } else {
+      window.alert('Please use a modern browser to properly view this template!');
+    }
+  }
+   
+  /**
+  * Replaces the old skin with the new skin
+  * @param String cls the new skin class
+  * @returns Boolean false to prevent link's default action
+  */
+  changeSkin = function (cls) {
+    $.each(mySkins, function (i) {
+        $('body').removeClass(mySkins[i]);
+    });
+
+    $('body').addClass(cls);
+    store('skin', cls);
+    return false;
+  };
 
   //---------------------------------------------------------------------
   // Source file: ../srcjs/tabs.js

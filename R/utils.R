@@ -71,6 +71,11 @@ validStatusesPlus <- c("primary", "success", "info", "warning", "danger",
                        "navy", "teal", "purple", "orange", "maroon", "black")
 
 
+# all AdminLTE2 skins
+validSkins <- c("blue", "blue-light","black","black-light", 
+                "purple","purple-light", "green","green-light",
+                "red","red-light", "yellow","yellow-light")
+
 # Returns TRUE if a color is a valid color defined in AdminLTE, throws error
 # otherwise.
 validateColor <- function(color) {
