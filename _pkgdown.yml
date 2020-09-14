@@ -57,6 +57,7 @@ reference:
   - '`todoList`'
   - '`todoListItem`'
   - '`navPills`'
+  - '`updateNavPills`'
   - '`navPillsItem`'
   - '`productList`'
   - '`productListItem`'

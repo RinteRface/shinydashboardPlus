@@ -24,7 +24,6 @@ _controlbarIcon_ that accepts `shiny::icon` instead of a simple string containin
 - In `descriptionBlock()` _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
 - Rework `navPillsItem()`: _pillName_ becomes _left_, _pillText_ becomes _right_,
 _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::icon()`. Add _inputId_ so that the item behaves like an action button
-- Remove `preloader()`
 - Rework `productListItem()`: _productTitle_ becomes _title_, _productPrice_ becomes _subtitle_, _priceColor_ becomes _color_
 - In `timelineItem()`, `timelineStart()` and `timelineEnd()`, _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
 - In `userListItem()`, _user_name_ becomes _title_, _description_ becomes _subtitle_
