@@ -11,9 +11,7 @@ dropdownBlock(..., id, icon = NULL, title = NULL, badgeStatus = "danger")
 
 \item{id}{Dropdown block id.}
 
-\item{icon}{An icon to display in the header. By default, the icon is
-automatically selected depending on \code{type}, but it can be overriden
-with this argument.}
+\item{icon}{An icon to display in the header. Expect \code{\link[shiny]{icon}}.}
 
 \item{title}{Dropdown block title.}
 

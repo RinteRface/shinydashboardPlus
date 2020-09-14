@@ -19,6 +19,7 @@ _controlbarIcon_ that accepts `shiny::icon` instead of a simple string containin
 - Remove `rightSidebarMenuItem()`, `menuIcon()` and `menuInfo()`
 - Rename `boxPlus()` to `box()`, `dashboardPagePlus()` to `dashboardPage()` and
 `dashboardHeaderPlus()` to `dashboardHeader()`
+- `dropdownBlock()` _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
 
 ## New features
 - Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.

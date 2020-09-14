@@ -42,7 +42,7 @@
 #'         dropdownBlock(
 #'           id = "mydropdown",
 #'           title = "Dropdown 1",
-#'           icon = "sliders",
+#'           icon = icon("sliders"),
 #'           sliderInput(
 #'             inputId = "n",
 #'             label = "Number of observations",
@@ -59,7 +59,7 @@
 #'         dropdownBlock(
 #'           id = "mydropdown2",
 #'           title = "Dropdown 2",
-#'           icon = "sliders",
+#'           icon = icon("sliders"),
 #'           prettySwitch(
 #'             inputId = "switch4",
 #'             label = "Fill switch with status:",
@@ -375,9 +375,7 @@ globalVariables("func")
 #'
 #' @param ... Items to put in the menu.
 #' @param id Dropdown block id.
-#' @param icon An icon to display in the header. By default, the icon is
-#'   automatically selected depending on \code{type}, but it can be overriden
-#'   with this argument.
+#' @param icon An icon to display in the header. Expect \code{\link[shiny]{icon}}.
 #' @param title Dropdown block title.
 #' @param badgeStatus Dropdown badge status.
 #'
@@ -436,7 +434,7 @@ dropdownBlock <- function(..., id, icon = NULL, title = NULL,
       href = "#",
       class = "dropdown-toggle",
       `data-toggle` = "dropdown",
-      shiny::icon(icon),
+      icon,
       title, 
       badge
     ),
