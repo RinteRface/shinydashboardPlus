@@ -203,16 +203,14 @@ updateControlbar <- function(inputId, session = shiny::getDefaultReactiveDomain(
 #'    }
 #'  )
 #' }
-controlbarMenu <- function(..., id = NULL, selected = NULL,
-                           type = c("tabs", "pills"), position = NULL) {
-  type <- match.arg(type)
+controlbarMenu <- function(..., id = NULL, selected = NULL, position = NULL) {
   # We run the Shiny tabsetPanel function, to edit it later. This
   # is to avoid to rewrite all internal functions...
   temp_tabset <- shiny::tabsetPanel(
     ...,
     id = id,
     selected = selected,
-    type = type,
+    type = "tabs",
     position = position
   )
   

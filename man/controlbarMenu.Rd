@@ -4,13 +4,7 @@
 \alias{controlbarMenu}
 \title{Create an AdminLTE 2 controlbar menu}
 \usage{
-controlbarMenu(
-  ...,
-  id = NULL,
-  selected = NULL,
-  type = c("tabs", "pills"),
-  position = NULL
-)
+controlbarMenu(..., id = NULL, selected = NULL, position = NULL)
 }
 \arguments{
 \item{...}{\code{\link[shiny:tabPanel]{tabPanel()}} elements to include in the tabset}
@@ -23,14 +17,6 @@ will correspond to the \code{value} argument that is passed to
 \item{selected}{The \code{value} (or, if none was supplied, the \code{title})
 of the tab that should be selected by default. If \code{NULL}, the first
 tab will be selected.}
-
-\item{type}{\describe{
-\item{\code{"tabs"}}{Standard tab look}
-\item{\code{"pills"}}{Selected tabs use the background fill color}
-\item{\code{"hidden"}}{Hides the selectable tabs. Use \code{type = "hidden"} in
-conjunction with \code{\link[shiny:tabPanel]{tabPanelBody()}} and \code{\link[shiny:updateTabsetPanel]{updateTabsetPanel()}} to control the
-active tab via other input controls. (See example below)}
-}}
 
 \item{position}{This argument is deprecated; it has been discontinued in
 Bootstrap 3.}
