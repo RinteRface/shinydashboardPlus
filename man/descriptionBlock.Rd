@@ -38,6 +38,8 @@ Create a description block, perfect for writing statistics
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

@@ -44,12 +44,10 @@ support more panels.
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
  shinyApp(
-   ui = dashboardPagePlus(
-     header = dashboardHeaderPlus(
-      enable_rightsidebar = TRUE,
-      rightSidebarIcon = "gears"
-     ),
+   ui = dashboardPage(
+     header = dashboardHeader(),
      sidebar = dashboardSidebar(),
      body = dashboardBody(),
      controlbar = dashboardControlbar(

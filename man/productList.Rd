@@ -16,6 +16,8 @@ Create a container product list elements
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

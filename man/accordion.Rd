@@ -18,6 +18,8 @@ Create an accordion container
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

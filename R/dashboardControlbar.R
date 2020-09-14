@@ -21,12 +21,10 @@
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(
-#'       enable_rightsidebar = TRUE,
-#'       rightSidebarIcon = "gears"
-#'      ),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(),
 #'      controlbar = dashboardControlbar(
@@ -121,11 +119,12 @@ dashboardControlbar <- function(..., inputId = NULL, skin = "dark",
 #' @examples
 #' if (interactive()) {
 #'  library(shiny)
+#'  library(shinydashboard)
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(
 #'        actionButton(inputId = "controlbarToggle", label = "Toggle Controlbar")
@@ -171,8 +170,8 @@ updateControlbar <- function(inputId, session = shiny::getDefaultReactiveDomain(
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(),
 #'      controlbar = dashboardControlbar(
@@ -247,8 +246,8 @@ controlbarItem <- shiny::tabPanel
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(
 #'       radioButtons("controller", "Controller", choices = c(1, 2, 3))

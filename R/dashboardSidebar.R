@@ -13,7 +13,7 @@
 #' @param minified Whether to slightly close the sidebar but still show item icons. Default
 #' to FALSE.
 #' @export
-dashboardSidebarPlus <- function(..., inputId = NULL, disable = FALSE, width = NULL, collapsed = FALSE,
+dashboardSidebar <- function(..., inputId = NULL, disable = FALSE, width = NULL, collapsed = FALSE,
                              minified = FALSE) {
   width <- shiny::validateCssUnit(width)
   
@@ -110,12 +110,13 @@ dashboardSidebarPlus <- function(..., inputId = NULL, disable = FALSE, width = N
 #' @examples
 #' if (interactive()) {
 #'  library(shiny)
+#'  library(shinydashboard)
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(),
-#'      sidebar = dashboardSidebarPlus(inputId = "sidebar"),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
+#'      sidebar = dashboardSidebar(inputId = "sidebar"),
 #'      body = dashboardBody(
 #'        actionButton(inputId = "sidebarToggle", label = "Toggle Sidebar")
 #'      )

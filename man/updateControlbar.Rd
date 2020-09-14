@@ -17,11 +17,12 @@ Function to programmatically toggle the state of the controlbar
 \examples{
 if (interactive()) {
  library(shiny)
+ library(shinydashboard)
  library(shinydashboardPlus)
  
  shinyApp(
-   ui = dashboardPagePlus(
-     header = dashboardHeaderPlus(),
+   ui = dashboardPage(
+     header = dashboardHeader(),
      sidebar = dashboardSidebar(),
      body = dashboardBody(
        actionButton(inputId = "controlbarToggle", label = "Toggle Controlbar")

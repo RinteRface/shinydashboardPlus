@@ -16,8 +16,8 @@ if (interactive()) {
  library(shinydashboardPlus)
  
  shinyApp(
-   ui = dashboardPagePlus(
-     header = dashboardHeaderPlus(),
+   ui = dashboardPage(
+     header = dashboardHeader(),
      sidebar = dashboardSidebar(),
      body = dashboardBody(),
      controlbar = dashboardControlbar(skinSelector()),

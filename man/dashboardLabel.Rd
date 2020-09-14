@@ -20,6 +20,8 @@ Create a label
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

@@ -18,7 +18,7 @@ userMessages(..., status, width = 4)
 Create a user message container
 }
 \note{
-Better to include in a \link{boxPlus}.
+Better to include in a \link{box}.
 }
 \examples{
 if (interactive()) {
@@ -27,8 +27,8 @@ if (interactive()) {
  library(shinydashboardPlus)
  
  shinyApp(
-  ui = dashboardPagePlus(
-    dashboardHeaderPlus(),
+  ui = dashboardPage(
+    dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
      boxPlus(

@@ -3,8 +3,10 @@ reference:
   desc: Page and header wrappers
   contents: 
   - '`dashboardFooter`'
-  - '`dashboardHeaderPlus`'
-  - '`dashboardPagePlus`'
+  - '`dashboardHeader`'
+  - '`dashboardPage`'
+  - '`dashboardSidebar`'
+  - '`updateSidebar`'
   
 - title: Navbar Functions
   desc: Items to insert in the left navbar menu
@@ -15,20 +17,23 @@ reference:
   - '`renderUser`'
   - '`userOutput`'
 
-- title: Right Sidebar
+- title: Right Sidebar (controlbar)
   desc: Right sidebar elements
   contents: 
-  - '`rightSidebar`'
-  - '`rightSidebarTabContent`'
-  - '`rightSidebarMenu`'
-  - '`rightSidebarMenuItem`'
-  - '`menuIcon`'
-  - '`menuInfo`'
+  - '`dashboardControlbar`'
+  - '`controlbarMenu`'
+  - '`controlbarItem`'
+  - '`updateControlbar`'
+  - '`updateControlbarMenu`'
   
 - title: Box functions
   desc: Functions that are designed to create new boxes
   contents:
-  - '`boxPlus`'
+  - '`box`'
+  - '`boxLabel`'
+  - '`boxSidebar`'
+  - '`updateBox`'
+  - '`updateBoxSidebar`'
   - '`gradientBox`'
   - '`widgetUserBox`'
   - '`socialBox`'
@@ -148,7 +153,7 @@ articles:
 
 news:
  releases:
- - text: "shinydashboardPlus 0.8.0.9000"
+ - text: "shinydashboardPlus 2.0.0.9000"
  - text: "shinydashboardPlus 0.7.5"
  - text: "shinydashboardPlus 0.7.0"
  - text: "shinydashboardPlus 0.6.0"

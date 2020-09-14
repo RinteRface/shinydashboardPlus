@@ -21,14 +21,10 @@ library(shinydashboard)
 library(shinydashboardPlus)
 
 shinyApp(
-  ui = dashboardPagePlus(
-    header = dashboardHeaderPlus(
-     enable_rightsidebar = TRUE,
-     rightSidebarIcon = "gears"
-    ),
+  ui = dashboardPage(
+    header = dashboardHeader(),
     sidebar = dashboardSidebar(),
     body = dashboardBody(),
-    rightsidebar = rightSidebar(),
     footer = dashboardFooter(
      left = "By Divad Nojnarg",
      right = "Zurich, 2019"

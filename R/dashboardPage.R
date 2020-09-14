@@ -2,9 +2,8 @@
 #'
 #' This creates a dashboard page for use in a Shiny app.
 #'
-#' @param header A header created by \code{dashboardHeaderPlus}.
-#' @param sidebar A sidebar created by \code{\link[shinydashboard]{dashboardSidebar}} or 
-#' \code{\link{dashboardSidebarPlus}}.
+#' @param header A header created by \code{\link{dashboardHeader}}.
+#' @param sidebar A sidebar created by \code{\link{dashboardSidebar}}.
 #' @param body A body created by \code{\link[shinydashboard]{dashboardBody}}.
 #' @param controlbar A right sidebar created by \link{dashboardControlbar}. NULL by
 #'   default.
@@ -21,7 +20,7 @@
 #' \url{https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options}.
 #' Expect a list.
 #'
-#' @seealso \code{\link{dashboardHeaderPlus}}, \code{\link[shinydashboard]{dashboardSidebar}},
+#' @seealso \code{\link{dashboardHeader}}, \code{\link{dashboardSidebar}},
 #'   \code{\link[shinydashboard]{dashboardBody}}.
 #' @examples
 #' if (interactive()) {
@@ -30,9 +29,9 @@
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
+#'    ui = dashboardPage(
 #'      options = list(sidebarExpandOnHover = TRUE),
-#'      header = dashboardHeaderPlus(),
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(),
 #'      controlbar = dashboardControlbar(),
@@ -42,7 +41,7 @@
 #'  )
 #' }
 #' @export
-dashboardPagePlus <- function(header, sidebar, body, controlbar = NULL, footer = NULL, title = NULL,
+dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NULL, title = NULL,
                               skin = c("blue", "blue-light","black","black-light", 
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light", "midnight"),

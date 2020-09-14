@@ -11,6 +11,8 @@
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -145,6 +147,8 @@ accordionItem <- function(..., title = NULL, color = NULL,
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -208,6 +212,8 @@ attachmentBlock <- function(..., src = NULL, title = NULL, titleUrl = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -248,6 +254,8 @@ blockQuote <- function(..., side = "left") {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -317,6 +325,8 @@ boxPad <- function(..., color = NULL, style = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -364,6 +374,8 @@ appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -418,6 +430,8 @@ socialButton <- function(url, type = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -461,6 +475,8 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -508,6 +524,8 @@ dashboardBadge <- function(..., color = "blue") {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -591,6 +609,8 @@ descriptionBlock <- function(number = NULL, numberColor = NULL, numberIcon = NUL
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -629,6 +649,8 @@ loadingState <- function() {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -888,6 +910,8 @@ preloader <- function() {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -985,6 +1009,8 @@ productListItem <- function(..., src = NULL, productTitle = NULL,
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -1045,6 +1071,8 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -1307,6 +1335,8 @@ timelineEnd <- function(icon = "hourglass-end", color = NULL) {
 #'  library(shiny)
 #'  library(shinydashboard)
 #'  library(shinyjqui)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -1425,6 +1455,8 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -1531,6 +1563,8 @@ userListItem <- function(src = NULL, user_name = NULL, description = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -1705,12 +1739,11 @@ userPostMedia <- function(src = NULL, height = NULL, width = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(
-#'       enable_rightsidebar = TRUE,
-#'       rightSidebarIcon = "gears"
-#'      ),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(
 #'       verticalProgress(
@@ -1731,7 +1764,6 @@ userPostMedia <- function(src = NULL, height = NULL, width = NULL) {
 #'        height = "60%"
 #'       )
 #'      ),
-#'      rightsidebar = rightSidebar(),
 #'      title = "Right Sidebar"
 #'    ),
 #'    server = function(input, output) { }
@@ -1785,12 +1817,11 @@ verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped 
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(
-#'       enable_rightsidebar = TRUE,
-#'       rightSidebarIcon = "gears"
-#'      ),
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(
 #'       carousel(
@@ -1805,7 +1836,6 @@ verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped 
 #'        )
 #'       )
 #'      ),
-#'      rightsidebar = rightSidebar(),
 #'      title = "Right Sidebar"
 #'    ),
 #'    server = function(input, output) { }
@@ -1894,7 +1924,7 @@ carouselItem <- function(..., caption = "") {
 #' \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param width Container width: between 1 and 12.
 #' 
-#' @note Better to include in a \link{boxPlus}.
+#' @note Better to include in a \link{box}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -1905,8 +1935,8 @@ carouselItem <- function(..., caption = "") {
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'   ui = dashboardPagePlus(
-#'     dashboardHeaderPlus(),
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
 #'      boxPlus(

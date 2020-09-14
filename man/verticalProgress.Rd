@@ -40,12 +40,11 @@ This creates a vertical progress bar.
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
-   ui = dashboardPagePlus(
-     header = dashboardHeaderPlus(
-      enable_rightsidebar = TRUE,
-      rightSidebarIcon = "gears"
-     ),
+   ui = dashboardPage(
+     header = dashboardHeader(),
      sidebar = dashboardSidebar(),
      body = dashboardBody(
       verticalProgress(
@@ -66,7 +65,6 @@ if (interactive()) {
        height = "60\%"
       )
      ),
-     rightsidebar = rightSidebar(),
      title = "Right Sidebar"
    ),
    server = function(input, output) { }

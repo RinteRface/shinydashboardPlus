@@ -20,6 +20,8 @@
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -150,6 +152,8 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -294,7 +298,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' Boxes can be used to hold content in the main body of a dashboard.
 #' 
 #' @param ... Contents of the box.
-#' @param inputId Box unique id. \link{updateBoxPlus} target.
+#' @param inputId Box unique id. \link{updateBox} target.
 #' @param title Optional title.
 #' @param footer Optional footer text.
 #' @param status The status of the item This determines the item's background
@@ -315,9 +319,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param collapsed If TRUE, start collapsed. This must be used with
 #'   \code{collapsible=TRUE}.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param label Slot for \link{boxPlusLabel}.
+#' @param label Slot for \link{boxLabel}.
 #' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{dropdownItemList}.
-#' @param sidebar Slot for \link{boxPlusSidebar}.
+#' @param sidebar Slot for \link{boxSidebar}.
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @family boxes
@@ -327,20 +331,21 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
 #' 
 #'  shinyApp(
-#'    ui = dashboardPagePlus(
-#'      dashboardHeaderPlus(),
+#'    ui = dashboardPage(
+#'      dashboardHeader(),
 #'      dashboardSidebar(),
 #'      dashboardBody(
-#'       boxPlus(
+#'       box(
 #'         title = "Closable Box with dropdown", 
 #'         closable = TRUE, 
 #'         width = 12,
 #'         status = "warning", 
 #'         solidHeader = FALSE, 
 #'         collapsible = TRUE,
-#'         label = boxPlusLabel(
+#'         label = boxLabel(
 #'          text = 1,
 #'          status = "danger",
 #'          style = "circle"
@@ -351,7 +356,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'          dropdownDivider(),
 #'          dropdownItem(url = "#", name = "item 3")
 #'         ),
-#'         sidebar = boxPlusSidebar(
+#'         sidebar = boxSidebar(
 #'          startOpen = TRUE,
 #'          inputId = "mycardsidebar",
 #'          sliderInput(
@@ -374,7 +379,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'  )
 #' }
 #' @export
-boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
+box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                      background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = TRUE, label = NULL, dropdownMenu = NULL,
                     sidebar = NULL, footerPadding = TRUE) {
@@ -462,7 +467,7 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
     headerTag <- shiny::tags$div(class = "box-header", titleTag, boxToolTag)
   }
   
-  boxPlusTag <- shiny::tags$div(
+  boxTag <- shiny::tags$div(
     class = if (!is.null(width)) paste0("col-sm-", width), 
     shiny::tags$div(
       id = inputId,
@@ -492,20 +497,20 @@ boxPlus <- function(..., inputId = NULL, title = NULL, footer = NULL, status = N
     )
   )
   
-  boxPlusTag
+  boxTag
   
 }
 
 
 
-#' Create a label for \link{boxPlus} 
+#' Create a label for \link{box} 
 #'
 #' @param text Label text. In practice only few letters or a number.
 #' @param status label color status. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param style label border style: "default" (rounded angles), "circle" or "square".
 #' @export
 #' @seealso \link{dashboardLabel}
-boxPlusLabel <- function(text, status, style = "default") {
+boxLabel <- function(text, status, style = "default") {
   
   if (nchar(text) > 10) warning("Avoid long texts in boxPlusLabel.")
   dashboardLabel(text, status = status, style = style)
@@ -516,17 +521,17 @@ boxPlusLabel <- function(text, status, style = "default") {
 
 #' Create a sidebar for a box
 #' 
-#' To insert in the sidebar slot of \link{boxPlus}.
+#' To insert in the sidebar slot of \link{box}.
 #'
 #' @param ... Sidebar content.
-#' @param inputId Unique sidebar id. Useful if you want to use \link{updateBoxPlusSidebar}.
+#' @param inputId Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.
 #' @param width Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").
 #' @param background Sidebar background color. Dark by default.
 #' @param startOpen Whether the sidebar is open at start. FALSE by default.
 #' @param icon Sidebar icon.
 #' 
 #' @export
-boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40", 
+boxSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40", 
                            startOpen = FALSE, icon = shiny::icon("cogs")) {
   
   # Toggle to insert in bs4Card
@@ -594,7 +599,7 @@ boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#33
 
 
 
-#' Collapse a \link{boxPlus} tag.
+#' Collapse a \link{box} tag.
 #'
 #' @param inputId Box to toggle.
 #' @param action Action to trigger: either collapse, remove or restore.
@@ -607,8 +612,8 @@ boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#33
 #'  library(shinydashboard)
 #'  library(shinydashboardPlus)
 #'  
-#'  ui <- dashboardPagePlus(
-#'    dashboardHeaderPlus(),
+#'  ui <- dashboardPage(
+#'    dashboardHeader(),
 #'    dashboardSidebar(),
 #'    dashboardBody(
 #'      tags$style("body { background-color: ghostwhite}"),
@@ -618,7 +623,7 @@ boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#33
 #'        actionButton("restore_box", "Restore Box", class = "bg-success")
 #'      ),
 #'      br(),
-#'      boxPlus(
+#'      box(
 #'        title = textOutput("box_state"),
 #'        "Box body",
 #'        inputId = "mybox",
@@ -641,15 +646,15 @@ boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#33
 #'    })
 #'    
 #'    observeEvent(input$toggle_box, {
-#'      updateBoxPlus("mybox", action = "toggle")
+#'      updateBox("mybox", action = "toggle")
 #'    })
 #'    
 #'    observeEvent(input$remove_box, {
-#'      updateBoxPlus("mybox", action = "remove")
+#'      updateBox("mybox", action = "remove")
 #'    })
 #'    
 #'    observeEvent(input$restore_box, {
-#'      updateBoxPlus("mybox", action = "restore")
+#'      updateBox("mybox", action = "restore")
 #'    })
 #'    
 #'    observeEvent(input$mybox$visible, {
@@ -663,7 +668,7 @@ boxPlusSidebar <- function(..., inputId = NULL, width = "25%", background = "#33
 #'  
 #'  shinyApp(ui, server)
 #' }
-updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"), 
+updateBox <- function(inputId, action = c("remove", "toggle", "restore"), 
                           session = shiny::getDefaultReactiveDomain()) {
   session$sendInputMessage(inputId, message = match.arg(action))
 }
@@ -671,7 +676,7 @@ updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"),
 
 
 
-#' Programmatically toggle a \link{boxPlusSidebar}
+#' Programmatically toggle a \link{boxSidebar}
 #'
 #' @param inputId Sidebar id.
 #' @param session Shiny session object.
@@ -684,10 +689,10 @@ updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"),
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'   ui = dashboardPagePlus(
+#'   ui = dashboardPage(
 #'     header = dashboardHeader(),
 #'     body = dashboardBody(
-#'       boxPlus(
+#'       box(
 #'         title = "Update box sidebar", 
 #'         closable = TRUE, 
 #'         width = 12,
@@ -695,7 +700,7 @@ updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"),
 #'         solidHeader = FALSE, 
 #'         collapsible = TRUE,
 #'         actionButton("update", "Toggle card sidebar"),
-#'         sidebar = boxPlusSidebar(
+#'         sidebar = boxSidebar(
 #'           inputId = "mycardsidebar",
 #'           p("Sidebar Content")
 #'         )
@@ -707,13 +712,13 @@ updateBoxPlus <- function(inputId, action = c("remove", "toggle", "restore"),
 #'     observe(print(input$mycardsidebar))
 #'     
 #'     observeEvent(input$update, {
-#'       updateBoxPlusSidebar(inputId = "mycardsidebar")
+#'       updateBoxSidebar(inputId = "mycardsidebar")
 #'     })
 #'     
 #'   }
 #'  )
 #' }
-updateBoxPlusSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
+updateBoxSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
   session$sendInputMessage(inputId, NULL)
 }
 
@@ -802,6 +807,8 @@ dropdownDivider <- function() {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -961,6 +968,8 @@ boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'   ui = dashboardPage(
 #'     dashboardHeader(),
@@ -1073,6 +1082,7 @@ boxProfileItem <- function(title = NULL, description = NULL) {
 #'  library(shiny)
 #'  library(shinydashboard)
 #'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'    ui = dashboardPage(
 #'      dashboardHeader(),

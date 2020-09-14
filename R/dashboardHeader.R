@@ -8,7 +8,7 @@
 #' @param title An optional title to show in the header bar.. By default, this
 #'   will also be used as the title shown in the browser's title bar. If you
 #'   want that to be different from the text in the dashboard header bar, set
-#'   the \code{title} in \code{\link{dashboardPagePlus}}.
+#'   the \code{title} in \code{\link{dashboardPage}}.
 #' @param titleWidth The width of the title area. This must either be a number
 #'   which specifies the width in pixels, or a string that specifies the width
 #'   in CSS units.
@@ -36,8 +36,8 @@
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'   ui = dashboardPagePlus(
-#'     header = dashboardHeaderPlus(
+#'   ui = dashboardPage(
+#'     header = dashboardHeader(
 #'       leftUi = tagList(
 #'         dropdownBlock(
 #'           id = "mydropdown",
@@ -95,7 +95,7 @@
 #'  )
 #' }
 #' @export
-dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL, 
+dashboardHeader <- function(..., title = NULL, titleWidth = NULL, 
                                 disable = FALSE, .list = NULL, leftUi = NULL,
                                 controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
   # handle right menu items
@@ -231,16 +231,10 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'   ui = dashboardPagePlus(
-#'     header = dashboardHeaderPlus(
-#'       enable_rightsidebar = TRUE,
-#'       rightSidebarIcon = "gears",
-#'       leftUi = NULL,
-#'       userOutput("user")
-#'     ),
+#'   ui = dashboardPage(
+#'     header = dashboardHeader(userOutput("user")),
 #'     sidebar = dashboardSidebar(),
 #'     body = dashboardBody(),
-#'     rightsidebar = rightSidebar(),
 #'     title = "DashboardPage"
 #'   ),
 #'   server = function(input, output) {
@@ -387,7 +381,7 @@ globalVariables("func")
 #' @param title Dropdown block title.
 #' @param badgeStatus Dropdown badge status.
 #'
-#' @seealso \code{\link{dashboardHeaderPlus}} for example usage.
+#' @seealso \code{\link{dashboardHeader}} for example usage.
 #'
 #' @export
 dropdownBlock <- function(..., id, icon = NULL, title = NULL, 

@@ -19,6 +19,8 @@ if (interactive()) {
  library(shiny)
  library(shinydashboard)
  library(shinyjqui)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

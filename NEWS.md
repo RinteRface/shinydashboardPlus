@@ -1,4 +1,7 @@
-# shinydashboardPlus 0.8.0.9000
+# shinydashboardPlus 2.0.0.9000
+
+This release is a major step for shinydashboardPlus. It is also a significant breaking
+change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.
 
 ## Breaking changes
 - Remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
@@ -9,23 +12,25 @@
 - Replace _left_text_ and _right_text_ by _left_ and _right_, respectively in `dashboardFooter()`
 - Remove all sidebar related parameters of `dashboardPagePlus()`. They now belong to `dashboardSidebarPlus()` to Align with {shinydashboard}
 - In `dashboardSidebarPlus()`: replace _rightSidebar_ by _controlbar_ (align with {bs4Dash}). Rename _enable_preloader_ to _preloader_ and _loading_duration_ to _duration_
-- Rename `rightSidebar()` to `dashboardControlbar` to align with {bs4Dash}
+- Rename `rightSidebar()` to `dashboardControlbar()` to align with {bs4Dash}
 - Remove _enable_rightSidebar_ from `dashboardHeaderPlus()`. This is now part of `dashboardControlbar()` as _disable_ like in {shinydashboard}. _rightSidebarIcon_ becomes
 _controlbarIcon_ that accepts `shiny::icon` instead of a simple string containing the icon name to be consistent with {shinydashboard}. _left_menu_ becomes _leftUi_ like in {bs4Dash}
 - Remove `rightSiderbarMenu()`, `rightSidebarTablist()`, `rightSidebarTabItem()`, `rightSidebarPanel()` and `rightSidebarTabContent()`. They are now replaces by `dashboardControlbar()`, `controlbarMenu()` and `controlbarItem()`
 - Remove `rightSidebarMenuItem()`, `menuIcon()` and `menuInfo()`
+- Rename `boxPlus()` to `box()`, `dashboardPagePlus()` to `dashboardPage()` and
+`dashboardHeaderPlus()` to `dashboardHeader()`
 
 ## New features
 - Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.
 - Add `updateControlbarMenu()` to programmatically change the selected controlbar item
 - Add _inputId_ to `dashboardControlbar()` to be able to use `updateControlbar()`
-- Add _inputId_ to `dashboardSidebarPlus()` to be able to use `updateSidebar()`
-- New `dashboardSidebarPlus()`
-- New `boxPlusLabel()` to add text labels in `boxPlus()`
-- New `boxPlusSidebar()`: access the status via input$id. Add `updateBoxPlusSidebar()` to toggle the box sidebar
-- new `options` parameter to `dashboardPagePlus()`. See [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
+- Add _inputId_ to `dashboardSidebar()` to be able to use `updateSidebar()`
+- New `dashboardSidebar()` (reworked shinydashboard sidebar)
+- New `boxLabel()` to add text labels in `box()`
+- New `boxSidebar()`: access the status via input$id. Add `updateBoxSidebar()` to toggle the box sidebar
+- new `options` parameter to `dashboardPage()`. See [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
 list of available options
-- Toggle `boxPlus()` with `updateBoxPlus()` (see #10 and #69, @happyshows and @daatali)
+- Toggle `box()` with `updateBox()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
 - Simplified dependencies code (No end-user impact)
@@ -33,7 +38,7 @@ list of available options
 ## Bug fixes
 - Fix #86: controlbar should also trigger a window resize, like the left
 shinydashboard sidebar. Thanks @ajfisher83 
-- Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `boxPlus()`...
+- Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `box()`...
 
 
 
