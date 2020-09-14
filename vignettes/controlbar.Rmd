@@ -1,0 +1,71 @@
+---
+title: "Using the rightSidebar"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using the rightSidebar}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## The controlbar
+
+The template below will create the most basic shinydashboardPlus page:
+
+```{r, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+shinyApp(
+  ui = dashboardPage(
+    header = dashboardHeader(),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(),
+    controlbar = dashboardControlbar(),
+    title = "DashboardPage"
+  ),
+  server = function(input, output) { }
+)
+```
+
+The `dashboardControlbar` function takes the following arguments:
+
+- skin: you can display it either in light or dark mode
+- Fill it with `controbarMenu`. You can include inputs,
+text or custom HTML elements.
+- In the `dashboardHeader()` function, you can customize the controlbar trigger.
+
+<video width="640" height="480" controls style="display: block; margin: 0 auto;">
+  <source src="figures/right-sidebar.mp4" type="video/mp4">
+</video>
+
+<br>
+
+```{r, eval=FALSE}
+shinyApp(
+   ui = dashboardPage(
+     header = dashboardHeader(),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     controlbar = dashboardControlbar(
+      skin = "dark",
+      controlbarMenu(
+       id = "menu",
+       controlbarItem(
+        "Tab 1",
+        "Welcome to tab 1"
+       ),
+       controlbarItem(
+        "Tab 2",
+        "Welcome to tab 2"
+       )
+      )
+     ),
+     title = "Right Sidebar"
+   ),
+   server = function(input, output) { }
+ )
+```
+
+It is best practice to limit the number of `controlbarItem` to 5.

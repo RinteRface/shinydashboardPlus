@@ -19,9 +19,9 @@ knitr::opts_chunk$set(
 ## Introduction
 
 By default with shinydashboard, all elements included in the navbar will be 
-displayed on the right side. **shinydashboardPlus** has a new option to add
+displayed on the right side. `{shinydashboardPlus}` has a new option to add
 elements in the left part of the navbar. You just have to pass the "left_menu" argument
-to the `dashboardHeaderPlus()` function. All elements should be embbeded in a `tagList()`,
+to the `dashboardHeaderPlus()` function. All elements should be embedded in a `tagList()`,
 as shown below.
 
 <video width="640" height="480" controls style="display: block; margin: 0 auto;">
@@ -30,18 +30,16 @@ as shown below.
 
 <br>
 
-```r
+```{r, eval=FALSE}
  library(shiny)
  library(shinyWidgets)
  library(shinydashboard)
  library(shinydashboardPlus)
  
  shinyApp(
-   ui = dashboardPagePlus(
-     header = dashboardHeaderPlus(
-       enable_rightsidebar = TRUE,
-       rightSidebarIcon = "gears",
-       left_menu = tagList(
+   ui = dashboardPage(
+     header = dashboardHeader(
+       leftUi = tagList(
          dropdownButton(
            label = "Controls",
            icon = icon("sliders"),
@@ -81,7 +79,6 @@ as shown below.
      body = dashboardBody(
        setShadow(class = "dropdown-menu")
      ),
-     rightsidebar = rightSidebar(),
      title = "DashboardPage"
    ),
    server = function(input, output) { }
@@ -95,7 +92,7 @@ It works less with other individual elements, for a space reason, mainly.
 Indeed, a `sliderInput()` would not be optimized to be inserted in the header 
 because of the label which takes too much space. This would require
 some CSS tricks, namely, reducing the slider size, and this is not the philosophy of 
-**shinydashboardPlus** to change basic shiny elements. 
+`{shinydashboardPlus}` to change basic shiny elements. 
 
 ## Improved `dropdownMenu()`
 
@@ -103,18 +100,16 @@ The new function `dropdownBlock()` make it easy to embed input elements in a lef
 menu. It does not hide when the user click inside but only outside and is optimized to
 correctly render with mobiles (contrary to `dropdownButton()`, see above).
 
-```r
+```{r, eval=FALSE}
 library(shiny)
 library(shinyWidgets)
 library(shinydashboard)
 library(shinydashboardPlus)
 
 shinyApp(
-  ui = dashboardPagePlus(
-    header = dashboardHeaderPlus(
-      enable_rightsidebar = TRUE,
-      rightSidebarIcon = "gears",
-      left_menu = tagList(
+  ui = dashboardPage(
+    header = dashboardHeader(
+      leftUi = tagList(
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
@@ -165,7 +160,6 @@ shinyApp(
     body = dashboardBody(
       setShadow(class = "dropdown-menu")
     ),
-    rightsidebar = rightSidebar(),
     title = "DashboardPage"
   ),
   server = function(input, output) { }

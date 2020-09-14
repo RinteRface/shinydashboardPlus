@@ -52,28 +52,17 @@ if (interactive()) {
      body = dashboardBody(),
      controlbar = dashboardControlbar(
       skin = "dark",
-       rightSidebarTabContent(
-        id = 1,
-        icon = "desktop",
-        title = "Tab 1",
-        active = TRUE,
-        sliderInput(
-         "obs", 
-         "Number of observations:",
-          min = 0, max = 1000, value = 500
-         )
+      controlbarMenu(
+       id = "menu",
+       controlbarItem(
+        "Tab 1",
+        "Welcome to tab 1"
        ),
-       rightSidebarTabContent(
-        id = 2,
-        title = "Tab 2",
-        textInput("caption", "Caption", "Data Summary")
-       ),
-       rightSidebarTabContent(
-        id = 3,
-        title = "Tab 3",
-        icon = "paint-brush",
-        numericInput("obs", "Observations:", 10, min = 1, max = 100)
+       controlbarItem(
+        "Tab 2",
+        "Welcome to tab 2"
        )
+      )
      ),
      title = "Right Sidebar"
    ),

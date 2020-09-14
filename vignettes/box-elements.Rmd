@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Boxes components
 
-**shinydashboardPlus** brings also tons of new elements to include in boxes or elsewhere.
+`{shinydashboardPlus}` brings also tons of new elements to include in boxes or elsewhere.
 
 ### `descriptionBlock()`
 
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 <br>
 
-```r
+```{r, eval=FALSE}
  library(shiny)
  library(shinydashboard)
  library(shinydashboardPlus)
@@ -81,7 +81,7 @@ knitr::opts_chunk$set(
 <img src="figures/boxPad.png">
 <br>
 
-```r
+```{r, eval=FALSE}
  library(shiny)
  library(shinydashboard)
  library(shinydashboardPlus)

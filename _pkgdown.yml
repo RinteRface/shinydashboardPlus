@@ -101,6 +101,7 @@ reference:
   desc: Pimp your app
   contents:
   - '`preloader`'
+  - '`skinSelector`'
   
 - title: The Gallery
   desc: a showcase for shinydashboardPlus
@@ -142,11 +143,11 @@ articles:
 - title: All vignettes
   desc: ~
   contents:
-  - '`rightSidebar`'
+  - '`controlbar`'
   - '`improved-boxes`'
   - '`box-elements`'
   - '`extra-css-effects`'
-  - '`boxPlus-sidebar`'
+  - '`box-sidebar`'
   - '`css-preloader`'
   - '`left-menu-navbar`'
   

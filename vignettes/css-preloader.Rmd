@@ -18,8 +18,8 @@ knitr::opts_chunk$set(
 
 ## How to set up a preloader
 
-Pass the argument `enable_preloader = TRUE` to the `dashboardPagePlus()` function.
-You can also change the loading duration (2s by default): `loading_duration = 5` for
+Pass the argument `preloader = TRUE` to the `dashboardPage()` function.
+You can also change the loading duration (2s by default): `duration = 5` for
 5 seconds.
 
 <video width="640" height="480" controls style="display: block; margin: 0 auto;">
@@ -28,21 +28,17 @@ You can also change the loading duration (2s by default): `loading_duration = 5`
 
 <br>
 
-```r
+```{r, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
 
 shinyApp(
-  ui = dashboardPagePlus(
-    enable_preloader = TRUE,
-    header = dashboardHeaderPlus(
-     enable_rightsidebar = TRUE,
-     rightSidebarIcon = "gears"
-    ),
+  ui = dashboardPage(
+    preloader = TRUE,
+    header = dashboardHeader(),
     sidebar = dashboardSidebar(),
     body = dashboardBody(),
-    rightsidebar = rightSidebar(),
     title = "DashboardPage"
   ),
   server = function(input, output) { }

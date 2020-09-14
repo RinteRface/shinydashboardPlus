@@ -11,30 +11,30 @@ vignette: >
 
 ## Improved boxes
 
-With **shinydashboardPlus**, you can add labels and dropdown menus to your
-boxes. You just have to use `boxPlus()` instead of `box()` from **shinydashboard**.
+With `{shinydashboardPlus}`, you can add labels and dropdown menus to your
+boxes.
 
 There are also other boxes such as `gradientBox()`, `socialBox()` as well as
 `widgetUserBox()`, to help you making outstanding shiny apps.
 
-### boxPlus
+### box
 
 <img src="figures/boxPlus.png" width="840" height="88">
 
 <br>
 
-```r
+```{r, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
 
  shinyApp(
-   ui = dashboardPagePlus(
-     dashboardHeaderPlus(),
+   ui = dashboardPage(
+     dashboardHeader(),
      dashboardSidebar(),
      dashboardBody(
       fluidRow(
-       boxPlus(
+       box(
         title = "Closable Box", 
          closable = TRUE, 
          status = "warning", 
@@ -42,7 +42,7 @@ library(shinydashboardPlus)
          collapsible = TRUE,
          p("Box Content")
        ),
-       boxPlus(
+       box(
         title = "Closable box, with label", 
          closable = TRUE, 
          enable_label = TRUE,
@@ -65,7 +65,7 @@ library(shinydashboardPlus)
 <img src="figures/gradientBox.png" width="840" height="163">
 <br>
 
-```r
+```{r, eval=FALSE}
 library(shiny)
  library(shinydashboard)
  library(shinydashboardPlus)
@@ -108,7 +108,7 @@ library(shiny)
 <img src="figures/widgetUserBox.png">
 <br>
 
-```r
+```{r, eval=FALSE}
  library(shiny)
  library(shinydashboard)
  library(shinydashboardPlus)
@@ -160,10 +160,10 @@ library(shiny)
 <img src="figures/socialBox.png">
 <br>
 
-```r
+```{r, eval=FALSE}
 library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
+library(shinydashboard)
+library(shinydashboardPlus)
  
  shinyApp(
   ui = dashboardPage(
@@ -210,7 +210,7 @@ library(shiny)
 <img src="figures/flipBox.png">
 <br>
 
-```r
+```{r, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
