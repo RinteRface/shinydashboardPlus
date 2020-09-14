@@ -13,6 +13,7 @@
 - Remove _enable_rightSidebar_ from `dashboardHeaderPlus()`. This is now part of `dashboardControlbar()` as _disable_ like in {shinydashboard}. _rightSidebarIcon_ becomes
 _controlbarIcon_ that accepts `shiny::icon` instead of a simple string containing the icon name to be consistent with {shinydashboard}. _left_menu_ becomes _leftUi_ like in {bs4Dash}
 - Remove `rightSiderbarMenu()`, `rightSidebarTablist()`, `rightSidebarTabItem()`, `rightSidebarPanel()` and `rightSidebarTabContent()`. They are now replaces by `dashboardControlbar()`, `controlbarMenu()` and `controlbarItem()`
+- Remove `rightSidebarMenuItem()`, `menuIcon()` and `menuInfo()`
 
 ## New features
 - Add `updateControlbarMenu()` to programmatically change the selected controlbar item
