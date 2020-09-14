@@ -12,7 +12,9 @@
 #'   provided, it will try to extract the title from the
 #'   \code{dashboardHeaderPlus}.
 #' @param skin A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' If the skin is light, the sidebar will have a light background.
+#' If the skin is light, the sidebar will have a light background. Not compatible with freshTheme.
+#' @param freshTheme A skin powered by the fresh package. Not compatible with skin.
+#' See \url{https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html}.
 #' @param preloader Whether to enable a page loader. FALSE by default.
 #' @param duration Loader duration in seconds. 2s by default.
 #' @param md Whether to enable material design. Experimental...
@@ -27,13 +29,36 @@
 #'  library(shiny)
 #'  library(shinydashboard)
 #'  library(shinydashboardPlus)
+#'  library(fresh)
 #'  
 #'  shinyApp(
 #'    ui = dashboardPage(
+#'      freshTheme = create_theme(
+#'       adminlte_color(
+#'         light_blue = "#55e7ff",
+#'         blue = "#2011a2",
+#'         navy = "#201148",
+#'         red = "#ff34b3"
+#'       ),
+#'       adminlte_sidebar(
+#'         dark_bg = "#D8DEE9",
+#'         dark_hover_bg = "#81A1C1",
+#'         dark_color = "#2E3440"
+#'       ),
+#'       adminlte_global(
+#'         content_bg = "#FFF",
+#'         box_bg = "#D8DEE9", 
+#'         info_box_bg = "#D8DEE9"
+#'       )
+#'      ),
 #'      options = list(sidebarExpandOnHover = TRUE),
 #'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
-#'      body = dashboardBody(),
+#'      body = dashboardBody(
+#'       box(background = "red"),
+#'       box(background = "blue"),
+#'       box(background = "navy")
+#'      ),
 #'      controlbar = dashboardControlbar(),
 #'      title = "DashboardPage"
 #'    ),
@@ -45,8 +70,14 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
                               skin = c("blue", "blue-light","black","black-light", 
                                        "purple","purple-light", "green","green-light",
                                        "red","red-light", "yellow","yellow-light", "midnight"),
+                          freshTheme = NULL, 
                               preloader = FALSE, duration = 2,
                               md = FALSE, options = NULL) {
+  
+  skin <- match.arg(skin)
+  if (!is.null(freshTheme) && !is.null(skin)) {
+    message(sprintf("Customizing AdminLTE %s skin with the current {fresh} theme", skin))
+  }
   
   tagAssert(header, type = "header", class = "main-header")
   tagAssert(sidebar, type = "aside", class = "main-sidebar")
@@ -58,7 +89,6 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
     tagAssert(controlbar[[2]][[1]], type = "aside", class = "control-sidebar")
     tagAssert(controlbar[[2]][[2]], type = "div", class = "control-sidebar-bg")
   }
-  skin <- match.arg(skin)
   
   bodyCl <- paste0("hold-transition skin-", skin)
   
@@ -84,7 +114,10 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
     if (preloader) preloader(),
     body, 
     footer,
-    controlbar
+    controlbar,
+    if (!is.null(freshTheme)) {
+      fresh::use_theme(freshTheme)
+    }
   )
   
   addDeps(

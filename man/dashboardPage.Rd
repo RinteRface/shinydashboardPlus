@@ -13,6 +13,7 @@ dashboardPage(
   title = NULL,
   skin = c("blue", "blue-light", "black", "black-light", "purple", "purple-light",
     "green", "green-light", "red", "red-light", "yellow", "yellow-light", "midnight"),
+  freshTheme = NULL,
   preloader = FALSE,
   duration = 2,
   md = FALSE,
@@ -36,7 +37,10 @@ provided, it will try to extract the title from the
 \code{dashboardHeaderPlus}.}
 
 \item{skin}{A color theme. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-If the skin is light, the sidebar will have a light background.}
+If the skin is light, the sidebar will have a light background. Not compatible with freshTheme.}
+
+\item{freshTheme}{A skin powered by the fresh package. Not compatible with skin.
+See \url{https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html}.}
 
 \item{preloader}{Whether to enable a page loader. FALSE by default.}
 
@@ -56,13 +60,36 @@ if (interactive()) {
  library(shiny)
  library(shinydashboard)
  library(shinydashboardPlus)
+ library(fresh)
  
  shinyApp(
    ui = dashboardPage(
+     freshTheme = create_theme(
+      adminlte_color(
+        light_blue = "#55e7ff",
+        blue = "#2011a2",
+        navy = "#201148",
+        red = "#ff34b3"
+      ),
+      adminlte_sidebar(
+        dark_bg = "#D8DEE9",
+        dark_hover_bg = "#81A1C1",
+        dark_color = "#2E3440"
+      ),
+      adminlte_global(
+        content_bg = "#FFF",
+        box_bg = "#D8DEE9", 
+        info_box_bg = "#D8DEE9"
+      )
+     ),
      options = list(sidebarExpandOnHover = TRUE),
      header = dashboardHeader(),
      sidebar = dashboardSidebar(),
-     body = dashboardBody(),
+     body = dashboardBody(
+      box(background = "red"),
+      box(background = "blue"),
+      box(background = "navy")
+     ),
      controlbar = dashboardControlbar(),
      title = "DashboardPage"
    ),
