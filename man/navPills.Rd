@@ -9,7 +9,8 @@ navPills(..., inputId = NULL)
 \arguments{
 \item{...}{slot for navPillsItem.}
 
-\item{inputId}{Item unique id. If not NULL, behaves like an action button.}
+\item{inputId}{Item unique id. Returns the R index of the currently selected item. 
+This is different from the JavaScript index.}
 }
 \description{
 Create a container for nav elements
@@ -50,7 +51,7 @@ if (interactive()) {
   ),
   server = function(input, output) {
    observeEvent(input$pillItem, {
-    showNotification("Clicked on the pill!", type = "message")
+    showNotification(sprintf("You clicked on pill N° \%s", input$pillItem), type = "message")
    })
   }
  )
