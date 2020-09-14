@@ -17,6 +17,8 @@ dashboardSidebar <- function(..., inputId = NULL, disable = FALSE, width = NULL,
                              minified = FALSE) {
   width <- shiny::validateCssUnit(width)
   
+  if (is.null(inputId)) inputId <- "sidebarCollapsed"
+  
   # Set up custom CSS for custom width
   custom_css <- NULL
   if (!is.null(width)) {
