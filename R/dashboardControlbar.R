@@ -63,8 +63,7 @@
 dashboardControlbar <- function(..., inputId = NULL, skin = "dark", 
                                 disable = FALSE, collapsed = TRUE, overlay = TRUE, 
                                 width = 230, .items = NULL) {
-  
-  panels <- list(...)
+  items <- c(list(...), .items)
   
   if (is.null(inputId)) inputId <- "controlbarId"
   
@@ -77,8 +76,7 @@ dashboardControlbar <- function(..., inputId = NULL, skin = "dark",
       class = paste0("control-sidebar control-sidebar-", skin),
       style = paste0("width: ", width, "px;"),
       # automatically create the tab menu
-      if (length(panels) > 0) rightSidebarTabList(rigthSidebarPanel(...)),
-      if (length(panels) > 0) rigthSidebarPanel(...) else rigthSidebarPanel(.items)
+      items
     ),
     # Add the sidebar background. This div must be placed
     # immediately after the control sidebar
@@ -163,183 +161,131 @@ updateControlbar <- function(inputId, session = shiny::getDefaultReactiveDomain(
 
 
 
-
-#' AdminLTE2 right sidebar tab list
-#'
-#' This creates a right sidebar tab list.
-#' 
-#' @param ... slot that takes all rightSidebarTabContent as input to automatically
-#' generate the same number of items in the tab menu with corresponding icons,
-#' ids, ...
-#' 
-rightSidebarTabList <- function(...) {
-  
-  tabItems <- list(...)
-  tabItems <- tabItems[[1]]$children
-  len <- length(tabItems)
-  
-  if (len > 0) {
-    # generate tab items based on panel items
-    tabItemList <- lapply(1:len, FUN = function(i) {
-      
-      item <- tabItems[[i]]
-      id <- item$attribs$id
-      id <- gsub(x = id, pattern = "control-sidebar-", replacement = "")
-      id <- gsub(x = id, pattern = "-tab", replacement = "")
-      active <- sum(grep(x = item$attribs$class, pattern = "active")) == 1
-      icon <- item$attribs$icon
-      
-      rightSidebarTabItem(id = id, icon = icon, active = active)
-    })
-    
-    # put everything inside the container
-    shiny::tags$ul(
-      class = "nav nav-tabs nav-justified control-sidebar-tabs",
-      tabItemList
-    )
-  }
-}
-
-
-#' AdminLTE2 right sidebar tab item
-#'
-#' This creates a right sidebar tab item to be inserted in a rightSidebarTabList.
-#' 
-#' @param id unique item id.
-#' @param icon tab icon.
-#' @param active Whether the tab item is active or not.
-#' 
-rightSidebarTabItem <- function(id, icon, active) {
-  
-  stopifnot(!is.null(id))
-  
-  shiny::tags$li(
-    class = if (isTRUE(active)) "active" else NULL,
-    shiny::tags$a(
-      href = paste0("#control-sidebar-", id, "-tab"), 
-      `data-toggle` = "tab",
-      shiny::tags$i(class = paste0("fa fa-", icon))
-    )
-  )
-}
-
-
-#' AdminLTE2 wrapper for tab content
-#'
-#' This creates a wrapper that will contain rightSidebarTabContent.
-#' 
-#' @param ... slot for rightSidebarTabContent.
-#' 
-rigthSidebarPanel <- function(...) {
-  shiny::tags$div(
-    class = "controlbar tab-content",
-    ...
-  )
-}
-
-#' AdminLTE2 tab content
-#'
-#' This creates a wrapper that will contain rightSidebarTabContent.
-#' 
-#' @param ... any element such as sliderInput, ...
-#' @param id should be unique.
-#' @param title content title.
-#' @param active whether the tab content is active or not. FALSE by default.
-#' @param icon tab icon.
-#' 
+#' Create an AdminLTE 2 controlbar menu
+#' @inheritParams shiny::tabsetPanel
 #' @export
-rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE,
-                                   icon = "database") {
-  
-  stopifnot(!is.null(id))
-  
-  shiny::tags$div(
-    class = if (isTRUE(active)) "tab-pane active" else "tab-pane", 
-    id = paste0("control-sidebar-", id, "-tab"),
-    icon = icon,
-    shiny::tags$h3(class = "control-sidebar-heading", title),
-    ...
+#' @examples 
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPagePlus(
+#'      header = dashboardHeaderPlus(),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(),
+#'      controlbar = dashboardControlbar(
+#'       inputId = "controlbar",
+#'       controlbarMenu(
+#'        id = "menu",
+#'        controlbarItem(
+#'         "Tab 1",
+#'         "Welcome to tab 1"
+#'        ),
+#'        controlbarItem(
+#'         "Tab 2",
+#'         "Welcome to tab 2"
+#'        )
+#'       )
+#'      )
+#'    ),
+#'    server = function(input, output, session) {
+#'      
+#'      observeEvent(input$menu, {
+#'        showModal(modalDialog(
+#'          title = "Alert",
+#'          sprintf(" %s is active", input$menu),
+#'          easyClose = TRUE,
+#'          footer = NULL
+#'        ))
+#'      })
+#'    }
+#'  )
+#' }
+controlbarMenu <- function(..., id = NULL, selected = NULL,
+                           type = c("tabs", "pills"), position = NULL) {
+  type <- match.arg(type)
+  # We run the Shiny tabsetPanel function, to edit it later. This
+  # is to avoid to rewrite all internal functions...
+  temp_tabset <- shiny::tabsetPanel(
+    ...,
+    id = id,
+    selected = selected,
+    type = type,
+    position = position
   )
+  
+  # remove parent div causing CSS margin issues
+  temp_tabset <- temp_tabset$children
+  
+  # add AdminLTE 2 secific classes
+  temp_tabset[[1]]$attribs$class <- paste(
+    temp_tabset[[1]]$attribs$class,
+    "nav-justified control-sidebar-tabs"
+  )
+  
+  temp_tabset
 }
 
 
 
+#' Create an AdminLTE2 controlbar menu item
+#' @inheritParams shiny::tabPanel
+#' @export
+controlbarItem <- shiny::tabPanel
 
-#' @title AdminLTE2 right sidebar menu 
-#'
-#' @description Create a nice right sidebar menu.
-#'
-#' @param ... Slot for rightsidebarMenuItem.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
+
+
+
+
+#' Update an AdminLTE2 controlbarMenu on the client
+#' @inheritParams shiny::updateTabsetPanel
+#' @export
 #' @examples
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
 #'  shinyApp(
 #'    ui = dashboardPagePlus(
-#'      header = dashboardHeaderPlus(
-#'        enable_rightsidebar = TRUE,
-#'        rightSidebarIcon = "gears"
-#'      ),
+#'      header = dashboardHeaderPlus(),
 #'      sidebar = dashboardSidebar(),
-#'      body = dashboardBody(),
-#'      rightsidebar = rightSidebar(
-#'        background = "dark",
-#'        rightSidebarTabContent(
-#'          id = 1,
-#'          icon = "desktop",
-#'          title = "Tab 1",
-#'          active = TRUE,
-#'          rightSidebarMenu(
-#'           rightSidebarMenuItem(
-#'            icon = menuIcon(
-#'             name = "birthday-cake",
-#'             color = "red"
-#'            ),
-#'            info = menuInfo(
-#'             title = "Langdon's Birthday",
-#'             description = "Will be 23 on April 24th"
-#'            )
-#'           ),
-#'           rightSidebarMenuItem(
-#'            icon = menuIcon(
-#'             name = "user",
-#'             color = "yellow"
-#'            ),
-#'            info = menuInfo(
-#'             title = "Frodo Updated His Profile",
-#'             description = "New phone +1(800)555-1234"
-#'            )
-#'           )
-#'          )
-#'        ),
-#'        rightSidebarTabContent(
-#'          id = 2,
-#'          title = "Tab 2",
-#'          textInput("caption", "Caption", "Data Summary")
-#'        ),
-#'        rightSidebarTabContent(
-#'          id = 3,
-#'          icon = "paint-brush",
-#'          title = "Tab 3",
-#'          numericInput("obs", "Observations:", 10, min = 1, max = 100)
-#'        )
+#'      body = dashboardBody(
+#'       radioButtons("controller", "Controller", choices = c(1, 2, 3))
 #'      ),
-#'      title = "Right Sidebar"
+#'      controlbar = dashboardControlbar(
+#'       inputId = "controlbar",
+#'       controlbarMenu(
+#'        id = "menu",
+#'        controlbarItem(
+#'          paste0("Tab", 1),
+#'          paste("Welcome to tab", 1)
+#'        ),
+#'        controlbarItem(
+#'          paste0("Tab", 2),
+#'          paste("Welcome to tab", 2)
+#'        ),
+#'        controlbarItem(
+#'          paste0("Tab", 3),
+#'          paste("Welcome to tab", 3)
+#'        )
+#'       )
+#'      )
 #'    ),
-#'    server = function(input, output) { }
+#'    server = function(input, output, session) {
+#'     observeEvent(input$controller, {
+#'      updateControlbarMenu(
+#'       session, 
+#'       "menu", 
+#'       selected = paste0("Tab", input$controller)
+#'      )
+#'     })
+#'    }
 #'  )
 #' }
-#'
-#' @export
-rightSidebarMenu <- function(...) {
-  shiny::tags$ul(
-    class = "control-sidebar-menu",
-    ...
-  )
-}
+updateControlbarMenu <- shiny::updateTabsetPanel
 
 
 
