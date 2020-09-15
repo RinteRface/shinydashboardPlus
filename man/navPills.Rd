@@ -4,12 +4,12 @@
 \alias{navPills}
 \title{AdminLTE2 nav pill container}
 \usage{
-navPills(..., inputId = NULL)
+navPills(..., id = NULL)
 }
 \arguments{
 \item{...}{slot for navPillsItem.}
 
-\item{inputId}{Item unique id. Returns the R index of the currently selected item. 
+\item{id}{Item unique id. Returns the R index of the currently selected item. 
 This is different from the JavaScript index.}
 }
 \description{
@@ -31,7 +31,7 @@ if (interactive()) {
       status = "info",
       "Box Body",
       footer = navPills(
-        inputId = "pillItem",
+        id = "pillItem",
         navPillsItem(
           left = "Item 1", 
           color = "green",

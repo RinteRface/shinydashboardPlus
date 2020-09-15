@@ -28,17 +28,17 @@ if (interactive()) {
       status = "success",
       userList(
         userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
+          image = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
           title = "Shiny", 
           subtitle = "Package 1"
         ),
         userListItem(
-          src = "https://www.tidyverse.org/images/hex-tidyverse.png", 
+          image = "https://www.tidyverse.org/images/hex-tidyverse.png", 
           title = "Tidyverse", 
           subtitle = "Package 2"
         ),
         userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
+          image = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
           title = "tidyr", 
           subtitle = "Package 3"
         )

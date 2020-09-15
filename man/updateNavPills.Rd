@@ -4,10 +4,10 @@
 \alias{updateNavPills}
 \title{Update navPills on the client}
 \usage{
-updateNavPills(inputId, selected, session = shiny::getDefaultReactiveDomain())
+updateNavPills(id, selected, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{inputId}{\link{navPills} unique id to target.}
+\item{id}{\link{navPills} unique id to target.}
 
 \item{selected}{Index of the \link{navPillsItem} to select. Index is seen from the R side.}
 
@@ -59,7 +59,7 @@ if (interactive()) {
   ),
   server = function(input, output, session) {
    observeEvent(input$controller, {
-    updateNavPills(inputId = "pills", selected = input$controller)
+    updateNavPills(id = "pills", selected = input$controller)
    })
    observeEvent(input$pills, {
     showNotification(sprintf("You selected pill N° \%s", input$pills), type = "message")

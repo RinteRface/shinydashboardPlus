@@ -668,7 +668,7 @@ loadingState <- function() {
 #' @description Create a container for nav elements
 #'
 #' @param ... slot for navPillsItem.
-#' @param inputId Item unique id. Returns the R index of the currently selected item. 
+#' @param id Item unique id. Returns the R index of the currently selected item. 
 #' This is different from the JavaScript index.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -689,7 +689,7 @@ loadingState <- function() {
 #'       status = "info",
 #'       "Box Body",
 #'       footer = navPills(
-#'         inputId = "pillItem",
+#'         id = "pillItem",
 #'         navPillsItem(
 #'           left = "Item 1", 
 #'           color = "green",
@@ -716,10 +716,10 @@ loadingState <- function() {
 #' }
 #'
 #' @export
-navPills <- function(..., inputId = NULL) {
+navPills <- function(..., id = NULL) {
   shiny::tags$ul(
     class = "nav nav-pills nav-stacked",
-    id = if (!is.null(inputId)) inputId,
+    id = if (!is.null(id)) id,
     ...
   )
 }
@@ -729,7 +729,7 @@ navPills <- function(..., inputId = NULL) {
 
 #' Update navPills on the client
 #'
-#' @param inputId \link{navPills} unique id to target.
+#' @param id \link{navPills} unique id to target.
 #' @param selected Index of the \link{navPillsItem} to select. Index is seen from the R side.
 #' @param session Shiny session object.
 #' @export
@@ -777,7 +777,7 @@ navPills <- function(..., inputId = NULL) {
 #'   ),
 #'   server = function(input, output, session) {
 #'    observeEvent(input$controller, {
-#'     updateNavPills(inputId = "pills", selected = input$controller)
+#'     updateNavPills(id = "pills", selected = input$controller)
 #'    })
 #'    observeEvent(input$pills, {
 #'     showNotification(sprintf("You selected pill N° %s", input$pills), type = "message")
@@ -785,8 +785,8 @@ navPills <- function(..., inputId = NULL) {
 #'   }
 #'  )
 #' }
-updateNavPills <- function(inputId, selected, session = shiny::getDefaultReactiveDomain()) {
-  session$sendInputMessage(inputId, selected)
+updateNavPills <- function(id, selected, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(id, selected)
 }
 
 
@@ -851,14 +851,14 @@ navPillsItem <- function(left = NULL, right = NULL,
 #'       status = "primary",
 #'       productList(
 #'         productListItem(
-#'           src = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
+#'           image = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
 #'           title = "Samsung TV", 
 #'           subtitle = "$1800", 
 #'           color = "warning",
 #'           "This is an amazing TV, but I don't like TV!"
 #'         ),
 #'         productListItem(
-#'           src = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
+#'           image = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
 #'           title = "Imac 27", 
 #'           subtitle = "$4999", 
 #'           color = "danger",
@@ -889,7 +889,7 @@ productList <- function(...) {
 #' @description Create a product item
 #'
 #' @param ... product description.
-#' @param src image url, if any.
+#' @param image image url, if any.
 #' @param title product name.
 #' @param subtitle product price.
 #' @param color price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
@@ -897,7 +897,7 @@ productList <- function(...) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-productListItem <- function(..., src = NULL, title = NULL, 
+productListItem <- function(..., image = NULL, title = NULL, 
                             subtitle = NULL, color = NULL) {
   cl <- "label pull-right"
   if (!is.null(color)) cl <- paste0(cl, " label-", color)
@@ -906,7 +906,7 @@ productListItem <- function(..., src = NULL, title = NULL,
     class = "item",
     shiny::tags$div(
       class = "product-img",
-      shiny::tags$img(src = src, alt = "Product Image")
+      shiny::tags$img(src = image, alt = "Product Image")
     ),
     shiny::tags$div(
       class = "product-info",
@@ -914,7 +914,7 @@ productListItem <- function(..., src = NULL, title = NULL,
         href = "javascript:void(0)", 
         class = "product-title",
         title,
-        shiny::tags$span(class = cl, subtitle)
+        if (!is.null(subtitle)) shiny::tags$span(class = cl, subtitle)
       ),
       shiny::tags$span(
         class = "product-description",
@@ -964,6 +964,8 @@ productListItem <- function(..., src = NULL, title = NULL,
 #' @export
 starBlock <- function(maxstar = 5, grade, color = "yellow") {
   
+  stopifnot(!is.null(color))
+  validateColor(color)
   stopifnot(!is.null(grade))
   stopifnot(grade >= 0)
   stopifnot(grade <= maxstar)
@@ -1064,8 +1066,8 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'         title = "Item 3",
 #'         icon = "paint-brush",
 #'         color = "maroon",
-#'         timelineItemMedia(src = "https://placehold.it/150x100"),
-#'         timelineItemMedia(src = "https://placehold.it/150x100")
+#'         timelineItemMedia(image = "https://placehold.it/150x100"),
+#'         timelineItemMedia(image = "https://placehold.it/150x100")
 #'        ),
 #'        timelineStart(color = "gray")
 #'       )
@@ -1103,7 +1105,10 @@ timelineBlock <- function(..., reversed = TRUE) {
 timelineLabel <- function(..., color = NULL) {
   
   cl <- "bg-"
-  if (!is.null(color)) cl <- paste0(cl, color)
+  if (!is.null(color)) {
+    validateColor(color)
+    cl <- paste0(cl, color)
+  }
   
   shiny::tags$li(
     class = "time-label",
@@ -1133,7 +1138,10 @@ timelineLabel <- function(..., color = NULL) {
 timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
                          title = NULL, border = TRUE, footer = NULL) {
   
-  if (!is.null(color)) cl <- paste0(cl, " bg-", color)
+  if (!is.null(color)) {
+    validateColor(color)
+    cl <- paste0(cl, " bg-", color)
+  }
   
   itemCl <- "timeline-header no-border"
   if (isTRUE(border)) itemCl <- "timeline-header"
@@ -1182,17 +1190,17 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
 #'
 #' @description Create a timeline media item
 #'
-#' @param src media url or path.
+#' @param image media url or path.
 #' @param height media height in pixels.
 #' @param width media width in pixels.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-timelineItemMedia <- function(src = NULL, height = NULL, width = NULL) {
+timelineItemMedia <- function(image = NULL, height = NULL, width = NULL) {
   shiny::img(
     class = "margin", 
-    src = src, 
+    src = image, 
     height = height,
     width = width
   )
@@ -1214,7 +1222,10 @@ timelineItemMedia <- function(src = NULL, height = NULL, width = NULL) {
 timelineStart <- function(icon = shiny::icon("clock-o"), color = NULL) {
   
   iconTag <- icon
-  if (!is.null(color)) iconTag$attribs$class <- paste0(iconTag$attribs$class, " bg-", color)
+  if (!is.null(color)) {
+    validateColor(color)
+    iconTag$attribs$class <- paste0(iconTag$attribs$class, " bg-", color)
+  }
   shiny::tags$li(iconTag)
 }
 
@@ -1232,7 +1243,10 @@ timelineStart <- function(icon = shiny::icon("clock-o"), color = NULL) {
 timelineEnd <- function(icon = shiny::icon("hourglass-end"), color = NULL) {
   
   iconTag <- icon
-  if (!is.null(color)) iconTag$attribs$class <- paste0(iconTag$attribs$class, " bg-", color)
+  if (!is.null(color)) {
+    validateColor(color)
+    iconTag$attribs$class <- paste0(iconTag$attribs$class, " bg-", color)
+  }
   
   shiny::tagList(
     shiny::tags$li(iconTag),
@@ -1389,17 +1403,17 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 #'       status = "success",
 #'       userList(
 #'         userListItem(
-#'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
+#'           image = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
 #'           title = "Shiny", 
 #'           subtitle = "Package 1"
 #'         ),
 #'         userListItem(
-#'           src = "https://www.tidyverse.org/images/hex-tidyverse.png", 
+#'           image = "https://www.tidyverse.org/images/hex-tidyverse.png", 
 #'           title = "Tidyverse", 
 #'           subtitle = "Package 2"
 #'         ),
 #'         userListItem(
-#'           src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
+#'           image = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
 #'           title = "tidyr", 
 #'           subtitle = "Package 3"
 #'         )
@@ -1428,19 +1442,22 @@ userList <- function(...) {
 #'
 #' @description Create a user list item
 #'
-#' @param src image url or path.
+#' @param image image url or path.
 #' @param title Item title.
 #' @param subtitle Item subitle.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-userListItem <- function(src = NULL, title = NULL, subtitle = NULL) {
+userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
   shiny::tags$li(
     shiny::tags$img(
-      src = src, alt = "User Image",
+      src = image, 
+      alt = "User Image",
       shiny::tags$a(class = "users-list-name", title),
-      shiny::tags$span(class = "users-list-date", subtitle)
+      if (!is.null(subtitle)) {
+        shiny::tags$span(class = "users-list-date", subtitle)
+      }
     )
   )
 }

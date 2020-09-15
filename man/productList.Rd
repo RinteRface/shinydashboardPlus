@@ -28,14 +28,14 @@ if (interactive()) {
       status = "primary",
       productList(
         productListItem(
-          src = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
+          image = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
           title = "Samsung TV", 
           subtitle = "$1800", 
           color = "warning",
           "This is an amazing TV, but I don't like TV!"
         ),
         productListItem(
-          src = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
+          image = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
           title = "Imac 27", 
           subtitle = "$4999", 
           color = "danger",

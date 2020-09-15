@@ -4,10 +4,10 @@
 \alias{timelineItemMedia}
 \title{AdminLTE2 timeline media item}
 \usage{
-timelineItemMedia(src = NULL, height = NULL, width = NULL)
+timelineItemMedia(image = NULL, height = NULL, width = NULL)
 }
 \arguments{
-\item{src}{media url or path.}
+\item{image}{media url or path.}
 
 \item{height}{media height in pixels.}
 

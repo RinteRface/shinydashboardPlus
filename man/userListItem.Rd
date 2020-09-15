@@ -4,10 +4,10 @@
 \alias{userListItem}
 \title{AdminLTE2 user list item}
 \usage{
-userListItem(src = NULL, title = NULL, subtitle = NULL)
+userListItem(image = NULL, title = NULL, subtitle = NULL)
 }
 \arguments{
-\item{src}{image url or path.}
+\item{image}{image url or path.}
 
 \item{title}{Item title.}
 

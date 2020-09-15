@@ -41,6 +41,9 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - _color_ becomes _status_ in `accordionItem()`. This is to be consistent with AdminLTE2 classes and {shinydashboard}
 - In `attachmentBlock()`: _src_ becomes _image_ and _titleUrl_ becomes _href_. _image_ is mandatory
 - In `socialButton()`: _url_ becomes _href_ and _type_ becomes _icon_ (expect `shiny::icon`)
+- In `productListItem()`: _src_ becomes _image_
+- In `timelineItemMedia()`: _src_ becomes _image_
+- In `userListItem()`: _src_ becomes _image_
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`

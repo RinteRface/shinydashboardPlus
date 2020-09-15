@@ -4,12 +4,12 @@
 \alias{productListItem}
 \title{AdminLTE2 product item}
 \usage{
-productListItem(..., src = NULL, title = NULL, subtitle = NULL, color = NULL)
+productListItem(..., image = NULL, title = NULL, subtitle = NULL, color = NULL)
 }
 \arguments{
 \item{...}{product description.}
 
-\item{src}{image url, if any.}
+\item{image}{image url, if any.}
 
 \item{title}{product name.}
 
