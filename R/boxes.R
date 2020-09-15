@@ -753,15 +753,15 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 #' @description Create social box
 #'
 #' @param ... body content. May include \link{attachmentBlock} for instance.
-#' @param src header image, if any.
+#' @param image header image, if any.
 #' @param title box title.
 #' @param subtitle box subtitle.
+#' @param comments slot for \link{boxComment}.
+#' @param footer box footer, if any.
 #' @param width box width (between 1 and 12). 
 #' @param height box height.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param comments slot for \link{boxComment}.
-#' @param footer box footer, if any.
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -780,10 +780,10 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 #'      socialBox(
 #'       title = "Social Box",
 #'       subtitle = "example-01.05.2018",
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
 #'       "Some text here!",
 #'       attachmentBlock(
-#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+#'        image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
 #'        title = "Test",
 #'        title_url = "https://google.com",
 #'        "This is the content"
@@ -791,7 +791,7 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 #'       comments = tagList(
 #'        lapply(X = 1:10, FUN = function(i) {
 #'         boxComment(
-#'           src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'           image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
 #'           title = paste("Comment", i),
 #'           date = "01.05.2018",
 #'           paste0("The ", i, "-th comment")
@@ -808,10 +808,9 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 #' }
 #'
 #' @export
-socialBox <- function(..., src, title, subtitle = NULL, 
-                      width = 6, height = NULL, collapsible = TRUE,
-                      closable = TRUE, comments = NULL, footer = NULL,
-                      footerPadding = TRUE) {
+socialBox <- function(..., image, title, subtitle = NULL, comments = NULL, 
+                      footer = NULL, width = 6, height = NULL, collapsible = TRUE,
+                      closable = FALSE, footerPadding = TRUE) {
   
   if (!is.null(width)) {
     stopifnot(is.numeric(width))
@@ -825,7 +824,7 @@ socialBox <- function(..., src, title, subtitle = NULL,
     # handle tagList
     if (class(comments)[[1]] %in% c("list", "shiny.tag.list")) {
       for (i in seq_along(comments)) {
-        commentsCl <- comments[[i]]$attribs$class
+        commentsCl <- comments[[1]][[i]]$attribs$class
         if (commentsCl != "box-comment") {
           stop("You must provide a boxComment in the comments slot.")
         }
@@ -861,7 +860,7 @@ socialBox <- function(..., src, title, subtitle = NULL,
         # userblock
         shiny::tags$div(
           class = "user-block",
-          shiny::img(class = "img-circle", src = src),
+          shiny::img(class = "img-circle", src = image),
           shiny::tags$span(
             class = "username",
             shiny::a(href = "javascript:void(0)", title)
@@ -927,21 +926,21 @@ socialBox <- function(..., src, title, subtitle = NULL,
 #' @description Create box comment
 #'
 #' @param ... comment content.
-#' @param src author image, if any.
+#' @param image author image, if any.
 #' @param title comment title.
 #' @param date date of publication.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-boxComment <- function(..., src, title, date = NULL) {
+boxComment <- function(..., image, title, date = NULL) {
   
   items <- list(...)
   if (length(items) == 0) stop("You must enter a comment.")
   
   shiny::tags$div(
     class = "box-comment",
-    shiny::img(class = "img-circle", src = src),
+    shiny::img(class = "img-circle", src = image),
     shiny::tags$div(
       class = "comment-text",
       shiny::tags$span(
@@ -959,7 +958,7 @@ boxComment <- function(..., src, title, date = NULL) {
 #' @description Create box profile
 #'
 #' @param ... any element such as \link{boxProfileItem}.
-#' @param src profile image, if any.
+#' @param image profile image, if any.
 #' @param title title.
 #' @param subtitle subtitle.
 #' @param bordered Whether the container should have a border or not. FALSE by default.
@@ -981,7 +980,7 @@ boxComment <- function(..., src, title, date = NULL) {
 #'       title = "Box with profile",
 #'       status = "primary",
 #'       boxProfile(
-#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+#'        image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
 #'        title = "Nina Mcintire",
 #'        subtitle = "Software Engineer",
 #'        bordered = TRUE,
@@ -1007,14 +1006,14 @@ boxComment <- function(..., src, title, date = NULL) {
 #' }
 #' 
 #' @export
-boxProfile <- function(..., src = NULL, title, subtitle = NULL, bordered = FALSE) {
+boxProfile <- function(..., image = NULL, title, subtitle = NULL, bordered = FALSE) {
   
   cl <- if (isTRUE(bordered)) "list-group" else "list-group list-group-unbordered"
   
   shiny::tags$div(
     class = "box-body box-profile",
-    if (!is.null(src)) {
-      shiny::img(class = "profile-user-img img-responsive img-circle", src = src)
+    if (!is.null(image)) {
+      shiny::img(class = "profile-user-img img-responsive img-circle", src = image)
     },
     shiny::h3(class = "profile-username text-center", title),
     if (!is.null(subtitle)) shiny::p(class = "text-muted text-center", subtitle),

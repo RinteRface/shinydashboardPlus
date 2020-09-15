@@ -6,26 +6,30 @@
 \usage{
 socialBox(
   ...,
-  src,
+  image,
   title,
   subtitle = NULL,
+  comments = NULL,
+  footer = NULL,
   width = 6,
   height = NULL,
   collapsible = TRUE,
-  closable = TRUE,
-  comments = NULL,
-  footer = NULL,
+  closable = FALSE,
   footerPadding = TRUE
 )
 }
 \arguments{
 \item{...}{body content. May include \link{attachmentBlock} for instance.}
 
-\item{src}{header image, if any.}
+\item{image}{header image, if any.}
 
 \item{title}{box title.}
 
 \item{subtitle}{box subtitle.}
+
+\item{comments}{slot for \link{boxComment}.}
+
+\item{footer}{box footer, if any.}
 
 \item{width}{box width (between 1 and 12).}
 
@@ -34,10 +38,6 @@ socialBox(
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the box.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
-
-\item{comments}{slot for \link{boxComment}.}
-
-\item{footer}{box footer, if any.}
 
 \item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 }
@@ -58,10 +58,10 @@ if (interactive()) {
      socialBox(
       title = "Social Box",
       subtitle = "example-01.05.2018",
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+      image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
       "Some text here!",
       attachmentBlock(
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
        title = "Test",
        title_url = "https://google.com",
        "This is the content"
@@ -69,7 +69,7 @@ if (interactive()) {
       comments = tagList(
        lapply(X = 1:10, FUN = function(i) {
         boxComment(
-          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
           title = paste("Comment", i),
           date = "01.05.2018",
           paste0("The ", i, "-th comment")

@@ -50,6 +50,9 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `userMessage()`: _src_ becomes _image_ to be consistent with {shinydashboard}. _side_ becomes _type_ (semantic)
 - In `dashboardUser()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 - In `userBox()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `socialBox()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `boxComment()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `boxProfile()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`

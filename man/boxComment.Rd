@@ -4,12 +4,12 @@
 \alias{boxComment}
 \title{AdminLTE2 box comment}
 \usage{
-boxComment(..., src, title, date = NULL)
+boxComment(..., image, title, date = NULL)
 }
 \arguments{
 \item{...}{comment content.}
 
-\item{src}{author image, if any.}
+\item{image}{author image, if any.}
 
 \item{title}{comment title.}
 

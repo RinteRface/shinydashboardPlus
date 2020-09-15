@@ -4,12 +4,12 @@
 \alias{boxProfile}
 \title{AdminLTE2 box profile}
 \usage{
-boxProfile(..., src = NULL, title, subtitle = NULL, bordered = FALSE)
+boxProfile(..., image = NULL, title, subtitle = NULL, bordered = FALSE)
 }
 \arguments{
 \item{...}{any element such as \link{boxProfileItem}.}
 
-\item{src}{profile image, if any.}
+\item{image}{profile image, if any.}
 
 \item{title}{title.}
 
@@ -35,7 +35,7 @@ if (interactive()) {
       title = "Box with profile",
       status = "primary",
       boxProfile(
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
        title = "Nina Mcintire",
        subtitle = "Software Engineer",
        bordered = TRUE,
