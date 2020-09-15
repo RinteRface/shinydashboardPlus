@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AdminLTE2 box profile — boxProfile • shinydashboardPlus</title>
+<title>AdminLTE2 user post tool item — userPostTagItem • shinydashboardPlus</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 box profile — boxProfile" />
-<meta property="og:description" content="Create box profile" />
+<meta property="og:title" content="AdminLTE2 user post tool item — userPostTagItem" />
+<meta property="og:description" content="Create a user post tool item" />
 
 
 
@@ -114,39 +114,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>AdminLTE2 box profile</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a></small>
-    <div class="hidden name"><code>boxProfile.Rd</code></div>
+    <h1>AdminLTE2 user post tool item</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/useful-items.R'><code>R/useful-items.R</code></a></small>
+    <div class="hidden name"><code>userPostTagItem.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create box profile</p>
+    <p>Create a user post tool item</p>
     </div>
 
-    <pre class="usage"><span class='fu'>boxProfile</span>(<span class='kw'>...</span>, src = <span class='kw'>NULL</span>, title = <span class='kw'>NULL</span>, subtitle = <span class='kw'>NULL</span>, bordered = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>userPostTagItem</span>(<span class='kw'>...</span>, side = <span class='st'>"left"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>any element such as <a href='boxProfileItem.html'>boxProfileItem</a>.</p></td>
+      <td><p>tool content such as label, button, ...</p></td>
     </tr>
     <tr>
-      <th>src</th>
-      <td><p>profile image, if any.</p></td>
-    </tr>
-    <tr>
-      <th>title</th>
-      <td><p>title.</p></td>
-    </tr>
-    <tr>
-      <th>subtitle</th>
-      <td><p>subtitle.</p></td>
-    </tr>
-    <tr>
-      <th>bordered</th>
-      <td><p>Whether the container should have a border or not. FALSE by default.</p></td>
+      <th>side</th>
+      <td><p>tool item orientation: "left" of "right", "left" by default.</p></td>
     </tr>
     </table>
 
@@ -154,47 +142,6 @@
 
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
- 
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='box.html'>box</a></span>(
-      title = <span class='st'>"Box with profile"</span>,
-      status = <span class='st'>"primary"</span>,
-      <span class='fu'>boxProfile</span>(
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
-       title = <span class='st'>"Nina Mcintire"</span>,
-       subtitle = <span class='st'>"Software Engineer"</span>,
-       bordered = <span class='fl'>TRUE</span>,
-       <span class='fu'><a href='boxProfileItem.html'>boxProfileItem</a></span>(
-        title = <span class='st'>"Followers"</span>,
-        description = <span class='fl'>1322</span>
-       ),
-       <span class='fu'><a href='boxProfileItem.html'>boxProfileItem</a></span>(
-        title = <span class='st'>"Following"</span>,
-        description = <span class='fl'>543</span>
-       ),
-       <span class='fu'><a href='boxProfileItem.html'>boxProfileItem</a></span>(
-        title = <span class='st'>"Friends"</span>,
-        description = <span class='fl'>13287</span>
-       )
-      )
-     )
-    ),
-    title = <span class='st'>"boxProfile"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
-
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

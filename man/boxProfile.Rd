@@ -4,16 +4,18 @@
 \alias{boxProfile}
 \title{AdminLTE2 box profile}
 \usage{
-boxProfile(..., src = NULL, title = NULL, subtitle = NULL)
+boxProfile(..., src = NULL, title = NULL, subtitle = NULL, bordered = FALSE)
 }
 \arguments{
-\item{...}{any element such as boxProfileItemList.}
+\item{...}{any element such as \link{boxProfileItem}.}
 
 \item{src}{profile image, if any.}
 
 \item{title}{title.}
 
 \item{subtitle}{subtitle.}
+
+\item{bordered}{Whether the container should have a border or not. FALSE by default.}
 }
 \description{
 Create box profile
@@ -36,20 +38,18 @@ if (interactive()) {
        src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
        title = "Nina Mcintire",
        subtitle = "Software Engineer",
-       boxProfileItemList(
-        bordered = TRUE,
-        boxProfileItem(
-         title = "Followers",
-         description = 1322
-        ),
-        boxProfileItem(
-         title = "Following",
-         description = 543
-        ),
-        boxProfileItem(
-         title = "Friends",
-         description = 13287
-        )
+       bordered = TRUE,
+       boxProfileItem(
+        title = "Followers",
+        description = 1322
+       ),
+       boxProfileItem(
+        title = "Following",
+        description = 543
+       ),
+       boxProfileItem(
+        title = "Friends",
+        description = 13287
        )
       )
      )

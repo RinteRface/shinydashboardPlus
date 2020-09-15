@@ -29,6 +29,7 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `userListItem()`, _user_name_ becomes _title_, _description_ becomes _subtitle_
 - `dropdownItemList()` becomes `boxDropdown()`. `dropdownItem()` becomes `boxDropdownItem()`
 - `userPostToolItemList()` becomes `userPostTagItems()`. `userPostToolItem()` becomes `userPostTagItem()`
+- Remove `boxProfileItemList()`. `boxProfile()` gets a new parameter _bordered_, inherited from the old `boxProfileItemList()`
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
