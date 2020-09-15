@@ -142,9 +142,9 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #' @description Create an attachment container, nice to wrap articles...
 #'
 #' @param ... any element.
-#' @param src url or path to the image.
+#' @param image url or path to the image.
 #' @param title attachment title.
-#' @param titleUrl external link.
+#' @param href external link.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -162,9 +162,9 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #'      box(
 #'       title = "Attachment example",
 #'       attachmentBlock(
-#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+#'        image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
 #'        title = "Test",
-#'        titleUrl = "https://google.com",
+#'        href = "https://google.com",
 #'        "This is the content"
 #'       )
 #'      )
@@ -177,23 +177,29 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #'
 #' @export
 
-attachmentBlock <- function(..., src = NULL, title = NULL, titleUrl = NULL) {
+attachmentBlock <- function(..., image, title = NULL, href = NULL) {
   shiny::tags$div(
     class = "attachment-block clearfix",
     shiny::img(
       class = "attachment-img",
-      src = src
+      src = image
     ),
     shiny::tags$div(
       class = "attachment-pushed",
-      shiny::tags$h4(
-        class = "attachment-heading",
-        shiny::tags$a(
-          href = titleUrl,
-          target = "_blank",
-          title
+      if (!is.null(title)) {
+        shiny::tags$h4(
+          class = "attachment-heading",
+          shiny::tags$a(
+            href = href,
+            target = if (!is.null(href)) {
+              "_blank"
+            } else {
+              "#"
+            },
+            title
+          )
         )
-      ),
+      },
       shiny::tags$div(
         class = "attachment-text",
         ...

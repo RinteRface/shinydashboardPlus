@@ -39,6 +39,7 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - _title_ mandatory in `userBox()`. Remove _background_. Replace _backgroundUrl_ by _backgroundImage_. Reworked _type_ parameter
 - Restore `accordion()` id. We should distinguish between TRUE inputs (sliderInput) and secondary inputs (that you can use for interactivity)...
 - _color_ becomes _status_ in `accordionItem()`. This is to be consistent with AdminLTE2 classes and {shinydashboard}
+- In `attachmentBlock()`: _src_ becomes _image_ and _titleUrl_ becomes _href_. _image_ is mandatory
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
