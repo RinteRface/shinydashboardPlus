@@ -67,12 +67,13 @@
 #' }
 #' @export
 dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NULL, title = NULL,
-                              skin = c("blue", "blue-light","black","black-light", 
-                                       "purple","purple-light", "green","green-light",
-                                       "red","red-light", "yellow","yellow-light", "midnight"),
-                          freshTheme = NULL, 
-                              preloader = FALSE, duration = 2,
-                              md = FALSE, options = NULL) {
+                          skin = c(
+                            "blue", "blue-light","black","black-light", 
+                            "purple","purple-light", "green","green-light",
+                            "red","red-light", "yellow","yellow-light", "midnight"
+                          ),
+                          freshTheme = NULL, preloader = FALSE, duration = 2,
+                          md = FALSE, options = NULL) {
   
   skin <- match.arg(skin)
   if (!is.null(freshTheme) && !is.null(skin)) {

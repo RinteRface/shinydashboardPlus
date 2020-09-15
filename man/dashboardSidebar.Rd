@@ -6,17 +6,17 @@
 \usage{
 dashboardSidebar(
   ...,
-  inputId = NULL,
+  id = NULL,
   disable = FALSE,
   width = NULL,
   collapsed = FALSE,
-  minified = FALSE
+  minified = TRUE
 )
 }
 \arguments{
 \item{...}{Items to put in the sidebar.}
 
-\item{inputId}{Sidebar input id. Returns the current state of the sidebar.}
+\item{id}{Sidebar input id. Returns the current state of the sidebar.}
 
 \item{disable}{If \code{TRUE}, the sidebar will be disabled.}
 
@@ -27,7 +27,7 @@ units.}
 \item{collapsed}{If \code{TRUE}, the sidebar will be collapsed on app startup.}
 
 \item{minified}{Whether to slightly close the sidebar but still show item icons. Default
-to FALSE.}
+to TRUE.}
 }
 \description{
 A dashboard sidebar typically contains a \code{\link{sidebarMenu}}, although

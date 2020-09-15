@@ -4,10 +4,10 @@
 \alias{updateSidebar}
 \title{Function to programmatically toggle the state of the sidebar}
 \usage{
-updateSidebar(inputId, session = shiny::getDefaultReactiveDomain())
+updateSidebar(id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{inputId}{Sidebar id.}
+\item{id}{Sidebar id.}
 
 \item{session}{Shiny session object.}
 }
@@ -23,7 +23,7 @@ if (interactive()) {
  shinyApp(
    ui = dashboardPage(
      header = dashboardHeader(),
-     sidebar = dashboardSidebar(inputId = "sidebar"),
+     sidebar = dashboardSidebar(id = "sidebar"),
      body = dashboardBody(
        actionButton(inputId = "sidebarToggle", label = "Toggle Sidebar")
      )
@@ -42,7 +42,7 @@ if (interactive()) {
      })
      
      observeEvent(input$sidebarToggle, {
-       updateSidebar(inputId = "sidebar")
+       updateSidebar("sidebar")
      })
      
      observe({
