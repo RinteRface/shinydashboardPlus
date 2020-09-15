@@ -88,8 +88,7 @@
 <div id="improved-boxes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improved-boxes" class="anchor"></a>Improved boxes</h2>
-<p>With <code>{shinydashboardPlus}</code>, you can add labels and dropdown menus to your boxes.</p>
-<p>There are also other boxes such as <code><a href="../reference/box.html">box()</a></code>, <code><a href="../reference/socialBox.html">socialBox()</a></code> as well as <code><a href="../reference/userBox.html">userBox()</a></code>, to help you making outstanding shiny apps.</p>
+<p>With <code>{shinydashboardPlus}</code>, you can add labels and dropdown menus to your boxes. There are also other boxes such as <code><a href="../reference/box.html">box()</a></code>, <code><a href="../reference/socialBox.html">socialBox()</a></code> as well as <code><a href="../reference/userBox.html">userBox()</a></code>, to help you making outstanding shiny apps.</p>
 <div id="box-on-steroids" class="section level3">
 <h3 class="hasAnchor">
 <a href="#box-on-steroids" class="anchor"></a>box on steroids!</h3>
@@ -158,9 +157,9 @@
      <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
       title = <span class="st">"Alexander Pierce"</span>,
       subtitle = <span class="st">"Founder &amp; CEO"</span>,
-      type = <span class="kw">NULL</span>,
+      type = <span class="fl">1</span>,
       src = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-      color = <span class="st">"aqua-active"</span>,
+      color = <span class="st">"aqua"</span>,
       closable = <span class="fl">TRUE</span>,
       <span class="st">"Some text here!"</span>,
       footer = <span class="st">"The footer here!"</span>
@@ -168,16 +167,14 @@
      <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
       title = <span class="st">"Elizabeth Pierce"</span>,
       subtitle = <span class="st">"Web Designer"</span>,
-      type = <span class="kw">NULL</span>,
       src = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-      background = <span class="fl">TRUE</span>,
-      backgroundUrl = <span class="st">"https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span>,
+      backgroundImage = <span class="st">"https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg"</span>,
       closable = <span class="fl">TRUE</span>,
       <span class="st">"Some text here!"</span>,
       footer = <span class="st">"The footer here!"</span>
      )
     ),
-    title = <span class="st">"Description Blocks"</span>
+    title = <span class="st">"widgetUserBox"</span>
   ),
   server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
  )

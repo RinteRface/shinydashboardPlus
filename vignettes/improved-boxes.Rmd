@@ -12,9 +12,7 @@ vignette: >
 ## Improved boxes
 
 With `{shinydashboardPlus}`, you can add labels and dropdown menus to your
-boxes.
-
-There are also other boxes such as `box()`, `socialBox()` as well as
+boxes. There are also other boxes such as `box()`, `socialBox()` as well as
 `userBox()`, to help you making outstanding shiny apps.
 
 ### box on steroids!
@@ -89,9 +87,9 @@ library(shinydashboardPlus)
      userBox(
       title = "Alexander Pierce",
       subtitle = "Founder & CEO",
-      type = NULL,
+      type = 1,
       src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-      color = "aqua-active",
+      color = "aqua",
       closable = TRUE,
       "Some text here!",
       footer = "The footer here!"
@@ -99,16 +97,14 @@ library(shinydashboardPlus)
      userBox(
       title = "Elizabeth Pierce",
       subtitle = "Web Designer",
-      type = NULL,
       src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-      background = TRUE,
-      backgroundUrl = "https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&h=350",
+      backgroundImage = "https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg",
       closable = TRUE,
       "Some text here!",
       footer = "The footer here!"
      )
     ),
-    title = "Description Blocks"
+    title = "widgetUserBox"
   ),
   server = function(input, output) { }
  )

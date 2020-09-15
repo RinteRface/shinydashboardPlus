@@ -36,6 +36,7 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - `widgetUserBox()` becomes `userBox()` for more naming consistency
 - Remove `gradientBox()` for consistency with {bs4Dash}
 - Add _icon_, _gradient_ and _boxToolSize_ to `box()`
+- _title_ mandatory in `userBox()`. Remove _background_. Replace _backgroundUrl_ by _backgroundImage_. Reworked _type_ parameter
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`

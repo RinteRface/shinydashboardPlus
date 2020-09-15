@@ -1,171 +1,3 @@
-#' @title AdminLTE2 user box
-#'
-#' @description Create user box
-#'
-#' @param ... body content.
-#' @param title box title.
-#' @param subtitle box subtitle.
-#' @param type NULL by default. Choose the value 2 to try another skin.
-#' @param background Whether to enable a background image in the box header.
-#' @param backgroundUrl image url, if any. Background needs to be TRUE.
-#' @param src header image, if any (this is different of the background image).
-#' @param color background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param footer box footer.
-#' @param width box width (between 1 and 12). 
-#' @param height box height.
-#' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
-#' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
-#' @param collapsed If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.
-#' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param footerPadding TRUE by default: whether the footer has margin or not.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  library(shinydashboardPlus)
-#'  
-#'  shinyApp(
-#'   ui = dashboardPage(
-#'     dashboardHeader(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'      userBox(
-#'       title = "Nadia Carmichael",
-#'       subtitle = "lead Developer",
-#'       type = 2,
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
-#'       color = "yellow",
-#'       "Some text here!",
-#'       footer = "The footer here!"
-#'      ),
-#'      userBox(
-#'       title = "Alexander Pierce",
-#'       subtitle = "Founder & CEO",
-#'       type = NULL,
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-#'       color = "aqua-active",
-#'       closable = TRUE,
-#'       "Some text here!",
-#'       footer = "The footer here!"
-#'      ),
-#'      userBox(
-#'       title = "Elizabeth Pierce",
-#'       subtitle = "Web Designer",
-#'       type = NULL,
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-#'       background = TRUE,
-#'       backgroundUrl = "https://www.planwallpaper.com/static/images/744081-background-wallpaper.jpg",
-#'       closable = TRUE,
-#'       "Some text here!",
-#'       footer = "The footer here!"
-#'      )
-#'     ),
-#'     title = "widgetUserBox"
-#'   ),
-#'   server = function(input, output) { }
-#'  )
-#' }
-#'
-#' @export
-userBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
-                          background = FALSE, backgroundUrl = NULL,
-                          src = NULL, color = NULL, footer = NULL, footerPadding = TRUE,
-                          width = 6, height = NULL, boxToolSize = "sm",
-                          collapsible = TRUE, collapsed = FALSE, closable = FALSE) {
-  
-  cl <- "widget-user-header"
-  if (!is.null(color) && background == FALSE) cl <- paste0(cl, " bg-", color)
-  if (isTRUE(background)) cl <- paste0(cl, " bg-black")
-  
-  boxCl <- "box box-widget widget-user"
-  if (!is.null(type)) boxCl <- paste0(boxCl, "-", type)
-  if (collapsible && collapsed) {
-    boxCl <- paste(boxCl, "collapsed-box")
-  }
-  
-  style <- NULL
-  if (!is.null(height)) {
-    style <- paste0("height: ", shiny::validateCssUnit(height))
-  }
-  
-  backgroundStyle <- NULL
-  if (isTRUE(background)) {
-    backgroundStyle <- paste0("background: url('", backgroundUrl, "') center center;")
-  }
-  
-  # collapseTag
-  collapseTag <- NULL
-  if (collapsible) {
-    collapseIcon <- if (collapsed) 
-      "plus"
-    else "minus"
-    collapseTag <- shiny::tags$button(
-      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize), 
-      type = "button",
-      `data-widget` = "collapse", 
-      shiny::icon(collapseIcon)
-    )
-  }
-  
-  # closeTag
-  closeTag <- NULL
-  if (closable) {
-    closeTag <- shiny::tags$button(
-      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize),
-      `data-widget` = "remove",
-      type = "button",
-      shiny::tags$i(class = "fa fa-times")
-    )
-  }
-  
-  shiny::column(
-    width = width,
-    shiny::tags$div(
-      class = boxCl,
-      style = style,
-      
-      # header
-      shiny::tags$div(
-        class = cl,
-        style = backgroundStyle,
-        
-        # box header buttons
-        shiny::tags$div(
-          class = "pull-right box-tools",
-          collapseTag,
-          closeTag
-        ),
-        
-        # image
-        shiny::tags$div(
-          class = "widget-user-image",
-          shiny::tags$img(class = "img-circle", src = src)
-        ),
-        
-        # titles
-        shiny::tags$h3(class = "widget-user-username", title),
-        shiny::tags$h5(class = "widget-user-desc", subtitle)
-        
-      ),
-      
-      # body
-      shiny::tags$div(class = "box-body", ...),
-      
-      # footer
-      shiny::tags$div(
-        class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", 
-        footer
-      )
-    )
-  )
-}
-
-
-
-
 #' Create a box for the main body of a dashboard
 #'
 #' Boxes can be used to hold content in the main body of a dashboard.
@@ -723,6 +555,196 @@ boxDropdownItem <- function(url, name) {
 dropdownDivider <- function() {
   shiny::tags$li(class = "divider")
 }
+
+
+
+
+#' @title AdminLTE2 user box
+#'
+#' @description Create user box
+#'
+#' @param ... body content.
+#' @param title box title.
+#' @param subtitle box subtitle.
+#' @param type User box type. Either 1 or 2. 1 corresponds to a centered user image,
+#' while 2 is a left aligned user image.
+#' @param src header image, if any (this is different of the background image).
+#' @param backgroundImage image url, if any. Background needs to be TRUE.
+#' @param color background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' @param footer box footer.
+#' @param width box width (between 1 and 12). 
+#' @param height box height.
+#' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
+#' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
+#' @param collapsed If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.
+#' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param footerPadding TRUE by default: whether the footer has margin or not.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      userBox(
+#'       title = "Nadia Carmichael",
+#'       subtitle = "lead Developer",
+#'       type = 2,
+#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+#'       color = "yellow",
+#'       "Some text here!",
+#'       footer = "The footer here!"
+#'      ),
+#'      userBox(
+#'       title = "Alexander Pierce",
+#'       subtitle = "Founder & CEO",
+#'       type = 1,
+#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'       color = "aqua",
+#'       closable = TRUE,
+#'       "Some text here!",
+#'       footer = "The footer here!"
+#'      ),
+#'      userBox(
+#'       title = "Elizabeth Pierce",
+#'       subtitle = "Web Designer",
+#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'       backgroundImage = "https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg",
+#'       closable = TRUE,
+#'       "Some text here!",
+#'       footer = "The footer here!"
+#'      )
+#'     ),
+#'     title = "UserBox"
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#'
+#' @export
+userBox <- function(..., title, subtitle = NULL, type = c(1, 2),
+                    src = NULL, backgroundImage = NULL, color = NULL, footer = NULL, 
+                    footerPadding = TRUE, width = 6, height = NULL, boxToolSize = "sm",
+                    collapsible = TRUE, collapsed = FALSE, closable = FALSE) {
+  
+  if (!is.null(color)) validateColor(color)
+  
+  if (!collapsible && collapsed) {
+    stop("Cannot collapse a card that is not collapsible.")
+  }
+  
+  if (!is.null(width)) {
+    stopifnot(is.numeric(width))
+    # respect the bootstrap grid
+    stopifnot(width <= 12)
+    stopifnot(width >= 0)
+  }
+  
+  # if type is not explicitly provided, it will use the default value, c(1, 2).
+  # Below we ensure that whenever it is the case, we only select the first element
+  # by default. We also need to convert to character for match.arg
+  if (length(type) == 2) {
+    type <- as.character(type[1])
+    type <- match.arg(type)
+  }
+  
+  # once type is assigned, if it is "1" we actually put it back to NULL since 
+  # the class widget-user-1 does not exist (only widget-user-2).
+  if (!is.null(type)) {
+    type <- as.character(type)
+    type <- match.arg(type)
+    if (type == "1") type <- NULL
+  }
+  
+  boxCl <- "box box-widget widget-user"
+  if (!is.null(type)) boxCl <- paste0(boxCl, "-", type)
+  if (collapsible && collapsed) {
+    boxCl <- paste(boxCl, "collapsed-box")
+  }
+  
+  style <- NULL
+  if (!is.null(height)) {
+    style <- paste0("height: ", shiny::validateCssUnit(height))
+  }
+  
+  headerCl <- "widget-user-header"
+  if (!is.null(color) && is.null(backgroundImage)) headerCl <- paste0(headerCl, " bg-", color)
+  if (!is.null(backgroundImage)) headerCl <- paste0(headerCl, " bg-black")
+  
+  # collapseTag
+  collapseTag <- NULL
+  if (collapsible) {
+    collapseIcon <- if (collapsed) 
+      "plus"
+    else "minus"
+    collapseTag <- shiny::tags$button(
+      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize), 
+      type = "button",
+      `data-widget` = "collapse", 
+      shiny::icon(collapseIcon)
+    )
+  }
+  
+  # closeTag
+  closeTag <- NULL
+  if (closable) {
+    closeTag <- shiny::tags$button(
+      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize),
+      `data-widget` = "remove",
+      type = "button",
+      shiny::tags$i(class = "fa fa-times")
+    )
+  }
+  
+  shiny::column(
+    width = width,
+    shiny::tags$div(
+      class = boxCl,
+      style = style,
+      # header
+      shiny::tags$div(
+        class = headerCl,
+        style = if (!is.null(backgroundImage)) {
+          paste0("background: url('", backgroundImage, "') center center;")
+        },
+        # box header buttons
+        shiny::tags$div(
+          class = "pull-right box-tools",
+          collapseTag,
+          closeTag
+        ),
+        # image
+        shiny::tags$div(
+          class = "widget-user-image",
+          shiny::tags$img(class = "img-circle", src = src)
+        ),
+        # titles
+        shiny::tags$h3(class = "widget-user-username", title),
+        if (!is.null(subtitle)) {
+          shiny::tags$h5(class = "widget-user-desc", subtitle)
+        }
+      ),
+      # body
+      shiny::tags$div(class = "box-body", ...),
+      # footer
+      if (!is.null(footer)) {
+        shiny::tags$div(
+          class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", 
+          footer
+        )
+      }
+    )
+  )
+}
+
+
 
 
 #' @title AdminLTE2 social box

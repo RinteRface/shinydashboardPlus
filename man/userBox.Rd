@@ -6,12 +6,11 @@
 \usage{
 userBox(
   ...,
-  title = NULL,
+  title,
   subtitle = NULL,
-  type = NULL,
-  background = FALSE,
-  backgroundUrl = NULL,
+  type = c(1, 2),
   src = NULL,
+  backgroundImage = NULL,
   color = NULL,
   footer = NULL,
   footerPadding = TRUE,
@@ -30,13 +29,12 @@ userBox(
 
 \item{subtitle}{box subtitle.}
 
-\item{type}{NULL by default. Choose the value 2 to try another skin.}
-
-\item{background}{Whether to enable a background image in the box header.}
-
-\item{backgroundUrl}{image url, if any. Background needs to be TRUE.}
+\item{type}{User box type. Either 1 or 2. 1 corresponds to a centered user image,
+while 2 is a left aligned user image.}
 
 \item{src}{header image, if any (this is different of the background image).}
+
+\item{backgroundImage}{image url, if any. Background needs to be TRUE.}
 
 \item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
@@ -82,9 +80,9 @@ if (interactive()) {
      userBox(
       title = "Alexander Pierce",
       subtitle = "Founder & CEO",
-      type = NULL,
+      type = 1,
       src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-      color = "aqua-active",
+      color = "aqua",
       closable = TRUE,
       "Some text here!",
       footer = "The footer here!"
@@ -92,10 +90,8 @@ if (interactive()) {
      userBox(
       title = "Elizabeth Pierce",
       subtitle = "Web Designer",
-      type = NULL,
       src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-      background = TRUE,
-      backgroundUrl = "https://www.planwallpaper.com/static/images/744081-background-wallpaper.jpg",
+      backgroundImage = "https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg",
       closable = TRUE,
       "Some text here!",
       footer = "The footer here!"

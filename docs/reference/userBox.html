@@ -125,12 +125,11 @@
 
     <pre class="usage"><span class='fu'>userBox</span>(
   <span class='kw'>...</span>,
-  title = <span class='kw'>NULL</span>,
+  <span class='kw'>title</span>,
   subtitle = <span class='kw'>NULL</span>,
-  type = <span class='kw'>NULL</span>,
-  background = <span class='fl'>FALSE</span>,
-  backgroundUrl = <span class='kw'>NULL</span>,
+  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
   src = <span class='kw'>NULL</span>,
+  backgroundImage = <span class='kw'>NULL</span>,
   color = <span class='kw'>NULL</span>,
   footer = <span class='kw'>NULL</span>,
   footerPadding = <span class='fl'>TRUE</span>,
@@ -159,19 +158,16 @@
     </tr>
     <tr>
       <th>type</th>
-      <td><p>NULL by default. Choose the value 2 to try another skin.</p></td>
-    </tr>
-    <tr>
-      <th>background</th>
-      <td><p>Whether to enable a background image in the box header.</p></td>
-    </tr>
-    <tr>
-      <th>backgroundUrl</th>
-      <td><p>image url, if any. Background needs to be TRUE.</p></td>
+      <td><p>User box type. Either 1 or 2. 1 corresponds to a centered user image,
+while 2 is a left aligned user image.</p></td>
     </tr>
     <tr>
       <th>src</th>
       <td><p>header image, if any (this is different of the background image).</p></td>
+    </tr>
+    <tr>
+      <th>backgroundImage</th>
+      <td><p>image url, if any. Background needs to be TRUE.</p></td>
     </tr>
     <tr>
       <th>color</th>
@@ -238,9 +234,9 @@
      <span class='fu'>userBox</span>(
       title = <span class='st'>"Alexander Pierce"</span>,
       subtitle = <span class='st'>"Founder &amp; CEO"</span>,
-      type = <span class='kw'>NULL</span>,
+      type = <span class='fl'>1</span>,
       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-      color = <span class='st'>"aqua-active"</span>,
+      color = <span class='st'>"aqua"</span>,
       closable = <span class='fl'>TRUE</span>,
       <span class='st'>"Some text here!"</span>,
       footer = <span class='st'>"The footer here!"</span>
@@ -248,10 +244,8 @@
      <span class='fu'>userBox</span>(
       title = <span class='st'>"Elizabeth Pierce"</span>,
       subtitle = <span class='st'>"Web Designer"</span>,
-      type = <span class='kw'>NULL</span>,
       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-      background = <span class='fl'>TRUE</span>,
-      backgroundUrl = <span class='st'>"https://www.planwallpaper.com/static/images/744081-background-wallpaper.jpg"</span>,
+      backgroundImage = <span class='st'>"https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg"</span>,
       closable = <span class='fl'>TRUE</span>,
       <span class='st'>"Some text here!"</span>,
       footer = <span class='st'>"The footer here!"</span>
