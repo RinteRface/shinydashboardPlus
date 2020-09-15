@@ -566,18 +566,18 @@ dropdownDivider <- function() {
 #' @param ... body content.
 #' @param title box title.
 #' @param subtitle box subtitle.
-#' @param type User box type. Either 1 or 2. 1 corresponds to a centered user image,
-#' while 2 is a left aligned user image.
-#' @param src header image, if any (this is different of the background image).
-#' @param backgroundImage image url, if any. Background needs to be TRUE.
-#' @param color background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param footer box footer.
+#' @param color background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param width box width (between 1 and 12). 
 #' @param height box height.
-#' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param collapsed If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param type User box type. Either 1 or 2. 1 corresponds to a centered user image,
+#' while 2 is a left aligned user image.
+#' @param image header image, if any (this is different of the background image).
+#' @param backgroundImage image url, if any. Background needs to be TRUE.
+#' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -597,7 +597,7 @@ dropdownDivider <- function() {
 #'       title = "Nadia Carmichael",
 #'       subtitle = "lead Developer",
 #'       type = 2,
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
 #'       color = "yellow",
 #'       "Some text here!",
 #'       footer = "The footer here!"
@@ -606,7 +606,7 @@ dropdownDivider <- function() {
 #'       title = "Alexander Pierce",
 #'       subtitle = "Founder & CEO",
 #'       type = 1,
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
 #'       color = "aqua",
 #'       closable = TRUE,
 #'       "Some text here!",
@@ -615,7 +615,7 @@ dropdownDivider <- function() {
 #'      userBox(
 #'       title = "Elizabeth Pierce",
 #'       subtitle = "Web Designer",
-#'       src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
 #'       backgroundImage = "https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg",
 #'       closable = TRUE,
 #'       "Some text here!",
@@ -629,10 +629,11 @@ dropdownDivider <- function() {
 #' }
 #'
 #' @export
-userBox <- function(..., title, subtitle = NULL, type = c(1, 2),
-                    src = NULL, backgroundImage = NULL, color = NULL, footer = NULL, 
-                    footerPadding = TRUE, width = 6, height = NULL, boxToolSize = "sm",
-                    collapsible = TRUE, collapsed = FALSE, closable = FALSE) {
+userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL, 
+                    width = 6, height = NULL, collapsible = TRUE, collapsed = FALSE, 
+                    closable = FALSE, type = c(1, 2), image = NULL, backgroundImage = NULL, 
+                    boxToolSize = "sm", footerPadding = TRUE
+                    ) {
   
   if (!is.null(color)) validateColor(color)
   
@@ -723,7 +724,7 @@ userBox <- function(..., title, subtitle = NULL, type = c(1, 2),
         # image
         shiny::tags$div(
           class = "widget-user-image",
-          shiny::tags$img(class = "img-circle", src = src)
+          shiny::tags$img(class = "img-circle", src = image)
         ),
         # titles
         shiny::tags$h3(class = "widget-user-username", title),

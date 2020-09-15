@@ -8,18 +8,18 @@ userBox(
   ...,
   title,
   subtitle = NULL,
-  type = c(1, 2),
-  src = NULL,
-  backgroundImage = NULL,
-  color = NULL,
   footer = NULL,
-  footerPadding = TRUE,
+  color = NULL,
   width = 6,
   height = NULL,
-  boxToolSize = "sm",
   collapsible = TRUE,
   collapsed = FALSE,
-  closable = FALSE
+  closable = FALSE,
+  type = c(1, 2),
+  image = NULL,
+  backgroundImage = NULL,
+  boxToolSize = "sm",
+  footerPadding = TRUE
 )
 }
 \arguments{
@@ -29,30 +29,30 @@ userBox(
 
 \item{subtitle}{box subtitle.}
 
-\item{type}{User box type. Either 1 or 2. 1 corresponds to a centered user image,
-while 2 is a left aligned user image.}
-
-\item{src}{header image, if any (this is different of the background image).}
-
-\item{backgroundImage}{image url, if any. Background needs to be TRUE.}
-
-\item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
-
 \item{footer}{box footer.}
 
-\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
+\item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
 
 \item{width}{box width (between 1 and 12).}
 
 \item{height}{box height.}
-
-\item{boxToolSize}{size of the toolbox: choose among "xs", "sm", "md", "lg".}
 
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the box.}
 
 \item{collapsed}{If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
+
+\item{type}{User box type. Either 1 or 2. 1 corresponds to a centered user image,
+while 2 is a left aligned user image.}
+
+\item{image}{header image, if any (this is different of the background image).}
+
+\item{backgroundImage}{image url, if any. Background needs to be TRUE.}
+
+\item{boxToolSize}{size of the toolbox: choose among "xs", "sm", "md", "lg".}
+
+\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 }
 \description{
 Create user box
@@ -72,7 +72,7 @@ if (interactive()) {
       title = "Nadia Carmichael",
       subtitle = "lead Developer",
       type = 2,
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+      image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
       color = "yellow",
       "Some text here!",
       footer = "The footer here!"
@@ -81,7 +81,7 @@ if (interactive()) {
       title = "Alexander Pierce",
       subtitle = "Founder & CEO",
       type = 1,
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+      image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
       color = "aqua",
       closable = TRUE,
       "Some text here!",
@@ -90,7 +90,7 @@ if (interactive()) {
      userBox(
       title = "Elizabeth Pierce",
       subtitle = "Web Designer",
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+      image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
       backgroundImage = "https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg",
       closable = TRUE,
       "Some text here!",
