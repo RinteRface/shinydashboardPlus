@@ -4,7 +4,7 @@
 \alias{attachmentBlock}
 \title{AdminLTE2 attachment container}
 \usage{
-attachmentBlock(..., image = NULL, title = NULL, href = NULL)
+attachmentBlock(..., image, title = NULL, href = NULL)
 }
 \arguments{
 \item{...}{any element.}

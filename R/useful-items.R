@@ -232,7 +232,8 @@ attachmentBlock <- function(..., image, title = NULL, href = NULL) {
 #'     dashboardBody(
 #'      box(
 #'       title = "BlockQuote example",
-#'       blockQuote("I quote some text here!")
+#'       blockQuote("I quote some text here!"),
+#'       blockQuote("I quote some text here!", side = "right")
 #'      )
 #'     ),
 #'     title = "blockQuote"
@@ -244,7 +245,7 @@ attachmentBlock <- function(..., image, title = NULL, href = NULL) {
 #' @export
 blockQuote <- function(..., side = "left") {
   shiny::tags$blockquote(
-    class = if (side == "right") "pull-right" else NULL,
+    class = if (side == "right") "pull-right",
     ...
   )
 }
@@ -312,7 +313,10 @@ blockQuote <- function(..., side = "left") {
 #' @export
 boxPad <- function(..., color = NULL, style = NULL) {
   cl <- "pad box-pane-right"
-  if (!is.null(color)) cl <- paste0(cl, " bg-", color)
+  if (!is.null(color)) {
+    validateColor(color)
+    cl <- paste0(cl, " bg-", color)
+  }
   
   shiny::tags$div(
     class = cl,
@@ -376,8 +380,8 @@ appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
 #'
 #' @description Create a social button
 #'
-#' @param url if the button should redirect somewhere.
-#' @param type social network name: see here for valid names \url{https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html}.
+#' @param href External link.
+#' @param icon social network icon: see here for valid names \url{https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -396,12 +400,12 @@ appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
 #'       title = "Social Buttons",
 #'       status = NULL,
 #'       socialButton(
-#'         url = "https://dropbox.com",
-#'         type = "dropbox"
+#'         href = "https://dropbox.com",
+#'         icon = icon("dropbox")
 #'       ),
 #'       socialButton(
-#'         url = "https://github.com",
-#'         type = "github"
+#'         href = "https://github.com",
+#'         icon = icon("github")
 #'       )
 #'      )
 #'     ),
@@ -412,16 +416,16 @@ appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
 #' }
 #'
 #' @export
-socialButton <- function(url, type = NULL) {
+socialButton <- function(href, icon) {
   
-  cl <- "btn btn-social-icon"
-  if (!is.null(type)) cl <- paste0(cl, " btn-", type)
+  name <- strsplit(icon$attribs$class, "-")[[1]][2]
+  cl <- sprintf("btn btn-social-icon btn-%s", name)
   
   shiny::tags$a(
-    href = url,
+    href = href,
     target = "_blank",
     class = cl,
-    shiny::icon(type)
+    icon
   )
 }
 

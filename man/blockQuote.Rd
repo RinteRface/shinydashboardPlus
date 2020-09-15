@@ -27,7 +27,8 @@ if (interactive()) {
     dashboardBody(
      box(
       title = "BlockQuote example",
-      blockQuote("I quote some text here!")
+      blockQuote("I quote some text here!"),
+      blockQuote("I quote some text here!", side = "right")
      )
     ),
     title = "blockQuote"
