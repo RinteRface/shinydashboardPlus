@@ -7,7 +7,7 @@
 dashboardUser(
   ...,
   name = NULL,
-  src = NULL,
+  image = NULL,
   title = NULL,
   subtitle = NULL,
   footer = NULL
@@ -18,13 +18,13 @@ dashboardUser(
 
 \item{name}{User name.}
 
-\item{src}{User profile picture.}
-
 \item{title}{A title.}
 
 \item{subtitle}{A subtitle.}
 
 \item{footer}{Footer is any.}
+
+\item{src}{User profile picture.}
 }
 \description{
 Create a dashboard user profile.
@@ -47,7 +47,7 @@ if (interactive()) {
    output$user <- renderUser({
     dashboardUser(
        name = "Divad Nojnarg", 
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
        title = "shinydashboardPlus",
        subtitle = "Author", 
        footer = p("The footer", class = "text-center"),
@@ -55,15 +55,15 @@ if (interactive()) {
         dashboardUserItem(
          width = 6,
          socialButton(
-          url = "https://dropbox.com",
-          type = "dropbox"
+          href = "https://dropbox.com",
+          icon = icon("dropbox")
          )
         ),
         dashboardUserItem(
          width = 6,
          socialButton(
-          url = "https://github.com",
-          type = "github"
+          href = "https://github.com",
+          icon = icon("github")
          )
         )
        )

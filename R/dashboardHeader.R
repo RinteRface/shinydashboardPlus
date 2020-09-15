@@ -215,7 +215,7 @@ dashboardHeader <- function(..., title = NULL, titleWidth = NULL,
 #'
 #' @param ... Body content. Slot for \link{dashboardUserItem}.
 #' @param name User name.
-#' @param src User profile picture.
+#' @param image User profile picture.
 #' @param title A title.
 #' @param subtitle A subtitle.
 #' @param footer Footer is any.
@@ -241,7 +241,7 @@ dashboardHeader <- function(..., title = NULL, titleWidth = NULL,
 #'    output$user <- renderUser({
 #'     dashboardUser(
 #'        name = "Divad Nojnarg", 
-#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+#'        image = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
 #'        title = "shinydashboardPlus",
 #'        subtitle = "Author", 
 #'        footer = p("The footer", class = "text-center"),
@@ -249,15 +249,15 @@ dashboardHeader <- function(..., title = NULL, titleWidth = NULL,
 #'         dashboardUserItem(
 #'          width = 6,
 #'          socialButton(
-#'           url = "https://dropbox.com",
-#'           type = "dropbox"
+#'           href = "https://dropbox.com",
+#'           icon = icon("dropbox")
 #'          )
 #'         ),
 #'         dashboardUserItem(
 #'          width = 6,
 #'          socialButton(
-#'           url = "https://github.com",
-#'           type = "github"
+#'           href = "https://github.com",
+#'           icon = icon("github")
 #'          )
 #'         )
 #'        )
@@ -268,7 +268,7 @@ dashboardHeader <- function(..., title = NULL, titleWidth = NULL,
 #' }
 #' 
 #' @export
-dashboardUser <- function(..., name = NULL, src = NULL, title = NULL,
+dashboardUser <- function(..., name = NULL, image = NULL, title = NULL,
                           subtitle = NULL, footer = NULL) {
   
   # Create line 1 for menu
@@ -296,7 +296,7 @@ dashboardUser <- function(..., name = NULL, src = NULL, title = NULL,
       class = "dropdown-toggle", 
       `data-toggle` = "dropdown",
       # user img and name in navbar (controlbar - header)
-      shiny::tags$img(src = src, class = "user-image", alt = "User Image"),
+      shiny::tags$img(src = image, class = "user-image", alt = "User Image"),
       shiny::tags$span(class = "hidden-xs", name)
     ),
     # menu dropdown main
@@ -306,7 +306,7 @@ dashboardUser <- function(..., name = NULL, src = NULL, title = NULL,
       shiny::tags$li(
         class = "user-header",
         if(!is.null(user_header_height)) user_header_height,
-        shiny::tags$img(src = src, class = "img-circle", alt = "User Image"),
+        shiny::tags$img(src = image, class = "img-circle", alt = "User Image"),
         user_text
       ),
       # menu body
