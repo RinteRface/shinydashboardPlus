@@ -36,7 +36,7 @@ if (interactive()) {
      sidebar = dashboardSidebar(),
      body = dashboardBody(),
      controlbar = dashboardControlbar(
-      inputId = "controlbar",
+      id = "controlbar",
       controlbarMenu(
        id = "menu",
        controlbarItem(

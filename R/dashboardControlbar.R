@@ -2,19 +2,19 @@
 #'
 #' This creates a right sidebar.
 #' 
-#' @param ... slot for rightSidebarTabContent. Not compatible with .items.
-#' @param inputId To acces the current state of the controlbar. Open is TRUE, closed
+#' @param ... slot for \link{controlbarMenu}. Not compatible with .items.
+#' @param id To access the current state of the controlbar. Open is TRUE, closed
 #' is FALSE. NULL by default.
-#' @param skin background color: "dark" or "light".
 #' @param disable If \code{TRUE}, the sidebar will be disabled.
+#' @param width Sidebar width in pixels. Numeric value expected. 230 by default.
 #' @param collapsed Whether the control bar on the right side is collapsed or not at start. TRUE by default.
 #' @param overlay Whether the sidebar covers the content when expanded. Default to TRUE.
-#' @param width Sidebar width in pixels. Numeric value expected. 230 by default.
+#' @param skin background color: "dark" or "light".
 #' @param .items Pass element here if you do not want to embed them in panels. Not compatible with ...
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
-#' @note Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
+#' @note Until a maximum of 5 \link{controlbarItem}! AdminLTE 2 does not
 #' support more panels.
 #'
 #' @examples
@@ -47,16 +47,16 @@
 #'  )
 #' }
 #' @export
-dashboardControlbar <- function(..., inputId = NULL, skin = "dark", 
-                                disable = FALSE, collapsed = TRUE, overlay = TRUE, 
-                                width = 230, .items = NULL) {
+dashboardControlbar <- function(..., id = NULL, disable = FALSE, width = 230, 
+                                collapsed = TRUE, overlay = TRUE, 
+                                skin = "dark", .items = NULL) {
   items <- c(list(...), .items)
   
-  if (is.null(inputId)) inputId <- "controlbarId"
+  if (is.null(id)) id <- "controlbarId"
   
   controlbarTag <- shiny::tagList(
     shiny::tags$aside(
-      id = inputId,
+      id = id,
       `data-collapsed` = if (collapsed) "true" else "false",
       `data-overlay` = if (overlay) "true" else "false",
       `data-show` = if (disable) "false" else "true",
@@ -101,7 +101,7 @@ dashboardControlbar <- function(..., inputId = NULL, skin = "dark",
 
 #' Function to programmatically toggle the state of the controlbar
 #'
-#' @param inputId Controlbar id.
+#' @param id Controlbar id.
 #' @param session Shiny session object.
 #' @export
 #'
@@ -118,7 +118,7 @@ dashboardControlbar <- function(..., inputId = NULL, skin = "dark",
 #'      body = dashboardBody(
 #'        actionButton(inputId = "controlbarToggle", label = "Toggle Controlbar")
 #'      ),
-#'      controlbar = dashboardControlbar(inputId = "controlbar")
+#'      controlbar = dashboardControlbar(id = "controlbar")
 #'    ),
 #'    server = function(input, output, session) {
 #'      
@@ -134,7 +134,7 @@ dashboardControlbar <- function(..., inputId = NULL, skin = "dark",
 #'      })
 #'      
 #'      observeEvent(input$controlbarToggle, {
-#'        updateControlbar(inputId = "controlbar")
+#'        updateControlbar("controlbar")
 #'      })
 #'      
 #'      observe({
@@ -143,8 +143,8 @@ dashboardControlbar <- function(..., inputId = NULL, skin = "dark",
 #'    }
 #'  )
 #' }
-updateControlbar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
-  session$sendInputMessage(inputId, NULL)
+updateControlbar <- function(id, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(id, NULL)
 }
 
 
@@ -164,7 +164,7 @@ updateControlbar <- function(inputId, session = shiny::getDefaultReactiveDomain(
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(),
 #'      controlbar = dashboardControlbar(
-#'       inputId = "controlbar",
+#'       id = "controlbar",
 #'       controlbarMenu(
 #'        id = "menu",
 #'        controlbarItem(
@@ -226,7 +226,11 @@ controlbarItem <- shiny::tabPanel
 
 
 #' Update an AdminLTE2 controlbarMenu on the client
-#' @inheritParams shiny::updateTabsetPanel
+#' 
+#' @param id Controlbar id.
+#' @param selected Item to select.
+#' @param session Shiny session object.
+#' 
 #' @export
 #' @examples
 #' if (interactive()) {
@@ -242,7 +246,7 @@ controlbarItem <- shiny::tabPanel
 #'       radioButtons("controller", "Controller", choices = c(1, 2, 3))
 #'      ),
 #'      controlbar = dashboardControlbar(
-#'       inputId = "controlbar",
+#'       id = "controlbar",
 #'       controlbarMenu(
 #'        id = "menu",
 #'        controlbarItem(
@@ -263,7 +267,6 @@ controlbarItem <- shiny::tabPanel
 #'    server = function(input, output, session) {
 #'     observeEvent(input$controller, {
 #'      updateControlbarMenu(
-#'       session, 
 #'       "menu", 
 #'       selected = paste0("Tab", input$controller)
 #'      )
@@ -271,4 +274,8 @@ controlbarItem <- shiny::tabPanel
 #'    }
 #'  )
 #' }
-updateControlbarMenu <- shiny::updateTabsetPanel
+updateControlbarMenu <- function (id, selected = NULL, 
+                                  session = shiny::getDefaultReactiveDomain()) {
+  message <- dropNulls(list(value = selected))
+  session$sendInputMessage(id, message)
+}

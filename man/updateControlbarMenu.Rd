@@ -4,16 +4,18 @@
 \alias{updateControlbarMenu}
 \title{Update an AdminLTE2 controlbarMenu on the client}
 \usage{
-updateControlbarMenu(session, inputId, selected = NULL)
+updateControlbarMenu(
+  id,
+  selected = NULL,
+  session = shiny::getDefaultReactiveDomain()
+)
 }
 \arguments{
-\item{session}{The \code{session} object passed to function given to
-\code{shinyServer}.}
+\item{id}{Controlbar id.}
 
-\item{inputId}{The id of the \code{tabsetPanel}, \code{navlistPanel},
-or \code{navbarPage} object.}
+\item{selected}{Item to select.}
 
-\item{selected}{The name of the tab to make active.}
+\item{session}{Shiny session object.}
 }
 \description{
 Update an AdminLTE2 controlbarMenu on the client
@@ -32,7 +34,7 @@ if (interactive()) {
       radioButtons("controller", "Controller", choices = c(1, 2, 3))
      ),
      controlbar = dashboardControlbar(
-      inputId = "controlbar",
+      id = "controlbar",
       controlbarMenu(
        id = "menu",
        controlbarItem(
@@ -53,7 +55,6 @@ if (interactive()) {
    server = function(input, output, session) {
     observeEvent(input$controller, {
      updateControlbarMenu(
-      session, 
       "menu", 
       selected = paste0("Tab", input$controller)
      )

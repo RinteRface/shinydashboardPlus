@@ -18,13 +18,13 @@ dashboardUser(
 
 \item{name}{User name.}
 
+\item{image}{User profile picture.}
+
 \item{title}{A title.}
 
 \item{subtitle}{A subtitle.}
 
 \item{footer}{Footer is any.}
-
-\item{src}{User profile picture.}
 }
 \description{
 Create a dashboard user profile.

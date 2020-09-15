@@ -55,8 +55,8 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - Add _freshTheme_ parameter to `dashboardPage()`. This allows to use the awsesome `{fresh}` package. See [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details.
 - Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.
 - Add `updateControlbarMenu()` to programmatically change the selected controlbar item
-- Add _inputId_ to `dashboardControlbar()` to be able to use `updateControlbar()`
-- Add _inputId_ to `dashboardSidebar()` to be able to use `updateSidebar()`
+- Add _id_ to `dashboardControlbar()` to be able to use `updateControlbar()`
+- Add _id_ to `dashboardSidebar()` to be able to use `updateSidebar()`
 - New `dashboardSidebar()` (reworked shinydashboard sidebar)
 - New `boxLabel()` to add text labels in `box()`
 - New `boxSidebar()`: access the status via input$id. Add `updateBoxSidebar()` to toggle the box sidebar

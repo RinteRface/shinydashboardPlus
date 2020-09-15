@@ -6,30 +6,30 @@
 \usage{
 dashboardControlbar(
   ...,
-  inputId = NULL,
-  skin = "dark",
+  id = NULL,
   disable = FALSE,
+  width = 230,
   collapsed = TRUE,
   overlay = TRUE,
-  width = 230,
+  skin = "dark",
   .items = NULL
 )
 }
 \arguments{
-\item{...}{slot for rightSidebarTabContent. Not compatible with .items.}
+\item{...}{slot for \link{controlbarMenu}. Not compatible with .items.}
 
-\item{inputId}{To acces the current state of the controlbar. Open is TRUE, closed
+\item{id}{To access the current state of the controlbar. Open is TRUE, closed
 is FALSE. NULL by default.}
 
-\item{skin}{background color: "dark" or "light".}
-
 \item{disable}{If \code{TRUE}, the sidebar will be disabled.}
+
+\item{width}{Sidebar width in pixels. Numeric value expected. 230 by default.}
 
 \item{collapsed}{Whether the control bar on the right side is collapsed or not at start. TRUE by default.}
 
 \item{overlay}{Whether the sidebar covers the content when expanded. Default to TRUE.}
 
-\item{width}{Sidebar width in pixels. Numeric value expected. 230 by default.}
+\item{skin}{background color: "dark" or "light".}
 
 \item{.items}{Pass element here if you do not want to embed them in panels. Not compatible with ...}
 }
@@ -37,7 +37,7 @@ is FALSE. NULL by default.}
 This creates a right sidebar.
 }
 \note{
-Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
+Until a maximum of 5 \link{controlbarItem}! AdminLTE 2 does not
 support more panels.
 }
 \examples{

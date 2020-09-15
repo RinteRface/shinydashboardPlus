@@ -4,10 +4,10 @@
 \alias{updateControlbar}
 \title{Function to programmatically toggle the state of the controlbar}
 \usage{
-updateControlbar(inputId, session = shiny::getDefaultReactiveDomain())
+updateControlbar(id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{inputId}{Controlbar id.}
+\item{id}{Controlbar id.}
 
 \item{session}{Shiny session object.}
 }
@@ -27,7 +27,7 @@ if (interactive()) {
      body = dashboardBody(
        actionButton(inputId = "controlbarToggle", label = "Toggle Controlbar")
      ),
-     controlbar = dashboardControlbar(inputId = "controlbar")
+     controlbar = dashboardControlbar(id = "controlbar")
    ),
    server = function(input, output, session) {
      
@@ -43,7 +43,7 @@ if (interactive()) {
      })
      
      observeEvent(input$controlbarToggle, {
-       updateControlbar(inputId = "controlbar")
+       updateControlbar("controlbar")
      })
      
      observe({

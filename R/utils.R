@@ -177,3 +177,7 @@ validateTabName <- function(name) {
     stop("tabName must not have a '.' in it.")
   }
 }
+
+dropNulls <- function(x) {
+  x[!vapply(x, is.null, FUN.VALUE = logical(1))]
+}
