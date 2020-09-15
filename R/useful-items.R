@@ -368,6 +368,9 @@ boxPad <- function(..., color = NULL, style = NULL) {
 #'
 #' @export
 appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
+  
+  if (!is.null(icon)) tagAssert(icon, type = "i")
+  
   shiny::tagAppendAttributes(
     shiny::actionButton(inputId, label, icon, width, ...),
     class = "btn-app"
@@ -418,6 +421,8 @@ appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
 #' @export
 socialButton <- function(href, icon) {
   
+  if (!is.null(icon)) tagAssert(icon, type = "i")
+  
   name <- strsplit(icon$attribs$class, "-")[[1]][2]
   cl <- sprintf("btn btn-social-icon btn-%s", name)
   
@@ -462,7 +467,7 @@ socialButton <- function(href, icon) {
 #' }
 #'
 #' @export
-dashboardLabel <- function(..., status = "primary", style = "default") {
+dashboardLabel <- function(..., status, style = "default") {
   validateStatus(status)
   shiny::tags$span(
     class = paste0("label", " label-", status),
@@ -497,7 +502,7 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'      dashboardBadge("Badge 1"),
+#'      dashboardBadge("Badge 1", color = "blue"),
 #'      actionButton(
 #'       inputId = "badge", 
 #'       label = "Hello", 
@@ -512,7 +517,7 @@ dashboardLabel <- function(..., status = "primary", style = "default") {
 #' }
 #'
 #' @export
-dashboardBadge <- function(..., color = "blue") {
+dashboardBadge <- function(..., color) {
   validateColor(color)
   shiny::tags$span(class = paste0("badge bg-", color), ...)
 }
@@ -591,12 +596,18 @@ descriptionBlock <- function(number = NULL, numberColor = NULL, numberIcon = NUL
                              header = NULL, text = NULL, rightBorder = TRUE,
                              marginBottom = FALSE) {
   
+  # icon check. Fails if the user does not pass icon("...")
+  if (!is.null(numberIcon)) tagAssert(numberIcon, type = "i")
+  
   cl <- "description-block"
   if (isTRUE(rightBorder)) cl <- paste0(cl, " border-right")
   if (isTRUE(marginBottom)) cl <- paste0(cl, " margin-bottom")
   
   numcl <- "description-percentage"
-  if (!is.null(numberColor)) numcl <- paste0(numcl, " text-", numberColor)
+  if (!is.null(numberColor)) {
+    validateColor(numberColor)
+    numcl <- paste0(numcl, " text-", numberColor)
+  }
   
   shiny::tags$div(
     class = cl,

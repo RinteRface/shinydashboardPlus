@@ -4,7 +4,7 @@
 \alias{dashboardBadge}
 \title{AdminLTE2 badge}
 \usage{
-dashboardBadge(..., color = "blue")
+dashboardBadge(..., color)
 }
 \arguments{
 \item{...}{Any html text element.}
@@ -25,7 +25,7 @@ if (interactive()) {
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     dashboardBadge("Badge 1"),
+     dashboardBadge("Badge 1", color = "blue"),
      actionButton(
       inputId = "badge", 
       label = "Hello", 

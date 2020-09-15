@@ -4,7 +4,7 @@
 \alias{dashboardLabel}
 \title{AdminLTE2 label}
 \usage{
-dashboardLabel(..., status = "primary", style = "default")
+dashboardLabel(..., status, style = "default")
 }
 \arguments{
 \item{...}{any text.}
