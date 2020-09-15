@@ -131,6 +131,9 @@
   status = <span class='kw'>NULL</span>,
   solidHeader = <span class='fl'>FALSE</span>,
   background = <span class='kw'>NULL</span>,
+  icon = <span class='kw'>NULL</span>,
+  gradient = <span class='fl'>FALSE</span>,
+  boxToolSize = <span class='kw'>NULL</span>,
   width = <span class='fl'>6</span>,
   height = <span class='kw'>NULL</span>,
   collapsible = <span class='fl'>FALSE</span>,
@@ -175,6 +178,18 @@ color. Valid statuses are listed in <a href='validStatuses.html'>validStatuses</
       <td><p>If NULL (the default), the background of the box will be
 white. Otherwise, a color string. Valid colors are listed in
 <a href='validColors.html'>validColors</a>.</p></td>
+    </tr>
+    <tr>
+      <th>icon</th>
+      <td><p>Header icon. Displayed before title. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>gradient</th>
+      <td><p>Whether to allow gradient effect for the background color. Default to FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>boxToolSize</th>
+      <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -249,7 +264,7 @@ the user to collapse the box.</p></td>
         dropdownMenu = <span class='fu'><a href='boxDropdown.html'>boxDropdown</a></span>(
          <span class='fu'><a href='boxDropdownItem.html'>boxDropdownItem</a></span>(url = <span class='st'>"http://www.google.com"</span>, name = <span class='st'>"Link to google"</span>),
          <span class='fu'><a href='boxDropdownItem.html'>boxDropdownItem</a></span>(url = <span class='st'>"#"</span>, name = <span class='st'>"item 2"</span>),
-         <span class='fu'>boxDropdownDivider</span>(),
+         <span class='fu'><a href='dropdownDivider.html'>dropdownDivider</a></span>(),
          <span class='fu'><a href='boxDropdownItem.html'>boxDropdownItem</a></span>(url = <span class='st'>"#"</span>, name = <span class='st'>"item 3"</span>)
         ),
         sidebar = <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span>(

@@ -6,8 +6,8 @@
 \usage{
 socialBox(
   ...,
-  src = NULL,
-  title = NULL,
+  src,
+  title,
   subtitle = NULL,
   width = 6,
   height = NULL,
@@ -19,7 +19,7 @@ socialBox(
 )
 }
 \arguments{
-\item{...}{body content. May include attachmentBlock for instance.}
+\item{...}{body content. May include \link{attachmentBlock} for instance.}
 
 \item{src}{header image, if any.}
 
@@ -35,7 +35,7 @@ socialBox(
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
-\item{comments}{slot for boxComments.}
+\item{comments}{slot for \link{boxComment}.}
 
 \item{footer}{box footer, if any.}
 

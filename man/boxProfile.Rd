@@ -4,7 +4,7 @@
 \alias{boxProfile}
 \title{AdminLTE2 box profile}
 \usage{
-boxProfile(..., src = NULL, title = NULL, subtitle = NULL, bordered = FALSE)
+boxProfile(..., src = NULL, title, subtitle = NULL, bordered = FALSE)
 }
 \arguments{
 \item{...}{any element such as \link{boxProfileItem}.}

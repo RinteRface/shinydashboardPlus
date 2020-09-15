@@ -30,6 +30,12 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - `dropdownItemList()` becomes `boxDropdown()`. `dropdownItem()` becomes `boxDropdownItem()`
 - `userPostToolItemList()` becomes `userPostTagItems()`. `userPostToolItem()` becomes `userPostTagItem()`
 - Remove `boxProfileItemList()`. `boxProfile()` gets a new parameter _bordered_, inherited from the old `boxProfileItemList()`
+- In `boxProfile()`, _title_ becomes mandatory
+- _title_ and _description_ mandatory in `boxProfileItem()`
+- In `boxComment()`: _src_ and _title_ are mandatory
+- `widgetUserBox()` becomes `userBox()` for more naming consistency
+- Remove `gradientBox()` for consistency with {bs4Dash}
+- Add _icon_, _gradient_ and _boxToolSize_ to `box()`
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`

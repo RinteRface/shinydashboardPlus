@@ -14,10 +14,10 @@ vignette: >
 With `{shinydashboardPlus}`, you can add labels and dropdown menus to your
 boxes.
 
-There are also other boxes such as `gradientBox()`, `socialBox()` as well as
-`widgetUserBox()`, to help you making outstanding shiny apps.
+There are also other boxes such as `box()`, `socialBox()` as well as
+`userBox()`, to help you making outstanding shiny apps.
 
-### box
+### box on steroids!
 
 <img src="figures/boxPlus.png" width="840" height="88">
 
@@ -60,50 +60,9 @@ library(shinydashboardPlus)
  )
 ```
 
-### gradientBox
 
-<img src="figures/gradientBox.png" width="840" height="163">
-<br>
 
-```{r, eval=FALSE}
-library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     gradientBox(
-      title = "My gradient Box",
-      icon = icon("th"),
-      gradientColor = "teal", 
-      boxToolSize = "sm", 
-      footer = sliderInput(
-       "obs", 
-       "Number of observations:",
-        min = 0, max = 1000, value = 500
-       ),
-      "This is a gradient box"
-      ),
-      gradientBox(
-      title = "My gradient Box",
-      icon = icon("heart"),
-      gradientColor = "maroon", 
-      boxToolSize = "xs", 
-      closable = TRUE,
-      footer = "The footer goes here. You can include anything",
-      "This is a gradient box"
-      )
-    ),
-    title = "Description Blocks"
-  ),
-  server = function(input, output) { }
- )
-```
-
-### widgetUserBox
+### userBox
 
 <img src="figures/widgetUserBox.png">
 <br>
@@ -118,7 +77,7 @@ library(shiny)
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     widgetUserBox(
+     userBox(
       title = "Nadia Carmichael",
       subtitle = "lead Developer",
       type = 2,
@@ -127,7 +86,7 @@ library(shiny)
       "Some text here!",
       footer = "The footer here!"
      ),
-     widgetUserBox(
+     userBox(
       title = "Alexander Pierce",
       subtitle = "Founder & CEO",
       type = NULL,
@@ -137,7 +96,7 @@ library(shiny)
       "Some text here!",
       footer = "The footer here!"
      ),
-     widgetUserBox(
+     userBox(
       title = "Elizabeth Pierce",
       subtitle = "Web Designer",
       type = NULL,
@@ -214,6 +173,8 @@ library(shinydashboardPlus)
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
+library(shinyEffects)
+
 shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AdminLTE2 social box — socialBox • shinydashboardPlus</title>
+<title>AdminLTE2 user box — userBox • shinydashboardPlus</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 social box — socialBox" />
-<meta property="og:description" content="Create social box" />
+<meta property="og:title" content="AdminLTE2 user box — userBox" />
+<meta property="og:description" content="Create user box" />
 
 
 
@@ -114,27 +114,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>AdminLTE2 social box</h1>
+    <h1>AdminLTE2 user box</h1>
     <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a></small>
-    <div class="hidden name"><code>socialBox.Rd</code></div>
+    <div class="hidden name"><code>userBox.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create social box</p>
+    <p>Create user box</p>
     </div>
 
-    <pre class="usage"><span class='fu'>socialBox</span>(
+    <pre class="usage"><span class='fu'>userBox</span>(
   <span class='kw'>...</span>,
-  <span class='kw'>src</span>,
-  <span class='kw'>title</span>,
+  title = <span class='kw'>NULL</span>,
   subtitle = <span class='kw'>NULL</span>,
+  type = <span class='kw'>NULL</span>,
+  background = <span class='fl'>FALSE</span>,
+  backgroundUrl = <span class='kw'>NULL</span>,
+  src = <span class='kw'>NULL</span>,
+  color = <span class='kw'>NULL</span>,
+  footer = <span class='kw'>NULL</span>,
+  footerPadding = <span class='fl'>TRUE</span>,
   width = <span class='fl'>6</span>,
   height = <span class='kw'>NULL</span>,
+  boxToolSize = <span class='st'>"sm"</span>,
   collapsible = <span class='fl'>TRUE</span>,
-  closable = <span class='fl'>TRUE</span>,
-  comments = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  footerPadding = <span class='fl'>TRUE</span>
+  collapsed = <span class='fl'>FALSE</span>,
+  closable = <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -142,11 +147,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>body content. May include <a href='attachmentBlock.html'>attachmentBlock</a> for instance.</p></td>
-    </tr>
-    <tr>
-      <th>src</th>
-      <td><p>header image, if any.</p></td>
+      <td><p>body content.</p></td>
     </tr>
     <tr>
       <th>title</th>
@@ -157,6 +158,34 @@
       <td><p>box subtitle.</p></td>
     </tr>
     <tr>
+      <th>type</th>
+      <td><p>NULL by default. Choose the value 2 to try another skin.</p></td>
+    </tr>
+    <tr>
+      <th>background</th>
+      <td><p>Whether to enable a background image in the box header.</p></td>
+    </tr>
+    <tr>
+      <th>backgroundUrl</th>
+      <td><p>image url, if any. Background needs to be TRUE.</p></td>
+    </tr>
+    <tr>
+      <th>src</th>
+      <td><p>header image, if any (this is different of the background image).</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>background color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.</p></td>
+    </tr>
+    <tr>
+      <th>footer</th>
+      <td><p>box footer.</p></td>
+    </tr>
+    <tr>
+      <th>footerPadding</th>
+      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+    </tr>
+    <tr>
       <th>width</th>
       <td><p>box width (between 1 and 12).</p></td>
     </tr>
@@ -165,24 +194,20 @@
       <td><p>box height.</p></td>
     </tr>
     <tr>
+      <th>boxToolSize</th>
+      <td><p>size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
+    </tr>
+    <tr>
       <th>collapsible</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to collapse the box.</p></td>
     </tr>
     <tr>
+      <th>collapsed</th>
+      <td><p>If TRUE, start collapsed. This must be used with <code>collapsible=TRUE</code>.</p></td>
+    </tr>
+    <tr>
       <th>closable</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to close the box.</p></td>
-    </tr>
-    <tr>
-      <th>comments</th>
-      <td><p>slot for <a href='boxComment.html'>boxComment</a>.</p></td>
-    </tr>
-    <tr>
-      <th>footer</th>
-      <td><p>box footer, if any.</p></td>
-    </tr>
-    <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
     </tr>
     </table>
 
@@ -201,31 +226,38 @@
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>socialBox</span>(
-      title = <span class='st'>"Social Box"</span>,
-      subtitle = <span class='st'>"example-01.05.2018"</span>,
-      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
+     <span class='fu'>userBox</span>(
+      title = <span class='st'>"Nadia Carmichael"</span>,
+      subtitle = <span class='st'>"lead Developer"</span>,
+      type = <span class='fl'>2</span>,
+      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
+      color = <span class='st'>"yellow"</span>,
       <span class='st'>"Some text here!"</span>,
-      <span class='fu'><a href='attachmentBlock.html'>attachmentBlock</a></span>(
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
-       title = <span class='st'>"Test"</span>,
-       title_url = <span class='st'>"https://google.com"</span>,
-       <span class='st'>"This is the content"</span>
-      ),
-      comments = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-       <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(X = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN = <span class='fu'>function</span>(<span class='kw'>i</span>) {
-        <span class='fu'><a href='boxComment.html'>boxComment</a></span>(
-          src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-          title = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Comment"</span>, <span class='kw'>i</span>),
-          date = <span class='st'>"01.05.2018"</span>,
-          <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"The "</span>, <span class='kw'>i</span>, <span class='st'>"-th comment"</span>)
-        )
-       })
-      ),
+      footer = <span class='st'>"The footer here!"</span>
+     ),
+     <span class='fu'>userBox</span>(
+      title = <span class='st'>"Alexander Pierce"</span>,
+      subtitle = <span class='st'>"Founder &amp; CEO"</span>,
+      type = <span class='kw'>NULL</span>,
+      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+      color = <span class='st'>"aqua-active"</span>,
+      closable = <span class='fl'>TRUE</span>,
+      <span class='st'>"Some text here!"</span>,
+      footer = <span class='st'>"The footer here!"</span>
+     ),
+     <span class='fu'>userBox</span>(
+      title = <span class='st'>"Elizabeth Pierce"</span>,
+      subtitle = <span class='st'>"Web Designer"</span>,
+      type = <span class='kw'>NULL</span>,
+      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+      background = <span class='fl'>TRUE</span>,
+      backgroundUrl = <span class='st'>"https://www.planwallpaper.com/static/images/744081-background-wallpaper.jpg"</span>,
+      closable = <span class='fl'>TRUE</span>,
+      <span class='st'>"Some text here!"</span>,
       footer = <span class='st'>"The footer here!"</span>
      )
     ),
-    title = <span class='st'>"socialBox"</span>
+    title = <span class='st'>"widgetUserBox"</span>
   ),
   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )

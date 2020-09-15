@@ -1,133 +1,6 @@
-#' @title AdminLTE2 gradient box
+#' @title AdminLTE2 user box
 #'
-#' @description Create an enhanced box
-#'
-#' @param ... body content.
-#' @param title box title.
-#' @param icon header icon, if any. Expect \code{\link[shiny]{icon}}.
-#' @param gradientColor color of the box: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
-#' @param footer the box footer. 
-#' @param width box width (between 1 and 12). 
-#' @param height box height.
-#' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
-#' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param footerPadding TRUE by default: whether the footer has margin or not.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  library(shinydashboardPlus)
-#'  
-#'  shinyApp(
-#'   ui = dashboardPage(
-#'     dashboardHeader(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'      gradientBox(
-#'       title = "My gradient Box",
-#'       icon = icon("th"),
-#'       gradientColor = "teal", 
-#'       boxToolSize = "sm", 
-#'       footer = sliderInput(
-#'        "obs", 
-#'        "Number of observations:",
-#'         min = 0, max = 1000, value = 500
-#'        ),
-#'       "This is a gradient box"
-#'       ),
-#'       gradientBox(
-#'       title = "My gradient Box",
-#'       icon = icon("heart"),
-#'       gradientColor = "maroon", 
-#'       boxToolSize = "xs", 
-#'       closable = TRUE,
-#'       footer = "The footer goes here. You can include anything",
-#'       "This is a gradient box"
-#'       )
-#'     ),
-#'     title = "gradientBox"
-#'   ),
-#'   server = function(input, output) { }
-#'  )
-#' }
-#'
-#' @export
-gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL, 
-                        boxToolSize = "sm", footer = NULL, width = 6, height = NULL,
-                        collapsible = TRUE, closable = FALSE, footerPadding = TRUE) {
-  cl <- "box box-solid"
-  if (!is.null(gradientColor)) cl <- paste0(cl, " bg-", gradientColor, "-gradient")
-  
-  style <- NULL
-  if (!is.null(height)) {
-    style <- paste0("height: ", shiny::validateCssUnit(height))
-  }
-  
-  shiny::column(
-    width = width,
-    shiny::tags$div(
-      class = cl,
-      style = style,
-      
-      # box header
-      shiny::tags$div(
-        class = "box-header",
-        #style="cursor: move;",
-        
-        icon,
-        shiny::tags$h3(class = "box-title", title),
-        
-        # box header buttons
-        shiny::tags$div(
-          class = "pull-right box-tools",
-          if (collapsible) {
-            shiny::tags$button(
-              class = paste0("btn", " bg-", gradientColor, " btn-", boxToolSize),
-              `data-widget` = "collapse",
-              type = "button",
-              shiny::tags$i(class = "fa fa-minus")
-            )
-          },
-          if (closable) {
-            shiny::tags$button(
-              class = paste0("btn", " bg-", gradientColor, " btn-", boxToolSize),
-              `data-widget` = "remove",
-              type = "button",
-              shiny::tags$i(class = "fa fa-times")
-            )
-          }
-        )
-      ),
-      
-      # box body
-      shiny::tags$div(
-        class = "box-body border-radius-none",
-        ...
-      ),
-      
-      # box footer
-      shiny::tags$div(
-        class = if (isTRUE(footerPadding)) {
-          "box-footer text-black"
-        } else {
-          "box-footer text-black no-padding"
-        },
-        footer
-      )
-    )
-  )
-}
-
-
-
-
-#' @title AdminLTE2 widget user box
-#'
-#' @description Create widget user box
+#' @description Create user box
 #'
 #' @param ... body content.
 #' @param title box title.
@@ -159,7 +32,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'      widgetUserBox(
+#'      userBox(
 #'       title = "Nadia Carmichael",
 #'       subtitle = "lead Developer",
 #'       type = 2,
@@ -168,7 +41,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #'       "Some text here!",
 #'       footer = "The footer here!"
 #'      ),
-#'      widgetUserBox(
+#'      userBox(
 #'       title = "Alexander Pierce",
 #'       subtitle = "Founder & CEO",
 #'       type = NULL,
@@ -178,7 +51,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #'       "Some text here!",
 #'       footer = "The footer here!"
 #'      ),
-#'      widgetUserBox(
+#'      userBox(
 #'       title = "Elizabeth Pierce",
 #'       subtitle = "Web Designer",
 #'       type = NULL,
@@ -197,7 +70,7 @@ gradientBox <- function(..., title = NULL, icon = NULL, gradientColor = NULL,
 #' }
 #'
 #' @export
-widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
+userBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
                           background = FALSE, backgroundUrl = NULL,
                           src = NULL, color = NULL, footer = NULL, footerPadding = TRUE,
                           width = 6, height = NULL, boxToolSize = "sm",
@@ -307,6 +180,9 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' @param background If NULL (the default), the background of the box will be
 #'   white. Otherwise, a color string. Valid colors are listed in
 #'   \link{validColors}.
+#' @param icon Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.
+#' @param gradient Whether to allow gradient effect for the background color. Default to FALSE.
+#' @param boxToolSize Size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param width The width of the box, using the Bootstrap grid system. This is
 #'   used for row-based layouts. The overall width of a region is 12, so the
 #'   default valueBox width of 4 occupies 1/3 of that width. For column-based
@@ -353,7 +229,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'         dropdownMenu = boxDropdown(
 #'          boxDropdownItem(url = "http://www.google.com", name = "Link to google"),
 #'          boxDropdownItem(url = "#", name = "item 2"),
-#'          boxDropdownDivider(),
+#'          dropdownDivider(),
 #'          boxDropdownItem(url = "#", name = "item 3")
 #'         ),
 #'         sidebar = boxSidebar(
@@ -380,9 +256,19 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #' }
 #' @export
 box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
-                     background = NULL, width = 6, height = NULL, collapsible = FALSE, 
+                     background = NULL, icon = NULL, gradient = FALSE, boxToolSize = "sm", 
+                     width = 6, height = NULL, collapsible = FALSE, 
                      collapsed = FALSE, closable = FALSE, label = NULL, dropdownMenu = NULL,
                     sidebar = NULL, footerPadding = TRUE) {
+  
+  
+  if (!collapsible && collapsed) {
+    stop("Cannot collapse a card that is not collapsible.")
+  }
+  
+  if (is.null(status) && solidHeader) stop("solidHeader cannot be used when status is NULL.")
+  if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
+  
   
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
@@ -400,7 +286,7 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
   
   if (!is.null(background)) {
     validateColor(background)
-    boxClass <- paste0(boxClass, " bg-", background)
+    boxClass <- paste0(boxClass, " bg-", background, if (gradient) "-gradient")
   }
   
   if (!is.null(sidebar)) {
@@ -411,6 +297,13 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
     } else {
       boxClass <- paste0(boxClass, " direct-chat")
     }
+  }
+  
+  if (!is.null(width)) {
+    stopifnot(is.numeric(width))
+    # respect the bootstrap grid
+    stopifnot(width <= 12)
+    stopifnot(width >= 0)
   }
   
   style <- NULL
@@ -425,6 +318,17 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
   # the new boxtool section
   boxToolTag <- NULL
   if (collapsible || closable) {
+    btnToolClass <- "btn"
+    btnToolClass <- if (!is.null(status)) {
+      paste(btnToolClass, "btn-box-tool")
+    } else {
+      paste0(
+        btnToolClass, 
+        if (!is.null(background)) paste0(" bg-", background),
+        " btn-", boxToolSize
+      )
+    }
+    
     boxToolTag <- shiny::tags$div(class = "box-tools pull-right")
   }
   
@@ -435,7 +339,7 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
       "plus"
     else "minus"
     collapseTag <- shiny::tags$button(
-      class = paste0("btn btn-box-tool"), 
+      class = btnToolClass, 
       `data-widget` = "collapse", shiny::icon(collapseIcon)
     )
   }
@@ -443,13 +347,42 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
   closableTag <- NULL
   if (closable) {
     closableTag <- shiny::tags$button(
-      class = "btn btn-box-tool", 
+      class = btnToolClass, 
       `data-widget` = "remove", 
       type = "button",
       shiny::tags$i(shiny::icon("times"))
     )
   } 
   
+  # Modify sidebar trigger class if background ...
+  if (!is.null(sidebar)) {
+    if (is.null(status)) {
+      sidebar[[2]]$attribs$class <- paste0(
+        "btn",
+        if (!is.null(background)) {
+          paste0(" bg-", background)
+        },
+        " btn-", boxToolSize
+      ) 
+    }
+  }
+  
+  # modify dropdown trigger if background
+  if (!is.null(dropdownMenu)) {
+    if (is.null(status)) {
+      dropdownMenu$children[[1]]$attribs$class <- paste0(
+        "btn", 
+        paste0(
+          if (!is.null(background)) {
+            paste0(" bg-", background)
+          },
+          " btn-", boxToolSize
+        ), 
+        " dropdown-toggle"
+      )
+    }
+    
+  }
   
   # update boxToolTag
   boxToolTag <- shiny::tagAppendChildren(
@@ -461,10 +394,17 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
     if (!is.null(sidebar)) sidebar[[2]]
   )
   
+  
   headerTag <- NULL
   if (!is.null(titleTag) || !is.null(collapseTag)) {
     # replace by boxToolTag
-    headerTag <- shiny::tags$div(class = "box-header", titleTag, boxToolTag)
+    headerTag <- shiny::tags$div(
+      class = "box-header",
+      # header icon
+      if (!is.null(icon)) icon, 
+      titleTag, 
+      boxToolTag
+    )
   }
   
   boxTag <- shiny::tags$div(
@@ -789,7 +729,7 @@ dropdownDivider <- function() {
 #'
 #' @description Create social box
 #'
-#' @param ... body content. May include attachmentBlock for instance.
+#' @param ... body content. May include \link{attachmentBlock} for instance.
 #' @param src header image, if any.
 #' @param title box title.
 #' @param subtitle box subtitle.
@@ -797,7 +737,7 @@ dropdownDivider <- function() {
 #' @param height box height.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param comments slot for boxComments.
+#' @param comments slot for \link{boxComment}.
 #' @param footer box footer, if any.
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
@@ -845,10 +785,40 @@ dropdownDivider <- function() {
 #' }
 #'
 #' @export
-socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL, 
+socialBox <- function(..., src, title, subtitle = NULL, 
                       width = 6, height = NULL, collapsible = TRUE,
                       closable = TRUE, comments = NULL, footer = NULL,
                       footerPadding = TRUE) {
+  
+  if (!is.null(width)) {
+    stopifnot(is.numeric(width))
+    # respect the bootstrap grid
+    stopifnot(width <= 12)
+    stopifnot(width >= 0)
+  }
+  
+  # check that comment slot is really used by cardComment
+  if (!is.null(comments)) {
+    # handle tagList
+    if (class(comments)[[1]] %in% c("list", "shiny.tag.list")) {
+      for (i in seq_along(comments)) {
+        commentsCl <- comments[[i]]$attribs$class
+        if (commentsCl != "box-comment") {
+          stop("You must provide a boxComment in the comments slot.")
+        }
+        break
+      }
+    } else {
+      commentsCl <- comments$attribs$class
+      if (is.null(commentsCl)) {
+        stop("You must provide a boxComment in the comments slot.")
+      } else {
+        if (commentsCl != "box-comment") {
+          stop("You must provide a boxComment in the comments slot.")
+        }
+      }
+    }
+  }
   
   style <- NULL
   if (!is.null(height)) {
@@ -873,29 +843,33 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
             class = "username",
             shiny::a(href = "javascript:void(0)", title)
           ),
-          shiny::tags$span(class = "description", subtitle)
+          if (!is.null(subtitle)) {
+            shiny::tags$span(class = "description", subtitle) 
+          }
         ),
         
         # boxTool
-        shiny::tags$div(
-          class = "box-tools",
-          if (collapsible) {
-            shiny::tags$button(
-              class = "btn btn-box-tool",
-              `data-widget` = "collapse",
-              type = "button",
-              shiny::tags$i(class = "fa fa-minus")
-            )
-          },
-          if (closable) {
-            shiny::tags$button(
-              class = "btn btn-box-tool",
-              `data-widget` = "remove",
-              type = "button",
-              shiny::tags$i(class = "fa fa-times")
-            )
-          }
-        )
+        if (collapsible || closable) {
+          shiny::tags$div(
+            class = "box-tools",
+            if (collapsible) {
+              shiny::tags$button(
+                class = "btn btn-box-tool",
+                `data-widget` = "collapse",
+                type = "button",
+                shiny::tags$i(class = "fa fa-minus")
+              )
+            },
+            if (closable) {
+              shiny::tags$button(
+                class = "btn btn-box-tool",
+                `data-widget` = "remove",
+                type = "button",
+                shiny::tags$i(class = "fa fa-times")
+              )
+            }
+          ) 
+        }
       ),
       
       # box body
@@ -937,7 +911,11 @@ socialBox <- function(..., src = NULL, title = NULL, subtitle = NULL,
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
+boxComment <- function(..., src, title, date = NULL) {
+  
+  items <- list(...)
+  if (length(items) == 0) stop("You must enter a comment.")
+  
   shiny::tags$div(
     class = "box-comment",
     shiny::img(class = "img-circle", src = src),
@@ -946,7 +924,7 @@ boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
       shiny::tags$span(
         class = "username", 
         title,
-        shiny::tags$span(class = "text-muted pull-right", date)
+        if (!is.null(date)) shiny::tags$span(class = "text-muted pull-right", date)
       ),
       ...
     )
@@ -1006,17 +984,17 @@ boxComment <- function(..., src = NULL, title = NULL, date = NULL) {
 #' }
 #' 
 #' @export
-boxProfile <- function(..., src = NULL, title = NULL, subtitle = NULL, bordered = FALSE) {
+boxProfile <- function(..., src = NULL, title, subtitle = NULL, bordered = FALSE) {
   
   cl <- if (isTRUE(bordered)) "list-group" else "list-group list-group-unbordered"
   
   shiny::tags$div(
-    class = "box-body, box-profile",
+    class = "box-body box-profile",
     if (!is.null(src)) {
       shiny::img(class = "profile-user-img img-responsive img-circle", src = src)
     },
     shiny::h3(class = "profile-username text-center", title),
-    shiny::p(class = "text-muted text-center", subtitle),
+    if (!is.null(subtitle)) shiny::p(class = "text-muted text-center", subtitle),
     shiny::tags$ul(
       class = cl,
       ...
@@ -1037,7 +1015,7 @@ boxProfile <- function(..., src = NULL, title = NULL, subtitle = NULL, bordered 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-boxProfileItem <- function(title = NULL, description = NULL) {
+boxProfileItem <- function(title, description) {
   shiny::tags$li(
     class = "list-group-item",
     shiny::strong(title),

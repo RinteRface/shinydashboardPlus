@@ -89,10 +89,10 @@
 <h2 class="hasAnchor">
 <a href="#improved-boxes" class="anchor"></a>Improved boxes</h2>
 <p>With <code>{shinydashboardPlus}</code>, you can add labels and dropdown menus to your boxes.</p>
-<p>There are also other boxes such as <code><a href="../reference/gradientBox.html">gradientBox()</a></code>, <code><a href="../reference/socialBox.html">socialBox()</a></code> as well as <code><a href="../reference/widgetUserBox.html">widgetUserBox()</a></code>, to help you making outstanding shiny apps.</p>
-<div id="box" class="section level3">
+<p>There are also other boxes such as <code><a href="../reference/box.html">box()</a></code>, <code><a href="../reference/socialBox.html">socialBox()</a></code> as well as <code><a href="../reference/userBox.html">userBox()</a></code>, to help you making outstanding shiny apps.</p>
+<div id="box-on-steroids" class="section level3">
 <h3 class="hasAnchor">
-<a href="#box" class="anchor"></a>box</h3>
+<a href="#box-on-steroids" class="anchor"></a>box on steroids!</h3>
 <p><img src="figures/boxPlus.png" width="840" height="88"></p>
 <p><br></p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
@@ -132,53 +132,11 @@
  )
 </pre></div>
 </div>
-<div id="gradientbox" class="section level3">
+<div id="userbox" class="section level3">
 <h3 class="hasAnchor">
-<a href="#gradientbox" class="anchor"></a>gradientBox</h3>
-<p><img src="figures/gradientBox.png" width="840" height="163"><br></p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
- 
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="fu"><a href="../reference/gradientBox.html">gradientBox</a></span>(
-      title = <span class="st">"My gradient Box"</span>,
-      icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"th"</span>),
-      gradientColor = <span class="st">"teal"</span>, 
-      boxToolSize = <span class="st">"sm"</span>, 
-      footer = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
-       <span class="st">"obs"</span>, 
-       <span class="st">"Number of observations:"</span>,
-        min = <span class="fl">0</span>, max = <span class="fl">1000</span>, value = <span class="fl">500</span>
-       ),
-      <span class="st">"This is a gradient box"</span>
-      ),
-      <span class="fu"><a href="../reference/gradientBox.html">gradientBox</a></span>(
-      title = <span class="st">"My gradient Box"</span>,
-      icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"heart"</span>),
-      gradientColor = <span class="st">"maroon"</span>, 
-      boxToolSize = <span class="st">"xs"</span>, 
-      closable = <span class="fl">TRUE</span>,
-      footer = <span class="st">"The footer goes here. You can include anything"</span>,
-      <span class="st">"This is a gradient box"</span>
-      )
-    ),
-    title = <span class="st">"Description Blocks"</span>
-  ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
- )
-</pre></div>
-</div>
-<div id="widgetuserbox" class="section level3">
-<h3 class="hasAnchor">
-<a href="#widgetuserbox" class="anchor"></a>widgetUserBox</h3>
+<a href="#userbox" class="anchor"></a>userBox</h3>
 <p><img src="figures/widgetUserBox.png"><br></p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
+<div class="sourceCode" id="cb2"><pre class="downlit">
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
  <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
@@ -188,7 +146,7 @@
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="fu"><a href="../reference/widgetUserBox.html">widgetUserBox</a></span>(
+     <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
       title = <span class="st">"Nadia Carmichael"</span>,
       subtitle = <span class="st">"lead Developer"</span>,
       type = <span class="fl">2</span>,
@@ -197,7 +155,7 @@
       <span class="st">"Some text here!"</span>,
       footer = <span class="st">"The footer here!"</span>
      ),
-     <span class="fu"><a href="../reference/widgetUserBox.html">widgetUserBox</a></span>(
+     <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
       title = <span class="st">"Alexander Pierce"</span>,
       subtitle = <span class="st">"Founder &amp; CEO"</span>,
       type = <span class="kw">NULL</span>,
@@ -207,7 +165,7 @@
       <span class="st">"Some text here!"</span>,
       footer = <span class="st">"The footer here!"</span>
      ),
-     <span class="fu"><a href="../reference/widgetUserBox.html">widgetUserBox</a></span>(
+     <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
       title = <span class="st">"Elizabeth Pierce"</span>,
       subtitle = <span class="st">"Web Designer"</span>,
       type = <span class="kw">NULL</span>,
@@ -229,7 +187,7 @@
 <h3 class="hasAnchor">
 <a href="#socialbox" class="anchor"></a>socialBox</h3>
 <p><img src="figures/socialBox.png"><br></p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
+<div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
@@ -277,16 +235,18 @@
 <h3 class="hasAnchor">
 <a href="#flipbox" class="anchor"></a>flipBox</h3>
 <p><img src="figures/flipBox.png"><br></p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
+<div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/DivadNojnarg/shinyEffects">shinyEffects</a></span>)
+
 <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(<span class="st">"card"</span>),
+      <span class="fu"><a href="https://rdrr.io/pkg/shinyEffects/man/setShadow.html">setShadow</a></span>(<span class="st">"card"</span>),
       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
         <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
           width = <span class="fl">6</span>,

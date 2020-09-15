@@ -12,6 +12,9 @@ box(
   status = NULL,
   solidHeader = FALSE,
   background = NULL,
+  icon = NULL,
+  gradient = FALSE,
+  boxToolSize = "sm",
   width = 6,
   height = NULL,
   collapsible = FALSE,
@@ -40,6 +43,12 @@ color. Valid statuses are listed in \link{validStatuses}.}
 \item{background}{If NULL (the default), the background of the box will be
 white. Otherwise, a color string. Valid colors are listed in
 \link{validColors}.}
+
+\item{icon}{Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.}
+
+\item{gradient}{Whether to allow gradient effect for the background color. Default to FALSE.}
+
+\item{boxToolSize}{Size of the toolbox: choose among "xs", "sm", "md", "lg".}
 
 \item{width}{The width of the box, using the Bootstrap grid system. This is
 used for row-based layouts. The overall width of a region is 12, so the
@@ -96,7 +105,7 @@ if (interactive()) {
         dropdownMenu = boxDropdown(
          boxDropdownItem(url = "http://www.google.com", name = "Link to google"),
          boxDropdownItem(url = "#", name = "item 2"),
-         boxDropdownDivider(),
+         dropdownDivider(),
          boxDropdownItem(url = "#", name = "item 3")
         ),
         sidebar = boxSidebar(

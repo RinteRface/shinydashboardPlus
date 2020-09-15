@@ -133,7 +133,7 @@
 <li>Remove all label params from <code>boxPlus()</code>. This is to reduce the number of parameters of cards. Now part of <code>boxPlusLabel()</code>
 </li>
 <li>
-<em>footer_padding</em> becomes <em>footerPadding</em> in <code>boxPlus()</code>, <code><a href="../reference/gradientBox.html">gradientBox()</a></code>, <code><a href="../reference/widgetUserBox.html">widgetUserBox()</a></code> and <code><a href="../reference/socialBox.html">socialBox()</a></code> to be consistent with the style (camelCase) …</li>
+<em>footer_padding</em> becomes <em>footerPadding</em> in <code>boxPlus()</code>, <code>gradientBox()</code>, <code>widgetUserBox()</code> and <code><a href="../reference/socialBox.html">socialBox()</a></code> to be consistent with the style (camelCase) …</li>
 <li>In <code>dropdownItemList()</code> <em>icon</em> must be provided as <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>Replace <em>left_text</em> and <em>right_text</em> by <em>left</em> and <em>right</em>, respectively in <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code>
 </li>
@@ -150,7 +150,7 @@
 </li>
 <li>
 <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>In <code><a href="../reference/gradientBox.html">gradientBox()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code>gradientBox()</code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/descriptionBlock.html">descriptionBlock()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>Rework <code><a href="../reference/navPillsItem.html">navPillsItem()</a></code>: <em>pillName</em> becomes <em>left</em>, <em>pillText</em> becomes <em>right</em>, <em>pillColor</em> becomes <em>color</em>, <em>pillIcon</em> becomes <em>icon</em> and expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code>. Add <em>inputId</em> so that the item behaves like an action button</li>
 <li>Rework <code><a href="../reference/productListItem.html">productListItem()</a></code>: <em>productTitle</em> becomes <em>title</em>, <em>productPrice</em> becomes <em>subtitle</em>, <em>priceColor</em> becomes <em>color</em>
@@ -165,6 +165,16 @@
 <code>userPostToolItemList()</code> becomes <code><a href="../reference/userPostTagItems.html">userPostTagItems()</a></code>. <code>userPostToolItem()</code> becomes <code><a href="../reference/userPostTagItem.html">userPostTagItem()</a></code>
 </li>
 <li>Remove <code>boxProfileItemList()</code>. <code><a href="../reference/boxProfile.html">boxProfile()</a></code> gets a new parameter <em>bordered</em>, inherited from the old <code>boxProfileItemList()</code>
+</li>
+<li>In <code><a href="../reference/boxProfile.html">boxProfile()</a></code>, <em>title</em> becomes mandatory</li>
+<li>
+<em>title</em> and <em>description</em> mandatory in <code><a href="../reference/boxProfileItem.html">boxProfileItem()</a></code>
+</li>
+<li>In <code><a href="../reference/boxComment.html">boxComment()</a></code>: <em>src</em> and <em>title</em> are mandatory</li>
+<li>
+<code>widgetUserBox()</code> becomes <code><a href="../reference/userBox.html">userBox()</a></code> for more naming consistency</li>
+<li>Remove <code>gradientBox()</code> for consistency with {bs4Dash}</li>
+<li>Add <em>icon</em>, <em>gradient</em> and <em>boxToolSize</em> to <code><a href="../reference/box.html">box()</a></code>
 </li>
 </ul>
 </div>
@@ -235,7 +245,7 @@
 <h2 class="hasAnchor">
 <a href="#minor-change-1" class="anchor"></a>Minor Change</h2>
 <ul>
-<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/52'>#52</a>: add collapsed arg to <code><a href="../reference/widgetUserBox.html">widgetUserBox()</a></code>. Thanks <a href='https://github.com/terpsrule'>@terpsrule</a></li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/52'>#52</a>: add collapsed arg to <code>widgetUserBox()</code>. Thanks <a href='https://github.com/terpsrule'>@terpsrule</a></li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/40'>#40</a>: add sidebar_icon argument to <code>boxPlus()</code>. Thanks <a href='https://github.com/jmw86069'>@jmw86069</a> for the suggestion</li>
 </ul>
 </div>
@@ -245,7 +255,7 @@
 <ul>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/61'>#61</a>: uniqness of <code><a href="../reference/accordion.html">accordion()</a></code> id. Thanks <a href='https://github.com/RegaCaska'>@RegaCaska</a></li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/23'>#23</a>: rework id arg in <code><a href="../reference/flipBox.html">flipBox()</a></code>. Thanks <a href='https://github.com/vinpogo'>@vinpogo</a></li>
-<li>Add class btn-box-tool to close button in <code><a href="../reference/widgetUserBox.html">widgetUserBox()</a></code>. Prevent from ugly rendering</li>
+<li>Add class btn-box-tool to close button in <code>widgetUserBox()</code>. Prevent from ugly rendering</li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/51'>#51</a>: change card sidebar z-index so that it is not displayed on top of the page preloader. Thanks <a href='https://github.com/leungi'>@leungi</a></li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/53'>#53</a>: missing title in demo message card</li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/55'>#55</a>: when no image is provided, no circle is displayed. Thanks <a href='https://github.com/nschwamm'>@nschwamm</a></li>
@@ -262,7 +272,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
 <ul>
-<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
+<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code><a href="https://rdrr.io/pkg/shinyEffects/man/setPulse.html">setPulse()</a></code>, <code><a href="https://rdrr.io/pkg/shinyEffects/man/setShake.html">setShake()</a></code> and <code><a href="https://rdrr.io/pkg/shinyEffects/man/setZoom.html">setZoom()</a></code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
 </li>
 </ul>
 </div>
@@ -321,9 +331,9 @@
 <li><p>new “left_menu” argument in the <code>dashboardHeaderPlus()</code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</p></li>
 <li><p>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</p></li>
 <li><p>new “fixed” argument to the navbar (<code>dashboardHeaderPlus()</code>). If TRUE, the navbar is fixed-top. (static-top by default)</p></li>
-<li><p>new <code>setZoom()</code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
-<li><p>new <code>setPulse()</code> function</p></li>
-<li><p>new <code>setShake()</code> function</p></li>
+<li><p>new <code><a href="https://rdrr.io/pkg/shinyEffects/man/setZoom.html">setZoom()</a></code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
+<li><p>new <code><a href="https://rdrr.io/pkg/shinyEffects/man/setPulse.html">setPulse()</a></code> function</p></li>
+<li><p>new <code><a href="https://rdrr.io/pkg/shinyEffects/man/setShake.html">setShake()</a></code> function</p></li>
 <li><p>add “enable_preloader” and “loading_duration” to <code>dashboardPagePlus()</code> (custom preloader)</p></li>
 <li><p>update the <code><a href="../reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery()</a></code></p></li>
 <li><p>add a “style” argument to <code><a href="../reference/dashboardLabel.html">dashboardLabel()</a></code></p></li>
@@ -409,7 +419,7 @@
 </li>
 <li>improved classic boxes: <code>boxPlus()</code>
 </li>
-<li>new boxes: <code><a href="../reference/gradientBox.html">gradientBox()</a></code>, <code><a href="../reference/widgetUserBox.html">widgetUserBox()</a></code>, <code><a href="../reference/socialBox.html">socialBox()</a></code>
+<li>new boxes: <code>gradientBox()</code>, <code>widgetUserBox()</code>, <code><a href="../reference/socialBox.html">socialBox()</a></code>
 </li>
 <li>new box elements: <code><a href="../reference/boxPad.html">boxPad()</a></code>, <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code>, <code><a href="../reference/descriptionBlock.html">descriptionBlock()</a></code>, <code><a href="../reference/productList.html">productList()</a></code>, <code><a href="../reference/navPills.html">navPills()</a></code>, <code><a href="../reference/todoList.html">todoList()</a></code>, <code><a href="../reference/userList.html">userList()</a></code>, <code><a href="../reference/boxComment.html">boxComment()</a></code>
 </li>

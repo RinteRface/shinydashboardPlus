@@ -4,7 +4,7 @@
 \alias{boxComment}
 \title{AdminLTE2 box comment}
 \usage{
-boxComment(..., src = NULL, title = NULL, date = NULL)
+boxComment(..., src, title, date = NULL)
 }
 \arguments{
 \item{...}{comment content.}

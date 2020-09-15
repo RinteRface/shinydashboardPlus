@@ -4,7 +4,7 @@
 \alias{boxProfileItem}
 \title{AdminLTE2 box profile item}
 \usage{
-boxProfileItem(title = NULL, description = NULL)
+boxProfileItem(title, description)
 }
 \arguments{
 \item{title}{item title.}
