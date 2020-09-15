@@ -1647,9 +1647,10 @@ userPostMedia <- function(image = NULL, height = NULL, width = NULL) {
 #' @param value Progress bar value. Must be between min and max.
 #' @param min Progress bar minimum value (0 by default).
 #' @param max Progress bar maximum value (100 by default).
-#' @param height Progress bar default height (40 percent by default).
+#' @param vertical Progress vertical layout. Default to FALSE
 #' @param striped Whether the progress is striped or not. FALSE by default. 
-#' @param active  Whether the progress is active or not. FALSE by default.
+#' @param animated  Whether the progress is active or not. FALSE by default.
+#' Works only if striped is TRUE.
 #' @param status Progress bar status. "primary" by default or "warning", "info",
 #' "danger" or "success".
 #' @param size Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.
@@ -1667,51 +1668,79 @@ userPostMedia <- function(image = NULL, height = NULL, width = NULL) {
 #'      header = dashboardHeader(),
 #'      sidebar = dashboardSidebar(),
 #'      body = dashboardBody(
-#'       verticalProgress(
-#'        value = 10,
-#'        striped = TRUE,
-#'        active = TRUE
+#'       box(
+#'        title = "Horizontal",
+#'        progressBar(
+#'         value = 10,
+#'         striped = TRUE,
+#'         animated = TRUE
+#'        ),
+#'        progressBar(
+#'         value = 50,
+#'         status = "warning",
+#'         size = "xs"
+#'        ),
+#'        progressBar(
+#'         value = 20,
+#'         status = "danger",
+#'         size = "sm"
+#'        )
 #'       ),
-#'       verticalProgress(
-#'        value = 50,
-#'        active = TRUE,
-#'        status = "warning",
-#'        size = "xs"
-#'       ),
-#'       verticalProgress(
-#'        value = 20,
-#'        status = "danger",
-#'        size = "sm",
-#'        height = "60%"
+#'       box(
+#'        title = "Vertical",
+#'        progressBar(
+#'         value = 10,
+#'         striped = TRUE,
+#'         animated = TRUE,
+#'         vertical = TRUE
+#'        ),
+#'        progressBar(
+#'         value = 50,
+#'         status = "warning",
+#'         size = "xs",
+#'         vertical = TRUE
+#'        ),
+#'        progressBar(
+#'         value = 20,
+#'         status = "danger",
+#'         size = "sm",
+#'         vertical = TRUE
+#'        )
 #'       )
 #'      ),
-#'      title = "Right Sidebar"
+#'      title = "Progress bars"
 #'    ),
 #'    server = function(input, output) { }
 #'  )
 #' }
 #' @export
-verticalProgress <- function(value, min = 0, max = 100, height = "40%", striped = FALSE, 
-                             active = FALSE, status = "primary", size = NULL) {
+progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = FALSE, 
+                        animated = FALSE, status = "primary", size = NULL) {
   
+  if (!is.null(status)) validateStatus(status)
+  stopifnot(value >= min)
   stopifnot(value <= max)
   
-  verticalProgressCl <- "progress vertical"
-  if (isTRUE(active)) verticalProgressCl <- paste0(verticalProgressCl, " active")
-  if (!is.null(size)) verticalProgressCl <- paste0(verticalProgressCl, " progress-", size)
+  progressCl <- if (isTRUE(vertical)) "progress vertical" else "progress mb-3"
+  if (animated) progressCl <- paste0(progressCl, " active")
+  if (!is.null(size)) progressCl <- paste0(progressCl, " progress-", size)
   
   barCl <- "progress-bar"
-  if (isTRUE(striped)) barCl <- paste0(barCl, " progress-bar-striped")
+  if (striped) barCl <- paste0(barCl, " progress-bar-striped")
   if (!is.null(status)) barCl <- paste0(barCl, " progress-bar-", status)
   
   shiny::tags$div(
-    class = verticalProgressCl,
+    class = progressCl,
     shiny::tags$div(
       `aria-valuemax` = max,
       `aria-valuemin` = min,
       `aria-valuenow` = value,
       class = barCl,
-      style = paste0("height: ", height),
+      style = if (vertical) {
+        paste0("height: ", paste0(value, "%"))
+      } else {
+        paste0("width: ", paste0(value, "%"))
+      },
       shiny::tags$span(class = "sr-only", value)
     )
   )

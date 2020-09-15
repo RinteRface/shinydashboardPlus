@@ -46,6 +46,7 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `userListItem()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 - In `userPost()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 - In `userPostMedia()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- Reworked `verticalProgress()` to `progressBar()`
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
