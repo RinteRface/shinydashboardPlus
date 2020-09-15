@@ -37,6 +37,8 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - Remove `gradientBox()` for consistency with {bs4Dash}
 - Add _icon_, _gradient_ and _boxToolSize_ to `box()`
 - _title_ mandatory in `userBox()`. Remove _background_. Replace _backgroundUrl_ by _backgroundImage_. Reworked _type_ parameter
+- Restore `accordion()` id. We should distinguish between TRUE inputs (sliderInput) and secondary inputs (that you can use for interactivity)...
+- _color_ becomes _status_ in `accordionItem()`. This is to be consistent with AdminLTE2 classes and {shinydashboard}
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
@@ -53,12 +55,15 @@ list of available options
 - Toggle `box()` with `updateBox()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
+- add _width_ to `accordion()` (default to 12)
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
 - Fix #86: controlbar should also trigger a window resize, like the left
 shinydashboard sidebar. Thanks @ajfisher83 
 - Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `box()`...
+- _title_ is mandatory in `accordionItem()` (Setting title to NULL would prevent the item
+to be able to collapse ...)
 
 
 

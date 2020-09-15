@@ -4,14 +4,14 @@
 \alias{accordionItem}
 \title{AdminLTE2 accordion item}
 \usage{
-accordionItem(..., title = NULL, color = NULL, collapsed = TRUE)
+accordionItem(..., title, status = NULL, collapsed = TRUE)
 }
 \arguments{
 \item{...}{text to write in the item.}
 
 \item{title}{item title.}
 
-\item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
+\item{status}{item status.}
 
 \item{collapsed}{Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.}
 }

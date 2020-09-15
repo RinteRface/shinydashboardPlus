@@ -2,8 +2,9 @@
 #'
 #' @description Create an accordion container
 #'
-#' @param ... slot for accordionItem.
-#' @param inputId Unique accordion id.
+#' @param ... slot for \link{accordionItem}.
+#' @param id Unique accordion id.
+#' @param width The width of the accordion.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -19,31 +20,31 @@
 #'     dashboardSidebar(),
 #'     dashboardBody(
 #'       accordion(
-#'        inputId = "accordion1",
+#'        id = "accordion1",
 #'         accordionItem(
 #'           title = "Accordion 1 Item 1",
-#'           color = "danger",
+#'           status = "danger",
 #'           collapsed = TRUE,
 #'           "This is some text!"
 #'         ),
 #'         accordionItem(
 #'           title = "Accordion 1 Item 2",
-#'           color = "warning",
+#'           status = "warning",
 #'           collapsed = FALSE,
 #'           "This is some text!"
 #'         )
 #'       ),
 #'       accordion(
-#'        inputId = "accordion2",
+#'        id = "accordion2",
 #'         accordionItem(
 #'           title = "Accordion 2 Item 1",
-#'           color = "danger",
+#'           status = "info",
 #'           collapsed = TRUE,
 #'           "This is some text!"
 #'         ),
 #'         accordionItem(
 #'           title = "Accordion 2 Item 2",
-#'           color = "warning",
+#'           status = "success",
 #'           collapsed = FALSE,
 #'           "This is some text!"
 #'         )
@@ -56,7 +57,7 @@
 #' }
 #'
 #' @export
-accordion <- function(..., inputId = NULL) {
+accordion <- function(..., id = NULL, width = 12) {
   
   items <- list(...)
   len <- length(items)
@@ -65,17 +66,19 @@ accordion <- function(..., inputId = NULL) {
   # we add the data-parent non standard attribute to each
   # item. Each accordion must have a unique id.
   lapply(seq_len(len), FUN = function(i) {
-    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["data-parent"]] <<- paste0("#", inputId) 
-    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["href"]] <<- paste0("#collapse_", inputId, "_", i)
-    items[[i]]$children[[2]]$attribs[["id"]] <<- paste0("collapse_", inputId, "_", i)
+    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["data-parent"]] <<- paste0("#", id) 
+    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["href"]] <<- paste0("#collapse_", id, "_", i)
+    items[[i]]$children[[2]]$attribs[["id"]] <<- paste0("collapse_", id, "_", i)
   })
   
   shiny::tags$div(
-    class = "box-group",
-    id = inputId,
-    items
+    class = if (!is.null(width)) paste0("col-sm-", width),
+    shiny::tags$div(
+      class = "box-group",
+      id = id,
+      items
+    )
   )
-  
 }
 
 
@@ -85,17 +88,19 @@ accordion <- function(..., inputId = NULL) {
 #'
 #' @param ... text to write in the item.
 #' @param title item title.
-#' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' @param status item status.
 #' @param collapsed Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-accordionItem <- function(..., title = NULL, color = NULL,
-                          collapsed = TRUE) {
+accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
   
   cl <- "panel box"
-  if (!is.null(color)) cl <- paste0(cl, " box-", color)
+  if (!is.null(status)) {
+    validateStatus(status)
+    cl <- paste0(cl, " box-", status)
+  }
   
   shiny::tags$div(
     class = cl,

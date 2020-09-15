@@ -4,12 +4,14 @@
 \alias{accordion}
 \title{AdminLTE2 accordion container}
 \usage{
-accordion(..., inputId = NULL)
+accordion(..., id = NULL, width = 12)
 }
 \arguments{
-\item{...}{slot for accordionItem.}
+\item{...}{slot for \link{accordionItem}.}
 
-\item{inputId}{Unique accordion id.}
+\item{id}{Unique accordion id.}
+
+\item{width}{The width of the accordion.}
 }
 \description{
 Create an accordion container
@@ -26,31 +28,31 @@ if (interactive()) {
     dashboardSidebar(),
     dashboardBody(
       accordion(
-       inputId = "accordion1",
+       id = "accordion1",
         accordionItem(
           title = "Accordion 1 Item 1",
-          color = "danger",
+          status = "danger",
           collapsed = TRUE,
           "This is some text!"
         ),
         accordionItem(
           title = "Accordion 1 Item 2",
-          color = "warning",
+          status = "warning",
           collapsed = FALSE,
           "This is some text!"
         )
       ),
       accordion(
-       inputId = "accordion2",
+       id = "accordion2",
         accordionItem(
           title = "Accordion 2 Item 1",
-          color = "danger",
+          status = "info",
           collapsed = TRUE,
           "This is some text!"
         ),
         accordionItem(
           title = "Accordion 2 Item 2",
-          color = "warning",
+          status = "success",
           collapsed = FALSE,
           "This is some text!"
         )

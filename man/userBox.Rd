@@ -97,7 +97,7 @@ if (interactive()) {
       footer = "The footer here!"
      )
     ),
-    title = "widgetUserBox"
+    title = "UserBox"
   ),
   server = function(input, output) { }
  )
