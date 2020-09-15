@@ -21,7 +21,7 @@ userMessage(
 
 \item{image}{Message author image path or url.}
 
-\item{type}{Side where author is displayed: \code{c("sent", "received")}.}
+\item{type}{Message type: \code{c("sent", "received")}.}
 }
 \description{
 Create a user message

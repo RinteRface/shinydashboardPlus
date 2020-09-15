@@ -41,14 +41,14 @@ if (interactive()) {
        userMessage(
          author = "Alexander Pierce",
          date = "20 Jan 2:00 pm",
-         src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+         image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
          type = "sent",
          "Is this template really for free? That's unbelievable!"
        ),
        userMessage(
          author = "Sarah Bullock",
          date = "23 Jan 2:05 pm",
-         src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+         image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
          type = "received",
          "You better believe it!"
        )
@@ -60,14 +60,14 @@ if (interactive()) {
         userMessage(
          author = "Alexander Pierce",
          date = "20 Jan 2:00 pm",
-         src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+         image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
          type = "received",
          "Is this template really for free? That's unbelievable!"
        ),
        userMessage(
          author = "Sarah Bullock",
          date = "23 Jan 2:05 pm",
-         src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+         image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
          type = "sent",
          "You better believe it!"
        )
