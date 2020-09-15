@@ -5,13 +5,13 @@
 \title{Collapse a \link{box} tag.}
 \usage{
 updateBox(
-  inputId,
+  id,
   action = c("remove", "toggle", "restore"),
   session = shiny::getDefaultReactiveDomain()
 )
 }
 \arguments{
-\item{inputId}{Box to toggle.}
+\item{id}{Box to toggle.}
 
 \item{action}{Action to trigger: either collapse, remove or restore.}
 
@@ -40,7 +40,7 @@ if (interactive()) {
      box(
        title = textOutput("box_state"),
        "Box body",
-       inputId = "mybox",
+       id = "mybox",
        collapsible = TRUE,
        closable = TRUE,
        plotOutput("plot")

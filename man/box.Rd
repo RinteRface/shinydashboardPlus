@@ -6,20 +6,20 @@
 \usage{
 box(
   ...,
-  inputId = NULL,
+  id = NULL,
   title = NULL,
   footer = NULL,
   status = NULL,
   solidHeader = FALSE,
   background = NULL,
-  icon = NULL,
-  gradient = FALSE,
-  boxToolSize = "sm",
   width = 6,
   height = NULL,
   collapsible = FALSE,
   collapsed = FALSE,
   closable = FALSE,
+  icon = NULL,
+  gradient = FALSE,
+  boxToolSize = "sm",
   label = NULL,
   dropdownMenu = NULL,
   sidebar = NULL,
@@ -29,7 +29,7 @@ box(
 \arguments{
 \item{...}{Contents of the box.}
 
-\item{inputId}{Box unique id. \link{updateBox} target.}
+\item{id}{Box unique id. \link{updateBox} target.}
 
 \item{title}{Optional title.}
 
@@ -43,12 +43,6 @@ color. Valid statuses are listed in \link{validStatuses}.}
 \item{background}{If NULL (the default), the background of the box will be
 white. Otherwise, a color string. Valid colors are listed in
 \link{validColors}.}
-
-\item{icon}{Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.}
-
-\item{gradient}{Whether to allow gradient effect for the background color. Default to FALSE.}
-
-\item{boxToolSize}{Size of the toolbox: choose among "xs", "sm", "md", "lg".}
 
 \item{width}{The width of the box, using the Bootstrap grid system. This is
 used for row-based layouts. The overall width of a region is 12, so the
@@ -66,6 +60,12 @@ the user to collapse the box.}
 \code{collapsible=TRUE}.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
+
+\item{icon}{Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.}
+
+\item{gradient}{Whether to allow gradient effect for the background color. Default to FALSE.}
+
+\item{boxToolSize}{Size of the toolbox: choose among "xs", "sm", "md", "lg".}
 
 \item{label}{Slot for \link{boxLabel}.}
 

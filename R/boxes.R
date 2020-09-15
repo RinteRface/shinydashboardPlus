@@ -3,7 +3,7 @@
 #' Boxes can be used to hold content in the main body of a dashboard.
 #' 
 #' @param ... Contents of the box.
-#' @param inputId Box unique id. \link{updateBox} target.
+#' @param id Box unique id. \link{updateBox} target.
 #' @param title Optional title.
 #' @param footer Optional footer text.
 #' @param status The status of the item This determines the item's background
@@ -12,9 +12,6 @@
 #' @param background If NULL (the default), the background of the box will be
 #'   white. Otherwise, a color string. Valid colors are listed in
 #'   \link{validColors}.
-#' @param icon Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.
-#' @param gradient Whether to allow gradient effect for the background color. Default to FALSE.
-#' @param boxToolSize Size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param width The width of the box, using the Bootstrap grid system. This is
 #'   used for row-based layouts. The overall width of a region is 12, so the
 #'   default valueBox width of 4 occupies 1/3 of that width. For column-based
@@ -27,6 +24,9 @@
 #' @param collapsed If TRUE, start collapsed. This must be used with
 #'   \code{collapsible=TRUE}.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
+#' @param icon Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.
+#' @param gradient Whether to allow gradient effect for the background color. Default to FALSE.
+#' @param boxToolSize Size of the toolbox: choose among "xs", "sm", "md", "lg".
 #' @param label Slot for \link{boxLabel}.
 #' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{boxDropdown}.
 #' @param sidebar Slot for \link{boxSidebar}.
@@ -87,11 +87,11 @@
 #'  )
 #' }
 #' @export
-box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
-                     background = NULL, icon = NULL, gradient = FALSE, boxToolSize = "sm", 
-                     width = 6, height = NULL, collapsible = FALSE, 
-                     collapsed = FALSE, closable = FALSE, label = NULL, dropdownMenu = NULL,
-                    sidebar = NULL, footerPadding = TRUE) {
+box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
+                background = NULL, width = 6, height = NULL, collapsible = FALSE, 
+                collapsed = FALSE, closable = FALSE, icon = NULL, gradient = FALSE, boxToolSize = "sm", 
+                label = NULL, dropdownMenu = NULL,
+                sidebar = NULL, footerPadding = TRUE) {
   
   
   if (!collapsible && collapsed) {
@@ -242,7 +242,7 @@ box <- function(..., inputId = NULL, title = NULL, footer = NULL, status = NULL,
   boxTag <- shiny::tags$div(
     class = if (!is.null(width)) paste0("col-sm-", width), 
     shiny::tags$div(
-      id = inputId,
+      id = id,
       class = boxClass, 
       headerTag, 
       shiny::tags$div(
@@ -296,20 +296,20 @@ boxLabel <- function(text, status, style = "default") {
 #' To insert in the sidebar slot of \link{box}.
 #'
 #' @param ... Sidebar content.
-#' @param inputId Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.
+#' @param id Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.
 #' @param width Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").
 #' @param background Sidebar background color. Dark by default.
 #' @param startOpen Whether the sidebar is open at start. FALSE by default.
 #' @param icon Sidebar icon. Expect \code{\link[shiny]{icon}}.
 #' 
 #' @export
-boxSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40", 
-                           startOpen = FALSE, icon = shiny::icon("cogs")) {
+boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40", 
+                       startOpen = FALSE, icon = shiny::icon("cogs")) {
   
   # Toggle to insert in bs4Card
   toolbarTag <- shiny::tags$button(
     class = "btn btn-box-tool",
-    id = inputId,
+    id = id,
     `data-widget` = "chat-pane-toggle",
     `data-toggle` = "tooltip",
     `data-original-title` = "More",
@@ -373,7 +373,7 @@ boxSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40
 
 #' Collapse a \link{box} tag.
 #'
-#' @param inputId Box to toggle.
+#' @param id Box to toggle.
 #' @param action Action to trigger: either collapse, remove or restore.
 #' @param session Shiny session object.
 #' @export
@@ -398,7 +398,7 @@ boxSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40
 #'      box(
 #'        title = textOutput("box_state"),
 #'        "Box body",
-#'        inputId = "mybox",
+#'        id = "mybox",
 #'        collapsible = TRUE,
 #'        closable = TRUE,
 #'        plotOutput("plot")
@@ -440,9 +440,9 @@ boxSidebar <- function(..., inputId = NULL, width = "25%", background = "#333a40
 #'  
 #'  shinyApp(ui, server)
 #' }
-updateBox <- function(inputId, action = c("remove", "toggle", "restore"), 
-                          session = shiny::getDefaultReactiveDomain()) {
-  session$sendInputMessage(inputId, message = match.arg(action))
+updateBox <- function(id, action = c("remove", "toggle", "restore"), 
+                      session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(id, message = match.arg(action))
 }
 
 
@@ -450,7 +450,7 @@ updateBox <- function(inputId, action = c("remove", "toggle", "restore"),
 
 #' Programmatically toggle a \link{boxSidebar}
 #'
-#' @param inputId Sidebar id.
+#' @param id Sidebar id.
 #' @param session Shiny session object.
 #' 
 #' @export
@@ -473,7 +473,7 @@ updateBox <- function(inputId, action = c("remove", "toggle", "restore"),
 #'         collapsible = TRUE,
 #'         actionButton("update", "Toggle card sidebar"),
 #'         sidebar = boxSidebar(
-#'           inputId = "mycardsidebar",
+#'           id = "mycardsidebar",
 #'           p("Sidebar Content")
 #'         )
 #'       )
@@ -484,14 +484,14 @@ updateBox <- function(inputId, action = c("remove", "toggle", "restore"),
 #'     observe(print(input$mycardsidebar))
 #'     
 #'     observeEvent(input$update, {
-#'       updateBoxSidebar(inputId = "mycardsidebar")
+#'       updateBoxSidebar("mycardsidebar")
 #'     })
 #'     
 #'   }
 #'  )
 #' }
-updateBoxSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain()) {
-  session$sendInputMessage(inputId, NULL)
+updateBoxSidebar <- function(id, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(id, NULL)
 }
 
 

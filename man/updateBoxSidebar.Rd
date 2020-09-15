@@ -4,10 +4,10 @@
 \alias{updateBoxSidebar}
 \title{Programmatically toggle a \link{boxSidebar}}
 \usage{
-updateBoxSidebar(inputId, session = shiny::getDefaultReactiveDomain())
+updateBoxSidebar(id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{inputId}{Sidebar id.}
+\item{id}{Sidebar id.}
 
 \item{session}{Shiny session object.}
 }
@@ -33,7 +33,7 @@ if (interactive()) {
         collapsible = TRUE,
         actionButton("update", "Toggle card sidebar"),
         sidebar = boxSidebar(
-          inputId = "mycardsidebar",
+          id = "mycardsidebar",
           p("Sidebar Content")
         )
       )
@@ -44,7 +44,7 @@ if (interactive()) {
     observe(print(input$mycardsidebar))
     
     observeEvent(input$update, {
-      updateBoxSidebar(inputId = "mycardsidebar")
+      updateBoxSidebar("mycardsidebar")
     })
     
   }

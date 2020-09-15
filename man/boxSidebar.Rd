@@ -6,7 +6,7 @@
 \usage{
 boxSidebar(
   ...,
-  inputId = NULL,
+  id = NULL,
   width = "25\%",
   background = "#333a40",
   startOpen = FALSE,
@@ -16,7 +16,7 @@ boxSidebar(
 \arguments{
 \item{...}{Sidebar content.}
 
-\item{inputId}{Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.}
+\item{id}{Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.}
 
 \item{width}{Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").}
 
