@@ -7,8 +7,8 @@
 userPost(
   ...,
   id = NULL,
-  image = NULL,
-  author = NULL,
+  image,
+  author,
   description = NULL,
   collapsible = TRUE,
   collapsed = FALSE
@@ -56,8 +56,9 @@ if (interactive()) {
        its demise, but others ignore the hate as they create awesome 
        tools to help create filler text for everyone from bacon 
        lovers to Charlie Sheen fans.",
+       collapsible = FALSE,
        userPostTagItems(
-        userPostTagItem(dashboardLabel("item 1")),
+        userPostTagItem(dashboardLabel("item 1", status = "info")),
         userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
        )
       ),
@@ -65,11 +66,10 @@ if (interactive()) {
        id = 2,
        image = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
        author = "Adam Jones",
-       description = "Shared publicly - 5 days ago",
        userPostMedia(image = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
-       userPostToolItemList(
-        userPostToolItem(dashboardLabel("item 1")),
-        userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+       userPostTagItems(
+        userPostTagItem(dashboardLabel("item 1", status = "success")),
+        userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
        )
       )
      )

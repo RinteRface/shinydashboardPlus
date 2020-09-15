@@ -4,7 +4,13 @@
 \alias{userMessage}
 \title{AdminLTE2 user message}
 \usage{
-userMessage(..., author = NULL, date = NULL, src = NULL, side = NULL)
+userMessage(
+  ...,
+  author,
+  date = NULL,
+  image = NULL,
+  type = c("sent", "received")
+)
 }
 \arguments{
 \item{...}{Message text.}
@@ -13,9 +19,9 @@ userMessage(..., author = NULL, date = NULL, src = NULL, side = NULL)
 
 \item{date}{Message date.}
 
-\item{src}{Message author image path or url.}
+\item{image}{Message author image path or url.}
 
-\item{side}{Side where author is displayed: NULL (left, by default) or "right".}
+\item{type}{Side where author is displayed: \code{c("sent", "received")}.}
 }
 \description{
 Create a user message

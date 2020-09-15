@@ -1502,8 +1502,9 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #'        its demise, but others ignore the hate as they create awesome 
 #'        tools to help create filler text for everyone from bacon 
 #'        lovers to Charlie Sheen fans.",
+#'        collapsible = FALSE,
 #'        userPostTagItems(
-#'         userPostTagItem(dashboardLabel("item 1")),
+#'         userPostTagItem(dashboardLabel("item 1", status = "info")),
 #'         userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
 #'        )
 #'       ),
@@ -1511,11 +1512,10 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #'        id = 2,
 #'        image = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
 #'        author = "Adam Jones",
-#'        description = "Shared publicly - 5 days ago",
 #'        userPostMedia(image = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
-#'        userPostToolItemList(
-#'         userPostToolItem(dashboardLabel("item 1")),
-#'         userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+#'        userPostTagItems(
+#'         userPostTagItem(dashboardLabel("item 1", status = "success")),
+#'         userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
 #'        )
 #'       )
 #'      )
@@ -1527,7 +1527,7 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #' }
 #' 
 #' @export
-userPost <- function(..., id = NULL, image = NULL, author = NULL, 
+userPost <- function(..., id = NULL, image, author, 
                      description = NULL, collapsible = TRUE, 
                      collapsed = FALSE) {
   
@@ -1550,7 +1550,7 @@ userPost <- function(..., id = NULL, image = NULL, author = NULL,
         # box tool
         if (collapsible) {
           shiny::tags$button(
-            class = "pull-right btn-box-tool",
+            class = "pull-right btn btn-default btn-xs",
             `data-toggle` = "collapse",
             `data-target` = paste0("#", id),
             `aria-expanded` = collapsed,
@@ -1560,7 +1560,9 @@ userPost <- function(..., id = NULL, image = NULL, author = NULL,
         }
         
       ),
-      shiny::tags$span(class = "description", description)
+      if (!is.null(description)) {
+        shiny::tags$span(class = "description", description)
+      }
     ),
     shiny::tags$p(
       class = cl,
@@ -1628,7 +1630,7 @@ userPostTagItem <- function(..., side = "left") {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-userPostMedia <- function(image = NULL, height = NULL, width = NULL) {
+userPostMedia <- function(image, height = NULL, width = NULL) {
   shiny::img(
     style = "margin: auto;",
     class = "img-responsive", 
@@ -1889,25 +1891,25 @@ carouselItem <- function(..., caption = "") {
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'      boxPlus(
-#'       "Box with messages",
-#'       solidheader = TRUE,
+#'      box(
+#'       title = "Box with messages",
+#'       solidHeader = TRUE,
 #'       status = "warning",
 #'       userMessages(
 #'        width = 12,
 #'        status = "success",
-#'         userMessage(
+#'        userMessage(
 #'          author = "Alexander Pierce",
 #'          date = "20 Jan 2:00 pm",
-#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-#'          side = NULL,
+#'          image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'          type = "sent",
 #'          "Is this template really for free? That's unbelievable!"
 #'        ),
 #'        userMessage(
 #'          author = "Sarah Bullock",
 #'          date = "23 Jan 2:05 pm",
-#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-#'          side = "right",
+#'          image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'          type = "received",
 #'          "You better believe it!"
 #'        )
 #'       )
@@ -1918,15 +1920,15 @@ carouselItem <- function(..., caption = "") {
 #'         userMessage(
 #'          author = "Alexander Pierce",
 #'          date = "20 Jan 2:00 pm",
-#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-#'          side = NULL,
+#'          image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'          type = "received",
 #'          "Is this template really for free? That's unbelievable!"
 #'        ),
 #'        userMessage(
 #'          author = "Sarah Bullock",
 #'          date = "23 Jan 2:05 pm",
-#'          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-#'          side = "right",
+#'          image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'          type = "sent",
 #'          "You better believe it!"
 #'        )
 #'       )
@@ -1940,7 +1942,10 @@ carouselItem <- function(..., caption = "") {
 #' @export
 userMessages <- function(..., status, width = 4) {
   cl <- "direct-chat-messages direct-chat"
-  if (!is.null(status)) cl <- paste0(cl, " direct-chat-", status)
+  if (!is.null(status)) {
+    validateStatus(status)
+    cl <- paste0(cl, " direct-chat-", status)
+  }
   msgtag <- shiny::tags$div(class = cl, ...)
   
   shiny::tags$div(
@@ -1957,44 +1962,47 @@ userMessages <- function(..., status, width = 4) {
 #' @param ... Message text.
 #' @param author Message author.
 #' @param date Message date.
-#' @param src Message author image path or url.
-#' @param side Side where author is displayed: NULL (left, by default) or "right".
+#' @param image Message author image path or url.
+#' @param type Message type: \code{c("sent", "received")}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-userMessage <- function(..., author = NULL, date = NULL, 
-                        src = NULL, side = NULL) {
+userMessage <- function(..., author, date = NULL, 
+                        image = NULL, type = c("sent", "received")) {
   
+  type <- match.arg(type)
   messageCl <- "direct-chat-msg"
-  if (!is.null(side)) messageCl <- paste0(messageCl, " right")
+  if (type == "sent") messageCl <- paste0(messageCl, " right")
   
   # message info
   messageInfo <- shiny::tags$div(
     class = "direct-chat-info clearfix",
     shiny::tags$span(
-      class = if (!is.null(side)) {
-        "direct-chat-name float-left"
+      class = if (type == "right") {
+        "direct-chat-name pull-right"
       } else {
-        "direct-chat-name float-right"
+        "direct-chat-name"
       }, 
       author
     ),
-    shiny::tags$span(
-      class = if (!is.null(side)) {
-        "direct-chat-timestamp float-right"
-      } else {
-        "direct-chat-timestamp float-left"
-      }, 
-      date
-    )
+    if (!is.null(date)) {
+      shiny::tags$span(
+        class = if (type == "right") {
+          "direct-chat-timestamp right"
+        } else {
+          "direct-chat-timestamp"
+        }, 
+        date
+      )
+    }
   )
   
   # message Text
   messageTxt <- shiny::tags$div(class = "direct-chat-text", ...)
   
   # message author image
-  messageImg <- shiny::tags$img(class = "direct-chat-img", src = src)
+  messageImg <- shiny::tags$img(class = "direct-chat-img", src = image)
   
   shiny::tags$div(
     class = messageCl,

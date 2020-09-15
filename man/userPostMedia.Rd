@@ -4,7 +4,7 @@
 \alias{userPostMedia}
 \title{AdminLTE2 user post media}
 \usage{
-userPostMedia(image = NULL, height = NULL, width = NULL)
+userPostMedia(image, height = NULL, width = NULL)
 }
 \arguments{
 \item{image}{image path or url ...}

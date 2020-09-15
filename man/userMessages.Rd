@@ -31,25 +31,25 @@ if (interactive()) {
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     boxPlus(
-      "Box with messages",
-      solidheader = TRUE,
+     box(
+      title = "Box with messages",
+      solidHeader = TRUE,
       status = "warning",
       userMessages(
        width = 12,
        status = "success",
-        userMessage(
+       userMessage(
          author = "Alexander Pierce",
          date = "20 Jan 2:00 pm",
          src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-         side = NULL,
+         type = "sent",
          "Is this template really for free? That's unbelievable!"
        ),
        userMessage(
          author = "Sarah Bullock",
          date = "23 Jan 2:05 pm",
          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-         side = "right",
+         type = "received",
          "You better believe it!"
        )
       )
@@ -61,14 +61,14 @@ if (interactive()) {
          author = "Alexander Pierce",
          date = "20 Jan 2:00 pm",
          src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-         side = NULL,
+         type = "received",
          "Is this template really for free? That's unbelievable!"
        ),
        userMessage(
          author = "Sarah Bullock",
          date = "23 Jan 2:05 pm",
          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-         side = "right",
+         type = "sent",
          "You better believe it!"
        )
       )

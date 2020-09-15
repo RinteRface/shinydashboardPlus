@@ -91,7 +91,7 @@ reference:
   - '`dashboardLabel`'
   - '`starBlock`'
   - '`attachmentBlock`'
-  - '`verticalProgress`'
+  - '`progressBar`'
 
 - title: CSS extras
   desc: Pimp your app
