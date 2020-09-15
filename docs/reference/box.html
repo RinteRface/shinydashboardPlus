@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -125,20 +128,20 @@
 
     <pre class="usage"><span class='fu'>box</span>(
   <span class='kw'>...</span>,
-  inputId = <span class='kw'>NULL</span>,
+  id = <span class='kw'>NULL</span>,
   title = <span class='kw'>NULL</span>,
   footer = <span class='kw'>NULL</span>,
   status = <span class='kw'>NULL</span>,
   solidHeader = <span class='fl'>FALSE</span>,
   background = <span class='kw'>NULL</span>,
-  icon = <span class='kw'>NULL</span>,
-  gradient = <span class='fl'>FALSE</span>,
-  boxToolSize = <span class='st'>"sm"</span>,
   width = <span class='fl'>6</span>,
   height = <span class='kw'>NULL</span>,
   collapsible = <span class='fl'>FALSE</span>,
   collapsed = <span class='fl'>FALSE</span>,
   closable = <span class='fl'>FALSE</span>,
+  icon = <span class='kw'>NULL</span>,
+  gradient = <span class='fl'>FALSE</span>,
+  boxToolSize = <span class='st'>"sm"</span>,
   label = <span class='kw'>NULL</span>,
   dropdownMenu = <span class='kw'>NULL</span>,
   sidebar = <span class='kw'>NULL</span>,
@@ -153,7 +156,7 @@
       <td><p>Contents of the box.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
+      <th>id</th>
       <td><p>Box unique id. <a href='updateBox.html'>updateBox</a> target.</p></td>
     </tr>
     <tr>
@@ -178,18 +181,6 @@ color. Valid statuses are listed in <a href='validStatuses.html'>validStatuses</
       <td><p>If NULL (the default), the background of the box will be
 white. Otherwise, a color string. Valid colors are listed in
 <a href='validColors.html'>validColors</a>.</p></td>
-    </tr>
-    <tr>
-      <th>icon</th>
-      <td><p>Header icon. Displayed before title. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>gradient</th>
-      <td><p>Whether to allow gradient effect for the background color. Default to FALSE.</p></td>
-    </tr>
-    <tr>
-      <th>boxToolSize</th>
-      <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -217,6 +208,18 @@ the user to collapse the box.</p></td>
     <tr>
       <th>closable</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to close the box.</p></td>
+    </tr>
+    <tr>
+      <th>icon</th>
+      <td><p>Header icon. Displayed before title. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>gradient</th>
+      <td><p>Whether to allow gradient effect for the background color. Default to FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>boxToolSize</th>
+      <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
     </tr>
     <tr>
       <th>label</th>

@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -126,7 +129,7 @@
     <pre class="usage"><span class='fu'>dashboardUser</span>(
   <span class='kw'>...</span>,
   name = <span class='kw'>NULL</span>,
-  src = <span class='kw'>NULL</span>,
+  image = <span class='kw'>NULL</span>,
   title = <span class='kw'>NULL</span>,
   subtitle = <span class='kw'>NULL</span>,
   footer = <span class='kw'>NULL</span>
@@ -144,7 +147,7 @@
       <td><p>User name.</p></td>
     </tr>
     <tr>
-      <th>src</th>
+      <th>image</th>
       <td><p>User profile picture.</p></td>
     </tr>
     <tr>
@@ -184,7 +187,7 @@ dynamically-generating <code>dashboardUser</code>.</p></div>
    <span class='kw'>output</span><span class='op'>$</span><span class='kw'>user</span> <span class='op'>&lt;-</span> <span class='fu'><a href='renderUser.html'>renderUser</a></span>({
     <span class='fu'>dashboardUser</span>(
        name = <span class='st'>"Divad Nojnarg"</span>, 
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>, 
+       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>, 
        title = <span class='st'>"shinydashboardPlus"</span>,
        subtitle = <span class='st'>"Author"</span>, 
        footer = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"The footer"</span>, class = <span class='st'>"text-center"</span>),
@@ -192,15 +195,15 @@ dynamically-generating <code>dashboardUser</code>.</p></div>
         <span class='fu'><a href='dashboardUserItem.html'>dashboardUserItem</a></span>(
          width = <span class='fl'>6</span>,
          <span class='fu'><a href='socialButton.html'>socialButton</a></span>(
-          url = <span class='st'>"https://dropbox.com"</span>,
-          type = <span class='st'>"dropbox"</span>
+          href = <span class='st'>"https://dropbox.com"</span>,
+          icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"dropbox"</span>)
          )
         ),
         <span class='fu'><a href='dashboardUserItem.html'>dashboardUserItem</a></span>(
          width = <span class='fl'>6</span>,
          <span class='fu'><a href='socialButton.html'>socialButton</a></span>(
-          url = <span class='st'>"https://github.com"</span>,
-          type = <span class='st'>"github"</span>
+          href = <span class='st'>"https://github.com"</span>,
+          icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"github"</span>)
          )
         )
        )

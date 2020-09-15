@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,7 +126,7 @@
     <p>Create a badge.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dashboardBadge</span>(<span class='kw'>...</span>, color = <span class='st'>"blue"</span>)</pre>
+    <pre class="usage"><span class='fu'>dashboardBadge</span>(<span class='kw'>...</span>, <span class='kw'>color</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,7 +156,7 @@
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>dashboardBadge</span>(<span class='st'>"Badge 1"</span>),
+     <span class='fu'>dashboardBadge</span>(<span class='st'>"Badge 1"</span>, color = <span class='st'>"blue"</span>),
      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(
       inputId = <span class='st'>"badge"</span>, 
       label = <span class='st'>"Hello"</span>, 

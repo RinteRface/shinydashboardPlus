@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,7 +126,7 @@
     <p>Create box profile</p>
     </div>
 
-    <pre class="usage"><span class='fu'>boxProfile</span>(<span class='kw'>...</span>, src = <span class='kw'>NULL</span>, <span class='kw'>title</span>, subtitle = <span class='kw'>NULL</span>, bordered = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>boxProfile</span>(<span class='kw'>...</span>, image = <span class='kw'>NULL</span>, <span class='kw'>title</span>, subtitle = <span class='kw'>NULL</span>, bordered = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,7 +136,7 @@
       <td><p>any element such as <a href='boxProfileItem.html'>boxProfileItem</a>.</p></td>
     </tr>
     <tr>
-      <th>src</th>
+      <th>image</th>
       <td><p>profile image, if any.</p></td>
     </tr>
     <tr>
@@ -169,7 +172,7 @@
       title = <span class='st'>"Box with profile"</span>,
       status = <span class='st'>"primary"</span>,
       <span class='fu'>boxProfile</span>(
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
+       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
        title = <span class='st'>"Nina Mcintire"</span>,
        subtitle = <span class='st'>"Software Engineer"</span>,
        bordered = <span class='fl'>TRUE</span>,

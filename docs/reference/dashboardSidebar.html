@@ -86,6 +86,9 @@ it may also contain a sidebarSearchForm, or other Shiny inputs." />
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -127,11 +130,11 @@ it may also contain a <code><a href='https://rdrr.io/pkg/shinydashboard/man/side
 
     <pre class="usage"><span class='fu'>dashboardSidebar</span>(
   <span class='kw'>...</span>,
-  inputId = <span class='kw'>NULL</span>,
+  id = <span class='kw'>NULL</span>,
   disable = <span class='fl'>FALSE</span>,
   width = <span class='kw'>NULL</span>,
   collapsed = <span class='fl'>FALSE</span>,
-  minified = <span class='fl'>FALSE</span>
+  minified = <span class='fl'>TRUE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -142,7 +145,7 @@ it may also contain a <code><a href='https://rdrr.io/pkg/shinydashboard/man/side
       <td><p>Items to put in the sidebar.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
+      <th>id</th>
       <td><p>Sidebar input id. Returns the current state of the sidebar.</p></td>
     </tr>
     <tr>
@@ -162,7 +165,7 @@ units.</p></td>
     <tr>
       <th>minified</th>
       <td><p>Whether to slightly close the sidebar but still show item icons. Default
-to FALSE.</p></td>
+to TRUE.</p></td>
     </tr>
     </table>
 

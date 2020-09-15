@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,24 +126,26 @@
     <p>Update an AdminLTE2 controlbarMenu on the client</p>
     </div>
 
-    <pre class="usage"><span class='fu'>updateControlbarMenu</span>(<span class='kw'>session</span>, <span class='kw'>inputId</span>, selected = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>updateControlbarMenu</span>(
+  <span class='kw'>id</span>,
+  selected = <span class='kw'>NULL</span>,
+  session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>()
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>session</th>
-      <td><p>The <code>session</code> object passed to function given to
-<code>shinyServer</code>.</p></td>
-    </tr>
-    <tr>
-      <th>inputId</th>
-      <td><p>The id of the <code>tabsetPanel</code>, <code>navlistPanel</code>,
-or <code>navbarPage</code> object.</p></td>
+      <th>id</th>
+      <td><p>Controlbar id.</p></td>
     </tr>
     <tr>
       <th>selected</th>
-      <td><p>The name of the tab to make active.</p></td>
+      <td><p>Item to select.</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
     </tr>
     </table>
 
@@ -159,7 +164,7 @@ or <code>navbarPage</code> object.</p></td>
       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html'>radioButtons</a></span>(<span class='st'>"controller"</span>, <span class='st'>"Controller"</span>, choices = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>))
      ),
      controlbar = <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span>(
-      inputId = <span class='st'>"controlbar"</span>,
+      id = <span class='st'>"controlbar"</span>,
       <span class='fu'><a href='controlbarMenu.html'>controlbarMenu</a></span>(
        id = <span class='st'>"menu"</span>,
        <span class='fu'><a href='controlbarItem.html'>controlbarItem</a></span>(
@@ -180,7 +185,6 @@ or <code>navbarPage</code> object.</p></td>
    server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>, {
      <span class='fu'>updateControlbarMenu</span>(
-      <span class='kw'>session</span>, 
       <span class='st'>"menu"</span>, 
       selected = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Tab"</span>, <span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>)
      )

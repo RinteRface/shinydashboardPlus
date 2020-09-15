@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,13 +126,13 @@
     <p>Programmatically toggle a <a href='boxSidebar.html'>boxSidebar</a></p>
     </div>
 
-    <pre class="usage"><span class='fu'>updateBoxSidebar</span>(<span class='kw'>inputId</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
+    <pre class="usage"><span class='fu'>updateBoxSidebar</span>(<span class='kw'>id</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>inputId</th>
+      <th>id</th>
       <td><p>Sidebar id.</p></td>
     </tr>
     <tr>
@@ -158,7 +161,7 @@
         collapsible = <span class='fl'>TRUE</span>,
         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"update"</span>, <span class='st'>"Toggle card sidebar"</span>),
         sidebar = <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span>(
-          inputId = <span class='st'>"mycardsidebar"</span>,
+          id = <span class='st'>"mycardsidebar"</span>,
           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"Sidebar Content"</span>)
         )
       )
@@ -169,7 +172,7 @@
     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observe.html'>observe</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mycardsidebar</span>))
     
     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>update</span>, {
-      <span class='fu'>updateBoxSidebar</span>(inputId = <span class='st'>"mycardsidebar"</span>)
+      <span class='fu'>updateBoxSidebar</span>(<span class='st'>"mycardsidebar"</span>)
     })
     
   }

@@ -84,6 +84,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -178,6 +181,24 @@
 </li>
 <li>
 <em>title</em> mandatory in <code><a href="../reference/userBox.html">userBox()</a></code>. Remove <em>background</em>. Replace <em>backgroundUrl</em> by <em>backgroundImage</em>. Reworked <em>type</em> parameter</li>
+<li>Restore <code><a href="../reference/accordion.html">accordion()</a></code> id. We should distinguish between TRUE inputs (sliderInput) and secondary inputs (that you can use for interactivity)…</li>
+<li>
+<em>color</em> becomes <em>status</em> in <code><a href="../reference/accordionItem.html">accordionItem()</a></code>. This is to be consistent with AdminLTE2 classes and {shinydashboard}</li>
+<li>In <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code>: <em>src</em> becomes <em>image</em> and <em>titleUrl</em> becomes <em>href</em>. <em>image</em> is mandatory</li>
+<li>In <code><a href="../reference/socialButton.html">socialButton()</a></code>: <em>url</em> becomes <em>href</em> and <em>type</em> becomes <em>icon</em> (expect <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon</a></code>)</li>
+<li>In <code><a href="../reference/productListItem.html">productListItem()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/timelineItemMedia.html">timelineItemMedia()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/userListItem.html">userListItem()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/userPost.html">userPost()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}. <em>image</em> and <em>author</em> are mandatory</li>
+<li>In <code><a href="../reference/userPostMedia.html">userPostMedia()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}. <em>image</em> is mandatory</li>
+<li>Reworked <code>verticalProgress()</code> to <code><a href="../reference/progressBar.html">progressBar()</a></code>
+</li>
+<li>In <code><a href="../reference/userMessage.html">userMessage()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}. <em>side</em> becomes <em>type</em> (semantic)</li>
+<li>In <code><a href="../reference/dashboardUser.html">dashboardUser()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/userBox.html">userBox()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/socialBox.html">socialBox()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/boxComment.html">boxComment()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/boxProfile.html">boxProfile()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 </ul>
 </div>
 <div id="new-features" class="section level2">
@@ -189,9 +210,9 @@
 <li>Add <em>freshTheme</em> parameter to <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This allows to use the awsesome <code>{fresh}</code> package. See <a href="https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html">here</a> for more details.</li>
 <li>Add <code><a href="../reference/skinSelector.html">skinSelector()</a></code> to allow dynamically change the dashboard skin on the client side.</li>
 <li>Add <code><a href="../reference/updateControlbarMenu.html">updateControlbarMenu()</a></code> to programmatically change the selected controlbar item</li>
-<li>Add <em>inputId</em> to <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to be able to use <code><a href="../reference/updateControlbar.html">updateControlbar()</a></code>
+<li>Add <em>id</em> to <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to be able to use <code><a href="../reference/updateControlbar.html">updateControlbar()</a></code>
 </li>
-<li>Add <em>inputId</em> to <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> to be able to use <code><a href="../reference/updateSidebar.html">updateSidebar()</a></code>
+<li>Add <em>id</em> to <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> to be able to use <code><a href="../reference/updateSidebar.html">updateSidebar()</a></code>
 </li>
 <li>New <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> (reworked shinydashboard sidebar)</li>
 <li>New <code><a href="../reference/boxLabel.html">boxLabel()</a></code> to add text labels in <code><a href="../reference/box.html">box()</a></code>
@@ -205,6 +226,7 @@
 <h2 class="hasAnchor">
 <a href="#minor-change" class="anchor"></a>Minor change</h2>
 <ul>
+<li>add <em>width</em> to <code><a href="../reference/accordion.html">accordion()</a></code> (default to 12)</li>
 <li>Simplified dependencies code (No end-user impact)</li>
 </ul>
 </div>
@@ -214,6 +236,8 @@
 <ul>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/86'>#86</a>: controlbar should also trigger a window resize, like the left shinydashboard sidebar. Thanks <a href='https://github.com/ajfisher83'>@ajfisher83</a></li>
 <li>Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in <code><a href="../reference/box.html">box()</a></code>…</li>
+<li>
+<em>title</em> is mandatory in <code><a href="../reference/accordionItem.html">accordionItem()</a></code> (Setting title to NULL would prevent the item to be able to collapse …)</li>
 </ul>
 </div>
 </div>
@@ -380,7 +404,7 @@
 <li><p>new function <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code> to set shadow and hover effects on any elements</p></li>
 <li><p>add an “active” argument to <code>rightSidebarTabContent()</code>: see <a href="https://github.com/RinteRface/shinydashboardPlus/issues/4"><a href='https://github.com/RinteRface/shinydashboardPlus/issues/4'>#4</a></a></p></li>
 <li><p>add a “sidebar_background” argument to <code>dashboardPagePlus()</code></p></li>
-<li><p>new <code><a href="../reference/verticalProgress.html">verticalProgress()</a></code> bars!</p></li>
+<li><p>new <code>verticalProgress()</code> bars!</p></li>
 <li><p>new functions in the <code>rightSidebar()</code>: <code>rightSidebarMenu()</code>, <code>rightSidebarMenuItem()</code>, <code>menuIcon()</code> and <code>menuInfo()</code> (see <code><a href="../reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery()</a></code>)</p></li>
 <li><p>new dropdown menu for <code>boxPlus()</code>: add <code>dropdownItemList()</code>, <code>dropdownItem()</code> and <code><a href="../reference/dropdownDivider.html">dropdownDivider()</a></code> functions (see <code><a href="../reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery()</a></code>)</p></li>
 <li><p>add “width” and “height” args to <code><a href="../reference/timelineItemMedia.html">timelineItemMedia()</a></code> and <code><a href="../reference/userPostMedia.html">userPostMedia()</a></code></p></li>

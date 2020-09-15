@@ -138,6 +138,7 @@ articles:
 - title: All vignettes
   desc: ~
   contents:
+  - '`shinydashboardPlus`'
   - '`controlbar`'
   - '`improved-boxes`'
   - '`box-elements`'

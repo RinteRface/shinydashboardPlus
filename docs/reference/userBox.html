@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -127,18 +130,18 @@
   <span class='kw'>...</span>,
   <span class='kw'>title</span>,
   subtitle = <span class='kw'>NULL</span>,
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
-  src = <span class='kw'>NULL</span>,
-  backgroundImage = <span class='kw'>NULL</span>,
-  color = <span class='kw'>NULL</span>,
   footer = <span class='kw'>NULL</span>,
-  footerPadding = <span class='fl'>TRUE</span>,
+  color = <span class='kw'>NULL</span>,
   width = <span class='fl'>6</span>,
   height = <span class='kw'>NULL</span>,
-  boxToolSize = <span class='st'>"sm"</span>,
   collapsible = <span class='fl'>TRUE</span>,
   collapsed = <span class='fl'>FALSE</span>,
-  closable = <span class='fl'>FALSE</span>
+  closable = <span class='fl'>FALSE</span>,
+  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
+  image = <span class='kw'>NULL</span>,
+  backgroundImage = <span class='kw'>NULL</span>,
+  boxToolSize = <span class='st'>"sm"</span>,
+  footerPadding = <span class='fl'>TRUE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -157,29 +160,12 @@
       <td><p>box subtitle.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>User box type. Either 1 or 2. 1 corresponds to a centered user image,
-while 2 is a left aligned user image.</p></td>
-    </tr>
-    <tr>
-      <th>src</th>
-      <td><p>header image, if any (this is different of the background image).</p></td>
-    </tr>
-    <tr>
-      <th>backgroundImage</th>
-      <td><p>image url, if any. Background needs to be TRUE.</p></td>
-    </tr>
-    <tr>
-      <th>color</th>
-      <td><p>background color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.</p></td>
-    </tr>
-    <tr>
       <th>footer</th>
       <td><p>box footer.</p></td>
     </tr>
     <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+      <th>color</th>
+      <td><p>background color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -188,10 +174,6 @@ while 2 is a left aligned user image.</p></td>
     <tr>
       <th>height</th>
       <td><p>box height.</p></td>
-    </tr>
-    <tr>
-      <th>boxToolSize</th>
-      <td><p>size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
     </tr>
     <tr>
       <th>collapsible</th>
@@ -204,6 +186,27 @@ while 2 is a left aligned user image.</p></td>
     <tr>
       <th>closable</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to close the box.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>User box type. Either 1 or 2. 1 corresponds to a centered user image,
+while 2 is a left aligned user image.</p></td>
+    </tr>
+    <tr>
+      <th>image</th>
+      <td><p>header image, if any (this is different of the background image).</p></td>
+    </tr>
+    <tr>
+      <th>backgroundImage</th>
+      <td><p>image url, if any. Background needs to be TRUE.</p></td>
+    </tr>
+    <tr>
+      <th>boxToolSize</th>
+      <td><p>size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
+    </tr>
+    <tr>
+      <th>footerPadding</th>
+      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
     </tr>
     </table>
 
@@ -226,7 +229,7 @@ while 2 is a left aligned user image.</p></td>
       title = <span class='st'>"Nadia Carmichael"</span>,
       subtitle = <span class='st'>"lead Developer"</span>,
       type = <span class='fl'>2</span>,
-      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
+      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
       color = <span class='st'>"yellow"</span>,
       <span class='st'>"Some text here!"</span>,
       footer = <span class='st'>"The footer here!"</span>
@@ -235,7 +238,7 @@ while 2 is a left aligned user image.</p></td>
       title = <span class='st'>"Alexander Pierce"</span>,
       subtitle = <span class='st'>"Founder &amp; CEO"</span>,
       type = <span class='fl'>1</span>,
-      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
       color = <span class='st'>"aqua"</span>,
       closable = <span class='fl'>TRUE</span>,
       <span class='st'>"Some text here!"</span>,
@@ -244,14 +247,14 @@ while 2 is a left aligned user image.</p></td>
      <span class='fu'>userBox</span>(
       title = <span class='st'>"Elizabeth Pierce"</span>,
       subtitle = <span class='st'>"Web Designer"</span>,
-      src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
       backgroundImage = <span class='st'>"https://avante.biz/wp-content/uploads/Minimal-Wallpaper/Minimal-Wallpaper-001.jpg"</span>,
       closable = <span class='fl'>TRUE</span>,
       <span class='st'>"Some text here!"</span>,
       footer = <span class='st'>"The footer here!"</span>
      )
     ),
-    title = <span class='st'>"widgetUserBox"</span>
+    title = <span class='st'>"UserBox"</span>
   ),
   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )

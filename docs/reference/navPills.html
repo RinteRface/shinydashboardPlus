@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,7 +126,7 @@
     <p>Create a container for nav elements</p>
     </div>
 
-    <pre class="usage"><span class='fu'>navPills</span>(<span class='kw'>...</span>, inputId = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>navPills</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,7 +136,7 @@
       <td><p>slot for navPillsItem.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
+      <th>id</th>
       <td><p>Item unique id. Returns the R index of the currently selected item. 
 This is different from the JavaScript index.</p></td>
     </tr>
@@ -159,7 +162,7 @@ This is different from the JavaScript index.</p></td>
       status = <span class='st'>"info"</span>,
       <span class='st'>"Box Body"</span>,
       footer = <span class='fu'>navPills</span>(
-        inputId = <span class='st'>"pillItem"</span>,
+        id = <span class='st'>"pillItem"</span>,
         <span class='fu'><a href='navPillsItem.html'>navPillsItem</a></span>(
           left = <span class='st'>"Item 1"</span>, 
           color = <span class='st'>"green"</span>,

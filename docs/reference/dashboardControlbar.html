@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -125,12 +128,12 @@
 
     <pre class="usage"><span class='fu'>dashboardControlbar</span>(
   <span class='kw'>...</span>,
-  inputId = <span class='kw'>NULL</span>,
-  skin = <span class='st'>"dark"</span>,
+  id = <span class='kw'>NULL</span>,
   disable = <span class='fl'>FALSE</span>,
+  width = <span class='fl'>230</span>,
   collapsed = <span class='fl'>TRUE</span>,
   overlay = <span class='fl'>TRUE</span>,
-  width = <span class='fl'>230</span>,
+  skin = <span class='st'>"dark"</span>,
   .items = <span class='kw'>NULL</span>
 )</pre>
 
@@ -139,20 +142,20 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>slot for rightSidebarTabContent. Not compatible with .items.</p></td>
+      <td><p>slot for <a href='controlbarMenu.html'>controlbarMenu</a>. Not compatible with .items.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
-      <td><p>To acces the current state of the controlbar. Open is TRUE, closed
+      <th>id</th>
+      <td><p>To access the current state of the controlbar. Open is TRUE, closed
 is FALSE. NULL by default.</p></td>
-    </tr>
-    <tr>
-      <th>skin</th>
-      <td><p>background color: "dark" or "light".</p></td>
     </tr>
     <tr>
       <th>disable</th>
       <td><p>If <code>TRUE</code>, the sidebar will be disabled.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>Sidebar width in pixels. Numeric value expected. 230 by default.</p></td>
     </tr>
     <tr>
       <th>collapsed</th>
@@ -163,8 +166,8 @@ is FALSE. NULL by default.</p></td>
       <td><p>Whether the sidebar covers the content when expanded. Default to TRUE.</p></td>
     </tr>
     <tr>
-      <th>width</th>
-      <td><p>Sidebar width in pixels. Numeric value expected. 230 by default.</p></td>
+      <th>skin</th>
+      <td><p>background color: "dark" or "light".</p></td>
     </tr>
     <tr>
       <th>.items</th>
@@ -174,7 +177,7 @@ is FALSE. NULL by default.</p></td>
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Until a maximum of 5 rightSidebarTabContent inside! AdminLTE 2 does not
+    <p>Until a maximum of 5 <a href='controlbarItem.html'>controlbarItem</a>! AdminLTE 2 does not
 support more panels.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 

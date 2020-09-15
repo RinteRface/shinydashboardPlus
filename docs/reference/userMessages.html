@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -161,25 +164,25 @@
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>boxPlus</span>(
-      <span class='st'>"Box with messages"</span>,
-      solidheader = <span class='fl'>TRUE</span>,
+     <span class='fu'><a href='box.html'>box</a></span>(
+      title = <span class='st'>"Box with messages"</span>,
+      solidHeader = <span class='fl'>TRUE</span>,
       status = <span class='st'>"warning"</span>,
       <span class='fu'>userMessages</span>(
        width = <span class='fl'>12</span>,
        status = <span class='st'>"success"</span>,
-        <span class='fu'><a href='userMessage.html'>userMessage</a></span>(
+       <span class='fu'><a href='userMessage.html'>userMessage</a></span>(
          author = <span class='st'>"Alexander Pierce"</span>,
          date = <span class='st'>"20 Jan 2:00 pm"</span>,
-         src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-         side = <span class='kw'>NULL</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+         type = <span class='st'>"sent"</span>,
          <span class='st'>"Is this template really for free? That's unbelievable!"</span>
        ),
        <span class='fu'><a href='userMessage.html'>userMessage</a></span>(
          author = <span class='st'>"Sarah Bullock"</span>,
          date = <span class='st'>"23 Jan 2:05 pm"</span>,
-         src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-         side = <span class='st'>"right"</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+         type = <span class='st'>"received"</span>,
          <span class='st'>"You better believe it!"</span>
        )
       )
@@ -190,15 +193,15 @@
         <span class='fu'><a href='userMessage.html'>userMessage</a></span>(
          author = <span class='st'>"Alexander Pierce"</span>,
          date = <span class='st'>"20 Jan 2:00 pm"</span>,
-         src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-         side = <span class='kw'>NULL</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+         type = <span class='st'>"received"</span>,
          <span class='st'>"Is this template really for free? That's unbelievable!"</span>
        ),
        <span class='fu'><a href='userMessage.html'>userMessage</a></span>(
          author = <span class='st'>"Sarah Bullock"</span>,
          date = <span class='st'>"23 Jan 2:05 pm"</span>,
-         src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-         side = <span class='st'>"right"</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+         type = <span class='st'>"sent"</span>,
          <span class='st'>"You better believe it!"</span>
        )
       )

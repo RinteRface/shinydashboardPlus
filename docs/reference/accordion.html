@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,18 +126,22 @@
     <p>Create an accordion container</p>
     </div>
 
-    <pre class="usage"><span class='fu'>accordion</span>(<span class='kw'>...</span>, inputId = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>accordion</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, width = <span class='fl'>12</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>slot for accordionItem.</p></td>
+      <td><p>slot for <a href='accordionItem.html'>accordionItem</a>.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
+      <th>id</th>
       <td><p>Unique accordion id.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>The width of the accordion.</p></td>
     </tr>
     </table>
 
@@ -154,31 +161,31 @@
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
       <span class='fu'>accordion</span>(
-       inputId = <span class='st'>"accordion1"</span>,
+       id = <span class='st'>"accordion1"</span>,
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
           title = <span class='st'>"Accordion 1 Item 1"</span>,
-          color = <span class='st'>"danger"</span>,
+          status = <span class='st'>"danger"</span>,
           collapsed = <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
           title = <span class='st'>"Accordion 1 Item 2"</span>,
-          color = <span class='st'>"warning"</span>,
+          status = <span class='st'>"warning"</span>,
           collapsed = <span class='fl'>FALSE</span>,
           <span class='st'>"This is some text!"</span>
         )
       ),
       <span class='fu'>accordion</span>(
-       inputId = <span class='st'>"accordion2"</span>,
+       id = <span class='st'>"accordion2"</span>,
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
           title = <span class='st'>"Accordion 2 Item 1"</span>,
-          color = <span class='st'>"danger"</span>,
+          status = <span class='st'>"info"</span>,
           collapsed = <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
         <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
           title = <span class='st'>"Accordion 2 Item 2"</span>,
-          color = <span class='st'>"warning"</span>,
+          status = <span class='st'>"success"</span>,
           collapsed = <span class='fl'>FALSE</span>,
           <span class='st'>"This is some text!"</span>
         )

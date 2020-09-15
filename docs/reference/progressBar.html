@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AdminLTE2 social box — socialBox • shinydashboardPlus</title>
+<title>AdminLTE2 vertical progress bar — progressBar • shinydashboardPlus</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 social box — socialBox" />
-<meta property="og:description" content="Create social box" />
+<meta property="og:title" content="AdminLTE2 vertical progress bar — progressBar" />
+<meta property="og:description" content="This creates a vertical progress bar." />
 
 
 
@@ -117,75 +117,62 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>AdminLTE2 social box</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a></small>
-    <div class="hidden name"><code>socialBox.Rd</code></div>
+    <h1>AdminLTE2 vertical progress bar</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/useful-items.R'><code>R/useful-items.R</code></a></small>
+    <div class="hidden name"><code>progressBar.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create social box</p>
+    <p>This creates a vertical progress bar.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>socialBox</span>(
-  <span class='kw'>...</span>,
-  <span class='kw'>image</span>,
-  <span class='kw'>title</span>,
-  subtitle = <span class='kw'>NULL</span>,
-  comments = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  width = <span class='fl'>6</span>,
-  height = <span class='kw'>NULL</span>,
-  collapsible = <span class='fl'>TRUE</span>,
-  closable = <span class='fl'>FALSE</span>,
-  footerPadding = <span class='fl'>TRUE</span>
+    <pre class="usage"><span class='fu'>progressBar</span>(
+  <span class='kw'>value</span>,
+  min = <span class='fl'>0</span>,
+  max = <span class='fl'>100</span>,
+  vertical = <span class='fl'>FALSE</span>,
+  striped = <span class='fl'>FALSE</span>,
+  animated = <span class='fl'>FALSE</span>,
+  status = <span class='st'>"primary"</span>,
+  size = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>body content. May include <a href='attachmentBlock.html'>attachmentBlock</a> for instance.</p></td>
+      <th>value</th>
+      <td><p>Progress bar value. Must be between min and max.</p></td>
     </tr>
     <tr>
-      <th>image</th>
-      <td><p>header image, if any.</p></td>
+      <th>min</th>
+      <td><p>Progress bar minimum value (0 by default).</p></td>
     </tr>
     <tr>
-      <th>title</th>
-      <td><p>box title.</p></td>
+      <th>max</th>
+      <td><p>Progress bar maximum value (100 by default).</p></td>
     </tr>
     <tr>
-      <th>subtitle</th>
-      <td><p>box subtitle.</p></td>
+      <th>vertical</th>
+      <td><p>Progress vertical layout. Default to FALSE</p></td>
     </tr>
     <tr>
-      <th>comments</th>
-      <td><p>slot for <a href='boxComment.html'>boxComment</a>.</p></td>
+      <th>striped</th>
+      <td><p>Whether the progress is striped or not. FALSE by default.</p></td>
     </tr>
     <tr>
-      <th>footer</th>
-      <td><p>box footer, if any.</p></td>
+      <th>animated</th>
+      <td><p>Whether the progress is active or not. FALSE by default.
+Works only if striped is TRUE.</p></td>
     </tr>
     <tr>
-      <th>width</th>
-      <td><p>box width (between 1 and 12).</p></td>
+      <th>status</th>
+      <td><p>Progress bar status. "primary" by default or "warning", "info",
+"danger" or "success".</p></td>
     </tr>
     <tr>
-      <th>height</th>
-      <td><p>box height.</p></td>
-    </tr>
-    <tr>
-      <th>collapsible</th>
-      <td><p>If TRUE, display a button in the upper right that allows the user to collapse the box.</p></td>
-    </tr>
-    <tr>
-      <th>closable</th>
-      <td><p>If TRUE, display a button in the upper right that allows the user to close the box.</p></td>
-    </tr>
-    <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+      <th>size</th>
+      <td><p>Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.</p></td>
     </tr>
     </table>
 
@@ -200,40 +187,55 @@
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
  
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>socialBox</span>(
-      title = <span class='st'>"Social Box"</span>,
-      subtitle = <span class='st'>"example-01.05.2018"</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
-      <span class='st'>"Some text here!"</span>,
-      <span class='fu'><a href='attachmentBlock.html'>attachmentBlock</a></span>(
-       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
-       title = <span class='st'>"Test"</span>,
-       title_url = <span class='st'>"https://google.com"</span>,
-       <span class='st'>"This is the content"</span>
+   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+     header = <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+     sidebar = <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+     body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+      <span class='fu'><a href='box.html'>box</a></span>(
+       title = <span class='st'>"Horizontal"</span>,
+       <span class='fu'>progressBar</span>(
+        value = <span class='fl'>10</span>,
+        striped = <span class='fl'>TRUE</span>,
+        animated = <span class='fl'>TRUE</span>
+       ),
+       <span class='fu'>progressBar</span>(
+        value = <span class='fl'>50</span>,
+        status = <span class='st'>"warning"</span>,
+        size = <span class='st'>"xs"</span>
+       ),
+       <span class='fu'>progressBar</span>(
+        value = <span class='fl'>20</span>,
+        status = <span class='st'>"danger"</span>,
+        size = <span class='st'>"sm"</span>
+       )
       ),
-      comments = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-       <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(X = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN = <span class='fu'>function</span>(<span class='kw'>i</span>) {
-        <span class='fu'><a href='boxComment.html'>boxComment</a></span>(
-          image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-          title = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Comment"</span>, <span class='kw'>i</span>),
-          date = <span class='st'>"01.05.2018"</span>,
-          <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"The "</span>, <span class='kw'>i</span>, <span class='st'>"-th comment"</span>)
-        )
-       })
-      ),
-      footer = <span class='st'>"The footer here!"</span>
-     )
-    ),
-    title = <span class='st'>"socialBox"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
+      <span class='fu'><a href='box.html'>box</a></span>(
+       title = <span class='st'>"Vertical"</span>,
+       <span class='fu'>progressBar</span>(
+        value = <span class='fl'>10</span>,
+        striped = <span class='fl'>TRUE</span>,
+        animated = <span class='fl'>TRUE</span>,
+        vertical = <span class='fl'>TRUE</span>
+       ),
+       <span class='fu'>progressBar</span>(
+        value = <span class='fl'>50</span>,
+        status = <span class='st'>"warning"</span>,
+        size = <span class='st'>"xs"</span>,
+        vertical = <span class='fl'>TRUE</span>
+       ),
+       <span class='fu'>progressBar</span>(
+        value = <span class='fl'>20</span>,
+        status = <span class='st'>"danger"</span>,
+        size = <span class='st'>"sm"</span>,
+        vertical = <span class='fl'>TRUE</span>
+       )
+      )
+     ),
+     title = <span class='st'>"Progress bars"</span>
+   ),
+   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )
 }
-
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

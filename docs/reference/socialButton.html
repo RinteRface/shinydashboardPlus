@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,18 +126,18 @@
     <p>Create a social button</p>
     </div>
 
-    <pre class="usage"><span class='fu'>socialButton</span>(<span class='kw'>url</span>, type = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>socialButton</span>(<span class='kw'>href</span>, <span class='kw'>icon</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>url</th>
-      <td><p>if the button should redirect somewhere.</p></td>
+      <th>href</th>
+      <td><p>External link.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>social network name: see here for valid names <a href='https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html'>https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html</a>.</p></td>
+      <th>icon</th>
+      <td><p>social network icon: see here for valid names <a href='https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html'>https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html</a>.</p></td>
     </tr>
     </table>
 
@@ -157,12 +160,12 @@
       title = <span class='st'>"Social Buttons"</span>,
       status = <span class='kw'>NULL</span>,
       <span class='fu'>socialButton</span>(
-        url = <span class='st'>"https://dropbox.com"</span>,
-        type = <span class='st'>"dropbox"</span>
+        href = <span class='st'>"https://dropbox.com"</span>,
+        icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"dropbox"</span>)
       ),
       <span class='fu'>socialButton</span>(
-        url = <span class='st'>"https://github.com"</span>,
-        type = <span class='st'>"github"</span>
+        href = <span class='st'>"https://github.com"</span>,
+        icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"github"</span>)
       )
      )
     ),

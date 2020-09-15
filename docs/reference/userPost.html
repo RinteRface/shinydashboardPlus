@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -126,8 +129,8 @@
     <pre class="usage"><span class='fu'>userPost</span>(
   <span class='kw'>...</span>,
   id = <span class='kw'>NULL</span>,
-  src = <span class='kw'>NULL</span>,
-  author = <span class='kw'>NULL</span>,
+  <span class='kw'>image</span>,
+  <span class='kw'>author</span>,
   description = <span class='kw'>NULL</span>,
   collapsible = <span class='fl'>TRUE</span>,
   collapsed = <span class='fl'>FALSE</span>
@@ -145,7 +148,7 @@
       <td><p>unique id of the post.</p></td>
     </tr>
     <tr>
-      <th>src</th>
+      <th>image</th>
       <td><p>profile image, if any.</p></td>
     </tr>
     <tr>
@@ -186,7 +189,7 @@
       status = <span class='st'>"primary"</span>,
       <span class='fu'>userPost</span>(
        id = <span class='fl'>1</span>,
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
        author = <span class='st'>"Jonathan Burke Jr."</span>,
        description = <span class='st'>"Shared publicly - 7:30 PM today"</span>,
        <span class='st'>"Lorem ipsum represents a long-held tradition for designers, 
@@ -194,20 +197,20 @@
        its demise, but others ignore the hate as they create awesome 
        tools to help create filler text for everyone from bacon 
        lovers to Charlie Sheen fans."</span>,
+       collapsible = <span class='fl'>FALSE</span>,
        <span class='fu'><a href='userPostTagItems.html'>userPostTagItems</a></span>(
-        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>)),
+        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>, status = <span class='st'>"info"</span>)),
         <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
        )
       ),
       <span class='fu'>userPost</span>(
        id = <span class='fl'>2</span>,
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg"</span>,
+       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg"</span>,
        author = <span class='st'>"Adam Jones"</span>,
-       description = <span class='st'>"Shared publicly - 5 days ago"</span>,
-       <span class='fu'><a href='userPostMedia.html'>userPostMedia</a></span>(src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"</span>),
-       <span class='fu'>userPostToolItemList</span>(
-        <span class='fu'>userPostToolItem</span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>)),
-        <span class='fu'>userPostToolItem</span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
+       <span class='fu'><a href='userPostMedia.html'>userPostMedia</a></span>(image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"</span>),
+       <span class='fu'><a href='userPostTagItems.html'>userPostTagItems</a></span>(
+        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>, status = <span class='st'>"success"</span>)),
+        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
        )
       )
      )

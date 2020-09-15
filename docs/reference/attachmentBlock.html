@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,7 +126,7 @@
     <p>Create an attachment container, nice to wrap articles...</p>
     </div>
 
-    <pre class="usage"><span class='fu'>attachmentBlock</span>(<span class='kw'>...</span>, src = <span class='kw'>NULL</span>, title = <span class='kw'>NULL</span>, titleUrl = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>attachmentBlock</span>(<span class='kw'>...</span>, <span class='kw'>image</span>, title = <span class='kw'>NULL</span>, href = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,7 +136,7 @@
       <td><p>any element.</p></td>
     </tr>
     <tr>
-      <th>src</th>
+      <th>image</th>
       <td><p>url or path to the image.</p></td>
     </tr>
     <tr>
@@ -141,7 +144,7 @@
       <td><p>attachment title.</p></td>
     </tr>
     <tr>
-      <th>titleUrl</th>
+      <th>href</th>
       <td><p>external link.</p></td>
     </tr>
     </table>
@@ -164,9 +167,9 @@
      <span class='fu'><a href='box.html'>box</a></span>(
       title = <span class='st'>"Attachment example"</span>,
       <span class='fu'>attachmentBlock</span>(
-       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
+       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
        title = <span class='st'>"Test"</span>,
-       titleUrl = <span class='st'>"https://google.com"</span>,
+       href = <span class='st'>"https://google.com"</span>,
        <span class='st'>"This is the content"</span>
       )
      )

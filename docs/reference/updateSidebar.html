@@ -85,6 +85,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -123,13 +126,13 @@
     <p>Function to programmatically toggle the state of the sidebar</p>
     </div>
 
-    <pre class="usage"><span class='fu'>updateSidebar</span>(<span class='kw'>inputId</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
+    <pre class="usage"><span class='fu'>updateSidebar</span>(<span class='kw'>id</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>inputId</th>
+      <th>id</th>
       <td><p>Sidebar id.</p></td>
     </tr>
     <tr>
@@ -148,7 +151,7 @@
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
    ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
      header = <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-     sidebar = <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(inputId = <span class='st'>"sidebar"</span>),
+     sidebar = <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(id = <span class='st'>"sidebar"</span>),
      body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(inputId = <span class='st'>"sidebarToggle"</span>, label = <span class='st'>"Toggle Sidebar"</span>)
      )
@@ -167,7 +170,7 @@
      })
      
      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>sidebarToggle</span>, {
-       <span class='fu'>updateSidebar</span>(inputId = <span class='st'>"sidebar"</span>)
+       <span class='fu'>updateSidebar</span>(<span class='st'>"sidebar"</span>)
      })
      
      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observe.html'>observe</a></span>({
