@@ -38,13 +38,10 @@ reference:
   - '`widgetUserBox`'
   - '`socialBox`'
   - '`flipBox`'
-
-- title: Items that are internal to box function 
-  desc: do not use when developing a shiny app
-  contents:
-  - '`dropdownItem`'
-  - '`dropdownItemList`'
+  - '`boxDropdown`'
+  - '`boxDropdownItem`'
   - '`dropdownDivider`'
+  
 
 - title: Box extra elements
   desc: Functions that are designed to be inserted inside boxes
@@ -75,8 +72,8 @@ reference:
   - '`userMessages`'
   - '`userMessage`'
   - '`userPost`'
-  - '`userPostToolItemList`'
-  - '`userPostToolItem`'
+  - '`userPostTagItems`'
+  - '`userPostTagItem`'
   - '`userPostMedia`'
 
 - title: Buttons

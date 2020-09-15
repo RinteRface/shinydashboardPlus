@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -76,7 +76,7 @@
       <h1 data-toc-skip>Box Elements</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-08-28</h4>
+            <h4 class="date">2020-09-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/box-elements.Rmd"><code>vignettes/box-elements.Rmd</code></a></small>
       <div class="hidden name"><code>box-elements.Rmd</code></div>
@@ -88,110 +88,114 @@
 <div id="boxes-components" class="section level2">
 <h2 class="hasAnchor">
 <a href="#boxes-components" class="anchor"></a>Boxes components</h2>
-<p><strong>shinydashboardPlus</strong> brings also tons of new elements to include in boxes or elsewhere.</p>
+<p><code>{shinydashboardPlus}</code> brings also tons of new elements to include in boxes or elsewhere.</p>
 <div id="descriptionblock" class="section level3">
 <h3 class="hasAnchor">
 <a href="#descriptionblock" class="anchor"></a><code>descriptionBlock()</code>
 </h3>
 <p><img src="figures/descriptionBlock.png" width="768" height="365"></p>
 <p><br></p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"> <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
-
+<div class="sourceCode" id="cb1"><pre class="downlit">
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
+ 
  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html">dashboardSidebar</a></span>(),
+  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
+    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/box.html">box</a></span>(
-      <span class="kw">solidHeader</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-      <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Status summary"</span>,
-      <span class="kw">background</span> <span class="kw">=</span> <span class="kw">NULL</span>,
-      <span class="kw">width</span> <span class="kw">=</span> <span class="fl">4</span>,
-      <span class="kw">status</span> <span class="kw">=</span> <span class="st">"danger"</span>,
-      <span class="kw">footer</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+     <span class="fu"><a href="../reference/box.html">box</a></span>(
+      solidHeader = <span class="fl">FALSE</span>,
+      title = <span class="st">"Status summary"</span>,
+      background = <span class="kw">NULL</span>,
+      width = <span class="fl">4</span>,
+      status = <span class="st">"danger"</span>,
+      footer = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
         <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-          <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
+          width = <span class="fl">6</span>,
           <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-            <span class="kw">number</span> <span class="kw">=</span> <span class="st">"17%"</span>,
-            <span class="kw">number_color</span> <span class="kw">=</span> <span class="st">"green"</span>,
-            <span class="kw">number_icon</span> <span class="kw">=</span> <span class="st">"fa fa-caret-up"</span>,
-            <span class="kw">header</span> <span class="kw">=</span> <span class="st">"$35,210.43"</span>,
-            <span class="kw">text</span> <span class="kw">=</span> <span class="st">"TOTAL REVENUE"</span>,
-            <span class="kw">right_border</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-            <span class="kw">margin_bottom</span> <span class="kw">=</span> <span class="fl">FALSE</span>
+            number = <span class="st">"17%"</span>, 
+            number_color = <span class="st">"green"</span>, 
+            number_icon = <span class="st">"fa fa-caret-up"</span>,
+            header = <span class="st">"$35,210.43"</span>, 
+            text = <span class="st">"TOTAL REVENUE"</span>, 
+            right_border = <span class="fl">TRUE</span>,
+            margin_bottom = <span class="fl">FALSE</span>
           )
         ),
         <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-          <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
+          width = <span class="fl">6</span>,
           <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-            <span class="kw">number</span> <span class="kw">=</span> <span class="st">"18%"</span>,
-            <span class="kw">number_color</span> <span class="kw">=</span> <span class="st">"red"</span>,
-            <span class="kw">number_icon</span> <span class="kw">=</span> <span class="st">"fa fa-caret-down"</span>,
-            <span class="kw">header</span> <span class="kw">=</span> <span class="st">"1200"</span>,
-            <span class="kw">text</span> <span class="kw">=</span> <span class="st">"GOAL COMPLETION"</span>,
-            <span class="kw">right_border</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-            <span class="kw">margin_bottom</span> <span class="kw">=</span> <span class="fl">FALSE</span>
+            number = <span class="st">"18%"</span>, 
+            number_color = <span class="st">"red"</span>, 
+            number_icon = <span class="st">"fa fa-caret-down"</span>,
+            header = <span class="st">"1200"</span>, 
+            text = <span class="st">"GOAL COMPLETION"</span>, 
+            right_border = <span class="fl">FALSE</span>,
+            margin_bottom = <span class="fl">FALSE</span>
           )
         )
       )
      )
     ),
-    <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Description Blocks"</span>
+    title = <span class="st">"Description Blocks"</span>
   ),
-  <span class="kw">server</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) { }
- )</pre></body></html></div>
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+ )
+</pre></div>
 </div>
 <div id="boxpad" class="section level3">
 <h3 class="hasAnchor">
 <a href="#boxpad" class="anchor"></a><code>boxPad()</code>
 </h3>
 <p><img src="figures/boxPad.png"><br></p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"> <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
-
+<div class="sourceCode" id="cb2"><pre class="downlit">
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
+ 
  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html">dashboardSidebar</a></span>(),
+  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
+    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/box.html">box</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Box with right pad"</span>,
-      <span class="kw">status</span> <span class="kw">=</span> <span class="st">"warning"</span>,
+     <span class="fu"><a href="../reference/box.html">box</a></span>(title = <span class="st">"Box with right pad"</span>,
+      status = <span class="st">"warning"</span>,
       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(<span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(width = <span class="fl">6</span>),
         <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-          <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
+          width = <span class="fl">6</span>,
           <span class="fu"><a href="../reference/boxPad.html">boxPad</a></span>(
-            <span class="kw">color</span> <span class="kw">=</span> <span class="st">"green"</span>,
+            color = <span class="st">"green"</span>,
             <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-              <span class="kw">header</span> <span class="kw">=</span> <span class="st">"8390"</span>,
-              <span class="kw">text</span> <span class="kw">=</span> <span class="st">"VISITS"</span>,
-              <span class="kw">right_border</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-              <span class="kw">margin_bottom</span> <span class="kw">=</span> <span class="fl">TRUE</span>
+              header = <span class="st">"8390"</span>, 
+              text = <span class="st">"VISITS"</span>, 
+              right_border = <span class="fl">FALSE</span>,
+              margin_bottom = <span class="fl">TRUE</span>
             ),
             <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-              <span class="kw">header</span> <span class="kw">=</span> <span class="st">"30%"</span>,
-              <span class="kw">text</span> <span class="kw">=</span> <span class="st">"REFERRALS"</span>,
-              <span class="kw">right_border</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-              <span class="kw">margin_bottom</span> <span class="kw">=</span> <span class="fl">TRUE</span>
+              header = <span class="st">"30%"</span>, 
+              text = <span class="st">"REFERRALS"</span>, 
+              right_border = <span class="fl">FALSE</span>,
+              margin_bottom = <span class="fl">TRUE</span>
             ),
             <span class="fu"><a href="../reference/descriptionBlock.html">descriptionBlock</a></span>(
-              <span class="kw">header</span> <span class="kw">=</span> <span class="st">"70%"</span>,
-              <span class="kw">text</span> <span class="kw">=</span> <span class="st">"ORGANIC"</span>,
-              <span class="kw">right_border</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-              <span class="kw">margin_bottom</span> <span class="kw">=</span> <span class="fl">FALSE</span>
+              header = <span class="st">"70%"</span>, 
+              text = <span class="st">"ORGANIC"</span>, 
+              right_border = <span class="fl">FALSE</span>,
+              margin_bottom = <span class="fl">FALSE</span>
             )
           )
         )
       )
      )
     ),
-    <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Description Blocks"</span>
+    title = <span class="st">"Description Blocks"</span>
   ),
-  <span class="kw">server</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) { }
- )</pre></body></html></div>
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+ )
+</pre></div>
 <p>and a lot more <a href="https://rinterface.com/shiny/shinydashboardPlus/">here</a>.</p>
 </div>
 </div>
@@ -212,7 +216,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

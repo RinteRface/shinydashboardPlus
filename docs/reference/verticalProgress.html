@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -124,14 +124,14 @@
     </div>
 
     <pre class="usage"><span class='fu'>verticalProgress</span>(
-  <span class='no'>value</span>,
-  <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='st'>"40%"</span>,
-  <span class='kw'>striped</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"primary"</span>,
-  <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>value</span>,
+  min = <span class='fl'>0</span>,
+  max = <span class='fl'>100</span>,
+  height = <span class='st'>"40%"</span>,
+  striped = <span class='fl'>FALSE</span>,
+  active = <span class='fl'>FALSE</span>,
+  status = <span class='st'>"primary"</span>,
+  size = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -172,43 +172,45 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardPagePlus.html'>dashboardPagePlus</a></span>(
-     <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(
-      <span class='kw'>enable_rightsidebar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-      <span class='kw'>rightSidebarIcon</span> <span class='kw'>=</span> <span class='st'>"gears"</span>
-     ),
-     <span class='kw'>sidebar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
-     <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+     header = <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+     sidebar = <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+     body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
       <span class='fu'>verticalProgress</span>(
-       <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-       <span class='kw'>striped</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-       <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+       value = <span class='fl'>10</span>,
+       striped = <span class='fl'>TRUE</span>,
+       active = <span class='fl'>TRUE</span>
       ),
       <span class='fu'>verticalProgress</span>(
-       <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>50</span>,
-       <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-       <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
-       <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"xs"</span>
+       value = <span class='fl'>50</span>,
+       active = <span class='fl'>TRUE</span>,
+       status = <span class='st'>"warning"</span>,
+       size = <span class='st'>"xs"</span>
       ),
       <span class='fu'>verticalProgress</span>(
-       <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>20</span>,
-       <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"danger"</span>,
-       <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"sm"</span>,
-       <span class='kw'>height</span> <span class='kw'>=</span> <span class='st'>"60%"</span>
+       value = <span class='fl'>20</span>,
+       status = <span class='st'>"danger"</span>,
+       size = <span class='st'>"sm"</span>,
+       height = <span class='st'>"60%"</span>
       )
      ),
-     <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='fu'><a href='rightSidebar.html'>rightSidebar</a></span>(),
-     <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Right Sidebar"</span>
+     title = <span class='st'>"Right Sidebar"</span>
    ),
-   <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
+   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )
-}</div></pre>
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -224,7 +226,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

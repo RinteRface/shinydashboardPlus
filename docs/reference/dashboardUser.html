@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -115,7 +115,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a dashboard user profile.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/dashboardHeaderPlus.R'><code>R/dashboardHeaderPlus.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/dashboardHeader.R'><code>R/dashboardHeader.R</code></a></small>
     <div class="hidden name"><code>dashboardUser.Rd</code></div>
     </div>
 
@@ -124,12 +124,12 @@
     </div>
 
     <pre class="usage"><span class='fu'>dashboardUser</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>src</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>footer</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>...</span>,
+  name = <span class='kw'>NULL</span>,
+  src = <span class='kw'>NULL</span>,
+  title = <span class='kw'>NULL</span>,
+  subtitle = <span class='kw'>NULL</span>,
+  footer = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -167,46 +167,40 @@
 dynamically-generating <code>dashboardUser</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinyWidgets</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboardPlus</span>)
-
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/dreamRs/shinyWidgets'>shinyWidgets</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardPagePlus.html'>dashboardPagePlus</a></span>(
-    <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'><a href='dashboardHeaderPlus.html'>dashboardHeaderPlus</a></span>(
-      <span class='kw'>enable_rightsidebar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-      <span class='kw'>rightSidebarIcon</span> <span class='kw'>=</span> <span class='st'>"gears"</span>,
-      <span class='kw'>left_menu</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-      <span class='fu'><a href='userOutput.html'>userOutput</a></span>(<span class='st'>"user"</span>)
-    ),
-    <span class='kw'>sidebar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(),
-    <span class='kw'>rightsidebar</span> <span class='kw'>=</span> <span class='fu'><a href='rightSidebar.html'>rightSidebar</a></span>(),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"DashboardPage"</span>
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    header = <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(<span class='fu'><a href='userOutput.html'>userOutput</a></span>(<span class='st'>"user"</span>)),
+    sidebar = <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(),
+    title = <span class='st'>"DashboardPage"</span>
   ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
-   <span class='no'>output</span>$<span class='no'>user</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='renderUser.html'>renderUser</a></span>({
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
+   <span class='kw'>output</span><span class='op'>$</span><span class='kw'>user</span> <span class='op'>&lt;-</span> <span class='fu'><a href='renderUser.html'>renderUser</a></span>({
     <span class='fu'>dashboardUser</span>(
-       <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Divad Nojnarg"</span>,
-       <span class='kw'>src</span> <span class='kw'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>,
-       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"shinydashboardPlus"</span>,
-       <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Author"</span>,
-       <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>p</a></span>(<span class='st'>"The footer"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"text-center"</span>),
+       name = <span class='st'>"Divad Nojnarg"</span>, 
+       src = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>, 
+       title = <span class='st'>"shinydashboardPlus"</span>,
+       subtitle = <span class='st'>"Author"</span>, 
+       footer = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"The footer"</span>, class = <span class='st'>"text-center"</span>),
        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
         <span class='fu'><a href='dashboardUserItem.html'>dashboardUserItem</a></span>(
-         <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+         width = <span class='fl'>6</span>,
          <span class='fu'><a href='socialButton.html'>socialButton</a></span>(
-          <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"https://dropbox.com"</span>,
-          <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"dropbox"</span>
+          url = <span class='st'>"https://dropbox.com"</span>,
+          type = <span class='st'>"dropbox"</span>
          )
         ),
         <span class='fu'><a href='dashboardUserItem.html'>dashboardUserItem</a></span>(
-         <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+         width = <span class='fl'>6</span>,
          <span class='fu'><a href='socialButton.html'>socialButton</a></span>(
-          <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"https://github.com"</span>,
-          <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"github"</span>
+          url = <span class='st'>"https://github.com"</span>,
+          type = <span class='st'>"github"</span>
          )
         )
        )
@@ -214,7 +208,9 @@ dynamically-generating <code>dashboardUser</code>.</p></div>
    })
   }
  )
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -230,7 +226,7 @@ dynamically-generating <code>dashboardUser</code>.</p></div>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

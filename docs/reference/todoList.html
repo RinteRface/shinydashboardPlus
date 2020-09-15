@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
     <p>Create a todo list container</p>
     </div>
 
-    <pre class="usage"><span class='fu'>todoList</span>(<span class='no'>...</span>, <span class='kw'>sortable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>todoList</span>(<span class='kw'>...</span>, sortable = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -138,60 +138,67 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinyjqui</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/yang-tang/shinyjqui'>shinyjqui</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/box.html'>box</a></span>(
+     <span class='fu'><a href='box.html'>box</a></span>(
       <span class='st'>"Sortable todo list demo"</span>,
-      <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
+      status = <span class='st'>"warning"</span>,
       <span class='fu'>todoList</span>(
         <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
-          <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Design a nice theme"</span>,
+          label = <span class='st'>"Design a nice theme"</span>,
           <span class='st'>"Some text here"</span>
         ),
         <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
-          <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Make the theme responsive"</span>,
+          label = <span class='st'>"Make the theme responsive"</span>,
           <span class='st'>"Some text here"</span>
         ),
         <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
-          <span class='kw'>checked</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-          <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Let theme shine like a star"</span>
+          checked = <span class='fl'>TRUE</span>,
+          label = <span class='st'>"Let theme shine like a star"</span>
         )
        )
       ),
-      <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/box.html'>box</a></span>(
+      <span class='fu'><a href='box.html'>box</a></span>(
       <span class='st'>"Simple todo list demo"</span>,
-      <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
+      status = <span class='st'>"warning"</span>,
       <span class='fu'>todoList</span>(
-      <span class='kw'>sortable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+      sortable = <span class='fl'>FALSE</span>,
         <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
-          <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Design a nice theme"</span>,
+          label = <span class='st'>"Design a nice theme"</span>,
           <span class='st'>"Some text here"</span>
         ),
         <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
-          <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Make the theme responsive"</span>,
+          label = <span class='st'>"Make the theme responsive"</span>,
           <span class='st'>"Some text here"</span>
         ),
         <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
-          <span class='kw'>checked</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-          <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Let theme shine like a star"</span>
+          checked = <span class='fl'>TRUE</span>,
+          label = <span class='st'>"Let theme shine like a star"</span>
         )
        )
       )
     ),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Todo Lists"</span>
+    title = <span class='st'>"Todo Lists"</span>
   ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -207,7 +214,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

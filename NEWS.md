@@ -27,6 +27,8 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - Rework `productListItem()`: _productTitle_ becomes _title_, _productPrice_ becomes _subtitle_, _priceColor_ becomes _color_
 - In `timelineItem()`, `timelineStart()` and `timelineEnd()`, _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
 - In `userListItem()`, _user_name_ becomes _title_, _description_ becomes _subtitle_
+- `dropdownItemList()` becomes `boxDropdown()`. `dropdownItem()` becomes `boxDropdownItem()`
+- `userPostToolItemList()` becomes `userPostTagItems()`. `userPostToolItem()` becomes `userPostTagItem()`
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`

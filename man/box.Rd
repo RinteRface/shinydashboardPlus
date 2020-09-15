@@ -60,7 +60,7 @@ the user to collapse the box.}
 
 \item{label}{Slot for \link{boxLabel}.}
 
-\item{dropdownMenu}{List of items in the boxtool dropdown menu. Use \link{dropdownItemList}.}
+\item{dropdownMenu}{List of items in the boxtool dropdown menu. Use \link{boxDropdown}.}
 
 \item{sidebar}{Slot for \link{boxSidebar}.}
 
@@ -93,11 +93,11 @@ if (interactive()) {
          status = "danger",
          style = "circle"
         ),
-        dropdownMenu = dropdownItemList(
-         dropdownItem(url = "http://www.google.com", name = "Link to google"),
-         dropdownItem(url = "#", name = "item 2"),
-         dropdownDivider(),
-         dropdownItem(url = "#", name = "item 3")
+        dropdownMenu = boxDropdown(
+         boxDropdownItem(url = "http://www.google.com", name = "Link to google"),
+         boxDropdownItem(url = "#", name = "item 2"),
+         boxDropdownDivider(),
+         boxDropdownItem(url = "#", name = "item 3")
         ),
         sidebar = boxSidebar(
          startOpen = TRUE,

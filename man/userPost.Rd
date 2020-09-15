@@ -15,7 +15,7 @@ userPost(
 )
 }
 \arguments{
-\item{...}{post content, slot for userPostToolItemList.}
+\item{...}{post content, also \link{userPostTagItems}.}
 
 \item{id}{unique id of the post.}
 
@@ -56,9 +56,9 @@ if (interactive()) {
        its demise, but others ignore the hate as they create awesome 
        tools to help create filler text for everyone from bacon 
        lovers to Charlie Sheen fans.",
-       userPostToolItemList(
-        userPostToolItem(dashboardLabel("item 1")),
-        userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+       userPostTagItems(
+        userPostTagItem(dashboardLabel("item 1")),
+        userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
        )
       ),
       userPost(

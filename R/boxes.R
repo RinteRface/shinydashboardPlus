@@ -320,7 +320,7 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'   \code{collapsible=TRUE}.
 #' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
 #' @param label Slot for \link{boxLabel}.
-#' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{dropdownItemList}.
+#' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{boxDropdown}.
 #' @param sidebar Slot for \link{boxSidebar}.
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
@@ -350,11 +350,11 @@ widgetUserBox <- function(..., title = NULL, subtitle = NULL, type = NULL,
 #'          status = "danger",
 #'          style = "circle"
 #'         ),
-#'         dropdownMenu = dropdownItemList(
-#'          dropdownItem(url = "http://www.google.com", name = "Link to google"),
-#'          dropdownItem(url = "#", name = "item 2"),
-#'          dropdownDivider(),
-#'          dropdownItem(url = "#", name = "item 3")
+#'         dropdownMenu = boxDropdown(
+#'          boxDropdownItem(url = "http://www.google.com", name = "Link to google"),
+#'          boxDropdownItem(url = "#", name = "item 2"),
+#'          boxDropdownDivider(),
+#'          boxDropdownItem(url = "#", name = "item 3")
 #'         ),
 #'         sidebar = boxSidebar(
 #'          startOpen = TRUE,
@@ -729,11 +729,11 @@ updateBoxSidebar <- function(inputId, session = shiny::getDefaultReactiveDomain(
 #'
 #' Can be used to add dropdown items to a boxtool.
 #'
-#' @param ... Slot for dropdownItem.
+#' @param ... Slot for \link{boxDropdownItem}.
 #' @param icon Dropdown menu icon. Expect \code{\link[shiny]{icon}}.
 #'
 #' @export
-dropdownItemList <- function(..., icon = shiny::icon("wrench")) {
+boxDropdown <- function(..., icon = shiny::icon("wrench")) {
   contentTag <- shiny::tags$div(
     class = "dropdown-menu dropdown-menu-right",
     role = "menu",
@@ -764,7 +764,7 @@ dropdownItemList <- function(..., icon = shiny::icon("wrench")) {
 #' @param name Menu name.
 #'
 #' @export
-dropdownItem <- function(url = NULL, name = NULL) {
+boxDropdownItem <- function(url, name) {
   shiny::tags$li(
     shiny::tags$a(
       href = url,

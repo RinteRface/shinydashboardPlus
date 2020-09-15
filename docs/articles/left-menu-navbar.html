@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -76,7 +76,7 @@
       <h1 data-toc-skip>Left menu in the navbar</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-08-28</h4>
+            <h4 class="date">2020-09-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/left-menu-navbar.Rmd"><code>vignettes/left-menu-navbar.Rmd</code></a></small>
       <div class="hidden name"><code>left-menu-navbar.Rmd</code></div>
@@ -88,136 +88,134 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <strong>shinydashboardPlus</strong> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> function. All elements should be embbeded in a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">tagList()</a></code>, as shown below.</p>
+<p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <code>{shinydashboardPlus}</code> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code>dashboardHeaderPlus()</code> function. All elements should be embedded in a <code><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList()</a></code>, as shown below.</p>
 <video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/navbar-left-menu.mp4" type="video/mp4"></source></video><p><br></p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"> <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinyWidgets</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
- <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
-
+<div class="sourceCode" id="cb1"><pre class="downlit">
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
+ 
  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-   <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
-     <span class="kw">header</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
-       <span class="kw">enable_rightsidebar</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-       <span class="kw">rightSidebarIcon</span> <span class="kw">=</span> <span class="st">"gears"</span>,
-       <span class="kw">left_menu</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">tagList</a></span>(
+   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+     header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(
+       leftUi = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton</a></span>(
-           <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Controls"</span>,
-           <span class="kw">icon</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"sliders"</span>),
-           <span class="kw">status</span> <span class="kw">=</span> <span class="st">"primary"</span>,
-           <span class="kw">circle</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
+           label = <span class="st">"Controls"</span>,
+           icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"sliders"</span>),
+           status = <span class="st">"primary"</span>,
+           circle = <span class="fl">FALSE</span>,
            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
-             <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"n"</span>,
-             <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Number of observations"</span>,
-             <span class="kw">min</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">value</span> <span class="kw">=</span> <span class="fl">30</span>
+             inputId = <span class="st">"n"</span>,
+             label = <span class="st">"Number of observations"</span>,
+             min = <span class="fl">10</span>, max = <span class="fl">100</span>, value = <span class="fl">30</span>
            ),
            <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettyToggle.html">prettyToggle</a></span>(
-             <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"na"</span>,
-             <span class="kw">label_on</span> <span class="kw">=</span> <span class="st">"NAs kept"</span>,
-             <span class="kw">label_off</span> <span class="kw">=</span> <span class="st">"NAs removed"</span>,
-             <span class="kw">icon_on</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
-             <span class="kw">icon_off</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
+             inputId = <span class="st">"na"</span>,
+             label_on = <span class="st">"NAs kept"</span>,
+             label_off = <span class="st">"NAs removed"</span>,
+             icon_on = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
+             icon_off = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
            )
          ),
          <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
-           <span class="kw">type</span> <span class="kw">=</span> <span class="st">"messages"</span>,
-           <span class="kw">badgeStatus</span> <span class="kw">=</span> <span class="st">"success"</span>,
-           <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/messageItem.html">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of a message."</span>, <span class="kw">time</span> <span class="kw">=</span> <span class="st">"5 mins"</span>),
-           <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/messageItem.html">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of another message."</span>, <span class="kw">time</span> <span class="kw">=</span> <span class="st">"2 hours"</span>),
-           <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/messageItem.html">messageItem</a></span>(<span class="st">"New User"</span>, <span class="st">"Can I get some help?"</span>, <span class="kw">time</span> <span class="kw">=</span> <span class="st">"Today"</span>)
+           type = <span class="st">"messages"</span>, 
+           badgeStatus = <span class="st">"success"</span>,
+           <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/messageItem.html">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of a message."</span>, time = <span class="st">"5 mins"</span>),
+           <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/messageItem.html">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of another message."</span>, time = <span class="st">"2 hours"</span>),
+           <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/messageItem.html">messageItem</a></span>(<span class="st">"New User"</span>, <span class="st">"Can I get some help?"</span>, time = <span class="st">"Today"</span>)
          )
        ),
        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
-        <span class="kw">type</span> <span class="kw">=</span> <span class="st">"tasks"</span>,
-        <span class="kw">badgeStatus</span> <span class="kw">=</span> <span class="st">"danger"</span>,
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">20</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">40</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">60</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">80</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
+        type = <span class="st">"tasks"</span>, 
+        badgeStatus = <span class="st">"danger"</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">20</span>, color = <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">40</span>, color = <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">60</span>, color = <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">80</span>, color = <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
        )
      ),
-     <span class="kw">sidebar</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html">dashboardSidebar</a></span>(),
-     <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-       <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(<span class="kw">class</span> <span class="kw">=</span> <span class="st">"dropdown-menu"</span>)
+     sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
+     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+       <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(class = <span class="st">"dropdown-menu"</span>)
      ),
-     <span class="kw">rightsidebar</span> <span class="kw">=</span> <span class="fu"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),
-     <span class="kw">title</span> <span class="kw">=</span> <span class="st">"DashboardPage"</span>
+     title = <span class="st">"DashboardPage"</span>
    ),
-   <span class="kw">server</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) { }
- )</pre></body></html></div>
-<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <strong>shinydashboardPlus</strong> to change basic shiny elements.</p>
+   server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+ )
+</pre></div>
+<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <code>{shinydashboardPlus}</code> to change basic shiny elements.</p>
 </div>
 <div id="improved-dropdownmenu" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improved-dropdownmenu" class="anchor"></a>Improved <code>dropdownMenu()</code>
 </h2>
 <p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed input elements in a left navbar menu. It does not hide when the user click inside but only outside and is optimized to correctly render with mobiles (contrary to <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code>, see above).</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinyWidgets</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboard</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shinydashboardPlus</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
 
 <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  <span class="kw">ui</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(
-    <span class="kw">header</span> <span class="kw">=</span> <span class="fu"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(
-      <span class="kw">enable_rightsidebar</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-      <span class="kw">rightSidebarIcon</span> <span class="kw">=</span> <span class="st">"gears"</span>,
-      <span class="kw">left_menu</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">tagList</a></span>(
+  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+    header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(
+      leftUi = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
         <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
-          <span class="kw">id</span> <span class="kw">=</span> <span class="st">"mydropdown"</span>,
-          <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Dropdown 1"</span>,
-          <span class="kw">icon</span> <span class="kw">=</span> <span class="st">"sliders"</span>,
+          id = <span class="st">"mydropdown"</span>,
+          title = <span class="st">"Dropdown 1"</span>,
+          icon = <span class="st">"sliders"</span>,
           <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
-            <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"n"</span>,
-            <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Number of observations"</span>,
-            <span class="kw">min</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">max</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">value</span> <span class="kw">=</span> <span class="fl">30</span>
+            inputId = <span class="st">"n"</span>,
+            label = <span class="st">"Number of observations"</span>,
+            min = <span class="fl">10</span>, max = <span class="fl">100</span>, value = <span class="fl">30</span>
           ),
           <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettyToggle.html">prettyToggle</a></span>(
-            <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"na"</span>,
-            <span class="kw">label_on</span> <span class="kw">=</span> <span class="st">"NAs kept"</span>,
-            <span class="kw">label_off</span> <span class="kw">=</span> <span class="st">"NAs removed"</span>,
-            <span class="kw">icon_on</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
-            <span class="kw">icon_off</span> <span class="kw">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
+            inputId = <span class="st">"na"</span>,
+            label_on = <span class="st">"NAs kept"</span>,
+            label_off = <span class="st">"NAs removed"</span>,
+            icon_on = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
+            icon_off = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
           )
         ),
         <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
-          <span class="kw">id</span> <span class="kw">=</span> <span class="st">"mydropdown2"</span>,
-          <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Dropdown 2"</span>,
-          <span class="kw">icon</span> <span class="kw">=</span> <span class="st">"sliders"</span>,
+          id = <span class="st">"mydropdown2"</span>,
+          title = <span class="st">"Dropdown 2"</span>,
+          icon = <span class="st">"sliders"</span>,
           <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettySwitch.html">prettySwitch</a></span>(
-            <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"switch4"</span>,
-            <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Fill switch with status:"</span>,
-            <span class="kw">fill</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-            <span class="kw">status</span> <span class="kw">=</span> <span class="st">"primary"</span>
+            inputId = <span class="st">"switch4"</span>,
+            label = <span class="st">"Fill switch with status:"</span>,
+            fill = <span class="fl">TRUE</span>, 
+            status = <span class="st">"primary"</span>
           ),
           <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettyCheckboxGroup.html">prettyCheckboxGroup</a></span>(
-            <span class="kw">inputId</span> <span class="kw">=</span> <span class="st">"checkgroup2"</span>,
-            <span class="kw">label</span> <span class="kw">=</span> <span class="st">"Click me!"</span>,
-            <span class="kw">thick</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-            <span class="kw">choices</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span>),
-            <span class="kw">animation</span> <span class="kw">=</span> <span class="st">"pulse"</span>,
-            <span class="kw">status</span> <span class="kw">=</span> <span class="st">"info"</span>
+            inputId = <span class="st">"checkgroup2"</span>,
+            label = <span class="st">"Click me!"</span>, 
+            thick = <span class="fl">TRUE</span>,
+            choices = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span>),
+            animation = <span class="st">"pulse"</span>, 
+            status = <span class="st">"info"</span>
           )
         )
       ),
       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
-        <span class="kw">type</span> <span class="kw">=</span> <span class="st">"tasks"</span>,
-        <span class="kw">badgeStatus</span> <span class="kw">=</span> <span class="st">"danger"</span>,
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">20</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">40</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">60</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(<span class="kw">value</span> <span class="kw">=</span> <span class="fl">80</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
+        type = <span class="st">"tasks"</span>, 
+        badgeStatus = <span class="st">"danger"</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">20</span>, color = <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">40</span>, color = <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">60</span>, color = <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/taskItem.html">taskItem</a></span>(value = <span class="fl">80</span>, color = <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
       )
     ),
-    <span class="kw">sidebar</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(<span class="kw">class</span> <span class="kw">=</span> <span class="st">"dropdown-menu"</span>)
+    sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
+    body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+      <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(class = <span class="st">"dropdown-menu"</span>)
     ),
-    <span class="kw">rightsidebar</span> <span class="kw">=</span> <span class="fu"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),
-    <span class="kw">title</span> <span class="kw">=</span> <span class="st">"DashboardPage"</span>
+    title = <span class="st">"DashboardPage"</span>
   ),
-  <span class="kw">server</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) { }
-)</pre></body></html></div>
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+)
+</pre></div>
 </div>
   </div>
 
@@ -236,7 +234,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

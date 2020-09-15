@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
     <p>Create a container for nav elements</p>
     </div>
 
-    <pre class="usage"><span class='fu'>navPills</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>navPills</span>(<span class='kw'>...</span>, inputId = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,44 +132,60 @@
       <th>...</th>
       <td><p>slot for navPillsItem.</p></td>
     </tr>
+    <tr>
+      <th>inputId</th>
+      <td><p>Item unique id. Returns the R index of the currently selected item. 
+This is different from the JavaScript index.</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/box.html'>box</a></span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Nav Pills"</span>,
-      <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"info"</span>,
+     <span class='fu'><a href='box.html'>box</a></span>(
+      title = <span class='st'>"Nav Pills"</span>,
+      status = <span class='st'>"info"</span>,
       <span class='st'>"Box Body"</span>,
-      <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'>navPills</span>(
+      footer = <span class='fu'>navPills</span>(
+        inputId = <span class='st'>"pillItem"</span>,
         <span class='fu'><a href='navPillsItem.html'>navPillsItem</a></span>(
-          <span class='kw'>pillName</span> <span class='kw'>=</span> <span class='st'>"Item 1"</span>,
-          <span class='kw'>pillColor</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
-          <span class='kw'>pillIcon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-          <span class='kw'>pillText</span> <span class='kw'>=</span> <span class='fl'>10</span>
+          left = <span class='st'>"Item 1"</span>, 
+          color = <span class='st'>"green"</span>,
+          right = <span class='fl'>10</span>
         ),
         <span class='fu'><a href='navPillsItem.html'>navPillsItem</a></span>(
-          <span class='kw'>pillName</span> <span class='kw'>=</span> <span class='st'>"Item 2"</span>,
-          <span class='kw'>pillColor</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-          <span class='kw'>pillIcon</span> <span class='kw'>=</span> <span class='st'>"fa fa-angle-down"</span>,
-          <span class='kw'>pillText</span> <span class='kw'>=</span> <span class='st'>"10%"</span>,
-          <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+          left = <span class='st'>"Item 2"</span>, 
+          color = <span class='st'>"red"</span>,
+          icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"angle-down"</span>), 
+          right = <span class='st'>"10%"</span>,
+          active = <span class='fl'>TRUE</span>
         )
       )
      )
     ),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Nav Pills"</span>
+    title = <span class='st'>"Nav Pills"</span>
   ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>pillItem</span>, {
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"You clicked on pill N° %s"</span>, <span class='kw'>input</span><span class='op'>$</span><span class='kw'>pillItem</span>), type = <span class='st'>"message"</span>)
+   })
+  }
  )
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -185,7 +201,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

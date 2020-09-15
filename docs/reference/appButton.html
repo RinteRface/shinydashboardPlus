@@ -73,7 +73,7 @@ to the classic Shiny action button." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -125,7 +125,7 @@ to the classic Shiny action button." />
 to the classic Shiny action button.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>appButton</span>(<span class='no'>...</span>, <span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>appButton</span>(<span class='kw'>...</span>, <span class='kw'>inputId</span>, <span class='kw'>label</span>, icon = <span class='kw'>NULL</span>, width = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,38 +150,45 @@ you could also use any other HTML, like an image.</p></td>
     <tr>
       <th>width</th>
       <td><p>The width of the input, e.g. <code>'400px'</code>, or <code>'100%'</code>;
-see <code><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>validateCssUnit()</a></code>.</p></td>
+see <code><a href='https://rdrr.io/pkg/htmltools/man/validateCssUnit.html'>validateCssUnit()</a></code>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinydashboard</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardSidebar.html'>dashboardSidebar</a></span>(),
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/box.html'>box</a></span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"App Buttons"</span>,
-      <span class='kw'>status</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+     <span class='fu'><a href='box.html'>box</a></span>(
+      title = <span class='st'>"App Buttons"</span>,
+      status = <span class='kw'>NULL</span>,
       <span class='fu'>appButton</span>(
-        <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"myAppButton"</span>,
-        <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Users"</span>,
-        <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"users"</span>),
+        inputId = <span class='st'>"myAppButton"</span>,
+        label = <span class='st'>"Users"</span>, 
+        icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"users"</span>), 
         <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span>(<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"btnVal"</span>))
       )
      )
     ),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"App buttons"</span>
+    title = <span class='st'>"App buttons"</span>
   ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
-   <span class='no'>output</span>$<span class='no'>btnVal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderText.html'>renderText</a></span>(<span class='no'>input</span>$<span class='no'>myAppButton</span>)
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
+   <span class='kw'>output</span><span class='op'>$</span><span class='kw'>btnVal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderText.html'>renderText</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>myAppButton</span>)
   }
  )
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -197,7 +204,7 @@ see <code><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.ht
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

@@ -1425,7 +1425,7 @@ userListItem <- function(src = NULL, title = NULL, subtitle = NULL) {
 #'
 #' @description Create a user post
 #'
-#' @param ... post content, slot for userPostToolItemList.
+#' @param ... post content, also \link{userPostTagItems}.
 #' @param id unique id of the post.
 #' @param src profile image, if any.
 #' @param author post author.
@@ -1459,9 +1459,9 @@ userListItem <- function(src = NULL, title = NULL, subtitle = NULL) {
 #'        its demise, but others ignore the hate as they create awesome 
 #'        tools to help create filler text for everyone from bacon 
 #'        lovers to Charlie Sheen fans.",
-#'        userPostToolItemList(
-#'         userPostToolItem(dashboardLabel("item 1")),
-#'         userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
+#'        userPostTagItems(
+#'         userPostTagItem(dashboardLabel("item 1")),
+#'         userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
 #'        )
 #'       ),
 #'       userPost(
@@ -1534,12 +1534,12 @@ userPost <- function(..., id = NULL, src = NULL, author = NULL,
 #'
 #' @description Create a user post tool item container
 #'
-#' @param ... slot for userPostToolItem.
+#' @param ... slot for \link{userPostTagItem}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-userPostToolItemList <- function(...) {
+userPostTagItems <- function(...) {
   
   shiny::tags$ul(
     class = "list-inline",
@@ -1560,7 +1560,7 @@ userPostToolItemList <- function(...) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-userPostToolItem <- function(..., side = "left") {
+userPostTagItem <- function(..., side = "left") {
   
   cl <- if (side == "left") NULL else "pull-right"
   
