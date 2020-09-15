@@ -1470,7 +1470,7 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #'
 #' @param ... post content, also \link{userPostTagItems}.
 #' @param id unique id of the post.
-#' @param src profile image, if any.
+#' @param image profile image, if any.
 #' @param author post author.
 #' @param description post description.
 #' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the comment. 
@@ -1494,7 +1494,7 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #'       status = "primary",
 #'       userPost(
 #'        id = 1,
-#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'        image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
 #'        author = "Jonathan Burke Jr.",
 #'        description = "Shared publicly - 7:30 PM today",
 #'        "Lorem ipsum represents a long-held tradition for designers, 
@@ -1509,10 +1509,10 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #'       ),
 #'       userPost(
 #'        id = 2,
-#'        src = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
+#'        image = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
 #'        author = "Adam Jones",
 #'        description = "Shared publicly - 5 days ago",
-#'        userPostMedia(src = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
+#'        userPostMedia(image = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
 #'        userPostToolItemList(
 #'         userPostToolItem(dashboardLabel("item 1")),
 #'         userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
@@ -1527,11 +1527,13 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #' }
 #' 
 #' @export
-userPost <- function(..., id = NULL, src = NULL, author = NULL, 
+userPost <- function(..., id = NULL, image = NULL, author = NULL, 
                      description = NULL, collapsible = TRUE, 
                      collapsed = FALSE) {
   
   cl <- "collapse"
+  id <- paste0("post-", id)
+  
   if (!isTRUE(collapsed)) cl <- paste0(cl, " in")
   if (collapsed) collapsed <- "false" else collapsed <- "true"
   
@@ -1540,7 +1542,7 @@ userPost <- function(..., id = NULL, src = NULL, author = NULL,
     
     shiny::tags$div(
       class = "user-block",
-      shiny::img(class = "img-circle img-bordered-sm", src = src),
+      shiny::img(class = "img-circle img-bordered-sm", src = image),
       shiny::tags$span(
         class = "username", 
         author,
@@ -1619,18 +1621,18 @@ userPostTagItem <- function(..., side = "left") {
 #'
 #' @description Create a user post media (image)
 #'
-#' @param src image path or url ...
+#' @param image image path or url ...
 #' @param height media height in pixels.
 #' @param width media width in pixels.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
-userPostMedia <- function(src = NULL, height = NULL, width = NULL) {
+userPostMedia <- function(image = NULL, height = NULL, width = NULL) {
   shiny::img(
     style = "margin: auto;",
     class = "img-responsive", 
-    src = src,
+    src = image,
     height = height,
     width = width
   )

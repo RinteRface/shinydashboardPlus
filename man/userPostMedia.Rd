@@ -4,10 +4,10 @@
 \alias{userPostMedia}
 \title{AdminLTE2 user post media}
 \usage{
-userPostMedia(src = NULL, height = NULL, width = NULL)
+userPostMedia(image = NULL, height = NULL, width = NULL)
 }
 \arguments{
-\item{src}{image path or url ...}
+\item{image}{image path or url ...}
 
 \item{height}{media height in pixels.}
 

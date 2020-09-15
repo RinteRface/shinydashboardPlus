@@ -7,7 +7,7 @@
 userPost(
   ...,
   id = NULL,
-  src = NULL,
+  image = NULL,
   author = NULL,
   description = NULL,
   collapsible = TRUE,
@@ -19,7 +19,7 @@ userPost(
 
 \item{id}{unique id of the post.}
 
-\item{src}{profile image, if any.}
+\item{image}{profile image, if any.}
 
 \item{author}{post author.}
 
@@ -48,7 +48,7 @@ if (interactive()) {
       status = "primary",
       userPost(
        id = 1,
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
        author = "Jonathan Burke Jr.",
        description = "Shared publicly - 7:30 PM today",
        "Lorem ipsum represents a long-held tradition for designers, 
@@ -63,10 +63,10 @@ if (interactive()) {
       ),
       userPost(
        id = 2,
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
        author = "Adam Jones",
        description = "Shared publicly - 5 days ago",
-       userPostMedia(src = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
+       userPostMedia(image = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
        userPostToolItemList(
         userPostToolItem(dashboardLabel("item 1")),
         userPostToolItem(dashboardLabel("item 2", status = "danger"), side = "right")
