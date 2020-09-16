@@ -360,6 +360,123 @@ boxPad <- function(..., color = NULL, style = NULL) {
 
 
 
+#' AdminLTE2 carousel container
+#'
+#' \link{carousel} creates a carousel container to display media content.
+#' 
+#' @param ... Slot for \link{carouselItem}
+#' @param id Carousel id. Must be unique.
+#' @param indicators Whether to display left and right indicators.
+#' @param width Carousel width. 6 by default.
+#' @param .list Should you need to pass \link{carouselItem} via \link{lapply} or similar,
+#' put these item here instead of passing them in ...
+#' 
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(
+#'       carousel(
+#'        id = "mycarousel",
+#'        carouselItem(
+#'         caption = "Item 1",
+#'         tags$img(src = "https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
+#'        ),
+#'        carouselItem(
+#'         caption = "Item 2",
+#'         tags$img(src = "https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
+#'        )
+#'       )
+#'      ),
+#'      title = "Carousel"
+#'    ),
+#'    server = function(input, output) { }
+#'  )
+#' }
+#' @export
+#' @rdname carousel
+carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
+  
+  items <- c(list(...), .list)
+  indicatorsId <- paste0("#", id)
+  
+  items[[1]]$attribs$class <- "item active"
+  
+  carouselTag <- shiny::tags$div(
+    class = "carousel slide",
+    id = id,
+    `data-ride` = "carousel",
+    shiny::tags$ol(
+      class="carousel-indicators",
+      lapply(
+        seq_along(items), 
+        FUN = function(i) {
+          shiny::tags$li( 
+            `data-target` = indicatorsId,
+            `data-slide-to` = i - 1,
+            class = ""
+          )
+        }
+      )
+    ),
+    shiny::tags$div(class = "carousel-inner", items),
+    # display indicators if needed
+    if (indicators) {
+      shiny::tagList(
+        shiny::tags$a(
+          class = "left carousel-control",
+          href= indicatorsId,
+          `data-slide` = "prev",
+          shiny::tags$span(class="fa fa-angle-left")
+        ),
+        shiny::tags$a(
+          class = "right carousel-control",
+          href= indicatorsId,
+          `data-slide` = "next",
+          shiny::tags$span(class="fa fa-angle-right")
+        )
+      )
+    }
+  )
+  
+  shiny::column(width = width, carouselTag)
+  
+}
+
+
+
+
+#' AdminLTE2 carousel item
+#'
+#' \link{carouselItem} creates a carousel item.
+#' 
+#' @param ... Element such as images, iframe, ...
+#' @param caption Item caption.
+#' 
+#' @rdname carousel
+#'
+#' @export
+carouselItem <- function(..., caption = NULL) {
+  shiny::tags$div(
+    class = "item",
+    ...,
+    if (!is.null(caption)) {
+      shiny::tags$div(class = "carousel-caption", caption)
+    }
+  )
+}
+
+
+
+
 #' @title AdminLTE2 social button
 #'
 #' @description Create a social button
@@ -1008,6 +1125,124 @@ productListItem <- function(..., image = NULL, title = NULL,
     )
   )
 }
+
+
+
+
+#' AdminLTE2 vertical progress bar
+#'
+#' This creates a vertical progress bar.
+#' 
+#' @param value Progress bar value. Must be between min and max.
+#' @param min Progress bar minimum value (0 by default).
+#' @param max Progress bar maximum value (100 by default).
+#' @param vertical Progress vertical layout. Default to FALSE
+#' @param striped Whether the progress is striped or not. FALSE by default. 
+#' @param animated  Whether the progress is active or not. FALSE by default.
+#' Works only if striped is TRUE.
+#' @param status Progress bar status. "primary" by default or "warning", "info",
+#' "danger" or "success".
+#' Valid statuses are defined as follows:
+#' \itemize{
+#'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+#'   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+#'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+#'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+#'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+#' }
+#' @param size Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.
+#' 
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPage(
+#'      header = dashboardHeader(),
+#'      sidebar = dashboardSidebar(),
+#'      body = dashboardBody(
+#'       box(
+#'        title = "Horizontal",
+#'        progressBar(
+#'         value = 10,
+#'         striped = TRUE,
+#'         animated = TRUE
+#'        ),
+#'        progressBar(
+#'         value = 50,
+#'         status = "warning",
+#'         size = "xs"
+#'        ),
+#'        progressBar(
+#'         value = 20,
+#'         status = "danger",
+#'         size = "sm"
+#'        )
+#'       ),
+#'       box(
+#'        title = "Vertical",
+#'        progressBar(
+#'         value = 10,
+#'         striped = TRUE,
+#'         animated = TRUE,
+#'         vertical = TRUE
+#'        ),
+#'        progressBar(
+#'         value = 50,
+#'         status = "warning",
+#'         size = "xs",
+#'         vertical = TRUE
+#'        ),
+#'        progressBar(
+#'         value = 20,
+#'         status = "danger",
+#'         size = "sm",
+#'         vertical = TRUE
+#'        )
+#'       )
+#'      ),
+#'      title = "Progress bars"
+#'    ),
+#'    server = function(input, output) { }
+#'  )
+#' }
+#' @export
+progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = FALSE, 
+                        animated = FALSE, status = "primary", size = NULL) {
+  
+  if (!is.null(status)) validateStatus(status)
+  stopifnot(value >= min)
+  stopifnot(value <= max)
+  
+  progressCl <- if (isTRUE(vertical)) "progress vertical" else "progress mb-3"
+  if (animated) progressCl <- paste0(progressCl, " active")
+  if (!is.null(size)) progressCl <- paste0(progressCl, " progress-", size)
+  
+  barCl <- "progress-bar"
+  if (striped) barCl <- paste0(barCl, " progress-bar-striped")
+  if (!is.null(status)) barCl <- paste0(barCl, " progress-bar-", status)
+  
+  shiny::tags$div(
+    class = progressCl,
+    shiny::tags$div(
+      `aria-valuemax` = max,
+      `aria-valuemin` = min,
+      `aria-valuenow` = value,
+      class = barCl,
+      style = if (vertical) {
+        paste0("height: ", paste0(value, "%"))
+      } else {
+        paste0("width: ", paste0(value, "%"))
+      },
+      shiny::tags$span(class = "sr-only", value)
+    )
+  )
+}
+
 
 
 
@@ -1826,19 +2061,15 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 
 
 
-#' AdminLTE2 vertical progress bar
+
+
+#' AdminLTE2 user message container
 #'
-#' This creates a vertical progress bar.
-#' 
-#' @param value Progress bar value. Must be between min and max.
-#' @param min Progress bar minimum value (0 by default).
-#' @param max Progress bar maximum value (100 by default).
-#' @param vertical Progress vertical layout. Default to FALSE
-#' @param striped Whether the progress is striped or not. FALSE by default. 
-#' @param animated  Whether the progress is active or not. FALSE by default.
-#' Works only if striped is TRUE.
-#' @param status Progress bar status. "primary" by default or "warning", "info",
-#' "danger" or "success".
+#' Create a user message container. Maybe inserted in a \link{box}
+#'
+#' @param ... Slot for \link{userMessage}.
+#' @param status Messages status. See here for a list of valid colors 
+#' \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' Valid statuses are defined as follows:
 #' \itemize{
 #'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
@@ -1847,230 +2078,12 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
 #'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
 #' }
-#' @param size Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.
-#' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  library(shinydashboardPlus)
-#'  
-#'  shinyApp(
-#'    ui = dashboardPage(
-#'      header = dashboardHeader(),
-#'      sidebar = dashboardSidebar(),
-#'      body = dashboardBody(
-#'       box(
-#'        title = "Horizontal",
-#'        progressBar(
-#'         value = 10,
-#'         striped = TRUE,
-#'         animated = TRUE
-#'        ),
-#'        progressBar(
-#'         value = 50,
-#'         status = "warning",
-#'         size = "xs"
-#'        ),
-#'        progressBar(
-#'         value = 20,
-#'         status = "danger",
-#'         size = "sm"
-#'        )
-#'       ),
-#'       box(
-#'        title = "Vertical",
-#'        progressBar(
-#'         value = 10,
-#'         striped = TRUE,
-#'         animated = TRUE,
-#'         vertical = TRUE
-#'        ),
-#'        progressBar(
-#'         value = 50,
-#'         status = "warning",
-#'         size = "xs",
-#'         vertical = TRUE
-#'        ),
-#'        progressBar(
-#'         value = 20,
-#'         status = "danger",
-#'         size = "sm",
-#'         vertical = TRUE
-#'        )
-#'       )
-#'      ),
-#'      title = "Progress bars"
-#'    ),
-#'    server = function(input, output) { }
-#'  )
-#' }
-#' @export
-progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = FALSE, 
-                        animated = FALSE, status = "primary", size = NULL) {
-  
-  if (!is.null(status)) validateStatus(status)
-  stopifnot(value >= min)
-  stopifnot(value <= max)
-  
-  progressCl <- if (isTRUE(vertical)) "progress vertical" else "progress mb-3"
-  if (animated) progressCl <- paste0(progressCl, " active")
-  if (!is.null(size)) progressCl <- paste0(progressCl, " progress-", size)
-  
-  barCl <- "progress-bar"
-  if (striped) barCl <- paste0(barCl, " progress-bar-striped")
-  if (!is.null(status)) barCl <- paste0(barCl, " progress-bar-", status)
-  
-  shiny::tags$div(
-    class = progressCl,
-    shiny::tags$div(
-      `aria-valuemax` = max,
-      `aria-valuemin` = min,
-      `aria-valuenow` = value,
-      class = barCl,
-      style = if (vertical) {
-        paste0("height: ", paste0(value, "%"))
-      } else {
-        paste0("width: ", paste0(value, "%"))
-      },
-      shiny::tags$span(class = "sr-only", value)
-    )
-  )
-}
-
-
-
-
-
-#' AdminLTE2 carousel container
-#'
-#' This creates a carousel
-#' 
-#' @param ... Slot for \link{carouselItem}
-#' @param id Carousel id. Must be unique.
-#' @param indicators Whether to display left and right indicators.
-#' @param width Carousel width. 6 by default.
-#' @param .list Should you need to pass \link{carouselItem} via \link{lapply} or similar,
-#' put these item here instead of passing them in ...
-#' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  library(shinydashboardPlus)
-#'  
-#'  shinyApp(
-#'    ui = dashboardPage(
-#'      header = dashboardHeader(),
-#'      sidebar = dashboardSidebar(),
-#'      body = dashboardBody(
-#'       carousel(
-#'        id = "mycarousel",
-#'        carouselItem(
-#'         caption = "Item 1",
-#'         tags$img(src = "https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap")
-#'        ),
-#'        carouselItem(
-#'         caption = "Item 2",
-#'         tags$img(src = "https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap")
-#'        )
-#'       )
-#'      ),
-#'      title = "Right Sidebar"
-#'    ),
-#'    server = function(input, output) { }
-#'  )
-#' }
-#' @export
-carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
-  
-  items <- c(list(...), .list)
-  indicatorsId <- paste0("#", id)
-  
-  items[[1]]$attribs$class <- "item active"
-  
-  carouselTag <- shiny::tags$div(
-    class = "carousel slide",
-    id = id,
-    `data-ride` = "carousel",
-    shiny::tags$ol(
-      class="carousel-indicators",
-      lapply(
-        seq_along(items), 
-        FUN = function(i) {
-          shiny::tags$li( 
-            `data-target` = indicatorsId,
-            `data-slide-to` = i - 1,
-            class = ""
-          )
-        }
-      )
-    ),
-    shiny::tags$div(class = "carousel-inner", items),
-    # display indicators if needed
-    if (indicators) {
-      shiny::tagList(
-        shiny::tags$a(
-          class = "left carousel-control",
-          href= indicatorsId,
-          `data-slide` = "prev",
-          shiny::tags$span(class="fa fa-angle-left")
-        ),
-        shiny::tags$a(
-          class = "right carousel-control",
-          href= indicatorsId,
-          `data-slide` = "next",
-          shiny::tags$span(class="fa fa-angle-right")
-        )
-      )
-    }
-  )
-  
-  shiny::column(width = width, carouselTag)
-  
-}
-
-
-
-
-#' AdminLTE2 carousel item
-#'
-#' This creates a carousel item
-#' 
-#' @param ... Element such as images, iframe, ...
-#' @param caption Item caption.
-#' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @export
-carouselItem <- function(..., caption = "") {
-  shiny::tags$div(
-    class = "item",
-    ...,
-    shiny::tags$div(class = "carousel-caption", caption)
-  )
-}
-
-
-
-
-
-#' @title AdminLTE2 user message container
-#'
-#' @description Create a user message container
-#'
-#' @param ... Slot for \link{userMessage}.
-#' @param status Messages status. See here for a list of valid colors 
-#' \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' @param width Container width: between 1 and 12.
 #' 
 #' @note Better to include in a \link{box}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userMessage
 #'
 #' @examples
 #' if (interactive()) {
@@ -2147,9 +2160,9 @@ userMessages <- function(..., status, width = 4) {
   
 }
 
-#' @title AdminLTE2 user message 
+#' AdminLTE2 user message 
 #'
-#' @description Create a user message
+#' \link{userMessage} creates a user message html element.
 #'
 #' @param ... Message text.
 #' @param author Message author.
@@ -2157,7 +2170,7 @@ userMessages <- function(..., status, width = 4) {
 #' @param image Message author image path or url.
 #' @param type Message type: \code{c("sent", "received")}.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userMessage
 #'
 #' @export
 userMessage <- function(..., author, date = NULL, 

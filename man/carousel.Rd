@@ -2,12 +2,15 @@
 % Please edit documentation in R/useful-items.R
 \name{carousel}
 \alias{carousel}
+\alias{carouselItem}
 \title{AdminLTE2 carousel container}
 \usage{
 carousel(..., id, indicators = TRUE, width = 6, .list = NULL)
+
+carouselItem(..., caption = NULL)
 }
 \arguments{
-\item{...}{Slot for \link{carouselItem}}
+\item{...}{Element such as images, iframe, ...}
 
 \item{id}{Carousel id. Must be unique.}
 
@@ -17,9 +20,13 @@ carousel(..., id, indicators = TRUE, width = 6, .list = NULL)
 
 \item{.list}{Should you need to pass \link{carouselItem} via \link{lapply} or similar,
 put these item here instead of passing them in ...}
+
+\item{caption}{Item caption.}
 }
 \description{
-This creates a carousel
+\link{carousel} creates a carousel container to display media content.
+
+\link{carouselItem} creates a carousel item.
 }
 \examples{
 if (interactive()) {
@@ -44,7 +51,7 @@ if (interactive()) {
        )
       )
      ),
-     title = "Right Sidebar"
+     title = "Carousel"
    ),
    server = function(input, output) { }
  )
