@@ -1,12 +1,13 @@
-#' @title AdminLTE2 accordion container
+#' AdminLTE2 accordion container
 #'
-#' @description Create an accordion container
+#' Create an accordion container. Accordions are part of collapsible elements.
 #'
 #' @param ... slot for \link{accordionItem}.
 #' @param id Unique accordion id.
 #' @param width The width of the accordion.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname accordion
 #'
 #' @examples
 #' if (interactive()) {
@@ -82,16 +83,25 @@ accordion <- function(..., id = NULL, width = 12) {
 }
 
 
-#' @title AdminLTE2 accordion item
+#' AdminLTE2 accordion item
 #'
-#' @description Create an accordion item to put inside an accordion container
+#' \link{accordionItem} creates an accordion item to put inside an \link{accordion} container.
 #'
 #' @param ... text to write in the item.
 #' @param title item title.
 #' @param status item status.
+#' Valid statuses are defined as follows:
+#' \itemize{
+#'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+#'   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+#'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+#'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+#'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+#' }
 #' @param collapsed Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname accordion
 #'
 #' @export
 accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
@@ -137,9 +147,10 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 
 
 
-#' @title AdminLTE2 attachment container
+#' AdminLTE2 attachment container
 #'
-#' @description Create an attachment container, nice to wrap articles...
+#' \link{attachmentBlock} create an attachment container, nice to wrap articles...
+#' and insert in a \link{box}.
 #'
 #' @param ... any element.
 #' @param image url or path to the image.
@@ -149,6 +160,8 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @examples
+#' 
+#' # Box with attachmentBlock
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -176,6 +189,7 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #' }
 #'
 #' @export
+#' @rdname box
 
 attachmentBlock <- function(..., image, title = NULL, href = NULL) {
   shiny::tags$div(

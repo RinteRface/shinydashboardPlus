@@ -2,19 +2,38 @@
 % Please edit documentation in R/useful-items.R
 \name{accordion}
 \alias{accordion}
+\alias{accordionItem}
 \title{AdminLTE2 accordion container}
 \usage{
 accordion(..., id = NULL, width = 12)
+
+accordionItem(..., title, status = NULL, collapsed = TRUE)
 }
 \arguments{
-\item{...}{slot for \link{accordionItem}.}
+\item{...}{text to write in the item.}
 
 \item{id}{Unique accordion id.}
 
 \item{width}{The width of the accordion.}
+
+\item{title}{item title.}
+
+\item{status}{item status.
+Valid statuses are defined as follows:
+\itemize{
+  \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+  \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+  \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+  \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+  \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+}}
+
+\item{collapsed}{Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.}
 }
 \description{
-Create an accordion container
+Create an accordion container. Accordions are part of collapsible elements.
+
+\link{accordionItem} creates an accordion item to put inside an \link{accordion} container.
 }
 \examples{
 if (interactive()) {
@@ -66,5 +85,7 @@ if (interactive()) {
 
 }
 \author{
+David Granjon, \email{dgranjon@ymail.com}
+
 David Granjon, \email{dgranjon@ymail.com}
 }
