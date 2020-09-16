@@ -8,6 +8,13 @@
 
 <title>Create a box for the main body of a dashboard — box • shinydashboardPlus</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -38,6 +45,8 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Create a box for the main body of a dashboard — box" />
 <meta property="og:description" content="box can be used to hold content in the main body of a dashboard.
@@ -50,6 +59,7 @@ boxPad creates a vertical container for descriptionBlock.
 It has to be included in a box.
 descriptionBlock creates a description block, perfect for writing statistics 
 to insert in a box" />
+<meta property="og:image" content="/logo.svg" />
 
 
 
@@ -99,8 +109,37 @@ to insert in a box" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/controlbar.html">Using the rightSidebar</a>
+    </li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
+    <li>
+      <a href="../articles/box-elements.html">Box Elements</a>
+    </li>
+    <li>
+      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
+    </li>
+    <li>
+      <a href="../articles/box-sidebar.html">Sidebar in boxes?</a>
+    </li>
+    <li>
+      <a href="../articles/css-preloader.html">CSS preloaders</a>
+    </li>
+    <li>
+      <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>

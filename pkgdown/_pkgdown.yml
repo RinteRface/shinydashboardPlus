@@ -138,10 +138,10 @@ navbar:
       
       
 articles:
-- title: All vignettes
+- title: User guide
   desc: ~
+  navbar: User Guide
   contents:
-  - '`shinydashboardPlus`'
   - '`controlbar`'
   - '`improved-boxes`'
   - '`box-elements`'

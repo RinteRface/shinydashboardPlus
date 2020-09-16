@@ -3,7 +3,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^cran-comments\.md$
-^_pkgdown\.yml$
+^pkgdown$
 ^docs$
 ^\.vscode$
 ^\.github$

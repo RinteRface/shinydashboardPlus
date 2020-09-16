@@ -1,5 +1,7 @@
 ---
 title: "shinydashboardPlus"
+author: "David Granjon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{shinydashboardPlus}
@@ -15,5 +17,85 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(shiny)
+library(shinydashboard)
 library(shinydashboardPlus)
+library(fresh)
+```
+
+## Introduction
+
+`{shinydashboardPlus}` relies on the same basis as `{shinydashboard}`, that is the AdminLTE HTML [template](https://adminlte.io/themes/AdminLTE/index2.html). It provides extra elements that will help you to develop Shiny apps with a more professional look and feel. Below is a summary of the main features.
+
+|  Features  |      shinydashboard      |  shinydashboardPlus |
+|----------|:-------------:|------:|
+| right sidebar (controlbar) |    ❌   |  ✅ |
+| semi collapsible sidebar (sidebar mini) |    ❌   |  ✅ |
+| expand on hover sidebar |    ❌   |  ✅ |
+| closable boxes | ❌ |   ✅|
+| box sidebar | ❌ |   ✅|
+| get box state on the server (open, closed, ...) | ❌ |   ✅|
+| control sidebar on the server | ❌ |   ✅|
+| theme selector | ❌ |   ✅|
+| social box | ❌ |   ✅|
+| user box | ❌ |   ✅|
+| control AdminLTE options | ❌ |   ✅|
+| seamlessly customize appearance | ❌ |   ✅|
+
+
+Since the 2.0.0 release, `{shinydashboardPlus}` overwrites most of the `{shinydashboard}` functions such as `dashboardPage()` and `box()` to facilitate the transition from one package to another.
+
+## What changes in v2.0.0 ?
+
+### Breaking changes 
+v2.0.0 is clearly a __major breaking change__ for `{shinydashboardPlus}`. It means that coming
+from v0.7.5 (latest CRAN version to date), you will have to rewrite most of the code.
+It was not an easy decision to take but necessary to improve the package quality (naming consistency, ...). Now the transition from `{shinydashboard}` to `{shinydashboardPlus}` will be easier since function parameters have been harmonized. The old `rightSidebar()` component becomes the `dashboardControlbar()` to ease the transition from `{shinydashboardPlus}` to `{bs4Dash}`, the latter being the Bootstrap 4 [version](https://github.com/RinteRface/bs4Dash) with a more modern look and feel. 
+
+### More checks
+Under the hood, functions are safer and more controls are done on the user inputs to reduce the risk of accidentally providing wrong values. 
+
+### New features
+The most exiting features of 2.0.0 are probably the ability to leverage the awesome `{fresh}` package (see [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details) through the `dashboardPage()` _freshTheme_ parameter. Additionally, the `skinSelector()` allows to dynamically change the dashboard skin on the client side. There are also more `update_` functions to programmatically control elements from the server. Now the `dashboardSidebar()` may be collapsed, so it the `dashboardControlbar()`. The `dashboardPage()` _options_ parameter is an easy way to fine tune the AdminLTE behavior (see [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
+list of available options). Finally, the `box()` component has been reworked to reduce the number of parameters and include new sub-components like the `boxSidebar()` that may be programmatically collapsed, or the `boxLabel()`. `box()` has an input binding indicating its current state on the server side, to perform specific tasks.
+
+
+## Basic Example
+Below is a simple app you may build with `{shinydashboardPlus}`. We created a custom theme allowing to modify AdminLTE CSS variables on the fly with `{fresh}` and explicitly configured the
+sidebar to expand on hover, through the options parameters.
+
+```{r, eval=FALSE}
+shinyApp(
+   ui = dashboardPage(
+     options = list(sidebarExpandOnHover = TRUE),
+     freshTheme = create_theme(
+      adminlte_color(
+        light_blue = "#0051ff",
+        blue = "#2011a2",
+        navy = "#201148",
+        red = "#ff34b3"
+      ),
+      adminlte_sidebar(
+        dark_bg = "#D8DEE9",
+        dark_hover_bg = "#81A1C1",
+        dark_color = "#2E3440"
+      ),
+      adminlte_global(
+        content_bg = "#FFF",
+        box_bg = "#D8DEE9", 
+        info_box_bg = "#D8DEE9"
+      )
+     ),
+     header = dashboardHeader(),
+     sidebar = dashboardSidebar(minified = TRUE, collapsed = TRUE),
+     body = dashboardBody(
+      box(background = "red"),
+      box(background = "blue"),
+      box(background = "navy")
+     ),
+     controlbar = dashboardControlbar(),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+ )
 ```
