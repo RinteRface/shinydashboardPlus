@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="AdminLTE2 social box — socialBox" />
-<meta property="og:description" content="Create social box" />
+<meta property="og:description" content="socialBox creates a special box dedicated for social content.
+boxComment has to be inserted in the comment slot of socialBox." />
 
 
 
@@ -123,7 +124,8 @@
     </div>
 
     <div class="ref-description">
-    <p>Create social box</p>
+    <p>socialBox creates a special box dedicated for social content.</p>
+<p>boxComment has to be inserted in the comment slot of socialBox.</p>
     </div>
 
     <pre class="usage"><span class='fu'>socialBox</span>(
@@ -138,22 +140,24 @@
   collapsible = <span class='fl'>TRUE</span>,
   closable = <span class='fl'>FALSE</span>,
   footerPadding = <span class='fl'>TRUE</span>
-)</pre>
+)
+
+<span class='fu'>boxComment</span>(<span class='kw'>...</span>, <span class='kw'>image</span>, <span class='kw'>title</span>, date = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>body content. May include <a href='attachmentBlock.html'>attachmentBlock</a> for instance.</p></td>
+      <td><p>comment content.</p></td>
     </tr>
     <tr>
       <th>image</th>
-      <td><p>header image, if any.</p></td>
+      <td><p>author image, if any.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>box title.</p></td>
+      <td><p>comment title.</p></td>
     </tr>
     <tr>
       <th>subtitle</th>
@@ -161,7 +165,7 @@
     </tr>
     <tr>
       <th>comments</th>
-      <td><p>slot for <a href='boxComment.html'>boxComment</a>.</p></td>
+      <td><p>slot for boxComment.</p></td>
     </tr>
     <tr>
       <th>footer</th>
@@ -186,6 +190,10 @@
     <tr>
       <th>footerPadding</th>
       <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+    </tr>
+    <tr>
+      <th>date</th>
+      <td><p>date of publication.</p></td>
     </tr>
     </table>
 
@@ -217,7 +225,7 @@
       ),
       comments = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
        <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(X = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN = <span class='fu'>function</span>(<span class='kw'>i</span>) {
-        <span class='fu'><a href='boxComment.html'>boxComment</a></span>(
+        <span class='fu'>boxComment</span>(
           image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
           title = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Comment"</span>, <span class='kw'>i</span>),
           date = <span class='st'>"01.05.2018"</span>,

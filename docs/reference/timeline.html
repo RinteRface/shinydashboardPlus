@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AdminLTE2 starBlock — starBlock • shinydashboardPlus</title>
+<title>AdminLTE2 timeline block — timelineBlock • shinydashboardPlus</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,14 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 starBlock — starBlock" />
-<meta property="og:description" content="Create a starBlock item (ideal for rating)" />
+<meta property="og:title" content="AdminLTE2 timeline block — timelineBlock" />
+<meta property="og:description" content="Create a timeline block that may be inserted in a box or outside.
+timelineLabel creates a timeline label element to highlight an event.
+timelineItem creates a timeline item that contains informations for a 
+given event like the title, description, date, ...
+timelineItemMedia create a specific container for images.
+timelineStart indicates a starting point.
+timelineEnd indicates an end point." />
 
 
 
@@ -117,31 +123,55 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>AdminLTE2 starBlock</h1>
+    <h1>AdminLTE2 timeline block</h1>
     <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/useful-items.R'><code>R/useful-items.R</code></a></small>
-    <div class="hidden name"><code>starBlock.Rd</code></div>
+    <div class="hidden name"><code>timeline.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a starBlock item (ideal for rating)</p>
+    <p>Create a timeline block that may be inserted in a <a href='box.html'>box</a> or outside.</p>
+<p>timelineLabel creates a timeline label element to highlight an event.</p>
+<p>timelineItem creates a timeline item that contains informations for a 
+given event like the title, description, date, ...</p>
+<p>timelineItemMedia create a specific container for images.</p>
+<p>timelineStart indicates a starting point.</p>
+<p>timelineEnd indicates an end point.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>starBlock</span>(maxstar = <span class='fl'>5</span>, <span class='kw'>grade</span>, color = <span class='st'>"yellow"</span>)</pre>
+    <pre class="usage"><span class='fu'>timelineBlock</span>(<span class='kw'>...</span>, reversed = <span class='fl'>TRUE</span>)
+
+<span class='fu'>timelineLabel</span>(<span class='kw'>...</span>, color = <span class='kw'>NULL</span>)
+
+<span class='fu'>timelineItem</span>(
+  <span class='kw'>...</span>,
+  icon = <span class='kw'>NULL</span>,
+  color = <span class='kw'>NULL</span>,
+  time = <span class='kw'>NULL</span>,
+  title = <span class='kw'>NULL</span>,
+  border = <span class='fl'>TRUE</span>,
+  footer = <span class='kw'>NULL</span>
+)
+
+<span class='fu'>timelineItemMedia</span>(image = <span class='kw'>NULL</span>, height = <span class='kw'>NULL</span>, width = <span class='kw'>NULL</span>)
+
+<span class='fu'>timelineStart</span>(icon = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"clock-o"</span>), color = <span class='kw'>NULL</span>)
+
+<span class='fu'>timelineEnd</span>(icon = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"hourglass-end"</span>), color = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>maxstar</th>
-      <td><p>Maximum number of stars by block.</p></td>
+      <th>...</th>
+      <td><p>any element.</p></td>
     </tr>
     <tr>
-      <th>grade</th>
-      <td><p>Current score. Should be positive and lower or equal to maxstar.</p></td>
+      <th>reversed</th>
+      <td><p>Whether the timeline is reversed or not.</p></td>
     </tr>
     <tr>
       <th>color</th>
-      <td><p>Star color: see <code><a href='validColors.html'>validColors()</a></code> in the documentation.
+      <td><p>item color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
 See below:</p><ul>
 <li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
 .</p></li>
@@ -177,6 +207,38 @@ See below:</p><ul>
 .</p></li>
 </ul></td>
     </tr>
+    <tr>
+      <th>icon</th>
+      <td><p>item icon. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>time</th>
+      <td><p>item date or time.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>item title.</p></td>
+    </tr>
+    <tr>
+      <th>border</th>
+      <td><p>Whether to display a border between the header and the body. TRUE by default.</p></td>
+    </tr>
+    <tr>
+      <th>footer</th>
+      <td><p>item footer if any.</p></td>
+    </tr>
+    <tr>
+      <th>image</th>
+      <td><p>media url or path.</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>media height in pixels.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>media width in pixels.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
@@ -194,15 +256,69 @@ See below:</p><ul>
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h3</a></span>(<span class='st'>"When Reversed = TRUE, can be displayed inside a box"</span>),
      <span class='fu'><a href='box.html'>box</a></span>(
-      title = <span class='st'>"Star example"</span>,
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>5</span>),
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>5</span>, color = <span class='st'>"olive"</span>),
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>1</span>, color = <span class='st'>"maroon"</span>),
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>3</span>, color = <span class='st'>"teal"</span>)
+      title = <span class='st'>"Timeline"</span>,
+      status = <span class='st'>"info"</span>,
+      <span class='fu'>timelineBlock</span>(
+       <span class='fu'>timelineEnd</span>(color = <span class='st'>"danger"</span>),
+       <span class='fu'>timelineLabel</span>(<span class='fl'>2018</span>, color = <span class='st'>"teal"</span>),
+       <span class='fu'>timelineItem</span>(
+        title = <span class='st'>"Item 1"</span>,
+        icon = <span class='st'>"gears"</span>,
+        color = <span class='st'>"olive"</span>,
+        time = <span class='st'>"now"</span>,
+        footer = <span class='st'>"Here is the footer"</span>,
+        <span class='st'>"This is the body"</span>
+       ),
+       <span class='fu'>timelineItem</span>(
+        title = <span class='st'>"Item 2"</span>,
+        border = <span class='fl'>FALSE</span>
+       ),
+       <span class='fu'>timelineLabel</span>(<span class='fl'>2015</span>, color = <span class='st'>"orange"</span>),
+       <span class='fu'>timelineItem</span>(
+        title = <span class='st'>"Item 3"</span>,
+        icon = <span class='st'>"paint-brush"</span>,
+        color = <span class='st'>"maroon"</span>,
+        <span class='fu'>timelineItemMedia</span>(image = <span class='st'>"https://placehold.it/150x100"</span>),
+        <span class='fu'>timelineItemMedia</span>(image = <span class='st'>"https://placehold.it/150x100"</span>)
+       ),
+       <span class='fu'>timelineStart</span>(color = <span class='st'>"gray"</span>)
+      )
+     ),
+     
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+      width = <span class='fl'>6</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h3</a></span>(<span class='st'>"When Reversed = FALSE, can be displayed out of a box"</span>),
+      <span class='fu'>timelineBlock</span>(
+       reversed = <span class='fl'>FALSE</span>,
+       <span class='fu'>timelineEnd</span>(color = <span class='st'>"danger"</span>),
+       <span class='fu'>timelineLabel</span>(<span class='fl'>2018</span>, color = <span class='st'>"teal"</span>),
+       <span class='fu'>timelineItem</span>(
+        title = <span class='st'>"Item 1"</span>,
+        icon = <span class='st'>"gears"</span>,
+        color = <span class='st'>"olive"</span>,
+        time = <span class='st'>"now"</span>,
+        footer = <span class='st'>"Here is the footer"</span>,
+        <span class='st'>"This is the body"</span>
+       ),
+       <span class='fu'>timelineItem</span>(
+        title = <span class='st'>"Item 2"</span>,
+        border = <span class='fl'>FALSE</span>
+       ),
+       <span class='fu'>timelineLabel</span>(<span class='fl'>2015</span>, color = <span class='st'>"orange"</span>),
+       <span class='fu'>timelineItem</span>(
+        title = <span class='st'>"Item 3"</span>,
+        icon = <span class='st'>"paint-brush"</span>,
+        color = <span class='st'>"maroon"</span>,
+        <span class='fu'>timelineItemMedia</span>(image = <span class='st'>"https://placehold.it/150x100"</span>),
+        <span class='fu'>timelineItemMedia</span>(image = <span class='st'>"https://placehold.it/150x100"</span>)
+       ),
+       <span class='fu'>timelineStart</span>(color = <span class='st'>"gray"</span>)
+      )
      )
     ),
-    title = <span class='st'>"starBlock"</span>
+    title = <span class='st'>"timelineBlock"</span>
   ),
   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )

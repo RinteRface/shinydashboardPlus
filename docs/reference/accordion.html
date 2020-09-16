@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="AdminLTE2 accordion container — accordion" />
-<meta property="og:description" content="Create an accordion container" />
+<meta property="og:description" content="Create an accordion container. Accordions are part of collapsible elements.
+accordionItem creates an accordion item to put inside an accordion container." />
 
 
 
@@ -123,17 +124,20 @@
     </div>
 
     <div class="ref-description">
-    <p>Create an accordion container</p>
+    <p>Create an accordion container. Accordions are part of collapsible elements.</p>
+<p>accordionItem creates an accordion item to put inside an accordion container.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>accordion</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, width = <span class='fl'>12</span>)</pre>
+    <pre class="usage"><span class='fu'>accordion</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, width = <span class='fl'>12</span>)
+
+<span class='fu'>accordionItem</span>(<span class='kw'>...</span>, <span class='kw'>title</span>, status = <span class='kw'>NULL</span>, collapsed = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>slot for <a href='accordionItem.html'>accordionItem</a>.</p></td>
+      <td><p>text to write in the item.</p></td>
     </tr>
     <tr>
       <th>id</th>
@@ -142,6 +146,25 @@
     <tr>
       <th>width</th>
       <td><p>The width of the accordion.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>item title.</p></td>
+    </tr>
+    <tr>
+      <th>status</th>
+      <td><p>item status.
+Valid statuses are defined as follows:</p><ul>
+<li><p><code>primary</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc</p></li>
+<li><p><code>success</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a</p></li>
+<li><p><code>info</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef</p></li>
+<li><p><code>warning</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12</p></li>
+<li><p><code>danger</code>: <span style='width:12px;height:12px;background:#f56954;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f56954</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>collapsed</th>
+      <td><p>Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.</p></td>
     </tr>
     </table>
 
@@ -162,13 +185,13 @@
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
       <span class='fu'>accordion</span>(
        id = <span class='st'>"accordion1"</span>,
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
+        <span class='fu'>accordionItem</span>(
           title = <span class='st'>"Accordion 1 Item 1"</span>,
           status = <span class='st'>"danger"</span>,
           collapsed = <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
+        <span class='fu'>accordionItem</span>(
           title = <span class='st'>"Accordion 1 Item 2"</span>,
           status = <span class='st'>"warning"</span>,
           collapsed = <span class='fl'>FALSE</span>,
@@ -177,13 +200,13 @@
       ),
       <span class='fu'>accordion</span>(
        id = <span class='st'>"accordion2"</span>,
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
+        <span class='fu'>accordionItem</span>(
           title = <span class='st'>"Accordion 2 Item 1"</span>,
           status = <span class='st'>"info"</span>,
           collapsed = <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
+        <span class='fu'>accordionItem</span>(
           title = <span class='st'>"Accordion 2 Item 2"</span>,
           status = <span class='st'>"success"</span>,
           collapsed = <span class='fl'>FALSE</span>,

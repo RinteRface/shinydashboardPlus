@@ -40,7 +40,10 @@
 
 
 <meta property="og:title" content="AdminLTE2 user post — userPost" />
-<meta property="og:description" content="Create a user post" />
+<meta property="og:description" content="Creates a user post. This content may be inserted in a box.
+userPostTagItems creates a container to host userPostTagItem.
+userPostTagItem creates a user post tool item
+userPostMedia creates a container to include an image in userPost." />
 
 
 
@@ -123,7 +126,10 @@
     </div>
 
     <div class="ref-description">
-    <p>Create a user post</p>
+    <p>Creates a user post. This content may be inserted in a <a href='box.html'>box</a>.</p>
+<p>userPostTagItems creates a container to host userPostTagItem.</p>
+<p>userPostTagItem creates a user post tool item</p>
+<p>userPostMedia creates a container to include an image in userPost.</p>
     </div>
 
     <pre class="usage"><span class='fu'>userPost</span>(
@@ -134,14 +140,20 @@
   description = <span class='kw'>NULL</span>,
   collapsible = <span class='fl'>TRUE</span>,
   collapsed = <span class='fl'>FALSE</span>
-)</pre>
+)
+
+<span class='fu'>userPostTagItems</span>(<span class='kw'>...</span>)
+
+<span class='fu'>userPostTagItem</span>(<span class='kw'>...</span>, side = <span class='st'>"left"</span>)
+
+<span class='fu'>userPostMedia</span>(<span class='kw'>image</span>, height = <span class='kw'>NULL</span>, width = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>post content, also <a href='userPostTagItems.html'>userPostTagItems</a>.</p></td>
+      <td><p>tool content such as label, button, ...</p></td>
     </tr>
     <tr>
       <th>id</th>
@@ -149,7 +161,7 @@
     </tr>
     <tr>
       <th>image</th>
-      <td><p>profile image, if any.</p></td>
+      <td><p>image path or url ...</p></td>
     </tr>
     <tr>
       <th>author</th>
@@ -166,6 +178,18 @@
     <tr>
       <th>collapsed</th>
       <td><p>Whether the comment is collapsed when the application starts, FALSE by default.</p></td>
+    </tr>
+    <tr>
+      <th>side</th>
+      <td><p>tool item orientation: "left" of "right", "left" by default.</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>media height in pixels.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>media width in pixels.</p></td>
     </tr>
     </table>
 
@@ -198,19 +222,19 @@
        tools to help create filler text for everyone from bacon 
        lovers to Charlie Sheen fans."</span>,
        collapsible = <span class='fl'>FALSE</span>,
-       <span class='fu'><a href='userPostTagItems.html'>userPostTagItems</a></span>(
-        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>, status = <span class='st'>"info"</span>)),
-        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
+       <span class='fu'>userPostTagItems</span>(
+        <span class='fu'>userPostTagItem</span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>, status = <span class='st'>"info"</span>)),
+        <span class='fu'>userPostTagItem</span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
        )
       ),
       <span class='fu'>userPost</span>(
        id = <span class='fl'>2</span>,
        image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg"</span>,
        author = <span class='st'>"Adam Jones"</span>,
-       <span class='fu'><a href='userPostMedia.html'>userPostMedia</a></span>(image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"</span>),
-       <span class='fu'><a href='userPostTagItems.html'>userPostTagItems</a></span>(
-        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>, status = <span class='st'>"success"</span>)),
-        <span class='fu'><a href='userPostTagItem.html'>userPostTagItem</a></span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
+       <span class='fu'>userPostMedia</span>(image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"</span>),
+       <span class='fu'>userPostTagItems</span>(
+        <span class='fu'>userPostTagItem</span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 1"</span>, status = <span class='st'>"success"</span>)),
+        <span class='fu'>userPostTagItem</span>(<span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"item 2"</span>, status = <span class='st'>"danger"</span>), side = <span class='st'>"right"</span>)
        )
       )
      )

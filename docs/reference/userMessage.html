@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AdminLTE2 user message — userMessage • shinydashboardPlus</title>
+<title>AdminLTE2 user message container — userMessages • shinydashboardPlus</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 user message — userMessage" />
-<meta property="og:description" content="Create a user message" />
+<meta property="og:title" content="AdminLTE2 user message container — userMessages" />
+<meta property="og:description" content="Create a user message container. Maybe inserted in a box
+userMessage creates a user message html element." />
 
 
 
@@ -117,16 +118,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>AdminLTE2 user message</h1>
+    <h1>AdminLTE2 user message container</h1>
     <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/useful-items.R'><code>R/useful-items.R</code></a></small>
     <div class="hidden name"><code>userMessage.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a user message</p>
+    <p>Create a user message container. Maybe inserted in a <a href='box.html'>box</a></p>
+<p>userMessage creates a user message html element.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>userMessage</span>(
+    <pre class="usage"><span class='fu'>userMessages</span>(<span class='kw'>...</span>, <span class='kw'>status</span>, width = <span class='fl'>4</span>)
+
+<span class='fu'>userMessage</span>(
   <span class='kw'>...</span>,
   <span class='kw'>author</span>,
   date = <span class='kw'>NULL</span>,
@@ -140,6 +144,22 @@
     <tr>
       <th>...</th>
       <td><p>Message text.</p></td>
+    </tr>
+    <tr>
+      <th>status</th>
+      <td><p>Messages status. See here for a list of valid colors 
+<a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
+Valid statuses are defined as follows:</p><ul>
+<li><p><code>primary</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc</p></li>
+<li><p><code>success</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a</p></li>
+<li><p><code>info</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef</p></li>
+<li><p><code>warning</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12</p></li>
+<li><p><code>danger</code>: <span style='width:12px;height:12px;background:#f56954;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f56954</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>Container width: between 1 and 12.</p></td>
     </tr>
     <tr>
       <th>author</th>
@@ -163,6 +183,66 @@
 
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='fu'><a href='box.html'>box</a></span>(
+      title = <span class='st'>"Box with messages"</span>,
+      solidHeader = <span class='fl'>TRUE</span>,
+      status = <span class='st'>"warning"</span>,
+      <span class='fu'>userMessages</span>(
+       width = <span class='fl'>12</span>,
+       status = <span class='st'>"success"</span>,
+       <span class='fu'>userMessage</span>(
+         author = <span class='st'>"Alexander Pierce"</span>,
+         date = <span class='st'>"20 Jan 2:00 pm"</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+         type = <span class='st'>"sent"</span>,
+         <span class='st'>"Is this template really for free? That's unbelievable!"</span>
+       ),
+       <span class='fu'>userMessage</span>(
+         author = <span class='st'>"Sarah Bullock"</span>,
+         date = <span class='st'>"23 Jan 2:05 pm"</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+         type = <span class='st'>"received"</span>,
+         <span class='st'>"You better believe it!"</span>
+       )
+      )
+     ),
+     <span class='fu'>userMessages</span>(
+       width = <span class='fl'>6</span>,
+       status = <span class='st'>"danger"</span>,
+        <span class='fu'>userMessage</span>(
+         author = <span class='st'>"Alexander Pierce"</span>,
+         date = <span class='st'>"20 Jan 2:00 pm"</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+         type = <span class='st'>"received"</span>,
+         <span class='st'>"Is this template really for free? That's unbelievable!"</span>
+       ),
+       <span class='fu'>userMessage</span>(
+         author = <span class='st'>"Sarah Bullock"</span>,
+         date = <span class='st'>"23 Jan 2:05 pm"</span>,
+         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+         type = <span class='st'>"sent"</span>,
+         <span class='st'>"You better believe it!"</span>
+       )
+      )
+    ),
+    title = <span class='st'>"user Message"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
+ )
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

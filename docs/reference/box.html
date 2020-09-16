@@ -40,7 +40,16 @@
 
 
 <meta property="og:title" content="Create a box for the main body of a dashboard — box" />
-<meta property="og:description" content="Boxes can be used to hold content in the main body of a dashboard." />
+<meta property="og:description" content="box can be used to hold content in the main body of a dashboard.
+updateBox is used to toggle, close or restore a box on the client.
+boxDropdown is used in the dropdown parameter of box.
+boxDropdownItem goes in boxDropdown.
+dropdownDivider goes in boxDropdown but also in any
+dropdown menu container.
+boxPad creates a vertical container for descriptionBlock.
+It has to be included in a box.
+descriptionBlock creates a description block, perfect for writing statistics 
+to insert in a box" />
 
 
 
@@ -118,12 +127,21 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a box for the main body of a dashboard</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a>, <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/useful-items.R'><code>R/useful-items.R</code></a></small>
     <div class="hidden name"><code>box.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Boxes can be used to hold content in the main body of a dashboard.</p>
+    <p>box can be used to hold content in the main body of a dashboard.</p>
+<p>updateBox is used to toggle, close or restore a box on the client.</p>
+<p>boxDropdown is used in the dropdown parameter of box.</p>
+<p>boxDropdownItem goes in boxDropdown.</p>
+<p>dropdownDivider goes in boxDropdown but also in any
+dropdown menu container.</p>
+<p>boxPad creates a vertical container for descriptionBlock.
+It has to be included in a box.</p>
+<p>descriptionBlock creates a description block, perfect for writing statistics 
+to insert in a box</p>
     </div>
 
     <pre class="usage"><span class='fu'>box</span>(
@@ -146,6 +164,30 @@
   dropdownMenu = <span class='kw'>NULL</span>,
   sidebar = <span class='kw'>NULL</span>,
   footerPadding = <span class='fl'>TRUE</span>
+)
+
+<span class='fu'>updateBox</span>(
+  <span class='kw'>id</span>,
+  action = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"remove"</span>, <span class='st'>"toggle"</span>, <span class='st'>"restore"</span>),
+  session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>()
+)
+
+<span class='fu'>boxDropdown</span>(<span class='kw'>...</span>, icon = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"wrench"</span>))
+
+<span class='fu'>boxDropdownItem</span>(<span class='kw'>...</span>, <span class='kw'>href</span>)
+
+<span class='fu'>dropdownDivider</span>()
+
+<span class='fu'>boxPad</span>(<span class='kw'>...</span>, color = <span class='kw'>NULL</span>, style = <span class='kw'>NULL</span>)
+
+<span class='fu'>descriptionBlock</span>(
+  number = <span class='kw'>NULL</span>,
+  numberColor = <span class='kw'>NULL</span>,
+  numberIcon = <span class='kw'>NULL</span>,
+  header = <span class='kw'>NULL</span>,
+  text = <span class='kw'>NULL</span>,
+  rightBorder = <span class='fl'>TRUE</span>,
+  marginBottom = <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -153,11 +195,11 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Contents of the box.</p></td>
+      <td><p>any element such as descriptionBlock.</p></td>
     </tr>
     <tr>
       <th>id</th>
-      <td><p>Box unique id. <a href='updateBox.html'>updateBox</a> target.</p></td>
+      <td><p>Box to toggle.</p></td>
     </tr>
     <tr>
       <th>title</th>
@@ -170,7 +212,19 @@
     <tr>
       <th>status</th>
       <td><p>The status of the item This determines the item's background
-color. Valid statuses are listed in <a href='validStatuses.html'>validStatuses</a>.</p></td>
+  color.  Valid statuses are defined as follows:</p><ul>
+<li><p><code>primary</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc</p></li>
+<li><p><code>success</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a</p></li>
+<li><p><code>info</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef</p></li>
+<li><p><code>warning</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12</p></li>
+<li><p><code>danger</code>: <span style='width:12px;height:12px;background:#f56954;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f56954</p></li>
+<li><p><code>navy</code>: <span style='width:12px;height:12px;background:#001F3F;border-radius:2px;display:inline-block;margin-right:5px;'></span>#001F3F</p></li>
+<li><p><code>teal</code>: <span style='width:12px;height:12px;background:#39CCCC;border-radius:2px;display:inline-block;margin-right:5px;'></span>#39CCCC</p></li>
+<li><p><code>purple</code>: <span style='width:12px;height:12px;background:#605ca8;border-radius:2px;display:inline-block;margin-right:5px;'></span>#605ca8</p></li>
+<li><p><code>orange</code>: <span style='width:12px;height:12px;background:#ff851b;border-radius:2px;display:inline-block;margin-right:5px;'></span>#ff851b</p></li>
+<li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60</p></li>
+<li><p><code>black</code>: <span style='width:12px;height:12px;background:#111111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111111</p></li>
+</ul><p>Only primary, success, info, warning and danger are compatible with solidHeader!</p></td>
     </tr>
     <tr>
       <th>solidHeader</th>
@@ -179,8 +233,41 @@ color. Valid statuses are listed in <a href='validStatuses.html'>validStatuses</
     <tr>
       <th>background</th>
       <td><p>If NULL (the default), the background of the box will be
-white. Otherwise, a color string. Valid colors are listed in
-<a href='validColors.html'>validColors</a>.</p></td>
+  white. Otherwise, a color string. Valid colors are listed in
+  <a href='validColors.html'>validColors</a>. See below:</p><ul>
+<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+.</p></li>
+<li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
+.</p></li>
+<li><p><code>green (success status)</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a
+.</p></li>
+<li><p><code>aqua (info status)</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef
+.</p></li>
+<li><p><code>yellow (warning status)</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12
+.</p></li>
+<li><p><code>blue</code>: <span style='width:12px;height:12px;background:#0073b7;border-radius:2px;display:inline-block;margin-right:5px;'></span>#0073b7
+.</p></li>
+<li><p><code>navy</code>: <span style='width:12px;height:12px;background:#001F3F;border-radius:2px;display:inline-block;margin-right:5px;'></span>#001F3F
+.</p></li>
+<li><p><code>teal</code>: <span style='width:12px;height:12px;background:#39CCCC;border-radius:2px;display:inline-block;margin-right:5px;'></span>#39CCCC
+.</p></li>
+<li><p><code>olive</code>: <span style='width:12px;height:12px;background:#3D9970;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3D9970
+.</p></li>
+<li><p><code>lime</code>: <span style='width:12px;height:12px;background:#01FF70;border-radius:2px;display:inline-block;margin-right:5px;'></span>#01FF70
+.</p></li>
+<li><p><code>orange</code>: <span style='width:12px;height:12px;background:#FF851B;border-radius:2px;display:inline-block;margin-right:5px;'></span>#FF851B
+.</p></li>
+<li><p><code>fuchsia</code>: <span style='width:12px;height:12px;background:#F012BE;border-radius:2px;display:inline-block;margin-right:5px;'></span>#F012BE
+.</p></li>
+<li><p><code>purple</code>: <span style='width:12px;height:12px;background:#605ca8;border-radius:2px;display:inline-block;margin-right:5px;'></span>#605ca8
+.</p></li>
+<li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60
+.</p></li>
+<li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
+.</p></li>
+<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>width</th>
@@ -211,7 +298,7 @@ the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>icon</th>
-      <td><p>Header icon. Displayed before title. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+      <td><p>Dropdown menu icon. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
     </tr>
     <tr>
       <th>gradient</th>
@@ -227,7 +314,7 @@ the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>dropdownMenu</th>
-      <td><p>List of items in the boxtool dropdown menu. Use <a href='boxDropdown.html'>boxDropdown</a>.</p></td>
+      <td><p>List of items in the boxtool dropdown menu. Use boxDropdown.</p></td>
     </tr>
     <tr>
       <th>sidebar</th>
@@ -237,11 +324,130 @@ the user to collapse the box.</p></td>
       <th>footerPadding</th>
       <td><p>TRUE by default: whether the footer has margin or not.</p></td>
     </tr>
+    <tr>
+      <th>action</th>
+      <td><p>Action to trigger: either collapse, remove or restore.</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
+    </tr>
+    <tr>
+      <th>href</th>
+      <td><p>Target url or page.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>background color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
+See below:</p><ul>
+<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+.</p></li>
+<li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
+.</p></li>
+<li><p><code>green (success status)</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a
+.</p></li>
+<li><p><code>aqua (info status)</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef
+.</p></li>
+<li><p><code>yellow (warning status)</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12
+.</p></li>
+<li><p><code>blue</code>: <span style='width:12px;height:12px;background:#0073b7;border-radius:2px;display:inline-block;margin-right:5px;'></span>#0073b7
+.</p></li>
+<li><p><code>navy</code>: <span style='width:12px;height:12px;background:#001F3F;border-radius:2px;display:inline-block;margin-right:5px;'></span>#001F3F
+.</p></li>
+<li><p><code>teal</code>: <span style='width:12px;height:12px;background:#39CCCC;border-radius:2px;display:inline-block;margin-right:5px;'></span>#39CCCC
+.</p></li>
+<li><p><code>olive</code>: <span style='width:12px;height:12px;background:#3D9970;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3D9970
+.</p></li>
+<li><p><code>lime</code>: <span style='width:12px;height:12px;background:#01FF70;border-radius:2px;display:inline-block;margin-right:5px;'></span>#01FF70
+.</p></li>
+<li><p><code>orange</code>: <span style='width:12px;height:12px;background:#FF851B;border-radius:2px;display:inline-block;margin-right:5px;'></span>#FF851B
+.</p></li>
+<li><p><code>fuchsia</code>: <span style='width:12px;height:12px;background:#F012BE;border-radius:2px;display:inline-block;margin-right:5px;'></span>#F012BE
+.</p></li>
+<li><p><code>purple</code>: <span style='width:12px;height:12px;background:#605ca8;border-radius:2px;display:inline-block;margin-right:5px;'></span>#605ca8
+.</p></li>
+<li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60
+.</p></li>
+<li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
+.</p></li>
+<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>style</th>
+      <td><p>custom CSS, if any.</p></td>
+    </tr>
+    <tr>
+      <th>number</th>
+      <td><p>any number.</p></td>
+    </tr>
+    <tr>
+      <th>numberColor</th>
+      <td><p>number color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
+See below:</p><ul>
+<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+.</p></li>
+<li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
+.</p></li>
+<li><p><code>green (success status)</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a
+.</p></li>
+<li><p><code>aqua (info status)</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef
+.</p></li>
+<li><p><code>yellow (warning status)</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12
+.</p></li>
+<li><p><code>blue</code>: <span style='width:12px;height:12px;background:#0073b7;border-radius:2px;display:inline-block;margin-right:5px;'></span>#0073b7
+.</p></li>
+<li><p><code>navy</code>: <span style='width:12px;height:12px;background:#001F3F;border-radius:2px;display:inline-block;margin-right:5px;'></span>#001F3F
+.</p></li>
+<li><p><code>teal</code>: <span style='width:12px;height:12px;background:#39CCCC;border-radius:2px;display:inline-block;margin-right:5px;'></span>#39CCCC
+.</p></li>
+<li><p><code>olive</code>: <span style='width:12px;height:12px;background:#3D9970;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3D9970
+.</p></li>
+<li><p><code>lime</code>: <span style='width:12px;height:12px;background:#01FF70;border-radius:2px;display:inline-block;margin-right:5px;'></span>#01FF70
+.</p></li>
+<li><p><code>orange</code>: <span style='width:12px;height:12px;background:#FF851B;border-radius:2px;display:inline-block;margin-right:5px;'></span>#FF851B
+.</p></li>
+<li><p><code>fuchsia</code>: <span style='width:12px;height:12px;background:#F012BE;border-radius:2px;display:inline-block;margin-right:5px;'></span>#F012BE
+.</p></li>
+<li><p><code>purple</code>: <span style='width:12px;height:12px;background:#605ca8;border-radius:2px;display:inline-block;margin-right:5px;'></span>#605ca8
+.</p></li>
+<li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60
+.</p></li>
+<li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
+.</p></li>
+<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>numberIcon</th>
+      <td><p>number icon, if any. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>header</th>
+      <td><p>bold text.</p></td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td><p>additional text.</p></td>
+    </tr>
+    <tr>
+      <th>rightBorder</th>
+      <td><p>TRUE by default. Whether to display a right border to
+separate two blocks. The last block on the right should not have a right border.</p></td>
+    </tr>
+    <tr>
+      <th>marginBottom</th>
+      <td><p>FALSE by default. Set it to TRUE when the
+descriptionBlock is used in a boxPad context.</p></td>
+    </tr>
     </table>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Only run this example in interactive R sessions</span>
+    <pre class="examples"><div class='input'>
+<span class='co'># A box with label, sidebar, dropdown menu</span>
 <span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
@@ -264,11 +470,11 @@ the user to collapse the box.</p></td>
          status = <span class='st'>"danger"</span>,
          style = <span class='st'>"circle"</span>
         ),
-        dropdownMenu = <span class='fu'><a href='boxDropdown.html'>boxDropdown</a></span>(
-         <span class='fu'><a href='boxDropdownItem.html'>boxDropdownItem</a></span>(url = <span class='st'>"http://www.google.com"</span>, name = <span class='st'>"Link to google"</span>),
-         <span class='fu'><a href='boxDropdownItem.html'>boxDropdownItem</a></span>(url = <span class='st'>"#"</span>, name = <span class='st'>"item 2"</span>),
-         <span class='fu'><a href='dropdownDivider.html'>dropdownDivider</a></span>(),
-         <span class='fu'><a href='boxDropdownItem.html'>boxDropdownItem</a></span>(url = <span class='st'>"#"</span>, name = <span class='st'>"item 3"</span>)
+        dropdownMenu = <span class='fu'>boxDropdown</span>(
+         <span class='fu'>boxDropdownItem</span>(href = <span class='st'>"http://www.google.com"</span>, <span class='st'>"Link to google"</span>),
+         <span class='fu'>boxDropdownItem</span>(href = <span class='st'>"#"</span>, <span class='st'>"item 2"</span>),
+         <span class='fu'>dropdownDivider</span>(),
+         <span class='fu'>boxDropdownItem</span>(href = <span class='st'>"#"</span>, <span class='st'>"item 3"</span>)
         ),
         sidebar = <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span>(
          startOpen = <span class='fl'>TRUE</span>,
@@ -292,6 +498,170 @@ the user to collapse the box.</p></td>
    }
  )
 }
+
+<span class='co'># Toggle a box on the client</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+   <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+   <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+   <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>style</span>(<span class='st'>"body { background-color: ghostwhite}"</span>),
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"toggle_box"</span>, <span class='st'>"Toggle Box"</span>),
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"remove_box"</span>, <span class='st'>"Remove Box"</span>, class = <span class='st'>"bg-danger"</span>),
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"restore_box"</span>, <span class='st'>"Restore Box"</span>, class = <span class='st'>"bg-success"</span>)
+     ),
+     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
+     <span class='fu'>box</span>(
+       title = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"box_state"</span>),
+       <span class='st'>"Box body"</span>,
+       id = <span class='st'>"mybox"</span>,
+       collapsible = <span class='fl'>TRUE</span>,
+       closable = <span class='fl'>TRUE</span>,
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"plot"</span>)
+     )
+   )
+ )
+ 
+ <span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
+   <span class='kw'>output</span><span class='op'>$</span><span class='kw'>plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html'>renderPlot</a></span>({
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/req.html'>req</a></span>(<span class='op'>!</span><span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>)
+     <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>200</span>))
+   })
+   
+   <span class='kw'>output</span><span class='op'>$</span><span class='kw'>box_state</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderText.html'>renderText</a></span>({
+     <span class='kw'>state</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='co'>else</span> <span class='st'>"uncollapsed"</span>
+     <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>state</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>toggle_box</span>, {
+     <span class='fu'>updateBox</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"toggle"</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>remove_box</span>, {
+     <span class='fu'>updateBox</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"remove"</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>restore_box</span>, {
+     <span class='fu'>updateBox</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"restore"</span>)
+   })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>, {
+     <span class='kw'>collapsed</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='co'>else</span> <span class='st'>"uncollapsed"</span>
+     <span class='kw'>visible</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>) <span class='st'>"visible"</span> <span class='co'>else</span> <span class='st'>"hidden"</span>
+     <span class='kw'>message</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>collapsed</span>, <span class='st'>"and"</span>, <span class='kw'>visible</span>)
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='kw'>message</span>, type = <span class='st'>"warning"</span>, duration = <span class='fl'>1</span>)
+   })
+   
+ }
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
+}
+
+<span class='co'># Box with boxPad container + descriptionBlock</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='fu'>box</span>(title = <span class='st'>"Box with right pad"</span>,
+      status = <span class='st'>"warning"</span>,
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(width = <span class='fl'>6</span>),
+        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+          width = <span class='fl'>6</span>,
+          <span class='fu'>boxPad</span>(
+            color = <span class='st'>"green"</span>,
+            <span class='fu'>descriptionBlock</span>(
+              header = <span class='st'>"8390"</span>, 
+              text = <span class='st'>"VISITS"</span>, 
+              rightBorder = <span class='fl'>FALSE</span>,
+              marginBottom = <span class='fl'>TRUE</span>
+            ),
+            <span class='fu'>descriptionBlock</span>(
+              header = <span class='st'>"30%"</span>, 
+              text = <span class='st'>"REFERRALS"</span>, 
+              rightBorder = <span class='fl'>FALSE</span>,
+              marginBottom = <span class='fl'>TRUE</span>
+            ),
+            <span class='fu'>descriptionBlock</span>(
+              header = <span class='st'>"70%"</span>, 
+              text = <span class='st'>"ORGANIC"</span>, 
+              rightBorder = <span class='fl'>FALSE</span>,
+              marginBottom = <span class='fl'>FALSE</span>
+            )
+          )
+        )
+      )
+     )
+    ),
+    title = <span class='st'>"boxPad"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
+ )
+}
+
+
+<span class='co'># Box with descriptionBlock</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='fu'>box</span>(
+      solidHeader = <span class='fl'>FALSE</span>,
+      title = <span class='st'>"Status summary"</span>,
+      background = <span class='kw'>NULL</span>,
+      width = <span class='fl'>4</span>,
+      status = <span class='st'>"danger"</span>,
+      footer = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+          width = <span class='fl'>6</span>,
+          <span class='fu'>descriptionBlock</span>(
+            number = <span class='st'>"17%"</span>, 
+            numberColor = <span class='st'>"green"</span>, 
+            numberIcon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"caret-up"</span>),
+            header = <span class='st'>"$35,210.43"</span>, 
+            text = <span class='st'>"TOTAL REVENUE"</span>, 
+            rightBorder = <span class='fl'>TRUE</span>,
+            marginBottom = <span class='fl'>FALSE</span>
+          )
+        ),
+        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+          width = <span class='fl'>6</span>,
+          <span class='fu'>descriptionBlock</span>(
+            number = <span class='st'>"18%"</span>, 
+            numberColor = <span class='st'>"red"</span>, 
+            numberIcon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"caret-down"</span>),
+            header = <span class='st'>"1200"</span>, 
+            text = <span class='st'>"GOAL COMPLETION"</span>, 
+            rightBorder = <span class='fl'>FALSE</span>,
+            marginBottom = <span class='fl'>FALSE</span>
+          )
+        )
+      )
+     )
+    ),
+    title = <span class='st'>"Description Blocks"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
+ )
+}
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

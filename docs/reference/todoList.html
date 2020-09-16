@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="AdminLTE2 todo list container — todoList" />
-<meta property="og:description" content="Create a todo list container" />
+<meta property="og:description" content="Create a todo list container. May be included in box.
+todoListItem creates a todo list item." />
 
 
 
@@ -123,21 +124,32 @@
     </div>
 
     <div class="ref-description">
-    <p>Create a todo list container</p>
+    <p>Create a todo list container. May be included in <a href='box.html'>box</a>.</p>
+<p>todoListItem creates a todo list item.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>todoList</span>(<span class='kw'>...</span>, sortable = <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>todoList</span>(<span class='kw'>...</span>, sortable = <span class='fl'>TRUE</span>)
+
+<span class='fu'>todoListItem</span>(<span class='kw'>...</span>, checked = <span class='fl'>FALSE</span>, label = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>slot for todoListItem.</p></td>
+      <td><p>any element such as labels, ...</p></td>
     </tr>
     <tr>
       <th>sortable</th>
       <td><p>Whether the list elements are sortable or not.</p></td>
+    </tr>
+    <tr>
+      <th>checked</th>
+      <td><p>Whether the list item is checked or not.</p></td>
+    </tr>
+    <tr>
+      <th>label</th>
+      <td><p>item label.</p></td>
     </tr>
     </table>
 
@@ -161,15 +173,15 @@
       <span class='st'>"Sortable todo list demo"</span>,
       status = <span class='st'>"warning"</span>,
       <span class='fu'>todoList</span>(
-        <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
+        <span class='fu'>todoListItem</span>(
           label = <span class='st'>"Design a nice theme"</span>,
           <span class='st'>"Some text here"</span>
         ),
-        <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
+        <span class='fu'>todoListItem</span>(
           label = <span class='st'>"Make the theme responsive"</span>,
           <span class='st'>"Some text here"</span>
         ),
-        <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
+        <span class='fu'>todoListItem</span>(
           checked = <span class='fl'>TRUE</span>,
           label = <span class='st'>"Let theme shine like a star"</span>
         )
@@ -180,15 +192,15 @@
       status = <span class='st'>"warning"</span>,
       <span class='fu'>todoList</span>(
       sortable = <span class='fl'>FALSE</span>,
-        <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
+        <span class='fu'>todoListItem</span>(
           label = <span class='st'>"Design a nice theme"</span>,
           <span class='st'>"Some text here"</span>
         ),
-        <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
+        <span class='fu'>todoListItem</span>(
           label = <span class='st'>"Make the theme responsive"</span>,
           <span class='st'>"Some text here"</span>
         ),
-        <span class='fu'><a href='todoListItem.html'>todoListItem</a></span>(
+        <span class='fu'>todoListItem</span>(
           checked = <span class='fl'>TRUE</span>,
           label = <span class='st'>"Let theme shine like a star"</span>
         )

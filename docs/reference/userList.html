@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="AdminLTE2 user list container — userList" />
-<meta property="og:description" content="Create a user list container" />
+<meta property="og:description" content="Creates a user list container to be inserted in a box.
+userListItem creates a user list item." />
 
 
 
@@ -123,10 +124,13 @@
     </div>
 
     <div class="ref-description">
-    <p>Create a user list container</p>
+    <p>Creates a user list container to be inserted in a <a href='box.html'>box</a>.</p>
+<p>userListItem creates a user list item.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>userList</span>(<span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>userList</span>(<span class='kw'>...</span>)
+
+<span class='fu'>userListItem</span>(image = <span class='kw'>NULL</span>, title = <span class='kw'>NULL</span>, subtitle = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,6 +138,18 @@
     <tr>
       <th>...</th>
       <td><p>slot for userListItem.</p></td>
+    </tr>
+    <tr>
+      <th>image</th>
+      <td><p>image url or path.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>Item title.</p></td>
+    </tr>
+    <tr>
+      <th>subtitle</th>
+      <td><p>Item subitle.</p></td>
     </tr>
     </table>
 
@@ -156,17 +172,17 @@
       title = <span class='st'>"User List example"</span>,
       status = <span class='st'>"success"</span>,
       <span class='fu'>userList</span>(
-        <span class='fu'><a href='userListItem.html'>userListItem</a></span>(
+        <span class='fu'>userListItem</span>(
           image = <span class='st'>"https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png"</span>, 
           title = <span class='st'>"Shiny"</span>, 
           subtitle = <span class='st'>"Package 1"</span>
         ),
-        <span class='fu'><a href='userListItem.html'>userListItem</a></span>(
+        <span class='fu'>userListItem</span>(
           image = <span class='st'>"https://www.tidyverse.org/images/hex-tidyverse.png"</span>, 
           title = <span class='st'>"Tidyverse"</span>, 
           subtitle = <span class='st'>"Package 2"</span>
         ),
-        <span class='fu'><a href='userListItem.html'>userListItem</a></span>(
+        <span class='fu'>userListItem</span>(
           image = <span class='st'>"https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png"</span>, 
           title = <span class='st'>"tidyr"</span>, 
           subtitle = <span class='st'>"Package 3"</span>

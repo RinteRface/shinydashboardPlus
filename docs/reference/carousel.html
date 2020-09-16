@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="AdminLTE2 carousel container — carousel" />
-<meta property="og:description" content="This creates a carousel" />
+<meta property="og:description" content="carousel creates a carousel container to display media content.
+carouselItem creates a carousel item." />
 
 
 
@@ -123,17 +124,20 @@
     </div>
 
     <div class="ref-description">
-    <p>This creates a carousel</p>
+    <p>carousel creates a carousel container to display media content.</p>
+<p>carouselItem creates a carousel item.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>carousel</span>(<span class='kw'>...</span>, <span class='kw'>id</span>, indicators = <span class='fl'>TRUE</span>, width = <span class='fl'>6</span>, .list = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>carousel</span>(<span class='kw'>...</span>, <span class='kw'>id</span>, indicators = <span class='fl'>TRUE</span>, width = <span class='fl'>6</span>, .list = <span class='kw'>NULL</span>)
+
+<span class='fu'>carouselItem</span>(<span class='kw'>...</span>, caption = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Slot for <a href='carouselItem.html'>carouselItem</a></p></td>
+      <td><p>Element such as images, iframe, ...</p></td>
     </tr>
     <tr>
       <th>id</th>
@@ -149,8 +153,12 @@
     </tr>
     <tr>
       <th>.list</th>
-      <td><p>Should you need to pass <a href='carouselItem.html'>carouselItem</a> via <a href='https://rdrr.io/r/base/lapply.html'>lapply</a> or similar,
+      <td><p>Should you need to pass carouselItem via <a href='https://rdrr.io/r/base/lapply.html'>lapply</a> or similar,
 put these item here instead of passing them in ...</p></td>
+    </tr>
+    <tr>
+      <th>caption</th>
+      <td><p>Item caption.</p></td>
     </tr>
     </table>
 
@@ -171,17 +179,17 @@ put these item here instead of passing them in ...</p></td>
      body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
       <span class='fu'>carousel</span>(
        id = <span class='st'>"mycarousel"</span>,
-       <span class='fu'><a href='carouselItem.html'>carouselItem</a></span>(
+       <span class='fu'>carouselItem</span>(
         caption = <span class='st'>"Item 1"</span>,
         <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span>(src = <span class='st'>"https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap"</span>)
        ),
-       <span class='fu'><a href='carouselItem.html'>carouselItem</a></span>(
+       <span class='fu'>carouselItem</span>(
         caption = <span class='st'>"Item 2"</span>,
         <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span>(src = <span class='st'>"https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap"</span>)
        )
       )
      ),
-     title = <span class='st'>"Right Sidebar"</span>
+     title = <span class='st'>"Carousel"</span>
    ),
    server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )

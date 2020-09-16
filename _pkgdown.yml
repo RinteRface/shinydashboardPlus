@@ -16,6 +16,9 @@ reference:
   - '`dropdownBlock`'
   - '`renderUser`'
   - '`userOutput`'
+  - '`taskItem`'
+  - '`notificationItem`'
+  - '`messageItem`'
 
 - title: Right Sidebar (controlbar)
   desc: Right sidebar elements
