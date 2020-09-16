@@ -1561,13 +1561,14 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 
 
 
-#' @title AdminLTE2 user list container
+#' AdminLTE2 user list container
 #'
-#' @description Create a user list container
+#' Creates a user list container to be inserted in a \link{box}.
 #'
 #' @param ... slot for userListItem.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userList
 #'
 #' @examples
 #' if (interactive()) {
@@ -1620,15 +1621,15 @@ userList <- function(...) {
 }
 
 
-#' @title AdminLTE2 user list item
+#' AdminLTE2 user list item
 #'
-#' @description Create a user list item
+#' \link{userListItem} creates a user list item.
 #'
 #' @param image image url or path.
 #' @param title Item title.
 #' @param subtitle Item subitle.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userList
 #'
 #' @export
 userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
@@ -1646,9 +1647,9 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 
 
 
-#' @title AdminLTE2 user post
+#' AdminLTE2 user post
 #'
-#' @description Create a user post
+#' Creates a user post. This content may be inserted in a \link{box}.
 #'
 #' @param ... post content, also \link{userPostTagItems}.
 #' @param id unique id of the post.
@@ -1659,6 +1660,7 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 #' @param collapsed Whether the comment is collapsed when the application starts, FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userPost
 #' 
 #' @examples
 #' if (interactive()) {
@@ -1759,13 +1761,13 @@ userPost <- function(..., id = NULL, image, author,
 
 
 
-#' @title AdminLTE2 user post tool item container
+#' AdminLTE2 user post tool item container
 #'
-#' @description Create a user post tool item container
+#' \link{userPostTagItems} creates a container to host \link{userPostTagItem}.
 #'
 #' @param ... slot for \link{userPostTagItem}.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userPost
 #' 
 #' @export
 userPostTagItems <- function(...) {
@@ -1779,14 +1781,14 @@ userPostTagItems <- function(...) {
 
 
 
-#' @title AdminLTE2 user post tool item
+#' AdminLTE2 user post tool item
 #'
-#' @description Create a user post tool item
+#' \link{userPostTagItem} creates a user post tool item
 #'
 #' @param ... tool content such as label, button, ...
 #' @param side tool item orientation: "left" of "right", "left" by default.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userPost
 #' 
 #' @export
 userPostTagItem <- function(..., side = "left") {
@@ -1801,15 +1803,15 @@ userPostTagItem <- function(..., side = "left") {
 
 
 
-#' @title AdminLTE2 user post media
+#' AdminLTE2 user post media
 #'
-#' @description Create a user post media (image)
+#' \link{userPostMedia} creates a container to include an image in \link{userPost}.
 #'
 #' @param image image path or url ...
 #' @param height media height in pixels.
 #' @param width media width in pixels.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname userPost
 #' 
 #' @export
 userPostMedia <- function(image, height = NULL, width = NULL) {
@@ -1837,6 +1839,14 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #' Works only if striped is TRUE.
 #' @param status Progress bar status. "primary" by default or "warning", "info",
 #' "danger" or "success".
+#' Valid statuses are defined as follows:
+#' \itemize{
+#'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+#'   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+#'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+#'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+#'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+#' }
 #' @param size Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}

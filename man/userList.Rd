@@ -2,15 +2,26 @@
 % Please edit documentation in R/useful-items.R
 \name{userList}
 \alias{userList}
+\alias{userListItem}
 \title{AdminLTE2 user list container}
 \usage{
 userList(...)
+
+userListItem(image = NULL, title = NULL, subtitle = NULL)
 }
 \arguments{
 \item{...}{slot for userListItem.}
+
+\item{image}{image url or path.}
+
+\item{title}{Item title.}
+
+\item{subtitle}{Item subitle.}
 }
 \description{
-Create a user list container
+Creates a user list container to be inserted in a \link{box}.
+
+\link{userListItem} creates a user list item.
 }
 \examples{
 if (interactive()) {

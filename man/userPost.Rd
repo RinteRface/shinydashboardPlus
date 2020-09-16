@@ -2,6 +2,9 @@
 % Please edit documentation in R/useful-items.R
 \name{userPost}
 \alias{userPost}
+\alias{userPostTagItems}
+\alias{userPostTagItem}
+\alias{userPostMedia}
 \title{AdminLTE2 user post}
 \usage{
 userPost(
@@ -13,13 +16,19 @@ userPost(
   collapsible = TRUE,
   collapsed = FALSE
 )
+
+userPostTagItems(...)
+
+userPostTagItem(..., side = "left")
+
+userPostMedia(image, height = NULL, width = NULL)
 }
 \arguments{
-\item{...}{post content, also \link{userPostTagItems}.}
+\item{...}{tool content such as label, button, ...}
 
 \item{id}{unique id of the post.}
 
-\item{image}{profile image, if any.}
+\item{image}{image path or url ...}
 
 \item{author}{post author.}
 
@@ -28,9 +37,21 @@ userPost(
 \item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the comment.}
 
 \item{collapsed}{Whether the comment is collapsed when the application starts, FALSE by default.}
+
+\item{side}{tool item orientation: "left" of "right", "left" by default.}
+
+\item{height}{media height in pixels.}
+
+\item{width}{media width in pixels.}
 }
 \description{
-Create a user post
+Creates a user post. This content may be inserted in a \link{box}.
+
+\link{userPostTagItems} creates a container to host \link{userPostTagItem}.
+
+\link{userPostTagItem} creates a user post tool item
+
+\link{userPostMedia} creates a container to include an image in \link{userPost}.
 }
 \examples{
 if (interactive()) {

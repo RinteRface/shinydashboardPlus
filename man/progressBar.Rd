@@ -30,7 +30,15 @@ progressBar(
 Works only if striped is TRUE.}
 
 \item{status}{Progress bar status. "primary" by default or "warning", "info",
-"danger" or "success".}
+"danger" or "success".
+Valid statuses are defined as follows:
+\itemize{
+  \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+  \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+  \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+  \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+  \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+}}
 
 \item{size}{Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.}
 }
