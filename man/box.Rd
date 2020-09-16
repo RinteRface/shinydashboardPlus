@@ -8,7 +8,6 @@
 \alias{dropdownDivider}
 \alias{boxProfile}
 \alias{boxProfileItem}
-\alias{attachmentBlock}
 \alias{boxPad}
 \alias{descriptionBlock}
 \title{Create a box for the main body of a dashboard}
@@ -51,8 +50,6 @@ boxProfile(..., image = NULL, title, subtitle = NULL, bordered = FALSE)
 
 boxProfileItem(title, description)
 
-attachmentBlock(..., image, title = NULL, href = NULL)
-
 boxPad(..., color = NULL, style = NULL)
 
 descriptionBlock(
@@ -70,7 +67,7 @@ descriptionBlock(
 
 \item{id}{Box to toggle.}
 
-\item{title}{attachment title.}
+\item{title}{item title.}
 
 \item{footer}{Optional footer text.}
 
@@ -150,9 +147,9 @@ the user to collapse the box.}
 
 \item{session}{Shiny session object.}
 
-\item{href}{external link.}
+\item{href}{Target url or page.}
 
-\item{image}{url or path to the image.}
+\item{image}{profile image, if any.}
 
 \item{subtitle}{subtitle.}
 
@@ -234,9 +231,6 @@ dropdown menu container.
 container.
 
 \link{boxProfileItem} is an sub-element of a \link{boxProfile}.
-
-\link{attachmentBlock} create an attachment container, nice to wrap articles...
-and insert in a \link{box}.
 
 \link{boxPad} creates a vertical container for \link{descriptionBlock}.
 It has to be included in a \link{box}.
@@ -396,34 +390,6 @@ if (interactive()) {
      )
     ),
     title = "boxProfile"
-  ),
-  server = function(input, output) { }
- )
-}
-
-
-# Box with attachmentBlock
-if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Attachment example",
-      attachmentBlock(
-       image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
-       title = "Test",
-       href = "https://google.com",
-       "This is the content"
-      )
-     )
-    ),
-    title = "AttachmentBlock"
   ),
   server = function(input, output) { }
  )

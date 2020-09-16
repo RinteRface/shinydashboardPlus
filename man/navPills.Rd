@@ -19,7 +19,7 @@ navPillsItem(
 )
 }
 \arguments{
-\item{...}{slot for navPillsItem.}
+\item{...}{slot for \link{navPillsItem}.}
 
 \item{id}{\link{navPills} unique id to target.}
 
@@ -57,7 +57,8 @@ See below:
 \item{active}{Whether the item is active or not. FALSE by default.}
 }
 \description{
-Create a container for nav elements. They are vertically stacked.
+\link{navPills} creates a container for nav elements. They are vertically stacked.
+To insert in \link{box}.
 
 \link{updateNavPills} allows to programmatically change the currently
 selected \link{navPillsItem} on the client.

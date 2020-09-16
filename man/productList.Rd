@@ -5,7 +5,8 @@
 \alias{productListItem}
 \title{AdminLTE2 product list container
 
-Creates a container to diplay commercial items in an elegant container.}
+\link{productList} creates a container to display commercial items in an elegant container.
+Insert in a \link{box}.}
 \usage{
 productList(...)
 
@@ -42,9 +43,11 @@ See below:
 }}
 }
 \description{
-Create a product item
+\link{productListItem} creates a product item to insert in \link{productList}.
 }
 \examples{
+
+# Box with productList
 if (interactive()) {
  library(shiny)
  library(shinydashboard)

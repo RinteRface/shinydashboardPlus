@@ -154,6 +154,8 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #' @param image url or path to the image.
 #' @param title attachment title.
 #' @param href external link.
+#' 
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @examples
 #' 
@@ -185,7 +187,6 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #' }
 #'
 #' @export
-#' @rdname box
 
 attachmentBlock <- function(..., image, title = NULL, href = NULL) {
   shiny::tags$div(
@@ -697,9 +698,10 @@ loadingState <- function() {
 
 #' AdminLTE2 nav pill container
 #'
-#' Create a container for nav elements. They are vertically stacked.
+#' \link{navPills} creates a container for nav elements. They are vertically stacked.
+#' To insert in \link{box}.
 #'
-#' @param ... slot for navPillsItem.
+#' @param ... slot for \link{navPillsItem}.
 #' @param id Item unique id. Returns the R index of the currently selected item. 
 #' This is different from the JavaScript index.
 #'
@@ -890,14 +892,17 @@ navPillsItem <- function(left = NULL, right = NULL,
 
 #' @title AdminLTE2 product list container
 #'
-#' Creates a container to diplay commercial items in an elegant container.
+#' \link{productList} creates a container to display commercial items in an elegant container.
+#' Insert in a \link{box}.
 #'
-#' @param ... slot for productListItem.
+#' @param ... slot for \link{productListItem}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' @rdname productList
 #'
 #' @examples
+#' 
+#' # Box with productList
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -946,9 +951,9 @@ productList <- function(...) {
 
 
 
-#' @title AdminLTE2 product item
+#' AdminLTE2 product item
 #'
-#' @description Create a product item
+#' \link{productListItem} creates a product item to insert in \link{productList}.
 #'
 #' @param ... product description.
 #' @param image image url, if any.
@@ -1013,6 +1018,25 @@ productListItem <- function(..., image = NULL, title = NULL,
 #' @param maxstar Maximum number of stars by block.
 #' @param grade Current score. Should be positive and lower or equal to maxstar.
 #' @param color Star color: see \code{validColors()} in the documentation.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -1071,14 +1095,16 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 
 
 
-#' @title AdminLTE2 timeline block
+#' AdminLTE2 timeline block
 #'
-#' @description Create a timeline block
+#' Create a timeline block
 #'
 #' @param ... slot for timelineLabel or timelineItem.
 #' @param reversed Whether the timeline is reversed or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @rdname timeline
 #'
 #' @examples
 #' if (interactive()) {
