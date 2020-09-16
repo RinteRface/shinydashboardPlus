@@ -9,7 +9,15 @@ boxLabel(text, status, style = "default")
 \arguments{
 \item{text}{Label text. In practice only few letters or a number.}
 
-\item{status}{label color status. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.}
+\item{status}{label color status. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+Valid statuses are defined as follows:
+\itemize{
+  \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+  \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+  \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+  \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+  \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+}}
 
 \item{style}{label border style: "default" (rounded angles), "circle" or "square".}
 }

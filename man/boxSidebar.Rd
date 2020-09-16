@@ -20,7 +20,7 @@ boxSidebar(
 
 \item{width}{Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").}
 
-\item{background}{Sidebar background color. Dark by default.}
+\item{background}{Sidebar background color. Dark by default. Expect a HEX code.}
 
 \item{startOpen}{Whether the sidebar is open at start. FALSE by default.}
 
