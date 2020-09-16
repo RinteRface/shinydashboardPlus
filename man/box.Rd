@@ -2,10 +2,7 @@
 % Please edit documentation in R/boxes.R
 \name{box}
 \alias{box}
-\alias{boxLabel}
-\alias{boxSidebar}
 \alias{updateBox}
-\alias{updateBoxSidebar}
 \alias{boxDropdown}
 \alias{boxDropdownItem}
 \alias{dropdownDivider}
@@ -33,24 +30,11 @@ box(
   footerPadding = TRUE
 )
 
-boxLabel(text, status, style = "default")
-
-boxSidebar(
-  ...,
-  id = NULL,
-  width = "25\%",
-  background = "#333a40",
-  startOpen = FALSE,
-  icon = shiny::icon("cogs")
-)
-
 updateBox(
   id,
   action = c("remove", "toggle", "restore"),
   session = shiny::getDefaultReactiveDomain()
 )
-
-updateBoxSidebar(id, session = shiny::getDefaultReactiveDomain())
 
 boxDropdown(..., icon = shiny::icon("wrench"))
 
@@ -61,27 +45,58 @@ dropdownDivider()
 \arguments{
 \item{...}{Item content.}
 
-\item{id}{Sidebar id.}
+\item{id}{Box to toggle.}
 
 \item{title}{Optional title.}
 
 \item{footer}{Optional footer text.}
 
-\item{status}{label color status. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-Valid statuses are defined as follows:
+\item{status}{The status of the item This determines the item's background
+  color.  Valid statuses are defined as follows:
 \itemize{
   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
-}}
+  \item \code{navy}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#001F3F")}
+  \item \code{teal}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#39CCCC")}
+  \item \code{purple}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#605ca8")}
+  \item \code{orange}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#ff851b")}
+  \item \code{maroon}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#D81B60")}
+  \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
+}
+Only primary, success, info, warning and danger are compatible with solidHeader!}
 
 \item{solidHeader}{Should the header be shown with a solid color background?}
 
-\item{background}{Sidebar background color. Dark by default. Expect a HEX code.}
+\item{background}{If NULL (the default), the background of the box will be
+  white. Otherwise, a color string. Valid colors are listed in
+  \link{validColors}. See below:
+\itemize{
+ \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+ \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+ \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+ \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+ \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+ \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+ \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+ \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+ \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+ \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+ \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+ \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+ \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+ \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+ \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+ \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+}}
 
-\item{width}{Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").}
+\item{width}{The width of the box, using the Bootstrap grid system. This is
+used for row-based layouts. The overall width of a region is 12, so the
+default valueBox width of 4 occupies 1/3 of that width. For column-based
+layouts, use \code{NULL} for the width; the width is set by the column that
+contains the box.}
 
 \item{height}{The height of a box, in pixels or other CSS unit. By default
 the height scales automatically with the content.}
@@ -108,12 +123,6 @@ the user to collapse the box.}
 
 \item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
-\item{text}{Label text. In practice only few letters or a number.}
-
-\item{style}{label border style: "default" (rounded angles), "circle" or "square".}
-
-\item{startOpen}{Whether the sidebar is open at start. FALSE by default.}
-
 \item{action}{Action to trigger: either collapse, remove or restore.}
 
 \item{session}{Shiny session object.}
@@ -123,13 +132,7 @@ the user to collapse the box.}
 \description{
 \link{box} can be used to hold content in the main body of a dashboard.
 
-\link{boxLabel} is inserted in the label slot of \link{box}.
-
-\link{boxSidebar} is inserted in the sidebar slot of \link{box}.
-
 \link{updateBox} is used to toggle, close or restore a \link{box} on the client.
-
-\link{updateBoxSidebar} toggle a \link{boxSidebar} on the client.
 
 \link{boxDropdown} is used in the dropdown parameter of \link{box}.
 
@@ -253,42 +256,5 @@ if (interactive()) {
  }
  
  shinyApp(ui, server)
-}
-
-# Toggle a box sidebar
-if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    header = dashboardHeader(),
-    body = dashboardBody(
-      box(
-        title = "Update box sidebar", 
-        closable = TRUE, 
-        width = 12,
-        height = "500px",
-        solidHeader = FALSE, 
-        collapsible = TRUE,
-        actionButton("update", "Toggle card sidebar"),
-        sidebar = boxSidebar(
-          id = "mycardsidebar",
-          p("Sidebar Content")
-        )
-      )
-    ),
-    sidebar = dashboardSidebar()
-  ),
-  server = function(input, output, session) {
-    observe(print(input$mycardsidebar))
-    
-    observeEvent(input$update, {
-      updateBoxSidebar("mycardsidebar")
-    })
-    
-  }
- )
 }
 }

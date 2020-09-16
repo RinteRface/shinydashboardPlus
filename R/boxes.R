@@ -324,7 +324,6 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
 #' }
 #' @param style label border style: "default" (rounded angles), "circle" or "square".
 #' @export
-#' @rdname box
 boxLabel <- function(text, status, style = "default") {
   
   if (nchar(text) > 10) warning("Avoid long texts in boxPlusLabel.")
@@ -346,7 +345,7 @@ boxLabel <- function(text, status, style = "default") {
 #' @param icon Sidebar icon. Expect \code{\link[shiny]{icon}}.
 #' 
 #' @export
-#' @rdname box
+#' @rdname boxSidebar
 boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40", 
                        startOpen = FALSE, icon = shiny::icon("cogs")) {
   
@@ -543,7 +542,7 @@ updateBox <- function(id, action = c("remove", "toggle", "restore"),
 #'   }
 #'  )
 #' }
-#' @rdname box
+#' @rdname boxSidebar
 updateBoxSidebar <- function(id, session = shiny::getDefaultReactiveDomain()) {
   session$sendInputMessage(id, NULL)
 }
