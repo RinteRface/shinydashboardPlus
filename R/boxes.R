@@ -7,11 +7,43 @@
 #' @param title Optional title.
 #' @param footer Optional footer text.
 #' @param status The status of the item This determines the item's background
-#'   color. Valid statuses are listed in \link{validStatuses}.
+#'   color.  Valid statuses are defined as follows:
+#' \itemize{
+#'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+#'   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+#'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+#'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+#'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+#'   \item \code{navy}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#001F3F")}
+#'   \item \code{teal}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#39CCCC")}
+#'   \item \code{purple}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#605ca8")}
+#'   \item \code{orange}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#ff851b")}
+#'   \item \code{maroon}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#D81B60")}
+#'   \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
+#' }
+#' Only primary, success, info, warning and danger are compatible with solidHeader!
 #' @param solidHeader Should the header be shown with a solid color background?
 #' @param background If NULL (the default), the background of the box will be
 #'   white. Otherwise, a color string. Valid colors are listed in
-#'   \link{validColors}.
+#'   \link{validColors}. See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #' @param width The width of the box, using the Bootstrap grid system. This is
 #'   used for row-based layouts. The overall width of a region is 12, so the
 #'   default valueBox width of 4 occupies 1/3 of that width. For column-based

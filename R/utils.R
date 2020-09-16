@@ -181,3 +181,16 @@ validateTabName <- function(name) {
 dropNulls <- function(x) {
   x[!vapply(x, is.null, FUN.VALUE = logical(1))]
 }
+
+
+# used to generate color tags in the documentation
+rd_color_tag <- function(color, label = color) {
+  style <- sprintf(
+    "width:12px;height:12px;background:%s;border-radius:2px;display:inline-block;margin-right:5px;",
+    color
+  )
+  sprintf(
+    "\\ifelse{html}{\\out{<span style='%s'></span>%s}}{%s}",
+    style, label, label
+  )
+}
