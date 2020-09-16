@@ -2079,8 +2079,6 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
 #' }
 #' @param width Container width: between 1 and 12.
-#' 
-#' @note Better to include in a \link{box}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' @rdname userMessage
@@ -2216,3 +2214,32 @@ userMessage <- function(..., author, date = NULL,
     messageTxt
   )
 }
+
+
+
+
+
+# #' Update a userMessages container in the server side
+# #' 
+# #' \link{updateUserMessages} allows to interact with a \link{userMessages} container,
+# #' such as sending, removing or editing messages.
+# #'
+# #' @param id \link{userMessages} to target.
+# #' @param action Action to perform: add, remove or update.
+# #' @param session Shiny session object.
+# #' @export
+# #' @rdname userMessages
+# #'
+# #' @examples
+# #' if (interactive()) {
+# #'  library(shiny)
+# #'  library(shinydashboard)
+# #'  library(shinydashboardPlus)
+# #'  
+# #'  
+# #' }
+# updateUserMessages <- function(id, action = c("add", "remove", "update"), 
+#                           session = shiny::getDefaultReactiveDomain()) {
+#   action <- match.arg(action)
+#   session$send
+# }

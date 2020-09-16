@@ -44,9 +44,6 @@ Create a user message container. Maybe inserted in a \link{box}
 
 \link{userMessage} creates a user message html element.
 }
-\note{
-Better to include in a \link{box}.
-}
 \examples{
 if (interactive()) {
  library(shiny)

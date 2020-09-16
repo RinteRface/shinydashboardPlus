@@ -96,8 +96,8 @@
 #' }
 #' @export
 dashboardHeader <- function(..., title = NULL, titleWidth = NULL, 
-                                disable = FALSE, .list = NULL, leftUi = NULL,
-                                controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
+                            disable = FALSE, .list = NULL, leftUi = NULL,
+                            controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
   # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
@@ -388,7 +388,7 @@ dropdownBlock <- function(..., id, icon = NULL, title = NULL,
   if (!is.null(badgeStatus)) 
     validateStatus(badgeStatus)
   items <- c(list(...))
-
+  
   # Make sure the items are li tags
   #lapply(items, tagAssert, type = "li")
   # items <- lapply(1:length(items), FUN = function(i) {
@@ -401,14 +401,14 @@ dropdownBlock <- function(..., id, icon = NULL, title = NULL,
   # })
   
   dropdownClass <- paste0("dropdown")
-
+  
   numItems <- length(items)
   if (is.null(badgeStatus)) {
     badge <- NULL
   } else {
     badge <- dashboardLabel(status = badgeStatus, numItems)
   }
-
+  
   shiny::tags$li(
     shiny::singleton(
       shiny::tags$head(
@@ -450,6 +450,125 @@ dropdownBlock <- function(..., id, icon = NULL, title = NULL,
           )
         )
       )
+    )
+  )
+}
+
+
+
+#' Custom taskItem
+#' 
+#' @inheritParams shinydashboard::taskItem
+#' @param inputId If not NULL, this item behaves like an action button.
+#' @export
+#' @examples 
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPage(
+#'      dashboardHeader(
+#'        dropdownMenu(
+#'          type = "tasks", 
+#'          badgeStatus = "danger",
+#'          taskItem(
+#'            inputId = "mytask",
+#'            value = 20, 
+#'            color = "aqua",
+#'            text = "Click me!"
+#'          ),
+#'          taskItem(
+#'            value = 40, 
+#'            color = "green",
+#'            text = "Basic item"
+#'          )
+#'        )
+#'      ),
+#'      dashboardSidebar(),
+#'      dashboardBody(),
+#'      title = "Dashboard example"
+#'    ),
+#'    server = function(input, output) {
+#'      observeEvent(input$mytask, {
+#'        showModal(modalDialog(
+#'          title = "Important message",
+#'          "This is an important message!"
+#'        ))
+#'      })
+#'    }
+#'  )
+#' }
+taskItem <- function (inputId = NULL, text, value = 0, color = "aqua", href = NULL) {
+  
+  validateColor(color)
+  if (is.null(href)) href <- "#"
+  
+  shiny::tags$li(
+    shiny::a(
+      id = inputId,
+      class = if (!is.null(inputId)) "action-button",
+      href = href,
+      shiny::h3(text, tags$small(class = "pull-right", paste0(value, "%"))),
+      shiny::div(
+        class = "progress xs",
+        shiny::div(
+          class = paste0("progress-bar progress-bar-", color),
+          style = paste0("width: ", value, "%"),
+          role = "progressbar",
+          `aria-valuenow` = value,
+          `aria-valuemin` = "0",
+          `aria-valuemax` = "100",
+          shiny::span(class = "sr-only", paste0(value, "% complete"))
+        )
+      )
+    )
+  )
+}
+
+
+#' Custom notificationItem
+#' 
+#' @inheritParams shinydashboard::notificationItem
+#' @param inputId If not NULL, this item behaves like an action button.
+#' @export
+notificationItem <- function (inputId = NULL, text, icon = shiny::icon("warning"), status = "success", 
+                              href = NULL) {
+  tagAssert(icon, type = "i")
+  validateStatus(status)
+  if (is.null(href)) href <- "#"
+  icon <- shiny::tagAppendAttributes(icon, class = paste0("text-", status))
+  shiny:tags$li(
+    shiny:a(
+      id = inputId, 
+      class = if (!is.null(inputId)) "action-button",
+      href = href, 
+      icon, 
+      text
+    )
+  )
+}
+
+
+
+#' Custom messageItem
+#' 
+#' @inheritParams shinydashboard::messageItem
+#' @param inputId If not NULL, this item behaves like an action button.
+#' @export
+messageItem <- function (inputId = NULL, from, message, icon = shiny::icon("user"), time = NULL, 
+                         href = NULL) {
+  tagAssert(icon, type = "i")
+  if (is.null(href)) href <- "#"
+  tags$li(
+    a(
+      id = inputId, 
+      class = if (!is.null(inputId)) "action-button",
+      href = href, 
+      icon, 
+      h4(from, if (!is.null(time)) 
+        tags$small(shiny::icon("clock-o"), time)), p(message)
     )
   )
 }
