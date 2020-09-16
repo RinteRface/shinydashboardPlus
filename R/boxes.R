@@ -1,6 +1,6 @@
 #' Create a box for the main body of a dashboard
 #'
-#' Boxes can be used to hold content in the main body of a dashboard.
+#' \link{box} can be used to hold content in the main body of a dashboard.
 #' 
 #' @param ... Contents of the box.
 #' @param id Box unique id. \link{updateBox} target.
@@ -64,10 +64,11 @@
 #' @param sidebar Slot for \link{boxSidebar}.
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
-#' @family boxes
+#' @rdname box
 #'
 #' @examples
-#' ## Only run this example in interactive R sessions
+#' 
+#' # A box with label, sidebar, dropdown menu
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -91,10 +92,10 @@
 #'          style = "circle"
 #'         ),
 #'         dropdownMenu = boxDropdown(
-#'          boxDropdownItem(url = "http://www.google.com", name = "Link to google"),
-#'          boxDropdownItem(url = "#", name = "item 2"),
+#'          boxDropdownItem(href = "http://www.google.com", "Link to google"),
+#'          boxDropdownItem(href = "#", "item 2"),
 #'          dropdownDivider(),
-#'          boxDropdownItem(url = "#", name = "item 3")
+#'          boxDropdownItem(href = "#", "item 3")
 #'         ),
 #'         sidebar = boxSidebar(
 #'          startOpen = TRUE,
@@ -308,6 +309,8 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
 
 
 #' Create a label for \link{box} 
+#' 
+#' \link{boxLabel} is inserted in the label slot of \link{box}.
 #'
 #' @param text Label text. In practice only few letters or a number.
 #' @param status label color status. See \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
@@ -321,7 +324,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
 #' }
 #' @param style label border style: "default" (rounded angles), "circle" or "square".
 #' @export
-#' @seealso \link{dashboardLabel}
+#' @rdname box
 boxLabel <- function(text, status, style = "default") {
   
   if (nchar(text) > 10) warning("Avoid long texts in boxPlusLabel.")
@@ -333,7 +336,7 @@ boxLabel <- function(text, status, style = "default") {
 
 #' Create a sidebar for a box
 #' 
-#' To insert in the sidebar slot of \link{box}.
+#' \link{boxSidebar} is inserted in the sidebar slot of \link{box}.
 #'
 #' @param ... Sidebar content.
 #' @param id Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.
@@ -343,6 +346,7 @@ boxLabel <- function(text, status, style = "default") {
 #' @param icon Sidebar icon. Expect \code{\link[shiny]{icon}}.
 #' 
 #' @export
+#' @rdname box
 boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40", 
                        startOpen = FALSE, icon = shiny::icon("cogs")) {
   
@@ -412,6 +416,8 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 
 
 #' Collapse a \link{box} tag.
+#' 
+#' \link{updateBox} is used to toggle, close or restore a \link{box} on the client.
 #'
 #' @param id Box to toggle.
 #' @param action Action to trigger: either collapse, remove or restore.
@@ -419,6 +425,8 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 #' @export
 #'
 #' @examples
+#' 
+#' # Toggle a box on the client
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -480,6 +488,7 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 #'  
 #'  shinyApp(ui, server)
 #' }
+#' @rdname box
 updateBox <- function(id, action = c("remove", "toggle", "restore"), 
                       session = shiny::getDefaultReactiveDomain()) {
   session$sendInputMessage(id, message = match.arg(action))
@@ -489,12 +498,16 @@ updateBox <- function(id, action = c("remove", "toggle", "restore"),
 
 
 #' Programmatically toggle a \link{boxSidebar}
+#' 
+#' \link{updateBoxSidebar} toggle a \link{boxSidebar} on the client.
 #'
 #' @param id Sidebar id.
 #' @param session Shiny session object.
 #' 
 #' @export
 #' @examples
+#' 
+#' # Toggle a box sidebar
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -530,6 +543,7 @@ updateBox <- function(id, action = c("remove", "toggle", "restore"),
 #'   }
 #'  )
 #' }
+#' @rdname box
 updateBoxSidebar <- function(id, session = shiny::getDefaultReactiveDomain()) {
   session$sendInputMessage(id, NULL)
 }
@@ -539,12 +553,13 @@ updateBoxSidebar <- function(id, session = shiny::getDefaultReactiveDomain()) {
 
 #' Create a box dropdown item list
 #'
-#' Can be used to add dropdown items to a boxtool.
+#' \link{boxDropdown} is used in the dropdown parameter of \link{box}.
 #'
 #' @param ... Slot for \link{boxDropdownItem}.
 #' @param icon Dropdown menu icon. Expect \code{\link[shiny]{icon}}.
 #'
 #' @export
+#' @rdname box
 boxDropdown <- function(..., icon = shiny::icon("wrench")) {
   contentTag <- shiny::tags$div(
     class = "dropdown-menu dropdown-menu-right",
@@ -571,27 +586,32 @@ boxDropdown <- function(..., icon = shiny::icon("wrench")) {
 
 
 #' Create a box dropdown item 
-#'
-#' @param url Target url or page.
-#' @param name Menu name.
+#' 
+#' \link{boxDropdownItem} goes in \link{boxDropdown}.
+#' 
+#' @param ... Item content.
+#' @param href Target url or page.
 #'
 #' @export
-boxDropdownItem <- function(url, name) {
+#' @rdname box
+boxDropdownItem <- function(..., href) {
   shiny::tags$li(
     shiny::tags$a(
-      href = url,
+      href = href,
       target = "_blank",
-      name 
+      ... 
     )
   )
 }
 
 
 #' Create a box dropdown divider 
-#'
-#' @note Useful to separate 2 sections of dropdown items.
+#' 
+#' \link{dropdownDivider} goes in \link{boxDropdown} but also in any
+#' dropdown menu container.
 #'
 #' @export
+#' @rdname box
 dropdownDivider <- function() {
   shiny::tags$li(class = "divider")
 }

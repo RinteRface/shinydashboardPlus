@@ -53,6 +53,8 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `socialBox()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 - In `boxComment()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 - In `boxProfile()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `boxDropdownItem()`: _url_ becomes _href_ to be consistent with {shinydashboard}.
+_name_ is removed
 
 ## New features
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
