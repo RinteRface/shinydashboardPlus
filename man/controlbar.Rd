@@ -16,7 +16,7 @@ dashboardControlbar(
   collapsed = TRUE,
   overlay = TRUE,
   skin = "dark",
-  .items = NULL
+  .list = NULL
 )
 
 updateControlbar(id, session = shiny::getDefaultReactiveDomain())
@@ -46,7 +46,7 @@ updateControlbarMenu(
 
 \item{skin}{background color: "dark" or "light".}
 
-\item{.items}{Pass element here if you do not want to embed them in panels. Not compatible with ...}
+\item{.list}{Pass element here if you do not want to embed them in panels. Not compatible with ...}
 
 \item{session}{Shiny session object.}
 

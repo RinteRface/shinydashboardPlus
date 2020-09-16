@@ -10,7 +10,7 @@
 #' @param collapsed Whether the control bar on the right side is collapsed or not at start. TRUE by default.
 #' @param overlay Whether the sidebar covers the content when expanded. Default to TRUE.
 #' @param skin background color: "dark" or "light".
-#' @param .items Pass element here if you do not want to embed them in panels. Not compatible with ...
+#' @param .list Pass element here if you do not want to embed them in panels. Not compatible with ...
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
@@ -53,8 +53,8 @@
 #' @export
 dashboardControlbar <- function(..., id = NULL, disable = FALSE, width = 230, 
                                 collapsed = TRUE, overlay = TRUE, 
-                                skin = "dark", .items = NULL) {
-  items <- c(list(...), .items)
+                                skin = "dark", .list = NULL) {
+  items <- c(list(...), .list)
   
   if (is.null(id)) id <- "controlbarId"
   
