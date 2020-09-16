@@ -9,7 +9,14 @@ dashboardLabel(..., status, style = "default")
 \arguments{
 \item{...}{any text.}
 
-\item{status}{label status: "danger", "success", "info", "primary", "warning".}
+\item{status}{label status. Valid statuses are defined as follows:
+\itemize{
+  \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+  \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+  \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+  \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+  \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+}}
 
 \item{style}{label border style: "default" (rounded angles), "circle" or "square".}
 }

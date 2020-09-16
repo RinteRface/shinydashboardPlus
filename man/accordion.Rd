@@ -86,6 +86,4 @@ if (interactive()) {
 }
 \author{
 David Granjon, \email{dgranjon@ymail.com}
-
-David Granjon, \email{dgranjon@ymail.com}
 }

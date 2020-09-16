@@ -9,6 +9,8 @@
 \alias{boxProfile}
 \alias{boxProfileItem}
 \alias{attachmentBlock}
+\alias{boxPad}
+\alias{descriptionBlock}
 \title{Create a box for the main body of a dashboard}
 \usage{
 box(
@@ -50,9 +52,21 @@ boxProfile(..., image = NULL, title, subtitle = NULL, bordered = FALSE)
 boxProfileItem(title, description)
 
 attachmentBlock(..., image, title = NULL, href = NULL)
+
+boxPad(..., color = NULL, style = NULL)
+
+descriptionBlock(
+  number = NULL,
+  numberColor = NULL,
+  numberIcon = NULL,
+  header = NULL,
+  text = NULL,
+  rightBorder = TRUE,
+  marginBottom = FALSE
+)
 }
 \arguments{
-\item{...}{any element.}
+\item{...}{any element such as \link{descriptionBlock}.}
 
 \item{id}{Box to toggle.}
 
@@ -145,6 +159,64 @@ the user to collapse the box.}
 \item{bordered}{Whether the container should have a border or not. FALSE by default.}
 
 \item{description}{item info.}
+
+\item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+See below:
+\itemize{
+ \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+ \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+ \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+ \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+ \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+ \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+ \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+ \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+ \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+ \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+ \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+ \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+ \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+ \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+ \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+ \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+}}
+
+\item{style}{custom CSS, if any.}
+
+\item{number}{any number.}
+
+\item{numberColor}{number color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+See below:
+\itemize{
+ \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+ \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+ \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+ \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+ \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+ \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+ \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+ \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+ \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+ \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+ \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+ \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+ \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+ \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+ \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+ \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+}}
+
+\item{numberIcon}{number icon, if any. Expect \code{\link[shiny]{icon}}.}
+
+\item{header}{bold text.}
+
+\item{text}{additional text.}
+
+\item{rightBorder}{TRUE by default. Whether to display a right border to
+separate two blocks. The last block on the right should not have a right border.}
+
+\item{marginBottom}{FALSE by default. Set it to TRUE when the
+descriptionBlock is used in a boxPad context.}
 }
 \description{
 \link{box} can be used to hold content in the main body of a dashboard.
@@ -165,6 +237,12 @@ container.
 
 \link{attachmentBlock} create an attachment container, nice to wrap articles...
 and insert in a \link{box}.
+
+\link{boxPad} creates a vertical container for \link{descriptionBlock}.
+It has to be included in a \link{box}.
+
+\link{descriptionBlock} creates a description block, perfect for writing statistics 
+to insert in a \link{box}
 }
 \examples{
 
@@ -351,7 +429,105 @@ if (interactive()) {
  )
 }
 
+
+# Box with boxPad container + descriptionBlock
+if (interactive()) {
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     box(title = "Box with right pad",
+      status = "warning",
+      fluidRow(
+        column(width = 6),
+        column(
+          width = 6,
+          boxPad(
+            color = "green",
+            descriptionBlock(
+              header = "8390", 
+              text = "VISITS", 
+              rightBorder = FALSE,
+              marginBottom = TRUE
+            ),
+            descriptionBlock(
+              header = "30\%", 
+              text = "REFERRALS", 
+              rightBorder = FALSE,
+              marginBottom = TRUE
+            ),
+            descriptionBlock(
+              header = "70\%", 
+              text = "ORGANIC", 
+              rightBorder = FALSE,
+              marginBottom = FALSE
+            )
+          )
+        )
+      )
+     )
+    ),
+    title = "boxPad"
+  ),
+  server = function(input, output) { }
+ )
 }
-\author{
-David Granjon, \email{dgranjon@ymail.com}
+
+
+# Box with descriptionBlock
+if (interactive()) {
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     box(
+      solidHeader = FALSE,
+      title = "Status summary",
+      background = NULL,
+      width = 4,
+      status = "danger",
+      footer = fluidRow(
+        column(
+          width = 6,
+          descriptionBlock(
+            number = "17\%", 
+            numberColor = "green", 
+            numberIcon = icon("caret-up"),
+            header = "$35,210.43", 
+            text = "TOTAL REVENUE", 
+            rightBorder = TRUE,
+            marginBottom = FALSE
+          )
+        ),
+        column(
+          width = 6,
+          descriptionBlock(
+            number = "18\%", 
+            numberColor = "red", 
+            numberIcon = icon("caret-down"),
+            header = "1200", 
+            text = "GOAL COMPLETION", 
+            rightBorder = FALSE,
+            marginBottom = FALSE
+          )
+        )
+      )
+     )
+    ),
+    title = "Description Blocks"
+  ),
+  server = function(input, output) { }
+ )
+}
+
 }

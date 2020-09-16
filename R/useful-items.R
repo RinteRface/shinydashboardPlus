@@ -99,8 +99,6 @@ accordion <- function(..., id = NULL, width = 12) {
 #'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
 #' }
 #' @param collapsed Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.
-#' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
 #' @rdname accordion
 #'
 #' @export
@@ -156,8 +154,6 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #' @param image url or path to the image.
 #' @param title attachment title.
 #' @param href external link.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @examples
 #' 
@@ -266,17 +262,38 @@ blockQuote <- function(..., side = "left") {
 
 
 
-#' @title AdminLTE2 vertical block container
+#' AdminLTE2 vertical block container
 #'
-#' @description Create a vertical container for descriptionBlock.
+#' \link{boxPad} creates a vertical container for \link{descriptionBlock}.
+#' It has to be included in a \link{box}.
 #'
-#' @param ... any element such as descriptionBlock.
+#' @param ... any element such as \link{descriptionBlock}.
 #' @param color background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #' @param style custom CSS, if any.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname box
 #'
 #' @examples
+#' 
+#' # Box with boxPad container + descriptionBlock
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -341,57 +358,6 @@ boxPad <- function(..., color = NULL, style = NULL) {
 
 
 
-#' @title AdminLTE2 special large button
-#'
-#' @description Create a large button ideal for web applications but identical
-#' to the classic Shiny action button.
-#'
-#' @inheritParams shiny::actionButton
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  library(shinydashboardPlus)
-#'  
-#'  shinyApp(
-#'   ui = dashboardPage(
-#'     dashboardHeader(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'      box(
-#'       title = "App Buttons",
-#'       status = NULL,
-#'       appButton(
-#'         inputId = "myAppButton",
-#'         label = "Users", 
-#'         icon = icon("users"), 
-#'         dashboardBadge(textOutput("btnVal"))
-#'       )
-#'      )
-#'     ),
-#'     title = "App buttons"
-#'   ),
-#'   server = function(input, output) {
-#'    output$btnVal <- renderText(input$myAppButton)
-#'   }
-#'  )
-#' }
-#'
-#' @export
-appButton <- function(..., inputId, label, icon = NULL, width = NULL) {
-  
-  if (!is.null(icon)) tagAssert(icon, type = "i")
-  
-  shiny::tagAppendAttributes(
-    shiny::actionButton(inputId, label, icon, width, ...),
-    class = "btn-app"
-  )
-}
-
-
 
 #' @title AdminLTE2 social button
 #'
@@ -450,12 +416,83 @@ socialButton <- function(href, icon) {
 
 
 
+
+#' @title AdminLTE2 badge
+#'
+#' @description Create a badge. It may be inserted in any element like inside 
+#' a \link[shiny]{actionButton} or a \link{dashboardSidebar}.
+#'
+#' @param ... Any html text element.
+#' @param color label color.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'      dashboardBadge("Badge 1", color = "blue"),
+#'      actionButton(
+#'       inputId = "badge", 
+#'       label = "Hello", 
+#'       icon = NULL, 
+#'       width = NULL, 
+#'       dashboardBadge(1, color = "orange")
+#'      )
+#'     )
+#'   ),
+#'   server = function(input, output) { }
+#'  )
+#' }
+#'
+#' @export
+dashboardBadge <- function(..., color) {
+  validateColor(color)
+  shiny::tags$span(class = paste0("badge bg-", color), ...)
+}
+
+
+
+
 #' @title AdminLTE2 label
 #'
 #' @description Create a label
 #'
 #' @param ... any text.
-#' @param status label status: "danger", "success", "info", "primary", "warning".
+#' @param status label status. Valid statuses are defined as follows:
+#' \itemize{
+#'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+#'   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+#'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+#'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+#'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+#' }
 #' @param style label border style: "default" (rounded angles), "circle" or "square".
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -496,54 +533,33 @@ dashboardLabel <- function(..., status, style = "default") {
 
 
 
-#' @title AdminLTE2 badge
-#'
-#' @description Create a badge.
-#'
-#' @param ... Any html text element.
-#' @param color label color.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(shinydashboard)
-#'  library(shinydashboardPlus)
-#'  
-#'  shinyApp(
-#'   ui = dashboardPage(
-#'     dashboardHeader(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'      dashboardBadge("Badge 1", color = "blue"),
-#'      actionButton(
-#'       inputId = "badge", 
-#'       label = "Hello", 
-#'       icon = NULL, 
-#'       width = NULL, 
-#'       dashboardBadge(1, color = "orange")
-#'      )
-#'     )
-#'   ),
-#'   server = function(input, output) { }
-#'  )
-#' }
-#'
-#' @export
-dashboardBadge <- function(..., color) {
-  validateColor(color)
-  shiny::tags$span(class = paste0("badge bg-", color), ...)
-}
 
-
-
-#' @title AdminLTE2 description block
+#' AdminLTE2 description block
 #'
-#' @description Create a description block, perfect for writing statistics
+#' \link{descriptionBlock} creates a description block, perfect for writing statistics 
+#' to insert in a \link{box}
 #'
 #' @param number any number.
 #' @param numberColor number color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #' @param numberIcon number icon, if any. Expect \code{\link[shiny]{icon}}.
 #' @param header bold text.
 #' @param text additional text.
@@ -552,9 +568,11 @@ dashboardBadge <- function(..., color) {
 #' @param marginBottom FALSE by default. Set it to TRUE when the
 #'   descriptionBlock is used in a boxPad context.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname box
 #'
 #' @examples
+#' 
+#' # Box with descriptionBlock
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -677,9 +695,9 @@ loadingState <- function() {
 
 
 
-#' @title AdminLTE2 nav pill container
+#' AdminLTE2 nav pill container
 #'
-#' @description Create a container for nav elements
+#' Create a container for nav elements. They are vertically stacked.
 #'
 #' @param ... slot for navPillsItem.
 #' @param id Item unique id. Returns the R index of the currently selected item. 
@@ -688,6 +706,8 @@ loadingState <- function() {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @examples
+#' 
+#' # navPills
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -730,6 +750,7 @@ loadingState <- function() {
 #' }
 #'
 #' @export
+#' @rdname navPills
 navPills <- function(..., id = NULL) {
   shiny::tags$ul(
     class = "nav nav-pills nav-stacked",
@@ -742,13 +763,20 @@ navPills <- function(..., id = NULL) {
 
 
 #' Update navPills on the client
+#' 
+#' \link{updateNavPills} allows to programmatically change the currently
+#' selected \link{navPillsItem} on the client.
 #'
 #' @param id \link{navPills} unique id to target.
 #' @param selected Index of the \link{navPillsItem} to select. Index is seen from the R side.
 #' @param session Shiny session object.
 #' @export
+#' 
+#' @rdname navPills
 #'
 #' @examples
+#' 
+#' # update navPills
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -805,17 +833,36 @@ updateNavPills <- function(id, selected, session = shiny::getDefaultReactiveDoma
 
 
 
-#' @title AdminLTE2 nav pill item
+#' AdminLTE2 nav pill item
 #'
-#' @description Create a nav pill item
+#' \link{navPillsItem} creates a nav pill item.
 #'
 #' @param left pill left text.
 #' @param right pill right text.
 #' @param color pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #' @param icon pill icon, if any. 
 #' @param active Whether the item is active or not. FALSE by default.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname navPills
 #'
 #' @export
 navPillsItem <- function(left = NULL, right = NULL, 
@@ -843,11 +890,12 @@ navPillsItem <- function(left = NULL, right = NULL,
 
 #' @title AdminLTE2 product list container
 #'
-#' @description Create a container product list elements
+#' Creates a container to diplay commercial items in an elegant container.
 #'
 #' @param ... slot for productListItem.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname productList
 #'
 #' @examples
 #' if (interactive()) {
@@ -907,8 +955,26 @@ productList <- function(...) {
 #' @param title product name.
 #' @param subtitle product price.
 #' @param color price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
+#' @rdname productList
 #'
 #' @export
 productListItem <- function(..., image = NULL, title = NULL, 
