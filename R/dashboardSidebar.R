@@ -13,6 +13,7 @@
 #' @param minified Whether to slightly close the sidebar but still show item icons. Default
 #' to TRUE.
 #' @export
+#' @rdname sidebar
 dashboardSidebar <- function(..., id = NULL, disable = FALSE, width = NULL, collapsed = FALSE,
                              minified = TRUE) {
   width <- shiny::validateCssUnit(width)
@@ -104,10 +105,13 @@ dashboardSidebar <- function(..., id = NULL, disable = FALSE, width = NULL, coll
 
 
 #' Function to programmatically toggle the state of the sidebar
+#' 
+#' \link{updateSidebar} allows to toggle a \link{dashboardSidebar} on the client.
 #'
 #' @param id Sidebar id.
 #' @param session Shiny session object.
 #' @export
+#' @rdname sidebar
 #'
 #' @examples
 #' if (interactive()) {
