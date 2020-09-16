@@ -6,8 +6,6 @@
 \alias{boxDropdown}
 \alias{boxDropdownItem}
 \alias{dropdownDivider}
-\alias{boxProfile}
-\alias{boxProfileItem}
 \alias{boxPad}
 \alias{descriptionBlock}
 \title{Create a box for the main body of a dashboard}
@@ -46,10 +44,6 @@ boxDropdownItem(..., href)
 
 dropdownDivider()
 
-boxProfile(..., image = NULL, title, subtitle = NULL, bordered = FALSE)
-
-boxProfileItem(title, description)
-
 boxPad(..., color = NULL, style = NULL)
 
 descriptionBlock(
@@ -67,7 +61,7 @@ descriptionBlock(
 
 \item{id}{Box to toggle.}
 
-\item{title}{item title.}
+\item{title}{Optional title.}
 
 \item{footer}{Optional footer text.}
 
@@ -149,14 +143,6 @@ the user to collapse the box.}
 
 \item{href}{Target url or page.}
 
-\item{image}{profile image, if any.}
-
-\item{subtitle}{subtitle.}
-
-\item{bordered}{Whether the container should have a border or not. FALSE by default.}
-
-\item{description}{item info.}
-
 \item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 See below:
 \itemize{
@@ -226,11 +212,6 @@ descriptionBlock is used in a boxPad context.}
 
 \link{dropdownDivider} goes in \link{boxDropdown} but also in any
 dropdown menu container.
-
-\link{boxProfile} goes inside a \link{box}. Displays user informations in an elegant
-container.
-
-\link{boxProfileItem} is an sub-element of a \link{boxProfile}.
 
 \link{boxPad} creates a vertical container for \link{descriptionBlock}.
 It has to be included in a \link{box}.
@@ -354,47 +335,6 @@ if (interactive()) {
  
  shinyApp(ui, server)
 }
-
-# Box with boxProfile
-if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Box with profile",
-      status = "primary",
-      boxProfile(
-       image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
-       title = "Nina Mcintire",
-       subtitle = "Software Engineer",
-       bordered = TRUE,
-       boxProfileItem(
-        title = "Followers",
-        description = 1322
-       ),
-       boxProfileItem(
-        title = "Following",
-        description = 543
-       ),
-       boxProfileItem(
-        title = "Friends",
-        description = 13287
-       )
-      )
-     )
-    ),
-    title = "boxProfile"
-  ),
-  server = function(input, output) { }
- )
-}
-
 
 # Box with boxPad container + descriptionBlock
 if (interactive()) {

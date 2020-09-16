@@ -1097,7 +1097,7 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 
 #' AdminLTE2 timeline block
 #'
-#' Create a timeline block
+#' Create a timeline block that may be inserted in a \link{box} or outside.
 #'
 #' @param ... slot for timelineLabel or timelineItem.
 #' @param reversed Whether the timeline is reversed or not.
@@ -1198,14 +1198,32 @@ timelineBlock <- function(..., reversed = TRUE) {
 }
 
 
-#' @title AdminLTE2 timeline label
+#' AdminLTE2 timeline label
 #'
-#' @description Create a timeline label
+#' \link{timelineLabel} creates a timeline label element to highlight an event.
 #'
 #' @param ... any element.
 #' @param color label color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
+#' @rdname timeline
 #' 
 #' @export
 timelineLabel <- function(..., color = NULL) {
@@ -1226,19 +1244,39 @@ timelineLabel <- function(..., color = NULL) {
 }
 
 
-#' @title AdminLTE2 timeline item
+#' AdminLTE2 timeline item
 #'
-#' @description Create a timeline item
+#' \link{timelineItem} creates a timeline item that contains informations for a 
+#' given event like the title, description, date, ...
 #'
-#' @param ... any element such as timeLineItemMedia ...
+#' @param ... any element.
 #' @param icon item icon. Expect \code{\link[shiny]{icon}}.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #' @param time item date or time.
 #' @param title item title.
 #' @param border Whether to display a border between the header and the body. TRUE by default.
 #' @param footer item footer if any.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname timeline
 #' 
 #' @export
 timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
@@ -1292,15 +1330,15 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
 }
 
 
-#' @title AdminLTE2 timeline media item
+#' AdminLTE2 timeline media item
 #'
-#' @description Create a timeline media item
+#' \link{timelineItemMedia} create a specific container for images.
 #'
 #' @param image media url or path.
 #' @param height media height in pixels.
 #' @param width media width in pixels.
 #' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname timeline
 #' 
 #' @export
 timelineItemMedia <- function(image = NULL, height = NULL, width = NULL) {
@@ -1315,14 +1353,32 @@ timelineItemMedia <- function(image = NULL, height = NULL, width = NULL) {
 
 
 
-#' @title AdminLTE2 timeline starting point
+#' AdminLTE2 timeline starting point
 #'
-#' @description Create a timeline starting point
+#' \link{timelineStart} indicates a starting point.
 #'
 #' @param icon item icon. Expect \code{\link[shiny]{icon}}.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
+#' @rdname timeline
 #' 
 #' @export
 timelineStart <- function(icon = shiny::icon("clock-o"), color = NULL) {
@@ -1336,14 +1392,33 @@ timelineStart <- function(icon = shiny::icon("clock-o"), color = NULL) {
 }
 
 
-#' @title AdminLTE2 timeline ending point
+#' AdminLTE2 timeline ending point
 #'
-#' @description Create a timeline ending point
+#' \link{timelineEnd} indicates an end point.
 #'
 #' @param icon item icon. Expect \code{\link[shiny]{icon}}.
 #' @param color item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+#' See below:
+#' \itemize{
+#'  \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+#'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+#' }
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname timeline
 #' 
 #' @export
 timelineEnd <- function(icon = shiny::icon("hourglass-end"), color = NULL) {
@@ -1363,9 +1438,9 @@ timelineEnd <- function(icon = shiny::icon("hourglass-end"), color = NULL) {
 
 
 
-#' @title AdminLTE2 todo list container
+#' AdminLTE2 todo list container
 #'
-#' @description Create a todo list container
+#' Create a todo list container. May be included in \link{box}.
 #'
 #' @param ... slot for todoListItem.
 #' @param sortable Whether the list elements are sortable or not.
@@ -1429,6 +1504,7 @@ timelineEnd <- function(icon = shiny::icon("hourglass-end"), color = NULL) {
 #' }
 #'
 #' @export
+#' @rdname todoList
 todoList <- function(..., sortable = TRUE) {
   todoListTag <- shiny::tags$ul(
     class = "todo-list",
@@ -1443,15 +1519,15 @@ todoList <- function(..., sortable = TRUE) {
 
 
 
-#' @title AdminLTE2 todo list item
+#' AdminLTE2 todo list item
 #'
-#' @description Create a todo list item
+#' \link{todoListItem} creates a todo list item.
 #'
 #' @param ... any element such as labels, ...
 #' @param checked Whether the list item is checked or not.
 #' @param label item label.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname todoList
 #'
 #' @export
 todoListItem <- function(..., checked = FALSE, label = NULL) {

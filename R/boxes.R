@@ -1042,8 +1042,10 @@ boxComment <- function(..., image, title, date = NULL) {
 #' @param subtitle subtitle.
 #' @param bordered Whether the container should have a border or not. FALSE by default.
 #'
-#' @rdname box
+#' @rdname boxProfile
 #' 
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'   
 #' @examples
 #' 
 #' # Box with boxProfile
@@ -1116,7 +1118,7 @@ boxProfile <- function(..., image = NULL, title, subtitle = NULL, bordered = FAL
 #' @param description item info.
 #' 
 #' @export
-#' @rdname box
+#' @rdname boxProfile
 boxProfileItem <- function(title, description) {
   shiny::tags$li(
     class = "list-group-item",

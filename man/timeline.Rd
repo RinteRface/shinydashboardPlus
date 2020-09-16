@@ -2,17 +2,88 @@
 % Please edit documentation in R/useful-items.R
 \name{timelineBlock}
 \alias{timelineBlock}
+\alias{timelineLabel}
+\alias{timelineItem}
+\alias{timelineItemMedia}
+\alias{timelineStart}
+\alias{timelineEnd}
 \title{AdminLTE2 timeline block}
 \usage{
 timelineBlock(..., reversed = TRUE)
+
+timelineLabel(..., color = NULL)
+
+timelineItem(
+  ...,
+  icon = NULL,
+  color = NULL,
+  time = NULL,
+  title = NULL,
+  border = TRUE,
+  footer = NULL
+)
+
+timelineItemMedia(image = NULL, height = NULL, width = NULL)
+
+timelineStart(icon = shiny::icon("clock-o"), color = NULL)
+
+timelineEnd(icon = shiny::icon("hourglass-end"), color = NULL)
 }
 \arguments{
-\item{...}{slot for timelineLabel or timelineItem.}
+\item{...}{any element.}
 
 \item{reversed}{Whether the timeline is reversed or not.}
+
+\item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+See below:
+\itemize{
+ \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+ \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+ \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+ \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+ \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+ \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+ \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+ \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+ \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+ \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+ \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+ \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+ \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+ \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+ \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+ \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+}}
+
+\item{icon}{item icon. Expect \code{\link[shiny]{icon}}.}
+
+\item{time}{item date or time.}
+
+\item{title}{item title.}
+
+\item{border}{Whether to display a border between the header and the body. TRUE by default.}
+
+\item{footer}{item footer if any.}
+
+\item{image}{media url or path.}
+
+\item{height}{media height in pixels.}
+
+\item{width}{media width in pixels.}
 }
 \description{
-Create a timeline block
+Create a timeline block that may be inserted in a \link{box} or outside.
+
+\link{timelineLabel} creates a timeline label element to highlight an event.
+
+\link{timelineItem} creates a timeline item that contains informations for a 
+given event like the title, description, date, ...
+
+\link{timelineItemMedia} create a specific container for images.
+
+\link{timelineStart} indicates a starting point.
+
+\link{timelineEnd} indicates an end point.
 }
 \examples{
 if (interactive()) {
