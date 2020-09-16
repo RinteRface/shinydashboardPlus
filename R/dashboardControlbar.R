@@ -1,6 +1,6 @@
 #' AdminLTE2 dashboard right sidebar
 #'
-#' This creates a right sidebar.
+#' \link{dashboardControlbar} create a right sidebar container.
 #' 
 #' @param ... slot for \link{controlbarMenu}. Not compatible with .items.
 #' @param id To access the current state of the controlbar. Open is TRUE, closed
@@ -16,8 +16,12 @@
 #' 
 #' @note Until a maximum of 5 \link{controlbarItem}! AdminLTE 2 does not
 #' support more panels.
+#' 
+#' @rdname controlbar
 #'
 #' @examples
+#' 
+#' # Controlbar example
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -100,12 +104,17 @@ dashboardControlbar <- function(..., id = NULL, disable = FALSE, width = 230,
 
 
 #' Function to programmatically toggle the state of the controlbar
+#' 
+#' \link{updateControlbar} allows to toggle a \link{dasboardControlbar}.
 #'
 #' @param id Controlbar id.
 #' @param session Shiny session object.
 #' @export
+#' @rdname controlbar
 #'
 #' @examples
+#' 
+#' # Toggle the dashboard controlbar
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -150,9 +159,15 @@ updateControlbar <- function(id, session = shiny::getDefaultReactiveDomain()) {
 
 
 #' Create an AdminLTE 2 controlbar menu
+#' 
+#' \link{controlbarMenu} is a tabset panel for the \link{dashboardControlbar}.
+#' 
 #' @inheritParams shiny::tabsetPanel
 #' @export
+#' @rdname controlbar
 #' @examples 
+#' 
+#' # controlbar with controlbarMenu
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -217,8 +232,12 @@ controlbarMenu <- function(..., id = NULL, selected = NULL, position = NULL) {
 
 
 #' Create an AdminLTE2 controlbar menu item
+#' 
+#' \link{controlbarItem} is a tabPanel for the \link{controlbarMenu}.
+#' 
 #' @inheritParams shiny::tabPanel
 #' @export
+#' @rdname controlbar
 controlbarItem <- shiny::tabPanel
 
 
@@ -227,12 +246,18 @@ controlbarItem <- shiny::tabPanel
 
 #' Update an AdminLTE2 controlbarMenu on the client
 #' 
+#' \link{updateControlbarMenu} allows to programmatically change the currently
+#' selected \link{controlbarItem} on the client.
+#' 
 #' @param id Controlbar id.
 #' @param selected Item to select.
 #' @param session Shiny session object.
 #' 
 #' @export
+#' @rdname controlbar
 #' @examples
+#' 
+#' # Update a controlbar menu
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
