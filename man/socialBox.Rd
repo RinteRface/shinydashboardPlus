@@ -2,6 +2,7 @@
 % Please edit documentation in R/boxes.R
 \name{socialBox}
 \alias{socialBox}
+\alias{boxComment}
 \title{AdminLTE2 social box}
 \usage{
 socialBox(
@@ -17,13 +18,15 @@ socialBox(
   closable = FALSE,
   footerPadding = TRUE
 )
+
+boxComment(..., image, title, date = NULL)
 }
 \arguments{
-\item{...}{body content. May include \link{attachmentBlock} for instance.}
+\item{...}{comment content.}
 
-\item{image}{header image, if any.}
+\item{image}{author image, if any.}
 
-\item{title}{box title.}
+\item{title}{comment title.}
 
 \item{subtitle}{box subtitle.}
 
@@ -40,9 +43,13 @@ socialBox(
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
 \item{footerPadding}{TRUE by default: whether the footer has margin or not.}
+
+\item{date}{date of publication.}
 }
 \description{
-Create social box
+\link{socialBox} creates a special box dedicated for social content.
+
+\link{boxComment} has to be inserted in the comment slot of \link{socialBox}.
 }
 \examples{
 if (interactive()) {

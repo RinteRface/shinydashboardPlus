@@ -826,9 +826,9 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 
 
 
-#' @title AdminLTE2 social box
+#' AdminLTE2 social box
 #'
-#' @description Create social box
+#' \link{socialBox} creates a special box dedicated for social content.
 #'
 #' @param ... body content. May include \link{attachmentBlock} for instance.
 #' @param image header image, if any.
@@ -843,6 +843,7 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname socialBox
 #'
 #' @examples
 #' if (interactive()) {
@@ -999,18 +1000,17 @@ socialBox <- function(..., image, title, subtitle = NULL, comments = NULL,
 }
 
 
-#' @title AdminLTE2 box comment
+#' AdminLTE2 box comment
 #'
-#' @description Create box comment
+#' \link{boxComment} has to be inserted in the comment slot of \link{socialBox}.
 #'
 #' @param ... comment content.
 #' @param image author image, if any.
 #' @param title comment title.
 #' @param date date of publication.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
+#' @rdname socialBox
 boxComment <- function(..., image, title, date = NULL) {
   
   items <- list(...)
@@ -1031,9 +1031,10 @@ boxComment <- function(..., image, title, date = NULL) {
   )
 }
 
-#' @title AdminLTE2 box profile
+#' AdminLTE2 box profile
 #'
-#' @description Create box profile
+#' \link{boxProfile} goes inside a \link{box}. Displays user informations in an elegant
+#' container.
 #'
 #' @param ... any element such as \link{boxProfileItem}.
 #' @param image profile image, if any.
@@ -1041,9 +1042,11 @@ boxComment <- function(..., image, title, date = NULL) {
 #' @param subtitle subtitle.
 #' @param bordered Whether the container should have a border or not. FALSE by default.
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @rdname box
 #' 
 #' @examples
+#' 
+#' # Box with boxProfile
 #' if (interactive()) {
 #'  library(shiny)
 #'  library(shinydashboard)
@@ -1105,16 +1108,15 @@ boxProfile <- function(..., image = NULL, title, subtitle = NULL, bordered = FAL
 
 
 
-#' @title AdminLTE2 box profile item 
+#' AdminLTE2 box profile item 
 #'
-#' @description Create box profile item 
+#' \link{boxProfileItem} is an sub-element of a \link{boxProfile}.
 #'
 #' @param title item title.
 #' @param description item info.
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
 #' @export
+#' @rdname box
 boxProfileItem <- function(title, description) {
   shiny::tags$li(
     class = "list-group-item",
