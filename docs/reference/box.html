@@ -213,7 +213,7 @@ to insert in a box</p>
 
 <span class='fu'>boxDropdown</span>(<span class='kw'>...</span>, icon = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"wrench"</span>))
 
-<span class='fu'>boxDropdownItem</span>(<span class='kw'>...</span>, <span class='kw'>href</span>)
+<span class='fu'>boxDropdownItem</span>(<span class='kw'>...</span>, inputId = <span class='kw'>NULL</span>, href = <span class='kw'>NULL</span>, icon = <span class='kw'>NULL</span>)
 
 <span class='fu'>dropdownDivider</span>()
 
@@ -337,7 +337,7 @@ the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>icon</th>
-      <td><p>Dropdown menu icon. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+      <td><p>Optional icon. Expect <a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a>.</p></td>
     </tr>
     <tr>
       <th>gradient</th>
@@ -370,6 +370,10 @@ the user to collapse the box.</p></td>
     <tr>
       <th>session</th>
       <td><p>Shiny session object.</p></td>
+    </tr>
+    <tr>
+      <th>inputId</th>
+      <td><p>If passed, the item will behave like an action button.</p></td>
     </tr>
     <tr>
       <th>href</th>
@@ -510,10 +514,10 @@ descriptionBlock is used in a boxPad context.</p></td>
          style = <span class='st'>"circle"</span>
         ),
         dropdownMenu = <span class='fu'>boxDropdown</span>(
-         <span class='fu'>boxDropdownItem</span>(href = <span class='st'>"http://www.google.com"</span>, <span class='st'>"Link to google"</span>),
-         <span class='fu'>boxDropdownItem</span>(href = <span class='st'>"#"</span>, <span class='st'>"item 2"</span>),
+         <span class='fu'>boxDropdownItem</span>(<span class='st'>"Link to google"</span>, href = <span class='st'>"http://www.google.com"</span>),
+         <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 2"</span>, href = <span class='st'>"#"</span>),
          <span class='fu'>dropdownDivider</span>(),
-         <span class='fu'>boxDropdownItem</span>(href = <span class='st'>"#"</span>, <span class='st'>"item 3"</span>)
+         <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 3"</span>, href = <span class='st'>"#"</span>, icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"th"</span>))
         ),
         sidebar = <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span>(
          startOpen = <span class='fl'>TRUE</span>,
@@ -599,6 +603,42 @@ descriptionBlock is used in a boxPad context.</p></td>
  }
  
  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
+}
+
+<span class='co'># Box with dropdown items and input</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+       <span class='fu'>box</span>(
+         title = <span class='st'>"Closable Box with dropdown"</span>, 
+         closable = <span class='fl'>TRUE</span>, 
+         width = <span class='fl'>12</span>,
+         status = <span class='st'>"warning"</span>, 
+         solidHeader = <span class='fl'>FALSE</span>, 
+         collapsible = <span class='fl'>TRUE</span>,
+         dropdownMenu = <span class='fu'>boxDropdown</span>(
+           <span class='fu'>boxDropdownItem</span>(<span class='st'>"Click me"</span>, inputId = <span class='st'>"dropdownItem"</span>, icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"heart"</span>)),
+           <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 2"</span>, href = <span class='st'>"https://www.google.com/"</span>),
+           <span class='fu'>dropdownDivider</span>(),
+           <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 3"</span>, icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"th"</span>))
+         ),
+         <span class='st'>"My box"</span>
+       )
+     )
+   ),
+   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>dropdownItem</span>, {
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='st'>"Hello"</span>, duration = <span class='fl'>1</span>, type = <span class='st'>"message"</span>)
+     })
+   }
+ )
 }
 
 <span class='co'># Box with boxPad container + descriptionBlock</span>
