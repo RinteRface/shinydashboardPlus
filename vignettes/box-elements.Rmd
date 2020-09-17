@@ -26,14 +26,71 @@ library(shinydashboardPlus)
 
 <br>
 
-<div style="text-align:center;"><a href="articles/improved-boxes.html" class="btn btn-outline-secondary btn-lg">Go to previous vignette</a></div>
+<div style="text-align:center;"><a href="improved-boxes.html" class="btn btn-outline-secondary btn-lg">Go to previous vignette</a></div>
 
-### `descriptionBlock()`
+
+### Accordion
+Accordions are a category of collapsible elements. While collapsible items don't alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. `accordion()` expects to contain `accordionItems`. Importantly, to guaranty the uniqueness of each accordion, we must provide an _id_ parameter. In a future release,
+this parameter will also allow to programmatically toggle any accordion item, through an `updateAccordion` function.
+
+
+```{r accordion-code, eval=FALSE}
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+      accordion(
+       id = "accordion1",
+        accordionItem(
+          title = "Accordion 1 Item 1",
+          status = "danger",
+          collapsed = TRUE,
+          "This is some text!"
+        ),
+        accordionItem(
+          title = "Accordion 1 Item 2",
+          status = "warning",
+          collapsed = FALSE,
+          "This is some text!"
+        )
+      ),
+      accordion(
+       id = "accordion2",
+        accordionItem(
+          title = "Accordion 2 Item 1",
+          status = "info",
+          collapsed = TRUE,
+          "This is some text!"
+        ),
+        accordionItem(
+          title = "Accordion 2 Item 2",
+          status = "success",
+          collapsed = FALSE,
+          "This is some text!"
+        )
+      )
+    ),
+    title = "Accordion"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-accordions/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
+
+### Description Block
 
 `descriptionBlock()` is a sub-container that may be included in any `box()`. 
 It is convenient to display metrics. 
 
-```{r, eval=FALSE}
+```{r descriptionBlock-code, eval=FALSE}
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
