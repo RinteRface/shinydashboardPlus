@@ -146,8 +146,13 @@
 <pre><code>## The following object is masked from 'package:graphics':
 ## 
 ##     box</code></pre>
-<p>## Boxes on Steroids!</p>
-<p>### The box state <code><a href="../reference/box.html">box()</a></code> is without any doubt a central component of <code>{shinydashboard}</code>. Thanks to the AdminLTE API, <code>{shinydashboardPlus}</code> is able to provide more interactivity to this component. For instance, you may:</p>
+<div id="boxes-on-steroids" class="section level2">
+<h2 class="hasAnchor">
+<a href="#boxes-on-steroids" class="anchor"></a>Boxes on Steroids!</h2>
+<div id="the-box-state" class="section level3">
+<h3 class="hasAnchor">
+<a href="#the-box-state" class="anchor"></a>The box state</h3>
+<p><code><a href="../reference/box.html">box()</a></code> is without any doubt a central component of <code>{shinydashboard}</code>. Thanks to the AdminLTE API, <code>{shinydashboardPlus}</code> is able to provide more interactivity to this component. For instance, you may:</p>
 <ul>
 <li>Know the state of any box at any time. This state captures different parameters such as collapsed, closed, …</li>
 <li>Toggle a box</li>
@@ -218,6 +223,19 @@
 </ul>
 <p>Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.</p>
 <p>If you want to know more about the underlying mechanisms, have a look at the box widget <a href="https://adminlte.io/docs/2.4/js-box-widget">documentation</a>.</p>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-api/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
+</div>
 <div id="box-components" class="section level3">
 <h3 class="hasAnchor">
 <a href="#box-components" class="anchor"></a>Box components</h3>
@@ -251,14 +269,25 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
         <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"update"</span>, <span class="st">"Toggle card sidebar"</span>),
         sidebar = <span class="fu"><a href="../reference/boxSidebar.html">boxSidebar</a></span>(
           id = <span class="st">"mycardsidebar"</span>,
-          <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"Sidebar Content"</span>)
-        )
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
+            <span class="st">"obs"</span>, 
+            <span class="st">"Number of observations:"</span>,
+            min = <span class="fl">0</span>, 
+            max = <span class="fl">1000</span>, 
+            value = <span class="fl">500</span>
+          )
+        ),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span>(<span class="st">"distPlot"</span>)
       )
     ),
     sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>()
   ),
   server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html">observe</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">mycardsidebar</span>))
+    
+    <span class="kw">output</span><span class="op">$</span><span class="kw">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span>({
+      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">obs</span>))
+    })
     
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">update</span>, {
       <span class="fu"><a href="../reference/boxSidebar.html">updateBoxSidebar</a></span>(<span class="st">"mycardsidebar"</span>)
@@ -268,6 +297,18 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 )
 </pre></div>
 <p>What is the interest of being able to toggle the sidebar on the server? Image you want to open the sidebar as soon as the user clicks on a specific action button. This is definitely possible.</p>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-sidebar/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
 </div>
 <div id="box-dropdown" class="section level4">
 <h4 class="hasAnchor">
@@ -450,11 +491,14 @@ socialBox with userComments and attachmentBlock
 <a href="#comming-back-soon-flipbox" class="anchor"></a>Comming back soon: flipBox</h4>
 </div>
 </div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

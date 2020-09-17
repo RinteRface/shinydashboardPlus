@@ -15,17 +15,17 @@ library(shinydashboard)
 library(shinydashboardPlus)
 ```
   
-  ## Boxes on Steroids!
+## Boxes on Steroids!
   
-  ### The box state
-  `box()` is without any doubt a central component of `{shinydashboard}`. Thanks to the AdminLTE API, `{shinydashboardPlus}` is able to provide more interactivity to this component. For instance, you may:
+### The box state
+`box()` is without any doubt a central component of `{shinydashboard}`. Thanks to the AdminLTE API, `{shinydashboardPlus}` is able to provide more interactivity to this component. For instance, you may:
   
   - Know the state of any box at any time. This state captures different parameters such as
   collapsed, closed, ...
   - Toggle a box
   - Close/Restore a box
   
-  To benefit from that feature, one must pass the _inputId_ parameter and access it on the server side with `input$<inputId>`. Let's consider an example:
+To benefit from that feature, one must pass the _inputId_ parameter and access it on the server side with `input$<inputId>`. Let's consider an example:
   
 ```{r boxAPI-code, eval=FALSE}
 ui <- dashboardPage(
@@ -94,6 +94,15 @@ Knowing the state of a box significantly opens new possibilities within the appl
 
 If you want to know more about the underlying mechanisms, have a look at the box widget [documentation](https://adminlte.io/docs/2.4/js-box-widget). 
 
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-api/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
+
+
 ### Box components
 With `{shinydashboardPlus}`, you may embed labels, a sidebar and dropdown menus in the 
 box header. 
@@ -125,14 +134,25 @@ shinyApp(
         actionButton("update", "Toggle card sidebar"),
         sidebar = boxSidebar(
           id = "mycardsidebar",
-          p("Sidebar Content")
-        )
+          sliderInput(
+            "obs", 
+            "Number of observations:",
+            min = 0, 
+            max = 1000, 
+            value = 500
+          )
+        ),
+        plotOutput("distPlot")
       )
     ),
     sidebar = dashboardSidebar()
   ),
   server = function(input, output, session) {
     observe(print(input$mycardsidebar))
+    
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
     
     observeEvent(input$update, {
       updateBoxSidebar("mycardsidebar")
@@ -144,6 +164,14 @@ shinyApp(
 
 What is the interest of being able to toggle the sidebar on the server? Image you want
 to open the sidebar as soon as the user clicks on a specific action button. This is definitely possible.
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-sidebar/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
 
 #### Box Dropdown
 `boxDropdown()` is a super powerful tool since all dropdown items may behave like action buttons.
