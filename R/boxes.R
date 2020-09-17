@@ -175,6 +175,11 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   if (!is.null(height)) {
     style <- paste0("height: ", shiny::validateCssUnit(height))
   }
+  # add padding if box sidebar
+  if (!is.null(sidebar)) {
+    style <- paste0(style, " padding: 10px;")
+  }
+  
   titleTag <- NULL
   if (!is.null(title)) {
     titleTag <- shiny::tags$h3(class = "box-title", title)
