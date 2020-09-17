@@ -21,7 +21,7 @@ dashboardControlbar(
 
 updateControlbar(id, session = shiny::getDefaultReactiveDomain())
 
-controlbarMenu(..., id = NULL, selected = NULL, position = NULL)
+controlbarMenu(..., id = NULL, selected = NULL)
 
 controlbarItem(title, ..., value = title, icon = NULL)
 
@@ -51,9 +51,6 @@ updateControlbarMenu(
 \item{session}{Shiny session object.}
 
 \item{selected}{Item to select.}
-
-\item{position}{This argument is deprecated; it has been discontinued in
-Bootstrap 3.}
 
 \item{title}{Display title for tab}
 

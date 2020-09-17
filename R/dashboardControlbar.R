@@ -206,7 +206,7 @@ updateControlbar <- function(id, session = shiny::getDefaultReactiveDomain()) {
 #'    }
 #'  )
 #' }
-controlbarMenu <- function(..., id = NULL, selected = NULL, position = NULL) {
+controlbarMenu <- function(..., id = NULL, selected = NULL) {
   # We run the Shiny tabsetPanel function, to edit it later. This
   # is to avoid to rewrite all internal functions...
   temp_tabset <- shiny::tabsetPanel(
@@ -214,7 +214,7 @@ controlbarMenu <- function(..., id = NULL, selected = NULL, position = NULL) {
     id = id,
     selected = selected,
     type = "tabs",
-    position = position
+    position = NULL
   )
   
   # remove parent div causing CSS margin issues
