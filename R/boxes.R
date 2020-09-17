@@ -184,7 +184,10 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   boxToolTag <- NULL
   if (collapsible || closable) {
     btnToolClass <- "btn"
-    btnToolClass <- if (!is.null(status)) {
+    btnToolClass <- if (
+      !is.null(status) || 
+      (is.null(status) && is.null(background))
+                        ) {
       paste(btnToolClass, "btn-box-tool")
     } else {
       paste0(
@@ -221,7 +224,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   
   # Modify sidebar trigger class if background ...
   if (!is.null(sidebar)) {
-    if (is.null(status)) {
+    if (is.null(status) && !is.null(background)) {
       sidebar[[2]]$attribs$class <- paste0(
         "btn",
         if (!is.null(background)) {
@@ -234,7 +237,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   
   # modify dropdown trigger if background
   if (!is.null(dropdownMenu)) {
-    if (is.null(status)) {
+    if (is.null(status) && !is.null(background)) {
       dropdownMenu$children[[1]]$attribs$class <- paste0(
         "btn", 
         paste0(
