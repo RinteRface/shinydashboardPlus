@@ -67,19 +67,16 @@
 <li class="divider">
     <li class="dropdown-header">User Guide</li>
     <li>
-      <a href="../articles/controlbar.html">Using the rightSidebar</a>
-    </li>
-    <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
     <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
+      <a href="../articles/controlbar.html">Using the rightSidebar</a>
     </li>
     <li>
-      <a href="../articles/box-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
@@ -149,13 +146,8 @@
 <pre><code>## The following object is masked from 'package:graphics':
 ## 
 ##     box</code></pre>
-<div id="boxes-on-steroids" class="section level2">
-<h2 class="hasAnchor">
-<a href="#boxes-on-steroids" class="anchor"></a>Boxes on Steroids!</h2>
-<div id="the-box-state" class="section level3">
-<h3 class="hasAnchor">
-<a href="#the-box-state" class="anchor"></a>The box state</h3>
-<p><code><a href="../reference/box.html">box()</a></code> is without any doubt a central component of <code>{shinydashboard}</code>. Thanks to the AdminLTE API, <code>{shinydashboardPlus}</code> is able to provide more interactivity to this component. For instance, you may:</p>
+<p>## Boxes on Steroids!</p>
+<p>### The box state <code><a href="../reference/box.html">box()</a></code> is without any doubt a central component of <code>{shinydashboard}</code>. Thanks to the AdminLTE API, <code>{shinydashboardPlus}</code> is able to provide more interactivity to this component. For instance, you may:</p>
 <ul>
 <li>Know the state of any box at any time. This state captures different parameters such as collapsed, closed, …</li>
 <li>Toggle a box</li>
@@ -163,61 +155,60 @@
 </ul>
 <p>To benefit from that feature, one must pass the <em>inputId</em> parameter and access it on the server side with <code>input$&lt;inputId&gt;</code>. Let’s consider an example:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
- <span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-   <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-   <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-   <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="kw">tags</span><span class="op">$</span><span class="fu">style</span>(<span class="st">"body { background-color: ghostwhite}"</span>),
-     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"toggle_box"</span>, <span class="st">"Toggle Box"</span>),
-       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"remove_box"</span>, <span class="st">"Remove Box"</span>, class = <span class="st">"bg-danger"</span>),
-       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class = <span class="st">"bg-success"</span>)
-     ),
-     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
-     <span class="fu"><a href="../reference/box.html">box</a></span>(
-       title = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">textOutput</a></span>(<span class="st">"box_state"</span>),
-       <span class="st">"Box body"</span>,
-       id = <span class="st">"mybox"</span>,
-       collapsible = <span class="fl">TRUE</span>,
-       closable = <span class="fl">TRUE</span>,
-       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)
-     )
-   )
- )
- 
- <span class="kw">server</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
-   <span class="kw">output</span><span class="op">$</span><span class="kw">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span>({
-     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/req.html">req</a></span>(<span class="op">!</span><span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>)
-     <span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">200</span>))
-   })
-   
-   <span class="kw">output</span><span class="op">$</span><span class="kw">box_state</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderText.html">renderText</a></span>({
-     <span class="kw">state</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>) <span class="st">"collapsed"</span> <span class="co">else</span> <span class="st">"uncollapsed"</span>
-     <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"My box is"</span>, <span class="kw">state</span>)
-   })
-   
-   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">toggle_box</span>, {
-     <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"toggle"</span>)
-   })
-   
-   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">remove_box</span>, {
-     <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"remove"</span>)
-   })
-   
-   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">restore_box</span>, {
-     <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"restore"</span>)
-   })
-   
-   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">visible</span>, {
-     <span class="kw">collapsed</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>) <span class="st">"collapsed"</span> <span class="co">else</span> <span class="st">"uncollapsed"</span>
-     <span class="kw">visible</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">visible</span>) <span class="st">"visible"</span> <span class="co">else</span> <span class="st">"hidden"</span>
-     <span class="kw">message</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"My box is"</span>, <span class="kw">collapsed</span>, <span class="st">"and"</span>, <span class="kw">visible</span>)
-     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(<span class="kw">message</span>, type = <span class="st">"warning"</span>, duration = <span class="fl">1</span>)
-   })
-   
- }
- 
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="kw">ui</span>, <span class="kw">server</span>)
+<span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+  <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
+  <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
+  <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+    <span class="kw">tags</span><span class="op">$</span><span class="fu">style</span>(<span class="st">"body { background-color: ghostwhite}"</span>),
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"toggle_box"</span>, <span class="st">"Toggle Box"</span>),
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"remove_box"</span>, <span class="st">"Remove Box"</span>, class = <span class="st">"bg-danger"</span>),
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class = <span class="st">"bg-success"</span>)
+    ),
+    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
+    <span class="fu"><a href="../reference/box.html">box</a></span>(
+      title = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">textOutput</a></span>(<span class="st">"box_state"</span>),
+      <span class="st">"Box body"</span>,
+      id = <span class="st">"mybox"</span>,
+      collapsible = <span class="fl">TRUE</span>,
+      closable = <span class="fl">TRUE</span>,
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)
+    )
+  )
+)
+
+<span class="kw">server</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
+  <span class="kw">output</span><span class="op">$</span><span class="kw">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span>({
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/req.html">req</a></span>(<span class="op">!</span><span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>)
+    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">200</span>))
+  })
+  
+  <span class="kw">output</span><span class="op">$</span><span class="kw">box_state</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderText.html">renderText</a></span>({
+    <span class="kw">state</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>) <span class="st">"collapsed"</span> <span class="co">else</span> <span class="st">"uncollapsed"</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"My box is"</span>, <span class="kw">state</span>)
+  })
+  
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">toggle_box</span>, {
+    <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"toggle"</span>)
+  })
+  
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">remove_box</span>, {
+    <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"remove"</span>)
+  })
+  
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">restore_box</span>, {
+    <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"restore"</span>)
+  })
+  
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">visible</span>, {
+    <span class="kw">collapsed</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>) <span class="st">"collapsed"</span> <span class="co">else</span> <span class="st">"uncollapsed"</span>
+    <span class="kw">visible</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">visible</span>) <span class="st">"visible"</span> <span class="co">else</span> <span class="st">"hidden"</span>
+    <span class="kw">message</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"My box is"</span>, <span class="kw">collapsed</span>, <span class="st">"and"</span>, <span class="kw">visible</span>)
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(<span class="kw">message</span>, type = <span class="st">"warning"</span>, duration = <span class="fl">1</span>)
+  })
+}
+
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="kw">ui</span>, <span class="kw">server</span>)
 </pre></div>
 <p>We call the <code><a href="../reference/box.html">updateBox()</a></code> function, specifying the action to accomplish:</p>
 <ul>
@@ -227,7 +218,6 @@
 </ul>
 <p>Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.</p>
 <p>If you want to know more about the underlying mechanisms, have a look at the box widget <a href="https://adminlte.io/docs/2.4/js-box-widget">documentation</a>.</p>
-</div>
 <div id="box-components" class="section level3">
 <h3 class="hasAnchor">
 <a href="#box-components" class="anchor"></a>Box components</h3>
@@ -275,7 +265,7 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
     })
     
   }
- )
+)
 </pre></div>
 <p>What is the interest of being able to toggle the sidebar on the server? Image you want to open the sidebar as soon as the user clicks on a specific action button. This is definitely possible.</p>
 </div>
@@ -284,33 +274,33 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <a href="#box-dropdown" class="anchor"></a>Box Dropdown</h4>
 <p><code><a href="../reference/box.html">boxDropdown()</a></code> is a super powerful tool since all dropdown items may behave like action buttons. This feature allows to seamlessly add interactivity to the box component and gather features in one place. In the example below, clicking on the first item triggers a Shiny notification.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">shinyApp</span>(</span>
-<span id="cb12-2"><a href="#cb12-2"></a>   <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
-<span id="cb12-3"><a href="#cb12-3"></a>     <span class="kw">dashboardHeader</span>(),</span>
-<span id="cb12-4"><a href="#cb12-4"></a>     <span class="kw">dashboardSidebar</span>(),</span>
-<span id="cb12-5"><a href="#cb12-5"></a>     <span class="kw">dashboardBody</span>(</span>
-<span id="cb12-6"><a href="#cb12-6"></a>       <span class="kw">box</span>(</span>
-<span id="cb12-7"><a href="#cb12-7"></a>         <span class="dt">title =</span> <span class="st">"Closable Box with dropdown"</span>, </span>
-<span id="cb12-8"><a href="#cb12-8"></a>         <span class="dt">closable =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb12-9"><a href="#cb12-9"></a>         <span class="dt">width =</span> <span class="dv">12</span>,</span>
-<span id="cb12-10"><a href="#cb12-10"></a>         <span class="dt">status =</span> <span class="st">"warning"</span>, </span>
-<span id="cb12-11"><a href="#cb12-11"></a>         <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb12-12"><a href="#cb12-12"></a>         <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb12-13"><a href="#cb12-13"></a>         <span class="dt">dropdownMenu =</span> <span class="kw">boxDropdown</span>(</span>
-<span id="cb12-14"><a href="#cb12-14"></a>           <span class="kw">boxDropdownItem</span>(<span class="st">"Click me"</span>, <span class="dt">inputId =</span> <span class="st">"dropdownItem"</span>, <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">"heart"</span>)),</span>
-<span id="cb12-15"><a href="#cb12-15"></a>           <span class="kw">boxDropdownItem</span>(<span class="st">"item 2"</span>, <span class="dt">href =</span> <span class="st">"https://www.google.com/"</span>),</span>
-<span id="cb12-16"><a href="#cb12-16"></a>           <span class="kw">dropdownDivider</span>(),</span>
-<span id="cb12-17"><a href="#cb12-17"></a>           <span class="kw">boxDropdownItem</span>(<span class="st">"item 3"</span>, <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">"th"</span>))</span>
-<span id="cb12-18"><a href="#cb12-18"></a>         ),</span>
-<span id="cb12-19"><a href="#cb12-19"></a>         <span class="st">"My box"</span></span>
-<span id="cb12-20"><a href="#cb12-20"></a>       )</span>
-<span id="cb12-21"><a href="#cb12-21"></a>     )</span>
-<span id="cb12-22"><a href="#cb12-22"></a>   ),</span>
-<span id="cb12-23"><a href="#cb12-23"></a>   <span class="dt">server =</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb12-24"><a href="#cb12-24"></a>     <span class="kw">observeEvent</span>(input<span class="op">$</span>dropdownItem, {</span>
-<span id="cb12-25"><a href="#cb12-25"></a>       <span class="kw">showNotification</span>(<span class="st">"Hello"</span>, <span class="dt">duration =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">"message"</span>)</span>
-<span id="cb12-26"><a href="#cb12-26"></a>     })</span>
-<span id="cb12-27"><a href="#cb12-27"></a>   }</span>
-<span id="cb12-28"><a href="#cb12-28"></a> )</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb12-4"><a href="#cb12-4"></a>    <span class="kw">dashboardSidebar</span>(),</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    <span class="kw">dashboardBody</span>(</span>
+<span id="cb12-6"><a href="#cb12-6"></a>      <span class="kw">box</span>(</span>
+<span id="cb12-7"><a href="#cb12-7"></a>        <span class="dt">title =</span> <span class="st">"Closable Box with dropdown"</span>, </span>
+<span id="cb12-8"><a href="#cb12-8"></a>        <span class="dt">closable =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb12-9"><a href="#cb12-9"></a>        <span class="dt">width =</span> <span class="dv">12</span>,</span>
+<span id="cb12-10"><a href="#cb12-10"></a>        <span class="dt">status =</span> <span class="st">"warning"</span>, </span>
+<span id="cb12-11"><a href="#cb12-11"></a>        <span class="dt">solidHeader =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb12-12"><a href="#cb12-12"></a>        <span class="dt">collapsible =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb12-13"><a href="#cb12-13"></a>        <span class="dt">dropdownMenu =</span> <span class="kw">boxDropdown</span>(</span>
+<span id="cb12-14"><a href="#cb12-14"></a>          <span class="kw">boxDropdownItem</span>(<span class="st">"Click me"</span>, <span class="dt">inputId =</span> <span class="st">"dropdownItem"</span>, <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">"heart"</span>)),</span>
+<span id="cb12-15"><a href="#cb12-15"></a>          <span class="kw">boxDropdownItem</span>(<span class="st">"item 2"</span>, <span class="dt">href =</span> <span class="st">"https://www.google.com/"</span>),</span>
+<span id="cb12-16"><a href="#cb12-16"></a>          <span class="kw">dropdownDivider</span>(),</span>
+<span id="cb12-17"><a href="#cb12-17"></a>          <span class="kw">boxDropdownItem</span>(<span class="st">"item 3"</span>, <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">"th"</span>))</span>
+<span id="cb12-18"><a href="#cb12-18"></a>        ),</span>
+<span id="cb12-19"><a href="#cb12-19"></a>        <span class="st">"My box"</span></span>
+<span id="cb12-20"><a href="#cb12-20"></a>      )</span>
+<span id="cb12-21"><a href="#cb12-21"></a>    )</span>
+<span id="cb12-22"><a href="#cb12-22"></a>  ),</span>
+<span id="cb12-23"><a href="#cb12-23"></a>  <span class="dt">server =</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb12-24"><a href="#cb12-24"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>dropdownItem, {</span>
+<span id="cb12-25"><a href="#cb12-25"></a>      <span class="kw">showNotification</span>(<span class="st">"Hello"</span>, <span class="dt">duration =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">"message"</span>)</span>
+<span id="cb12-26"><a href="#cb12-26"></a>    })</span>
+<span id="cb12-27"><a href="#cb12-27"></a>  }</span>
+<span id="cb12-28"><a href="#cb12-28"></a>)</span>
 <span id="cb12-29"><a href="#cb12-29"></a><span class="er">}</span></span></code></pre></div>
 </div>
 </div>
@@ -318,10 +308,9 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <h3 class="hasAnchor">
 <a href="#other-boxes" class="anchor"></a>Other Boxes</h3>
 <p><code>{shinydashboardPlus}</code> provides more box components to be able to adapt to various situations. What if you wanted to create a box with comments, with social content?</p>
-</div>
-<div id="userbox" class="section level3">
-<h3 class="hasAnchor">
-<a href="#userbox" class="anchor"></a>userBox</h3>
+<div id="userbox" class="section level4">
+<h4 class="hasAnchor">
+<a href="#userbox" class="anchor"></a>userBox</h4>
 <p><code><a href="../reference/userBox.html">userBox()</a></code> is intended to highlight user profiles. It has many common parameters with <code><a href="../reference/box.html">box()</a></code> and overall the same layout. The 2 major diffences between <code><a href="../reference/box.html">box()</a></code> and <code><a href="../reference/userBox.html">userBox()</a></code> are:</p>
 <ul>
 <li>The ability to add a user image in the box header</li>
@@ -342,41 +331,41 @@ Some userBox components
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
-      title = <span class="st">"Nadia Carmichael"</span>,
-      subtitle = <span class="st">"lead Developer"</span>,
-      type = <span class="fl">2</span>,
-      image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
-      color = <span class="st">"yellow"</span>,
-      <span class="fu"><a href="../reference/navPills.html">navPills</a></span>(
-        id = <span class="st">"pillItem"</span>,
-        <span class="fu"><a href="../reference/navPills.html">navPillsItem</a></span>(
-          left = <span class="st">"Item 1"</span>, 
-          color = <span class="st">"green"</span>,
-          right = <span class="fl">10</span>
+      <span class="fu"><a href="../reference/userBox.html">userBox</a></span>(
+        title = <span class="st">"Nadia Carmichael"</span>,
+        subtitle = <span class="st">"lead Developer"</span>,
+        type = <span class="fl">2</span>,
+        image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
+        color = <span class="st">"yellow"</span>,
+        <span class="fu"><a href="../reference/navPills.html">navPills</a></span>(
+          id = <span class="st">"pillItem"</span>,
+          <span class="fu"><a href="../reference/navPills.html">navPillsItem</a></span>(
+            left = <span class="st">"Item 1"</span>, 
+            color = <span class="st">"green"</span>,
+            right = <span class="fl">10</span>
+          ),
+          <span class="fu"><a href="../reference/navPills.html">navPillsItem</a></span>(
+            left = <span class="st">"Item 2"</span>, 
+            color = <span class="st">"red"</span>,
+            icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"angle-down"</span>), 
+            right = <span class="st">"10%"</span>
+          )
         ),
-        <span class="fu"><a href="../reference/navPills.html">navPillsItem</a></span>(
-          left = <span class="st">"Item 2"</span>, 
-          color = <span class="st">"red"</span>,
-          icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"angle-down"</span>), 
-          right = <span class="st">"10%"</span>
-        )
-      ),
-      footer = <span class="st">"The footer here!"</span>
-     )
+        footer = <span class="st">"The footer here!"</span>
+      )
     ),
-    title = <span class="st">"widgetUserBox"</span>
+    title = <span class="st">"userBox"</span>
   ),
   server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) {
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">pillItem</span>, {
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(
-      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">"You clicked on pill N° %s"</span>, <span class="kw">input</span><span class="op">$</span><span class="kw">pillItem</span>), 
-      type = <span class="st">"warning"</span>,
-      duration = <span class="fl">1</span>
-    )
-   })
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(
+        <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">"You clicked on pill N° %s"</span>, <span class="kw">input</span><span class="op">$</span><span class="kw">pillItem</span>), 
+        type = <span class="st">"warning"</span>,
+        duration = <span class="fl">1</span>
+      )
+    })
   }
- )
+)
 </pre></div>
 <div class="figure" style="text-align: center">
 <img src="figures/userBox-components.png" alt="userBox with navPills" width="50%"><p class="caption">
@@ -384,249 +373,88 @@ userBox with navPills
 </p>
 </div>
 </div>
-<div id="socialbox" class="section level3">
-<h3 class="hasAnchor">
-<a href="#socialbox" class="anchor"></a>socialBox</h3>
-<p><img src="figures/socialBox.png"><br></p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
- 
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-     <span class="fu"><a href="../reference/socialBox.html">socialBox</a></span>(
-      title = <span class="st">"Social Box"</span>,
-      subtitle = <span class="st">"example-01.05.2018"</span>,
-      src = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
-      <span class="st">"Some text here!"</span>,
-      <span class="fu"><a href="../reference/attachmentBlock.html">attachmentBlock</a></span>(
-       src = <span class="st">"http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg"</span>,
-       title = <span class="st">"Test"</span>,
-       title_url = <span class="st">"http://google.com"</span>,
-       <span class="st">"This is the content"</span>
-      ),
-      comments = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-       <span class="fu"><a href="../reference/socialBox.html">boxComment</a></span>(
-        src = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-        title = <span class="st">"Comment 1"</span>,
-        date = <span class="st">"01.05.2018"</span>,
-        <span class="st">"The first comment"</span>
-       ),
-       <span class="fu"><a href="../reference/socialBox.html">boxComment</a></span>(
-        src = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg"</span>,
-        title = <span class="st">"Comment 2"</span>,
-        date = <span class="st">"01.05.2018"</span>,
-        <span class="st">"The second comment"</span>
-       )
-      ),
-      footer = <span class="st">"The footer here!"</span>
-     )
-    ),
-    title = <span class="st">"Description Blocks"</span>
-  ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
- )
-</pre></div>
+<div id="socialbox" class="section level4">
+<h4 class="hasAnchor">
+<a href="#socialbox" class="anchor"></a>socialBox</h4>
+<p>A <code><a href="../reference/socialBox.html">socialBox()</a></code> is dedicated to contain events, comments, anything related to people. Elements like <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> and <code><a href="../reference/userMessages.html">userMessages()</a></code> are a good fit with this component. The <em>comment</em> slot may hosts multiple <code>boxComment</code>, consisting in user comments. Right now, there is no programmatic way to handle them but a future release of <code>{shinydashboardPlus}</code> will obviously fill this gap. The figure below shows a combination of multiple elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>, as well as the code to reproduce it.</p>
+<div class="figure" style="text-align: center">
+<img src="figures/socialBox.png" alt="socialBox with userComments and attachmentBlock" width="50%"><p class="caption">
+socialBox with userComments and attachmentBlock
+</p>
 </div>
-<div id="flipbox" class="section level3">
-<h3 class="hasAnchor">
-<a href="#flipbox" class="anchor"></a>flipBox</h3>
-<p><img src="figures/flipBox.png"><br></p>
-<div class="sourceCode" id="cb15"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/DivadNojnarg/shinyEffects">shinyEffects</a></span>)
-
+<div class="sourceCode" id="cb14"><pre class="downlit">
 <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://rdrr.io/pkg/shinyEffects/man/setShadow.html">setShadow</a></span>(<span class="st">"card"</span>),
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-          width = <span class="fl">6</span>,
-          align = <span class="st">"center"</span>,
-          <span class="fu"><a href="../reference/flipBox.html">flipBox</a></span>(
-            id = <span class="fl">1</span>,
-            main_img = <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
-            header_img = <span class="st">"https://image.flaticon.com/icons/svg/119/119595.svg"</span>,
-            front_title = <span class="st">"John Doe"</span>,
-            back_title = <span class="st">"About John"</span>,
-            <span class="st">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna 
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit 
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-            occaecat cupidatat non proident, sunt in culpa qui officia 
-            deserunt mollit anim id est laborum"</span>,
-            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-              <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span>(<span class="st">"Label 1"</span>, status = <span class="st">"info"</span>),
-              <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span>(<span class="st">"Label 2"</span>, status = <span class="st">"success"</span>),
-              <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span>(<span class="st">"Label 3"</span>, status = <span class="st">"warning"</span>),
-              <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span>(<span class="st">"Label 4"</span>, status = <span class="st">"primary"</span>),
-              <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span>(<span class="st">"Label 5"</span>, status = <span class="st">"danger"</span>)
-            ),
-            <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">hr</a></span>(),
-            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-                width = <span class="fl">6</span>,
-                align = <span class="st">"center"</span>,
-                <span class="fu"><a href="../reference/starBlock.html">starBlock</a></span>(grade = <span class="fl">5</span>),
-                <span class="fu"><a href="../reference/starBlock.html">starBlock</a></span>(grade = <span class="fl">5</span>, color = <span class="st">"olive"</span>),
-                <span class="fu"><a href="../reference/starBlock.html">starBlock</a></span>(grade = <span class="fl">1</span>, color = <span class="st">"maroon"</span>),
-                <span class="fu"><a href="../reference/starBlock.html">starBlock</a></span>(grade = <span class="fl">3</span>, color = <span class="st">"teal"</span>)
+      <span class="fu"><a href="../reference/socialBox.html">socialBox</a></span>(
+        title = <span class="st">"Social Box"</span>,
+        subtitle = <span class="st">"example-01.05.2018"</span>,
+        image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
+        <span class="st">"Some text here!"</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabsetPanel.html">tabsetPanel</a></span>(
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabPanel.html">tabPanel</a></span>(
+            <span class="st">"News"</span>,
+            <span class="fu"><a href="../reference/attachmentBlock.html">attachmentBlock</a></span>(
+              image = <span class="st">"http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg"</span>,
+              title = <span class="st">"Test"</span>,
+              href = <span class="st">"http://google.com"</span>,
+              <span class="st">"This is the content"</span>
+            )
+          ),
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabPanel.html">tabPanel</a></span>(
+            <span class="st">"Messages"</span>,
+            <span class="fu"><a href="../reference/userMessages.html">userMessages</a></span>(
+              width = <span class="fl">12</span>,
+              status = <span class="st">"danger"</span>,
+              <span class="fu"><a href="../reference/userMessages.html">userMessage</a></span>(
+                author = <span class="st">"Alexander Pierce"</span>,
+                date = <span class="st">"20 Jan 2:00 pm"</span>,
+                image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+                type = <span class="st">"received"</span>,
+                <span class="st">"Is this template really for free? That's unbelievable!"</span>
               ),
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-                width = <span class="fl">6</span>,
-                align = <span class="st">"center"</span>,
-                <span class="fu"><a href="../reference/appButton.html">appButton</a></span>(
-                  url = <span class="st">"http://google.com"</span>,
-                  label = <span class="st">"Users"</span>,
-                  icon = <span class="st">"fa fa-users"</span>,
-                  enable_badge = <span class="fl">TRUE</span>,
-                  badgeColor = <span class="st">"purple"</span>,
-                  badgeLabel = <span class="fl">891</span>
-                ),
-                <span class="fu"><a href="../reference/appButton.html">appButton</a></span>(
-                  label = <span class="st">"Edit"</span>,
-                  icon = <span class="st">"fa fa-edit"</span>,
-                  enable_badge = <span class="fl">FALSE</span>,
-                  badgeColor = <span class="kw">NULL</span>,
-                  badgeLabel = <span class="kw">NULL</span>
-                )
+              <span class="fu"><a href="../reference/userMessages.html">userMessage</a></span>(
+                author = <span class="st">"Sarah Bullock"</span>,
+                date = <span class="st">"23 Jan 2:05 pm"</span>,
+                image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+                type = <span class="st">"sent"</span>,
+                <span class="st">"You better believe it!"</span>
               )
-            ),
-            back_content = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-                width = <span class="fl">12</span>,
-                align = <span class="st">"center"</span>,
-                <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
-                  <span class="st">"obs"</span>, 
-                  <span class="st">"Number of observations:"</span>,
-                  min = <span class="fl">0</span>, 
-                  max = <span class="fl">1000</span>, 
-                  value = <span class="fl">500</span>
-                )
-              ),
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span>(<span class="st">"distPlot"</span>)
             )
           )
         ),
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-          width = <span class="fl">6</span>,
-          align = <span class="st">"center"</span>,
-          <span class="fu"><a href="../reference/flipBox.html">flipBox</a></span>(
-            id = <span class="fl">2</span>,
-            main_img = <span class="st">"https://image.flaticon.com/icons/svg/149/149073.svg"</span>,
-            header_img = <span class="st">"https://image.flaticon.com/icons/svg/119/119598.svg"</span>,
-            front_title = <span class="st">"Johanna Doe"</span>,
-            back_title = <span class="st">"About Johanna"</span>,
-            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-                width = <span class="fl">6</span>,
-                align = <span class="st">"center"</span>,
-                <span class="fu"><a href="../reference/box.html">boxPad</a></span>(
-                  color = <span class="st">"green"</span>,
-                  <span class="fu"><a href="../reference/box.html">descriptionBlock</a></span>(
-                    header = <span class="st">"8390"</span>,
-                    text = <span class="st">"VISITS"</span>,
-                    right_border = <span class="fl">FALSE</span>,
-                    margin_bottom = <span class="fl">TRUE</span>
-                  ),
-                  <span class="fu"><a href="../reference/box.html">descriptionBlock</a></span>(
-                    header = <span class="st">"30%"</span>,
-                    text = <span class="st">"REFERRALS"</span>,
-                    right_border = <span class="fl">FALSE</span>,
-                    margin_bottom = <span class="fl">TRUE</span>
-                  ),
-                  <span class="fu"><a href="../reference/box.html">descriptionBlock</a></span>(
-                    header = <span class="st">"70%"</span>,
-                    text = <span class="st">"ORGANIC"</span>,
-                    right_border = <span class="fl">FALSE</span>,
-                    margin_bottom = <span class="fl">FALSE</span>
-                  )
-                )
-              ),
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-                width = <span class="fl">6</span>,
-                align = <span class="st">"center"</span>,
-                <span class="st">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor."</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
-                <span class="fu">verticalProgress</span>(
-                  value = <span class="fl">10</span>,
-                  striped = <span class="fl">TRUE</span>,
-                  active = <span class="fl">TRUE</span>
-                ),
-                <span class="fu">verticalProgress</span>(
-                  value = <span class="fl">50</span>,
-                  active = <span class="fl">TRUE</span>,
-                  status = <span class="st">"warning"</span>,
-                  size = <span class="st">"xs"</span>
-                ),
-                <span class="fu">verticalProgress</span>(
-                  value = <span class="fl">20</span>,
-                  status = <span class="st">"danger"</span>,
-                  size = <span class="st">"sm"</span>,
-                  height = <span class="st">"60%"</span>
-                )
-              )
-            ),
-            back_content = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
-                width = <span class="fl">12</span>,
-                align = <span class="st">"center"</span>,
-                <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html">radioButtons</a></span>(
-                  <span class="st">"dist"</span>, 
-                  <span class="st">"Distribution type:"</span>,
-                  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Normal"</span> = <span class="st">"norm"</span>,
-                    <span class="st">"Uniform"</span> = <span class="st">"unif"</span>,
-                    <span class="st">"Log-normal"</span> = <span class="st">"lnorm"</span>,
-                    <span class="st">"Exponential"</span> = <span class="st">"exp"</span>
-                  )
-                )
-              ),
-              <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)
+        comments = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
+          <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(X = <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, FUN = <span class="fu">function</span>(<span class="kw">i</span>) {
+            <span class="fu"><a href="../reference/socialBox.html">boxComment</a></span>(
+              image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+              title = <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"Comment"</span>, <span class="kw">i</span>),
+              date = <span class="st">"01.05.2018"</span>,
+              <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"The "</span>, <span class="kw">i</span>, <span class="st">"-th comment"</span>)
             )
-          )
-        )
+          })
+        ),
+        footer = <span class="st">"The footer here!"</span>
       )
     ),
-    title = <span class="st">"flipBox"</span>
+    title = <span class="st">"Social Box"</span>
   ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) {
-    <span class="kw">output</span><span class="op">$</span><span class="kw">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span>({
-      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">obs</span>))
-    })
-    <span class="kw">output</span><span class="op">$</span><span class="kw">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span>({
-      <span class="kw">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/switch.html">switch</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">dist</span>,
-                     norm = <span class="kw">rnorm</span>,
-                     unif = <span class="kw">runif</span>,
-                     lnorm = <span class="kw">rlnorm</span>,
-                     exp = <span class="kw">rexp</span>,
-                     <span class="kw">rnorm</span>)
-      
-      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span>(<span class="fl">500</span>))
-    })
-  }
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
 )
 </pre></div>
+</div>
+<div id="comming-back-soon-flipbox" class="section level4">
+<h4 class="hasAnchor">
+<a href="#comming-back-soon-flipbox" class="anchor"></a>Comming back soon: flipBox</h4>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 

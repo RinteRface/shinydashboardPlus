@@ -910,7 +910,7 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
 #'       attachmentBlock(
 #'        image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
 #'        title = "Test",
-#'        title_url = "https://google.com",
+#'        href = "https://google.com",
 #'        "This is the content"
 #'       ),
 #'       comments = tagList(

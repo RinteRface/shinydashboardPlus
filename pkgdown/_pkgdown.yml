@@ -142,11 +142,10 @@ articles:
   desc: ~
   navbar: User Guide
   contents:
-  - '`controlbar`'
   - '`improved-boxes`'
   - '`box-elements`'
+  - '`controlbar`'
   - '`extra-css-effects`'
-  - '`box-sidebar`'
   - '`css-preloader`'
   - '`left-menu-navbar`'
   

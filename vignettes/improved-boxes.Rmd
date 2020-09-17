@@ -8,88 +8,87 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
+  
 ```{r setup}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
 ```
-
-## Boxes on Steroids!
-
-### The box state
-`box()` is without any doubt a central component of `{shinydashboard}`. Thanks to the AdminLTE API, `{shinydashboardPlus}` is able to provide more interactivity to this component. For instance, you may:
-
+  
+  ## Boxes on Steroids!
+  
+  ### The box state
+  `box()` is without any doubt a central component of `{shinydashboard}`. Thanks to the AdminLTE API, `{shinydashboardPlus}` is able to provide more interactivity to this component. For instance, you may:
+  
   - Know the state of any box at any time. This state captures different parameters such as
   collapsed, closed, ...
   - Toggle a box
   - Close/Restore a box
-
-To benefit from that feature, one must pass the _inputId_ parameter and access it on the server side with `input$<inputId>`. Let's consider an example:
-
+  
+  To benefit from that feature, one must pass the _inputId_ parameter and access it on the server side with `input$<inputId>`. Let's consider an example:
+  
 ```{r boxAPI-code, eval=FALSE}
- ui <- dashboardPage(
-   dashboardHeader(),
-   dashboardSidebar(),
-   dashboardBody(
-     tags$style("body { background-color: ghostwhite}"),
-     fluidRow(
-       actionButton("toggle_box", "Toggle Box"),
-       actionButton("remove_box", "Remove Box", class = "bg-danger"),
-       actionButton("restore_box", "Restore Box", class = "bg-success")
-     ),
-     br(),
-     box(
-       title = textOutput("box_state"),
-       "Box body",
-       id = "mybox",
-       collapsible = TRUE,
-       closable = TRUE,
-       plotOutput("plot")
-     )
-   )
- )
- 
- server <- function(input, output, session) {
-   output$plot <- renderPlot({
-     req(!input$mybox$collapsed)
-     plot(rnorm(200))
-   })
-   
-   output$box_state <- renderText({
-     state <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
-     paste("My box is", state)
-   })
-   
-   observeEvent(input$toggle_box, {
-     updateBox("mybox", action = "toggle")
-   })
-   
-   observeEvent(input$remove_box, {
-     updateBox("mybox", action = "remove")
-   })
-   
-   observeEvent(input$restore_box, {
-     updateBox("mybox", action = "restore")
-   })
-   
-   observeEvent(input$mybox$visible, {
-     collapsed <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
-     visible <- if (input$mybox$visible) "visible" else "hidden"
-     message <- paste("My box is", collapsed, "and", visible)
-     showNotification(message, type = "warning", duration = 1)
-   })
-   
- }
- 
- shinyApp(ui, server)
+ui <- dashboardPage(
+  dashboardHeader(),
+  dashboardSidebar(),
+  dashboardBody(
+    tags$style("body { background-color: ghostwhite}"),
+    fluidRow(
+      actionButton("toggle_box", "Toggle Box"),
+      actionButton("remove_box", "Remove Box", class = "bg-danger"),
+      actionButton("restore_box", "Restore Box", class = "bg-success")
+    ),
+    br(),
+    box(
+      title = textOutput("box_state"),
+      "Box body",
+      id = "mybox",
+      collapsible = TRUE,
+      closable = TRUE,
+      plotOutput("plot")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  output$plot <- renderPlot({
+    req(!input$mybox$collapsed)
+    plot(rnorm(200))
+  })
+  
+  output$box_state <- renderText({
+    state <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
+    paste("My box is", state)
+  })
+  
+  observeEvent(input$toggle_box, {
+    updateBox("mybox", action = "toggle")
+  })
+  
+  observeEvent(input$remove_box, {
+    updateBox("mybox", action = "remove")
+  })
+  
+  observeEvent(input$restore_box, {
+    updateBox("mybox", action = "restore")
+  })
+  
+  observeEvent(input$mybox$visible, {
+    collapsed <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
+    visible <- if (input$mybox$visible) "visible" else "hidden"
+    message <- paste("My box is", collapsed, "and", visible)
+    showNotification(message, type = "warning", duration = 1)
+  })
+}
+
+shinyApp(ui, server)
 ```
 
 We call the `updateBox()` function, specifying the action to accomplish:
 
-  - toggle
-  - remove
-  - restore
+- toggle
+- remove
+- restore
 
 Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.
 
@@ -140,7 +139,7 @@ shinyApp(
     })
     
   }
- )
+)
 ```
 
 What is the interest of being able to toggle the sidebar on the server? Image you want
@@ -153,33 +152,33 @@ In the example below, clicking on the first item triggers a Shiny notification.
 
 ```{r boxDropdown-code, eval=FALSE}
 shinyApp(
-   ui = dashboardPage(
-     dashboardHeader(),
-     dashboardSidebar(),
-     dashboardBody(
-       box(
-         title = "Closable Box with dropdown", 
-         closable = TRUE, 
-         width = 12,
-         status = "warning", 
-         solidHeader = FALSE, 
-         collapsible = TRUE,
-         dropdownMenu = boxDropdown(
-           boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
-           boxDropdownItem("item 2", href = "https://www.google.com/"),
-           dropdownDivider(),
-           boxDropdownItem("item 3", icon = icon("th"))
-         ),
-         "My box"
-       )
-     )
-   ),
-   server = function(input, output) {
-     observeEvent(input$dropdownItem, {
-       showNotification("Hello", duration = 1, type = "message")
-     })
-   }
- )
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+      box(
+        title = "Closable Box with dropdown", 
+        closable = TRUE, 
+        width = 12,
+        status = "warning", 
+        solidHeader = FALSE, 
+        collapsible = TRUE,
+        dropdownMenu = boxDropdown(
+          boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+          boxDropdownItem("item 2", href = "https://www.google.com/"),
+          dropdownDivider(),
+          boxDropdownItem("item 3", icon = icon("th"))
+        ),
+        "My box"
+      )
+    )
+  ),
+  server = function(input, output) {
+    observeEvent(input$dropdownItem, {
+      showNotification("Hello", duration = 1, type = "message")
+    })
+  }
+)
 }
 ```
 
@@ -193,11 +192,11 @@ to create a box with comments, with social content?
 `userBox()` is intended to highlight user profiles. It has many common parameters with `box()` and overall the same layout.
 The 2 major diffences between `box()` and `userBox()` are:
 
-  - The ability to add a user image in the box header
-  - Optionally add a background image in the box header
-  - You cannot (not at the moment) modify them on the server side 
-  - The _color_ parameter is only applied to the box header
-  
+- The ability to add a user image in the box header
+- Optionally add a background image in the box header
+- You cannot (not at the moment) modify them on the server side 
+- The _color_ parameter is only applied to the box header
+
 You may also select 2 types: centered image or left-aligned image, as shown in Figure \@ref(fig:userBox).
 
 ```{r userBox, echo=FALSE, fig.cap='Some userBox components', fig.align = 'center', out.width='100%'}
@@ -212,41 +211,41 @@ shinyApp(
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     userBox(
-      title = "Nadia Carmichael",
-      subtitle = "lead Developer",
-      type = 2,
-      image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
-      color = "yellow",
-      navPills(
-        id = "pillItem",
-        navPillsItem(
-          left = "Item 1", 
-          color = "green",
-          right = 10
+      userBox(
+        title = "Nadia Carmichael",
+        subtitle = "lead Developer",
+        type = 2,
+        image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+        color = "yellow",
+        navPills(
+          id = "pillItem",
+          navPillsItem(
+            left = "Item 1", 
+            color = "green",
+            right = 10
+          ),
+          navPillsItem(
+            left = "Item 2", 
+            color = "red",
+            icon = icon("angle-down"), 
+            right = "10%"
+          )
         ),
-        navPillsItem(
-          left = "Item 2", 
-          color = "red",
-          icon = icon("angle-down"), 
-          right = "10%"
-        )
-      ),
-      footer = "The footer here!"
-     )
+        footer = "The footer here!"
+      )
     ),
-    title = "widgetUserBox"
+    title = "userBox"
   ),
   server = function(input, output) {
     observeEvent(input$pillItem, {
-    showNotification(
-      sprintf("You clicked on pill N° %s", input$pillItem), 
-      type = "warning",
-      duration = 1
-    )
-   })
+      showNotification(
+        sprintf("You clicked on pill N° %s", input$pillItem), 
+        type = "warning",
+        duration = 1
+      )
+    })
   }
- )
+)
 ```
 
 ```{r userBox-components, echo=FALSE, fig.cap='userBox with navPills', fig.align = 'center', out.width='50%'}
@@ -255,49 +254,75 @@ knitr::include_graphics("figures/userBox-components.png")
 
 #### socialBox
 
-<img src="figures/socialBox.png">
-<br>
+A `socialBox()` is dedicated to contain events, comments, anything related to people. Elements like `attachmentBlock()` and `userMessages()` are a good fit with this component. The _comment_ slot may hosts multiple `boxComment`, consisting in user comments. Right now, there is no programmatic way to handle them but a future release of `{shinydashboardPlus}` will obviously fill this gap. The figure below shows a combination of multiple elements in a `socialBox()`, as well as the code to reproduce it.
+
+
+```{r socialBox, echo=FALSE, fig.cap='socialBox with userComments and attachmentBlock', fig.align = 'center', out.width='50%'}
+knitr::include_graphics("figures/socialBox.png")
+``` 
 
 ```{r, eval=FALSE}
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
- 
- shinyApp(
+shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
-     socialBox(
-      title = "Social Box",
-      subtitle = "example-01.05.2018",
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
-      "Some text here!",
-      attachmentBlock(
-       src = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
-       title = "Test",
-       title_url = "http://google.com",
-       "This is the content"
-      ),
-      comments = tagList(
-       boxComment(
-        src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-        title = "Comment 1",
-        date = "01.05.2018",
-        "The first comment"
-       ),
-       boxComment(
-        src = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg",
-        title = "Comment 2",
-        date = "01.05.2018",
-        "The second comment"
-       )
-      ),
-      footer = "The footer here!"
-     )
+      socialBox(
+        title = "Social Box",
+        subtitle = "example-01.05.2018",
+        image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+        "Some text here!",
+        br(),
+        tabsetPanel(
+          tabPanel(
+            "News",
+            attachmentBlock(
+              image = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+              title = "Test",
+              href = "http://google.com",
+              "This is the content"
+            )
+          ),
+          tabPanel(
+            "Messages",
+            userMessages(
+              width = 12,
+              status = "danger",
+              userMessage(
+                author = "Alexander Pierce",
+                date = "20 Jan 2:00 pm",
+                image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+                type = "received",
+                "Is this template really for free? That's unbelievable!"
+              ),
+              userMessage(
+                author = "Sarah Bullock",
+                date = "23 Jan 2:05 pm",
+                image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+                type = "sent",
+                "You better believe it!"
+              )
+            )
+          )
+        ),
+        comments = tagList(
+          lapply(X = 1:10, FUN = function(i) {
+            boxComment(
+              image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+              title = paste("Comment", i),
+              date = "01.05.2018",
+              paste0("The ", i, "-th comment")
+            )
+          })
+        ),
+        footer = "The footer here!"
+      )
     ),
-    title = "Description Blocks"
+    title = "Social Box"
   ),
   server = function(input, output) { }
- )
+)
 ```
+
+
+#### Comming back soon: flipBox

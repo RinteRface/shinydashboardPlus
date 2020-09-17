@@ -109,19 +109,16 @@
     <li class="divider"></li>
     <li class="dropdown-header">User Guide</li>
     <li>
-      <a href="../articles/controlbar.html">Using the rightSidebar</a>
-    </li>
-    <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
     <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
+      <a href="../articles/controlbar.html">Using the rightSidebar</a>
     </li>
     <li>
-      <a href="../articles/box-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
@@ -339,7 +336,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
 <ul>
-<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code><a href="https://rdrr.io/pkg/shinyEffects/man/setPulse.html">setPulse()</a></code>, <code><a href="https://rdrr.io/pkg/shinyEffects/man/setShake.html">setShake()</a></code> and <code><a href="https://rdrr.io/pkg/shinyEffects/man/setZoom.html">setZoom()</a></code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
+<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
 </li>
 </ul>
 </div>
@@ -398,9 +395,9 @@
 <li><p>new “left_menu” argument in the <code>dashboardHeaderPlus()</code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</p></li>
 <li><p>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</p></li>
 <li><p>new “fixed” argument to the navbar (<code>dashboardHeaderPlus()</code>). If TRUE, the navbar is fixed-top. (static-top by default)</p></li>
-<li><p>new <code><a href="https://rdrr.io/pkg/shinyEffects/man/setZoom.html">setZoom()</a></code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
-<li><p>new <code><a href="https://rdrr.io/pkg/shinyEffects/man/setPulse.html">setPulse()</a></code> function</p></li>
-<li><p>new <code><a href="https://rdrr.io/pkg/shinyEffects/man/setShake.html">setShake()</a></code> function</p></li>
+<li><p>new <code>setZoom()</code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
+<li><p>new <code>setPulse()</code> function</p></li>
+<li><p>new <code>setShake()</code> function</p></li>
 <li><p>add “enable_preloader” and “loading_duration” to <code>dashboardPagePlus()</code> (custom preloader)</p></li>
 <li><p>update the <code><a href="../reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery()</a></code></p></li>
 <li><p>add a “style” argument to <code><a href="../reference/dashboardLabel.html">dashboardLabel()</a></code></p></li>
