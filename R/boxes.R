@@ -177,7 +177,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   }
   # add padding if box sidebar
   if (!is.null(sidebar)) {
-    style <- paste0(style, " padding: 10px;")
+    style <- paste(style, "padding: 10px;")
   }
   
   titleTag <- NULL
