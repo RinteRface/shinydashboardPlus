@@ -207,9 +207,15 @@ shinyApp(
     })
   }
 )
-}
 ```
 
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-dropdown/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
 
 ### Other Boxes
 `{shinydashboardPlus}` provides more box components to be able to adapt to various situations. What if you wanted
@@ -225,13 +231,13 @@ The 2 major diffences between `box()` and `userBox()` are:
 - You cannot (not at the moment) modify them on the server side 
 - The _color_ parameter is only applied to the box header
 
-You may also select 2 types: centered image or left-aligned image, as shown in Figure \@ref(fig:userBox).
+You may also select 2 types: centered image or left-aligned image, as shown in the Figure below.
 
 ```{r userBox, echo=FALSE, fig.cap='Some userBox components', fig.align = 'center', out.width='100%'}
 knitr::include_graphics("figures/userBox.png")
 ``` 
 
-`userBox()` plays well with other components like `navPills()`, as shown below and in Figure \@ref(fig:userBox-components)
+`userBox()` plays well with other components like `navPills()`, as shown below.
 
 ```{r userBox-code, eval=FALSE}
 shinyApp(
@@ -265,6 +271,15 @@ shinyApp(
     title = "userBox"
   ),
   server = function(input, output) {
+    
+    observeEvent(input$pillItem, {
+      if (input$pillItem == 2) {
+        showModal(
+          modalDialog("A modal")
+        )
+      }
+    })
+    
     observeEvent(input$pillItem, {
       showNotification(
         sprintf("You clicked on pill N° %s", input$pillItem), 
@@ -276,18 +291,18 @@ shinyApp(
 )
 ```
 
-```{r userBox-components, echo=FALSE, fig.cap='userBox with navPills', fig.align = 'center', out.width='50%'}
-knitr::include_graphics("figures/userBox-components.png")
-``` 
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userBox/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
 
 #### socialBox
 
 A `socialBox()` is dedicated to contain events, comments, anything related to people. Elements like `attachmentBlock()` and `userMessages()` are a good fit with this component. The _comment_ slot may hosts multiple `boxComment`, consisting in user comments. Right now, there is no programmatic way to handle them but a future release of `{shinydashboardPlus}` will obviously fill this gap. The figure below shows a combination of multiple elements in a `socialBox()`, as well as the code to reproduce it.
 
-
-```{r socialBox, echo=FALSE, fig.cap='socialBox with userComments and attachmentBlock', fig.align = 'center', out.width='50%'}
-knitr::include_graphics("figures/socialBox.png")
-``` 
 
 ```{r, eval=FALSE}
 shinyApp(
@@ -305,7 +320,7 @@ shinyApp(
           tabPanel(
             "News",
             attachmentBlock(
-              image = "http://kiev.carpediem.cd/data/afisha/o/2d/c7/2dc7670333.jpg",
+              image = "https://www.sammobile.com/wp-content/uploads/2017/11/Camel.png",
               title = "Test",
               href = "http://google.com",
               "This is the content"
@@ -352,5 +367,12 @@ shinyApp(
 )
 ```
 
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-socialBox/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
 
 #### Comming back soon: flipBox
