@@ -92,10 +92,10 @@
 #'          style = "circle"
 #'         ),
 #'         dropdownMenu = boxDropdown(
-#'          boxDropdownItem(href = "http://www.google.com", "Link to google"),
-#'          boxDropdownItem(href = "#", "item 2"),
+#'          boxDropdownItem("Link to google", href = "http://www.google.com"),
+#'          boxDropdownItem("item 2", href = "#"),
 #'          dropdownDivider(),
-#'          boxDropdownItem(href = "#", "item 3")
+#'          boxDropdownItem("item 3", href = "#", icon = icon("th"))
 #'         ),
 #'         sidebar = boxSidebar(
 #'          startOpen = TRUE,
@@ -559,6 +559,43 @@ updateBoxSidebar <- function(id, session = shiny::getDefaultReactiveDomain()) {
 #'
 #' @export
 #' @rdname box
+#' @examples 
+#' 
+#' # Box with dropdown items and input
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'    ui = dashboardPage(
+#'      dashboardHeader(),
+#'      dashboardSidebar(),
+#'      dashboardBody(
+#'        box(
+#'          title = "Closable Box with dropdown", 
+#'          closable = TRUE, 
+#'          width = 12,
+#'          status = "warning", 
+#'          solidHeader = FALSE, 
+#'          collapsible = TRUE,
+#'          dropdownMenu = boxDropdown(
+#'            boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+#'            boxDropdownItem("item 2", href = "https://www.google.com/"),
+#'            dropdownDivider(),
+#'            boxDropdownItem("item 3", icon = icon("th"))
+#'          ),
+#'          "My box"
+#'        )
+#'      )
+#'    ),
+#'    server = function(input, output) {
+#'      observeEvent(input$dropdownItem, {
+#'        showNotification("Hello", duration = 1, type = "message")
+#'      })
+#'    }
+#'  )
+#' }
 boxDropdown <- function(..., icon = shiny::icon("wrench")) {
   contentTag <- shiny::tags$div(
     class = "dropdown-menu dropdown-menu-right",
@@ -589,15 +626,24 @@ boxDropdown <- function(..., icon = shiny::icon("wrench")) {
 #' \link{boxDropdownItem} goes in \link{boxDropdown}.
 #' 
 #' @param ... Item content.
+#' @param inputId If passed, the item will behave like an action button.
 #' @param href Target url or page.
+#' @param icon Optional icon. Expect \link[shiny]{icon}.
 #'
 #' @export
 #' @rdname box
-boxDropdownItem <- function(..., href) {
+boxDropdownItem <- function(..., inputId = NULL, href = NULL, icon = NULL) {
   shiny::tags$li(
     shiny::tags$a(
+      id = inputId,
+      class = if (!is.null(inputId)) "action-button",
       href = href,
-      target = "_blank",
+      target = if (!is.null(href)) {
+        "_blank"
+      } else {
+        "#"
+      },
+      if (!is.null(icon)) icon, 
       ... 
     )
   )

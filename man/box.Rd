@@ -40,7 +40,7 @@ updateBox(
 
 boxDropdown(..., icon = shiny::icon("wrench"))
 
-boxDropdownItem(..., href)
+boxDropdownItem(..., inputId = NULL, href = NULL, icon = NULL)
 
 dropdownDivider()
 
@@ -123,7 +123,7 @@ the user to collapse the box.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
-\item{icon}{Dropdown menu icon. Expect \code{\link[shiny]{icon}}.}
+\item{icon}{Optional icon. Expect \link[shiny]{icon}.}
 
 \item{gradient}{Whether to allow gradient effect for the background color. Default to FALSE.}
 
@@ -140,6 +140,8 @@ the user to collapse the box.}
 \item{action}{Action to trigger: either collapse, remove or restore.}
 
 \item{session}{Shiny session object.}
+
+\item{inputId}{If passed, the item will behave like an action button.}
 
 \item{href}{Target url or page.}
 
@@ -245,10 +247,10 @@ if (interactive()) {
          style = "circle"
         ),
         dropdownMenu = boxDropdown(
-         boxDropdownItem(href = "http://www.google.com", "Link to google"),
-         boxDropdownItem(href = "#", "item 2"),
+         boxDropdownItem("Link to google", href = "http://www.google.com"),
+         boxDropdownItem("item 2", href = "#"),
          dropdownDivider(),
-         boxDropdownItem(href = "#", "item 3")
+         boxDropdownItem("item 3", href = "#", icon = icon("th"))
         ),
         sidebar = boxSidebar(
          startOpen = TRUE,
@@ -334,6 +336,42 @@ if (interactive()) {
  }
  
  shinyApp(ui, server)
+}
+
+# Box with dropdown items and input
+if (interactive()) {
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+   ui = dashboardPage(
+     dashboardHeader(),
+     dashboardSidebar(),
+     dashboardBody(
+       box(
+         title = "Closable Box with dropdown", 
+         closable = TRUE, 
+         width = 12,
+         status = "warning", 
+         solidHeader = FALSE, 
+         collapsible = TRUE,
+         dropdownMenu = boxDropdown(
+           boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+           boxDropdownItem("item 2", href = "https://www.google.com/"),
+           dropdownDivider(),
+           boxDropdownItem("item 3", icon = icon("th"))
+         ),
+         "My box"
+       )
+     )
+   ),
+   server = function(input, output) {
+     observeEvent(input$dropdownItem, {
+       showNotification("Hello", duration = 1, type = "message")
+     })
+   }
+ )
 }
 
 # Box with boxPad container + descriptionBlock
