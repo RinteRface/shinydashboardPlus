@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -76,7 +76,7 @@
       <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
@@ -113,7 +113,7 @@
       <h1 data-toc-skip>shinydashboardPlus</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">17 September, 2020</h4>
+            <h4 class="date">18 September, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/shinydashboardPlus.Rmd"><code>vignettes/shinydashboardPlus.Rmd</code></a></small>
       <div class="hidden name"><code>shinydashboardPlus.Rmd</code></div>
@@ -240,29 +240,11 @@
 <div id="basic-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#basic-example" class="anchor"></a>Basic Example</h2>
-<p>Below is a simple app you may build with <code>{shinydashboardPlus}</code>. We created a custom theme allowing to modify AdminLTE CSS variables on the fly with <code>{fresh}</code> and explicitly configured the sidebar to expand on hover, through the options parameters.</p>
+<p>Below is a simple app you may build with <code>{shinydashboardPlus}</code>. We explicitly configured the sidebar to expand on hover, through the options parameters.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
    ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
      options = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(sidebarExpandOnHover = <span class="fl">TRUE</span>),
-     freshTheme = <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/create_theme.html">create_theme</a></span>(
-      <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color</a></span>(
-        light_blue = <span class="st">"#0051ff"</span>,
-        blue = <span class="st">"#2011a2"</span>,
-        navy = <span class="st">"#201148"</span>,
-        red = <span class="st">"#ff34b3"</span>
-      ),
-      <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_sidebar.html">adminlte_sidebar</a></span>(
-        dark_bg = <span class="st">"#D8DEE9"</span>,
-        dark_hover_bg = <span class="st">"#81A1C1"</span>,
-        dark_color = <span class="st">"#2E3440"</span>
-      ),
-      <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_global.html">adminlte_global</a></span>(
-        content_bg = <span class="st">"#FFF"</span>,
-        box_bg = <span class="st">"#D8DEE9"</span>, 
-        info_box_bg = <span class="st">"#D8DEE9"</span>
-      )
-     ),
      header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
      sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(minified = <span class="fl">TRUE</span>, collapsed = <span class="fl">TRUE</span>),
      body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(

@@ -106,11 +106,6 @@ reference:
   contents:
   - '`shinydashboardPlusGallery`'
   
-  
-template:
-  params:
-    bootswatch: journal
-    
     
 navbar:
   structure:
@@ -145,7 +140,7 @@ articles:
   - '`improved-boxes`'
   - '`box-elements`'
   - '`controlbar`'
-  - '`extra-css-effects`'
+  - '`more-skins`'
   - '`css-preloader`'
   - '`left-menu-navbar`'
   

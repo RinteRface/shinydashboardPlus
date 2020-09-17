@@ -61,31 +61,12 @@ list of available options). The `box()` component has been reworked to reduce th
 
 
 ## Basic Example
-Below is a simple app you may build with `{shinydashboardPlus}`. We created a custom theme allowing to modify AdminLTE CSS variables on the fly with `{fresh}` and explicitly configured the
-sidebar to expand on hover, through the options parameters.
+Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters.
 
 ```{r, eval=FALSE}
 shinyApp(
    ui = dashboardPage(
      options = list(sidebarExpandOnHover = TRUE),
-     freshTheme = create_theme(
-      adminlte_color(
-        light_blue = "#0051ff",
-        blue = "#2011a2",
-        navy = "#201148",
-        red = "#ff34b3"
-      ),
-      adminlte_sidebar(
-        dark_bg = "#D8DEE9",
-        dark_hover_bg = "#81A1C1",
-        dark_color = "#2E3440"
-      ),
-      adminlte_global(
-        content_bg = "#FFF",
-        box_bg = "#D8DEE9", 
-        info_box_bg = "#D8DEE9"
-      )
-     ),
      header = dashboardHeader(),
      sidebar = dashboardSidebar(minified = TRUE, collapsed = TRUE),
      body = dashboardBody(
