@@ -5,4 +5,4 @@
 inst/doc
 .vscode
 **/.DS_Store
-inst/vignettes-demo/**/rsconnect
+inst/vignettes-demos/**/rsconnect
