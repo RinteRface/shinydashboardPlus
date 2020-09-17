@@ -4,13 +4,13 @@ library(shinydashboardPlus)
 
 shinyApp(
   ui = dashboardPage(
+    title = "Box Sidebar",
     header = dashboardHeader(),
     body = dashboardBody(
       box(
         title = "Update box sidebar", 
         closable = TRUE, 
         width = 12,
-        height = "500px",
         solidHeader = FALSE, 
         collapsible = TRUE,
         actionButton("update", "Toggle card sidebar"),
