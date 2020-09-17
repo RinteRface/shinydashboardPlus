@@ -36,6 +36,7 @@ library(fresh)
 | box sidebar | ❌ |   ✅|
 | get box state on the server (open, closed, ...) | ❌ |   ✅|
 | control sidebar on the server | ❌ |   ✅|
+| dashboard user dropdown |    ❌   |  ✅ |
 | theme selector | ❌ |   ✅|
 | social box | ❌ |   ✅|
 | user box | ❌ |   ✅|
