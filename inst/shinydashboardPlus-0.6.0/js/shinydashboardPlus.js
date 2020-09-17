@@ -624,8 +624,11 @@ $(function() {
     // Given the DOM element for the input, return the value
     getValue: function(el) {
       var activeItem = $(el).find(".active").index() + 1;
-      if (activeItem === undefined) {
-        $(el).first().addClass("active");
+      if (activeItem === 0) {
+        $(el)
+          .children()
+          .first()
+          .addClass("active");
         activeItem = 1;
       }
       // returns the index of the active item from the R point of view
