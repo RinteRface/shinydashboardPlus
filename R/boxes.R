@@ -283,22 +283,9 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
       headerTag, 
       shiny::tags$div(
         class = "box-body", 
-        style = if (is.null(sidebar)) {
-          if (!is.null(style)) style
-        },
-        if (!is.null(sidebar)) {
-          shiny::tags$div(
-            class = "direct-chat-messages",
-            shiny::tags$div(
-              class = "direct-chat-msg", 
-              ...,
-              style = if (!is.null(style)) style
-            ),
-            sidebar[c(1, 3)],
-          )
-        } else {
-          shiny::tagList(...)
-        }
+        style = style,
+        ...,
+        if (!is.null(sidebar)) sidebar[c(1, 3)],
       ), 
       if (!is.null(footer)) shiny::tags$div(
         class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", footer)
