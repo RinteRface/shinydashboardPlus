@@ -126,6 +126,10 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
                 label = NULL, dropdownMenu = NULL,
                 sidebar = NULL, footerPadding = TRUE) {
   
+  if (is.null(title) && 
+      (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))) {
+    stop("Cannot use box tools without a title")
+  }
   
   if (!collapsible && collapsed) {
     stop("Cannot collapse a card that is not collapsible.")
