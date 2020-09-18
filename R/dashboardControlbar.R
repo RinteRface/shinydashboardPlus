@@ -105,7 +105,7 @@ dashboardControlbar <- function(..., id = NULL, disable = FALSE, width = 230,
 
 #' Function to programmatically toggle the state of the controlbar
 #' 
-#' \link{updateControlbar} allows to toggle a \link{dasboardControlbar}.
+#' \link{updateControlbar} allows to toggle a \link{dashboardControlbar}.
 #'
 #' @param id Controlbar id.
 #' @param session Shiny session object.

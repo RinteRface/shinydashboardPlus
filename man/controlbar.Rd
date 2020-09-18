@@ -64,7 +64,7 @@ valid when using a \code{tabPanel} within a \code{\link[shiny:navbarPage]{navbar
 \description{
 \link{dashboardControlbar} create a right sidebar container.
 
-\link{updateControlbar} allows to toggle a \link{dasboardControlbar}.
+\link{updateControlbar} allows to toggle a \link{dashboardControlbar}.
 
 \link{controlbarMenu} is a tabset panel for the \link{dashboardControlbar}.
 

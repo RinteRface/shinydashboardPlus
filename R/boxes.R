@@ -735,7 +735,7 @@ dropdownDivider <- function() {
 #'       title = "Elizabeth Pierce",
 #'       subtitle = "Web Designer",
 #'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-#'       backgroundImage = "https://cdn.pixabay.com/photo/2015/11/10/04/00/triangle-1036325_960_720.png",
+#'       backgroundImage = "https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg",
 #'       closable = TRUE,
 #'       "Some text here!",
 #'       footer = "The footer here!"
