@@ -290,6 +290,16 @@ dashboardUser <- function(..., name = NULL, image = NULL, title = NULL,
   
   # create user account menu
   userTag <- shiny::tagList(
+    shiny::tags$head(
+      shiny::tags$script(
+        "$(function() {
+          $('.dashboard-user').on('click', function(e){
+            e.stopPropagation();
+          });
+        });
+        "
+      )
+    ),
     # menu toggle button
     shiny::tags$a(
       href = "#", 
@@ -301,7 +311,7 @@ dashboardUser <- function(..., name = NULL, image = NULL, title = NULL,
     ),
     # menu dropdown main
     shiny::tags$ul(
-      class = "dropdown-menu",
+      class = "dropdown-menu dashboard-user",
       # user img in the menu
       shiny::tags$li(
         class = "user-header",
