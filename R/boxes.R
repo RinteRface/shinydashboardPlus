@@ -187,7 +187,8 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   
   # the new boxtool section
   boxToolTag <- NULL
-  if (collapsible || closable) {
+  if (collapsible || closable || !is.null(dropdownMenu) || 
+      !is.null(label) || !is.null(sidebar)) {
     btnToolClass <- "btn"
     btnToolClass <- if (
       !is.null(status) || 
@@ -260,11 +261,11 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
   # update boxToolTag
   boxToolTag <- shiny::tagAppendChildren(
     boxToolTag, 
-    if (!is.null(label)) label, 
-    if (!is.null(dropdownMenu)) dropdownMenu, 
+    label, 
+    dropdownMenu, 
     collapseTag, 
     closableTag,
-    if (!is.null(sidebar)) sidebar[[2]]
+    sidebar[[2]]
   )
   
   
@@ -274,7 +275,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
     headerTag <- shiny::tags$div(
       class = "box-header",
       # header icon
-      if (!is.null(icon)) icon, 
+      icon, 
       titleTag, 
       boxToolTag
     )
@@ -290,7 +291,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
         class = "box-body", 
         style = style,
         ...,
-        if (!is.null(sidebar)) sidebar[c(1, 3)],
+        sidebar[c(1, 3)],
       ), 
       if (!is.null(footer)) shiny::tags$div(
         class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", footer)
