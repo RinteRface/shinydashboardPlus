@@ -15,7 +15,7 @@ navPillsItem(
   right = NULL,
   color = NULL,
   icon = NULL,
-  active = FALSE
+  selected = FALSE
 )
 }
 \arguments{
@@ -23,7 +23,7 @@ navPillsItem(
 
 \item{id}{\link{navPills} unique id to target.}
 
-\item{selected}{Index of the \link{navPillsItem} to select. Index is seen from the R side.}
+\item{selected}{Whether the item is active or not. FALSE by default.}
 
 \item{session}{Shiny session object.}
 
@@ -53,8 +53,6 @@ See below:
 }}
 
 \item{icon}{pill icon, if any.}
-
-\item{active}{Whether the item is active or not. FALSE by default.}
 }
 \description{
 \link{navPills} creates a container for nav elements. They are vertically stacked.

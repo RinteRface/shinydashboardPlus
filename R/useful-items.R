@@ -979,19 +979,19 @@ updateNavPills <- function(id, selected, session = shiny::getDefaultReactiveDoma
 #'  \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
 #' }
 #' @param icon pill icon, if any. 
-#' @param active Whether the item is active or not. FALSE by default.
+#' @param selected Whether the item is active or not. FALSE by default.
 #'
 #' @rdname navPills
 #'
 #' @export
 navPillsItem <- function(left = NULL, right = NULL, 
                          color = NULL, icon = NULL, 
-                         active = FALSE) {
+                         selected = FALSE) {
   cl <- "pull-right"
   if (!is.null(color)) cl <- paste0(cl, " text-", color)
   
   shiny::tags$li(
-    class = if (isTRUE(active)) "active" else NULL,
+    class = if (selected) "active" else NULL,
     shiny::tags$a(
       href = "javascript:void(0)", 
       left,

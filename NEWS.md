@@ -56,6 +56,7 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `boxDropdownItem()`: _url_ becomes _href_ to be consistent with {shinydashboard}.
 _name_ is removed
 - Rework preloader feature: remove _duration_ and _preloader_ now expects a list...
+- In `navPillsItem()`: _active_ becomes _selected_
 
 ## New features
 - Completely redesigned pkgdown website with much better documentation
