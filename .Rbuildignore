@@ -8,3 +8,5 @@
 ^\.vscode$
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
+^index\.md$
+^inst/vignettes-demos/*/rsconnect$

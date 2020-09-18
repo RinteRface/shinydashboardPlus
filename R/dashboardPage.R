@@ -127,9 +127,9 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
     shiny::tags$body(
       # preloader, if any
       if (!is.null(preloader)) {
-        tagList(
+        shiny::tagList(
           waiter::use_waiter(), # dependencies
-          do.call(waiter_show_on_load, preloader$waiter)
+          do.call(waiter::waiter_show_on_load, preloader$waiter)
         )
       },
       onload = if (!is.null(preloader)) {

@@ -510,7 +510,7 @@ taskItem <- function (inputId = NULL, text, value = 0, color = "aqua", href = NU
       id = inputId,
       class = if (!is.null(inputId)) "action-button",
       href = href,
-      shiny::h3(text, tags$small(class = "pull-right", paste0(value, "%"))),
+      shiny::h3(text, shiny::tags$small(class = "pull-right", paste0(value, "%"))),
       shiny::div(
         class = "progress xs",
         shiny::div(
@@ -539,8 +539,8 @@ notificationItem <- function (inputId = NULL, text, icon = shiny::icon("warning"
   validateStatus(status)
   if (is.null(href)) href <- "#"
   icon <- shiny::tagAppendAttributes(icon, class = paste0("text-", status))
-  shiny:tags$li(
-    shiny:a(
+  shiny::tags$li(
+    shiny::a(
       id = inputId, 
       class = if (!is.null(inputId)) "action-button",
       href = href, 
@@ -561,14 +561,14 @@ messageItem <- function (inputId = NULL, from, message, icon = shiny::icon("user
                          href = NULL) {
   tagAssert(icon, type = "i")
   if (is.null(href)) href <- "#"
-  tags$li(
-    a(
+  shiny::tags$li(
+    shiny::a(
       id = inputId, 
       class = if (!is.null(inputId)) "action-button",
       href = href, 
       icon, 
-      h4(from, if (!is.null(time)) 
-        tags$small(shiny::icon("clock-o"), time)), p(message)
+      shiny::h4(from, if (!is.null(time)) 
+        shiny::tags$small(shiny::icon("clock-o"), time)), shiny::p(message)
     )
   )
 }
