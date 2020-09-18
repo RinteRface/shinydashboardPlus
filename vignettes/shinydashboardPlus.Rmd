@@ -27,7 +27,7 @@ library(fresh)
 
 `{shinydashboardPlus}` relies on the same basis as `{shinydashboard}`, that is the AdminLTE HTML [template](https://adminlte.io/themes/AdminLTE/index2.html). It provides extra elements that will help you to develop Shiny apps with a more professional look and feel. Below is a summary of the main features.
 
-|  Features  |      shinydashboard      |  shinydashboardPlus |
+|  Features (sample)  |      shinydashboard      |  shinydashboardPlus |
 |----------|:-------------:|------:|
 | right sidebar (controlbar) |    ❌   |  ✅ |
 | semi collapsible sidebar (sidebar mini) |    ❌   |  ✅ |
