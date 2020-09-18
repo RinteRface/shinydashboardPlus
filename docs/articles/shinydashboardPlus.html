@@ -224,6 +224,11 @@
 <td align="center">❌</td>
 <td align="right">✅</td>
 </tr>
+<tr class="odd">
+<td>scroll to top button!</td>
+<td align="center">❌</td>
+<td align="right">✅</td>
+</tr>
 </tbody>
 </table>
 <p>Since the 2.0.0 release, <code>{shinydashboardPlus}</code> overwrites most of the <code>{shinydashboard}</code> functions such as <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> and <code><a href="../reference/box.html">box()</a></code> to facilitate the transition from one package to another.</p>
@@ -250,7 +255,7 @@
 <div id="basic-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#basic-example" class="anchor"></a>Basic Example</h2>
-<p>Below is a simple app you may build with <code>{shinydashboardPlus}</code>. We explicitly configured the sidebar to expand on hover, through the options parameters.</p>
+<p>Below is a simple app you may build with <code>{shinydashboardPlus}</code>. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you’ll be able to notice the scroll to top button feature if you scroll to the bottom</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
    ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
@@ -258,9 +263,7 @@
      header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
      sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(minified = <span class="fl">TRUE</span>, collapsed = <span class="fl">TRUE</span>),
      body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="../reference/box.html">box</a></span>(background = <span class="st">"red"</span>),
-      <span class="fu"><a href="../reference/box.html">box</a></span>(background = <span class="st">"blue"</span>),
-      <span class="fu"><a href="../reference/box.html">box</a></span>(background = <span class="st">"navy"</span>)
+      <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, <span class="kw">box</span>, width = <span class="fl">12</span>, title = <span class="st">"box"</span>)
      ),
      controlbar = <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span>(),
      title = <span class="st">"DashboardPage"</span>

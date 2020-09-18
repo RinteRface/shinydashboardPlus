@@ -59,6 +59,7 @@ _name_ is removed
 
 ## New features
 - Completely redesigned pkgdown website with much better documentation
+- Automatic "scroll to top" feature to quickly go to the top of the dashboard
 - Use `{waiter}` for custom preloaders
 - Add _inputId_ to `taskItem()`, `notificationItem()` and `messageItem()`
 - New _inputId_ and _icon_ to `boxDropdownItem()`, that behaves like an action button if passed

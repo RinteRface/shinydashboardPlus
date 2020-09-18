@@ -43,6 +43,7 @@ library(fresh)
 | control AdminLTE options | ❌ |   ✅|
 | seamlessly customize appearance | ❌ |   ✅|
 | beautiful preloaders | ❌ |   ✅|
+| scroll to top button! | ❌ |   ✅|
 
 
 Since the 2.0.0 release, `{shinydashboardPlus}` overwrites most of the `{shinydashboard}` functions such as `dashboardPage()` and `box()` to facilitate the transition from one package to another.
@@ -63,18 +64,16 @@ list of available options). The `box()` component has been reworked to reduce th
 
 
 ## Basic Example
-Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters.
+Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you'll be able to notice the scroll to top button feature if you scroll to the bottom
 
-```{r, eval=FALSE}
+```{r basic-demo-code, eval=FALSE}
 shinyApp(
    ui = dashboardPage(
      options = list(sidebarExpandOnHover = TRUE),
      header = dashboardHeader(),
      sidebar = dashboardSidebar(minified = TRUE, collapsed = TRUE),
      body = dashboardBody(
-      box(background = "red"),
-      box(background = "blue"),
-      box(background = "navy")
+      lapply(1:20, box, width = 12, title = "box")
      ),
      controlbar = dashboardControlbar(),
      title = "DashboardPage"
