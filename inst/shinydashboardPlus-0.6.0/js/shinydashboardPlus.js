@@ -3,7 +3,7 @@
 
 $(function() {
   
-  // 
+  // box vertical overflow
   $('.content-wrapper').css('overflow-y', 'auto');
   
   // slide to top button
@@ -266,10 +266,21 @@ $(function() {
   //---------------------------------------------------------------------
   // Source file: ../srcjs/controlbar.js
   
+  // this step is to overwrite global adminLTE options
+  // to set the controlbar slide value
+  var overlay = ($('.control-sidebar').attr('data-overlay') === "true");
+  $.AdminLTE.options.controlSidebarOptions.slide = overlay;
+  
   // toggle controlbar at start
   var controlbarCollapsed = $('.control-sidebar').attr('data-collapsed');
   if (controlbarCollapsed === "false") {
-    $('body').addClass('control-sidebar-open');
+    // this depends on the overlay value. If overlay, the sidebar will have the class.
+    // If overlay is false, the body will have the class.
+    if (overlay) {
+      $(".control-sidebar").addClass("control-sidebar-open");
+    } else {
+      $("body").addClass("control-sidebar-open");
+    }
   }
   
   // hide the right sidebar toggle 
@@ -621,15 +632,7 @@ $(function() {
   var controlbarBinding = new Shiny.InputBinding();
   
   $.extend(controlbarBinding, {
-    initialize: function(el) {
-      // this step is to overwrite global adminLTE options
-      // to set the controlbar slide value
-      var overlay = ($(el).attr('data-overlay') === "true");
-      $.AdminLTE.options.controlSidebarOptions.slide = overlay;
-    },
     find: function(scope) {
-      // we need to re-activate the controlbar to consider the new options
-      $.AdminLTE.controlSidebar.activate();
       return $(scope).find(".control-sidebar");
     },
   
