@@ -172,8 +172,7 @@
   skin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"blue"</span>, <span class='st'>"blue-light"</span>, <span class='st'>"black"</span>, <span class='st'>"black-light"</span>, <span class='st'>"purple"</span>, <span class='st'>"purple-light"</span>,
     <span class='st'>"green"</span>, <span class='st'>"green-light"</span>, <span class='st'>"red"</span>, <span class='st'>"red-light"</span>, <span class='st'>"yellow"</span>, <span class='st'>"yellow-light"</span>, <span class='st'>"midnight"</span>),
   freshTheme = <span class='kw'>NULL</span>,
-  preloader = <span class='fl'>FALSE</span>,
-  duration = <span class='fl'>2</span>,
+  preloader = <span class='kw'>NULL</span>,
   md = <span class='fl'>FALSE</span>,
   options = <span class='kw'>NULL</span>
 )</pre>
@@ -220,11 +219,10 @@ See <a href='https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html'>
     </tr>
     <tr>
       <th>preloader</th>
-      <td><p>Whether to enable a page loader. FALSE by default.</p></td>
-    </tr>
-    <tr>
-      <th>duration</th>
-      <td><p>Loader duration in seconds. 2s by default.</p></td>
+      <td><p>shinydashboardPlus uses waiter (see <a href='https://waiter.john-coene.com/#/'>https://waiter.john-coene.com/#/</a>).
+Pass a nested list with 2 elements like <code><a href='https://rdrr.io/r/base/list.html'>list(waiter = list(html = spin_1(), color = "#333e48"), duration = 5)</a></code>.
+<code>waiter</code> expects to provide a sub-list to configure <a href='https://rdrr.io/pkg/waiter/man/waiter.html'>waiter_show_on_load</a> (refer to
+the package help for all styles). <code>duration</code> defines the loader timeout.</p></td>
     </tr>
     <tr>
       <th>md</th>

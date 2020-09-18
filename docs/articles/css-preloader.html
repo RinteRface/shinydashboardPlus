@@ -124,25 +124,49 @@
     
 <div id="how-to-set-up-a-preloader" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-set-up-a-preloader" class="anchor"></a>How to set up a preloader</h2>
-<p>Pass the argument <code>preloader = TRUE</code> to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> function. You can also change the loading duration (2s by default): <code>duration = 5</code> for 5 seconds.</p>
-<video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/preloader.mp4" type="video/mp4"></source></video><p><br></p>
+<a href="#how-to-set-up-a-preloader" class="anchor"></a>How to set up a preloader?</h2>
+<p>Pass the argument <code>preloader</code> to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> function. It expects a nested list:</p>
+<ul>
+<li>waiter is a sub-list containing all parameters necessary to <code><a href="https://rdrr.io/pkg/waiter/man/waiter.html">waiter::waiter_show_on_load</a></code>
+</li>
+<li>duration is the loader timeout in seconds. We usually use milliseconds in JavaScript but <code>shiny::showNotifications</code> expects seconds.</li>
+</ul>
+<p>Please have a look to the <code>{waiter}</code> <a href="https://waiter.john-coene.com/">documentation</a> for more details.</p>
+<p>That’s all!</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
-
 <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-    preloader = <span class="fl">TRUE</span>,
+    preloader = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+      waiter = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(html = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(<span class="fu">spin_1</span>(), <span class="st">"Loading ..."</span>), color = <span class="st">"#3c8dbc"</span>),
+      duration = <span class="fl">5</span>
+    ),
     header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
     sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(),
-    title = <span class="st">"DashboardPage"</span>
+    body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"reload"</span>, <span class="st">"Reload"</span>)
+    ),
+    title = <span class="st">"Preloader"</span>
   ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
+    <span class="co"># fake reload</span>
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">reload</span>, {
+      <span class="kw">session</span><span class="op">$</span><span class="fu">reload</span>()
+    })
+  }
 )
 </pre></div>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-preloader/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
 </div>
   </div>
 
