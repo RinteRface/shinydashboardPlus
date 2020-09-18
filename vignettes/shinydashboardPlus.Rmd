@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
-library(fresh)
 ```
 
 ## Introduction
@@ -64,7 +63,7 @@ list of available options). The `box()` component has been reworked to reduce th
 
 
 ## Basic Example
-Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you'll be able to notice the scroll to top button feature if you scroll to the bottom
+Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you'll be able to notice the scroll to top button feature if you scroll to the bottom (bottom-right corner).
 
 ```{r basic-demo-code, eval=FALSE}
 shinyApp(
@@ -81,3 +80,12 @@ shinyApp(
    server = function(input, output) { }
  )
 ```
+
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-scrollToTop/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
