@@ -127,11 +127,11 @@
 <a href="#a-real-time-skin-selector" class="anchor"></a>A Real Time Skin Selector</h2>
 <p><code>{shinydashboardPlus}</code> has a new feature called the <code><a href="../reference/skinSelector.html">skinSelector()</a></code>. This is a JavaScript based widget allowing the end user to change the app skin. According to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>, there are 6 unique colors with 2 versions, light or dark. Note that the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> is the perfect place to host the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> since it may be seen as a secondary input (your app may still work without :))</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+<span class="fu">shinyApp</span>(
    ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
      header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
      sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(),
+     body = <span class="fu">dashboardBody</span>(),
      controlbar = <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span>(collapsed = <span class="fl">FALSE</span>, <span class="fu"><a href="../reference/skinSelector.html">skinSelector</a></span>()),
      title = <span class="st">"Skin Selector"</span>
    ),
@@ -156,12 +156,12 @@
 <a href="#a-new-dark-skin-midnight" class="anchor"></a>A New Dark Skin: midnight</h2>
 <p>The midnight theme is powered by the corresponding Github <a href="https://github.com/anvyst/adminlte-skin-midnight">project</a>. It provides a plug and play dark theme.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+<span class="fu">shinyApp</span>(
    ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
      skin = <span class="st">"midnight"</span>,
      header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
      sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(),
+     body = <span class="fu">dashboardBody</span>(),
      controlbar = <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span>(),
      footer = <span class="fu"><a href="../reference/dashboardFooter.html">dashboardFooter</a></span>(),
      title = <span class="st">"Midnight Skin"</span>
@@ -170,7 +170,7 @@
  )
 </pre></div>
 <div class="figure" style="text-align: center">
-<img src="https://raw.githubusercontent.com/anvyst/adminlte-skin-midnight/master/examples/skin-midnight-overview.png" alt="Midnight skin overview" width="100%"><p class="caption">
+<img src="figures/skin-midnight-overview.png" alt="Midnight skin overview" width="100%"><p class="caption">
 Midnight skin overview
 </p>
 </div>
@@ -182,13 +182,13 @@ Midnight skin overview
 <a href="#material-design-adminlte" class="anchor"></a>Material Design + AdminLTE</h2>
 <p>To activate the material design feature, set <em>md</em> to TRUE in <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This feature is powered by <a href="https://github.com/DucThanhNguyen/MaterialAdminLTE">MaterialAdminLTE</a>, built on top of AdminLTE2 and <a href="https://fezvrasta.github.io/bootstrap-material-design/">material design for Bootstrap 3</a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+<span class="fu">shinyApp</span>(
    ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
      md = <span class="fl">TRUE</span>,
      skin = <span class="st">"blue"</span>,
      header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
      sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(),
+     body = <span class="fu">dashboardBody</span>(),
      controlbar = <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span>(),
      footer = <span class="fu"><a href="../reference/dashboardFooter.html">dashboardFooter</a></span>(),
      title = <span class="st">"Midnight Skin"</span>
@@ -213,11 +213,11 @@ Midnight skin overview
 <h2 class="hasAnchor">
 <a href="#fresh" class="anchor"></a>Fresh</h2>
 <p><a href="https://dreamrs.github.io/fresh/index.html"><code>{fresh}</code></a> is developed by the <a href="https://www.dreamrs.fr/">dreamRs</a> team. It is built on top of <code>{sass}</code>, which provides a solid R <a href="https://github.com/rstudio/sass">API</a> to write SASS variables and compile into CSS. <code>{fresh}</code> captures most of the AdminLTE2 (as well as AdminLTE3 for Bootstrap 4) SASS variables to allow deep customization, hiding all the compilation burden under the hood.</p>
-<p><code><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color()</a></code> provides an interface to all available AdminLTE colors and allow to overwrite the default. I strongly suggest to avoid setting the default green to blue, as it might become confusing. Instead, it is better to play with color palettes. Similarly, <code>adminlte_sidebar</code> allows to re-style the sidebar component. The fresh theme below is based on some cyberpunk color palettes.</p>
+<p><code>adminlte_color()</code> provides an interface to all available AdminLTE colors and allow to overwrite the default. I strongly suggest to avoid setting the default green to blue, as it might become confusing. Instead, it is better to play with color palettes. Similarly, <code>adminlte_sidebar</code> allows to re-style the sidebar component. The fresh theme below is based on some cyberpunk color palettes.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="co"># create the theme with a cyberpunk color palette</span>
-<span class="kw">theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/create_theme.html">create_theme</a></span>(
-  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color</a></span>(
+<span class="kw">theme</span> <span class="op">&lt;-</span> <span class="fu">create_theme</span>(
+  <span class="fu">adminlte_color</span>(
     green = <span class="st">"#3fff2d"</span>,
     blue = <span class="st">"#2635ff"</span>,
     red = <span class="st">" #ff2b2b"</span>,
@@ -228,12 +228,12 @@ Midnight skin overview
     maroon = <span class="st">"#b659c9"</span>,
     light_blue = <span class="st">"#5691cc"</span>
   ),
-  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_sidebar.html">adminlte_sidebar</a></span>(
+  <span class="fu">adminlte_sidebar</span>(
     dark_bg = <span class="st">"#D8DEE9"</span>,
     dark_hover_bg = <span class="st">"#81A1C1"</span>,
     dark_color = <span class="st">"#2E3440"</span>
   ),
-  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_global.html">adminlte_global</a></span>(
+  <span class="fu">adminlte_global</span>(
     content_bg = <span class="st">"#aaaaaa"</span>
   )
 )
@@ -262,13 +262,13 @@ Midnight skin overview
 <span class="co"># pmap magic</span>
 <span class="kw">boxes</span> <span class="op">&lt;-</span> <span class="kw">purrr</span>::<span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span>(<span class="kw">box_config</span>, <span class="kw">box_factory</span>)
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+<span class="fu">shinyApp</span>(
    ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
      freshTheme = <span class="kw">theme</span>,
      skin = <span class="st">"blue"</span>,
      options = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(sidebarExpandOnHover = <span class="fl">TRUE</span>),
      header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(
-       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
+       <span class="fu">dropdownMenu</span>(
          type = <span class="st">"messages"</span>, 
          badgeStatus = <span class="st">"success"</span>,
          <span class="fu"><a href="../reference/messageItem.html">messageItem</a></span>(
@@ -284,12 +284,12 @@ Midnight skin overview
        )
      ),
      sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(
-       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">sidebarMenu</a></span>(
-         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">menuItem</a></span>(<span class="st">"Item 1"</span>, badgeLabel = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"heart"</span>), badgeColor = <span class="st">"light-blue"</span>),
-         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">menuItem</a></span>(<span class="st">"Item 2"</span>, badgeLabel = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"poo"</span>), badgeColor = <span class="st">"maroon"</span>)
+       <span class="fu">sidebarMenu</span>(
+         <span class="fu">menuItem</span>(<span class="st">"Item 1"</span>, badgeLabel = <span class="fu">icon</span>(<span class="st">"heart"</span>), badgeColor = <span class="st">"light-blue"</span>),
+         <span class="fu">menuItem</span>(<span class="st">"Item 2"</span>, badgeLabel = <span class="fu">icon</span>(<span class="st">"poo"</span>), badgeColor = <span class="st">"maroon"</span>)
        )
      ),
-     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(<span class="kw">boxes</span>),
+     body = <span class="fu">dashboardBody</span>(<span class="kw">boxes</span>),
      controlbar = <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span>(),
      title = <span class="st">"Fresh theming"</span>
    ),

@@ -66,7 +66,7 @@ shinyApp(
 ```
 
 ```{r midnight-skin, echo=FALSE, fig.cap='Midnight skin overview', fig.align = 'center', out.width='100%'}
-knitr::include_graphics("https://raw.githubusercontent.com/anvyst/adminlte-skin-midnight/master/examples/skin-midnight-overview.png")
+knitr::include_graphics("figures/skin-midnight-overview.png")
 ``` 
 
 This is the fastest option to get a dark design. You'll see below that the `{fresh}` package is able to provide a similar look and feel, with much more options (but more effort).
