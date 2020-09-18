@@ -42,6 +42,7 @@ library(fresh)
 | user box | ❌ |   ✅|
 | control AdminLTE options | ❌ |   ✅|
 | seamlessly customize appearance | ❌ |   ✅|
+| beautiful preloaders | ❌ |   ✅|
 
 
 Since the 2.0.0 release, `{shinydashboardPlus}` overwrites most of the `{shinydashboard}` functions such as `dashboardPage()` and `box()` to facilitate the transition from one package to another.

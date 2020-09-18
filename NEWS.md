@@ -55,9 +55,11 @@ _pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::ico
 - In `boxProfile()`: _src_ becomes _image_ to be consistent with {shinydashboard}
 - In `boxDropdownItem()`: _url_ becomes _href_ to be consistent with {shinydashboard}.
 _name_ is removed
+- Rework preloader feature: remove _duration_ and _preloader_ now expects a list...
 
 ## New features
 - Completely redesigned pkgdown website with much better documentation
+- Use `{waiter}` for custom preloaders
 - New _inputId_ and _icon_ to `boxDropdownItem()`, that behaves like an action button if passed
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
 - Add _freshTheme_ parameter to `dashboardPage()`. This allows to use the awsesome `{fresh}` package. See [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details.

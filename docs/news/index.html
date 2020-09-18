@@ -236,6 +236,7 @@
 <li>In <code><a href="../reference/socialBox.html">boxComment()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/boxProfile.html">boxProfile()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/box.html">boxDropdownItem()</a></code>: <em>url</em> becomes <em>href</em> to be consistent with {shinydashboard}. <em>name</em> is removed</li>
+<li>Rework preloader feature: remove <em>duration</em> and <em>preloader</em> now expects a list…</li>
 </ul>
 </div>
 <div id="new-features" class="section level2">
@@ -243,6 +244,7 @@
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
 <li>Completely redesigned pkgdown website with much better documentation</li>
+<li>Use <code>{waiter}</code> for custom preloaders</li>
 <li>New <em>inputId</em> and <em>icon</em> to <code><a href="../reference/box.html">boxDropdownItem()</a></code>, that behaves like an action button if passed</li>
 <li>New <code><a href="../reference/navPills.html">updateNavPills()</a></code> to programmatically change the selected item in <code><a href="../reference/navPills.html">navPills()</a></code>
 </li>
@@ -337,7 +339,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
 <ul>
-<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
+<li>remove all CSS functions, namely <code>setShadow()</code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
 </li>
 </ul>
 </div>
@@ -396,7 +398,7 @@
 <li><p>new “left_menu” argument in the <code>dashboardHeaderPlus()</code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</p></li>
 <li><p>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</p></li>
 <li><p>new “fixed” argument to the navbar (<code>dashboardHeaderPlus()</code>). If TRUE, the navbar is fixed-top. (static-top by default)</p></li>
-<li><p>new <code>setZoom()</code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
+<li><p>new <code>setZoom()</code> function (similar as <code>setShadow()</code>)</p></li>
 <li><p>new <code>setPulse()</code> function</p></li>
 <li><p>new <code>setShake()</code> function</p></li>
 <li><p>add “enable_preloader” and “loading_duration” to <code>dashboardPagePlus()</code> (custom preloader)</p></li>
@@ -440,7 +442,7 @@
 <h2 id="major-changes-1">Major changes</h2>
 </li>
 <li><p>add a “width” argument to the <code>rightSidebar()</code> (set to 230 pixels by default) to improve customization.</p></li>
-<li><p>new function <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code> to set shadow and hover effects on any elements</p></li>
+<li><p>new function <code>setShadow()</code> to set shadow and hover effects on any elements</p></li>
 <li><p>add an “active” argument to <code>rightSidebarTabContent()</code>: see <a href="https://github.com/RinteRface/shinydashboardPlus/issues/4"><a href='https://github.com/RinteRface/shinydashboardPlus/issues/4'>#4</a></a></p></li>
 <li><p>add a “sidebar_background” argument to <code>dashboardPagePlus()</code></p></li>
 <li><p>new <code>verticalProgress()</code> bars!</p></li>
