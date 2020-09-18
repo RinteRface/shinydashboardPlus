@@ -8,7 +8,6 @@ Authors@R: c(
   person(family = "Almasaeed Studio", role = c("ctb", "cph"), comment = "AdminLTE2 theme for Bootstrap 3"),
   person("Guang", "Yang", role = c("ctb", "cph"), comment = "ygdashboard original template"),
   person("Winston", "Chang", role = c("ctb", "cph"), comment = "Functions from shinydashboard"),
-  person("Petr", "Tichy", role = c("ctb", "cph"), comment = "CSS preloader"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
           comment = "improved the shinydashboardPlusGallery"))
 Maintainer: David Granjon <dgranjon@ymail.com>
@@ -21,7 +20,8 @@ Imports:
     htmltools,
     shinydashboard,
     fresh,
-    lifecycle
+    lifecycle,
+    waiter
 Suggests:
     styler (>= 1.2.0),
     shinyAce,

@@ -14,8 +14,7 @@ dashboardPage(
   skin = c("blue", "blue-light", "black", "black-light", "purple", "purple-light",
     "green", "green-light", "red", "red-light", "yellow", "yellow-light", "midnight"),
   freshTheme = NULL,
-  preloader = FALSE,
-  duration = 2,
+  preloader = NULL,
   md = FALSE,
   options = NULL
 )
@@ -42,9 +41,10 @@ If the skin is light, the sidebar will have a light background. Not compatible w
 \item{freshTheme}{A skin powered by the fresh package. Not compatible with skin.
 See \url{https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html}.}
 
-\item{preloader}{Whether to enable a page loader. FALSE by default.}
-
-\item{duration}{Loader duration in seconds. 2s by default.}
+\item{preloader}{shinydashboardPlus uses waiter (see \url{https://waiter.john-coene.com/#/}).
+Pass a nested list with 2 elements like \code{list(waiter = list(html = spin_1(), color = "#333e48"), duration = 5)}.
+\code{waiter} expects to provide a sub-list to configure \link[waiter]{waiter_show_on_load} (refer to
+the package help for all styles). \code{duration} defines the loader timeout.}
 
 \item{md}{Whether to enable material design. Experimental...}
 
