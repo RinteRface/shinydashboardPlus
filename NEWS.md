@@ -60,6 +60,7 @@ _name_ is removed
 ## New features
 - Completely redesigned pkgdown website with much better documentation
 - Use `{waiter}` for custom preloaders
+- Add _inputId_ to `taskItem()`, `notificationItem()` and `messageItem()`
 - New _inputId_ and _icon_ to `boxDropdownItem()`, that behaves like an action button if passed
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
 - Add _freshTheme_ parameter to `dashboardPage()`. This allows to use the awsesome `{fresh}` package. See [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details.
