@@ -11,7 +11,8 @@ ui <- dashboardPage(
     fluidRow(
       actionButton("toggle_box", "Toggle Box"),
       actionButton("remove_box", "Remove Box", class = "bg-danger"),
-      actionButton("restore_box", "Restore Box", class = "bg-success")
+      actionButton("restore_box", "Restore Box", class = "bg-success"),
+      actionButton("update_box", "Update Box", class = "bg-primary")
     ),
     br(),
     box(
@@ -46,6 +47,19 @@ server <- function(input, output, session) {
   
   observeEvent(input$restore_box, {
     updateBox("mybox", action = "restore")
+  })
+  
+  observeEvent(input$update_box, {
+    updateBox(
+      "mybox", 
+      action = "update", 
+      options = list(
+        title = tagList(h2("New title"), dashboardLabel(1, status = "primary")),
+        status = "danger", 
+        solidHeader = TRUE,
+        width = 4
+      )
+    )
   })
   
   observeEvent(input$mybox$visible, {
