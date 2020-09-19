@@ -113,7 +113,7 @@
       <h1 data-toc-skip>Improved boxes</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-09-18</h4>
+            <h4 class="date">2020-09-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/improved-boxes.Rmd"><code>vignettes/improved-boxes.Rmd</code></a></small>
       <div class="hidden name"><code>improved-boxes.Rmd</code></div>
@@ -157,10 +157,12 @@
 <li>Know the state of any box at any time. This state captures different parameters such as collapsed, closed, …</li>
 <li>Toggle a box</li>
 <li>Close/Restore a box</li>
+<li>update box properties: title, status, solidHeader, background, width, height, collapsible and closable</li>
 </ul>
-<p>To benefit from that feature, one must pass the <em>inputId</em> parameter and access it on the server side with <code>input$&lt;inputId&gt;</code>. Let’s consider an example:</p>
+<p>To benefit from that feature, one must pass the <em>id</em> parameter and access it on the server side with <code>input$&lt;id&gt;</code>. Let’s consider an example:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
 <span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+  title = <span class="st">"Box API"</span>,
   <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
   <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
   <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
@@ -168,7 +170,8 @@
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"toggle_box"</span>, <span class="st">"Toggle Box"</span>),
       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"remove_box"</span>, <span class="st">"Remove Box"</span>, class = <span class="st">"bg-danger"</span>),
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class = <span class="st">"bg-success"</span>)
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class = <span class="st">"bg-success"</span>),
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"update_box"</span>, <span class="st">"Update Box"</span>, class = <span class="st">"bg-primary"</span>)
     ),
     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
     <span class="fu"><a href="../reference/box.html">box</a></span>(
@@ -205,6 +208,19 @@
     <span class="fu"><a href="../reference/box.html">updateBox</a></span>(<span class="st">"mybox"</span>, action = <span class="st">"restore"</span>)
   })
   
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">update_box</span>, {
+    <span class="fu"><a href="../reference/box.html">updateBox</a></span>(
+      <span class="st">"mybox"</span>, 
+      action = <span class="st">"update"</span>, 
+      options = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+        title = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span>(<span class="st">"New title"</span>), <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span>(<span class="fl">1</span>, status = <span class="st">"primary"</span>)),
+        status = <span class="st">"danger"</span>, 
+        solidHeader = <span class="fl">TRUE</span>,
+        width = <span class="fl">4</span>
+      )
+    )
+  })
+  
   <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">visible</span>, {
     <span class="kw">collapsed</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">collapsed</span>) <span class="st">"collapsed"</span> <span class="co">else</span> <span class="st">"uncollapsed"</span>
     <span class="kw">visible</span> <span class="op">&lt;-</span> <span class="co">if</span> (<span class="kw">input</span><span class="op">$</span><span class="kw">mybox</span><span class="op">$</span><span class="kw">visible</span>) <span class="st">"visible"</span> <span class="co">else</span> <span class="st">"hidden"</span>
@@ -220,6 +236,7 @@
 <li>toggle</li>
 <li>remove</li>
 <li>restore</li>
+<li>update</li>
 </ul>
 <p>Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.</p>
 <p>If you want to know more about the underlying mechanisms, have a look at the box widget <a href="https://adminlte.io/docs/2.4/js-box-widget">documentation</a>.</p>

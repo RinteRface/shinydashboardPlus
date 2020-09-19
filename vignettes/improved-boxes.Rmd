@@ -24,11 +24,14 @@ library(shinydashboardPlus)
   collapsed, closed, ...
   - Toggle a box
   - Close/Restore a box
+  - update box properties: title, status, solidHeader, background, width, height, 
+  collapsible and closable
   
-To benefit from that feature, one must pass the _inputId_ parameter and access it on the server side with `input$<inputId>`. Let's consider an example:
+To benefit from that feature, one must pass the _id_ parameter and access it on the server side with `input$<id>`. Let's consider an example:
   
 ```{r boxAPI-code, eval=FALSE}
 ui <- dashboardPage(
+  title = "Box API",
   dashboardHeader(),
   dashboardSidebar(),
   dashboardBody(
@@ -36,7 +39,8 @@ ui <- dashboardPage(
     fluidRow(
       actionButton("toggle_box", "Toggle Box"),
       actionButton("remove_box", "Remove Box", class = "bg-danger"),
-      actionButton("restore_box", "Restore Box", class = "bg-success")
+      actionButton("restore_box", "Restore Box", class = "bg-success"),
+      actionButton("update_box", "Update Box", class = "bg-primary")
     ),
     br(),
     box(
@@ -73,6 +77,19 @@ server <- function(input, output, session) {
     updateBox("mybox", action = "restore")
   })
   
+  observeEvent(input$update_box, {
+    updateBox(
+      "mybox", 
+      action = "update", 
+      options = list(
+        title = tagList(h2("New title"), dashboardLabel(1, status = "primary")),
+        status = "danger", 
+        solidHeader = TRUE,
+        width = 4
+      )
+    )
+  })
+  
   observeEvent(input$mybox$visible, {
     collapsed <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
     visible <- if (input$mybox$visible) "visible" else "hidden"
@@ -89,6 +106,7 @@ We call the `updateBox()` function, specifying the action to accomplish:
 - toggle
 - remove
 - restore
+- update
 
 Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.
 
