@@ -506,6 +506,10 @@ $(function() {
       return $(scope).find('.box');
     },
     getValue: function(el) {
+      
+      var config = $(el).parent().find("script[data-for='" + el.id + "']");
+      config = JSON.parse(config.html());
+      
       var isCollapsed = $(el).hasClass('collapsed-box');
       var display = $(el).css('display');
     
@@ -515,27 +519,147 @@ $(function() {
       } else {
         visible = true;
       }
-      return {collapsed: isCollapsed, visible: visible}; // this will be a list in R
+      return {
+        collapsible: config.collapsible,
+        collapsed: isCollapsed, 
+        closable: config.closable,
+        visible: visible, 
+        status: config.status,
+        solidHeader : config.solidHeader,
+        background: config.background,
+        width: config.width,
+        height: config.height
+      }; // this will be a list in R
     },
     setValue: function(el, value) {
-      if (value === "restore") {
-        // only restore if not visible
-        if ($(el).css('display') == 'none') {
-          $(el).show();
-        } else {
-          console.warn("This box is already visible!");
+      
+      var config = $(el).parent().find("script[data-for='" + el.id + "']");
+      config = JSON.parse(config.html());
+      
+      if (value.action === "update") {
+        // To remove status explicitly set status = NULL in updateBox
+        if (value.options.hasOwnProperty("status")) {
+          if (value.options.status !== config.status) {
+            // don't touch if null
+            if (config.status !== null) {
+              $(el).toggleClass("box-" + config.status); 
+            }
+            if (value.options.status !== null) {
+              $(el).addClass("box-" + value.options.status);
+            }
+            config.status = value.options.status;
+          } 
         }
-      } else if (value === "toggle") {
-        if ($(el).css('display') !== 'none') {
-          $(el).toggleBox();
-        } else {
-          console.warn("This box is not visible. It does not make sense to collapse it!");
+        if (value.options.hasOwnProperty("solidHeader")) {
+          // only update if config an new value are different
+          if (value.options.solidHeader !== config.solidHeader) {
+            $(el).toggleClass("box-solid");
+            config.solidHeader = value.options.solidHeader;
+          }
         }
+        // To remove background explicitly set background = NULL in updateBox
+        if (value.options.hasOwnProperty("background")) {
+          if (value.options.background !== config.background) {
+            // don't touch if null
+            if (config.background !== null) {
+              // if gradient, the class has a gradient at the end!
+              if (config.gradient) {
+                $(el).toggleClass("bg-" + config.background + "-gradient");
+              } else {
+                $(el).toggleClass("bg-" + config.background);
+              }
+            }
+            if (value.options.background !== null) {
+              if (config.gradient) {
+                $(el).addClass("bg-" + value.options.background + "-gradient"); 
+              } else {
+                $(el).addClass("bg-" + value.options.background); 
+              }
+            }
+            config.background = value.options.background; 
+          } 
+        }
+        if (value.options.hasOwnProperty("width")) {
+          if (value.options.width !== config.width) {
+            $(el).parent().toggleClass("col-sm-" + config.width);
+            $(el).parent().addClass("col-sm-" + value.options.width); 
+            config.width = value.options.width;
+            
+            // trigger resize so that output resize
+            $(el).trigger('resize');
+          }
+        }
+        if (value.options.hasOwnProperty("height")) {
+          if (value.options.height !== config.height) {
+            if (value.options.height === null) {
+              $(el).find(".box-body").css("height", '');
+            } else {
+              $(el).find(".box-body").css("height", value.options.height);
+            }
+            
+            config.height = value.options.height;
+            // don't need to trigger resize since the output height
+            // is not controlled by the box size ...
+          }
+        }
+        if (value.options.hasOwnProperty("collapsible")) {
+          if (value.options.collapsible !== config.collapsible) {
+            if (!value.options.collapsible) {
+              $(el).find('[data-widget = "collapse"]').remove();
+              config.collapsible = false;
+            } else {
+              // only add if no collapsible
+              if ($(el).find('[data-widget = "collapse"]').length === 0) {
+                $(el)
+                  .find(".box-tools.pull-right")
+                  .prepend($('<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>'));
+                config.collapsible = true;
+              }
+            }
+          }
+        }
+        if (value.options.hasOwnProperty("closable")) {
+          if (value.options.closable !== config.closable) {
+            if (!value.options.closable) {
+              $(el).find('[data-widget = "remove"]').remove();
+              config.closable = false;
+            } else {
+              if ($(el).find('[data-widget = "remove"]').length === 0) {
+                $(el)
+                  .find(".box-tools.pull-right")
+                  .append($('<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>'));
+                config.closable = true;
+              }
+            }
+          }
+        }
+        
+        //gradient = gradient
+        
+        // replace the old JSON config by the new one to update the input value 
+        $(el).parent().find("script[data-for='" + el.id + "']").replaceWith(
+          '<script type="application/json" data-for="mybox">' + JSON.stringify(config) + '</script>'
+        )
       } else {
-        if ($(el).css('display') !== 'none') {
-          $(el).removeBox();
+        if (value === "restore") {
+          // only restore if not visible
+          if ($(el).css('display') == 'none') {
+            $(el).show();
+          } else {
+            console.warn("This box is already visible!");
+          }
+        } else if (value === "toggle") {
+          if ($(el).css('display') !== 'none') {
+            $(el).toggleBox();
+          } else {
+            console.warn("This box is not visible. It does not make sense to collapse it!");
+          }
         } else {
-          console.warn("This box is not visible!");
+          if ($(el).css('display') !== 'none') {
+            $(el).removeBox();
+          } else {
+            console.warn("This box is not visible!");
+          }
         }
       }
     },

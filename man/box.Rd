@@ -34,7 +34,8 @@ box(
 
 updateBox(
   id,
-  action = c("remove", "toggle", "restore"),
+  action = c("remove", "toggle", "restore", "update"),
+  options = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 
@@ -137,7 +138,13 @@ the user to collapse the box.}
 
 \item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
-\item{action}{Action to trigger: either collapse, remove or restore.}
+\item{action}{Action to trigger: either collapse, remove, restore or update.}
+
+\item{options}{If action is update, a list of new options to configure the box, such as
+\code{list(title = "new title", status = NULL, solidHeader = FALSE, 
+background = "red", width = 6, height = "200px", collapsible = FALSE, closable = FALSE)}.
+If the box had a background/status (any item that may be NULL), you must explicitly pass background = NULL, 
+if you want to remove the background value.}
 
 \item{session}{Shiny session object.}
 
@@ -291,11 +298,16 @@ if (interactive()) {
        actionButton("remove_box", "Remove Box", class = "bg-danger"),
        actionButton("restore_box", "Restore Box", class = "bg-success")
      ),
+     actionButton("update_box", "Update Box", class = "bg-info"), 
+     actionButton("update_box2", "Update Box 2", class = "bg-info"),
+     br(),
      br(),
      box(
        title = textOutput("box_state"),
-       "Box body",
        id = "mybox",
+       status = "danger", 
+       background = "maroon", 
+       gradient = TRUE,
        collapsible = TRUE,
        closable = TRUE,
        plotOutput("plot")
@@ -332,6 +344,36 @@ if (interactive()) {
      message <- paste("My box is", collapsed, "and", visible)
      showNotification(message, type = "warning", duration = 1)
    })
+   
+   observeEvent(input$update_box, {
+     updateBox(
+       "mybox", 
+       action = "update", 
+       options = list(
+         status = "warning", 
+         solidHeader = TRUE, 
+         width = 12, 
+         background = NULL, 
+         height = "900px", 
+         closable = FALSE
+       )
+     )
+   })
+    
+    observeEvent(input$update_box2, {
+      updateBox(
+        "mybox", 
+        action = "update", 
+        options = list(
+          status = NULL, 
+          solidHeader = FALSE,
+          width = 4, 
+          background = "green", 
+          height = "500px", 
+          closable = TRUE
+        )
+      )
+    })
    
  }
  

@@ -126,6 +126,20 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
                 label = NULL, dropdownMenu = NULL,
                 sidebar = NULL, footerPadding = TRUE) {
   
+  props <- dropNulls(
+    list(
+      title = as.character(title),
+      status = status,
+      solidHeader = solidHeader,
+      background = background,
+      width = width,
+      height = height,
+      collapsible = collapsible,
+      closable = closable,
+      gradient = gradient
+    )
+  )
+  
   if (is.null(title) && 
       (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))) {
     stop("Cannot use box tools without a title")
@@ -228,7 +242,7 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
       class = btnToolClass, 
       `data-widget` = "remove", 
       type = "button",
-      shiny::tags$i(shiny::icon("times"))
+      shiny::icon("times")
     )
   } 
   
@@ -299,6 +313,15 @@ box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, soli
       ), 
       if (!is.null(footer)) shiny::tags$div(
         class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", footer)
+    ),
+    shiny::tags$script(
+      type = "application/json",
+      `data-for` = id,
+      jsonlite::toJSON(
+        x = props,
+        auto_unbox = TRUE,
+        json_verbatim = TRUE
+      )
     )
   )
   
@@ -419,7 +442,12 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 #' \link{updateBox} is used to toggle, close or restore a \link{box} on the client.
 #'
 #' @param id Box to toggle.
-#' @param action Action to trigger: either collapse, remove or restore.
+#' @param action Action to trigger: either collapse, remove, restore or update.
+#' @param options If action is update, a list of new options to configure the box, such as
+#' \code{list(title = "new title", status = NULL, solidHeader = FALSE, 
+#' background = "red", width = 6, height = "200px", collapsible = FALSE, closable = FALSE)}.
+#' If the box had a background/status (any item that may be NULL), you must explicitly pass background = NULL, 
+#' if you want to remove the background value.
 #' @param session Shiny session object.
 #' @export
 #'
@@ -441,11 +469,16 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 #'        actionButton("remove_box", "Remove Box", class = "bg-danger"),
 #'        actionButton("restore_box", "Restore Box", class = "bg-success")
 #'      ),
+#'      actionButton("update_box", "Update Box", class = "bg-info"), 
+#'      actionButton("update_box2", "Update Box 2", class = "bg-info"),
+#'      br(),
 #'      br(),
 #'      box(
 #'        title = textOutput("box_state"),
-#'        "Box body",
 #'        id = "mybox",
+#'        status = "danger", 
+#'        background = "maroon", 
+#'        gradient = TRUE,
 #'        collapsible = TRUE,
 #'        closable = TRUE,
 #'        plotOutput("plot")
@@ -483,14 +516,50 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 #'      showNotification(message, type = "warning", duration = 1)
 #'    })
 #'    
+#'    observeEvent(input$update_box, {
+#'      updateBox(
+#'        "mybox", 
+#'        action = "update", 
+#'        options = list(
+#'          status = "warning", 
+#'          solidHeader = TRUE, 
+#'          width = 12, 
+#'          background = NULL, 
+#'          height = "900px", 
+#'          closable = FALSE
+#'        )
+#'      )
+#'    })
+#'     
+#'     observeEvent(input$update_box2, {
+#'       updateBox(
+#'         "mybox", 
+#'         action = "update", 
+#'         options = list(
+#'           status = NULL, 
+#'           solidHeader = FALSE,
+#'           width = 4, 
+#'           background = "green", 
+#'           height = "500px", 
+#'           closable = TRUE
+#'         )
+#'       )
+#'     })
+#'    
 #'  }
 #'  
 #'  shinyApp(ui, server)
 #' }
 #' @rdname box
-updateBox <- function(id, action = c("remove", "toggle", "restore"), 
+updateBox <- function(id, action = c("remove", "toggle", "restore", "update"), options = NULL,
                       session = shiny::getDefaultReactiveDomain()) {
-  session$sendInputMessage(id, message = match.arg(action))
+  # for update, we take a list of options
+  if (action == "update") {
+    message <- dropNulls(c(action = action, options = list(options)))
+    session$sendInputMessage(id, message)
+  } else {
+    session$sendInputMessage(id, message = match.arg(action))
+  }
 }
 
 
