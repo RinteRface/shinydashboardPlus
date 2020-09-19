@@ -350,6 +350,7 @@ if (interactive()) {
        "mybox", 
        action = "update", 
        options = list(
+         title = tagList(h2("hello"), dashboardLabel(1, status = "primary")),
          status = "warning", 
          solidHeader = TRUE, 
          width = 12, 

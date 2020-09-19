@@ -634,7 +634,14 @@ $(function() {
           }
         }
         
-        //gradient = gradient
+        // handle HTML tags (harder)
+        if (value.options.hasOwnProperty("title")) {
+          if (value.options.title !== config.title) {
+            var newTitle = $.parseHTML(value.options.title);
+            $(newTitle).addClass("box-title");
+            $(el).find("h3").replaceWith($(newTitle));
+          }
+        }
         
         // replace the old JSON config by the new one to update the input value 
         $(el).parent().find("script[data-for='" + el.id + "']").replaceWith(

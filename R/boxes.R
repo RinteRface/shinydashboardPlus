@@ -521,6 +521,7 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
 #'        "mybox", 
 #'        action = "update", 
 #'        options = list(
+#'          title = tagList(h2("hello"), dashboardLabel(1, status = "primary")),
 #'          status = "warning", 
 #'          solidHeader = TRUE, 
 #'          width = 12, 
@@ -555,6 +556,13 @@ updateBox <- function(id, action = c("remove", "toggle", "restore", "update"), o
                       session = shiny::getDefaultReactiveDomain()) {
   # for update, we take a list of options
   if (action == "update") {
+    # handle case whare options are shiny tag or a list of tags ...
+    options <- lapply(options, function(o) {
+      if (inherits(o, "shiny.tag") || inherits(o, "shiny.tag.list")) {
+        o <- as.character(o)
+      }
+      o
+    })
     message <- dropNulls(c(action = action, options = list(options)))
     session$sendInputMessage(id, message)
   } else {
