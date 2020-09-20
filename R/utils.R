@@ -194,3 +194,14 @@ rd_color_tag <- function(color, label = color) {
     style, label, label
   )
 }
+
+
+
+processDeps <- function (tags, session) {
+  ui <- htmltools::takeSingletons(tags, session$singletons, desingleton = FALSE)$ui
+  ui <- htmltools::surroundSingletons(ui)
+  dependencies <- lapply(htmltools::resolveDependencies(htmltools::findDependencies(ui)), 
+                         shiny::createWebDependency)
+  names(dependencies) <- NULL
+  list(html = htmltools::doRenderTags(ui), deps = dependencies)
+}

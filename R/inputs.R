@@ -25,7 +25,7 @@
 #'         inputId = "myAppButton",
 #'         label = "Users", 
 #'         icon = icon("users"), 
-#'         dashboardBadge(textOutput("btnVal"))
+#'         dashboardBadge(textOutput("btnVal"), color = "blue")
 #'       )
 #'      )
 #'     ),
