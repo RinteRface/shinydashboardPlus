@@ -944,11 +944,13 @@ $(function() {
     // message text
     // We use Shiny.renderHtml to handle the case where the user pass input/outputs in the updated content that require a new dependency not available in the 
     // page at startup. 
-    var text;
-    if (content.text.html === undefined) {
-      text = content.text;
-    } else {
-      text = Shiny.renderHtml(content.text.html, $([]), content.text.deps).html;
+    if (content.hasOwnProperty("text")) {
+      var text;
+      if (content.text.html === undefined) {
+        text = content.text;
+      } else {
+        text = Shiny.renderHtml(content.text.html, $([]), content.text.deps).html;
+      } 
     }
     
     // unbind all
