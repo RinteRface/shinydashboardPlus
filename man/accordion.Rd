@@ -3,16 +3,19 @@
 \name{accordion}
 \alias{accordion}
 \alias{accordionItem}
+\alias{updateAccordion}
 \title{AdminLTE2 accordion container}
 \usage{
 accordion(..., id = NULL, width = 12)
 
 accordionItem(..., title, status = NULL, collapsed = TRUE)
+
+updateAccordion(id, selected, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{...}{text to write in the item.}
 
-\item{id}{Unique accordion id.}
+\item{id}{Accordion to target.}
 
 \item{width}{The width of the accordion.}
 
@@ -29,11 +32,17 @@ Valid statuses are defined as follows:
 }}
 
 \item{collapsed}{Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.}
+
+\item{selected}{Index of the newly selected \link{accordionItem}.}
+
+\item{session}{Shiny session object.}
 }
 \description{
 Create an accordion container. Accordions are part of collapsible elements.
 
 \link{accordionItem} creates an accordion item to put inside an \link{accordion} container.
+
+\link{updateAccordion} toggles an \link{accordion} on the client.
 }
 \examples{
 if (interactive()) {
@@ -83,6 +92,48 @@ if (interactive()) {
  )
 }
 
+
+# Update accordion
+if (interactive()) {
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+      radioButtons("controller", "Controller", choices = c(1, 2)),
+      br(),
+      accordion(
+        id = "accordion1",
+        accordionItem(
+          title = "Accordion 1 Item 1",
+          status = "danger",
+          collapsed = TRUE,
+          "This is some text!"
+        ),
+        accordionItem(
+          title = "Accordion 1 Item 2",
+          status = "warning",
+          collapsed = TRUE,
+          "This is some text!"
+        )
+      )
+    ),
+    title = "Update Accordion"
+  ),
+  server = function(input, output, session) {
+    observeEvent(input$controller, {
+      updateNavPills(id = "accordion1", selected = input$controller)
+    })
+    observeEvent(input$accordion1, {
+      showNotification(sprintf("You selected accordion N° \%s", input$accordion1), type = "message")
+    })
+  }
+ )
+}
 }
 \author{
 David Granjon, \email{dgranjon@ymail.com}

@@ -30,8 +30,7 @@ library(shinydashboardPlus)
 
 
 ### Accordion
-Accordions are a category of collapsible elements. While collapsible items don't alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. `accordion()` expects to contain `accordionItems`. Importantly, to guaranty the uniqueness of each accordion, we must provide an _id_ parameter. In a future release,
-this parameter will also allow to programmatically toggle any accordion item, through an `updateAccordion` function.
+Accordions are a category of collapsible elements. While collapsible items don't alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. `accordion()` expects to contain `accordionItems`. Importantly, to guaranty the uniqueness of each accordion, we must provide an _id_ parameter. This parameter allows to programmatically toggle any accordion item, through an `updateAccordion` function.
 
 
 ```{r accordion-code, eval=FALSE}
@@ -40,6 +39,8 @@ this parameter will also allow to programmatically toggle any accordion item, th
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
+      radioButtons("controller", "Controller", choices = c(1, 2)),
+      br(),
       accordion(
        id = "accordion1",
         accordionItem(
@@ -73,7 +74,17 @@ this parameter will also allow to programmatically toggle any accordion item, th
     ),
     title = "Accordion"
   ),
-  server = function(input, output) { }
+  server = function(input, output, session) {
+    observeEvent(input$controller, {
+      updateNavPills(id = "accordion1", selected = input$controller)
+    })
+    
+    observe(print(input$accordion1))
+    
+    observeEvent(input$accordion1, {
+      showNotification(sprintf("You selected accordion N° %s", input$accordion1), type = "message")
+    })
+  }
  )
 ```
 

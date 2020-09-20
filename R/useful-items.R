@@ -75,7 +75,7 @@ accordion <- function(..., id = NULL, width = 12) {
   shiny::tags$div(
     class = if (!is.null(width)) paste0("col-sm-", width),
     shiny::tags$div(
-      class = "box-group",
+      class = "box-group accordion",
       id = id,
       items
     )
@@ -142,6 +142,68 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
     )
   )
 }
+
+
+
+
+#' Update an accordion on the client
+#' 
+#' \link{updateAccordion} toggles an \link{accordion} on the client.
+#'
+#' @param id Accordion to target.
+#' @param selected Index of the newly selected \link{accordionItem}.
+#' @param session Shiny session object.
+#'
+#' @export
+#' @rdname accordion
+#' @examples
+#' 
+#' # Update accordion
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'       radioButtons("controller", "Controller", choices = c(1, 2)),
+#'       br(),
+#'       accordion(
+#'         id = "accordion1",
+#'         accordionItem(
+#'           title = "Accordion 1 Item 1",
+#'           status = "danger",
+#'           collapsed = TRUE,
+#'           "This is some text!"
+#'         ),
+#'         accordionItem(
+#'           title = "Accordion 1 Item 2",
+#'           status = "warning",
+#'           collapsed = TRUE,
+#'           "This is some text!"
+#'         )
+#'       )
+#'     ),
+#'     title = "Update Accordion"
+#'   ),
+#'   server = function(input, output, session) {
+#'     observeEvent(input$controller, {
+#'       updateNavPills(id = "accordion1", selected = input$controller)
+#'     })
+#'     observe(print(input$accordion1))
+#'     observeEvent(input$accordion1, {
+#'       showNotification(sprintf("You selected accordion N° %s", input$accordion1), type = "message")
+#'     })
+#'   }
+#'  )
+#' }
+updateAccordion <- function(id, selected, session = shiny::getDefaultReactiveDomain()) {
+  session$sendInputMessage(id, selected)
+}
+
 
 
 
