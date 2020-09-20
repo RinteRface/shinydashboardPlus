@@ -2130,6 +2130,7 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #' Create a user message container. Maybe inserted in a \link{box}
 #'
 #' @param ... Slot for \link{userMessage}.
+#' @param id Optional. To use with \link{updateUserMessages}.
 #' @param status Messages status. See here for a list of valid colors 
 #' \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 #' Valid statuses are defined as follows:
@@ -2205,7 +2206,7 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #' }
 #'
 #' @export
-userMessages <- function(..., status, width = 4) {
+userMessages <- function(..., id = NULL, status, width = 4) {
   cl <- "direct-chat-messages direct-chat"
   if (!is.null(status)) {
     validateStatus(status)
@@ -2214,6 +2215,7 @@ userMessages <- function(..., status, width = 4) {
   msgtag <- shiny::tags$div(class = cl, ...)
   
   shiny::tags$div(
+    id = id,
     class = if (!is.null(width)) paste0("col-sm-", width),
     msgtag
   )
@@ -2281,27 +2283,96 @@ userMessage <- function(..., author, date = NULL,
 
 
 
-# #' Update a userMessages container in the server side
-# #' 
-# #' \link{updateUserMessages} allows to interact with a \link{userMessages} container,
-# #' such as sending, removing or editing messages.
-# #'
-# #' @param id \link{userMessages} to target.
-# #' @param action Action to perform: add, remove or update.
-# #' @param session Shiny session object.
-# #' @export
-# #' @rdname userMessages
-# #'
-# #' @examples
-# #' if (interactive()) {
-# #'  library(shiny)
-# #'  library(shinydashboard)
-# #'  library(shinydashboardPlus)
-# #'  
-# #'  
-# #' }
-# updateUserMessages <- function(id, action = c("add", "remove", "update"), 
-#                           session = shiny::getDefaultReactiveDomain()) {
-#   action <- match.arg(action)
-#   session$send
-# }
+#' Update a messages container in the server side
+#' 
+#' \link{updateUserMessages} allows to interact with a \link{userMessages} container,
+#' such as sending, removing or editing messages.
+#'
+#' @param id \link{userMessages} to target.
+#' @param action Action to perform: add, remove or update.
+#' @param content New message content in a list. For actions like add and update only! See example.
+#' @param session Shiny session object.
+#' @export
+#' @rdname userMessages
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinydashboard)
+#'  library(shinydashboardPlus)
+#'  
+#'  shinyApp(
+#'   ui = dashboardPage(
+#'     dashboardHeader(),
+#'     dashboardSidebar(),
+#'     dashboardBody(
+#'       fluidRow(
+#'         actionButton("remove", "Remove messages"),
+#'         actionButton("add", "Add messages")
+#'       ),
+#'       br(),
+#'       br(),
+#'       userMessages(
+#'         width = 6,
+#'         status = "danger",
+#'         id = "message",
+#'         userMessage(
+#'           author = "Alexander Pierce",
+#'           date = "20 Jan 2:00 pm",
+#'           image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'           type = "received",
+#'           "Is this template really for free? That's unbelievable!"
+#'         ),
+#'         userMessage(
+#'           author = "Sarah Bullock",
+#'           date = "23 Jan 2:05 pm",
+#'           image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'           type = "sent",
+#'           "You better believe it!"
+#'         )
+#'       )
+#'     ),
+#'     title = "user Message"
+#'   ),
+#'   server = function(input, output, session) {
+#'     observeEvent(input$remove, {
+#'       updateUserMessages("message", action = "remove", index = 1)
+#'     })
+#'     observeEvent(input$add, {
+#'       updateUserMessages(
+#'         "message", 
+#'         action = "add", 
+#'         content = list(
+#'           author = "David",
+#'           date = "Now",
+#'           image = "https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg",
+#'           type = "received",
+#'           text = "Message content"
+#'         )
+#'       )
+#'     })
+#'   }
+#'  )
+#' }
+updateUserMessages <- function(id, action = c("add", "remove", "update"), 
+                               index = NULL, content = NULL, 
+                               session = shiny::getDefaultReactiveDomain()) {
+  action <- match.arg(action)
+  
+  content <- lapply(content, function(c) {
+    if (inherits(c, "shiny.tag") || inherits(c, "shiny.tag.list")) {
+      c <- as.character(c)
+    }
+    c
+  })
+  
+  session$sendCustomMessage(
+    "user-messages", 
+    list(
+      id = id, 
+      action = action, 
+      index = index,
+      body = content
+    )
+  )
+}

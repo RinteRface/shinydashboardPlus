@@ -926,6 +926,42 @@ $(function() {
   });
   
   Shiny.inputBindings.register(accordionBinding, "accordion-input");
+  
+  
+  
+  
+  //---------------------------------------------------------------------
+  // Source file: ../srcjs/userMessages.js
+  
+  /* global Shiny */
+  
+  // userMessages
+  // ------------------------------------------------------------------
+  // This code creates acustom handler for userMessages
+  Shiny.addCustomMessageHandler("user-messages", function(message) {
+    var id = message.id, action = message.action, content = message.body, index = message.index;
+    if (action === "remove") {
+      $("#" + id).find(".direct-chat-msg").eq(index - 1).remove();
+    } else if (action === "add") {
+      var author = content.author, date = content.date, image = content.image, type = content.type, text = content.text;
+      
+      var newMessage = '<div class="direct-chat-info clearfix">' +
+        '<span class="direct-chat-name">' + author + '</span>' +
+        '<span class="direct-chat-timestamp" style="margin-left: 4px">' + date + '</span>' + '</div>' +
+        '<img class="direct-chat-img" src="' + image + '"/>' + 
+        '<div class="direct-chat-text">' + text + '</div>';
+      var newMessageWrapper;
+      if (type === "sent") {
+        newMessageWrapper = '<div class="direct-chat-msg right">' + newMessage + '</div>'
+      } else {
+        newMessageWrapper = '<div class="direct-chat-msg">' + newMessage + '</div>'
+      }
+      
+      $("#" + id).find(".direct-chat-messages").append(newMessageWrapper);
+    }
+  });
+  
+  
 
   
   //---------------------------------------------------------------------

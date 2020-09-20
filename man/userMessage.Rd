@@ -5,7 +5,7 @@
 \alias{userMessage}
 \title{AdminLTE2 user message container}
 \usage{
-userMessages(..., status, width = 4)
+userMessages(..., id = NULL, status, width = 4)
 
 userMessage(
   ...,
@@ -17,6 +17,8 @@ userMessage(
 }
 \arguments{
 \item{...}{Message text.}
+
+\item{id}{Optional. To use with \link{updateUserMessages}.}
 
 \item{status}{Messages status. See here for a list of valid colors 
 \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
