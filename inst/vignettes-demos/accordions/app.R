@@ -7,6 +7,8 @@ shinyApp(
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
+      radioButtons("controller", "Controller", choices = c(1, 2)),
+      br(),
       accordion(
         id = "accordion1",
         accordionItem(
@@ -40,5 +42,19 @@ shinyApp(
     ),
     title = "Accordion"
   ),
-  server = function(input, output) { }
+  server = function(input, output, session) {
+    observeEvent(input$controller, {
+      updateNavPills(id = "accordion1", selected = input$controller)
+    })
+    
+    observe(print(input$accordion1))
+    
+    observeEvent(input$accordion1, {
+      showNotification(
+        sprintf("You selected accordion N° %s", input$accordion1), 
+        type = "message",
+        duration = 1
+      )
+    })
+  }
 )
