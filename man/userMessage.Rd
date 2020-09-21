@@ -5,7 +5,7 @@
 \alias{userMessage}
 \title{AdminLTE2 user message container}
 \usage{
-userMessages(..., id = NULL, status, width = 4)
+userMessages(..., id = NULL, status, width = 4, height = NULL)
 
 userMessage(
   ...,
@@ -32,6 +32,8 @@ Valid statuses are defined as follows:
 }}
 
 \item{width}{Container width: between 1 and 12.}
+
+\item{height}{Container height.}
 
 \item{author}{Message author.}
 

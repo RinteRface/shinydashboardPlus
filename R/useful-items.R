@@ -2142,6 +2142,7 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
 #' }
 #' @param width Container width: between 1 and 12.
+#' @param height Container height. 
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' @rdname userMessage
@@ -2206,13 +2207,22 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #' }
 #'
 #' @export
-userMessages <- function(..., id = NULL, status, width = 4) {
+userMessages <- function(..., id = NULL, status, width = 4, height = NULL) {
   cl <- "direct-chat-messages direct-chat"
+  if (!is.null(height)) shiny::validateCssUnit(height)
   if (!is.null(status)) {
     validateStatus(status)
     cl <- paste0(cl, " direct-chat-", status)
   }
-  msgtag <- shiny::tags$div(class = cl, ...)
+  msgtag <- shiny::tags$div(
+    class = cl, 
+    ..., 
+    style = if (!is.null(height)) {
+      sprintf("height: %s; overflow-y: auto;", height)
+    } else {
+      "height: 100%;"
+    }
+  )
   
   shiny::tags$div(
     id = id,
