@@ -50,7 +50,8 @@
 
 <meta property="og:title" content="AdminLTE2 accordion container — accordion" />
 <meta property="og:description" content="Create an accordion container. Accordions are part of collapsible elements.
-accordionItem creates an accordion item to put inside an accordion container." />
+accordionItem creates an accordion item to put inside an accordion container.
+updateAccordion toggles an accordion on the client." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -117,6 +118,9 @@ accordionItem creates an accordion item to put inside an accordion container." /
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
       <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
     </li>
     <li>
@@ -162,11 +166,14 @@ accordionItem creates an accordion item to put inside an accordion container." /
     <div class="ref-description">
     <p>Create an accordion container. Accordions are part of collapsible elements.</p>
 <p>accordionItem creates an accordion item to put inside an accordion container.</p>
+<p>updateAccordion toggles an accordion on the client.</p>
     </div>
 
     <pre class="usage"><span class='fu'>accordion</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, width = <span class='fl'>12</span>)
 
-<span class='fu'>accordionItem</span>(<span class='kw'>...</span>, <span class='kw'>title</span>, status = <span class='kw'>NULL</span>, collapsed = <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>accordionItem</span>(<span class='kw'>...</span>, <span class='kw'>title</span>, status = <span class='kw'>NULL</span>, collapsed = <span class='fl'>TRUE</span>)
+
+<span class='fu'>updateAccordion</span>(<span class='kw'>id</span>, <span class='kw'>selected</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,7 +184,7 @@ accordionItem creates an accordion item to put inside an accordion container." /
     </tr>
     <tr>
       <th>id</th>
-      <td><p>Unique accordion id.</p></td>
+      <td><p>Accordion to target.</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -201,6 +208,14 @@ Valid statuses are defined as follows:</p><ul>
     <tr>
       <th>collapsed</th>
       <td><p>Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.</p></td>
+    </tr>
+    <tr>
+      <th>selected</th>
+      <td><p>Index of the newly selected accordionItem.</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
     </tr>
     </table>
 
@@ -256,6 +271,49 @@ Valid statuses are defined as follows:</p><ul>
  )
 }
 
+
+<span class='co'># Update accordion</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html'>radioButtons</a></span>(<span class='st'>"controller"</span>, <span class='st'>"Controller"</span>, choices = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>)),
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
+      <span class='fu'>accordion</span>(
+        id = <span class='st'>"accordion1"</span>,
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 1 Item 1"</span>,
+          status = <span class='st'>"danger"</span>,
+          collapsed = <span class='fl'>TRUE</span>,
+          <span class='st'>"This is some text!"</span>
+        ),
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 1 Item 2"</span>,
+          status = <span class='st'>"warning"</span>,
+          collapsed = <span class='fl'>TRUE</span>,
+          <span class='st'>"This is some text!"</span>
+        )
+      )
+    ),
+    title = <span class='st'>"Update Accordion"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>, {
+      <span class='fu'><a href='navPills.html'>updateNavPills</a></span>(id = <span class='st'>"accordion1"</span>, selected = <span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>)
+    })
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observe.html'>observe</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>accordion1</span>))
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>accordion1</span>, {
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"You selected accordion N° %s"</span>, <span class='kw'>input</span><span class='op'>$</span><span class='kw'>accordion1</span>), type = <span class='st'>"message"</span>)
+    })
+  }
+ )
+}
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

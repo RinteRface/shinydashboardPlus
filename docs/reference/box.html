@@ -125,6 +125,9 @@ to insert in a box" />
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
       <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
     </li>
     <li>
@@ -204,7 +207,8 @@ to insert in a box</p>
 
 <span class='fu'>updateBox</span>(
   <span class='kw'>id</span>,
-  action = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"remove"</span>, <span class='st'>"toggle"</span>, <span class='st'>"restore"</span>),
+  action = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"remove"</span>, <span class='st'>"toggle"</span>, <span class='st'>"restore"</span>, <span class='st'>"update"</span>),
+  options = <span class='kw'>NULL</span>,
   session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>()
 )
 
@@ -362,7 +366,15 @@ the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>action</th>
-      <td><p>Action to trigger: either collapse, remove or restore.</p></td>
+      <td><p>Action to trigger: either collapse, remove, restore or update.</p></td>
+    </tr>
+    <tr>
+      <th>options</th>
+      <td><p>If action is update, a list of new options to configure the box, such as
+<code><a href='https://rdrr.io/r/base/list.html'>list(title = "new title", status = NULL, solidHeader = FALSE, 
+background = "red", width = 6, height = "200px", collapsible = FALSE, closable = FALSE)</a></code>.
+If the box had a background/status (any item that may be NULL), you must explicitly pass background = NULL, 
+if you want to remove the background value.</p></td>
     </tr>
     <tr>
       <th>session</th>
@@ -555,11 +567,16 @@ descriptionBlock is used in a boxPad context.</p></td>
        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"remove_box"</span>, <span class='st'>"Remove Box"</span>, class = <span class='st'>"bg-danger"</span>),
        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"restore_box"</span>, <span class='st'>"Restore Box"</span>, class = <span class='st'>"bg-success"</span>)
      ),
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"update_box"</span>, <span class='st'>"Update Box"</span>, class = <span class='st'>"bg-info"</span>), 
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"update_box2"</span>, <span class='st'>"Update Box 2"</span>, class = <span class='st'>"bg-info"</span>),
+     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
      <span class='fu'>box</span>(
        title = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"box_state"</span>),
-       <span class='st'>"Box body"</span>,
        id = <span class='st'>"mybox"</span>,
+       status = <span class='st'>"danger"</span>, 
+       background = <span class='st'>"maroon"</span>, 
+       gradient = <span class='fl'>TRUE</span>,
        collapsible = <span class='fl'>TRUE</span>,
        closable = <span class='fl'>TRUE</span>,
        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"plot"</span>)
@@ -596,6 +613,37 @@ descriptionBlock is used in a boxPad context.</p></td>
      <span class='kw'>message</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>collapsed</span>, <span class='st'>"and"</span>, <span class='kw'>visible</span>)
      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='kw'>message</span>, type = <span class='st'>"warning"</span>, duration = <span class='fl'>1</span>)
    })
+   
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>update_box</span>, {
+     <span class='fu'>updateBox</span>(
+       <span class='st'>"mybox"</span>, 
+       action = <span class='st'>"update"</span>, 
+       options = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+         title = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span>(<span class='st'>"hello"</span>), <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='fl'>1</span>, status = <span class='st'>"primary"</span>)),
+         status = <span class='st'>"warning"</span>, 
+         solidHeader = <span class='fl'>TRUE</span>, 
+         width = <span class='fl'>12</span>, 
+         background = <span class='kw'>NULL</span>, 
+         height = <span class='st'>"900px"</span>, 
+         closable = <span class='fl'>FALSE</span>
+       )
+     )
+   })
+    
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>update_box2</span>, {
+      <span class='fu'>updateBox</span>(
+        <span class='st'>"mybox"</span>, 
+        action = <span class='st'>"update"</span>, 
+        options = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+          status = <span class='kw'>NULL</span>, 
+          solidHeader = <span class='fl'>FALSE</span>,
+          width = <span class='fl'>4</span>, 
+          background = <span class='st'>"green"</span>, 
+          height = <span class='st'>"500px"</span>, 
+          closable = <span class='fl'>TRUE</span>
+        )
+      )
+    })
    
  }
  

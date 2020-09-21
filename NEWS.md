@@ -60,6 +60,7 @@ _name_ is removed
 
 ## New features
 - Completely redesigned pkgdown website with much better documentation
+- New `updateUserMessages()` function 
 - New `updateAccordion()` to toggle `accordion()` on the client
 - Automatic "scroll to top" feature to quickly go to the top of the dashboard
 - Use `{waiter}` for custom preloaders

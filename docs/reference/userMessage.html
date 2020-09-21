@@ -117,6 +117,9 @@ userMessage creates a user message html element." />
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
       <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
     </li>
     <li>
@@ -164,7 +167,7 @@ userMessage creates a user message html element." />
 <p>userMessage creates a user message html element.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>userMessages</span>(<span class='kw'>...</span>, <span class='kw'>status</span>, width = <span class='fl'>4</span>)
+    <pre class="usage"><span class='fu'>userMessages</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, <span class='kw'>status</span>, width = <span class='fl'>4</span>, height = <span class='kw'>NULL</span>)
 
 <span class='fu'>userMessage</span>(
   <span class='kw'>...</span>,
@@ -182,6 +185,10 @@ userMessage creates a user message html element." />
       <td><p>Message text.</p></td>
     </tr>
     <tr>
+      <th>id</th>
+      <td><p>Optional. To use with <a href='updateUserMessages.html'>updateUserMessages</a>.</p></td>
+    </tr>
+    <tr>
       <th>status</th>
       <td><p>Messages status. See here for a list of valid colors 
 <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
@@ -196,6 +203,10 @@ Valid statuses are defined as follows:</p><ul>
     <tr>
       <th>width</th>
       <td><p>Container width: between 1 and 12.</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>Container height.</p></td>
     </tr>
     <tr>
       <th>author</th>

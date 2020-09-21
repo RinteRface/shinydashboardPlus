@@ -73,6 +73,9 @@
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
       <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
     </li>
     <li>
@@ -113,7 +116,7 @@
       <h1 data-toc-skip>Box Elements</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-09-20</h4>
+            <h4 class="date">2020-09-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/box-elements.Rmd"><code>vignettes/box-elements.Rmd</code></a></small>
       <div class="hidden name"><code>box-elements.Rmd</code></div>
@@ -130,82 +133,11 @@
 <div style="text-align:center;">
 <a href="improved-boxes.html" class="btn btn-outline-secondary btn-lg">Go to previous vignette</a>
 </div>
-<div id="accordion" class="section level3">
-<h3 class="hasAnchor">
-<a href="#accordion" class="anchor"></a>Accordion</h3>
-<p>Accordions are a category of collapsible elements. While collapsible items don’t alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. <code><a href="../reference/accordion.html">accordion()</a></code> expects to contain <code>accordionItems</code>. Importantly, to guaranty the uniqueness of each accordion, we must provide an <em>id</em> parameter. This parameter allows to programmatically toggle any accordion item, through an <code>updateAccordion</code> function.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html">radioButtons</a></span>(<span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)),
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
-      <span class="fu"><a href="../reference/accordion.html">accordion</a></span>(
-       id = <span class="st">"accordion1"</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 1 Item 1"</span>,
-          status = <span class="st">"danger"</span>,
-          collapsed = <span class="fl">TRUE</span>,
-          <span class="st">"This is some text!"</span>
-        ),
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 1 Item 2"</span>,
-          status = <span class="st">"warning"</span>,
-          collapsed = <span class="fl">FALSE</span>,
-          <span class="st">"This is some text!"</span>
-        )
-      ),
-      <span class="fu"><a href="../reference/accordion.html">accordion</a></span>(
-       id = <span class="st">"accordion2"</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 2 Item 1"</span>,
-          status = <span class="st">"info"</span>,
-          collapsed = <span class="fl">TRUE</span>,
-          <span class="st">"This is some text!"</span>
-        ),
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 2 Item 2"</span>,
-          status = <span class="st">"success"</span>,
-          collapsed = <span class="fl">FALSE</span>,
-          <span class="st">"This is some text!"</span>
-        )
-      )
-    ),
-    title = <span class="st">"Accordion"</span>
-  ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">controller</span>, {
-      <span class="fu"><a href="../reference/navPills.html">updateNavPills</a></span>(id = <span class="st">"accordion1"</span>, selected = <span class="kw">input</span><span class="op">$</span><span class="kw">controller</span>)
-    })
-    
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html">observe</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">accordion1</span>))
-    
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">accordion1</span>, {
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">"You selected accordion N° %s"</span>, <span class="kw">input</span><span class="op">$</span><span class="kw">accordion1</span>), type = <span class="st">"message"</span>)
-    })
-  }
- )
-</pre></div>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-accordions/" allowfullscreen frameborder="0" scrolling="no" height="770px">
-</iframe>
-</div>
-<div class="home">
-
-</div>
-</div>
-</div>
 <div id="description-block" class="section level3">
 <h3 class="hasAnchor">
 <a href="#description-block" class="anchor"></a>Description Block</h3>
 <p><code><a href="../reference/box.html">descriptionBlock()</a></code> is a sub-container that may be included in any <code><a href="../reference/box.html">box()</a></code>. It is convenient to display metrics.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
+<div class="sourceCode" id="cb1"><pre class="downlit">
  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
@@ -262,6 +194,10 @@
 
 </div>
 </div>
+</div>
+<div id="coming-soon" class="section level3">
+<h3 class="hasAnchor">
+<a href="#coming-soon" class="anchor"></a>Coming soon …</h3>
 </div>
 </div>
   </div>
