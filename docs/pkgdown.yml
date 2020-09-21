@@ -1,13 +1,6 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1
+pkgdown: 1.6.0
 pkgdown_sha: ~
-articles:
-  box-elements: box-elements.html
-  boxPlus-sidebar: boxPlus-sidebar.html
-  css-preloader: css-preloader.html
-  extra-css-effects: extra-css-effects.html
-  improved-boxes: improved-boxes.html
-  left-menu-navbar: left-menu-navbar.html
-  rightSidebar: rightSidebar.html
-last_built: 2020-08-28T21:33Z
+articles: []
+last_built: 2020-09-21T09:45Z
 

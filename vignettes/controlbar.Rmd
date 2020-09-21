@@ -1,0 +1,217 @@
+---
+title: "Extra Skeleton Elements"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extra Skeleton Elements}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r setup}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+```
+
+## Extra template elements
+
+`{shinydashboard}` skeleton elements are :
+
+- `dashboardPage()` (page wrapper)
+- `dashboardHeader()` (navbar)
+- `dashboardSidebar()` (left sidebar)
+
+However, AdminLTE has a footer and a right sidebar, also known as controlbar.
+The footer is usually a good place to put contact information like mail, authors and copyrights, while the controlbar may contain secondary inputs or extra options that are not necessary to be shown in the app. 
+
+
+### Controlbar
+
+#### Basics
+To include the controlbar, use `dashboardControlbar()` in the dedicated _controlbar_
+parameter. It has several options:
+
+- id is used to capture the current state of the controlbar (open or closed) and to programmatically toggle it with `updateControlbar()`. This is useful if the controlbar would have to open as a result of another action, to indicate users they have to play with it
+- collapsed indicated whether the sidebar is opened or closed at start
+- overlay controls the collapse behavior, that is whether the controlbar has to 
+push the body content to the left. By default, it will cover the body content. Note that you may also control this behavior via the `dashboardPagge()` _option_ parameter!
+- skin is a cosmetic parameter with 2 values: dark or light with a default value to dark. Importantly, the global theme option do not impact the controlbar background
+
+The app below will show an open controlbar at start.
+
+```{r controlbar-basis-code, eval=FALSE}
+shinyApp(
+  ui = dashboardPage(
+    header = dashboardHeader(),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(),
+    controlbar = dashboardControlbar(collapsed = FALSE),
+    title = "DashboardPage"
+  ),
+  server = function(input, output) { }
+)
+```
+
+#### Include menus
+The `dashboardControlbar` function also accepts to contain tabs, similarly to the `dashboardSidebar()` navigation menu. `controlbarMenu()` is a modified `shiny::tabsetPanel()` that has an optional _id_ to control the select item on the server side with `updateControlbarMenu()`. _selected_ indicates which item must be selected by default. Below is a use case of the controlbar menu:
+
+
+```{r controlbarMenu-code, eval=FALSE}
+menu <- controlbarMenu(
+  id = "controlbarMenu",
+  controlbarItem(
+    "Tab 1",
+    "Welcome to tab 1"
+  ),
+  controlbarItem(
+    "Tab 2",
+    numericInput("num", "Observations:", 200, min = 1, max = 1000, step = 100)
+  )
+)
+
+shinyApp(
+  ui = dashboardPage(
+    header = dashboardHeader(),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(),
+    controlbar = dashboardControlbar(
+      skin = "dark",
+      menu
+    ),
+    title = "Right Sidebar"
+  ),
+  server = function(input, output) { }
+)
+```
+
+It is best practice to limit the number of `controlbarItem` to 5 since the horizontal
+space is rather limited.
+
+
+#### The controlbar API
+As mentioned above, the most powerful feature is the possibility to control elements on the server. In the example below, the main sidebar has 3 items, each item will open a specific menu item in the controlbar.
+
+We first create 3 generic sidebar menu items using `lapply`. Note that the controlbar menu is defined above in the previous example.
+
+```{r, eval=FALSE}
+sidebarMenu(
+  id = "sidebarMenu",
+  lapply(1:3, function(i) {
+    menuItem(
+      sprintf("Menu %s", i), 
+      tabName = sprintf("menu_%s", i), 
+      icon = icon("circle")
+    )
+  })
+)
+```
+
+`input$sidebarMenu` takes values in `menu_1`, `menu_2` and `menu_3`. On the server side, we only recover the item index by splitting the input value as follows `strsplit(input$sidebarMenu, "_")[[1]][2]`. Then we may conditionally open the controlbar depending on the index value. The update controlbar menu function will
+update the controlbar menu item according to the index value, that is `updateControlbarMenu("controlbarMenu", selected = idx)`.
+
+To include even more interactivity, we listen to `input$controlbarMenu`. When the second item is clicked, we toggle the box sidebar with `updateBoxSidebar("boxSidebar")`. 
+
+In conclusion, you may imagine a lot of other situations. 
+
+```{r controlbar-api-code, eval=FALSE}
+shinyApp(
+  ui = dashboardPage(
+    header = dashboardHeader(),
+    sidebar = dashboardSidebar(
+      minified = TRUE, 
+      collapsed = TRUE,
+      sidebarMenu(
+        id = "sidebarMenu",
+        lapply(1:3, function(i) {
+          menuItem(
+            sprintf("Menu %s", i), 
+            tabName = sprintf("menu_%s", i), 
+            icon = icon("circle")
+          )
+        })
+      )
+    ),
+    body = dashboardBody(
+      tabItems(
+        tabItem(tabName = "menu_1", "Content 1"), 
+        tabItem(
+          tabName = "menu_2",
+          box(
+            title = "Always the same plot!",
+            collapsible = TRUE, 
+            plotOutput("distPlot"),
+            sidebar = boxSidebar(
+              id = "boxSidebar",
+              background = "#808080",
+              width = "50%",
+              sliderInput(
+                "obs", 
+                "Number of observations:",
+                min = 0,
+                max = 1000, 
+                value = 500
+              )
+            )
+          )
+        )
+      )
+    ),
+    controlbar = dashboardControlbar(
+      id = "controlbar",
+      menu
+    ),
+    title = "DashboardPage"
+  ),
+  server = function(input, output, session) {
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
+    # Switch controlbar menu based on sidebar item value. Moreover
+    # if the sidebar menu item is 2, the controlbar opens
+    observeEvent(input$sidebarMenu, {
+      idx <- strsplit(input$sidebarMenu, "_")[[1]][2]
+      if (idx == 2) {
+        updateControlbar("controlbar")
+      }
+      updateControlbarMenu("controlbarMenu", selected = idx)
+    })
+    
+    # Clicking on the second controlbar item makes the box sidebar open
+    observeEvent(input$controlbarMenu, {
+      if (input$controlbarMenu == "Tab 2") updateBoxSidebar("boxSidebar")
+    })
+    
+    observeEvent(input$num, {
+      updateSliderInput(session, "obs", value = input$num)
+    }, ignoreInit = TRUE)
+    
+  }
+)
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
+
+
+### Footer
+Not surprisingly `dashboardFooter()` creates a footer element. It has 2 slots, left and right, respectively.
+
+```{r footer-code, eval=FALSE}
+shinyApp(
+   ui = dashboardPage(
+     header = dashboardHeader(),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     footer = dashboardFooter(left = "Left content", right = "Right content"),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+ )
+```

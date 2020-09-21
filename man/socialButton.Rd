@@ -4,12 +4,12 @@
 \alias{socialButton}
 \title{AdminLTE2 social button}
 \usage{
-socialButton(url, type = NULL)
+socialButton(href, icon)
 }
 \arguments{
-\item{url}{if the button should redirect somewhere.}
+\item{href}{External link.}
 
-\item{type}{social network name: see here for valid names \url{https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html}.}
+\item{icon}{social network icon: see here for valid names \url{https://adminlte.io/themes/AdminLTE/pages/UI/buttons.html}.}
 }
 \description{
 Create a social button
@@ -18,6 +18,8 @@ Create a social button
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -27,12 +29,12 @@ if (interactive()) {
       title = "Social Buttons",
       status = NULL,
       socialButton(
-        url = "https://dropbox.com",
-        type = "dropbox"
+        href = "https://dropbox.com",
+        icon = icon("dropbox")
       ),
       socialButton(
-        url = "https://github.com",
-        type = "github"
+        href = "https://github.com",
+        icon = icon("github")
       )
      )
     ),

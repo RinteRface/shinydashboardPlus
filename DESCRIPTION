@@ -1,14 +1,13 @@
 Package: shinydashboardPlus
 Type: Package
 Title: Add More 'AdminLTE2' Components to 'shinydashboard'
-Version: 0.8.0.9000
+Version: 2.0.0.9000
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person(family = "RinteRface", role = "cph"),
   person(family = "Almasaeed Studio", role = c("ctb", "cph"), comment = "AdminLTE2 theme for Bootstrap 3"),
   person("Guang", "Yang", role = c("ctb", "cph"), comment = "ygdashboard original template"),
   person("Winston", "Chang", role = c("ctb", "cph"), comment = "Functions from shinydashboard"),
-  person("Petr", "Tichy", role = c("ctb", "cph"), comment = "CSS preloader"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = "ctb",
           comment = "improved the shinydashboardPlusGallery"))
 Maintainer: David Granjon <dgranjon@ymail.com>
@@ -16,7 +15,13 @@ Description: Extend 'shinydashboard' with 'AdminLTE2' components.
              'AdminLTE2' is a free 'Bootstrap 3' dashboard template available
              at <https://adminlte.io>. Customize boxes, add timelines and a lot more. 
 License: GPL (>= 2) | file LICENSE
-Imports: shiny, htmltools, shinydashboard
+Imports: 
+    shiny,
+    htmltools,
+    shinydashboard,
+    fresh,
+    lifecycle,
+    waiter
 Suggests:
     styler (>= 1.2.0),
     shinyAce,
@@ -32,3 +37,4 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1.9000
 VignetteBuilder: knitr
+RdMacros: lifecycle

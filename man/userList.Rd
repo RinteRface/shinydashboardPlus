@@ -2,20 +2,33 @@
 % Please edit documentation in R/useful-items.R
 \name{userList}
 \alias{userList}
+\alias{userListItem}
 \title{AdminLTE2 user list container}
 \usage{
 userList(...)
+
+userListItem(image = NULL, title = NULL, subtitle = NULL)
 }
 \arguments{
 \item{...}{slot for userListItem.}
+
+\item{image}{image url or path.}
+
+\item{title}{Item title.}
+
+\item{subtitle}{Item subitle.}
 }
 \description{
-Create a user list container
+Creates a user list container to be inserted in a \link{box}.
+
+\link{userListItem} creates a user list item.
 }
 \examples{
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -26,39 +39,19 @@ if (interactive()) {
       status = "success",
       userList(
         userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
-          user_name = "Shiny", 
-          description = "28.04.2018"
+          image = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
+          title = "Shiny", 
+          subtitle = "Package 1"
         ),
         userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/knitr.png", 
-          user_name = "knitr", 
-          description = "28.04.2018"
+          image = "https://www.tidyverse.org/images/hex-tidyverse.png", 
+          title = "Tidyverse", 
+          subtitle = "Package 2"
         ),
         userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2017/05/rmarkdown.png", 
-          user_name = "Rmarkdown", 
-          description = "28.04.2018"
-        ),
-        userListItem(
-          src = "https://www.tidyverse.org/images/hex-tidyverse.png", 
-          user_name = "Tidyverse", 
-          description = "28.04.2018"
-        ),
-        userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
-          user_name = "tidyr", 
-          description = "28.04.2018"
-        ),
-        userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/packrat.png", 
-          user_name = "packrat", 
-          description = "28.04.2018"
-        ),
-        userListItem(
-          src = "https://www.rstudio.com/wp-content/uploads/2014/04/sparklyr.png", 
-          user_name = "packrat", 
-          description = "28.04.2018"
+          image = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
+          title = "tidyr", 
+          subtitle = "Package 3"
         )
       )
      )

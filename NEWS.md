@@ -1,18 +1,98 @@
-# shinydashboardPlus 0.8.0.9000
+# shinydashboardPlus 2.0.0.9000
+
+This release is a major step for shinydashboardPlus. It is also a significant breaking
+change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.
 
 ## Breaking changes
+- Remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
+- remove _dropdownIcon_ parameter from `boxPlus()`. It is now part of the `dropdownItemList()`
+- Remove all label params from `boxPlus()`. This is to reduce the number of parameters of cards. Now part of `boxPlusLabel()`
+- _footer_padding_ becomes _footerPadding_ in `boxPlus()`, `gradientBox()`, `widgetUserBox()` and `socialBox()` to be consistent with the style (camelCase) ...
+- In `dropdownItemList()` _icon_ must be provided as `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
+- Replace _left_text_ and _right_text_ by _left_ and _right_, respectively in `dashboardFooter()`
+- Remove all sidebar related parameters of `dashboardPagePlus()`. They now belong to `dashboardSidebarPlus()` to Align with {shinydashboard}
+- In `dashboardSidebarPlus()`: replace _rightSidebar_ by _controlbar_ (align with {bs4Dash}). Rename _enable_preloader_ to _preloader_ and _loading_duration_ to _duration_
+- Rename `rightSidebar()` to `dashboardControlbar()` to align with {bs4Dash}
+- Remove _enable_rightSidebar_ from `dashboardHeaderPlus()`. This is now part of `dashboardControlbar()` as _disable_ like in {shinydashboard}. _rightSidebarIcon_ becomes
+_controlbarIcon_ that accepts `shiny::icon` instead of a simple string containing the icon name to be consistent with {shinydashboard}. _left_menu_ becomes _leftUi_ like in {bs4Dash}
+- Remove `rightSiderbarMenu()`, `rightSidebarTablist()`, `rightSidebarTabItem()`, `rightSidebarPanel()` and `rightSidebarTabContent()`. They are now replaces by `dashboardControlbar()`, `controlbarMenu()` and `controlbarItem()`
+- Remove `rightSidebarMenuItem()`, `menuIcon()` and `menuInfo()`
+- Rename `boxPlus()` to `box()`, `dashboardPagePlus()` to `dashboardPage()` and
+`dashboardHeaderPlus()` to `dashboardHeader()`
+- `dropdownBlock()` _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
+- In `gradientBox()` _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
+- In `descriptionBlock()` _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
+- Rework `navPillsItem()`: _pillName_ becomes _left_, _pillText_ becomes _right_,
+_pillColor_ becomes _color_, _pillIcon_ becomes _icon_ and expects a `shiny::icon()`. Add _inputId_ so that the item behaves like an action button
+- Rework `productListItem()`: _productTitle_ becomes _title_, _productPrice_ becomes _subtitle_, _priceColor_ becomes _color_
+- In `timelineItem()`, `timelineStart()` and `timelineEnd()`, _icon_ expects a `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
+- In `userListItem()`, _user_name_ becomes _title_, _description_ becomes _subtitle_
+- `dropdownItemList()` becomes `boxDropdown()`. `dropdownItem()` becomes `boxDropdownItem()`
+- `userPostToolItemList()` becomes `userPostTagItems()`. `userPostToolItem()` becomes `userPostTagItem()`
+- Remove `boxProfileItemList()`. `boxProfile()` gets a new parameter _bordered_, inherited from the old `boxProfileItemList()`
+- In `boxProfile()`, _title_ becomes mandatory
+- _title_ and _description_ mandatory in `boxProfileItem()`
+- In `boxComment()`: _src_ and _title_ are mandatory
+- `widgetUserBox()` becomes `userBox()` for more naming consistency
+- Remove `gradientBox()` for consistency with {bs4Dash}
+- Add _icon_, _gradient_ and _boxToolSize_ to `box()`
+- _title_ mandatory in `userBox()`. Remove _background_. Replace _backgroundUrl_ by _backgroundImage_. Reworked _type_ parameter
+- Restore `accordion()` id. We should distinguish between TRUE inputs (sliderInput) and secondary inputs (that you can use for interactivity)...
+- _color_ becomes _status_ in `accordionItem()`. This is to be consistent with AdminLTE2 classes and {shinydashboard}
+- In `attachmentBlock()`: _src_ becomes _image_ and _titleUrl_ becomes _href_. _image_ is mandatory
+- In `socialButton()`: _url_ becomes _href_ and _type_ becomes _icon_ (expect `shiny::icon`)
+- In `productListItem()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `timelineItemMedia()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `userListItem()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `userPost()`: _src_ becomes _image_ to be consistent with {shinydashboard}. _image_ and _author_ are mandatory
+- In `userPostMedia()`: _src_ becomes _image_ to be consistent with {shinydashboard}. _image_ is mandatory
+- Reworked `verticalProgress()` to `progressBar()`
+- In `userMessage()`: _src_ becomes _image_ to be consistent with {shinydashboard}. _side_ becomes _type_ (semantic)
+- In `dashboardUser()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `userBox()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `socialBox()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `boxComment()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `boxProfile()`: _src_ becomes _image_ to be consistent with {shinydashboard}
+- In `boxDropdownItem()`: _url_ becomes _href_ to be consistent with {shinydashboard}.
+_name_ is removed
+- Rework preloader feature: remove _duration_ and _preloader_ now expects a list...
+- In `navPillsItem()`: _active_ becomes _selected_
 
 ## New features
-- new `options` parameter to `dashboardPagePlus()`. See [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
+- Completely redesigned pkgdown website with much better documentation
+- New `updateUserMessages()` function 
+- New `updateAccordion()` to toggle `accordion()` on the client
+- Automatic "scroll to top" feature to quickly go to the top of the dashboard
+- Use `{waiter}` for custom preloaders
+- Add _inputId_ to `taskItem()`, `notificationItem()` and `messageItem()`
+- New _inputId_ and _icon_ to `boxDropdownItem()`, that behaves like an action button if passed
+- New `updateNavPills()` to programmatically change the selected item in `navPills()`
+- Add _freshTheme_ parameter to `dashboardPage()`. This allows to use the awsesome `{fresh}` package. See [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details.
+- Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.
+- Add `updateControlbarMenu()` to programmatically change the selected controlbar item
+- Add _id_ to `dashboardControlbar()` to be able to use `updateControlbar()`
+- Add _id_ to `dashboardSidebar()` to be able to use `updateSidebar()`
+- New `dashboardSidebar()` (reworked shinydashboard sidebar)
+- New `boxLabel()` to add text labels in `box()`
+- New `boxSidebar()`: access the status via input$id. Add `updateBoxSidebar()` to toggle the box sidebar
+- new `options` parameter to `dashboardPage()`. See [here](https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options) for the
 list of available options
-- Toggle `boxPlus()` with `updateBoxPlus()` (see #10 and #69, @happyshows and @daatali)
+- Toggle `box()` with `updateBox()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
+- add _width_ to `accordion()` (default to 12)
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
 - Fix #86: controlbar should also trigger a window resize, like the left
 shinydashboard sidebar. Thanks @ajfisher83 
+- Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `box()`...
+- _title_ is mandatory in `accordionItem()` (Setting title to NULL would prevent the item
+to be able to collapse ...)
+
+
+
+
 
 # shinydashboardPlus 0.7.5
 

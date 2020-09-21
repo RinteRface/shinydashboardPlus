@@ -1,19 +1,19 @@
 source("global.R")
 
 shinyApp(
-  ui = dashboardPagePlus(md = FALSE,
-    dashboardHeaderPlus(
+  ui = dashboardPage(
+    md = FALSE,
+    #skin = "midnight",
+    dashboardHeader(
       fixed = TRUE,
       title = tagList(
         span(class = "logo-lg", "shinydashboardPlus"), 
         img(src = "ShinyDashboardPlus_FINAL.svg")),
-      enable_rightsidebar = TRUE,
-      rightSidebarIcon = "bars",
-      left_menu = tagList(
+      leftUi = tagList(
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
-          icon = "sliders",
+          icon = icon("sliders"),
           sliderInput(
             inputId = "n",
             label = "Number of observations",
@@ -32,7 +32,7 @@ shinyApp(
         dropdownBlock(
           id = "mydropdown2",
           title = "Dropdown 2",
-          icon = "sliders",
+          icon = icon("sliders"),
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",
@@ -60,21 +60,8 @@ shinyApp(
       userOutput("user")
     ),
     dashboardSidebar(
+      id = "mysidebar",
       sidebarMenu(
-        menuItem(
-          text = "New rightSidebar", 
-          tabName = "rightsidebar",
-          badgeLabel = "new", 
-          badgeColor = "green",
-          icon = icon("gears")
-        ),
-        menuItem(
-          text = "Improved header", 
-          tabName = "header",
-          badgeLabel = "new", 
-          badgeColor = "green",
-          icon = icon("folder-open")
-        ),
         menuItem(
           text = "New boxes", 
           tabName = "boxes",
@@ -103,42 +90,35 @@ shinyApp(
           badgeColor = "green",
           icon = icon("plus-circle")
         )
-      )
+      ),
+      hr(),
+      skinSelector()
     ),
-    rightsidebar = rightSidebar(
-      background = "dark",
-      rightSidebarTabContent(
-        id = 1,
-        title = "Tab 1",
-        icon = "desktop",
-        active = TRUE,
-        sliderInput(
-          inputId = "inputsidebar1", 
-          label = "Number of observations:",
-          min = 0, 
-          max = 1000, 
-          value = 500
-        )
-      ),
-      rightSidebarTabContent(
-        id = 2,
-        title = "Tab 2",
-        textInput(
-          inputId = "inputsidebar2", 
-          label = "Caption", 
-          "Data Summary"
-        )
-      ),
-      rightSidebarTabContent(
-        id = 3,
-        icon = "paint-brush",
-        title = "Tab 3",
-        numericInput(
-          inputId = "inputsidebar3", 
-          label = "Observations:", 
-          value = 10, 
-          min = 1, 
-          max = 100
+    controlbar = dashboardControlbar(
+      skin = "dark",
+      controlbarMenu(
+        controlbarItem(
+          title = "Tab 1",
+          icon = icon("desktop"),
+          active = TRUE,
+          sliderInput(
+            inputId = "inputsidebar1", 
+            label = "Number of observations:",
+            min = 0, 
+            max = 1000, 
+            value = 500
+          )
+        ),
+        controlbarItem(
+          icon = icon("paint-brush"),
+          title = "Tab 2",
+          numericInput(
+            inputId = "inputsidebar2", 
+            label = "Observations:", 
+            value = 10, 
+            min = 1, 
+            max = 100
+          )
         )
       )
     ),
@@ -148,28 +128,28 @@ shinyApp(
       setShadow(class = "dropdown-menu"),
       setShadow(class = "box"),
       
-      shiny::tags$head(
-        # shiny::includeCSS(
-        #   system.file("css", "qtcreator_dark.css", package = "shinydashboardPlus")
-        # ),
-        # shiny::includeScript(
-        #   system.file("js", "highlight.pack.js", package = "shinydashboardPlus")
-        # )
-        shiny::tags$style(
+      # some styling
+      tags$head(
+        tags$style(
           rel = "stylesheet",
           type = "text/css",
           href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/qtcreator_dark.min.css"
         ),
-        
-        shiny::tags$script(
+        tags$script(
           src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        ),
+        tags$script(
+          "$(function() {
+            $('.sidebar-toggle').on('click', function() {
+              $('.skinSelector-widget').toggle();
+            });
+          });
+          "
         )
       ),
       
       # All tabs
       tabItems(
-        rightsidebar_tab,
-        header_tab,
         boxes_tab,
         buttons_tab,
         box_elements_tab,
@@ -178,12 +158,11 @@ shinyApp(
     ),
     title = "shinyDashboardPlus",
     footer = dashboardFooter(
-      left_text = "By Divad Nojnarg",
-      right_text = "Zurich, 2019"
+      left = "By Divad Nojnarg",
+      right = "Zurich, 2019"
     )
   ),
   server = function(input, output) {
-    
     # app button
     output$appBtnVal <- renderText(input$myAppButton)
     observeEvent(input$myAppButton, {
@@ -219,7 +198,7 @@ shinyApp(
     output$user <- renderUser({
       dashboardUser(
         name = "Divad Nojnarg", 
-        src = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+        image = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
         title = "shinydashboardPlus",
         subtitle = "Author", 
         footer = p("The footer", class = "text-center"),
@@ -229,7 +208,7 @@ shinyApp(
             descriptionBlock(
               number = "17%", 
               numberColor = "green", 
-              numberIcon = "fa fa-caret-up",
+              numberIcon = icon("fa fa-caret-up"),
               header = "$35,210.43", 
               text = "TOTAL REVENUE", 
               rightBorder = TRUE,
@@ -241,7 +220,7 @@ shinyApp(
             descriptionBlock(
               number = "18%", 
               numberColor = "red", 
-              numberIcon = "fa fa-caret-down",
+              numberIcon = icon("fa fa-caret-down"),
               header = "1200", 
               text = "GOAL COMPLETION", 
               rightBorder = FALSE,

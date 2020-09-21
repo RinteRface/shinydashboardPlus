@@ -14,23 +14,27 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
 ```
 
 ## Boxes components
 
-**shinydashboardPlus** brings also tons of new elements to include in boxes or elsewhere.
-
-### `descriptionBlock()`
-
-<img src="figures/descriptionBlock.png" width="768" height="365">
+`{shinydashboardPlus}` brings tons of new elements to include in boxes or elsewhere. Some of them has partially been described in the previous vignette.
 
 <br>
 
-```r
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
+<div style="text-align:center;"><a href="improved-boxes.html" class="btn btn-outline-secondary btn-lg">Go to previous vignette</a></div>
+
+
+### Description Block
+
+`descriptionBlock()` is a sub-container that may be included in any `box()`. 
+It is convenient to display metrics. 
+
+```{r descriptionBlock-code, eval=FALSE}
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -47,85 +51,42 @@ knitr::opts_chunk$set(
           width = 6,
           descriptionBlock(
             number = "17%", 
-            number_color = "green", 
-            number_icon = "fa fa-caret-up",
+            numberColor = "green", 
+            numberIcon = icon("caret-up"),
             header = "$35,210.43", 
             text = "TOTAL REVENUE", 
-            right_border = TRUE,
-            margin_bottom = FALSE
+            rightBorder = TRUE,
+            marginBottom = FALSE
           )
         ),
         column(
           width = 6,
           descriptionBlock(
             number = "18%", 
-            number_color = "red", 
-            number_icon = "fa fa-caret-down",
+            numberColor = "red", 
+            numberIcon = icon("caret-down"),
             header = "1200", 
             text = "GOAL COMPLETION", 
-            right_border = FALSE,
-            margin_bottom = FALSE
+            rightBorder = FALSE,
+            marginBottom = FALSE
           )
         )
       )
      )
     ),
-    title = "Description Blocks"
+    title = "Description Block"
   ),
   server = function(input, output) { }
  )
 ```
 
-### `boxPad()`
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-descriptionBlock/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
 
-<img src="figures/boxPad.png">
-<br>
 
-```r
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(title = "Box with right pad",
-      status = "warning",
-      fluidRow(
-        column(width = 6),
-        column(
-          width = 6,
-          boxPad(
-            color = "green",
-            descriptionBlock(
-              header = "8390", 
-              text = "VISITS", 
-              right_border = FALSE,
-              margin_bottom = TRUE
-            ),
-            descriptionBlock(
-              header = "30%", 
-              text = "REFERRALS", 
-              right_border = FALSE,
-              margin_bottom = TRUE
-            ),
-            descriptionBlock(
-              header = "70%", 
-              text = "ORGANIC", 
-              right_border = FALSE,
-              margin_bottom = FALSE
-            )
-          )
-        )
-      )
-     )
-    ),
-    title = "Description Blocks"
-  ),
-  server = function(input, output) { }
- )
-```
-
-and a lot more [here](https://rinterface.com/shiny/shinydashboardPlus/).
+### Coming soon ...

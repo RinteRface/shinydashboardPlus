@@ -8,12 +8,19 @@
 
 <title>Authors • shinydashboardPlus</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
@@ -38,8 +45,11 @@
 
 
 
+  <link href="extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Authors" />
+<meta property="og:image" content="/logo.svg" />
 
 
 
@@ -71,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -84,10 +94,42 @@
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="articles/shinydashboardPlus.html">Get started</a>
 </li>
 <li>
-  <a href="articles/index.html">Articles</a>
+  <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="articles/improved-boxes.html">Improved boxes</a>
+    </li>
+    <li>
+      <a href="articles/box-elements.html">Box Elements</a>
+    </li>
+    <li>
+      <a href="articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
+      <a href="articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="articles/more-skins.html">Improved Skins</a>
+    </li>
+    <li>
+      <a href="articles/css-preloader.html">CSS preloaders</a>
+    </li>
+    <li>
+      <a href="articles/enhanced-header.html">Enhanced Header Elements</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -138,10 +180,6 @@
         <br /><small>Functions from shinydashboard</small></p>
       </li>
       <li>
-        <p><strong>Petr Tichy</strong>. Contributor, copyright holder. 
-        <br /><small>CSS preloader</small></p>
-      </li>
-      <li>
         <p><strong>Victor Perrier</strong>. Contributor. 
         <br /><small>improved the shinydashboardPlusGallery</small></p>
       </li>
@@ -159,7 +197,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

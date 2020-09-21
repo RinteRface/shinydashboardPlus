@@ -10,7 +10,7 @@ description_block <- 'box(
       descriptionBlock(
         number = "17%", 
         numberColor = "green", 
-        numberIcon = "caret-up",
+        numberIcon = icon("caret-up"),
         header = "$35,210.43", 
         text = "TOTAL REVENUE", 
         rightBorder = TRUE,
@@ -22,7 +22,7 @@ description_block <- 'box(
       descriptionBlock(
         number = "18%", 
         numberColor = "red", 
-        numberIcon = "caret-down",
+        numberIcon = icon("caret-down"),
         header = "1200", 
         text = "GOAL COMPLETION", 
         rightBorder = FALSE,

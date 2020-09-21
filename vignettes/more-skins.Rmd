@@ -1,0 +1,202 @@
+---
+title: "Improved Skins"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Improved Skins}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+library(fresh)
+```
+
+## A Real Time Skin Selector
+
+`{shinydashboardPlus}` has a new feature called the `skinSelector()`. This is a JavaScript based widget allowing the end user to change the app skin. According to the `dashboardPage()`, there are 6 unique colors with 2 versions, light or dark. 
+Note that the `dashboardControlbar()` is the perfect place to host the `skinSelector()` since it may be seen as a secondary input (your app may still work without :))
+
+```{r skinSelector-code, eval=FALSE}
+shinyApp(
+   ui = dashboardPage(
+     header = dashboardHeader(),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     controlbar = dashboardControlbar(collapsed = FALSE, skinSelector()),
+     title = "Skin Selector"
+   ),
+   server = function(input, output) { }
+ )
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-skinSelector/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
+
+## A New Dark Skin: midnight
+
+The midnight theme is powered by the corresponding Github [project](https://github.com/anvyst/adminlte-skin-midnight). It provides a plug and play dark theme. 
+
+```{r midnight-code, eval=FALSE}
+shinyApp(
+   ui = dashboardPage(
+     skin = "midnight",
+     header = dashboardHeader(),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     controlbar = dashboardControlbar(),
+     footer = dashboardFooter(),
+     title = "Midnight Skin"
+   ),
+   server = function(input, output) { }
+ )
+```
+
+```{r midnight-skin, echo=FALSE, fig.cap='Midnight skin overview', fig.align = 'center', out.width='100%'}
+knitr::include_graphics("figures/skin-midnight-overview.png")
+``` 
+
+This is the fastest option to get a dark design. You'll see below that the `{fresh}` package is able to provide a similar look and feel, with much more options (but more effort).
+
+Important: this feature is still <a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>!
+
+
+## Material Design + AdminLTE
+To activate the material design feature, set _md_ to TRUE in `dashboardPage()`. 
+This feature is powered by [MaterialAdminLTE](https://github.com/DucThanhNguyen/MaterialAdminLTE), built on top of AdminLTE2 and [material design for Bootstrap 3](https://fezvrasta.github.io/bootstrap-material-design/)
+<a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>!
+
+```{r md-code, eval=FALSE}
+shinyApp(
+   ui = dashboardPage(
+     md = TRUE,
+     skin = "blue",
+     header = dashboardHeader(),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(),
+     controlbar = dashboardControlbar(),
+     footer = dashboardFooter(),
+     title = "Midnight Skin"
+   ),
+   server = function(input, output) { }
+ )
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://ducthanhnguyen.github.io/MaterialAdminLTE/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
+
+## Fresh
+[`{fresh}`](https://dreamrs.github.io/fresh/index.html) is developed by the [dreamRs](https://www.dreamrs.fr/) team. It is built on top of `{sass}`, which provides a solid R [API](https://github.com/rstudio/sass) to write SASS variables and compile into CSS. `{fresh}` captures most of the AdminLTE2 (as well as AdminLTE3 for Bootstrap 4) SASS variables to allow deep customization, hiding all the compilation burden under the hood.
+
+`adminlte_color()` provides an interface to all available AdminLTE colors and allow to overwrite the default. I strongly suggest to avoid setting the default green to blue, as it might become confusing. Instead, it is better to play with color palettes. Similarly, `adminlte_sidebar` allows to re-style the sidebar component.
+The fresh theme below is based on some cyberpunk color palettes. 
+
+```{r fresh-code, eval=FALSE}
+# create the theme with a cyberpunk color palette
+theme <- create_theme(
+  adminlte_color(
+    green = "#3fff2d",
+    blue = "#2635ff",
+    red = "	#ff2b2b",
+    yellow = "#feff6e",
+    fuchsia = "#ff5bf8",
+    navy = "#374c92",
+    purple = "#615cbf",
+    maroon = "#b659c9",
+    light_blue = "#5691cc"
+  ),
+  adminlte_sidebar(
+    dark_bg = "#D8DEE9",
+    dark_hover_bg = "#81A1C1",
+    dark_color = "#2E3440"
+  ),
+  adminlte_global(
+    content_bg = "#aaaaaa"
+  )
+)
+
+# create tribble for box global config
+box_config <- tibble::tribble(
+  ~background, ~labelStatus,
+  "red", "warning",
+  "purple", "success",
+  "green", "primary",
+  "yellow", "danger",
+  "fuchsia", "info"
+)
+
+# box factory function
+box_factory <- function(background, labelStatus) {
+  box(
+    title = "Cyberpunk Box", 
+    collapsible = TRUE, 
+    background = background,
+    height = "200px",
+    label = boxLabel(1, labelStatus)
+  )
+}
+
+# pmap magic
+boxes <- purrr::pmap(box_config, box_factory)
+
+shinyApp(
+   ui = dashboardPage(
+     freshTheme = theme,
+     skin = "blue",
+     options = list(sidebarExpandOnHover = TRUE),
+     header = dashboardHeader(
+       dropdownMenu(
+         type = "messages", 
+         badgeStatus = "success",
+         messageItem(
+           from = "Support Team",
+           message = "This is the content of a message.",
+           time = "5 mins"
+         ),
+         messageItem(
+           from = "Support Team",
+           message = "This is the content of another message.",
+           time = "2 hours"
+         )
+       )
+     ),
+     sidebar = dashboardSidebar(
+       sidebarMenu(
+         menuItem("Item 1", badgeLabel = icon("heart"), badgeColor = "light-blue"),
+         menuItem("Item 2", badgeLabel = icon("poo"), badgeColor = "maroon")
+       )
+     ),
+     body = dashboardBody(boxes),
+     controlbar = dashboardControlbar(),
+     title = "Fresh theming"
+   ),
+   server = function(input, output) { }
+ )
+```
+
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-fresh-theming/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>

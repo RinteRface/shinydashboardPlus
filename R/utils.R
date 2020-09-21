@@ -71,6 +71,11 @@ validStatusesPlus <- c("primary", "success", "info", "warning", "danger",
                        "navy", "teal", "purple", "orange", "maroon", "black")
 
 
+# all AdminLTE2 skins
+validSkins <- c("blue", "blue-light","black","black-light", 
+                "purple","purple-light", "green","green-light",
+                "red","red-light", "yellow","yellow-light")
+
 # Returns TRUE if a color is a valid color defined in AdminLTE, throws error
 # otherwise.
 validateColor <- function(color) {
@@ -171,4 +176,32 @@ validateTabName <- function(name) {
   if (grepl(".", name, fixed = TRUE)) {
     stop("tabName must not have a '.' in it.")
   }
+}
+
+dropNulls <- function(x) {
+  x[!vapply(x, is.null, FUN.VALUE = logical(1))]
+}
+
+
+# used to generate color tags in the documentation
+rd_color_tag <- function(color, label = color) {
+  style <- sprintf(
+    "width:12px;height:12px;background:%s;border-radius:2px;display:inline-block;margin-right:5px;",
+    color
+  )
+  sprintf(
+    "\\ifelse{html}{\\out{<span style='%s'></span>%s}}{%s}",
+    style, label, label
+  )
+}
+
+
+
+processDeps <- function (tags, session) {
+  ui <- htmltools::takeSingletons(tags, session$singletons, desingleton = FALSE)$ui
+  ui <- htmltools::surroundSingletons(ui)
+  dependencies <- lapply(htmltools::resolveDependencies(htmltools::findDependencies(ui)), 
+                         shiny::createWebDependency)
+  names(dependencies) <- NULL
+  list(html = htmltools::doRenderTags(ui), deps = dependencies)
 }

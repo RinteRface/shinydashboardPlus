@@ -1,0 +1,158 @@
+reference:
+- title: Skeleton Functions
+  desc: Page and header wrappers
+  contents: 
+  - '`dashboardFooter`'
+  - '`dashboardHeader`'
+  - '`dashboardPage`'
+  - '`dashboardSidebar`'
+  - '`updateSidebar`'
+  
+- title: Navbar Functions
+  desc: Items to insert in the left navbar menu
+  contents: 
+  - '`dashboardUser`'
+  - '`dashboardUserItem`'
+  - '`dropdownBlock`'
+  - '`renderUser`'
+  - '`userOutput`'
+  - '`taskItem`'
+  - '`notificationItem`'
+  - '`messageItem`'
+
+- title: Right Sidebar (controlbar)
+  desc: Right sidebar elements
+  contents: 
+  - '`dashboardControlbar`'
+  - '`controlbarMenu`'
+  - '`controlbarItem`'
+  - '`updateControlbar`'
+  - '`updateControlbarMenu`'
+  
+- title: Box functions
+  desc: Functions that are designed to create new boxes
+  contents:
+  - '`box`'
+  - '`boxLabel`'
+  - '`boxSidebar`'
+  - '`updateBox`'
+  - '`updateBoxSidebar`'
+  - '`userBox`'
+  - '`socialBox`'
+  - '`flipBox`'
+  - '`boxDropdown`'
+  - '`boxDropdownItem`'
+  - '`dropdownDivider`'
+  
+
+- title: Box extra elements
+  desc: Functions that are designed to be inserted inside boxes
+  contents:
+  - '`boxComment`'
+  - '`descriptionBlock`'
+  - '`boxPad`'
+  - '`userList`'
+  - '`userListItem`'
+  - '`todoList`'
+  - '`todoListItem`'
+  - '`navPills`'
+  - '`updateNavPills`'
+  - '`navPillsItem`'
+  - '`productList`'
+  - '`productListItem`'
+  - '`accordion`'
+  - '`accordionItem`'
+  - '`timelineBlock`'
+  - '`timelineStart`'
+  - '`timelineEnd`'
+  - '`timelineLabel`'
+  - '`timelineItem`'
+  - '`timelineItemMedia`'
+  - '`boxProfile`'
+  - '`boxProfileItem`'
+  - '`userMessages`'
+  - '`userMessage`'
+  - '`userPost`'
+  - '`userPostTagItems`'
+  - '`userPostTagItem`'
+  - '`userPostMedia`'
+
+- title: Buttons
+  desc: new buttons (not action buttons as in shiny! Only for external or internal link)
+  contents:
+  - '`appButton`'
+  - '`socialButton`'
+
+- title: Extra elements
+  desc: Elements to be placed everywhere
+  contents:
+  - '`loadingState`'
+  - '`blockQuote`'
+  - '`carousel`'
+  - '`carouselItem`'
+  - '`dashboardBadge`'
+  - '`dashboardLabel`'
+  - '`starBlock`'
+  - '`attachmentBlock`'
+  - '`progressBar`'
+
+- title: CSS extras
+  desc: Pimp your app
+  contents:
+  - '`skinSelector`'
+  
+- title: The Gallery
+  desc: a showcase for shinydashboardPlus
+  contents:
+  - '`shinydashboardPlusGallery`'
+  
+    
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/RinteRface/shinydashboardPlus
+      
+      
+articles:
+- title: User guide
+  desc: ~
+  navbar: User Guide
+  contents:
+  - '`improved-boxes`'
+  - '`box-elements`'
+  - '`extra-elements`'
+  - '`controlbar`'
+  - '`more-skins`'
+  - '`css-preloader`'
+  - '`enhanced-header`'
+  
+
+news:
+ releases:
+ - text: "shinydashboardPlus 2.0.0.9000"
+ - text: "shinydashboardPlus 0.7.5"
+ - text: "shinydashboardPlus 0.7.0"
+ - text: "shinydashboardPlus 0.6.0"
+ - text: "shinydashboardPlus 0.5.0"
+ - text: "shinydashboardPlus 0.2.0"
+ - text: "shinydashboardPlus 0.1.0"
+    

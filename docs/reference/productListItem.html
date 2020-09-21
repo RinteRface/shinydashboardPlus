@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -83,6 +83,9 @@
     <span class="fa fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -123,13 +126,7 @@
     <p>Create a product item</p>
     </div>
 
-    <pre class="usage"><span class='fu'>productListItem</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>src</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>productTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>productPrice</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>priceColor</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>productListItem</span>(<span class='kw'>...</span>, image = <span class='kw'>NULL</span>, title = <span class='kw'>NULL</span>, subtitle = <span class='kw'>NULL</span>, color = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,23 +136,26 @@
       <td><p>product description.</p></td>
     </tr>
     <tr>
-      <th>src</th>
+      <th>image</th>
       <td><p>image url, if any.</p></td>
     </tr>
     <tr>
-      <th>productTitle</th>
+      <th>title</th>
       <td><p>product name.</p></td>
     </tr>
     <tr>
-      <th>productPrice</th>
+      <th>subtitle</th>
       <td><p>product price.</p></td>
     </tr>
     <tr>
-      <th>priceColor</th>
+      <th>color</th>
       <td><p>price color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -172,7 +172,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
