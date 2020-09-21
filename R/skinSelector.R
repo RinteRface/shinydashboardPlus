@@ -29,7 +29,7 @@ skinSelector <- function() {
   })
   
   shiny::tags$ul(
-    class = "list-unstyled clearfix",
+    class = "list-unstyled clearfix skinSelector-widget",
     items
   )
 }

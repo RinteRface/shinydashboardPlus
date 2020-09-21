@@ -10,7 +10,7 @@ boxes_tab <- tabItem(
   column(
     width = 12,
     align = "center",
-    h1("boxPlus(): closable and labels")
+    h1("box() v2: closable and labels")
   ),
   
   br(),
@@ -55,59 +55,6 @@ boxes_tab <- tabItem(
     )
   ),
   
-  # ################# #
-  # demo gradient box #
-  # ################# #
-  
-  br(),
-  
-  column(
-    width = 12,
-    align = "center",
-    h1("gradientBox()")
-  ),
-  
-  br(),
-  
-  fluidRow(
-    # element
-    column(
-      width = 6,
-      eval(parse(text = gradient_box1))
-    ),
-    # code editor
-    column(
-      width = 6,
-      aceEditor(
-        theme = "dracula",
-        mode = "r",
-        height = "400px",
-        outputId = "gradientbox1_code",
-        readOnly = TRUE,
-        value = paste(gradient_box2, collapse = "\n")
-      )
-    )
-  ),
-  
-  fluidRow(
-    # element
-    column(
-      width = 6,
-      eval(parse(text = gradient_box2)) 
-    ),
-    # code editor
-    column(
-      width = 6,
-      aceEditor(
-        theme = "dracula",
-        mode = "r",
-        height = "200px",
-        outputId = "gradientbox2_code",
-        readOnly = TRUE,
-        value = paste(gradient_box2, collapse = "\n")
-      )
-    )
-  ),
   
   # ################### #
   # demo widgetUser box #
@@ -118,7 +65,7 @@ boxes_tab <- tabItem(
   column(
     width = 12,
     align = "center",
-    h1("widgetUserBox()")
+    h1("userBox()")
   ),
   
   br(),

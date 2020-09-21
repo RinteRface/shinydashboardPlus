@@ -101,11 +101,11 @@ if (interactive()) {
       title = "Timeline",
       status = "info",
       timelineBlock(
-       timelineEnd(color = "danger"),
+       timelineEnd(color = "red"),
        timelineLabel(2018, color = "teal"),
        timelineItem(
         title = "Item 1",
-        icon = "gears",
+        icon = icon("gears"),
         color = "olive",
         time = "now",
         footer = "Here is the footer",
@@ -118,12 +118,12 @@ if (interactive()) {
        timelineLabel(2015, color = "orange"),
        timelineItem(
         title = "Item 3",
-        icon = "paint-brush",
+        icon = icon("paint-brush"),
         color = "maroon",
         timelineItemMedia(image = "https://placehold.it/150x100"),
         timelineItemMedia(image = "https://placehold.it/150x100")
        ),
-       timelineStart(color = "gray")
+       timelineStart(color = "purple")
       )
      ),
      
@@ -132,11 +132,11 @@ if (interactive()) {
       h3("When Reversed = FALSE, can be displayed out of a box"),
       timelineBlock(
        reversed = FALSE,
-       timelineEnd(color = "danger"),
+       timelineEnd(color = "red"),
        timelineLabel(2018, color = "teal"),
        timelineItem(
         title = "Item 1",
-        icon = "gears",
+        icon = icon("gears"),
         color = "olive",
         time = "now",
         footer = "Here is the footer",
@@ -149,12 +149,12 @@ if (interactive()) {
        timelineLabel(2015, color = "orange"),
        timelineItem(
         title = "Item 3",
-        icon = "paint-brush",
+        icon = icon("paint-brush"),
         color = "maroon",
         timelineItemMedia(image = "https://placehold.it/150x100"),
         timelineItemMedia(image = "https://placehold.it/150x100")
        ),
-       timelineStart(color = "gray")
+       timelineStart(color = "purple")
       )
      )
     ),

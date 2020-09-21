@@ -1,21 +1,20 @@
-nav_pills <- 'boxPlus(
+nav_pills <- 'box(
   title = "Nav Pills",
   status = "info",
-  width = NULL,
-  footer_padding = FALSE,
+  width = 12,
+  footerPadding = FALSE,
   footer = navPills(
     navPillsItem(
-      active = TRUE,
-      pillName = "Item 1", 
-      pillColor = "green",
-      pillIcon = NULL, 
-      pillText = "Some text here"
+      selected = TRUE,
+      left = "Item 1", 
+      color = "green",
+      right = "Some text here"
     ),
     navPillsItem(
-      pillName = "Item 2", 
-      pillColor = "red",
-      pillIcon = "fa fa-angle-down", 
-      pillText = "10%"
+      left = "Item 2", 
+      color = "red",
+      icon = icon("fa fa-angle-down"), 
+      right = "10%"
     )
   )
 )'

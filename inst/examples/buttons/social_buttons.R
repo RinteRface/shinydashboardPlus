@@ -1,13 +1,12 @@
 social_buttons <- 'box(
-  width = NULL,
   title = "Social Buttons",
-  status = NULL,
+  width = 12,
   socialButton(
-    url = "https://dropbox.com",
-    type = "dropbox"
+    href = "https://dropbox.com",
+    icon = icon("dropbox")
   ),
   socialButton(
-    url = "https://github.com",
-    type = "github"
+    href = "https://github.com",
+    icon = icon("github")
   )
 )'

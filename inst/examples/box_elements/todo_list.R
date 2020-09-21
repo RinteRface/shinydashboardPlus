@@ -1,7 +1,7 @@
 todo_list1 <- 'box(
   "Sortable todo list demo",
   status = "warning",
-  width = NULL,
+  width = 12,
   todoList(
     todoListItem(
       label = "Design a nice theme",

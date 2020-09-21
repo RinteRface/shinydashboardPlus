@@ -12,22 +12,22 @@ flip_box <- 'flipBox(
          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
          occaecat cupidatat non proident, sunt in culpa qui officia 
          deserunt mollit anim id est laborum",
-  verticalProgress(
+  progressBar(
     value = 10,
     striped = TRUE,
-    active = TRUE
+    animated = TRUE
   ),
-  verticalProgress(
+  progressBar(
     value = 50,
-    active = TRUE,
+    animated = TRUE,
     status = "warning",
     size = "xs"
   ),
-  verticalProgress(
+  progressBar(
     value = 20,
     status = "danger",
     size = "sm",
-    height = "60%"
+    vertical = TRUE
   ),
   back_content = tagList(
     column(

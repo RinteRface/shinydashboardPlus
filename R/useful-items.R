@@ -1100,14 +1100,14 @@ navPillsItem <- function(left = NULL, right = NULL,
 #'           image = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
 #'           title = "Samsung TV", 
 #'           subtitle = "$1800", 
-#'           color = "warning",
+#'           color = "yellow",
 #'           "This is an amazing TV, but I don't like TV!"
 #'         ),
 #'         productListItem(
 #'           image = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
 #'           title = "Imac 27", 
 #'           subtitle = "$4999", 
-#'           color = "danger",
+#'           color = "red",
 #'           "This is were I spend most of my time!"
 #'         )
 #'       )
@@ -1419,11 +1419,11 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'       title = "Timeline",
 #'       status = "info",
 #'       timelineBlock(
-#'        timelineEnd(color = "danger"),
+#'        timelineEnd(color = "red"),
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
 #'         title = "Item 1",
-#'         icon = "gears",
+#'         icon = icon("gears"),
 #'         color = "olive",
 #'         time = "now",
 #'         footer = "Here is the footer",
@@ -1436,12 +1436,12 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'        timelineLabel(2015, color = "orange"),
 #'        timelineItem(
 #'         title = "Item 3",
-#'         icon = "paint-brush",
+#'         icon = icon("paint-brush"),
 #'         color = "maroon",
 #'         timelineItemMedia(image = "https://placehold.it/150x100"),
 #'         timelineItemMedia(image = "https://placehold.it/150x100")
 #'        ),
-#'        timelineStart(color = "gray")
+#'        timelineStart(color = "purple")
 #'       )
 #'      ),
 #'      
@@ -1450,11 +1450,11 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'       h3("When Reversed = FALSE, can be displayed out of a box"),
 #'       timelineBlock(
 #'        reversed = FALSE,
-#'        timelineEnd(color = "danger"),
+#'        timelineEnd(color = "red"),
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
 #'         title = "Item 1",
-#'         icon = "gears",
+#'         icon = icon("gears"),
 #'         color = "olive",
 #'         time = "now",
 #'         footer = "Here is the footer",
@@ -1467,12 +1467,12 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'        timelineLabel(2015, color = "orange"),
 #'        timelineItem(
 #'         title = "Item 3",
-#'         icon = "paint-brush",
+#'         icon = icon("paint-brush"),
 #'         color = "maroon",
 #'         timelineItemMedia(image = "https://placehold.it/150x100"),
 #'         timelineItemMedia(image = "https://placehold.it/150x100")
 #'        ),
-#'        timelineStart(color = "gray")
+#'        timelineStart(color = "purple")
 #'       )
 #'      )
 #'     ),
@@ -1581,7 +1581,7 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
   
   if (!is.null(color)) {
     validateColor(color)
-    cl <- paste0(cl, " bg-", color)
+    icon$attribs$class <- paste0(icon$attribs$class, " bg-", color)
   }
   
   itemCl <- "timeline-header no-border"
@@ -1590,7 +1590,7 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
   shiny::tags$li(
     
     # timelineItem icon and color
-    if (!is.null(icon)) icon,
+    icon,
     
     # timelineItem container
     shiny::tags$div(
