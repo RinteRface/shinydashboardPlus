@@ -12,7 +12,6 @@
 \usage{
 box(
   ...,
-  id = NULL,
   title = NULL,
   footer = NULL,
   status = NULL,
@@ -29,7 +28,8 @@ box(
   label = NULL,
   dropdownMenu = NULL,
   sidebar = NULL,
-  footerPadding = TRUE
+  footerPadding = TRUE,
+  id = NULL
 )
 
 updateBox(
@@ -59,8 +59,6 @@ descriptionBlock(
 }
 \arguments{
 \item{...}{any element such as \link{descriptionBlock}.}
-
-\item{id}{Box to toggle.}
 
 \item{title}{Optional title.}
 
@@ -137,6 +135,8 @@ the user to collapse the box.}
 \item{sidebar}{Slot for \link{boxSidebar}.}
 
 \item{footerPadding}{TRUE by default: whether the footer has margin or not.}
+
+\item{id}{Box to toggle.}
 
 \item{action}{Action to trigger: either collapse, remove, restore or update.}
 

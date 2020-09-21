@@ -4,7 +4,6 @@
 #' it may also contain a \code{\link{sidebarSearchForm}}, or other Shiny inputs.
 #'
 #' @param ... Items to put in the sidebar.
-#' @param id Sidebar input id. Returns the current state of the sidebar.
 #' @param disable If \code{TRUE}, the sidebar will be disabled.
 #' @param width The width of the sidebar. This must either be a number which
 #'   specifies the width in pixels, or a string that specifies the width in CSS
@@ -12,10 +11,11 @@
 #' @param collapsed If \code{TRUE}, the sidebar will be collapsed on app startup.
 #' @param minified Whether to slightly close the sidebar but still show item icons. Default
 #' to TRUE.
+#' @param id Sidebar input id. Returns the current state of the sidebar.
 #' @export
 #' @rdname sidebar
-dashboardSidebar <- function(..., id = NULL, disable = FALSE, width = NULL, collapsed = FALSE,
-                             minified = TRUE) {
+dashboardSidebar <- function(..., disable = FALSE, width = NULL, collapsed = FALSE,
+                             minified = TRUE, id = NULL) {
   width <- shiny::validateCssUnit(width)
   
   if (is.null(id)) id <- "sidebarCollapsed"

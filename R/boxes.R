@@ -3,7 +3,6 @@
 #' \link{box} can be used to hold content in the main body of a dashboard.
 #' 
 #' @param ... Contents of the box.
-#' @param id Box unique id. \link{updateBox} target.
 #' @param title Optional title.
 #' @param footer Optional footer text.
 #' @param status The status of the item This determines the item's background
@@ -63,6 +62,7 @@
 #' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{boxDropdown}.
 #' @param sidebar Slot for \link{boxSidebar}.
 #' @param footerPadding TRUE by default: whether the footer has margin or not.
+#' @param id Box unique id. \link{updateBox} target.
 #'
 #' @rdname box
 #'
@@ -120,11 +120,11 @@
 #'  )
 #' }
 #' @export
-box <- function(..., id = NULL, title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
+box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                 background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                 collapsed = FALSE, closable = FALSE, icon = NULL, gradient = FALSE, boxToolSize = "sm", 
                 label = NULL, dropdownMenu = NULL,
-                sidebar = NULL, footerPadding = TRUE) {
+                sidebar = NULL, footerPadding = TRUE, id = NULL) {
   
   props <- dropNulls(
     list(

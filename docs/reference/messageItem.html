@@ -166,21 +166,17 @@
     </div>
 
     <pre class="usage"><span class='fu'>messageItem</span>(
-  inputId = <span class='kw'>NULL</span>,
   <span class='kw'>from</span>,
   <span class='kw'>message</span>,
   icon = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"user"</span>),
   time = <span class='kw'>NULL</span>,
-  href = <span class='kw'>NULL</span>
+  href = <span class='kw'>NULL</span>,
+  inputId = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>inputId</th>
-      <td><p>If not NULL, this item behaves like an action button.</p></td>
-    </tr>
     <tr>
       <th>from</th>
       <td><p>Who the message is from.</p></td>
@@ -203,6 +199,10 @@ If NULL, no time will be displayed.</p></td>
     <tr>
       <th>href</th>
       <td><p>An optional URL to link to.</p></td>
+    </tr>
+    <tr>
+      <th>inputId</th>
+      <td><p>If not NULL, this item behaves like an action button.</p></td>
     </tr>
     </table>
 

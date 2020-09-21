@@ -165,15 +165,11 @@
     <p>Custom taskItem</p>
     </div>
 
-    <pre class="usage"><span class='fu'>taskItem</span>(inputId = <span class='kw'>NULL</span>, <span class='kw'>text</span>, value = <span class='fl'>0</span>, color = <span class='st'>"aqua"</span>, href = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>taskItem</span>(<span class='kw'>text</span>, value = <span class='fl'>0</span>, color = <span class='st'>"aqua"</span>, href = <span class='kw'>NULL</span>, inputId = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>inputId</th>
-      <td><p>If not NULL, this item behaves like an action button.</p></td>
-    </tr>
     <tr>
       <th>text</th>
       <td><p>The task text.</p></td>
@@ -190,6 +186,10 @@
     <tr>
       <th>href</th>
       <td><p>An optional URL to link to.</p></td>
+    </tr>
+    <tr>
+      <th>inputId</th>
+      <td><p>If not NULL, this item behaves like an action button.</p></td>
     </tr>
     </table>
 

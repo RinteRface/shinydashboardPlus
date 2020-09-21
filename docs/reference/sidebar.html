@@ -171,11 +171,11 @@ it may also contain a <code><a href='https://rdrr.io/pkg/shinydashboard/man/side
 
     <pre class="usage"><span class='fu'>dashboardSidebar</span>(
   <span class='kw'>...</span>,
-  id = <span class='kw'>NULL</span>,
   disable = <span class='fl'>FALSE</span>,
   width = <span class='kw'>NULL</span>,
   collapsed = <span class='fl'>FALSE</span>,
-  minified = <span class='fl'>TRUE</span>
+  minified = <span class='fl'>TRUE</span>,
+  id = <span class='kw'>NULL</span>
 )
 
 <span class='fu'>updateSidebar</span>(<span class='kw'>id</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
@@ -186,10 +186,6 @@ it may also contain a <code><a href='https://rdrr.io/pkg/shinydashboard/man/side
     <tr>
       <th>...</th>
       <td><p>Items to put in the sidebar.</p></td>
-    </tr>
-    <tr>
-      <th>id</th>
-      <td><p>Sidebar id.</p></td>
     </tr>
     <tr>
       <th>disable</th>
@@ -209,6 +205,10 @@ units.</p></td>
       <th>minified</th>
       <td><p>Whether to slightly close the sidebar but still show item icons. Default
 to TRUE.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>Sidebar id.</p></td>
     </tr>
     <tr>
       <th>session</th>

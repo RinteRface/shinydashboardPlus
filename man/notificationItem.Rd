@@ -5,16 +5,14 @@
 \title{Custom notificationItem}
 \usage{
 notificationItem(
-  inputId = NULL,
   text,
   icon = shiny::icon("warning"),
   status = "success",
-  href = NULL
+  href = NULL,
+  inputId = NULL
 )
 }
 \arguments{
-\item{inputId}{If not NULL, this item behaves like an action button.}
-
 \item{text}{The notification text.}
 
 \item{icon}{An icon tag, created by \code{\link[shiny]{icon}}.}
@@ -23,6 +21,8 @@ notificationItem(
 color. Valid statuses are listed in \link[shinydashboard]{validStatuses}.}
 
 \item{href}{An optional URL to link to.}
+
+\item{inputId}{If not NULL, this item behaves like an action button.}
 }
 \description{
 Custom notificationItem

@@ -185,7 +185,6 @@ to insert in a box</p>
 
     <pre class="usage"><span class='fu'>box</span>(
   <span class='kw'>...</span>,
-  id = <span class='kw'>NULL</span>,
   title = <span class='kw'>NULL</span>,
   footer = <span class='kw'>NULL</span>,
   status = <span class='kw'>NULL</span>,
@@ -202,7 +201,8 @@ to insert in a box</p>
   label = <span class='kw'>NULL</span>,
   dropdownMenu = <span class='kw'>NULL</span>,
   sidebar = <span class='kw'>NULL</span>,
-  footerPadding = <span class='fl'>TRUE</span>
+  footerPadding = <span class='fl'>TRUE</span>,
+  id = <span class='kw'>NULL</span>
 )
 
 <span class='fu'>updateBox</span>(
@@ -236,10 +236,6 @@ to insert in a box</p>
     <tr>
       <th>...</th>
       <td><p>any element such as descriptionBlock.</p></td>
-    </tr>
-    <tr>
-      <th>id</th>
-      <td><p>Box to toggle.</p></td>
     </tr>
     <tr>
       <th>title</th>
@@ -363,6 +359,10 @@ the user to collapse the box.</p></td>
     <tr>
       <th>footerPadding</th>
       <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>Box to toggle.</p></td>
     </tr>
     <tr>
       <th>action</th>

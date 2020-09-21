@@ -5,17 +5,15 @@
 \title{Custom messageItem}
 \usage{
 messageItem(
-  inputId = NULL,
   from,
   message,
   icon = shiny::icon("user"),
   time = NULL,
-  href = NULL
+  href = NULL,
+  inputId = NULL
 )
 }
 \arguments{
-\item{inputId}{If not NULL, this item behaves like an action button.}
-
 \item{from}{Who the message is from.}
 
 \item{message}{Text of the message.}
@@ -28,6 +26,8 @@ be used. For example, it could be a relative date/time like "5 minutes",
 If NULL, no time will be displayed.}
 
 \item{href}{An optional URL to link to.}
+
+\item{inputId}{If not NULL, this item behaves like an action button.}
 }
 \description{
 Custom messageItem

@@ -7,19 +7,17 @@
 \usage{
 dashboardSidebar(
   ...,
-  id = NULL,
   disable = FALSE,
   width = NULL,
   collapsed = FALSE,
-  minified = TRUE
+  minified = TRUE,
+  id = NULL
 )
 
 updateSidebar(id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{...}{Items to put in the sidebar.}
-
-\item{id}{Sidebar id.}
 
 \item{disable}{If \code{TRUE}, the sidebar will be disabled.}
 
@@ -31,6 +29,8 @@ units.}
 
 \item{minified}{Whether to slightly close the sidebar but still show item icons. Default
 to TRUE.}
+
+\item{id}{Sidebar id.}
 
 \item{session}{Shiny session object.}
 }

@@ -510,7 +510,7 @@ dropdownBlock <- function(..., id, icon = NULL, title = NULL,
 #'    }
 #'  )
 #' }
-taskItem <- function (inputId = NULL, text, value = 0, color = "aqua", href = NULL) {
+taskItem <- function (text, value = 0, color = "aqua", href = NULL, inputId = NULL) {
   
   validateColor(color)
   if (is.null(href)) href <- "#"
@@ -543,8 +543,8 @@ taskItem <- function (inputId = NULL, text, value = 0, color = "aqua", href = NU
 #' @inheritParams shinydashboard::notificationItem
 #' @param inputId If not NULL, this item behaves like an action button.
 #' @export
-notificationItem <- function (inputId = NULL, text, icon = shiny::icon("warning"), status = "success", 
-                              href = NULL) {
+notificationItem <- function (text, icon = shiny::icon("warning"), status = "success", 
+                              href = NULL, inputId = NULL) {
   tagAssert(icon, type = "i")
   validateStatus(status)
   if (is.null(href)) href <- "#"
@@ -567,8 +567,8 @@ notificationItem <- function (inputId = NULL, text, icon = shiny::icon("warning"
 #' @inheritParams shinydashboard::messageItem
 #' @param inputId If not NULL, this item behaves like an action button.
 #' @export
-messageItem <- function (inputId = NULL, from, message, icon = shiny::icon("user"), time = NULL, 
-                         href = NULL) {
+messageItem <- function (from, message, icon = shiny::icon("user"), time = NULL, 
+                         href = NULL, inputId = NULL) {
   tagAssert(icon, type = "i")
   if (is.null(href)) href <- "#"
   shiny::tags$li(

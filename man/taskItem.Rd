@@ -4,11 +4,9 @@
 \alias{taskItem}
 \title{Custom taskItem}
 \usage{
-taskItem(inputId = NULL, text, value = 0, color = "aqua", href = NULL)
+taskItem(text, value = 0, color = "aqua", href = NULL, inputId = NULL)
 }
 \arguments{
-\item{inputId}{If not NULL, this item behaves like an action button.}
-
 \item{text}{The task text.}
 
 \item{value}{A percent value to use for the bar.}
@@ -17,6 +15,8 @@ taskItem(inputId = NULL, text, value = 0, color = "aqua", href = NULL)
 \link[shinydashboard]{validColors}.}
 
 \item{href}{An optional URL to link to.}
+
+\item{inputId}{If not NULL, this item behaves like an action button.}
 }
 \description{
 Custom taskItem
