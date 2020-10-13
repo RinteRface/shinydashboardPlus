@@ -2,23 +2,34 @@
 % Please edit documentation in R/useful-items.R
 \name{todoList}
 \alias{todoList}
+\alias{todoListItem}
 \title{AdminLTE2 todo list container}
 \usage{
 todoList(..., sortable = TRUE)
+
+todoListItem(..., checked = FALSE, label = NULL)
 }
 \arguments{
-\item{...}{slot for todoListItem.}
+\item{...}{any element such as labels, ...}
 
 \item{sortable}{Whether the list elements are sortable or not.}
+
+\item{checked}{Whether the list item is checked or not.}
+
+\item{label}{item label.}
 }
 \description{
-Create a todo list container
+Create a todo list container. May be included in \link{box}.
+
+\link{todoListItem} creates a todo list item.
 }
 \examples{
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
  library(shinyjqui)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

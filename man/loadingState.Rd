@@ -16,6 +16,8 @@ Loading state can be programmatically used when a conputation is running for ins
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

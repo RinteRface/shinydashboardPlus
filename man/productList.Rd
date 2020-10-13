@@ -2,20 +2,57 @@
 % Please edit documentation in R/useful-items.R
 \name{productList}
 \alias{productList}
-\title{AdminLTE2 product list container}
+\alias{productListItem}
+\title{AdminLTE2 product list container
+
+\link{productList} creates a container to display commercial items in an elegant container.
+Insert in a \link{box}.}
 \usage{
 productList(...)
+
+productListItem(..., image = NULL, title = NULL, subtitle = NULL, color = NULL)
 }
 \arguments{
-\item{...}{slot for productListItem.}
+\item{...}{product description.}
+
+\item{image}{image url, if any.}
+
+\item{title}{product name.}
+
+\item{subtitle}{product price.}
+
+\item{color}{price color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+See below:
+\itemize{
+ \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+ \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+ \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+ \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+ \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+ \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+ \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+ \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+ \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+ \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+ \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+ \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+ \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+ \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+ \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+ \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+}}
 }
 \description{
-Create a container product list elements
+\link{productListItem} creates a product item to insert in \link{productList}.
 }
 \examples{
+
+# Box with productList
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -26,17 +63,17 @@ if (interactive()) {
       status = "primary",
       productList(
         productListItem(
-          src = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
-          productTitle = "Samsung TV", 
-          productPrice = "$1800", 
-          priceColor = "warning",
+          image = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
+          title = "Samsung TV", 
+          subtitle = "$1800", 
+          color = "yellow",
           "This is an amazing TV, but I don't like TV!"
         ),
         productListItem(
-          src = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
-          productTitle = "Imac 27", 
-          productPrice = "$4999", 
-          priceColor = "danger",
+          image = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
+          title = "Imac 27", 
+          subtitle = "$4999", 
+          color = "red",
           "This is were I spend most of my time!"
         )
       )

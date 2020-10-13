@@ -1,0 +1,190 @@
+---
+title: "Enhanced Header Elements"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Enhanced Header Elements}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(shiny)
+library(shinyWidgets)
+library(shinydashboard)
+library(shinydashboardPlus)
+```
+
+## Left Navbar Elements
+
+By default with `{shinydashboard}`, all elements included in the navbar will be 
+displayed on the right side. `{shinydashboardPlus}` has a new option to add
+elements in the left part of the `dashboardHeader()`. Such items must be passed in the _leftUi_ argument (if multiple elements, they must be wrapped in a `tagList()`, as shown below).
+
+
+```{r leftUi-code, eval=FALSE}
+ shinyApp(
+   ui = dashboardPage(
+     header = dashboardHeader(
+       leftUi = tagList(
+         dropdownButton(
+           label = "Controls",
+           icon = icon("sliders"),
+           status = "primary",
+           circle = FALSE,
+           sliderInput(
+             inputId = "n",
+             label = "Number of observations",
+             min = 10, max = 100, value = 30
+           ),
+           prettyToggle(
+             inputId = "na",
+             label_on = "NAs kept",
+             label_off = "NAs removed",
+             icon_on = icon("check"),
+             icon_off = icon("remove")
+           )
+         ),
+         dropdownMenu(
+           type = "messages", 
+           badgeStatus = "success",
+           messageItem(from = "Support Team", message = "This is the content of a message.", time = "5 mins"),
+           messageItem(from = "Support Team", message = "This is the content of another message.", time = "2 hours"),
+           messageItem(from = "New User", message = "Can I get some help?", time = "Today")
+         )
+       )
+     ),
+     sidebar = dashboardSidebar(),
+     body = dashboardBody(
+       setShadow(class = "dropdown-menu")
+     ),
+     title = "DashboardPage"
+   ),
+   server = function(input, output) { }
+ )
+```
+
+This new feature perfectly works with the `dropdownButton()` from the `{shinyWidgets}` packages
+by [dreamRs](https://twitter.com/_pvictorr) (as long as the screen size is large enough), 
+as well as the classic `dropdownMenu()` from `{shinydashboard}`. With other individual elements, the result may not be as good, mainly for a space reason. Indeed, a `sliderInput()` would not be optimized to be embedded in the header since its label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of 
+`{shinydashboardPlus}`. 
+
+## Improved `dropdownMenu()`
+
+The new function `dropdownBlock()` make it easy to embed input elements in a left navbar
+menu. It does not hide when the user click inside and is optimized to correctly render on mobile devices (contrary to `dropdownButton()`, see above).
+
+```{r dropdownBlock-code, eval=FALSE}
+shinyApp(
+  ui = dashboardPage(
+    header = dashboardHeader(
+      leftUi = tagList(
+        dropdownBlock(
+          id = "mydropdown",
+          title = "Dropdown 1",
+          icon = "sliders",
+          sliderInput(
+            inputId = "n",
+            label = "Number of observations",
+            min = 10, max = 100, value = 30
+          ),
+          prettyToggle(
+            inputId = "na",
+            label_on = "NAs kept",
+            label_off = "NAs removed",
+            icon_on = icon("check"),
+            icon_off = icon("remove")
+          )
+        ),
+        dropdownBlock(
+          id = "mydropdown2",
+          title = "Dropdown 2",
+          icon = "sliders",
+          prettySwitch(
+            inputId = "switch4",
+            label = "Fill switch with status:",
+            fill = TRUE, 
+            status = "primary"
+          ),
+          prettyCheckboxGroup(
+            inputId = "checkgroup2",
+            label = "Click me!", 
+            thick = TRUE,
+            choices = c("Click me !", "Me !", "Or me !"),
+            animation = "pulse", 
+            status = "info"
+          )
+        )
+      )
+    ),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(
+      setShadow(class = "dropdown-menu")
+    ),
+    title = "DashboardPage"
+  ),
+  server = function(input, output) { }
+)
+```
+
+
+## Other navbar items
+
+### Enhanced dropdownMenu Items
+In `{shinydashboardPlus}`, `taskItem()`, `messageItem()` and `notificationItem` have a new _inputId_ parameter allowing them to behave like `shiny::actionButton`. This has always been quite frustrating not to be able to interact more with these elements in `{shinydashboard}`.
+
+### dashboardUser Component
+
+In the same spirit of the `sidebarUserPanel()` that display user informations on the sidebar,
+the brand new `dashboardUser()` dropdown component may be used as an admin panel or to display further information. `dashboardUserItem()` provides a refined column container.
+
+```{r dashboardUser-code, eval=FALSE}
+shinyApp(
+  ui = dashboardPage(
+    header = dashboardHeader(userOutput("user")),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(),
+    title = "User dropdown"
+  ),
+  server = function(input, output) {
+   output$user <- renderUser({
+    dashboardUser(
+       name = "Divad Nojnarg", 
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+       title = "shinydashboardPlus",
+       subtitle = "Author", 
+       footer = p("The footer", class = "text-center"),
+       fluidRow(
+        dashboardUserItem(
+         width = 6,
+         socialButton(
+          href = "https://dropbox.com",
+          icon = icon("dropbox")
+         )
+        ),
+        dashboardUserItem(
+         width = 6,
+         socialButton(
+          href = "https://github.com",
+          icon = icon("github")
+         )
+        )
+       )
+      )
+   })
+  }
+ )
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-dashboardUser/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>

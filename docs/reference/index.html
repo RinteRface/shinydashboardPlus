@@ -8,21 +8,36 @@
 
 <title>Function reference • shinydashboardPlus</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,7 +45,12 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
+
 <meta property="og:title" content="Function reference" />
+<meta property="og:image" content="/logo.svg" />
+
 
 
 
@@ -44,9 +64,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -60,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -73,6 +94,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -82,51 +106,35 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
     <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
+      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
-    </li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
-      <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
-    </li>
-    <li>
-      <a href="../articles/rightSidebar.html">Using the rightSidebar</a>
+      <a href="../articles/enhanced-header.html">Enhanced Header Elements</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Changelog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Releases</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.5.9000</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.6.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.5.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
-    <li class="divider"></li>
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
@@ -141,6 +149,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -164,6 +173,11 @@
           <p class="section-desc"><p>Page and header wrappers</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -173,15 +187,21 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> </p>
+          <p><code><a href="dashboardHeader.html">dashboardHeader()</a></code> </p>
         </td>
         <td><p>Create a header for a dashboard page</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="dashboardPagePlus.html">dashboardPagePlus()</a></code> </p>
+          <p><code><a href="dashboardPage.html">dashboardPage()</a></code> </p>
         </td>
         <td><p>Dashboard Page with a right sidebar</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sidebar.html">dashboardSidebar()</a></code> <code><a href="sidebar.html">updateSidebar()</a></code> </p>
+        </td>
+        <td><p>Create a dashboard sidebar.</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -190,6 +210,11 @@
           <p class="section-desc"><p>Items to insert in the left navbar menu</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -220,50 +245,43 @@
           <p><code><a href="userOutput.html">userOutput()</a></code> </p>
         </td>
         <td><p>Create a dynamic user output (client side)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="taskItem.html">taskItem()</a></code> </p>
+        </td>
+        <td><p>Custom taskItem</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="notificationItem.html">notificationItem()</a></code> </p>
+        </td>
+        <td><p>Custom notificationItem</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="messageItem.html">messageItem()</a></code> </p>
+        </td>
+        <td><p>Custom messageItem</p></td>
       </tr>
     </tbody><tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-right-sidebar" class="hasAnchor"><a href="#section-right-sidebar" class="anchor"></a>Right Sidebar</h2>
+          <h2 id="section-right-sidebar-controlbar-" class="hasAnchor"><a href="#section-right-sidebar-controlbar-" class="anchor"></a>Right Sidebar (controlbar)</h2>
           <p class="section-desc"><p>Right sidebar elements</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
-          <p><code><a href="rightSidebar.html">rightSidebar()</a></code> </p>
+          <p><code><a href="controlbar.html">dashboardControlbar()</a></code> <code><a href="controlbar.html">updateControlbar()</a></code> <code><a href="controlbar.html">controlbarMenu()</a></code> <code><a href="controlbar.html">controlbarItem()</a></code> <code><a href="controlbar.html">updateControlbarMenu()</a></code> </p>
         </td>
         <td><p>AdminLTE2 dashboard right sidebar</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rightSidebarTabContent.html">rightSidebarTabContent()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 tab content</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rightSidebarMenu.html">rightSidebarMenu()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 right sidebar menu</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rightSidebarMenuItem.html">rightSidebarMenuItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 right sidebar menu item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="menuIcon.html">menuIcon()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 menu icon item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="menuInfo.html">menuInfo()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 menu info item</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -272,28 +290,39 @@
           <p class="section-desc"><p>Functions that are designed to create new boxes</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
-          <p><code><a href="boxPlus.html">boxPlus()</a></code> </p>
+          <p><code><a href="box.html">box()</a></code> <code><a href="box.html">updateBox()</a></code> <code><a href="box.html">boxDropdown()</a></code> <code><a href="box.html">boxDropdownItem()</a></code> <code><a href="box.html">dropdownDivider()</a></code> <code><a href="box.html">boxPad()</a></code> <code><a href="box.html">descriptionBlock()</a></code> </p>
         </td>
         <td><p>Create a box for the main body of a dashboard</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="gradientBox.html">gradientBox()</a></code> </p>
+          <p><code><a href="boxLabel.html">boxLabel()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 gradient box</p></td>
+        <td><p>Create a label for <a href='https://rdrr.io/r/graphics/box.html'>box</a></p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="widgetUserBox.html">widgetUserBox()</a></code> </p>
+          <p><code><a href="boxSidebar.html">boxSidebar()</a></code> <code><a href="boxSidebar.html">updateBoxSidebar()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 widget user box</p></td>
+        <td><p>Create a sidebar for a box</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="socialBox.html">socialBox()</a></code> </p>
+          <p><code><a href="userBox.html">userBox()</a></code> </p>
+        </td>
+        <td><p>AdminLTE2 user box</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="socialBox.html">socialBox()</a></code> <code><a href="socialBox.html">boxComment()</a></code> </p>
         </td>
         <td><p>AdminLTE2 social box</p></td>
       </tr><tr>
@@ -306,204 +335,84 @@
     </tbody><tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-items-that-are-internal-to-box-function" class="hasAnchor"><a href="#section-items-that-are-internal-to-box-function" class="anchor"></a>Items that are internal to box function</h2>
-          <p class="section-desc"><p>do not use when developing a shiny app</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="dropdownItem.html">dropdownItem()</a></code> </p>
-        </td>
-        <td><p>Create a box dropdown item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dropdownItemList.html">dropdownItemList()</a></code> </p>
-        </td>
-        <td><p>Create a box dropdown item list</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dropdownDivider.html">dropdownDivider()</a></code> </p>
-        </td>
-        <td><p>Create a box dropdown divider</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
           <h2 id="section-box-extra-elements" class="hasAnchor"><a href="#section-box-extra-elements" class="anchor"></a>Box extra elements</h2>
           <p class="section-desc"><p>Functions that are designed to be inserted inside boxes</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
-          <p><code><a href="boxComment.html">boxComment()</a></code> </p>
+          <p><code><a href="socialBox.html">socialBox()</a></code> <code><a href="socialBox.html">boxComment()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 box comment</p></td>
+        <td><p>AdminLTE2 social box</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="descriptionBlock.html">descriptionBlock()</a></code> </p>
+          <p><code><a href="box.html">box()</a></code> <code><a href="box.html">updateBox()</a></code> <code><a href="box.html">boxDropdown()</a></code> <code><a href="box.html">boxDropdownItem()</a></code> <code><a href="box.html">dropdownDivider()</a></code> <code><a href="box.html">boxPad()</a></code> <code><a href="box.html">descriptionBlock()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 description block</p></td>
+        <td><p>Create a box for the main body of a dashboard</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="boxPad.html">boxPad()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 vertical block container</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="userList.html">userList()</a></code> </p>
+          <p><code><a href="userList.html">userList()</a></code> <code><a href="userList.html">userListItem()</a></code> </p>
         </td>
         <td><p>AdminLTE2 user list container</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="userListItem.html">userListItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 user list item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="todoList.html">todoList()</a></code> </p>
+          <p><code><a href="todoList.html">todoList()</a></code> <code><a href="todoList.html">todoListItem()</a></code> </p>
         </td>
         <td><p>AdminLTE2 todo list container</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="todoListItem.html">todoListItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 todo list item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="navPills.html">navPills()</a></code> </p>
+          <p><code><a href="navPills.html">navPills()</a></code> <code><a href="navPills.html">updateNavPills()</a></code> <code><a href="navPills.html">navPillsItem()</a></code> </p>
         </td>
         <td><p>AdminLTE2 nav pill container</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="navPillsItem.html">navPillsItem()</a></code> </p>
+          <p><code><a href="productList.html">productList()</a></code> <code><a href="productList.html">productListItem()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 nav pill item</p></td>
+        <td><p>AdminLTE2 product list container
+
+productList creates a container to display commercial items in an elegant container.
+Insert in a <a href='https://rdrr.io/r/graphics/box.html'>box</a>.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="productList.html">productList()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 product list container</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="productListItem.html">productListItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 product item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="accordion.html">accordion()</a></code> </p>
+          <p><code><a href="accordion.html">accordion()</a></code> <code><a href="accordion.html">accordionItem()</a></code> <code><a href="accordion.html">updateAccordion()</a></code> </p>
         </td>
         <td><p>AdminLTE2 accordion container</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="accordionItem.html">accordionItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 accordion item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="timelineBlock.html">timelineBlock()</a></code> </p>
+          <p><code><a href="timeline.html">timelineBlock()</a></code> <code><a href="timeline.html">timelineLabel()</a></code> <code><a href="timeline.html">timelineItem()</a></code> <code><a href="timeline.html">timelineItemMedia()</a></code> <code><a href="timeline.html">timelineStart()</a></code> <code><a href="timeline.html">timelineEnd()</a></code> </p>
         </td>
         <td><p>AdminLTE2 timeline block</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="timelineStart.html">timelineStart()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 timeline starting point</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="timelineEnd.html">timelineEnd()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 timeline ending point</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="timelineLabel.html">timelineLabel()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 timeline label</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="timelineItem.html">timelineItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 timeline item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="timelineItemMedia.html">timelineItemMedia()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 timeline media item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="boxProfile.html">boxProfile()</a></code> </p>
+          <p><code><a href="boxProfile.html">boxProfile()</a></code> <code><a href="boxProfile.html">boxProfileItem()</a></code> </p>
         </td>
         <td><p>AdminLTE2 box profile</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="boxProfileItemList.html">boxProfileItemList()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 box profile item container</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="boxProfileItem.html">boxProfileItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 box profile item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="userMessages.html">userMessages()</a></code> </p>
+          <p><code><a href="userMessage.html">userMessages()</a></code> <code><a href="userMessage.html">userMessage()</a></code> </p>
         </td>
         <td><p>AdminLTE2 user message container</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="userMessage.html">userMessage()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 user message</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="userPost.html">userPost()</a></code> </p>
+          <p><code><a href="userPost.html">userPost()</a></code> <code><a href="userPost.html">userPostTagItems()</a></code> <code><a href="userPost.html">userPostTagItem()</a></code> <code><a href="userPost.html">userPostMedia()</a></code> </p>
         </td>
         <td><p>AdminLTE2 user post</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="userPostToolItemList.html">userPostToolItemList()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 user post tool item container</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="userPostToolItem.html">userPostToolItem()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 user post tool item</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="userPostMedia.html">userPostMedia()</a></code> </p>
-        </td>
-        <td><p>AdminLTE2 user post media</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -512,6 +421,11 @@
           <p class="section-desc"><p>new buttons (not action buttons as in shiny! Only for external or internal link)</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -532,6 +446,11 @@
           <p class="section-desc"><p>Elements to be placed everywhere</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -547,15 +466,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="carousel.html">carousel()</a></code> </p>
+          <p><code><a href="carousel.html">carousel()</a></code> <code><a href="carousel.html">carouselItem()</a></code> </p>
         </td>
         <td><p>AdminLTE2 carousel container</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="carouselItem.html">carouselItem()</a></code> </p>
+          <p><code><a href="dashboardBadge.html">dashboardBadge()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 carousel item</p></td>
+        <td><p>AdminLTE2 badge</p></td>
       </tr><tr>
         
         <td>
@@ -577,7 +496,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="verticalProgress.html">verticalProgress()</a></code> </p>
+          <p><code><a href="progressBar.html">progressBar()</a></code> </p>
         </td>
         <td><p>AdminLTE2 vertical progress bar</p></td>
       </tr>
@@ -588,12 +507,17 @@
           <p class="section-desc"><p>Pimp your app</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
-          <p><code><a href="preloader.html">preloader()</a></code> </p>
+          <p><code><a href="skinSelector.html">skinSelector()</a></code> </p>
         </td>
-        <td><p>AdminLTE2 preloader</p></td>
+        <td><p>AdminLTE2 skin selector</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -602,6 +526,11 @@
           <p class="section-desc"><p>a showcase for shinydashboardPlus</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -613,22 +542,13 @@
     </table>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-skeleton-functions">Skeleton Functions</a></li>
-      <li><a href="#section-navbar-functions">Navbar Functions</a></li>
-      <li><a href="#section-right-sidebar">Right Sidebar</a></li>
-      <li><a href="#section-box-functions">Box functions</a></li>
-      <li><a href="#section-items-that-are-internal-to-box-function">Items that are internal to box function</a></li>
-      <li><a href="#section-box-extra-elements">Box extra elements</a></li>
-      <li><a href="#section-buttons">Buttons</a></li>
-      <li><a href="#section-extra-elements">Extra elements</a></li>
-      <li><a href="#section-css-extras">CSS extras</a></li>
-      <li><a href="#section-the-gallery">The Gallery</a></li>
-    </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -636,13 +556,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

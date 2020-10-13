@@ -1,7 +1,7 @@
 box_pad1 <- 'box(
   title = "Box with a green boxPad",
   status = "warning",
-  width = NULL,
+  width = 12,
   fluidRow(
     column(width = 6),
     column(
@@ -11,20 +11,20 @@ box_pad1 <- 'box(
         descriptionBlock(
           header = "8390", 
           text = "VISITS", 
-          right_border = FALSE,
-          margin_bottom = TRUE
+          rightBorder = FALSE,
+          marginBottom = TRUE
         ),
         descriptionBlock(
           header = "30%", 
           text = "REFERRALS", 
-          right_border = FALSE,
-          margin_bottom = TRUE
+          rightBorder = FALSE,
+          marginBottom = TRUE
         ),
         descriptionBlock(
           header = "70%", 
           text = "ORGANIC", 
-          right_border = FALSE,
-          margin_bottom = FALSE
+          rightBorder = FALSE,
+          marginBottom = FALSE
         )
       )
     )
@@ -34,12 +34,12 @@ box_pad1 <- 'box(
 box_pad2 <- 'box(
   title = "Box with boxPad containing inputs",
   status = "warning",
-  width = NULL,
+  width = 12,
   fluidRow(
     column(
       width = 6,
       boxPad(
-        color = "gray",
+        color = "lime",
         sliderInput(
           "obs2", 
           "Number of observations:",

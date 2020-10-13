@@ -1,21 +1,21 @@
 vertical_progress <- 'box(
-  title = "verticalProgress",
-  width = NULL,
-  verticalProgress(
+  title = "progress",
+  width = 12,
+  progressBar(
     value = 10,
     striped = TRUE,
-    active = TRUE
+    animated = TRUE
   ),
-  verticalProgress(
+  progressBar(
     value = 50,
-    active = TRUE,
+    animated = TRUE,
     status = "warning",
     size = "xs"
   ),
-  verticalProgress(
+  progressBar(
     value = 20,
     status = "danger",
     size = "sm",
-    height = "60%"
+    vertical = TRUE
   )
 )'

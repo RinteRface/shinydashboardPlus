@@ -2,53 +2,85 @@
 % Please edit documentation in R/useful-items.R
 \name{accordion}
 \alias{accordion}
+\alias{accordionItem}
+\alias{updateAccordion}
 \title{AdminLTE2 accordion container}
 \usage{
-accordion(..., inputId = NULL)
+accordion(..., id = NULL, width = 12)
+
+accordionItem(..., title, status = NULL, collapsed = TRUE)
+
+updateAccordion(id, selected, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{...}{slot for accordionItem.}
+\item{...}{text to write in the item.}
 
-\item{inputId}{Unique accordion id.}
+\item{id}{Accordion to target.}
+
+\item{width}{The width of the accordion.}
+
+\item{title}{item title.}
+
+\item{status}{item status.
+Valid statuses are defined as follows:
+\itemize{
+  \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+  \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+  \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+  \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+  \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+}}
+
+\item{collapsed}{Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.}
+
+\item{selected}{Index of the newly selected \link{accordionItem}.}
+
+\item{session}{Shiny session object.}
 }
 \description{
-Create an accordion container
+Create an accordion container. Accordions are part of collapsible elements.
+
+\link{accordionItem} creates an accordion item to put inside an \link{accordion} container.
+
+\link{updateAccordion} toggles an \link{accordion} on the client.
 }
 \examples{
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
     dashboardSidebar(),
     dashboardBody(
       accordion(
-       inputId = "accordion1",
+       id = "accordion1",
         accordionItem(
           title = "Accordion 1 Item 1",
-          color = "danger",
+          status = "danger",
           collapsed = TRUE,
           "This is some text!"
         ),
         accordionItem(
           title = "Accordion 1 Item 2",
-          color = "warning",
+          status = "warning",
           collapsed = FALSE,
           "This is some text!"
         )
       ),
       accordion(
-       inputId = "accordion2",
+       id = "accordion2",
         accordionItem(
           title = "Accordion 2 Item 1",
-          color = "danger",
+          status = "info",
           collapsed = TRUE,
           "This is some text!"
         ),
         accordionItem(
           title = "Accordion 2 Item 2",
-          color = "warning",
+          status = "success",
           collapsed = FALSE,
           "This is some text!"
         )
@@ -60,6 +92,49 @@ if (interactive()) {
  )
 }
 
+
+# Update accordion
+if (interactive()) {
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+      radioButtons("controller", "Controller", choices = c(1, 2)),
+      br(),
+      accordion(
+        id = "accordion1",
+        accordionItem(
+          title = "Accordion 1 Item 1",
+          status = "danger",
+          collapsed = TRUE,
+          "This is some text!"
+        ),
+        accordionItem(
+          title = "Accordion 1 Item 2",
+          status = "warning",
+          collapsed = TRUE,
+          "This is some text!"
+        )
+      )
+    ),
+    title = "Update Accordion"
+  ),
+  server = function(input, output, session) {
+    observeEvent(input$controller, {
+      updateNavPills(id = "accordion1", selected = input$controller)
+    })
+    observe(print(input$accordion1))
+    observeEvent(input$accordion1, {
+      showNotification(sprintf("You selected accordion N° \%s", input$accordion1), type = "message")
+    })
+  }
+ )
+}
 }
 \author{
 David Granjon, \email{dgranjon@ymail.com}

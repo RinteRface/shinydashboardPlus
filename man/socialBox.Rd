@@ -2,20 +2,37 @@
 % Please edit documentation in R/boxes.R
 \name{socialBox}
 \alias{socialBox}
+\alias{boxComment}
 \title{AdminLTE2 social box}
 \usage{
-socialBox(..., src = NULL, title = NULL, subtitle = NULL,
-  width = 6, height = NULL, collapsible = TRUE, closable = TRUE,
-  comments = NULL, footer = NULL, footer_padding = TRUE)
+socialBox(
+  ...,
+  image,
+  title,
+  subtitle = NULL,
+  comments = NULL,
+  footer = NULL,
+  width = 6,
+  height = NULL,
+  collapsible = TRUE,
+  closable = FALSE,
+  footerPadding = TRUE
+)
+
+boxComment(..., image, title, date = NULL)
 }
 \arguments{
-\item{...}{body content. May include attachmentBlock for instance.}
+\item{...}{comment content.}
 
-\item{src}{header image, if any.}
+\item{image}{author image, if any.}
 
-\item{title}{box title.}
+\item{title}{comment title.}
 
 \item{subtitle}{box subtitle.}
+
+\item{comments}{slot for \link{boxComment}.}
+
+\item{footer}{box footer, if any.}
 
 \item{width}{box width (between 1 and 12).}
 
@@ -25,19 +42,21 @@ socialBox(..., src = NULL, title = NULL, subtitle = NULL,
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
-\item{comments}{slot for boxComments.}
+\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
-\item{footer}{box footer, if any.}
-
-\item{footer_padding}{TRUE by default: whether the footer has margin or not.}
+\item{date}{date of publication.}
 }
 \description{
-Create social box
+\link{socialBox} creates a special box dedicated for social content.
+
+\link{boxComment} has to be inserted in the comment slot of \link{socialBox}.
 }
 \examples{
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -46,18 +65,18 @@ if (interactive()) {
      socialBox(
       title = "Social Box",
       subtitle = "example-01.05.2018",
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+      image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
       "Some text here!",
       attachmentBlock(
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
        title = "Test",
-       title_url = "https://google.com",
+       href = "https://google.com",
        "This is the content"
       ),
       comments = tagList(
        lapply(X = 1:10, FUN = function(i) {
         boxComment(
-          src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
           title = paste("Comment", i),
           date = "01.05.2018",
           paste0("The ", i, "-th comment")

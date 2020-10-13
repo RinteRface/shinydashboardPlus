@@ -4,9 +4,18 @@
 \alias{flipBox}
 \title{AdminLTE2 flipping box}
 \usage{
-flipBox(..., back_content, id, front_title = NULL, back_title = NULL,
-  front_btn_text = "More", back_btn_text = "Back to main",
-  header_img = NULL, main_img = NULL, width = 6)
+flipBox(
+  ...,
+  back_content,
+  id,
+  front_title = NULL,
+  back_title = NULL,
+  front_btn_text = "More",
+  back_btn_text = "Back to main",
+  header_img = NULL,
+  main_img = NULL,
+  width = 6
+)
 }
 \arguments{
 \item{...}{front body content.}
@@ -37,6 +46,7 @@ if (interactive()) {
  library(shiny)
  library(shinydashboard)
  library(shinydashboardPlus)
+ 
  shinyApp(
    ui = dashboardPage(
      dashboardHeader(),

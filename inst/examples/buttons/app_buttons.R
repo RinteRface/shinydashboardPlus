@@ -1,27 +1,10 @@
 app_buttons <- 'box(
-  width = NULL,
   title = "App Buttons",
-  status = NULL,
+  width = 12,
   appButton(
-    url = "https://google.com",
+    inputId = "myAppButton",
     label = "Users", 
-    icon = "fa fa-users", 
-    enable_badge = TRUE, 
-    badgeColor = "purple", 
-    badgeLabel = 891
-  ),
-  appButton(
-    label = "Edit", 
-    icon = "fa fa-edit", 
-    enable_badge = FALSE, 
-    badgeColor = NULL, 
-    badgeLabel = NULL
-  ),
-  appButton(
-    label = "Likes", 
-    icon = "fa fa-heart-o", 
-    enable_badge = TRUE, 
-    badgeColor = "red", 
-    badgeLabel = 3
+    icon = icon("users"), 
+    dashboardBadge(textOutput("appBtnVal"), color = "maroon")
   )
 )'

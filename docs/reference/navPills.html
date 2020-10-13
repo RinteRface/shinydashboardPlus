@@ -8,21 +8,36 @@
 
 <title>AdminLTE2 nav pill container — navPills • shinydashboardPlus</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +45,17 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 nav pill container — navPills" />
+  <link href="../extra.css" rel="stylesheet">
+  
 
-<meta property="og:description" content="Create a container for nav elements" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="AdminLTE2 nav pill container — navPills" />
+<meta property="og:description" content="navPills creates a container for nav elements. They are vertically stacked.
+To insert in box.
+updateNavPills allows to programmatically change the currently
+selected navPillsItem on the client.
+navPillsItem creates a nav pill item." />
+<meta property="og:image" content="/logo.svg" />
+
 
 
 
@@ -47,9 +69,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -76,6 +99,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -85,51 +111,35 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
     <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
+      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
-    </li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
-      <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
-    </li>
-    <li>
-      <a href="../articles/rightSidebar.html">Using the rightSidebar</a>
+      <a href="../articles/enhanced-header.html">Enhanced Header Elements</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Changelog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Releases</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.5.9000</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.6.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.5.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
-    <li class="divider"></li>
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
@@ -144,6 +154,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -155,13 +166,25 @@
     </div>
 
     <div class="ref-description">
-    
-    <p>Create a container for nav elements</p>
-    
+    <p>navPills creates a container for nav elements. They are vertically stacked.
+To insert in <a href='box.html'>box</a>.</p>
+<p>updateNavPills allows to programmatically change the currently
+selected navPillsItem on the client.</p>
+<p>navPillsItem creates a nav pill item.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>navPills</span>(<span class='no'>...</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>navPills</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>)
+
+<span class='fu'>updateNavPills</span>(<span class='kw'>id</span>, <span class='kw'>selected</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())
+
+<span class='fu'>navPillsItem</span>(
+  left = <span class='kw'>NULL</span>,
+  right = <span class='kw'>NULL</span>,
+  color = <span class='kw'>NULL</span>,
+  icon = <span class='kw'>NULL</span>,
+  selected = <span class='fl'>FALSE</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -169,57 +192,179 @@
       <th>...</th>
       <td><p>slot for navPillsItem.</p></td>
     </tr>
+    <tr>
+      <th>id</th>
+      <td><p>navPills unique id to target.</p></td>
+    </tr>
+    <tr>
+      <th>selected</th>
+      <td><p>Whether the item is active or not. FALSE by default.</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
+    </tr>
+    <tr>
+      <th>left</th>
+      <td><p>pill left text.</p></td>
+    </tr>
+    <tr>
+      <th>right</th>
+      <td><p>pill right text.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>pill color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
+See below:</p><ul>
+<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+.</p></li>
+<li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
+.</p></li>
+<li><p><code>green (success status)</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a
+.</p></li>
+<li><p><code>aqua (info status)</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef
+.</p></li>
+<li><p><code>yellow (warning status)</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12
+.</p></li>
+<li><p><code>blue</code>: <span style='width:12px;height:12px;background:#0073b7;border-radius:2px;display:inline-block;margin-right:5px;'></span>#0073b7
+.</p></li>
+<li><p><code>navy</code>: <span style='width:12px;height:12px;background:#001F3F;border-radius:2px;display:inline-block;margin-right:5px;'></span>#001F3F
+.</p></li>
+<li><p><code>teal</code>: <span style='width:12px;height:12px;background:#39CCCC;border-radius:2px;display:inline-block;margin-right:5px;'></span>#39CCCC
+.</p></li>
+<li><p><code>olive</code>: <span style='width:12px;height:12px;background:#3D9970;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3D9970
+.</p></li>
+<li><p><code>lime</code>: <span style='width:12px;height:12px;background:#01FF70;border-radius:2px;display:inline-block;margin-right:5px;'></span>#01FF70
+.</p></li>
+<li><p><code>orange</code>: <span style='width:12px;height:12px;background:#FF851B;border-radius:2px;display:inline-block;margin-right:5px;'></span>#FF851B
+.</p></li>
+<li><p><code>fuchsia</code>: <span style='width:12px;height:12px;background:#F012BE;border-radius:2px;display:inline-block;margin-right:5px;'></span>#F012BE
+.</p></li>
+<li><p><code>purple</code>: <span style='width:12px;height:12px;background:#605ca8;border-radius:2px;display:inline-block;margin-right:5px;'></span>#605ca8
+.</p></li>
+<li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60
+.</p></li>
+<li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
+.</p></li>
+<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>icon</th>
+      <td><p>pill icon, if any.</p></td>
+    </tr>
     </table>
-    
+
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shinydashboard</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardPage'>dashboardPage</a></span>(
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(
-     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/box'>box</a></span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Nav Pills"</span>,
-      <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"info"</span>,
+    <pre class="examples"><div class='input'>
+<span class='co'># navPills</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='fu'><a href='box.html'>box</a></span>(
+      title = <span class='st'>"Nav Pills"</span>,
+      status = <span class='st'>"info"</span>,
       <span class='st'>"Box Body"</span>,
-      <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'>navPills</span>(
-        <span class='fu'><a href='navPillsItem.html'>navPillsItem</a></span>(
-          <span class='kw'>pillName</span> <span class='kw'>=</span> <span class='st'>"Item 1"</span>,
-          <span class='kw'>pillColor</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
-          <span class='kw'>pillIcon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-          <span class='kw'>pillText</span> <span class='kw'>=</span> <span class='fl'>10</span>
+      footer = <span class='fu'>navPills</span>(
+        id = <span class='st'>"pillItem"</span>,
+        <span class='fu'>navPillsItem</span>(
+          left = <span class='st'>"Item 1"</span>, 
+          color = <span class='st'>"green"</span>,
+          right = <span class='fl'>10</span>
         ),
-        <span class='fu'><a href='navPillsItem.html'>navPillsItem</a></span>(
-          <span class='kw'>pillName</span> <span class='kw'>=</span> <span class='st'>"Item 2"</span>,
-          <span class='kw'>pillColor</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-          <span class='kw'>pillIcon</span> <span class='kw'>=</span> <span class='st'>"fa fa-angle-down"</span>,
-          <span class='kw'>pillText</span> <span class='kw'>=</span> <span class='st'>"10%"</span>,
-          <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+        <span class='fu'>navPillsItem</span>(
+          left = <span class='st'>"Item 2"</span>, 
+          color = <span class='st'>"red"</span>,
+          icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"angle-down"</span>), 
+          right = <span class='st'>"10%"</span>,
+          active = <span class='fl'>TRUE</span>
         )
       )
      )
     ),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Nav Pills"</span>
+    title = <span class='st'>"Nav Pills"</span>
   ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>pillItem</span>, {
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"You clicked on pill N° %s"</span>, <span class='kw'>input</span><span class='op'>$</span><span class='kw'>pillItem</span>), type = <span class='st'>"message"</span>)
+   })
+  }
  )
-}</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+}
 
-    <h2>Author</h2>
-    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
+
+<span class='co'># update navPills</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html'>radioButtons</a></span>(<span class='st'>"controller"</span>, <span class='st'>"Controller"</span>, choices = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>)),
+     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
+     <span class='fu'><a href='box.html'>box</a></span>(
+      title = <span class='st'>"Nav Pills"</span>,
+      status = <span class='st'>"info"</span>,
+      <span class='st'>"Box Body"</span>,
+      footer = <span class='fu'>navPills</span>(
+        inputId = <span class='st'>"pills"</span>,
+        <span class='fu'>navPillsItem</span>(
+          left = <span class='st'>"Item 1"</span>, 
+          color = <span class='st'>"green"</span>,
+          right = <span class='fl'>10</span>
+        ),
+        <span class='fu'>navPillsItem</span>(
+          left = <span class='st'>"Item 2"</span>, 
+          color = <span class='st'>"red"</span>,
+          icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"angle-down"</span>), 
+          right = <span class='st'>"10%"</span>
+        ),
+        <span class='fu'>navPillsItem</span>(
+          left = <span class='st'>"Item 3"</span>, 
+          color = <span class='st'>"blue"</span>,
+          icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"angle-up"</span>), 
+          right = <span class='st'>"30%"</span>
+        )
+      )
+     )
+    ),
+    title = <span class='st'>"Nav Pills"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>, {
+    <span class='fu'>updateNavPills</span>(id = <span class='st'>"pills"</span>, selected = <span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>)
+   })
+   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>pills</span>, {
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"You selected pill N° %s"</span>, <span class='kw'>input</span><span class='op'>$</span><span class='kw'>pills</span>), type = <span class='st'>"message"</span>)
+   })
+  }
+ )
+}
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -227,13 +372,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

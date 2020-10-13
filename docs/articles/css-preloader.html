@@ -6,18 +6,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSS preloaders • shinydashboardPlus</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="CSS preloaders">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="CSS preloaders">
+<meta property="og:description" content="shinydashboardPlus">
+<meta property="og:image" content="/logo.svg">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -30,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -43,6 +52,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -52,48 +64,33 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li>
+<li class="divider">
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
+    <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
+      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
-    </li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
-      <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
-    </li>
-    <li>
-      <a href="../articles/rightSidebar.html">Using the rightSidebar</a>
+      <a href="../articles/enhanced-header.html">Enhanced Header Elements</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Changelog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Releases</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.5.9000</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.6.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.5.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
-    <li class="divider">
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -112,13 +109,14 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="css-preloader_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>CSS preloaders</h1>
+      <h1 data-toc-skip>CSS preloaders</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2019-10-25</h4>
+            <h4 class="date">2020-09-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/css-preloader.Rmd"><code>vignettes/css-preloader.Rmd</code></a></small>
       <div class="hidden name"><code>css-preloader.Rmd</code></div>
@@ -129,41 +127,60 @@
     
 <div id="how-to-set-up-a-preloader" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-set-up-a-preloader" class="anchor"></a>How to set up a preloader</h2>
-<p>Pass the argument <code>enable_preloader = TRUE</code> to the <code><a href="../reference/dashboardPagePlus.html">dashboardPagePlus()</a></code> function. You can also change the loading duration (2s by default): <code>loading_duration = 5</code> for 5 seconds.</p>
-<video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/preloader.mp4" type="video/mp4"></source></video><p><br></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shiny)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinydashboard)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinydashboardPlus)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="dt">enable_preloader =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">     <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">     <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    ),</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">sidebar =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="dt">body =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(),</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">    <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">    <span class="dt">title =</span> <span class="st">"DashboardPage"</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">  ),</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }</a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">)</a></code></pre></div>
+<a href="#how-to-set-up-a-preloader" class="anchor"></a>How to set up a preloader?</h2>
+<p>Pass the argument <code>preloader</code> to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> function. It expects a nested list:</p>
+<ul>
+<li>waiter is a sub-list containing all parameters necessary to <code><a href="https://rdrr.io/pkg/waiter/man/waiter.html">waiter::waiter_show_on_load</a></code>
+</li>
+<li>duration is the loader timeout in seconds. We usually use milliseconds in JavaScript but <code>shiny::showNotifications</code> expects seconds.</li>
+</ul>
+<p>Please have a look to the <code>{waiter}</code> <a href="https://waiter.john-coene.com/">documentation</a> for more details.</p>
+<p>That’s all!</p>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+    preloader = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+      waiter = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(html = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(<span class="fu">spin_1</span>(), <span class="st">"Loading ..."</span>), color = <span class="st">"#3c8dbc"</span>),
+      duration = <span class="fl">5</span>
+    ),
+    header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
+    sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
+    body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"reload"</span>, <span class="st">"Reload"</span>)
+    ),
+    title = <span class="st">"Preloader"</span>
+  ),
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
+    <span class="co"># fake reload</span>
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">reload</span>, {
+      <span class="kw">session</span><span class="op">$</span><span class="fu">reload</span>()
+    })
+  }
+)
+</pre></div>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-preloader/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#how-to-set-up-a-preloader">How to set up a preloader</a></li>
-      </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -171,12 +188,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

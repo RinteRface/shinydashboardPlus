@@ -1,6 +1,6 @@
 # shinydashboardPlus <img src="https://rinterface.com/inst/images/shinydashboardPlus.svg" width="200px" align="right"/>
 
-[![Build Status](https://travis-ci.org/RinteRface/shinydashboardPlus.svg?branch=master)](https://travis-ci.org/RinteRface/shinydashboardPlus)
+[![R build status](https://github.com/RinteRface/shinydashboardPlus/workflows/R-CMD-check/badge.svg)](https://github.com/RinteRface/shinydashboardPlus/actions)
 [![version](https://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![cranlogs](https://cranlogs.r-pkg.org/badges/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://www.rpackages.io/package/shinydashboardPlus)
@@ -37,5 +37,10 @@ Below an example of application in medicine:
 
 ## Acknowledgements
 
-- the [adminLTE team](https://adminlte.io)
+- The [adminLTE team](https://adminlte.io)
 - [Victor Perrier](https://github.com/pvictor) from [Dream'R](https://www.dreamrs.fr)
+
+
+## Code of Conduct
+  
+  Please note that the shinydashboardPlus project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

@@ -6,18 +6,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Left menu in the navbar • shinydashboardPlus</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Left menu in the navbar">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="Left menu in the navbar">
+<meta property="og:description" content="shinydashboardPlus">
+<meta property="og:image" content="/logo.svg">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -30,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -43,6 +52,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -52,48 +64,30 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li>
+<li class="divider">
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
+    <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
-    </li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
       <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
-    </li>
-    <li>
-      <a href="../articles/rightSidebar.html">Using the rightSidebar</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Changelog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Releases</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.5.9000</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.6.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.5.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
-    <li class="divider">
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -112,13 +106,14 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="left-menu-navbar_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Left menu in the navbar</h1>
+      <h1 data-toc-skip>Left menu in the navbar</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2019-10-25</h4>
+            <h4 class="date">2020-09-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/left-menu-navbar.Rmd"><code>vignettes/left-menu-navbar.Rmd</code></a></small>
       <div class="hidden name"><code>left-menu-navbar.Rmd</code></div>
@@ -130,151 +125,145 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <strong>shinydashboardPlus</strong> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus()</a></code> function. All elements should be embbeded in a <code><a href="https://www.rdocumentation.org/packages/shiny/topics/tag">tagList()</a></code>, as shown below.</p>
+<p>By default with shinydashboard, all elements included in the navbar will be displayed on the right side. <code>{shinydashboardPlus}</code> has a new option to add elements in the left part of the navbar. You just have to pass the “left_menu” argument to the <code>dashboardHeaderPlus()</code> function. All elements should be embedded in a <code><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList()</a></code>, as shown below.</p>
 <video width="640" height="480" controls style="display: block; margin: 0 auto;"><source src="figures/navbar-left-menu.mp4" type="video/mp4"></source></video><p><br></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shiny)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinyWidgets)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinydashboard)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinydashboardPlus)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"> </a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">   <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">     <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">       <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">       <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">       <span class="dt">left_menu =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/tag">tagList</a></span>(</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">         <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/dropdownButton">dropdownButton</a></span>(</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">           <span class="dt">label =</span> <span class="st">"Controls"</span>,</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">           <span class="dt">icon =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"sliders"</span>),</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">           <span class="dt">status =</span> <span class="st">"primary"</span>,</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">           <span class="dt">circle =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">           <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/sliderInput">sliderInput</a></span>(</a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">             <span class="dt">inputId =</span> <span class="st">"n"</span>,</a>
-<a class="sourceLine" id="cb1-19" data-line-number="19">             <span class="dt">label =</span> <span class="st">"Number of observations"</span>,</a>
-<a class="sourceLine" id="cb1-20" data-line-number="20">             <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">100</span>, <span class="dt">value =</span> <span class="dv">30</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21">           ),</a>
-<a class="sourceLine" id="cb1-22" data-line-number="22">           <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/prettyToggle">prettyToggle</a></span>(</a>
-<a class="sourceLine" id="cb1-23" data-line-number="23">             <span class="dt">inputId =</span> <span class="st">"na"</span>,</a>
-<a class="sourceLine" id="cb1-24" data-line-number="24">             <span class="dt">label_on =</span> <span class="st">"NAs keeped"</span>,</a>
-<a class="sourceLine" id="cb1-25" data-line-number="25">             <span class="dt">label_off =</span> <span class="st">"NAs removed"</span>,</a>
-<a class="sourceLine" id="cb1-26" data-line-number="26">             <span class="dt">icon_on =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"check"</span>),</a>
-<a class="sourceLine" id="cb1-27" data-line-number="27">             <span class="dt">icon_off =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"remove"</span>)</a>
-<a class="sourceLine" id="cb1-28" data-line-number="28">           )</a>
-<a class="sourceLine" id="cb1-29" data-line-number="29">         ),</a>
-<a class="sourceLine" id="cb1-30" data-line-number="30">         <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu</a></span>(</a>
-<a class="sourceLine" id="cb1-31" data-line-number="31">           <span class="dt">type =</span> <span class="st">"messages"</span>, </a>
-<a class="sourceLine" id="cb1-32" data-line-number="32">           <span class="dt">badgeStatus =</span> <span class="st">"success"</span>,</a>
-<a class="sourceLine" id="cb1-33" data-line-number="33">           <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/messageItem">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of a message."</span>, <span class="dt">time =</span> <span class="st">"5 mins"</span>),</a>
-<a class="sourceLine" id="cb1-34" data-line-number="34">           <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/messageItem">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of another message."</span>, <span class="dt">time =</span> <span class="st">"2 hours"</span>),</a>
-<a class="sourceLine" id="cb1-35" data-line-number="35">           <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/messageItem">messageItem</a></span>(<span class="st">"New User"</span>, <span class="st">"Can I get some help?"</span>, <span class="dt">time =</span> <span class="st">"Today"</span>)</a>
-<a class="sourceLine" id="cb1-36" data-line-number="36">         )</a>
-<a class="sourceLine" id="cb1-37" data-line-number="37">       ),</a>
-<a class="sourceLine" id="cb1-38" data-line-number="38">       <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu</a></span>(</a>
-<a class="sourceLine" id="cb1-39" data-line-number="39">        <span class="dt">type =</span> <span class="st">"tasks"</span>, </a>
-<a class="sourceLine" id="cb1-40" data-line-number="40">        <span class="dt">badgeStatus =</span> <span class="st">"danger"</span>,</a>
-<a class="sourceLine" id="cb1-41" data-line-number="41">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),</a>
-<a class="sourceLine" id="cb1-42" data-line-number="42">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">40</span>, <span class="dt">color =</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),</a>
-<a class="sourceLine" id="cb1-43" data-line-number="43">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),</a>
-<a class="sourceLine" id="cb1-44" data-line-number="44">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">80</span>, <span class="dt">color =</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)</a>
-<a class="sourceLine" id="cb1-45" data-line-number="45">       )</a>
-<a class="sourceLine" id="cb1-46" data-line-number="46">     ),</a>
-<a class="sourceLine" id="cb1-47" data-line-number="47">     <span class="dt">sidebar =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),</a>
-<a class="sourceLine" id="cb1-48" data-line-number="48">     <span class="dt">body =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(</a>
-<a class="sourceLine" id="cb1-49" data-line-number="49">       <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/setShadow">setShadow</a></span>(<span class="dt">class =</span> <span class="st">"dropdown-menu"</span>)</a>
-<a class="sourceLine" id="cb1-50" data-line-number="50">     ),</a>
-<a class="sourceLine" id="cb1-51" data-line-number="51">     <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),</a>
-<a class="sourceLine" id="cb1-52" data-line-number="52">     <span class="dt">title =</span> <span class="st">"DashboardPage"</span></a>
-<a class="sourceLine" id="cb1-53" data-line-number="53">   ),</a>
-<a class="sourceLine" id="cb1-54" data-line-number="54">   <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }</a>
-<a class="sourceLine" id="cb1-55" data-line-number="55"> )</a></code></pre></div>
-<p>This new feature perfectly works with the <code><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/dropdownButton">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="https://www.rdocumentation.org/packages/shiny/topics/sliderInput">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <strong>shinydashboardPlus</strong> to change basic shiny elements.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
+ <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
+ 
+ <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+     header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(
+       leftUi = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
+         <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton</a></span>(
+           label = <span class="st">"Controls"</span>,
+           icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"sliders"</span>),
+           status = <span class="st">"primary"</span>,
+           circle = <span class="fl">FALSE</span>,
+           <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
+             inputId = <span class="st">"n"</span>,
+             label = <span class="st">"Number of observations"</span>,
+             min = <span class="fl">10</span>, max = <span class="fl">100</span>, value = <span class="fl">30</span>
+           ),
+           <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettyToggle.html">prettyToggle</a></span>(
+             inputId = <span class="st">"na"</span>,
+             label_on = <span class="st">"NAs kept"</span>,
+             label_off = <span class="st">"NAs removed"</span>,
+             icon_on = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
+             icon_off = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
+           )
+         ),
+         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
+           type = <span class="st">"messages"</span>, 
+           badgeStatus = <span class="st">"success"</span>,
+           <span class="fu"><a href="../reference/messageItem.html">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of a message."</span>, time = <span class="st">"5 mins"</span>),
+           <span class="fu"><a href="../reference/messageItem.html">messageItem</a></span>(<span class="st">"Support Team"</span>, <span class="st">"This is the content of another message."</span>, time = <span class="st">"2 hours"</span>),
+           <span class="fu"><a href="../reference/messageItem.html">messageItem</a></span>(<span class="st">"New User"</span>, <span class="st">"Can I get some help?"</span>, time = <span class="st">"Today"</span>)
+         )
+       ),
+       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
+        type = <span class="st">"tasks"</span>, 
+        badgeStatus = <span class="st">"danger"</span>,
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">20</span>, color = <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">40</span>, color = <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">60</span>, color = <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">80</span>, color = <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
+       )
+     ),
+     sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
+     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+       <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(class = <span class="st">"dropdown-menu"</span>)
+     ),
+     title = <span class="st">"DashboardPage"</span>
+   ),
+   server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+ )
+</pre></div>
+<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from shinyWidgets packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from shinydashboard. It works less with other individual elements, for a space reason, mainly. Indeed, a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput()</a></code> would not be optimized to be inserted in the header because of the label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <code>{shinydashboardPlus}</code> to change basic shiny elements.</p>
 </div>
 <div id="improved-dropdownmenu" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improved-dropdownmenu" class="anchor"></a>Improved <code><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code>
+<a href="#improved-dropdownmenu" class="anchor"></a>Improved <code>dropdownMenu()</code>
 </h2>
-<p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed input elements in a left navbar menu. It does not hide when the user click inside but only outside and is optimized to correctly render with mobiles (contrary to <code><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/dropdownButton">dropdownButton()</a></code>, see above).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shiny)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinyWidgets)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinydashboard)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shinydashboardPlus)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">ui =</span> <span class="kw"><a href="../reference/dashboardPagePlus.html">dashboardPagePlus</a></span>(</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="dt">header =</span> <span class="kw"><a href="../reference/dashboardHeaderPlus.html">dashboardHeaderPlus</a></span>(</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">      <span class="dt">enable_rightsidebar =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">      <span class="dt">rightSidebarIcon =</span> <span class="st">"gears"</span>,</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">      <span class="dt">left_menu =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/tag">tagList</a></span>(</a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">        <span class="kw"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">          <span class="dt">id =</span> <span class="st">"mydropdown"</span>,</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">          <span class="dt">title =</span> <span class="st">"Dropdown 1"</span>,</a>
-<a class="sourceLine" id="cb2-15" data-line-number="15">          <span class="dt">icon =</span> <span class="st">"sliders"</span>,</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16">          <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/sliderInput">sliderInput</a></span>(</a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">            <span class="dt">inputId =</span> <span class="st">"n"</span>,</a>
-<a class="sourceLine" id="cb2-18" data-line-number="18">            <span class="dt">label =</span> <span class="st">"Number of observations"</span>,</a>
-<a class="sourceLine" id="cb2-19" data-line-number="19">            <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">100</span>, <span class="dt">value =</span> <span class="dv">30</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">          ),</a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">          <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/prettyToggle">prettyToggle</a></span>(</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22">            <span class="dt">inputId =</span> <span class="st">"na"</span>,</a>
-<a class="sourceLine" id="cb2-23" data-line-number="23">            <span class="dt">label_on =</span> <span class="st">"NAs keeped"</span>,</a>
-<a class="sourceLine" id="cb2-24" data-line-number="24">            <span class="dt">label_off =</span> <span class="st">"NAs removed"</span>,</a>
-<a class="sourceLine" id="cb2-25" data-line-number="25">            <span class="dt">icon_on =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"check"</span>),</a>
-<a class="sourceLine" id="cb2-26" data-line-number="26">            <span class="dt">icon_off =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/icon">icon</a></span>(<span class="st">"remove"</span>)</a>
-<a class="sourceLine" id="cb2-27" data-line-number="27">          )</a>
-<a class="sourceLine" id="cb2-28" data-line-number="28">        ),</a>
-<a class="sourceLine" id="cb2-29" data-line-number="29">        <span class="kw"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(</a>
-<a class="sourceLine" id="cb2-30" data-line-number="30">          <span class="dt">id =</span> <span class="st">"mydropdown2"</span>,</a>
-<a class="sourceLine" id="cb2-31" data-line-number="31">          <span class="dt">title =</span> <span class="st">"Dropdown 2"</span>,</a>
-<a class="sourceLine" id="cb2-32" data-line-number="32">          <span class="dt">icon =</span> <span class="st">"sliders"</span>,</a>
-<a class="sourceLine" id="cb2-33" data-line-number="33">          <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/prettySwitch">prettySwitch</a></span>(</a>
-<a class="sourceLine" id="cb2-34" data-line-number="34">            <span class="dt">inputId =</span> <span class="st">"switch4"</span>,</a>
-<a class="sourceLine" id="cb2-35" data-line-number="35">            <span class="dt">label =</span> <span class="st">"Fill switch with status:"</span>,</a>
-<a class="sourceLine" id="cb2-36" data-line-number="36">            <span class="dt">fill =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb2-37" data-line-number="37">            <span class="dt">status =</span> <span class="st">"primary"</span></a>
-<a class="sourceLine" id="cb2-38" data-line-number="38">          ),</a>
-<a class="sourceLine" id="cb2-39" data-line-number="39">          <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/prettyCheckboxGroup">prettyCheckboxGroup</a></span>(</a>
-<a class="sourceLine" id="cb2-40" data-line-number="40">            <span class="dt">inputId =</span> <span class="st">"checkgroup2"</span>,</a>
-<a class="sourceLine" id="cb2-41" data-line-number="41">            <span class="dt">label =</span> <span class="st">"Click me!"</span>, </a>
-<a class="sourceLine" id="cb2-42" data-line-number="42">            <span class="dt">thick =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb2-43" data-line-number="43">            <span class="dt">choices =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span>),</a>
-<a class="sourceLine" id="cb2-44" data-line-number="44">            <span class="dt">animation =</span> <span class="st">"pulse"</span>, </a>
-<a class="sourceLine" id="cb2-45" data-line-number="45">            <span class="dt">status =</span> <span class="st">"info"</span></a>
-<a class="sourceLine" id="cb2-46" data-line-number="46">          )</a>
-<a class="sourceLine" id="cb2-47" data-line-number="47">        )</a>
-<a class="sourceLine" id="cb2-48" data-line-number="48">      ),</a>
-<a class="sourceLine" id="cb2-49" data-line-number="49">      <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu</a></span>(</a>
-<a class="sourceLine" id="cb2-50" data-line-number="50">        <span class="dt">type =</span> <span class="st">"tasks"</span>, </a>
-<a class="sourceLine" id="cb2-51" data-line-number="51">        <span class="dt">badgeStatus =</span> <span class="st">"danger"</span>,</a>
-<a class="sourceLine" id="cb2-52" data-line-number="52">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),</a>
-<a class="sourceLine" id="cb2-53" data-line-number="53">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">40</span>, <span class="dt">color =</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),</a>
-<a class="sourceLine" id="cb2-54" data-line-number="54">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),</a>
-<a class="sourceLine" id="cb2-55" data-line-number="55">        <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/taskItem">taskItem</a></span>(<span class="dt">value =</span> <span class="dv">80</span>, <span class="dt">color =</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)</a>
-<a class="sourceLine" id="cb2-56" data-line-number="56">      )</a>
-<a class="sourceLine" id="cb2-57" data-line-number="57">    ),</a>
-<a class="sourceLine" id="cb2-58" data-line-number="58">    <span class="dt">sidebar =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar">dashboardSidebar</a></span>(),</a>
-<a class="sourceLine" id="cb2-59" data-line-number="59">    <span class="dt">body =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody">dashboardBody</a></span>(</a>
-<a class="sourceLine" id="cb2-60" data-line-number="60">      <span class="kw"><a href="https://www.rdocumentation.org/packages/shinyWidgets/topics/setShadow">setShadow</a></span>(<span class="dt">class =</span> <span class="st">"dropdown-menu"</span>)</a>
-<a class="sourceLine" id="cb2-61" data-line-number="61">    ),</a>
-<a class="sourceLine" id="cb2-62" data-line-number="62">    <span class="dt">rightsidebar =</span> <span class="kw"><a href="../reference/rightSidebar.html">rightSidebar</a></span>(),</a>
-<a class="sourceLine" id="cb2-63" data-line-number="63">    <span class="dt">title =</span> <span class="st">"DashboardPage"</span></a>
-<a class="sourceLine" id="cb2-64" data-line-number="64">  ),</a>
-<a class="sourceLine" id="cb2-65" data-line-number="65">  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }</a>
-<a class="sourceLine" id="cb2-66" data-line-number="66">)</a></code></pre></div>
+<p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed input elements in a left navbar menu. It does not hide when the user click inside but only outside and is optimized to correctly render with mobiles (contrary to <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code>, see above).</p>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
+
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
+  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
+    header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(
+      leftUi = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
+        <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
+          id = <span class="st">"mydropdown"</span>,
+          title = <span class="st">"Dropdown 1"</span>,
+          icon = <span class="st">"sliders"</span>,
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
+            inputId = <span class="st">"n"</span>,
+            label = <span class="st">"Number of observations"</span>,
+            min = <span class="fl">10</span>, max = <span class="fl">100</span>, value = <span class="fl">30</span>
+          ),
+          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettyToggle.html">prettyToggle</a></span>(
+            inputId = <span class="st">"na"</span>,
+            label_on = <span class="st">"NAs kept"</span>,
+            label_off = <span class="st">"NAs removed"</span>,
+            icon_on = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"check"</span>),
+            icon_off = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"remove"</span>)
+          )
+        ),
+        <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span>(
+          id = <span class="st">"mydropdown2"</span>,
+          title = <span class="st">"Dropdown 2"</span>,
+          icon = <span class="st">"sliders"</span>,
+          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettySwitch.html">prettySwitch</a></span>(
+            inputId = <span class="st">"switch4"</span>,
+            label = <span class="st">"Fill switch with status:"</span>,
+            fill = <span class="fl">TRUE</span>, 
+            status = <span class="st">"primary"</span>
+          ),
+          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/prettyCheckboxGroup.html">prettyCheckboxGroup</a></span>(
+            inputId = <span class="st">"checkgroup2"</span>,
+            label = <span class="st">"Click me!"</span>, 
+            thick = <span class="fl">TRUE</span>,
+            choices = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span>),
+            animation = <span class="st">"pulse"</span>, 
+            status = <span class="st">"info"</span>
+          )
+        )
+      ),
+      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span>(
+        type = <span class="st">"tasks"</span>, 
+        badgeStatus = <span class="st">"danger"</span>,
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">20</span>, color = <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span>),
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">40</span>, color = <span class="st">"green"</span>, <span class="st">"Design new layout"</span>),
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">60</span>, color = <span class="st">"yellow"</span>, <span class="st">"Another task"</span>),
+        <span class="fu"><a href="../reference/taskItem.html">taskItem</a></span>(value = <span class="fl">80</span>, color = <span class="st">"red"</span>, <span class="st">"Write documentation"</span>)
+      )
+    ),
+    sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
+    body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
+      <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow</a></span>(class = <span class="st">"dropdown-menu"</span>)
+    ),
+    title = <span class="st">"DashboardPage"</span>
+  ),
+  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
+)
+</pre></div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#introduction">Introduction</a></li>
-      <li><a href="#improved-dropdownmenu">Improved <code><a href="https://www-rdocumentation-org/packages/shinydashboard/topics/dropdownMenu">dropdownMenu()</a></code></a></li>
-      </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -282,12 +271,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

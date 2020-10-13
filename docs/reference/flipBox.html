@@ -8,21 +8,36 @@
 
 <title>AdminLTE2 flipping box — flipBox • shinydashboardPlus</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +45,13 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 flipping box — flipBox" />
+  <link href="../extra.css" rel="stylesheet">
+  
 
+<meta property="og:title" content="AdminLTE2 flipping box — flipBox" />
 <meta property="og:description" content="Create a flipping box" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="/logo.svg" />
+
 
 
 
@@ -47,9 +65,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -76,6 +95,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -85,51 +107,35 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
     <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
+      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
-    </li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
-      <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
-    </li>
-    <li>
-      <a href="../articles/rightSidebar.html">Using the rightSidebar</a>
+      <a href="../articles/enhanced-header.html">Enhanced Header Elements</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Changelog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Releases</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.5.9000</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.6.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.5.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
-    <li class="divider"></li>
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
@@ -144,6 +150,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -155,15 +162,22 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Create a flipping box</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>flipBox</span>(<span class='no'>...</span>, <span class='no'>back_content</span>, <span class='no'>id</span>, <span class='kw'>front_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>back_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>front_btn_text</span> <span class='kw'>=</span> <span class='st'>"More"</span>, <span class='kw'>back_btn_text</span> <span class='kw'>=</span> <span class='st'>"Back to main"</span>,
-  <span class='kw'>header_img</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>main_img</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>flipBox</span>(
+  <span class='kw'>...</span>,
+  <span class='kw'>back_content</span>,
+  <span class='kw'>id</span>,
+  front_title = <span class='kw'>NULL</span>,
+  back_title = <span class='kw'>NULL</span>,
+  front_btn_text = <span class='st'>"More"</span>,
+  back_btn_text = <span class='st'>"Back to main"</span>,
+  header_img = <span class='kw'>NULL</span>,
+  main_img = <span class='kw'>NULL</span>,
+  width = <span class='fl'>6</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -208,29 +222,33 @@
       <td><p>box width (between 1 and 12). 6 by default.</p></td>
     </tr>
     </table>
-    
+
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shinydashboard</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shinydashboardPlus</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
-   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardPage'>dashboardPage</a></span>(
-     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader'>dashboardHeader</a></span>(),
-     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></span>(),
-     <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(
-       <span class='fu'>setShadow</span>(<span class='st'>"card"</span>),
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidRow</a></span>(
-         <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-           <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-           <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+       <span class='fu'><a href='https://rdrr.io/pkg/shinyWidgets/man/setShadow.html'>setShadow</a></span>(<span class='st'>"card"</span>),
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+           width = <span class='fl'>6</span>,
+           align = <span class='st'>"center"</span>,
            <span class='fu'>flipBox</span>(
-             <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-             <span class='kw'>main_img</span> <span class='kw'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
-             <span class='kw'>header_img</span> <span class='kw'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/119/119595.svg"</span>,
-             <span class='kw'>front_title</span> <span class='kw'>=</span> <span class='st'>"John Doe"</span>,
-             <span class='kw'>back_title</span> <span class='kw'>=</span> <span class='st'>"About John"</span>,
+             id = <span class='fl'>1</span>,
+             main_img = <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
+             header_img = <span class='st'>"https://image.flaticon.com/icons/svg/119/119595.svg"</span>,
+             front_title = <span class='st'>"John Doe"</span>,
+             back_title = <span class='st'>"About John"</span>,
              <span class='st'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
              sed do eiusmod tempor incididunt ut labore et dolore magna 
              aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
@@ -239,171 +257,168 @@
              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
              occaecat cupidatat non proident, sunt in culpa qui officia 
              deserunt mollit anim id est laborum"</span>,
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidRow</a></span>(
-               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 1"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"info"</span>),
-               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 2"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"success"</span>),
-               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 3"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"warning"</span>),
-               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 4"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"primary"</span>),
-               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 5"</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"danger"</span>)
+             <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 1"</span>, status = <span class='st'>"info"</span>),
+               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 2"</span>, status = <span class='st'>"success"</span>),
+               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 3"</span>, status = <span class='st'>"warning"</span>),
+               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 4"</span>, status = <span class='st'>"primary"</span>),
+               <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='st'>"Label 5"</span>, status = <span class='st'>"danger"</span>)
              ),
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/builder'>hr</a></span>(),
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidRow</a></span>(
-               <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-                 <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-                 <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
-                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(<span class='kw'>grade</span> <span class='kw'>=</span> <span class='fl'>5</span>),
-                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(<span class='kw'>grade</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"olive"</span>),
-                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(<span class='kw'>grade</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"maroon"</span>),
-                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(<span class='kw'>grade</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"teal"</span>)
+             <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>hr</a></span>(),
+             <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+               <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+                 width = <span class='fl'>6</span>,
+                 align = <span class='st'>"center"</span>,
+                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(grade = <span class='fl'>5</span>),
+                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(grade = <span class='fl'>5</span>, color = <span class='st'>"olive"</span>),
+                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(grade = <span class='fl'>1</span>, color = <span class='st'>"maroon"</span>),
+                 <span class='fu'><a href='starBlock.html'>starBlock</a></span>(grade = <span class='fl'>3</span>, color = <span class='st'>"teal"</span>)
                ),
-               <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-                 <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-                 <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
+               <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+                 width = <span class='fl'>6</span>,
+                 align = <span class='st'>"center"</span>,
                  <span class='fu'><a href='appButton.html'>appButton</a></span>(
-                   <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"https://google.com"</span>,
-                   <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Users"</span>,
-                   <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"fa fa-users"</span>,
-                   <span class='kw'>enable_badge</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                   <span class='kw'>badgeColor</span> <span class='kw'>=</span> <span class='st'>"purple"</span>,
-                   <span class='kw'>badgeLabel</span> <span class='kw'>=</span> <span class='fl'>891</span>
+                   url = <span class='st'>"https://google.com"</span>,
+                   label = <span class='st'>"Users"</span>,
+                   icon = <span class='st'>"fa fa-users"</span>,
+                   enable_badge = <span class='fl'>TRUE</span>,
+                   badgeColor = <span class='st'>"purple"</span>,
+                   badgeLabel = <span class='fl'>891</span>
                  ),
                  <span class='fu'><a href='appButton.html'>appButton</a></span>(
-                   <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Edit"</span>,
-                   <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"fa fa-edit"</span>,
-                   <span class='kw'>enable_badge</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                   <span class='kw'>badgeColor</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-                   <span class='kw'>badgeLabel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+                   label = <span class='st'>"Edit"</span>,
+                   icon = <span class='st'>"fa fa-edit"</span>,
+                   enable_badge = <span class='fl'>FALSE</span>,
+                   badgeColor = <span class='kw'>NULL</span>,
+                   badgeLabel = <span class='kw'>NULL</span>
                  )
                )
              ),
-             <span class='kw'>back_content</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/tag'>tagList</a></span>(
-               <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-                 <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>12</span>,
-                 <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
-                 <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/sliderInput'>sliderInput</a></span>(
-                   <span class='st'>"obs"</span>,
+             back_content = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
+               <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+                 width = <span class='fl'>12</span>,
+                 align = <span class='st'>"center"</span>,
+                 <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>sliderInput</a></span>(
+                   <span class='st'>"obs"</span>, 
                    <span class='st'>"Number of observations:"</span>,
-                   <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-                   <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-                   <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
+                   min = <span class='fl'>0</span>, 
+                   max = <span class='fl'>1000</span>, 
+                   value = <span class='fl'>500</span>
                  )
                ),
-               <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/plotOutput'>plotOutput</a></span>(<span class='st'>"distPlot"</span>)
+               <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"distPlot"</span>)
              )
            )
        ),
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-         <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-         <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
+       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+         width = <span class='fl'>6</span>,
+         align = <span class='st'>"center"</span>,
          <span class='fu'>flipBox</span>(
-           <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-           <span class='kw'>main_img</span> <span class='kw'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149073.svg"</span>,
-           <span class='kw'>header_img</span> <span class='kw'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/119/119598.svg"</span>,
-           <span class='kw'>front_title</span> <span class='kw'>=</span> <span class='st'>"Johanna Doe"</span>,
-           <span class='kw'>back_title</span> <span class='kw'>=</span> <span class='st'>"About Johanna"</span>,
-           <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidRow</a></span>(
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-               <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-               <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
-               <span class='fu'><a href='boxPad.html'>boxPad</a></span>(
-                 <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
-                 <span class='fu'><a href='descriptionBlock.html'>descriptionBlock</a></span>(
-                   <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"8390"</span>,
-                   <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"VISITS"</span>,
-                   <span class='kw'>right_border</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                   <span class='kw'>margin_bottom</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+           id = <span class='fl'>2</span>,
+           main_img = <span class='st'>"https://image.flaticon.com/icons/svg/149/149073.svg"</span>,
+           header_img = <span class='st'>"https://image.flaticon.com/icons/svg/119/119598.svg"</span>,
+           front_title = <span class='st'>"Johanna Doe"</span>,
+           back_title = <span class='st'>"About Johanna"</span>,
+           <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
+             <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+               width = <span class='fl'>6</span>,
+               align = <span class='st'>"center"</span>,
+               <span class='fu'><a href='box.html'>boxPad</a></span>(
+                 color = <span class='st'>"green"</span>,
+                 <span class='fu'><a href='box.html'>descriptionBlock</a></span>(
+                   header = <span class='st'>"8390"</span>,
+                   text = <span class='st'>"VISITS"</span>,
+                   right_border = <span class='fl'>FALSE</span>,
+                   margin_bottom = <span class='fl'>TRUE</span>
                  ),
-                 <span class='fu'><a href='descriptionBlock.html'>descriptionBlock</a></span>(
-                   <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"30%"</span>,
-                   <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"REFERRALS"</span>,
-                   <span class='kw'>right_border</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                   <span class='kw'>margin_bottom</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+                 <span class='fu'><a href='box.html'>descriptionBlock</a></span>(
+                   header = <span class='st'>"30%"</span>,
+                   text = <span class='st'>"REFERRALS"</span>,
+                   right_border = <span class='fl'>FALSE</span>,
+                   margin_bottom = <span class='fl'>TRUE</span>
                  ),
-                 <span class='fu'><a href='descriptionBlock.html'>descriptionBlock</a></span>(
-                   <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"70%"</span>,
-                   <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"ORGANIC"</span>,
-                   <span class='kw'>right_border</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                   <span class='kw'>margin_bottom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+                 <span class='fu'><a href='box.html'>descriptionBlock</a></span>(
+                   header = <span class='st'>"70%"</span>,
+                   text = <span class='st'>"ORGANIC"</span>,
+                   right_border = <span class='fl'>FALSE</span>,
+                   margin_bottom = <span class='fl'>FALSE</span>
                  )
                )
              ),
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-               <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-               <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
+             <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+               width = <span class='fl'>6</span>,
+               align = <span class='st'>"center"</span>,
                <span class='st'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                sed do eiusmod tempor."</span>,
-               <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/builder'>br</a></span>(),
-               <span class='fu'><a href='verticalProgress.html'>verticalProgress</a></span>(
-                 <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-                 <span class='kw'>striped</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                 <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+               <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
+               <span class='fu'>verticalProgress</span>(
+                 value = <span class='fl'>10</span>,
+                 striped = <span class='fl'>TRUE</span>,
+                 active = <span class='fl'>TRUE</span>
                ),
-               <span class='fu'><a href='verticalProgress.html'>verticalProgress</a></span>(
-                 <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>50</span>,
-                 <span class='kw'>active</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                 <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
-                 <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"xs"</span>
+               <span class='fu'>verticalProgress</span>(
+                 value = <span class='fl'>50</span>,
+                 active = <span class='fl'>TRUE</span>,
+                 status = <span class='st'>"warning"</span>,
+                 size = <span class='st'>"xs"</span>
                ),
-               <span class='fu'><a href='verticalProgress.html'>verticalProgress</a></span>(
-                 <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>20</span>,
-                 <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>"danger"</span>,
-                 <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"sm"</span>,
-                 <span class='kw'>height</span> <span class='kw'>=</span> <span class='st'>"60%"</span>
+               <span class='fu'>verticalProgress</span>(
+                 value = <span class='fl'>20</span>,
+                 status = <span class='st'>"danger"</span>,
+                 size = <span class='st'>"sm"</span>,
+                 height = <span class='st'>"60%"</span>
                )
              )
            ),
-           <span class='kw'>back_content</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/tag'>tagList</a></span>(
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/column'>column</a></span>(
-               <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>12</span>,
-               <span class='kw'>align</span> <span class='kw'>=</span> <span class='st'>"center"</span>,
-               <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/radioButtons'>radioButtons</a></span>(
-                 <span class='st'>"dist"</span>,
+           back_content = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
+             <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
+               width = <span class='fl'>12</span>,
+               align = <span class='st'>"center"</span>,
+               <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html'>radioButtons</a></span>(
+                 <span class='st'>"dist"</span>, 
                  <span class='st'>"Distribution type:"</span>,
-                 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Normal"</span> <span class='kw'>=</span> <span class='st'>"norm"</span>,
-                   <span class='st'>"Uniform"</span> <span class='kw'>=</span> <span class='st'>"unif"</span>,
-                   <span class='st'>"Log-normal"</span> <span class='kw'>=</span> <span class='st'>"lnorm"</span>,
-                   <span class='st'>"Exponential"</span> <span class='kw'>=</span> <span class='st'>"exp"</span>
+                 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Normal"</span> = <span class='st'>"norm"</span>,
+                   <span class='st'>"Uniform"</span> = <span class='st'>"unif"</span>,
+                   <span class='st'>"Log-normal"</span> = <span class='st'>"lnorm"</span>,
+                   <span class='st'>"Exponential"</span> = <span class='st'>"exp"</span>
                  )
                )
              ),
-             <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/plotOutput'>plotOutput</a></span>(<span class='st'>"plot"</span>)
+             <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"plot"</span>)
            )
        )
        )
      )
    ),
-   <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"flipBox"</span>
+   title = <span class='st'>"flipBox"</span>
    ),
-   <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
-     <span class='no'>output</span>$<span class='no'>distPlot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/renderPlot'>renderPlot</a></span>({
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>input</span>$<span class='no'>obs</span>))
+   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
+     <span class='kw'>output</span><span class='op'>$</span><span class='kw'>distPlot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html'>renderPlot</a></span>({
+       <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>obs</span>))
      })
-     <span class='no'>output</span>$<span class='no'>plot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/renderPlot'>renderPlot</a></span>({
-       <span class='no'>dist</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/switch'>switch</a></span>(<span class='no'>input</span>$<span class='no'>dist</span>,
-                      <span class='kw'>norm</span> <span class='kw'>=</span> <span class='no'>rnorm</span>,
-                      <span class='kw'>unif</span> <span class='kw'>=</span> <span class='no'>runif</span>,
-                      <span class='kw'>lnorm</span> <span class='kw'>=</span> <span class='no'>rlnorm</span>,
-                      <span class='kw'>exp</span> <span class='kw'>=</span> <span class='no'>rexp</span>,
-                      <span class='no'>rnorm</span>)
-
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/dist'>dist</a></span>(<span class='fl'>500</span>))
+     <span class='kw'>output</span><span class='op'>$</span><span class='kw'>plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html'>renderPlot</a></span>({
+       <span class='kw'>dist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/switch.html'>switch</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>dist</span>,
+                      norm = <span class='kw'>rnorm</span>,
+                      unif = <span class='kw'>runif</span>,
+                      lnorm = <span class='kw'>rlnorm</span>,
+                      exp = <span class='kw'>rexp</span>,
+                      <span class='kw'>rnorm</span>)
+       
+       <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='fl'>500</span>))
      })
    }
   )
-}</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+}
 
-    <h2>Author</h2>
-    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -411,13 +426,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

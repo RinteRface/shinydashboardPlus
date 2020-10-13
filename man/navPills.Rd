@@ -2,20 +2,75 @@
 % Please edit documentation in R/useful-items.R
 \name{navPills}
 \alias{navPills}
+\alias{updateNavPills}
+\alias{navPillsItem}
 \title{AdminLTE2 nav pill container}
 \usage{
-navPills(...)
+navPills(..., id = NULL)
+
+updateNavPills(id, selected, session = shiny::getDefaultReactiveDomain())
+
+navPillsItem(
+  left = NULL,
+  right = NULL,
+  color = NULL,
+  icon = NULL,
+  selected = FALSE
+)
 }
 \arguments{
-\item{...}{slot for navPillsItem.}
+\item{...}{slot for \link{navPillsItem}.}
+
+\item{id}{\link{navPills} unique id to target.}
+
+\item{selected}{Whether the item is active or not. FALSE by default.}
+
+\item{session}{Shiny session object.}
+
+\item{left}{pill left text.}
+
+\item{right}{pill right text.}
+
+\item{color}{pill color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
+See below:
+\itemize{
+ \item \code{light_blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
+ \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
+ \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
+ \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
+ \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
+ \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
+ \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
+ \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
+ \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
+ \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
+ \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
+ \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
+ \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
+ \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
+ \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
+ \item \code{gray_lte}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
+}}
+
+\item{icon}{pill icon, if any.}
 }
 \description{
-Create a container for nav elements
+\link{navPills} creates a container for nav elements. They are vertically stacked.
+To insert in \link{box}.
+
+\link{updateNavPills} allows to programmatically change the currently
+selected \link{navPillsItem} on the client.
+
+\link{navPillsItem} creates a nav pill item.
 }
 \examples{
+
+# navPills
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -26,17 +81,17 @@ if (interactive()) {
       status = "info",
       "Box Body",
       footer = navPills(
+        id = "pillItem",
         navPillsItem(
-          pillName = "Item 1", 
-          pillColor = "green",
-          pillIcon = NULL, 
-          pillText = 10
+          left = "Item 1", 
+          color = "green",
+          right = 10
         ),
         navPillsItem(
-          pillName = "Item 2", 
-          pillColor = "red",
-          pillIcon = "fa fa-angle-down", 
-          pillText = "10\%",
+          left = "Item 2", 
+          color = "red",
+          icon = icon("angle-down"), 
+          right = "10\%",
           active = TRUE
         )
       )
@@ -44,10 +99,66 @@ if (interactive()) {
     ),
     title = "Nav Pills"
   ),
-  server = function(input, output) { }
+  server = function(input, output) {
+   observeEvent(input$pillItem, {
+    showNotification(sprintf("You clicked on pill N° \%s", input$pillItem), type = "message")
+   })
+  }
  )
 }
 
+
+# update navPills
+if (interactive()) {
+ library(shiny)
+ library(shinydashboard)
+ library(shinydashboardPlus)
+ 
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     radioButtons("controller", "Controller", choices = c(1, 2, 3)),
+     br(),
+     box(
+      title = "Nav Pills",
+      status = "info",
+      "Box Body",
+      footer = navPills(
+        inputId = "pills",
+        navPillsItem(
+          left = "Item 1", 
+          color = "green",
+          right = 10
+        ),
+        navPillsItem(
+          left = "Item 2", 
+          color = "red",
+          icon = icon("angle-down"), 
+          right = "10\%"
+        ),
+        navPillsItem(
+          left = "Item 3", 
+          color = "blue",
+          icon = icon("angle-up"), 
+          right = "30\%"
+        )
+      )
+     )
+    ),
+    title = "Nav Pills"
+  ),
+  server = function(input, output, session) {
+   observeEvent(input$controller, {
+    updateNavPills(id = "pills", selected = input$controller)
+   })
+   observeEvent(input$pills, {
+    showNotification(sprintf("You selected pill N° \%s", input$pills), type = "message")
+   })
+  }
+ )
+}
 }
 \author{
 David Granjon, \email{dgranjon@ymail.com}

@@ -8,21 +8,36 @@
 
 <title>AdminLTE2 accordion container — accordion • shinydashboardPlus</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +45,15 @@
 
 
 
-<meta property="og:title" content="AdminLTE2 accordion container — accordion" />
+  <link href="../extra.css" rel="stylesheet">
+  
 
-<meta property="og:description" content="Create an accordion container" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="AdminLTE2 accordion container — accordion" />
+<meta property="og:description" content="Create an accordion container. Accordions are part of collapsible elements.
+accordionItem creates an accordion item to put inside an accordion container.
+updateAccordion toggles an accordion on the client." />
+<meta property="og:image" content="/logo.svg" />
+
 
 
 
@@ -47,9 +67,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
       </span>
     </div>
 
@@ -76,6 +97,9 @@
   </a>
 </li>
 <li>
+  <a href="../articles/shinydashboardPlus.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -85,51 +109,35 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">User Guide</li>
+    <li>
+      <a href="../articles/improved-boxes.html">Improved boxes</a>
+    </li>
     <li>
       <a href="../articles/box-elements.html">Box Elements</a>
     </li>
     <li>
-      <a href="../articles/boxPlus-sidebar.html">Sidebar in boxes?</a>
+      <a href="../articles/extra-elements.html">Extra Elements</a>
+    </li>
+    <li>
+      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
+    </li>
+    <li>
+      <a href="../articles/more-skins.html">Improved Skins</a>
     </li>
     <li>
       <a href="../articles/css-preloader.html">CSS preloaders</a>
     </li>
     <li>
-      <a href="../articles/extra-css-effects.html">Extra CSS effects</a>
-    </li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
-      <a href="../articles/left-menu-navbar.html">Left menu in the navbar</a>
-    </li>
-    <li>
-      <a href="../articles/rightSidebar.html">Using the rightSidebar</a>
+      <a href="../articles/enhanced-header.html">Enhanced Header Elements</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Changelog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Releases</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.5.9000</li>
-    <li class="dropdown-header">shinydashboardPlus 0.7.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.6.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.5.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.2.0</li>
-    <li class="dropdown-header">shinydashboardPlus 0.1.0</li>
-    <li class="divider"></li>
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
@@ -144,6 +152,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -155,85 +164,165 @@
     </div>
 
     <div class="ref-description">
-    
-    <p>Create an accordion container</p>
-    
+    <p>Create an accordion container. Accordions are part of collapsible elements.</p>
+<p>accordionItem creates an accordion item to put inside an accordion container.</p>
+<p>updateAccordion toggles an accordion on the client.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>accordion</span>(<span class='no'>...</span>, <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>accordion</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, width = <span class='fl'>12</span>)
+
+<span class='fu'>accordionItem</span>(<span class='kw'>...</span>, <span class='kw'>title</span>, status = <span class='kw'>NULL</span>, collapsed = <span class='fl'>TRUE</span>)
+
+<span class='fu'>updateAccordion</span>(<span class='kw'>id</span>, <span class='kw'>selected</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>slot for accordionItem.</p></td>
+      <td><p>text to write in the item.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
-      <td><p>Unique accordion id.</p></td>
+      <th>id</th>
+      <td><p>Accordion to target.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>The width of the accordion.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>item title.</p></td>
+    </tr>
+    <tr>
+      <th>status</th>
+      <td><p>item status.
+Valid statuses are defined as follows:</p><ul>
+<li><p><code>primary</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc</p></li>
+<li><p><code>success</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a</p></li>
+<li><p><code>info</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef</p></li>
+<li><p><code>warning</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12</p></li>
+<li><p><code>danger</code>: <span style='width:12px;height:12px;background:#f56954;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f56954</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>collapsed</th>
+      <td><p>Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.</p></td>
+    </tr>
+    <tr>
+      <th>selected</th>
+      <td><p>Index of the newly selected accordionItem.</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
     </tr>
     </table>
-    
+
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shiny</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shinydashboard</span>)
- <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardPage'>dashboardPage</a></span>(
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardHeader'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardSidebar'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/shinydashboard/topics/dashboardBody'>dashboardBody</a></span>(
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
       <span class='fu'>accordion</span>(
-       <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"accordion1"</span>,
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 1 Item 1"</span>,
-          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"danger"</span>,
-          <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+       id = <span class='st'>"accordion1"</span>,
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 1 Item 1"</span>,
+          status = <span class='st'>"danger"</span>,
+          collapsed = <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 1 Item 2"</span>,
-          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
-          <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 1 Item 2"</span>,
+          status = <span class='st'>"warning"</span>,
+          collapsed = <span class='fl'>FALSE</span>,
           <span class='st'>"This is some text!"</span>
         )
       ),
       <span class='fu'>accordion</span>(
-       <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"accordion2"</span>,
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 2 Item 1"</span>,
-          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"danger"</span>,
-          <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+       id = <span class='st'>"accordion2"</span>,
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 2 Item 1"</span>,
+          status = <span class='st'>"info"</span>,
+          collapsed = <span class='fl'>TRUE</span>,
           <span class='st'>"This is some text!"</span>
         ),
-        <span class='fu'><a href='accordionItem.html'>accordionItem</a></span>(
-          <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion 2 Item 2"</span>,
-          <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"warning"</span>,
-          <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 2 Item 2"</span>,
+          status = <span class='st'>"success"</span>,
+          collapsed = <span class='fl'>FALSE</span>,
           <span class='st'>"This is some text!"</span>
         )
       )
     ),
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Accordion"</span>
+    title = <span class='st'>"Accordion"</span>
   ),
-  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) { }
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
  )
-}</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+}
 
-    <h2>Author</h2>
-    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
+
+<span class='co'># Update accordion</span>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+ 
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
+  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html'>radioButtons</a></span>(<span class='st'>"controller"</span>, <span class='st'>"Controller"</span>, choices = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>)),
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
+      <span class='fu'>accordion</span>(
+        id = <span class='st'>"accordion1"</span>,
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 1 Item 1"</span>,
+          status = <span class='st'>"danger"</span>,
+          collapsed = <span class='fl'>TRUE</span>,
+          <span class='st'>"This is some text!"</span>
+        ),
+        <span class='fu'>accordionItem</span>(
+          title = <span class='st'>"Accordion 1 Item 2"</span>,
+          status = <span class='st'>"warning"</span>,
+          collapsed = <span class='fl'>TRUE</span>,
+          <span class='st'>"This is some text!"</span>
+        )
+      )
+    ),
+    title = <span class='st'>"Update Accordion"</span>
+  ),
+  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>, {
+      <span class='fu'><a href='navPills.html'>updateNavPills</a></span>(id = <span class='st'>"accordion1"</span>, selected = <span class='kw'>input</span><span class='op'>$</span><span class='kw'>controller</span>)
+    })
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observe.html'>observe</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>accordion1</span>))
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>accordion1</span>, {
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"You selected accordion N° %s"</span>, <span class='kw'>input</span><span class='op'>$</span><span class='kw'>accordion1</span>), type = <span class='st'>"message"</span>)
+    })
+  }
+ )
+}
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -241,13 +330,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

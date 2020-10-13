@@ -3,6 +3,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^cran-comments\.md$
-^\.travis\.yml$
-^_pkgdown\.yml$
+^pkgdown$
 ^docs$
+^\.vscode$
+^\.github$
+^CODE_OF_CONDUCT\.md$
+^index\.md$
+^inst/vignettes-demos$

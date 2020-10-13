@@ -2,26 +2,40 @@
 % Please edit documentation in R/boxes.R
 \name{boxProfile}
 \alias{boxProfile}
+\alias{boxProfileItem}
 \title{AdminLTE2 box profile}
 \usage{
-boxProfile(..., src = NULL, title = NULL, subtitle = NULL)
+boxProfile(..., image = NULL, title, subtitle = NULL, bordered = FALSE)
+
+boxProfileItem(title, description)
 }
 \arguments{
-\item{...}{any element such as boxProfileItemList.}
+\item{...}{any element such as \link{boxProfileItem}.}
 
-\item{src}{profile image, if any.}
+\item{image}{profile image, if any.}
 
-\item{title}{title.}
+\item{title}{item title.}
 
 \item{subtitle}{subtitle.}
+
+\item{bordered}{Whether the container should have a border or not. FALSE by default.}
+
+\item{description}{item info.}
 }
 \description{
-Create box profile
+\link{boxProfile} goes inside a \link{box}. Displays user informations in an elegant
+container.
+
+\link{boxProfileItem} is an sub-element of a \link{boxProfile}.
 }
 \examples{
+
+# Box with boxProfile
 if (interactive()) {
  library(shiny)
  library(shinydashboard)
+ library(shinydashboardPlus)
+ 
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -31,23 +45,21 @@ if (interactive()) {
       title = "Box with profile",
       status = "primary",
       boxProfile(
-       src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+       image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
        title = "Nina Mcintire",
        subtitle = "Software Engineer",
-       boxProfileItemList(
-        bordered = TRUE,
-        boxProfileItem(
-         title = "Followers",
-         description = 1322
-        ),
-        boxProfileItem(
-         title = "Following",
-         description = 543
-        ),
-        boxProfileItem(
-         title = "Friends",
-         description = 13287
-        )
+       bordered = TRUE,
+       boxProfileItem(
+        title = "Followers",
+        description = 1322
+       ),
+       boxProfileItem(
+        title = "Following",
+        description = 543
+       ),
+       boxProfileItem(
+        title = "Friends",
+        description = 13287
        )
       )
      )

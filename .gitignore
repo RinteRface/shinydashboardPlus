@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 inst/doc
+.vscode
+**/.DS_Store
+inst/vignettes-demos/**/rsconnect

@@ -216,9 +216,9 @@ extra_elements_tab <- tabItem(
         title = "Attachment example",
         width = NULL,
         attachmentBlock(
-          src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
           title = "Test",
-          title_url = "http://google.com",
+          href = "http://google.com",
           "This is the content"
         )
       ) 
@@ -235,9 +235,9 @@ extra_elements_tab <- tabItem(
         value = paste(
           style_text(
             'attachmentBlock(
-            src = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
             title = "Test",
-            title_url = "http://google.com",
+            href = "http://google.com",
             "This is the content"
           )'
           ), 
@@ -247,42 +247,9 @@ extra_elements_tab <- tabItem(
     )
   ),
   
-  # ################
-  # demo rightSidebarMenu()
-  # ################
-  
-  br(),
-  
-  column(
-    width = 12,
-    align = "center",
-    h1("rightSidebarMenu()")
-  ),
-  
-  br(),
-  
-  fluidRow(
-    # demo rightSidebarMenu
-    column(
-      width = 6,
-      eval(parse(text = rightsidebar_menu)) 
-    ),
-    # ace editor
-    column(
-      width = 6,
-      aceEditor(
-        theme = "dracula",
-        mode = "r",
-        height = "400px",
-        outputId = "rightSidebarMenu_code",
-        readOnly = TRUE,
-        value = paste(rightsidebar_menu, collapse = "\n")
-      ) 
-    )
-  ),
   
   # ################
-  # demo verticalProgress()
+  # demo progressBar()
   # ################
   
   br(),
@@ -290,13 +257,12 @@ extra_elements_tab <- tabItem(
   column(
     width = 12,
     align = "center",
-    h1("verticalProgress()")
+    h1("progressBar()")
   ),
   
   br(),
   
   fluidRow(
-    # demo verticalProgress
     column(
       width = 6,
       eval(parse(text = vertical_progress)) 
