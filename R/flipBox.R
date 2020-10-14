@@ -1,36 +1,8 @@
-#' flip_button_front
+#' flipBox
 #' 
-#' @export
-#' @param id the flipbox id
-#' @param text the button text
-flip_button_front <- function(id, text) {
-  tags$button(
-    id = paste0("btn-flip-front-", id),
-    class = "btn btn-primary btn-rotate",
-    text
-  )
-}
-
-
-#' flip_button_back 
+#' Create a flipping box based off of the AdminLTE flipBox.
 #' 
-#' @export
-#' @param id the flipbox id
-#' @param text the button text
-flip_button_back <- function(id, text) {
-  tags$button(
-    id = paste0("btn-flip-back-", id),
-    class = "btn btn-primary btn-rotate",
-    text
-  )
-}
-
-
-#' flip_box
-#' 
-#' AdminLTE flipBox.
-#' 
-#' @param id the flipbox id
+#' @param id the \code{flipBox} id
 #' @param front_content ui for the front of the flip box
 #' @param back_content ui for the back of the flip box
 #' @param front_text text for front button
@@ -41,6 +13,11 @@ flip_button_back <- function(id, text) {
 #' @references \url{https://rinterface.github.io/shinydashboardPlus/reference/flipBox.html}
 #' 
 #' @return HTML tagList
+#' 
+#' @details To access the state of the flipbox use the input alias \code{input$<id>_value}.
+#'   For example, if your flipBox's id is myawesomeflipbox, you can access its state via
+#'   \code{input$myawesomeflipbox_value} where a 0 corresponds to the front, 1 the back, and NULL 
+#'   indicates the input has not been set yet (i.e. the card has not flipped yet). 
 #' 
 #' @examples
 #' library(shiny)
@@ -79,31 +56,31 @@ flip_button_back <- function(id, text) {
 #' @export
 #' @importFrom htmltools tagList
 #' @importFrom shiny singleton
-flip_box <- function(
-  id, 
-  front_content, 
-  back_content, 
-  front_text = "More Info",
-  back_text = "Back to Front"
-) {
+flipBox <- function(id, 
+                    front_content, 
+                    back_content, 
+                    front_text = "More Info",
+                    back_text = "Back to Front") {
   
-  if (is.null(id)) stop("card id cannot be null and must be unique")
+  if (is.null(id) || missing(id)) stop("card id cannot be null or missing!")
+  
+  alias <- paste0(id, "_value")
   
   front_content <- htmltools::tagList(
     front_content,
     div(
       class = "text-center",
       id = "go_to_back",
-      flip_button_front("id", front_text)
+      flipButtonFront("id", front_text)
     )
   )
   
   back_content <- htmltools::tagList(
     back_content,
-    div(
+    tags$div(
       class = "text-center",
       id = "go_to_front",
-      flip_button_back("id", back_text)
+      flipButtonBack("id", back_text)
     )
   )
   
@@ -124,6 +101,8 @@ flip_box <- function(
       htmltools::tagList(
         shiny::singleton(
           tags$head(
+            tags$script(src = system.file("shinydashboardPlus-0.6.0", "flipBox.js", package = "shinydashboardPlus")),
+            tags$script(paste0("flipBox_js('", id, "')")),
             tags$style(
               paste0(
                 "/* Card styles for rotation */
@@ -193,10 +172,12 @@ flip_box <- function(
                 $('#go_to_back').click(function(){
                   $('#go_to_back').hide()
                   $('#go_to_front').show()
+                  Shiny.setInputValue(", "'", alias, "', 0, { priority: 'event'})
               });
               $('#go_to_front').click(function(){
                 $('#go_to_front').hide()
                 $('#go_to_back').show()
+                Shiny.setInputValue(", "'", alias, "', 1, { priority: 'event'})
               });
               });
               "
@@ -208,6 +189,37 @@ flip_box <- function(
     )
   )
 }
+
+
+#' flipButtonFront
+#' 
+#' @export
+#' @param id the \code{flipbox} id
+#' @param text the button text
+flipButtonFront <- function(id, text) {
+  tags$button(
+    id = paste0("btn-flip-front-", id),
+    class = "btn btn-primary btn-rotate",
+    text
+  )
+}
+
+
+#' flipButtonBack 
+#' 
+#' @export
+#' @param id the \code{flipBox} id
+#' @param text the button text
+flipButtonBack <- function(id, text) {
+  tags$button(
+    id = paste0("btn-flip-back-", id),
+    class = "btn btn-primary btn-rotate",
+    text
+  )
+}
+
+
+
 
 #' flip_box_demo
 #' 
@@ -221,10 +233,10 @@ flip_box <- function(
 #' @examples
 #' \dontrun{
 #' library(shinydashboardPlus)
-#' flip_box_demo()
+#' flipBoxDemo()
 #' }
-flip_box_demo <- function() {
+flipBoxDemo <- function() {
   
-  shiny::runApp(appDir = system.file("flip_box_demo", "app.R", package = "shinydashboardPlus"))
+  shiny::runApp(appDir = system.file("flipBoxDemo", "app.R", package = "shinydashboardPlus"))
   
 }
