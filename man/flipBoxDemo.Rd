@@ -2,7 +2,7 @@
 % Please edit documentation in R/flipBox.R
 \name{flipBoxDemo}
 \alias{flipBoxDemo}
-\title{flip_box_demo}
+\title{flipBoxDemo}
 \usage{
 flipBoxDemo()
 }
@@ -10,7 +10,7 @@ flipBoxDemo()
 shinyApp
 }
 \description{
-runs an internal flip_box_demo application.
+runs an internal flipBoxDemo application.
 }
 \examples{
 \dontrun{

@@ -28,7 +28,7 @@
 #'     dashboardHeader(),
 #'     dashboardSidebar(),
 #'     dashboardBody(
-#'       flip_box(
+#'       flipBox(
 #'         id = "id",
 #'         front_content = div(
 #'           class = "text-center",
@@ -54,7 +54,7 @@
 #' )
 #'    
 #' @export
-#' @importFrom htmltools tagList
+#' @importFrom htmltools tagList tags
 #' @importFrom shiny singleton
 flipBox <- function(id, 
                     front_content, 
@@ -219,9 +219,9 @@ flipButtonBack <- function(id, text) {
 
 
 
-#' flip_box_demo
+#' flipBoxDemo
 #' 
-#' runs an internal flip_box_demo application.
+#' runs an internal flipBoxDemo application.
 #'
 #' @return shinyApp
 #' @export
