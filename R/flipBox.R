@@ -68,7 +68,7 @@ flipBox <- function(id,
   
   front_content <- htmltools::tagList(
     front_content,
-    div(
+    htmltools::tags$div(
       class = "text-center",
       id = "go_to_back",
       flipButtonFront("id", front_text)
@@ -77,7 +77,7 @@ flipBox <- function(id,
   
   back_content <- htmltools::tagList(
     back_content,
-    tags$div(
+    htmltools::tags$div(
       class = "text-center",
       id = "go_to_front",
       flipButtonBack("id", back_text)
@@ -85,22 +85,22 @@ flipBox <- function(id,
   )
   
   htmltools::tagList(
-    tags$div(
+    htmltools::tags$div(
       class = "rotate-container",
       id = id,
-      tags$div(
+      htmltools::tags$div(
         class = paste0("card-front-", id),
         style = "background-color: white;",
         front_content
       ),
-      tags$div(
+      htmltools::tags$div(
         class = paste0("card-back-", id),
         style = "background-color: white;",
         back_content
       ),
       htmltools::tagList(
         shiny::singleton(
-          tags$head(
+          htmltools::tags$head(
             tags$style(
               paste0(
                 "/* Card styles for rotation */
@@ -145,7 +145,7 @@ flipBox <- function(id,
           "
               )
             ),
-            tags$script(
+            htmltools::tags$script(
               paste0(
                 "$(function() {
 
@@ -164,7 +164,7 @@ flipBox <- function(id,
               });"
               )
             ),
-            tags$script(
+            htmltools::tags$script(
               paste0(
                 "$(function() {
                 $('#go_to_back').click(function(){
@@ -195,7 +195,7 @@ flipBox <- function(id,
 #' @param id the \code{flipbox} id
 #' @param text the button text
 flipButtonFront <- function(id, text) {
-  tags$button(
+  htmltools::tags$button(
     id = paste0("btn-flip-front-", id),
     class = "btn btn-primary btn-rotate",
     text
@@ -209,7 +209,7 @@ flipButtonFront <- function(id, text) {
 #' @param id the \code{flipBox} id
 #' @param text the button text
 flipButtonBack <- function(id, text) {
-  tags$button(
+  htmltools::tags$button(
     id = paste0("btn-flip-back-", id),
     class = "btn btn-primary btn-rotate",
     text
