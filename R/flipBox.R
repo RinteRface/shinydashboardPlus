@@ -101,8 +101,6 @@ flipBox <- function(id,
       htmltools::tagList(
         shiny::singleton(
           tags$head(
-            tags$script(src = system.file("shinydashboardPlus-0.6.0", "flipBox.js", package = "shinydashboardPlus")),
-            tags$script(paste0("flipBox_js('", id, "')")),
             tags$style(
               paste0(
                 "/* Card styles for rotation */
