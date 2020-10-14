@@ -172,12 +172,12 @@ flipBox <- function(id,
                 $('#go_to_back').click(function(){
                   $('#go_to_back').hide()
                   $('#go_to_front').show()
-                  Shiny.setInputValue(", "'", alias, "', 0, { priority: 'event'})
+                  Shiny.setInputValue(", "'", alias, "', 1, { priority: 'event'})
               });
               $('#go_to_front').click(function(){
                 $('#go_to_front').hide()
                 $('#go_to_back').show()
-                Shiny.setInputValue(", "'", alias, "', 1, { priority: 'event'})
+                Shiny.setInputValue(", "'", alias, "', 0, { priority: 'event'})
               });
               });
               "
