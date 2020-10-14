@@ -1252,7 +1252,7 @@ boxProfileItem <- function(title, description) {
 
 
 
-#' @title AdminLTE2 flipping box
+#' @title AdminLTE2 flipping box meant for displaying a User
 #'
 #' @description Create a flipping box
 #'
@@ -1286,7 +1286,7 @@ boxProfileItem <- function(title, description) {
 #'          column(
 #'            width = 6,
 #'            align = "center",
-#'            flipBox(
+#'            flipUserBox(
 #'              id = 1,
 #'              main_img = "https://image.flaticon.com/icons/svg/149/149076.svg",
 #'              header_img = "https://image.flaticon.com/icons/svg/119/119595.svg",
@@ -1356,7 +1356,7 @@ boxProfileItem <- function(title, description) {
 #'        column(
 #'          width = 6,
 #'          align = "center",
-#'          flipBox(
+#'          flipUserBox(
 #'            id = 2,
 #'            main_img = "https://image.flaticon.com/icons/svg/149/149073.svg",
 #'            header_img = "https://image.flaticon.com/icons/svg/119/119598.svg",
@@ -1433,7 +1433,7 @@ boxProfileItem <- function(title, description) {
 #'        )
 #'      )
 #'    ),
-#'    title = "flipBox"
+#'    title = "flipUserBox"
 #'    ),
 #'    server = function(input, output) {
 #'      output$distPlot <- renderPlot({
@@ -1454,7 +1454,7 @@ boxProfileItem <- function(title, description) {
 #' }
 #'
 #' @export
-flipBox <- function(..., back_content, id, front_title = NULL, back_title = NULL, 
+flipUserBox <- function(..., back_content, id, front_title = NULL, back_title = NULL, 
                     front_btn_text = "More", back_btn_text = "Back to main", 
                     header_img = NULL, main_img = NULL, width = 6) {
   
