@@ -165,23 +165,23 @@
     <p>Create user box</p>
     </div>
 
-    <pre class="usage"><span class='fu'>userBox</span>(
-  <span class='kw'>...</span>,
-  <span class='kw'>title</span>,
-  subtitle = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  color = <span class='kw'>NULL</span>,
-  width = <span class='fl'>6</span>,
-  height = <span class='kw'>NULL</span>,
-  collapsible = <span class='fl'>TRUE</span>,
-  collapsed = <span class='fl'>FALSE</span>,
-  closable = <span class='fl'>FALSE</span>,
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
-  image = <span class='kw'>NULL</span>,
-  backgroundImage = <span class='kw'>NULL</span>,
-  boxToolSize = <span class='st'>"sm"</span>,
-  footerPadding = <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>userBox</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  <span class='va'>title</span>,
+  subtitle <span class='op'>=</span> <span class='cn'>NULL</span>,
+  footer <span class='op'>=</span> <span class='cn'>NULL</span>,
+  color <span class='op'>=</span> <span class='cn'>NULL</span>,
+  width <span class='op'>=</span> <span class='fl'>6</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  collapsed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  closable <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  image <span class='op'>=</span> <span class='cn'>NULL</span>,
+  backgroundImage <span class='op'>=</span> <span class='cn'>NULL</span>,
+  boxToolSize <span class='op'>=</span> <span class='st'>"sm"</span>,
+  footerPadding <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -288,50 +288,50 @@ while 2 is a left aligned user image.</p></td>
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://shiny.rstudio.com'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>userBox</span>(
-      title = <span class='st'>"Nadia Carmichael"</span>,
-      subtitle = <span class='st'>"lead Developer"</span>,
-      type = <span class='fl'>2</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
-      color = <span class='st'>"yellow"</span>,
+ <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+     <span class='fu'>userBox</span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"Nadia Carmichael"</span>,
+      subtitle <span class='op'>=</span> <span class='st'>"lead Developer"</span>,
+      type <span class='op'>=</span> <span class='fl'>2</span>,
+      image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
+      color <span class='op'>=</span> <span class='st'>"yellow"</span>,
       <span class='st'>"Some text here!"</span>,
-      footer = <span class='st'>"The footer here!"</span>
-     ),
-     <span class='fu'>userBox</span>(
-      title = <span class='st'>"Alexander Pierce"</span>,
-      subtitle = <span class='st'>"Founder &amp; CEO"</span>,
-      type = <span class='fl'>1</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-      color = <span class='st'>"aqua"</span>,
-      closable = <span class='fl'>TRUE</span>,
+      footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+     <span class='op'>)</span>,
+     <span class='fu'>userBox</span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"Alexander Pierce"</span>,
+      subtitle <span class='op'>=</span> <span class='st'>"Founder &amp; CEO"</span>,
+      type <span class='op'>=</span> <span class='fl'>1</span>,
+      image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+      color <span class='op'>=</span> <span class='st'>"aqua"</span>,
+      closable <span class='op'>=</span> <span class='cn'>TRUE</span>,
       <span class='st'>"Some text here!"</span>,
-      footer = <span class='st'>"The footer here!"</span>
-     ),
-     <span class='fu'>userBox</span>(
-      title = <span class='st'>"Elizabeth Pierce"</span>,
-      subtitle = <span class='st'>"Web Designer"</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-      backgroundImage = <span class='st'>"https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg"</span>,
-      closable = <span class='fl'>TRUE</span>,
+      footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+     <span class='op'>)</span>,
+     <span class='fu'>userBox</span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"Elizabeth Pierce"</span>,
+      subtitle <span class='op'>=</span> <span class='st'>"Web Designer"</span>,
+      image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+      backgroundImage <span class='op'>=</span> <span class='st'>"https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg"</span>,
+      closable <span class='op'>=</span> <span class='cn'>TRUE</span>,
       <span class='st'>"Some text here!"</span>,
-      footer = <span class='st'>"The footer here!"</span>
-     )
-    ),
-    title = <span class='st'>"UserBox"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+      footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+     <span class='op'>)</span>
+    <span class='op'>)</span>,
+    title <span class='op'>=</span> <span class='st'>"UserBox"</span>
+  <span class='op'>)</span>,
+  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
