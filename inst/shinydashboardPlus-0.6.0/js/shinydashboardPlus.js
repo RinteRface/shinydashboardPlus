@@ -531,6 +531,12 @@ $(function() {
         height: config.height
       }; // this will be a list in R
     },
+    _updateWidth: function(el, o, n) {
+      $(el).parent().toggleClass("col-sm-" + o);
+      $(el).parent().addClass("col-sm-" + n); 
+      // trigger resize so that output resize
+      $(el).trigger('resize');
+    },
     setValue: function(el, value) {
       
       var config = $(el).parent().find("script[data-for='" + el.id + "']");
@@ -581,12 +587,8 @@ $(function() {
         }
         if (value.options.hasOwnProperty("width")) {
           if (value.options.width !== config.width) {
-            $(el).parent().toggleClass("col-sm-" + config.width);
-            $(el).parent().addClass("col-sm-" + value.options.width); 
+            this._updateWidth(el, config.width, value.options.width)
             config.width = value.options.width;
-            
-            // trigger resize so that output resize
-            $(el).trigger('resize');
           }
         }
         if (value.options.hasOwnProperty("height")) {
