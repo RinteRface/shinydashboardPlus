@@ -71,7 +71,7 @@ flipBox <- function(id,
     htmltools::tags$div(
       class = "text-center",
       id = "go_to_back",
-      flipButtonFront("id", front_text)
+      flipButtonFront(id, front_text)
     )
   )
   
@@ -80,7 +80,7 @@ flipBox <- function(id,
     htmltools::tags$div(
       class = "text-center",
       id = "go_to_front",
-      flipButtonBack("id", back_text)
+      flipButtonBack(id, back_text)
     )
   )
   
