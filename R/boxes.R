@@ -1592,17 +1592,20 @@ flipUserBox <- function(..., back_content, id, front_title = NULL, back_title = 
           shiny::HTML(
             paste0(
               "$(function() {
+
                 // For card rotation
-                $('#btn-", id,"-front').click(function(){
-                  $('.card-front-", id,"').addClass(' rotate-card-front-", id, "');
-                  $('.card-back-", id,"').addClass(' rotate-card-back-", id, "');
+                $(document).on('click','#btn-", id, "-front', {} ,function(){
+                  $('.card-front-", id, "').addClass(' rotate-card-front-", id, "');
+                  $('.card-back-", id, "').addClass(' rotate-card-back-", id, "');
                 });
-                $('#btn-", id,"-back').click(function(){
-                  $('.card-front-", id,"').removeClass(' rotate-card-front-", id, "');
-                  $('.card-back-", id,"').removeClass(' rotate-card-back-", id, "');
+
+                $(document).on('click','#btn-", id, "-back', {} ,function(){
+
+                  $('.card-front-", id, "').removeClass(' rotate-card-front-", id, "');
+                  $('.card-back-", id, "').removeClass(' rotate-card-back-", id, "');
                 });
-              });
-              "
+
+              });"
             )
           )
         )
