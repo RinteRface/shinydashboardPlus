@@ -150,12 +150,12 @@ flipBox <- function(id,
                 "$(function() {
 
                 // For card rotation
-                $(document).on('click','#btn-", id, "-front', {} ,function(){
+                $(document).on('click','#btn-flip-front-", id, "', {} ,function(){
                   $('.card-front-", id, "').addClass(' rotate-card-front-", id, "');
                   $('.card-back-", id, "').addClass(' rotate-card-back-", id, "');
                 });
 
-                $(document).on('click','#btn-", id, "-back', {} ,function(){
+                $(document).on('click','#btn-flip-back-", id, "', {} ,function(){
 
                   $('.card-front-", id, "').removeClass(' rotate-card-front-", id, "');
                   $('.card-back-", id, "').removeClass(' rotate-card-back-", id, "');
