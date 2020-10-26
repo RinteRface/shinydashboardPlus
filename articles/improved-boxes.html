@@ -110,13 +110,14 @@
 
       
 
-      </header><script src="improved-boxes_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="improved-boxes_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="improved-boxes_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
+<script src="improved-boxes_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Improved boxes</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-10-18</h4>
+            <h4 class="date">2020-10-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/improved-boxes.Rmd"><code>vignettes/improved-boxes.Rmd</code></a></small>
       <div class="hidden name"><code>improved-boxes.Rmd</code></div>
@@ -535,6 +536,96 @@ Some userBox components
 <div id="comming-back-soon-flipbox" class="section level4">
 <h4 class="hasAnchor">
 <a href="#comming-back-soon-flipbox" class="anchor"></a>Comming back soon: flipBox</h4>
+<p>The <code><a href="../reference/flipBox.html">flipBox()</a></code> is a simple container based on the W3C documentation. It is not originally part of AdminLTE but deserves a place in <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>. It has a front and back container, which may help to display extra information. Be sure to provide the <em>id</em> so that the box may flip. On the server side, a <code>flipBox</code> is toggled by <code>updateFlipBox</code>. There are currently 2 events, that is click and hover.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
+    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span><span class="op">(</span>
+          width <span class="op">=</span> <span class="fl">6</span>,
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"active_side"</span><span class="op">)</span>, 
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle"</span>, <span class="st">"Toggle flip box"</span><span class="op">)</span>,
+          <span class="fu"><a href="../reference/flipBox.html">flipBox</a></span><span class="op">(</span>
+            id <span class="op">=</span> <span class="st">"myflipbox"</span>, 
+            trigger <span class="op">=</span> <span class="st">"hover"</span>,
+            width <span class="op">=</span> <span class="fl">12</span>,
+            front <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span>
+              class <span class="op">=</span> <span class="st">"text-center"</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">img</a></span><span class="op">(</span>
+                src <span class="op">=</span> <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
+                height <span class="op">=</span> <span class="st">"300px"</span>,
+                width <span class="op">=</span> <span class="st">"100%"</span>
+              <span class="op">)</span>
+            <span class="op">)</span>,
+            back <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span>
+              class <span class="op">=</span> <span class="st">"text-center"</span>,
+              height <span class="op">=</span> <span class="st">"300px"</span>,
+              width <span class="op">=</span> <span class="st">"100%"</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"More information...."</span><span class="op">)</span>
+            <span class="op">)</span>
+          <span class="op">)</span>
+        <span class="op">)</span>,
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span><span class="op">(</span>
+          width <span class="op">=</span> <span class="fl">6</span>,
+          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"active_side_2"</span><span class="op">)</span>,
+          <span class="fu"><a href="../reference/flipBox.html">flipBox</a></span><span class="op">(</span>
+            id <span class="op">=</span> <span class="st">"myflipbox2"</span>,
+            width <span class="op">=</span> <span class="fl">12</span>,
+            front <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span>
+              class <span class="op">=</span> <span class="st">"text-center"</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">img</a></span><span class="op">(</span>
+                src <span class="op">=</span> <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
+                height <span class="op">=</span> <span class="st">"300px"</span>,
+                width <span class="op">=</span> <span class="st">"100%"</span>
+              <span class="op">)</span>
+            <span class="op">)</span>,
+            back <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span>
+              class <span class="op">=</span> <span class="st">"text-center"</span>,
+              height <span class="op">=</span> <span class="st">"300px"</span>,
+              width <span class="op">=</span> <span class="st">"100%"</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,
+              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"More information...."</span><span class="op">)</span>
+            <span class="op">)</span>
+          <span class="op">)</span>
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span>,
+  
+  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">active_side</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
+      <span class="va">side</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">myflipbox</span><span class="op">)</span> <span class="st">"front"</span> <span class="kw">else</span> <span class="st">"back"</span>
+      <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="va">side</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+    
+    <span class="va">output</span><span class="op">$</span><span class="va">active_side_2</span><span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
+      <span class="va">side</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">myflipbox2</span><span class="op">)</span> <span class="st">"front"</span> <span class="kw">else</span> <span class="st">"back"</span>
+      <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="va">side</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+    
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle</span>, <span class="op">{</span>
+     <span class="fu"><a href="../reference/flipBox.html">updateFlipBox</a></span><span class="op">(</span><span class="st">"myflipbox"</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">)</span></pre></div>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-flipBox/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
 </div>
 </div>
 </div>
