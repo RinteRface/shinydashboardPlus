@@ -71,7 +71,7 @@ flipBox <- function(id,
     htmltools::tags$div(
       class = "text-center",
       id = "go_to_back",
-      flipButtonFront("id", front_text)
+      flipButtonFront(id, front_text)
     )
   )
   
@@ -80,7 +80,7 @@ flipBox <- function(id,
     htmltools::tags$div(
       class = "text-center",
       id = "go_to_front",
-      flipButtonBack("id", back_text)
+      flipButtonBack(id, back_text)
     )
   )
   
@@ -150,12 +150,12 @@ flipBox <- function(id,
                 "$(function() {
 
                 // For card rotation
-                $('#btn-flip-front-", id, "').click(function(){
+                $(document).on('click','#btn-flip-front-", id, "', {} ,function(){
                   $('.card-front-", id, "').addClass(' rotate-card-front-", id, "');
                   $('.card-back-", id, "').addClass(' rotate-card-back-", id, "');
                 });
 
-                $('#btn-flip-back-", id, "').click(function(){
+                $(document).on('click','#btn-flip-back-", id, "', {} ,function(){
 
                   $('.card-front-", id, "').removeClass(' rotate-card-front-", id, "');
                   $('.card-back-", id, "').removeClass(' rotate-card-back-", id, "');
