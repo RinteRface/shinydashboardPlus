@@ -394,3 +394,92 @@ shinyApp(
 </div>
 
 #### Comming back soon: flipBox
+The `flipBox()` is a simple container based on the W3C documentation. It is not originally part of AdminLTE but deserves a place in `{shinydashboardPlus}`. It has a front and back container, which may help to display extra information. Be sure to provide the _id_ so that the box may flip. On the server side, a `flipBox` is toggled by `updateFlipBox`. 
+There are currently 2 events, that is click and hover.
+
+```{r, eval=FALSE}
+shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+      fluidRow(
+        column(
+          width = 6,
+          uiOutput("active_side"), 
+          actionButton("toggle", "Toggle flip box"),
+          flipBox(
+            id = "myflipbox", 
+            trigger = "hover",
+            width = 12,
+            front = div(
+              class = "text-center",
+              h1("Flip on hover"),
+              img(
+                src = "https://image.flaticon.com/icons/svg/149/149076.svg",
+                height = "300px",
+                width = "100%"
+              )
+            ),
+            back = div(
+              class = "text-center",
+              height = "300px",
+              width = "100%",
+              h1("Flip on hover"),
+              p("More information....")
+            )
+          )
+        ),
+        column(
+          width = 6,
+          uiOutput("active_side_2"),
+          flipBox(
+            id = "myflipbox2",
+            width = 12,
+            front = div(
+              class = "text-center",
+              h1("Flip on click"),
+              img(
+                src = "https://image.flaticon.com/icons/svg/149/149076.svg",
+                height = "300px",
+                width = "100%"
+              )
+            ),
+            back = div(
+              class = "text-center",
+              height = "300px",
+              width = "100%",
+              h1("Flip on click"),
+              p("More information....")
+            )
+          )
+        )
+      )
+    )
+  ),
+  
+  server = function(input, output, session) {
+    output$active_side <- renderUI({
+      side <- if (input$myflipbox) "front" else "back"
+      dashboardBadge(side, color = "blue")
+    })
+    
+    output$active_side_2<- renderUI({
+      side <- if (input$myflipbox2) "front" else "back"
+      dashboardBadge(side, color = "blue")
+    })
+    
+    observeEvent(input$toggle, {
+     updateFlipBox("myflipbox")
+    })
+  }
+)
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-flipBox/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>

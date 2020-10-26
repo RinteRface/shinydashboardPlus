@@ -931,6 +931,104 @@ $(function() {
   
   
   
+  //---------------------------------------------------------------------
+  // Source file: ../srcjs/input_binding_flipbox.js
+  
+  /* global Shiny */
+  
+  // flipbox
+  // ------------------------------------------------------------------
+  // This code creates an input binding for the flipbox component
+  var flipBoxBinding = new Shiny.InputBinding();
+  
+  $.extend(flipBoxBinding, {
+    find: function(scope) {
+      return $(scope).find(".flipbox");
+    },
+    // Given the DOM element for the input, return the value
+    getValue: function(el) {
+      return $(el).find('.card-front').hasClass('active');
+    },
+    
+    setValue: function(el, value) {
+      var currentSide = $(el).find('.active');
+      if ($(el).data('rotate') === 'hover') {
+        if ($(currentSide).hasClass('card-front')) {
+          $(currentSide).trigger('mouseenter');
+        } else {
+          $(currentSide).trigger('mouseleave');
+        }
+      } else if ($(el).data('rotate') === 'click') {
+        $(currentSide).trigger('click'); 
+      }
+    },
+  
+    // see updateAccordion
+    receiveMessage: function(el, data) {
+      this.setValue(el, data);
+    },
+    _clickOnFront: function(el) {
+      $(el).find('.card-front')
+        .css({
+          "-webkit-transform": "perspective(1600px) rotateY(-180deg)",
+          "transform": "perspective(1600px) rotateY(-180deg)"
+        })
+        .toggleClass('active');
+      $(el).find('.card-back')
+        .css({
+          "-webkit-transform": "perspective(1600px) rotateY(0deg)",
+          "transform": "perspective(1600px) rotateY(0deg)"
+        })
+        .toggleClass('active');
+    },
+    _clickOnBack: function(el) {
+      $(el).find('.card-front')
+        .css({"-webkit-transform": "", "transform": ""})
+        .toggleClass('active');
+      $(el).find('.card-back')
+        .css({"-webkit-transform": "", "transform": ""})
+        .toggleClass('active');
+    },
+    subscribe: function(el, callback) {
+      var self = this; // this will not work inside event listeners since it will
+      // refer to the element we clicked on and not the input binding object!!!
+      
+      // use the data object to identify the trigger
+      if ($(el).data('rotate') === 'hover') {
+        $(el).find('.card-front').on('mouseenter', function() {
+          self._clickOnFront(el);
+          callback();
+        });
+        
+        $(el).find('.card-back').on('mouseleave', function() {
+          self._clickOnBack(el);
+          callback();
+        });
+        
+      } else if ($(el).data('rotate') === 'click') {
+        // click front
+        $(el).on('click', '.card-front', function(e) {
+          self._clickOnFront(el);
+          callback();
+        });
+        
+        // click back
+        $(el).on('click', '.card-back', function(e) {
+          self._clickOnBack(el); 
+          callback();
+        });
+      }
+    },
+  
+    unsubscribe: function(el) {
+      $(el).off(".flipBoxBinding");
+    }
+  });
+  
+  Shiny.inputBindings.register(flipBoxBinding, "flipbox-input");
+  
+  
+  
   
   //---------------------------------------------------------------------
   // Source file: ../srcjs/userMessages.js
