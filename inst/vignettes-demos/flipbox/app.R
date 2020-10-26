@@ -1,3 +1,7 @@
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+
 shinyApp(
   ui = dashboardPage(
     dashboardHeader(),
@@ -55,7 +59,8 @@ shinyApp(
           )
         )
       )
-    )
+    ),
+    title = "flipBox"
   ),
   
   server = function(input, output, session) {
