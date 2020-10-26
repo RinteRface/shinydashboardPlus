@@ -393,7 +393,7 @@ shinyApp(
 <div class="home"></div>
 </div>
 
-#### Comming back soon: flipBox
+#### flipBox
 The `flipBox()` is a simple container based on the W3C documentation. It is not originally part of AdminLTE but deserves a place in `{shinydashboardPlus}`. It has a front and back container, which may help to display extra information. Be sure to provide the _id_ so that the box may flip. On the server side, a `flipBox` is toggled by `updateFlipBox`. 
 There are currently 2 events, that is click and hover.
 
