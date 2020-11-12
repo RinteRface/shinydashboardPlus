@@ -58,7 +58,7 @@ validateStatusPlus <- function(status) {
 #'   \item \code{navy} Dark Grey/Blue
 #'   \item \code{teal} Blue/Green
 #'   \item \code{orange} Orange
-#'   \item \code{purle} Purple
+#'   \item \code{purple} Purple
 #'   \item \code{maroon} Pink
 #'   \item \code{black} Black
 #' }
