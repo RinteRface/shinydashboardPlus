@@ -647,7 +647,7 @@ $(function() {
         
         // replace the old JSON config by the new one to update the input value 
         $(el).parent().find("script[data-for='" + el.id + "']").replaceWith(
-          '<script type="application/json" data-for="mybox">' + JSON.stringify(config) + '</script>'
+          '<script type="application/json" data-for="' + el.id + '">' + JSON.stringify(config) + '</script>'
         )
       } else {
         if (value === "restore") {
