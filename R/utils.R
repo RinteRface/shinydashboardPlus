@@ -250,7 +250,8 @@ setBoxStyle <- function(height, sidebar) {
 
 
 setBoxClass <- function(status, solidHeader, collapsible, collapsed,
-                        elevation, gradient, background, sidebar) {
+                        gradient, background, sidebar) {
+
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
     boxClass <- paste(boxClass, "box-solid")
