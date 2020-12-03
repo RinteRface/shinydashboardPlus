@@ -16,12 +16,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-```
-
 ## Introduction
 
 `{shinydashboardPlus}` relies on the same basis as `{shinydashboard}`, that is the AdminLTE HTML [template](https://adminlte.io/themes/AdminLTE/index2.html). It provides extra elements that will help you to develop Shiny apps with a more professional look and feel. Below is a summary of the main features.
@@ -66,6 +60,9 @@ list of available options). The `box()` component has been reworked to reduce th
 Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you'll be able to notice the scroll to top button feature if you scroll to the bottom (bottom-right corner).
 
 ```{r basic-demo-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
 shinyApp(
    ui = dashboardPage(
      options = list(sidebarExpandOnHover = TRUE),
@@ -85,7 +82,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-scrollToTop/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-scrollToTop/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>

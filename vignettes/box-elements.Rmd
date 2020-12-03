@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
 ```
 
 ## Boxes components
@@ -35,6 +31,9 @@ library(shinydashboardPlus)
 It is convenient to display metrics. 
 
 ```{r descriptionBlock-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
  shinyApp(
   ui = dashboardPage(
     dashboardHeader(),

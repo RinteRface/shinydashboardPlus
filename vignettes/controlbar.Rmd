@@ -8,12 +8,6 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-  
-```{r setup}
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-```
 
 ## Extra template elements
 
@@ -42,6 +36,9 @@ push the body content to the left. By default, it will cover the body content. N
 The app below will show an open controlbar at start.
 
 ```{r controlbar-basis-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
 shinyApp(
   ui = dashboardPage(
     header = dashboardHeader(),
@@ -194,7 +191,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>

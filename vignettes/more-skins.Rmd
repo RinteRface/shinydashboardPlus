@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-library(fresh)
 ```
 
 ## A Real Time Skin Selector
@@ -26,6 +22,9 @@ library(fresh)
 Note that the `dashboardControlbar()` is the perfect place to host the `skinSelector()` since it may be seen as a secondary input (your app may still work without :))
 
 ```{r skinSelector-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
 shinyApp(
    ui = dashboardPage(
      header = dashboardHeader(),
@@ -41,7 +40,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-skinSelector/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-skinSelector/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
@@ -98,7 +97,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://ducthanhnguyen.github.io/MaterialAdminLTE/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://ducthanhnguyen.github.io/MaterialAdminLTE/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
@@ -110,6 +109,7 @@ shinyApp(
 The fresh theme below is based on some cyberpunk color palettes. 
 
 ```{r fresh-code, eval=FALSE}
+library(fresh)
 # create the theme with a cyberpunk color palette
 theme <- create_theme(
   adminlte_color(
@@ -196,7 +196,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-fresh-theming/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-fresh-theming/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>

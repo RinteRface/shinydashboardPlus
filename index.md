@@ -42,7 +42,7 @@ Below an example of application in medicine:
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/virtual_patient/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/virtual_patient/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>

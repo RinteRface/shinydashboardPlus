@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-library(waiter)
 ```
 
 ## How to set up a preloader?
@@ -33,6 +29,10 @@ Please have a look to the `{waiter}` [documentation](https://waiter.john-coene.c
 That's all!
 
 ```{r waiter-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+library(waiter)
 shinyApp(
   ui = dashboardPage(
     preloader = list(
@@ -58,7 +58,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-preloader/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-preloader/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>

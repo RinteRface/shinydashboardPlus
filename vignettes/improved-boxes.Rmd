@@ -9,12 +9,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
   
-```{r setup}
-library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-```
-  
 ## Boxes on Steroids!
   
 ### The box state
@@ -30,6 +24,9 @@ library(shinydashboardPlus)
 To benefit from that feature, one must pass the _id_ parameter and access it on the server side with `input$<id>`. Let's consider an example:
   
 ```{r boxAPI-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
 ui <- dashboardPage(
   title = "Box API",
   dashboardHeader(),
@@ -186,7 +183,7 @@ to open the sidebar as soon as the user clicks on a specific action button. This
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-sidebar/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-sidebar/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
@@ -230,7 +227,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-dropdown/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-dropdown/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
@@ -312,7 +309,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userBox/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userBox/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
@@ -388,7 +385,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-socialBox/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-socialBox/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
@@ -479,7 +476,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-flipBox/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-flipBox/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>

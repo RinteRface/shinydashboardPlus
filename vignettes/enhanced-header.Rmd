@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(shiny)
-library(shinyWidgets)
-library(shinydashboard)
-library(shinydashboardPlus)
 ```
 
 ## Left Navbar Elements
@@ -28,6 +24,10 @@ elements in the left part of the `dashboardHeader()`. Such items must be passed 
 
 
 ```{r leftUi-code, eval=FALSE}
+library(shiny)
+library(shinyWidgets)
+library(shinydashboard)
+library(shinydashboardPlus)
  shinyApp(
    ui = dashboardPage(
      header = dashboardHeader(
@@ -184,7 +184,7 @@ shinyApp(
 <div class="marvel-device ipad black">
 <div class="camera"></div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-dashboardUser/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-dashboardUser/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
 </div>
 <div class="home"></div>
 </div>
