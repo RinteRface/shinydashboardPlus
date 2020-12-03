@@ -130,8 +130,8 @@
 <h2 class="hasAnchor">
 <a href="#accordion" class="anchor"></a>Accordion</h2>
 <p>Accordions are a category of collapsible elements. While collapsible items don’t alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. <code><a href="../reference/accordion.html">accordion()</a></code> expects to contain <code>accordionItems</code>. Importantly, to guaranty the uniqueness of each accordion, we must provide an <em>id</em> parameter. This parameter allows to programmatically toggle any accordion item, through an <code>updateAccordion</code> function.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -182,7 +182,7 @@
       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You selected accordion N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>
- <span class="op">)</span></pre></div>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -222,8 +222,8 @@
 <span id="cb2-14"><a href="#cb2-14"></a>    <span class="kw">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
 <span id="cb2-15"><a href="#cb2-15"></a>  )</span></code></pre></div>
 <p>The <em>type</em> parameter controls the message background color. For a sent message, the color is inherited from the <code><a href="../reference/userMessages.html">userMessages()</a></code> status, while for a received message, the color is gray by default. The <em>text</em> argument refers to the message content. It may be simple text, shiny tags or event any combinations of shiny inputs/ouput, as shown in the below example.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -311,7 +311,7 @@
      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span><span class="op">(</span><span class="st">"Yeah!"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>
- <span class="op">)</span></pre></div>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 

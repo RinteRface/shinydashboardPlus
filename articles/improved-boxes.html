@@ -117,7 +117,7 @@
       <h1 data-toc-skip>Improved boxes</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-10-27</h4>
+            <h4 class="date">2020-12-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/improved-boxes.Rmd"><code>vignettes/improved-boxes.Rmd</code></a></small>
       <div class="hidden name"><code>improved-boxes.Rmd</code></div>
@@ -126,16 +126,16 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://shiny.rstudio.com">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://shiny.rstudio.com">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: 'shinydashboard'</code></pre>
 <pre><code>## The following object is masked from 'package:graphics':
 ## 
 ##     box</code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: 'shinydashboardPlus'</code></pre>
 <pre><code>## The following objects are masked from 'package:shinydashboard':
@@ -159,8 +159,8 @@
 <li>update box properties: title, status, solidHeader, background, width, height, collapsible and closable</li>
 </ul>
 <p>To benefit from that feature, one must pass the <em>id</em> parameter and access it on the server side with <code>input$&lt;id&gt;</code>. Let’s consider an example:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
   title <span class="op">=</span> <span class="st">"Box API"</span>,
   <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
   <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -228,7 +228,7 @@
   <span class="op">}</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></pre></div>
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 <p>We call the <code><a href="../reference/box.html">updateBox()</a></code> function, specifying the action to accomplish:</p>
 <ul>
 <li>toggle</li>
@@ -269,8 +269,8 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <h4 class="hasAnchor">
 <a href="#box-sidebar" class="anchor"></a>Box Sidebar</h4>
 <p><code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is invoked through the <code><a href="../reference/box.html">box()</a></code> sidebar parameter. The sidebar has an <em>id</em> allowing to programmatically toggle it on the server side with <code><a href="../reference/boxSidebar.html">updateBoxSidebar()</a></code>. This component is generally used to contain input element that you don’t want to show in the box, while the box body generally contains visualizations such as plots or tables. <code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is highly customizable as one may change the background color, the width and the icon trigger, the latter displayed on the very right side of the box header, as depicted in Figure @ref(fig:boxTools). Below is an example showing how to set up the sidebar and toggle it.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
@@ -309,7 +309,7 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
     <span class="op">}</span><span class="op">)</span>
     
   <span class="op">}</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <p>What is the interest of being able to toggle the sidebar on the server? Image you want to open the sidebar as soon as the user clicks on a specific action button. This is definitely possible.</p>
 <div class="marvel-device ipad black">
 <div class="camera">
@@ -328,8 +328,8 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <h4 class="hasAnchor">
 <a href="#box-dropdown" class="anchor"></a>Box Dropdown</h4>
 <p><code><a href="../reference/box.html">boxDropdown()</a></code> is a super powerful tool since all dropdown items may behave like action buttons. This feature allows to seamlessly add interactivity to the box component and gather features in one place. In the example below, clicking on the first item triggers a Shiny notification.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -356,7 +356,7 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span><span class="op">(</span><span class="st">"Hello"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -392,8 +392,8 @@ Some userBox components
 </p>
 </div>
 <p><code><a href="../reference/userBox.html">userBox()</a></code> plays well with other components like <code><a href="../reference/navPills.html">navPills()</a></code>, as shown below.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -441,7 +441,7 @@ Some userBox components
       <span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -459,8 +459,8 @@ Some userBox components
 <h4 class="hasAnchor">
 <a href="#socialbox" class="anchor"></a>socialBox</h4>
 <p>A <code><a href="../reference/socialBox.html">socialBox()</a></code> is dedicated to contain events, comments, anything related to people. Elements like <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> and <code><a href="../reference/userMessages.html">userMessages()</a></code> are a good fit with this component. The <em>comment</em> slot may hosts multiple <code>boxComment</code>, consisting in user comments. Right now, there is no programmatic way to handle them but a future release of <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> will obviously fill this gap. The figure below shows a combination of multiple elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>, as well as the code to reproduce it.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -519,7 +519,7 @@ Some userBox components
     title <span class="op">=</span> <span class="st">"Social Box"</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -537,8 +537,8 @@ Some userBox components
 <h4 class="hasAnchor">
 <a href="#flipbox" class="anchor"></a>flipBox</h4>
 <p>The <code><a href="../reference/flipBox.html">flipBox()</a></code> is a simple container based on the W3C documentation. It is not originally part of AdminLTE but deserves a place in <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>. It has a front and back container, which may help to display extra information. Be sure to provide the <em>id</em> so that the box may flip. On the server side, a <code>flipBox</code> is toggled by <code>updateFlipBox</code>. There are currently 2 events, that is click and hover.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -613,7 +613,7 @@ Some userBox components
      <span class="fu"><a href="../reference/flipBox.html">updateFlipBox</a></span><span class="op">(</span><span class="st">"myflipbox"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 

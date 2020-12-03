@@ -117,7 +117,7 @@
       <h1 data-toc-skip>Improved Skins</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-10-27</h4>
+            <h4 class="date">2020-12-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/more-skins.Rmd"><code>vignettes/more-skins.Rmd</code></a></small>
       <div class="hidden name"><code>more-skins.Rmd</code></div>
@@ -130,8 +130,8 @@
 <h2 class="hasAnchor">
 <a href="#a-real-time-skin-selector" class="anchor"></a>A Real Time Skin Selector</h2>
 <p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> has a new feature called the <code><a href="../reference/skinSelector.html">skinSelector()</a></code>. This is a JavaScript based widget allowing the end user to change the app skin. According to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>, there are 6 unique colors with 2 versions, light or dark. Note that the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> is the perfect place to host the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> since it may be seen as a secondary input (your app may still work without :))</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
      sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -140,7 +140,7 @@
      title <span class="op">=</span> <span class="st">"Skin Selector"</span>
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
- <span class="op">)</span></pre></div>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -158,8 +158,8 @@
 <h2 class="hasAnchor">
 <a href="#a-new-dark-skin-midnight" class="anchor"></a>A New Dark Skin: midnight</h2>
 <p>The midnight theme is powered by the corresponding Github <a href="https://github.com/anvyst/adminlte-skin-midnight">project</a>. It provides a plug and play dark theme.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      skin <span class="op">=</span> <span class="st">"midnight"</span>,
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
@@ -170,7 +170,7 @@
      title <span class="op">=</span> <span class="st">"Midnight Skin"</span>
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
- <span class="op">)</span></pre></div>
+ <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="figures/skin-midnight-overview.png" alt="Midnight skin overview" width="100%"><p class="caption">
 Midnight skin overview
@@ -183,8 +183,8 @@ Midnight skin overview
 <h2 class="hasAnchor">
 <a href="#material-design-adminlte" class="anchor"></a>Material Design + AdminLTE</h2>
 <p>To activate the material design feature, set <em>md</em> to TRUE in <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This feature is powered by <a href="https://github.com/DucThanhNguyen/MaterialAdminLTE">MaterialAdminLTE</a>, built on top of AdminLTE2 and <a href="https://fezvrasta.github.io/bootstrap-material-design/">material design for Bootstrap 3</a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      md <span class="op">=</span> <span class="cn">TRUE</span>,
      skin <span class="op">=</span> <span class="st">"blue"</span>,
@@ -196,7 +196,7 @@ Midnight skin overview
      title <span class="op">=</span> <span class="st">"Midnight Skin"</span>
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
- <span class="op">)</span></pre></div>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -215,8 +215,8 @@ Midnight skin overview
 <a href="#fresh" class="anchor"></a>Fresh</h2>
 <p><a href="https://dreamrs.github.io/fresh/index.html"><code>{fresh}</code></a> is developed by the <a href="https://www.dreamrs.fr/">dreamRs</a> team. It is built on top of <a href="https://github.com/rstudio/sass">sass</a>, which provides a solid R <a href="https://github.com/rstudio/sass">API</a> to write SASS variables and compile into CSS. <a href="https://github.com/dreamRs/fresh">fresh</a> captures most of the AdminLTE2 (as well as AdminLTE3 for Bootstrap 4) SASS variables to allow deep customization, hiding all the compilation burden under the hood.</p>
 <p><code><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color()</a></code> provides an interface to all available AdminLTE colors and allow to overwrite the default. I strongly suggest to avoid setting the default green to blue, as it might become confusing. Instead, it is better to play with color palettes. Similarly, <code>adminlte_sidebar</code> allows to re-style the sidebar component. The fresh theme below is based on some cyberpunk color palettes.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="co"># create the theme with a cyberpunk color palette</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create the theme with a cyberpunk color palette</span>
 <span class="va">theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/create_theme.html">create_theme</a></span><span class="op">(</span>
   <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color</a></span><span class="op">(</span>
     green <span class="op">=</span> <span class="st">"#3fff2d"</span>,
@@ -295,7 +295,7 @@ Midnight skin overview
      title <span class="op">=</span> <span class="st">"Fresh theming"</span>
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
- <span class="op">)</span></pre></div>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
