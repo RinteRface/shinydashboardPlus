@@ -126,25 +126,6 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://shiny.rstudio.com">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: 'shinydashboard'</code></pre>
-<pre><code>## The following object is masked from 'package:graphics':
-## 
-##     box</code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: 'shinydashboardPlus'</code></pre>
-<pre><code>## The following objects are masked from 'package:shinydashboard':
-## 
-##     box, dashboardHeader, dashboardPage, dashboardSidebar, messageItem,
-##     notificationItem, taskItem</code></pre>
-<pre><code>## The following object is masked from 'package:graphics':
-## 
-##     box</code></pre>
 <div id="extra-template-elements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#extra-template-elements" class="anchor"></a>Extra template elements</h2>
@@ -172,8 +153,11 @@
 <li>skin is a cosmetic parameter with 2 values: dark or light with a default value to dark. Importantly, the global theme option do not impact the controlbar background</li>
 </ul>
 <p>The app below will show an open controlbar at start.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://shiny.rstudio.com">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -188,7 +172,7 @@
 <h4 class="hasAnchor">
 <a href="#include-menus" class="anchor"></a>Include menus</h4>
 <p>The <code>dashboardControlbar</code> function also accepts to contain tabs, similarly to the <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> navigation menu. <code><a href="../reference/dashboardControlbar.html">controlbarMenu()</a></code> is a modified <code><a href="https://shiny.rstudio.com/reference/shiny/latest/tabsetPanel.html">shiny::tabsetPanel()</a></code> that has an optional <em>id</em> to control the select item on the server side with <code><a href="../reference/dashboardControlbar.html">updateControlbarMenu()</a></code>. <em>selected</em> indicates which item must be selected by default. Below is a use case of the controlbar menu:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">menu</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardControlbar.html">controlbarMenu</a></span><span class="op">(</span>
   id <span class="op">=</span> <span class="st">"controlbarMenu"</span>,
   <span class="fu"><a href="../reference/dashboardControlbar.html">controlbarItem</a></span><span class="op">(</span>
@@ -221,7 +205,7 @@
 <a href="#the-controlbar-api" class="anchor"></a>The controlbar API</h4>
 <p>As mentioned above, the most powerful feature is the possibility to control elements on the server. In the example below, the main sidebar has 3 items, each item will open a specific menu item in the controlbar.</p>
 <p>We first create 3 generic sidebar menu items using <code>lapply</code>. Note that the controlbar menu is defined above in the previous example.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">sidebarMenu</a></span><span class="op">(</span>
   id <span class="op">=</span> <span class="st">"sidebarMenu"</span>,
   <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span>
@@ -235,7 +219,7 @@
 <p><code>input$sidebarMenu</code> takes values in <code>menu_1</code>, <code>menu_2</code> and <code>menu_3</code>. On the server side, we only recover the item index by splitting the input value as follows <code>strsplit(input$sidebarMenu, "_")[[1]][2]</code>. Then we may conditionally open the controlbar depending on the index value. The update controlbar menu function will update the controlbar menu item according to the index value, that is <code><a href="../reference/dashboardControlbar.html">updateControlbarMenu("controlbarMenu", selected = idx)</a></code>.</p>
 <p>To include even more interactivity, we listen to <code>input$controlbarMenu</code>. When the second item is clicked, we toggle the box sidebar with <code><a href="../reference/boxSidebar.html">updateBoxSidebar("boxSidebar")</a></code>.</p>
 <p>In conclusion, you may imagine a lot of other situations.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
@@ -314,7 +298,7 @@
 
 </div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
 </iframe>
 </div>
 <div class="home">
@@ -327,7 +311,7 @@
 <h3 class="hasAnchor">
 <a href="#footer" class="anchor"></a>Footer</h3>
 <p>Not surprisingly <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code> creates a footer element. It has 2 slots, left and right, respectively.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
