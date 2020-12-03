@@ -128,9 +128,41 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
                 headerBorder = TRUE, label = NULL, dropdownMenu = NULL,
                 sidebar = NULL, footerPadding = TRUE, id = NULL) {
   
+  # multiple validation
+  validateBoxProps(
+    title = title,
+    label = label,
+    sidebar = sidebar,
+    dropdownMenu = dropdownMenu,
+    status = status,
+    gradient = gradient,
+    collapsible = collapsible,
+    collapsed = collapsed,
+    solidHeader = solidHeader,
+    background = background,
+    width = width
+  )
+  
   props <- dropNulls(
     list(
-      title = as.character(title),
+      title = if (!is.null(title)) {
+        if (inherits(title, "list")) {
+          unlist(
+            dropNulls(
+              lapply(title, function(e) {
+                if (inherits(e, "shiny.tag.list") ||
+                    inherits(e, "shiny.tag")) {
+                  as.character(e)
+                }
+              })
+            )
+          )
+        } else {
+          as.character(title)
+        }
+      } else {
+        title
+      },
       status = status,
       solidHeader = solidHeader,
       background = background,
@@ -142,63 +174,19 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
     )
   )
   
-  if (is.null(title) && 
-      (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))) {
-    stop("Cannot use box tools without a title")
-  }
+  # set box class
+  boxClass <- setBoxClass(
+    status, 
+    solidHeader, 
+    collapsible, 
+    collapsed,
+    gradient, 
+    background, 
+    sidebar
+  )
   
-  if (!collapsible && collapsed) {
-    stop("Cannot collapse a card that is not collapsible.")
-  }
-  
-  if (is.null(status) && solidHeader) stop("solidHeader cannot be used when status is NULL.")
-  if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
-  
-  
-  boxClass <- "box"
-  if (solidHeader || !is.null(background)) {
-    boxClass <- paste(boxClass, "box-solid")
-  }
-  
-  if (!is.null(status)) {
-    validateStatusPlus(status)
-    boxClass <- paste0(boxClass, " box-", status)
-  }
-  
-  if (collapsible && collapsed) {
-    boxClass <- paste(boxClass, "collapsed-box")
-  }
-  
-  if (!is.null(background)) {
-    validateColor(background)
-    boxClass <- paste0(boxClass, " bg-", background, if (gradient) "-gradient")
-  }
-  
-  if (!is.null(sidebar)) {
-    sidebarToggle <- sidebar[[2]]
-    startOpen <- sidebar[[2]]$attribs$`data-start-open`
-    if (startOpen == "true") {
-      boxClass <- paste0(boxClass, " direct-chat direct-chat-contacts-open")
-    } else {
-      boxClass <- paste0(boxClass, " direct-chat")
-    }
-  }
-  
-  if (!is.null(width)) {
-    stopifnot(is.numeric(width))
-    # respect the bootstrap grid
-    stopifnot(width <= 12)
-    stopifnot(width >= 0)
-  }
-  
-  style <- NULL
-  if (!is.null(height)) {
-    style <- paste0("height: ", shiny::validateCssUnit(height))
-  }
-  # add padding if box sidebar
-  if (!is.null(sidebar)) {
-    style <- paste(style, "padding: 10px;")
-  }
+  # set style
+  style <- setBoxStyle(height, sidebar)
   
   titleTag <- NULL
   if (!is.null(title)) {

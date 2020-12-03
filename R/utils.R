@@ -205,3 +205,78 @@ processDeps <- function (tags, session) {
   names(dependencies) <- NULL
   list(html = htmltools::doRenderTags(ui), deps = dependencies)
 }
+
+
+
+validateBoxProps <- function(title, label, sidebar, dropdownMenu, status, gradient, collapsible, 
+                             collapsed, solidHeader, background, width) {
+  
+  if (!is.null(status)) validateStatusPlus(status)
+  if (!is.null(background)) validateColor(background)
+  
+  if (is.null(title) && 
+      (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))) {
+    stop("Cannot use box tools without a title")
+  }
+  
+  if (!collapsible && collapsed) {
+    stop("Cannot collapse a card that is not collapsible.")
+  }
+  
+  if (is.null(status) && solidHeader) stop("solidHeader cannot be used when status is NULL.")
+  if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
+  
+  if (!is.null(width)) {
+    stopifnot(is.numeric(width))
+    # respect the bootstrap grid
+    stopifnot(width <= 12)
+    stopifnot(width >= 0)
+  }
+}
+
+
+
+setBoxStyle <- function(height, sidebar) {
+  style <- NULL
+  if (!is.null(height)) {
+    style <- paste0("height: ", shiny::validateCssUnit(height))
+  }
+  # add padding if box sidebar
+  if (!is.null(sidebar)) {
+    style <- paste(style, "padding: 10px;")
+  }
+}
+
+
+
+setBoxClass <- function(status, solidHeader, collapsible, collapsed,
+                        elevation, gradient, background, sidebar) {
+  boxClass <- "box"
+  if (solidHeader || !is.null(background)) {
+    boxClass <- paste(boxClass, "box-solid")
+  }
+  
+  if (!is.null(status)) {
+    boxClass <- paste0(boxClass, " box-", status)
+  }
+  
+  if (collapsible && collapsed) {
+    boxClass <- paste(boxClass, "collapsed-box")
+  }
+  
+  if (!is.null(background)) {
+    boxClass <- paste0(boxClass, " bg-", background, if (gradient) "-gradient")
+  }
+  
+  if (!is.null(sidebar)) {
+    sidebarToggle <- sidebar[[2]]
+    startOpen <- sidebar[[2]]$attribs$`data-start-open`
+    if (startOpen == "true") {
+      boxClass <- paste0(boxClass, " direct-chat direct-chat-contacts-open")
+    } else {
+      boxClass <- paste0(boxClass, " direct-chat")
+    }
+  }
+  
+  boxClass
+}
