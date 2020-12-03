@@ -16,7 +16,7 @@ shinyApp(
         collapsible = TRUE,
         dropdownMenu = boxDropdown(
           icon = icon("wrench", class = "fa-2x"),
-          boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+          boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
           boxDropdownItem("item 2", href = "https://www.google.com/"),
           dropdownDivider(),
           boxDropdownItem("item 3", icon = icon("th"))

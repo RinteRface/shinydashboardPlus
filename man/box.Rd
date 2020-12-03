@@ -41,7 +41,7 @@ updateBox(
 
 boxDropdown(..., icon = shiny::icon("wrench"))
 
-boxDropdownItem(..., inputId = NULL, href = NULL, icon = NULL)
+boxDropdownItem(..., id = NULL, href = NULL, icon = NULL)
 
 dropdownDivider()
 
@@ -136,7 +136,7 @@ the user to collapse the box.}
 
 \item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
-\item{id}{Box to toggle.}
+\item{id}{If passed, the item will behave like an action button.}
 
 \item{action}{Action to trigger: either collapse, remove, restore or update.}
 
@@ -147,8 +147,6 @@ If the box had a background/status (any item that may be NULL), you must explici
 if you want to remove the background value.}
 
 \item{session}{Shiny session object.}
-
-\item{inputId}{If passed, the item will behave like an action button.}
 
 \item{href}{Target url or page.}
 
@@ -400,7 +398,7 @@ if (interactive()) {
          solidHeader = FALSE, 
          collapsible = TRUE,
          dropdownMenu = boxDropdown(
-           boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+           boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
            boxDropdownItem("item 2", href = "https://www.google.com/"),
            dropdownDivider(),
            boxDropdownItem("item 3", icon = icon("th"))

@@ -65,7 +65,7 @@ _name_ is removed
 - Automatic "scroll to top" feature to quickly go to the top of the dashboard
 - Use `{waiter}` for custom preloaders
 - Add _inputId_ to `taskItem()`, `notificationItem()` and `messageItem()`
-- New _inputId_ and _icon_ to `boxDropdownItem()`, that behaves like an action button if passed
+- New _id_ and _icon_ to `boxDropdownItem()`, that behaves like an action button if passed
 - New `updateNavPills()` to programmatically change the selected item in `navPills()`
 - Add _freshTheme_ parameter to `dashboardPage()`. This allows to use the awsesome `{fresh}` package. See [here](https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html) for more details.
 - Add `skinSelector()` to allow dynamically change the dashboard skin on the client side.
@@ -116,7 +116,7 @@ in `descriptionBlock()`
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
 
 ## Bug Fixes
-- Fix #61: uniqness of `accordion()` id. Thanks @RegaCaska
+- Fix #61: uniqueness of `accordion()` id. Thanks @RegaCaska
 - Fix #23: rework id arg in `flipBox()`. Thanks @vinpogo
 - Add class btn-box-tool to close button in `widgetUserBox()`. 
 Prevent from ugly rendering

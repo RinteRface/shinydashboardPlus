@@ -657,7 +657,7 @@ updateBoxSidebar <- function(id, session = shiny::getDefaultReactiveDomain()) {
 #'          solidHeader = FALSE, 
 #'          collapsible = TRUE,
 #'          dropdownMenu = boxDropdown(
-#'            boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+#'            boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
 #'            boxDropdownItem("item 2", href = "https://www.google.com/"),
 #'            dropdownDivider(),
 #'            boxDropdownItem("item 3", icon = icon("th"))
@@ -703,17 +703,17 @@ boxDropdown <- function(..., icon = shiny::icon("wrench")) {
 #' \link{boxDropdownItem} goes in \link{boxDropdown}.
 #' 
 #' @param ... Item content.
-#' @param inputId If passed, the item will behave like an action button.
+#' @param id If passed, the item will behave like an action button.
 #' @param href Target url or page.
 #' @param icon Optional icon. Expect \link[shiny]{icon}.
 #'
 #' @export
 #' @rdname box
-boxDropdownItem <- function(..., inputId = NULL, href = NULL, icon = NULL) {
+boxDropdownItem <- function(..., id = NULL, href = NULL, icon = NULL) {
   shiny::tags$li(
     shiny::tags$a(
-      id = inputId,
-      class = if (!is.null(inputId)) "action-button",
+      id = id,
+      class = if (!is.null(id)) "action-button",
       href = href,
       target = if (!is.null(href)) {
         "_blank"
