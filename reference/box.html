@@ -214,7 +214,7 @@ to insert in a box</p>
 
 <span class='fu'>boxDropdown</span><span class='op'>(</span><span class='va'>...</span>, icon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"wrench"</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='va'>...</span>, inputId <span class='op'>=</span> <span class='cn'>NULL</span>, href <span class='op'>=</span> <span class='cn'>NULL</span>, icon <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='va'>...</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, href <span class='op'>=</span> <span class='cn'>NULL</span>, icon <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='fu'>dropdownDivider</span><span class='op'>(</span><span class='op'>)</span>
 
@@ -362,7 +362,7 @@ the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>id</th>
-      <td><p>Box to toggle.</p></td>
+      <td><p>If passed, the item will behave like an action button.</p></td>
     </tr>
     <tr>
       <th>action</th>
@@ -379,10 +379,6 @@ if you want to remove the background value.</p></td>
     <tr>
       <th>session</th>
       <td><p>Shiny session object.</p></td>
-    </tr>
-    <tr>
-      <th>inputId</th>
-      <td><p>If passed, the item will behave like an action button.</p></td>
     </tr>
     <tr>
       <th>href</th>
@@ -669,7 +665,7 @@ descriptionBlock is used in a boxPad context.</p></td>
          solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>, 
          collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
          dropdownMenu <span class='op'>=</span> <span class='fu'>boxDropdown</span><span class='op'>(</span>
-           <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"Click me"</span>, inputId <span class='op'>=</span> <span class='st'>"dropdownItem"</span>, icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"heart"</span><span class='op'>)</span><span class='op'>)</span>,
+           <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"Click me"</span>, id <span class='op'>=</span> <span class='st'>"dropdownItem"</span>, icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"heart"</span><span class='op'>)</span><span class='op'>)</span>,
            <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"item 2"</span>, href <span class='op'>=</span> <span class='st'>"https://www.google.com/"</span><span class='op'>)</span>,
            <span class='fu'>dropdownDivider</span><span class='op'>(</span><span class='op'>)</span>,
            <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"item 3"</span>, icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"th"</span><span class='op'>)</span><span class='op'>)</span>
