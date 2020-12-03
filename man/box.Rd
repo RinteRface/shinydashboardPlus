@@ -259,7 +259,7 @@ if (interactive()) {
         ),
         sidebar = boxSidebar(
          startOpen = TRUE,
-         inputId = "mycardsidebar",
+         id = "mycardsidebar",
          sliderInput(
           "obs", 
           "Number of observations:",
