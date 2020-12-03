@@ -191,7 +191,7 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
 #'   ),
 #'   server = function(input, output, session) {
 #'     observeEvent(input$controller, {
-#'       updateNavPills(id = "accordion1", selected = input$controller)
+#'       updateAccordion(id = "accordion1", selected = input$controller)
 #'     })
 #'     observe(print(input$accordion1))
 #'     observeEvent(input$accordion1, {
