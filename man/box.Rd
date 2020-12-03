@@ -25,6 +25,7 @@ box(
   icon = NULL,
   gradient = FALSE,
   boxToolSize = "sm",
+  headerBorder = TRUE,
   label = NULL,
   dropdownMenu = NULL,
   sidebar = NULL,
@@ -127,6 +128,9 @@ the user to collapse the box.}
 \item{gradient}{Whether to allow gradient effect for the background color. Default to FALSE.}
 
 \item{boxToolSize}{Size of the toolbox: choose among "xs", "sm", "md", "lg".}
+
+\item{headerBorder}{Whether to display a border between the header and body.
+TRUE by default.}
 
 \item{label}{Slot for \link{boxLabel}.}
 

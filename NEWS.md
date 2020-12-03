@@ -80,6 +80,7 @@ list of available options
 - Toggle `box()` with `updateBox()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
+- Add _headerBorder_ to `box()`
 - add _width_ to `accordion()` (default to 12)
 - Simplified dependencies code (No end-user impact)
 

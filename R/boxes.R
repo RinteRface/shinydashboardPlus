@@ -58,6 +58,8 @@
 #' @param icon Header icon. Displayed before title. Expect \code{\link[shiny]{icon}}.
 #' @param gradient Whether to allow gradient effect for the background color. Default to FALSE.
 #' @param boxToolSize Size of the toolbox: choose among "xs", "sm", "md", "lg".
+#' @param headerBorder Whether to display a border between the header and body.
+#' TRUE by default.
 #' @param label Slot for \link{boxLabel}.
 #' @param dropdownMenu List of items in the boxtool dropdown menu. Use \link{boxDropdown}.
 #' @param sidebar Slot for \link{boxSidebar}.
@@ -123,7 +125,7 @@
 box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = FALSE, 
                 background = NULL, width = 6, height = NULL, collapsible = FALSE, 
                 collapsed = FALSE, closable = FALSE, icon = NULL, gradient = FALSE, boxToolSize = "sm", 
-                label = NULL, dropdownMenu = NULL,
+                headerBorder = TRUE, label = NULL, dropdownMenu = NULL,
                 sidebar = NULL, footerPadding = TRUE, id = NULL) {
   
   props <- dropNulls(
@@ -291,7 +293,7 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
   if (!is.null(titleTag) || !is.null(collapseTag)) {
     # replace by boxToolTag
     headerTag <- shiny::tags$div(
-      class = "box-header",
+      class = paste0("box-header", if (headerBorder) " with-border"),
       # header icon
       icon, 
       titleTag, 
