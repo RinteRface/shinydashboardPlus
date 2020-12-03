@@ -39,17 +39,17 @@ if (interactive()) {
       status = "success",
       userList(
         userListItem(
-          image = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg", 
           title = "Shiny", 
           subtitle = "Package 1"
         ),
         userListItem(
-          image = "https://www.tidyverse.org/images/hex-tidyverse.png", 
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg", 
           title = "Tidyverse", 
           subtitle = "Package 2"
         ),
         userListItem(
-          image = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg", 
           title = "tidyr", 
           subtitle = "Package 3"
         )

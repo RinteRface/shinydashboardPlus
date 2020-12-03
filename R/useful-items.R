@@ -1883,17 +1883,17 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 #'       status = "success",
 #'       userList(
 #'         userListItem(
-#'           image = "https://www.rstudio.com/wp-content/uploads/2014/04/shiny.png", 
+#'           image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg", 
 #'           title = "Shiny", 
 #'           subtitle = "Package 1"
 #'         ),
 #'         userListItem(
-#'           image = "https://www.tidyverse.org/images/hex-tidyverse.png", 
+#'           image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg", 
 #'           title = "Tidyverse", 
 #'           subtitle = "Package 2"
 #'         ),
 #'         userListItem(
-#'           image = "https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png", 
+#'           image = "https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg", 
 #'           title = "tidyr", 
 #'           subtitle = "Package 3"
 #'         )
@@ -1908,12 +1908,9 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 #'
 #' @export
 userList <- function(...) {
-  shiny::tags$div(
-    class = "box-body no-padding",
-    shiny::tags$ul(
-      class = "users-list clearfix",
-      ...
-    )
+  shiny::tags$ul(
+    class = "users-list clearfix",
+    ...
   )
 }
 
