@@ -718,6 +718,35 @@ $(function() {
   var boxSidebarBinding = new Shiny.InputBinding();
   $.extend(boxSidebarBinding, {
     
+    initialize: function(el) {
+      // erase default to avoid seeing moving sidebars on initialization
+      $('.direct-chat-contacts, .direct-chat-messages').css({'transition': 'transform .0s ease-in-out'});
+  
+      var background = $(el).attr('data-background') ? $(el).attr('data-background') : '#343a40';
+      var width = $(el).attr('data-width') ? parseInt($(el).attr('data-width')) : 100;
+      var closeTranslationRate =  100 * 100 / width;
+      var contacts = $(el).closest('.direct-chat').find('.direct-chat-contacts');
+      
+      // apply width and background
+      $(contacts).css({
+        'background': `${background}`,
+        'width': `${width}%`
+      });
+      
+      // If start open, apply openTranslationRate else apply closeTranslationRate ...
+      if ($(el).attr('data-start-open') === "true") {
+        var openTranslationRate = closeTranslationRate - 100;
+        $(contacts).css({'transform': `translate(${openTranslationRate}%, 0)`});
+      } else {
+        $(contacts).css({'transform': `translate(${closeTranslationRate}%, 0)`});
+      }
+  
+      // Restore for better transitions
+      setTimeout(function() {
+        $('.direct-chat-contacts, .direct-chat-messages').css({'transition': 'transform .5s ease-in-out'});
+      }, 300);
+    },
+    
     find: function(scope) {
       return $(scope).find('[data-widget="chat-pane-toggle"]');
     },
@@ -735,11 +764,23 @@ $(function() {
     },
     
     subscribe: function(el, callback) {
-      $(el).on('click', function(e) {
+      var self = this;
+      $(el).on('click', function (e) {
+        var width = $(el).attr('data-width') ? parseInt($(el).attr('data-width')) : 100;
+        var closeTranslationRate =  100 * 100 / width;
+        var openTranslationRate = closeTranslationRate - 100;
         // set a delay so that Shiny get the input value when the collapse animation
         // is finished. 
+        var target = e.currentTarget;
         setTimeout(
-          function() {
+          function (e = target) {
+            // apply correct translation rate depending on current state
+            var contacts = $(e).closest('.direct-chat').find('.direct-chat-contacts');
+            if (self.getValue(el)) {
+              $(contacts).css({'transform': `translate(${openTranslationRate}%, 0)`});
+            } else {
+              $(contacts).css({'transform': `translate(${closeTranslationRate}%, 0)`});
+            }
             callback();
           }, 10);
       });

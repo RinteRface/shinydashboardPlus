@@ -270,8 +270,8 @@ setBoxClass <- function(status, solidHeader, collapsible, collapsed,
   }
   
   if (!is.null(sidebar)) {
-    sidebarToggle <- sidebar[[2]]
-    startOpen <- sidebar[[2]]$attribs$`data-start-open`
+    sidebarToggle <- sidebar[[1]]
+    startOpen <- sidebarToggle$attribs$`data-start-open`
     if (startOpen == "true") {
       boxClass <- paste0(boxClass, " direct-chat direct-chat-contacts-open")
     } else {
@@ -280,4 +280,73 @@ setBoxClass <- function(status, solidHeader, collapsible, collapsed,
   }
   
   boxClass
+}
+
+
+
+# create box icons and return a list of icons
+createBoxTools <- function(collapsible, collapsed, closable, 
+                           sidebar, dropdownMenu, boxToolSize, status, 
+                           background, solidHeader) {
+  
+  btnClass <- paste0(
+    "btn btn-box-tool", 
+    if (!is.null(boxToolSize)) paste0(" btn-", boxToolSize)
+  )
+  
+  if (is.null(status) && !is.null(background)) {
+    btnClass <- paste0(
+      btnClass,
+      if (background %in% validStatuses) {
+        paste0(" btn-", background)
+      }
+    )
+  }
+  
+  # status has always priority compared to background
+  if (!is.null(status) && solidHeader) {
+    btnClass <- paste0(
+      btnClass,
+      if (status %in% validStatuses) {
+        paste0(" btn-", status)
+      }
+    )
+  }
+  
+  collapseTag <- NULL
+  if (collapsible) {
+    collapseIcon <- if (collapsed) 
+      "plus"
+    else "minus"
+    collapseTag <- shiny::tags$button(
+      class = btnClass, 
+      type = "button",
+      `data-widget` = "collapse", 
+      shiny::icon(collapseIcon)
+    )
+  }
+  
+  closableTag <- NULL
+  if (closable) {
+    closableTag <- shiny::tags$button(
+      class = btnClass, 
+      `data-widget` = "remove", 
+      type = "button",
+      shiny::icon("times")
+    )
+  } 
+  
+  sidebarToolTag <- NULL
+  if (!is.null(sidebar)) {
+    sidebar[[1]]$attribs$class <- btnClass
+    sidebarToolTag <- sidebar[[1]]
+  }
+  
+  dropdownMenuToolTag <- NULL
+  if (!is.null(dropdownMenu)) {
+    dropdownMenu$children[[1]]$attribs$class <- paste0(btnClass, " dropdown-toggle")
+    dropdownMenuToolTag <- dropdownMenu
+  }
+  
+  dropNulls(list(dropdownMenuToolTag, collapseTag, closableTag, sidebarToolTag))
 }

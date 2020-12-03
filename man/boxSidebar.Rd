@@ -8,7 +8,7 @@
 boxSidebar(
   ...,
   id = NULL,
-  width = "25\%",
+  width = 50,
   background = "#333a40",
   startOpen = FALSE,
   icon = shiny::icon("cogs")
@@ -21,7 +21,9 @@ updateBoxSidebar(id, session = shiny::getDefaultReactiveDomain())
 
 \item{id}{Sidebar id.}
 
-\item{width}{Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").}
+\item{width}{Sidebar opening width in percentage. 50\% by default, 
+means the card sidebar will take 50% of the card width, when opened. 
+A numeric value between 25 and 100.}
 
 \item{background}{Sidebar background color. Dark by default. Expect a HEX code.}
 

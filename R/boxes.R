@@ -188,122 +188,71 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
   # set style
   style <- setBoxStyle(height, sidebar)
   
-  titleTag <- NULL
-  if (!is.null(title)) {
-    titleTag <- shiny::tags$h3(class = "box-title", title)
-  }
-  
-  # the new boxtool section
+  # box tools
   boxToolTag <- NULL
-  if (collapsible || closable || !is.null(dropdownMenu) || 
-      !is.null(label) || !is.null(sidebar)) {
-    btnToolClass <- "btn"
-    btnToolClass <- if (
-      !is.null(status) || 
-      (is.null(status) && is.null(background))
-                        ) {
-      paste(btnToolClass, "btn-box-tool")
-    } else {
-      paste0(
-        btnToolClass, 
-        if (!is.null(background)) paste0(" bg-", background),
-        " btn-", boxToolSize
-      )
-    }
-    
+  # create card tools whenever necessary
+  if (collapsible || closable || 
+      !is.null(dropdownMenu) || !is.null(sidebar) || !is.null(label)) {
     boxToolTag <- shiny::tags$div(class = "box-tools pull-right")
   }
   
-  collapseTag <- NULL
-  if (collapsible) {
-    buttonStatus <- status %OR% "default"
-    collapseIcon <- if (collapsed) 
-      "plus"
-    else "minus"
-    collapseTag <- shiny::tags$button(
-      class = btnToolClass, 
-      `data-widget` = "collapse", shiny::icon(collapseIcon)
-    )
-  }
-  
-  closableTag <- NULL
-  if (closable) {
-    closableTag <- shiny::tags$button(
-      class = btnToolClass, 
-      `data-widget` = "remove", 
-      type = "button",
-      shiny::icon("times")
-    )
-  } 
-  
-  # Modify sidebar trigger class if background ...
-  if (!is.null(sidebar)) {
-    if (is.null(status) && !is.null(background)) {
-      sidebar[[2]]$attribs$class <- paste0(
-        "btn",
-        if (!is.null(background)) {
-          paste0(" bg-", background)
-        },
-        " btn-", boxToolSize
-      ) 
-    }
-  }
-  
-  # modify dropdown trigger if background
-  if (!is.null(dropdownMenu)) {
-    if (is.null(status) && !is.null(background)) {
-      dropdownMenu$children[[1]]$attribs$class <- paste0(
-        "btn", 
-        paste0(
-          if (!is.null(background)) {
-            paste0(" bg-", background)
-          },
-          " btn-", boxToolSize
-        ), 
-        " dropdown-toggle"
-      )
-    }
-    
-  }
-  
-  # update boxToolTag
+  # update box tools
   boxToolTag <- shiny::tagAppendChildren(
-    boxToolTag, 
-    label, 
-    dropdownMenu, 
-    collapseTag, 
-    closableTag,
+    boxToolTag,
+    label,
+    createBoxTools(
+      collapsible, 
+      collapsed, 
+      closable,
+      sidebar, 
+      dropdownMenu,
+      boxToolSize,
+      status,
+      background,
+      solidHeader
+    )
+  )
+  
+  # header
+  if (is.null(title) && 
+      (closable || collapsible || 
+       !is.null(dropdownMenu) || !is.null(sidebar) || !is.null(label)
+      )) title <- "\u200C"
+  
+  headerTag <- shiny::tags$div(
+    class = paste0("box-header", if (headerBorder) " with-border"),
+    # header icon
+    icon, 
+    shiny::tags$h3(class = "box-title", title)
+  )
+  
+  headerTag <- shiny::tagAppendChild(headerTag, boxToolTag)
+  
+  
+  # body
+  bodyTag <- shiny::tags$div(
+    class = "box-body",
+    style = style,
+    ...,
     sidebar[[2]]
   )
   
-  
-  headerTag <- NULL
-  if (!is.null(titleTag) || !is.null(collapseTag)) {
-    # replace by boxToolTag
-    headerTag <- shiny::tags$div(
-      class = paste0("box-header", if (headerBorder) " with-border"),
-      # header icon
-      icon, 
-      titleTag, 
-      boxToolTag
+  # footer 
+  footerTag <- if (!is.null(footer)) {
+    shiny::tags$div(
+      class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", 
+      footer
     )
   }
   
-  boxTag <- shiny::tags$div(
-    class = if (!is.null(width)) paste0("col-sm-", width), 
-    shiny::tags$div(
-      id = id,
-      class = boxClass, 
-      headerTag, 
-      shiny::tags$div(
-        class = "box-body", 
-        style = style,
-        ...,
-        sidebar[c(1, 3)],
-      ), 
-      if (!is.null(footer)) shiny::tags$div(
-        class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", footer)
-    ),
+  boxTag <- shiny::tags$div(class = boxClass, id = id)
+  boxTag <- shiny::tagAppendChildren(boxTag, headerTag, bodyTag, footerTag)
+  
+  # wrapper
+  shiny::tags$div(
+    class = if (!is.null(width)) paste0("col-sm-", width),
+    boxTag,
+    # config script to be used by card input binding
     shiny::tags$script(
       type = "application/json",
       `data-for` = id,
@@ -314,8 +263,6 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
       )
     )
   )
-  
-  boxTag
   
 }
 
@@ -352,20 +299,25 @@ boxLabel <- function(text, status, style = "default") {
 #'
 #' @param ... Sidebar content.
 #' @param id Unique sidebar id. Useful if you want to use \link{updateBoxSidebar}.
-#' @param width Sidebar width in percentage. 25\% by default. A character value of any width CSS understands (e.g. "100px").
+#' @param width Sidebar opening width in percentage. 50\% by default, 
+#' means the card sidebar will take 50% of the card width, when opened. 
+#' A numeric value between 25 and 100.
 #' @param background Sidebar background color. Dark by default. Expect a HEX code.
 #' @param startOpen Whether the sidebar is open at start. FALSE by default.
 #' @param icon Sidebar icon. Expect \code{\link[shiny]{icon}}.
 #' 
 #' @export
 #' @rdname boxSidebar
-boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40", 
+boxSidebar <- function(..., id = NULL, width = 50, background = "#333a40", 
                        startOpen = FALSE, icon = shiny::icon("cogs")) {
+  
+  stopifnot(width > 25 && width <= 100)
   
   # Toggle to insert in bs4Card
   toolbarTag <- shiny::tags$button(
-    class = "btn btn-box-tool",
     id = id,
+    `data-background`= background, 
+    `data-width` = width,
     `data-widget` = "chat-pane-toggle",
     `data-toggle` = "tooltip",
     `data-original-title` = "More",
@@ -376,52 +328,17 @@ boxSidebar <- function(..., id = NULL, width = "25%", background = "#333a40",
   
   # sidebar content
   contentTag <- shiny::tags$div(
-    style = "z-index: 10000;",
+    style = "z-index: 1; height: inherit;",
     class = "direct-chat-contacts",
     shiny::tags$ul(
       class = "contacts-list", 
       shiny::tags$li(
-        style = paste0("width: ", width, ";"), 
         ...
       )
     )
   )
   
-  # custom CSS
-  translation_rate <- paste0("calc(100% - ", width, ")")
-  sidebarCSS <- shiny::singleton(
-    shiny::tags$head(
-      shiny::tags$style(
-        shiny::HTML(
-          paste0(
-            ".direct-chat-contacts {
-                -webkit-transform: translate(100%, 0);
-                -ms-transform: translate(100%, 0);
-                -o-transform: translate(100%, 0);
-                transform: translate(100%, 0);
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                height: 100%;
-                width: 100%;
-                background: ", background, ";
-                color: #fff;
-                overflow: auto;
-              }
-              .direct-chat-contacts-open .direct-chat-contacts {
-                -webkit-transform: translate(", translation_rate, ", 0);
-                -ms-transform: translate(", translation_rate, ", 0);
-                -o-transform: translate(", translation_rate, ", 0);
-                transform: translate(", translation_rate, ", 0);
-              }
-              "
-          )
-        )
-      )
-    )
-  )
-  
-  shiny::tagList(sidebarCSS, toolbarTag, contentTag)
+  shiny::tagList(toolbarTag, contentTag)
 }
 
 
@@ -550,6 +467,21 @@ updateBox <- function(id, action = c("remove", "toggle", "restore", "update"), o
     options <- lapply(options, function(o) {
       if (inherits(o, "shiny.tag") || inherits(o, "shiny.tag.list")) {
         o <- as.character(o)
+        return(o)
+      }
+      if (inherits(o, "list")) {
+        o <- unlist(
+          dropNulls(
+            lapply(o, function(e) {
+              if (inherits(e, "shiny.tag.list") ||
+                  inherits(e, "shiny.tag")) {
+                as.character(e)
+              } else {
+                e
+              }
+            })
+          )
+        )
       }
       o
     })
@@ -675,7 +607,6 @@ boxDropdown <- function(..., icon = shiny::icon("wrench")) {
     class = "btn-group",
     shiny::tags$button(
       type = "button",
-      class = "btn btn-box-tool dropdown-toggle",
       `data-toggle` = "dropdown",
       icon
     ),
