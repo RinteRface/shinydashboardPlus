@@ -202,7 +202,7 @@
 <div id="user-messages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#user-messages" class="anchor"></a>User messages</h2>
-<p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> make it possible to create an entire chat system within a Shiny app. <code><a href="../reference/userMessages.html">userMessages()</a></code> is the main container, <code><a href="../reference/userMessages.html">userMessage()</a></code> being the message element. <code><a href="../reference/updateUserMessages.html">updateUserMessages()</a></code> looks for the <code><a href="../reference/userMessages.html">userMessages()</a></code> <em>id</em> so as to:</p>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> make it possible to create an entire chat system within a Shiny app. <code><a href="../reference/userMessages.html">userMessages()</a></code> is the main container, <code><a href="../reference/userMessages.html">userMessage()</a></code> being the message element. <code><a href="../reference/userMessages.html">updateUserMessages()</a></code> looks for the <code><a href="../reference/userMessages.html">userMessages()</a></code> <em>id</em> so as to:</p>
 <ul>
 <li>remove an existing message</li>
 <li>add a new message</li>
@@ -263,10 +263,10 @@
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">remove</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/updateUserMessages.html">updateUserMessages</a></span><span class="op">(</span><span class="st">"message"</span>, action <span class="op">=</span> <span class="st">"remove"</span>, index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span><span class="op">)</span>
+      <span class="fu"><a href="../reference/userMessages.html">updateUserMessages</a></span><span class="op">(</span><span class="st">"message"</span>, action <span class="op">=</span> <span class="st">"remove"</span>, index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/updateUserMessages.html">updateUserMessages</a></span><span class="op">(</span>
+      <span class="fu"><a href="../reference/userMessages.html">updateUserMessages</a></span><span class="op">(</span>
         <span class="st">"message"</span>, 
         action <span class="op">=</span> <span class="st">"add"</span>, 
         content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
@@ -293,7 +293,7 @@
     <span class="op">}</span><span class="op">)</span>
     
     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/updateUserMessages.html">updateUserMessages</a></span><span class="op">(</span>
+      <span class="fu"><a href="../reference/userMessages.html">updateUserMessages</a></span><span class="op">(</span>
         <span class="st">"message"</span>, 
         action <span class="op">=</span> <span class="st">"update"</span>, 
         index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span>,
