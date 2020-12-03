@@ -2301,7 +2301,7 @@ userMessage <- function(..., author, date = NULL,
 #' @param content New message content in a list. For actions like add and update only! See example.
 #' @param session Shiny session object.
 #' @export
-#' @rdname userMessages
+#' @rdname userMessage
 #'
 #' @examples
 #' if (interactive()) {
