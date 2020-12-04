@@ -97,6 +97,12 @@ accordion <- function(..., id = NULL, width = 12) {
 #'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
 #'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
 #'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+#'   \item \code{navy}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#001F3F")}
+#'   \item \code{teal}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#39CCCC")}
+#'   \item \code{purple}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#605ca8")}
+#'   \item \code{orange}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#ff851b")}
+#'   \item \code{maroon}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#D81B60")}
+#'   \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
 #' }
 #' @param collapsed Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.
 #' @rdname accordion
@@ -106,7 +112,7 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
   
   cl <- "panel box"
   if (!is.null(status)) {
-    validateStatus(status)
+    validateStatusPlus(status)
     cl <- paste0(cl, " box-", status)
   }
   
@@ -122,8 +128,8 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
           href = NULL,
           `data-toggle` = "collapse",
           `data-parent` = NULL,
-          `aria-expanded` = if (isTRUE(collapsed)) "false" else "true",
-          class = if (isTRUE(collapsed)) "collapsed",
+          `aria-expanded` = if (collapsed) "false" else "true",
+          class = if (collapsed) "collapsed",
           title
         )
       )
@@ -131,13 +137,13 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
     
     shiny::tags$div(
       id = NULL,  
-      class = if (isTRUE(collapsed)) {
+      class = if (collapsed) {
         "panel-collapse collapse"
       } else {
         "panel-collapse collapse in"
       },
-      `aria-expanded` = if (isTRUE(collapsed)) "false" else "true",
-      style = if (isTRUE(collapsed)) "height: 0px;" else NULL,
+      `aria-expanded` = if (collapsed) "false" else "true",
+      style = if (collapsed) "height: 0px;" else NULL,
       shiny::tags$div(class = "box-body", ...)
     )
   )
