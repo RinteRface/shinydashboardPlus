@@ -6,7 +6,8 @@ box_sidebar <- 'box(
   solidHeader = FALSE, 
   collapsible = TRUE,
   sidebar = boxSidebar(
-    width = "50%",
+    id = "boxsidebar",
+    width = 25,
     startOpen = TRUE,
     checkboxInput("somevalue", "Some value", FALSE),
     verbatimTextOutput("value"),
