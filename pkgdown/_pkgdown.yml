@@ -38,6 +38,7 @@ reference:
   - '`updateBox`'
   - '`updateBoxSidebar`'
   - '`userBox`'
+  - '`userDescription`'
   - '`socialBox`'
   - '`flipBox`'
   - '`updateFlipBox`'

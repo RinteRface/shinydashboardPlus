@@ -664,44 +664,11 @@ dropdownDivider <- function() {
 
 #' @title AdminLTE2 user box
 #'
-#' @description Create user box
+#' @description \link{userBox} creates a user card.
 #'
-#' @param ... body content.
-#' @param title box title.
-#' @param subtitle box subtitle.
-#' @param footer box footer.
-#' @param color background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-#' See below:
-#' \itemize{
-#'  \item \code{light-blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
-#'  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
-#'  \item \code{green (success status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00a65a")}.
-#'  \item \code{aqua (info status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#00c0ef")}.
-#'  \item \code{yellow (warning status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#f39c12")}.
-#'  \item \code{blue}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#0073b7")}.
-#'  \item \code{navy}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#001F3F")}.
-#'  \item \code{teal}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#39CCCC")}.
-#'  \item \code{olive}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3D9970")}.
-#'  \item \code{lime}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#01FF70")}.
-#'  \item \code{orange}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#FF851B")}.
-#'  \item \code{fuchsia}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#F012BE")}.
-#'  \item \code{purple}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#605ca8")}.
-#'  \item \code{maroon}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#D81B60")}.
-#'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
-#'  \item \code{gray}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
-#' }
-#' @param width box width (between 1 and 12). 
-#' @param height box height.
-#' @param collapsible If TRUE, display a button in the upper right that allows the user to collapse the box. 
-#' @param collapsed If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.
-#' @param closable If TRUE, display a button in the upper right that allows the user to close the box.
-#' @param type User box type. Either 1 or 2. 1 corresponds to a centered user image,
-#' while 2 is a left aligned user image.
-#' @param image header image, if any (this is different of the background image).
-#' @param backgroundImage image url, if any. Background needs to be TRUE.
-#' @param boxToolSize size of the toolbox: choose among "xs", "sm", "md", "lg".
-#' @param footerPadding TRUE by default: whether the footer has margin or not.
-#'
+#' @inheritParams box
+#' 
+#' @rdname userBox
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @examples
@@ -711,64 +678,167 @@ dropdownDivider <- function() {
 #'  library(shinydashboardPlus)
 #'  
 #'  shinyApp(
-#'   ui = dashboardPage(
-#'     dashboardHeader(),
-#'     dashboardSidebar(),
-#'     dashboardBody(
-#'      userBox(
-#'       title = "Nadia Carmichael",
-#'       subtitle = "lead Developer",
-#'       type = 2,
-#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
-#'       color = "yellow",
-#'       "Some text here!",
-#'       footer = "The footer here!"
-#'      ),
-#'      userBox(
-#'       title = "Alexander Pierce",
-#'       subtitle = "Founder & CEO",
-#'       type = 1,
-#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-#'       color = "aqua",
-#'       closable = TRUE,
-#'       "Some text here!",
-#'       footer = "The footer here!"
-#'      ),
-#'      userBox(
-#'       title = "Elizabeth Pierce",
-#'       subtitle = "Web Designer",
-#'       image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-#'       backgroundImage = "https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg",
-#'       closable = TRUE,
-#'       "Some text here!",
-#'       footer = "The footer here!"
-#'      )
+#'     ui = dashboardPage(
+#'       header = dashboardHeader(),
+#'       sidebar = dashboardSidebar(),
+#'       controlbar = dashboardControlbar(),
+#'       footer = dashboardFooter(),
+#'       title = "test",
+#'       body = dashboardBody(
+#'         userBox(
+#'           title = userDescription(
+#'             title = "Nadia Carmichael",
+#'             subtitle = "lead Developer",
+#'             type = 2,
+#'             image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+#'           ),
+#'           status = "primary",
+#'           gradient = TRUE,
+#'           background = "light-blue",
+#'           boxToolSize = "xl",
+#'           "Some text here!",
+#'           footer = "The footer here!"
+#'         ),
+#'         userBox(
+#'           title = userDescription(
+#'             title = "Alexander Pierce",
+#'             subtitle = "Founder & CEO",
+#'             type = 1,
+#'             image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+#'           ),
+#'           status = "purple",
+#'           closable = TRUE,
+#'           "Some text here!",
+#'           footer = "The footer here!"
+#'         ),
+#'         userBox(
+#'           title = userDescription(
+#'             title = "Elizabeth Pierce",
+#'             subtitle = "Web Designer",
+#'             image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+#'             backgroundImage = "https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg",
+#'           ),
+#'           status = "teal",
+#'           closable = TRUE,
+#'           maximizable = TRUE,
+#'           "Some text here!",
+#'           footer = "The footer here!"
+#'         )
+#'       )
 #'     ),
-#'     title = "UserBox"
-#'   ),
-#'   server = function(input, output) { }
-#'  )
+#'     server = function(input, output) {}
+#'   )
 #' }
 #'
 #' @export
-userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL, 
-                    width = 6, height = NULL, collapsible = TRUE, collapsed = FALSE, 
-                    closable = FALSE, type = c(1, 2), image = NULL, backgroundImage = NULL, 
-                    boxToolSize = "sm", footerPadding = TRUE
-                    ) {
+userBox <- function(..., title = NULL, footer = NULL, status = NULL,
+                    solidHeader = TRUE, background = NULL, width = 6, height = NULL,
+                    collapsible = TRUE, collapsed = FALSE, closable = FALSE, maximizable = FALSE,
+                    gradient = FALSE, boxToolSize = "sm", elevation = NULL, headerBorder = TRUE,
+                    label = NULL, dropdownMenu = NULL, sidebar = NULL, id = NULL) {
   
-  if (!is.null(color)) validateColor(color)
+  # userBox is built on top of the box function. The difference is the title tag
+  # that is replaced by userDescription ...
+  boxTag <- box(
+    ...,
+    title = title,
+    footer = footer,
+    status = status,
+    solidHeader = solidHeader,
+    background = background,
+    width = width,
+    height = height,
+    collapsible = collapsible,
+    collapsed = collapsed,
+    closable = closable,
+    maximizable = maximizable,
+    icon = NULL,
+    gradient = gradient,
+    boxToolSize = boxToolSize,
+    elevation = elevation,
+    headerBorder = headerBorder,
+    label = label,
+    dropdownMenu = dropdownMenu,
+    sidebar = sidebar,
+    id = id
+  )
   
-  if (!collapsible && collapsed) {
-    stop("Cannot collapse a card that is not collapsible.")
+  
+  # find the selected type
+  type <- title[[2]]
+  
+  # specific class for userDescription
+  boxTag$children[[1]]$attribs$class <- paste0(boxTag$children[[1]]$attribs$class, " box-widget user-card")
+  if (!is.null(type)) {
+    boxTag$children[[1]]$attribs$class <- paste0(boxTag$children[[1]]$attribs$class, " widget-user-", type)
+  } else {
+    boxTag$children[[1]]$attribs$class <- paste0(boxTag$children[[1]]$attribs$class, " widget-user")
   }
   
-  if (!is.null(width)) {
-    stopifnot(is.numeric(width))
-    # respect the bootstrap grid
-    stopifnot(width <= 12)
-    stopifnot(width >= 0)
+  
+  # Change color
+  if (!is.null(status)) {
+    if (gradient) {
+      if (inherits(title[[1]], "shiny.tag.list")) {
+        title[[1]][[1]]$attribs$class <- paste0(title[[1]][[1]]$attribs$class, " bg-gradient-", status)
+      } else {
+        title[[1]]$attribs$class <- paste0(title[[1]]$attribs$class, " bg-gradient-", status)
+      }
+    } else {
+      if (inherits(title[[1]], "shiny.tag.list")) {
+        title[[1]][[1]]$attribs$class <- paste0(title[[1]][[1]]$attribs$class, " bg-", status)
+      } else {
+        title[[1]]$attribs$class <- paste0(title[[1]]$attribs$class, " bg-", status)
+      }
+    }
   }
+  
+  
+  # recover box tools
+  boxTools <- boxTag$children[[1]]$children[[1]]$children[[3]]
+  
+  # replace title tag by the user widget
+  boxTag$children[[1]]$children[[1]] <- title[[1]]
+  
+  # inject box tools
+  if (inherits(boxTag$children[[1]]$children[[1]], "shiny.tag.list")) {
+    boxTag$children[[1]]$children[[1]][[1]] <- tagInsertChild(
+      boxTag$children[[1]]$children[[1]][[1]],
+      boxTools,
+      1
+    )
+  } else {
+    boxTag$children[[1]]$children[[1]] <- tagInsertChild(
+      boxTag$children[[1]]$children[[1]],
+      boxTools,
+      1
+    )
+  }
+  
+  boxTag
+}
+
+
+
+
+
+#' User Description
+#'
+#' \link{userDescription} creates a customized title tag for \link{userBox}.
+#'
+#' @param title User card title.
+#' @param subtitle User card subtitle.
+#' @param image User image url or path.
+#' @param backgroundImage image url, if any. Background needs to be TRUE.
+#' @param type User card type. Either 1 or 2. 1 corresponds to a centered user image,
+#' while 2 is a left aligned user image.
+#' @param imageElevation User card image elevation (numeric). NULL by default.
+#'
+#' @rdname userBox
+#' @export
+userDescription <- function(title, subtitle = NULL, image, backgroundImage = NULL,
+                               type = c(1, 2), imageElevation = NULL) {
+  headerCl <- "widget-user-header"
   
   # if type is not explicitly provided, it will use the default value, c(1, 2).
   # Below we ensure that whenever it is the case, we only select the first element
@@ -778,7 +848,7 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
     type <- match.arg(type)
   }
   
-  # once type is assigned, if it is "1" we actually put it back to NULL since 
+  # once type is assigned, if it is "1" we actually put it back to NULL since
   # the class widget-user-1 does not exist (only widget-user-2).
   if (!is.null(type)) {
     type <- as.character(type)
@@ -786,86 +856,50 @@ userBox <- function(..., title, subtitle = NULL, footer = NULL, color = NULL,
     if (type == "1") type <- NULL
   }
   
-  boxCl <- "box box-widget widget-user"
-  if (!is.null(type)) boxCl <- paste0(boxCl, "-", type)
-  if (collapsible && collapsed) {
-    boxCl <- paste(boxCl, "collapsed-box")
-  }
+  headerImageTag <- shiny::tags$div(
+    class = "widget-user-image",
+    shiny::tags$img(
+      class = if (!is.null(imageElevation)) {
+        paste0("img-circle elevation-", imageElevation)
+      } else {
+        "img-circle"
+      },
+      src = image,
+      alt = "User Avatar"
+    )
+  )
   
-  style <- NULL
-  if (!is.null(height)) {
-    style <- paste0("height: ", shiny::validateCssUnit(height))
-  }
-  
-  headerCl <- "widget-user-header"
-  if (!is.null(color) && is.null(backgroundImage)) headerCl <- paste0(headerCl, " bg-", color)
   if (!is.null(backgroundImage)) headerCl <- paste0(headerCl, " bg-black")
   
-  # collapseTag
-  collapseTag <- NULL
-  if (collapsible) {
-    collapseIcon <- if (collapsed) 
-      "plus"
-    else "minus"
-    collapseTag <- shiny::tags$button(
-      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize), 
-      type = "button",
-      `data-widget` = "collapse", 
-      shiny::icon(collapseIcon)
-    )
-  }
-  
-  # closeTag
-  closeTag <- NULL
-  if (closable) {
-    closeTag <- shiny::tags$button(
-      class = paste0("btn btn-box-tool", " bg-", color, " btn-", boxToolSize),
-      `data-widget` = "remove",
-      type = "button",
-      shiny::tags$i(class = "fa fa-times")
-    )
-  }
-  
-  shiny::column(
-    width = width,
-    shiny::tags$div(
-      class = boxCl,
-      style = style,
-      # header
+  userDescriptionTag <- if (is.null(type)) {
+    shiny::tagList(
       shiny::tags$div(
         class = headerCl,
         style = if (!is.null(backgroundImage)) {
           paste0("background: url('", backgroundImage, "') center center;")
         },
-        # box header buttons
-        shiny::tags$div(
-          class = "pull-right box-tools",
-          collapseTag,
-          closeTag
-        ),
-        # image
-        shiny::tags$div(
-          class = "widget-user-image",
-          shiny::tags$img(class = "img-circle", src = image)
-        ),
-        # titles
+        # title and subtitle
         shiny::tags$h3(class = "widget-user-username", title),
-        if (!is.null(subtitle)) {
-          shiny::tags$h5(class = "widget-user-desc", subtitle)
-        }
+        if (!is.null(subtitle)) shiny::tags$h5(class = "widget-user-desc", subtitle)
       ),
-      # body
-      shiny::tags$div(class = "box-body", ...),
-      # footer
-      if (!is.null(footer)) {
-        shiny::tags$div(
-          class = if (isTRUE(footerPadding)) "box-footer" else "box-footer no-padding", 
-          footer
-        )
-      }
+      headerImageTag
     )
-  )
+  } else {
+    shiny::tags$div(
+      class = headerCl,
+      style = if (!is.null(backgroundImage)) {
+        paste0("background: url('", backgroundImage, "') center center;")
+      },
+      headerImageTag,
+      # title and subtitle
+      shiny::tags$h3(class = "widget-user-username", title),
+      if (!is.null(subtitle)) shiny::tags$h5(class = "widget-user-desc", subtitle)
+    )
+  }
+  
+  list(userDescriptionTag, type)
 }
+
 
 
 
