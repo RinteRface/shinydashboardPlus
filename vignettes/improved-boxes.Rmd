@@ -280,7 +280,6 @@ shinyApp(
           type = 2,
           image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
         ),
-        solidHeader = FALSE,
         status = "warning",
         navPills(
           id = "pillItem",
