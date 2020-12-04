@@ -29,7 +29,6 @@ box(
   label = NULL,
   dropdownMenu = NULL,
   sidebar = NULL,
-  footerPadding = TRUE,
   id = NULL
 )
 
@@ -137,8 +136,6 @@ TRUE by default.}
 \item{dropdownMenu}{List of items in the boxtool dropdown menu. Use \link{boxDropdown}.}
 
 \item{sidebar}{Slot for \link{boxSidebar}.}
-
-\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
 \item{id}{If passed, the item will behave like an action button.}
 
@@ -352,7 +349,7 @@ if (interactive()) {
        "mybox", 
        action = "update", 
        options = list(
-         title = tagList(h2("hello"), dashboardLabel(1, status = "primary")),
+         title = h2("hello", dashboardLabel(1, status = "primary")),
          status = "warning", 
          solidHeader = TRUE, 
          width = 12, 

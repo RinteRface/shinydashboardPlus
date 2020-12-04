@@ -23,7 +23,10 @@ updateFlipBox(id, session = shiny::getDefaultReactiveDomain())
 \item{session}{Shiny session object.}
 }
 \description{
-A box that flips from back to front and inversely
+\link{flipBox} creates a box that flips from back to front and inversely
+
+\link{updateFlipBox} programmatically toggles a \link{flipBox} from the
+server.
 }
 \details{
 To access the state of the flipbox use the input alias \code{input$<id>}.

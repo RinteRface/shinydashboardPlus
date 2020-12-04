@@ -543,47 +543,142 @@ $(function() {
       config = JSON.parse(config.html());
       
       if (value.action === "update") {
-        // To remove status explicitly set status = NULL in updateBox
+        var isUserCard = $(el).hasClass('user-card');
+        var isSocialCard = $(el).hasClass('social-card');
+        
+        // handle HTML tags (harder)
+        if (value.options.hasOwnProperty("title")) {
+          if (value.options.title !== config.title) {
+            var newTitle = $.parseHTML(value.options.title);
+            var tools = $(el).find('.box-tools');
+            if (value.options.status !== config.status) {
+              var btns = $(tools).find('.btn');
+              // remove any existing background
+              $(btns).removeClass('btn-' + config.status);
+              // apply new background
+              if (config.background != null) {
+                $(btns).find('.btn').addClass("btn-" + config.background);
+              }
+            }
+            // social box
+            if (isSocialCard) {
+              $(el).find(".user-block").replaceWith($(newTitle));
+            } else if (isUserCard) {
+              // handle 2 cards types
+              if (newTitle.length === 3) {
+                // don't take newTitle[1] (contains some text)
+                newTitle = [newTitle[0], newTitle[2]];
+                // change widget-use class 
+                $(el)
+                  .removeClass('widget-user-2')
+                  .addClass('widget-user');
+                // insert header and image after
+                $(el).find('.widget-user-header').replaceWith($(newTitle[0]));
+                $(newTitle[1]).insertAfter($(el).find('.widget-user-header'));
+
+              } else {
+                $(el)
+                  .removeClass('widget-user')
+                  .addClass('widget-user-2');
+                $(el).find('.widget-user-header').replaceWith($(newTitle));
+              }
+              
+              // add background color
+              if (value.options.status != null) {
+                if (value.options.gradient) {
+                  $(el).find('.widget-user-header').addClass('bg-' + value.options.status + "-gradient");
+                } else {
+                  $(el).find('.widget-user-header').addClass('bg-' + value.options.status);
+                }
+              } 
+              
+              // add tools as first child of widget-user-header
+              $(el).find('.widget-user-header').prepend($(tools));
+            } else {
+              if (!$(newTitle).hasClass('box-title')) $(newTitle).addClass('box-title');
+              $(el).find(".box-title").replaceWith($(newTitle));
+            }
+          }
+        }
+        
+        // To remove status explicitly set status = NULL in updateBox. Don't apply
+        // to socialBox in AdminLTE2!!!
         if (value.options.hasOwnProperty("status")) {
-          if (value.options.status !== config.status) {
-            // don't touch if null
-            if (config.status !== null) {
-              $(el).toggleClass("box-" + config.status); 
-            }
-            if (value.options.status !== null) {
-              $(el).addClass("box-" + value.options.status);
-            }
-            config.status = value.options.status;
+          if (!isSocialCard) {
+            if (value.options.status !== config.status) {
+              var statusTarget = $(el);
+              var oldClass, newClass;
+              if (isUserCard) {
+                statusTarget = $(statusTarget).find(".widget-user-header");
+                oldClass = "bg-" + config.status;
+                newClass = "bg-" + value.options.status;
+              } else {
+                oldClass = "box-" + config.status;
+                newClass = "box-" + value.options.status;
+              }
+              
+              if (value.options.gradient || config.gradient) {
+                oldClass = oldClass + "-gradient";
+                newClass = newClass + "-gradient";
+              }
+              
+              // don't touch if null
+              if (config.status != null) {
+                $(statusTarget).removeClass(oldClass); 
+              }
+              if (value.options.status != null) {
+                $(statusTarget).addClass(newClass);
+              }
+              
+              config.status = value.options.status;
+            }  
           } 
         }
+        // Don't apply to userBox and socialBox in AdminLTE2!!!
         if (value.options.hasOwnProperty("solidHeader")) {
           // only update if config an new value are different
-          if (value.options.solidHeader !== config.solidHeader) {
-            $(el).toggleClass("box-solid");
-            config.solidHeader = value.options.solidHeader;
+          if (!isSocialCard && !userCard) {
+            if (value.options.solidHeader !== config.solidHeader) {
+              $(el).toggleClass("box-solid");
+              config.solidHeader = value.options.solidHeader;
+            } 
           }
         }
         // To remove background explicitly set background = NULL in updateBox
         if (value.options.hasOwnProperty("background")) {
           if (value.options.background !== config.background) {
+            var newBoxClass = "bg-";
             // don't touch if null
-            if (config.background !== null) {
+            if (config.background != null) {
               // if gradient, the class has a gradient at the end!
+              newBoxClass = newBoxClass + config.background;
               if (config.gradient) {
-                $(el).toggleClass("bg-" + config.background + "-gradient");
-              } else {
-                $(el).toggleClass("bg-" + config.background);
+                newBoxClass = newBoxClass + "-gradient";
               }
+              // handle userBox
+              // for which we also have to toggle the header bg color
+              // and the box tools buttons color
+              if (isUserCard) {
+                var header = $(el).find('.widget-user-header');
+                $(header).toggleClass(newBoxClass);
+              }
+              $(el).toggleClass(newBoxClass);
+              $(el).find('.btn-box-tool').toggleClass("btn-" + config.background);
             }
-            if (value.options.background !== null) {
+            if (value.options.background != null) {
+              newBoxClass = newBoxClass + value.options.background;
               if (config.gradient) {
-                $(el).addClass("bg-" + value.options.background + "-gradient"); 
-              } else {
-                $(el).addClass("bg-" + value.options.background); 
+                newBoxClass = newBoxClass + "-gradient";
               }
+              if (isUserCard) {
+                var header = $(el).find('.widget-user-header');
+                $(header).addClass(newBoxClass);
+              }
+              $(el).addClass(newBoxClass);
+              $(el).find('.btn-box-tool').toggleClass("btn-" + value.options.background);
             }
-            config.background = value.options.background; 
-          } 
+            config.background = value.options.background;
+          }
         }
         if (value.options.hasOwnProperty("width")) {
           if (value.options.width !== config.width) {
@@ -593,7 +688,7 @@ $(function() {
         }
         if (value.options.hasOwnProperty("height")) {
           if (value.options.height !== config.height) {
-            if (value.options.height === null) {
+            if (value.options.height == null) {
               $(el).find(".box-body").css("height", '');
             } else {
               $(el).find(".box-body").css("height", value.options.height);
@@ -633,15 +728,6 @@ $(function() {
                 config.closable = true;
               }
             }
-          }
-        }
-        
-        // handle HTML tags (harder)
-        if (value.options.hasOwnProperty("title")) {
-          if (value.options.title !== config.title) {
-            var newTitle = $.parseHTML(value.options.title);
-            $(newTitle).addClass("box-title");
-            $(el).find("h3").replaceWith($(newTitle));
           }
         }
         

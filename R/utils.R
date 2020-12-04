@@ -251,9 +251,9 @@ setBoxStyle <- function(height, sidebar) {
 
 setBoxClass <- function(status, solidHeader, collapsible, collapsed,
                         gradient, background, sidebar) {
-
+  
   boxClass <- "box"
-  if (solidHeader || !is.null(background)) {
+  if (solidHeader) {
     boxClass <- paste(boxClass, "box-solid")
   }
   
@@ -352,8 +352,73 @@ createBoxTools <- function(collapsible, collapsed, closable,
 }
 
 
+
+# extract social item in socialBox
+extractSocialItem <- function(items, isComment = TRUE) {
+  
+  if (length(items) > 0) {
+    dropNulls(lapply(items, function(item) {
+      if (inherits(item, "list")) {
+        lapply(item, function(nested) {
+          cond <- if (isComment) {
+            inherits(nested, "box-comment")
+          } else {
+            !inherits(nested, "box-comment")
+          }
+          if (cond) nested
+        })
+      } else {
+        cond <- if (isComment) {
+          inherits(item, "box-comment")
+        } else {
+          !inherits(item, "box-comment")
+        }
+        if (cond) item
+      }
+    }))
+  } else {
+    NULL
+  }
+}
+
+
 # Insert HTML tag at any position
 tagInsertChild <- function(tag, child, position) {
   tag$children <- append(tag$children, list(child), position - 1)
   tag
+}
+
+
+status_2_color <- function(status) {
+  switch(
+    status, 
+    "primary" = "light-blue",
+    "success" = "green",
+    "danger" = "red",
+    "warning" = "yellow",
+    "info" = "aqua",
+    "navy" = "navy",
+    "teal" = "teal",
+    "purple" = "purple",
+    "orange" = "orange",
+    "maroon" = "maroon",
+    "black" = "black"
+  )
+}
+
+color_2_status <- function(color) {
+  switch(
+    color, 
+    "light-blue" = "primary",
+    "green" = "success",
+    "red" = "danger",
+    "yellow" = "warning",
+    "aqua" = "info",
+    "navy" = "navy",
+    "teal" = "teal",
+    "purple" = "purple",
+    "orange" = "orange",
+    "maroon" = "maroon",
+    "black" = "black"
+  )
 }

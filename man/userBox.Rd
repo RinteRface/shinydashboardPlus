@@ -10,17 +10,14 @@ userBox(
   title = NULL,
   footer = NULL,
   status = NULL,
-  solidHeader = TRUE,
   background = NULL,
   width = 6,
   height = NULL,
   collapsible = TRUE,
   collapsed = FALSE,
   closable = FALSE,
-  maximizable = FALSE,
   gradient = FALSE,
   boxToolSize = "sm",
-  elevation = NULL,
   headerBorder = TRUE,
   label = NULL,
   dropdownMenu = NULL,
@@ -60,8 +57,6 @@ userDescription(
   \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
 }
 Only primary, success, info, warning and danger are compatible with solidHeader!}
-
-\item{solidHeader}{Should the header be shown with a solid color background?}
 
 \item{background}{If NULL (the default), the background of the box will be
   white. Otherwise, a color string. Valid colors are listed in
