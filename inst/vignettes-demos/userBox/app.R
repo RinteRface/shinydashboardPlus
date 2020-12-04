@@ -8,11 +8,13 @@ shinyApp(
     dashboardSidebar(),
     dashboardBody(
       userBox(
-        title = "Nadia Carmichael",
-        subtitle = "lead Developer",
-        type = 2,
-        image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
-        color = "yellow",
+        title = userDescription(
+          title = "Nadia Carmichael",
+          subtitle = "lead Developer",
+          type = 2,
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+        ),
+        status = "warning",
         navPills(
           id = "pillItem",
           navPillsItem(

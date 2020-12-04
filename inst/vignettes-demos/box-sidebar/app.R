@@ -16,6 +16,7 @@ shinyApp(
         actionButton("update", "Toggle card sidebar"),
         sidebar = boxSidebar(
           id = "mycardsidebar",
+          width = 25,
           sliderInput(
             "obs", 
             "Number of observations:",
