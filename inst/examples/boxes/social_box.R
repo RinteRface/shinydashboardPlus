@@ -21,4 +21,4 @@ social_box <- 'socialBox(
     )
   }),
   footer = "The footer here!"
-)
+)'
