@@ -310,7 +310,7 @@ boxLabel <- function(text, status, style = "default") {
 boxSidebar <- function(..., id = NULL, width = 50, background = "#333a40", 
                        startOpen = FALSE, icon = shiny::icon("cogs")) {
   
-  stopifnot(width > 25 && width <= 100)
+  stopifnot(width >= 25 && width <= 100)
   
   # Toggle to insert in bs4Card
   toolbarTag <- shiny::tags$button(
@@ -634,13 +634,9 @@ boxDropdownItem <- function(..., id = NULL, href = NULL, icon = NULL) {
     shiny::tags$a(
       id = id,
       class = if (!is.null(id)) "action-button",
-      href = href,
-      target = if (!is.null(href)) {
-        "_blank"
-      } else {
-        "#"
-      },
-      if (!is.null(icon)) icon, 
+      href = if (!is.null(href)) href else "#",
+      target = if (!is.null(href)) "_blank",
+      icon, 
       ... 
     )
   )
