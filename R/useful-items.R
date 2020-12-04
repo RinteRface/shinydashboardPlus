@@ -269,11 +269,9 @@ attachmentBlock <- function(..., image, title = NULL, href = NULL) {
         shiny::tags$h4(
           class = "attachment-heading",
           shiny::tags$a(
-            href = href,
+            href = if (!is.null(href)) href else "#",
             target = if (!is.null(href)) {
               "_blank"
-            } else {
-              "#"
             },
             title
           )
