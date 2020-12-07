@@ -4,12 +4,12 @@
 \alias{starBlock}
 \title{AdminLTE2 starBlock}
 \usage{
-starBlock(maxstar = 5, grade, color = "yellow")
+starBlock(grade, maxstar = 5, color = "yellow")
 }
 \arguments{
-\item{maxstar}{Maximum number of stars by block.}
-
 \item{grade}{Current score. Should be positive and lower or equal to maxstar.}
+
+\item{maxstar}{Maximum number of stars by block.}
 
 \item{color}{Star color: see \code{validColors()} in the documentation.
 See below:

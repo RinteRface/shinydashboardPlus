@@ -45,7 +45,7 @@ userPostMedia(image, height = NULL, width = NULL)
 \item{width}{media width in pixels.}
 }
 \description{
-Creates a user post. This content may be inserted in a \link{box}.
+\link{userPost} creates a user post. This content may be inserted in a \link{box}.
 
 \link{userPostTagItems} creates a container to host \link{userPostTagItem}.
 

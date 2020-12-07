@@ -7,19 +7,19 @@
 \usage{
 userList(...)
 
-userListItem(image = NULL, title = NULL, subtitle = NULL)
+userListItem(image, title, subtitle = NULL)
 }
 \arguments{
-\item{...}{slot for userListItem.}
+\item{...}{slot for \link{userListItem}.}
 
 \item{image}{image url or path.}
 
 \item{title}{Item title.}
 
-\item{subtitle}{Item subitle.}
+\item{subtitle}{Item subtitle.}
 }
 \description{
-Creates a user list container to be inserted in a \link{box}.
+\link{userList} creates a user list container to be inserted in a \link{box}.
 
 \link{userListItem} creates a user list item.
 }

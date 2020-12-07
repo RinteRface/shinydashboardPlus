@@ -472,48 +472,86 @@ boxPad <- function(..., color = NULL, style = NULL) {
 carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
   
   items <- c(list(...), .list)
-  indicatorsId <- paste0("#", id)
   
-  items[[1]]$attribs$class <- "item active"
+  generateCarouselNav <- function(items) {
+    found_active <- FALSE
+    navs <- lapply(seq_along(items), FUN = function(i) {
+      # if we found an active item, all other active items are ignored.
+      active <- if (found_active) {
+        FALSE
+      } else {
+        sum(grep(x = items[[i]]$attribs$class, pattern = "active")) == 1
+      }
+      # if the item has active class and no item was found before, we found the active item
+      if (active && !found_active) found_active <- TRUE
+      
+      shiny::tags$li(
+        `data-target` = paste0("#", id),
+        `data-slide-to` = i - 1,
+        class = if (active) "active"
+      )
+    })
+    
+    actives <- dropNulls(lapply(navs, function(nav) {
+      nav$attribs$class
+    }))
+    
+    # Make sure at least the first item is active
+    if (length(actives) == 0) {
+      navs[[1]]$attribs$class <- "active"
+      items[[1]]$attribs$class <<- paste0(
+        items[[1]]$attribs$class,
+        " active"
+      )
+    }
+    
+    navs
+    
+  }
+  
+  indicatorsTag <- shiny::tags$ol(
+    class = "carousel-indicators",
+    generateCarouselNav(items)
+  )
+  
+  bodyTag <- shiny::tags$div(
+    class = "carousel-inner",
+    items
+  )
+  
+  controlButtons <- if (indicators) {
+    shiny::tagList(
+      # previous
+      shiny::tags$a(
+        class = "left carousel-control",
+        href = paste0("#", id),
+        `data-slide` = "prev",
+        shiny::tags$span(class = "fa fa-angle-left")
+      ),
+      # next
+      shiny::tags$a(
+        class = "right carousel-control",
+        href = paste0("#", id),
+        `data-slide` = "next",
+        shiny::tags$span(class = "fa fa-angle-right")
+      )
+    )
+  } else {
+    NULL
+  }
   
   carouselTag <- shiny::tags$div(
     class = "carousel slide",
-    id = id,
     `data-ride` = "carousel",
-    shiny::tags$ol(
-      class="carousel-indicators",
-      lapply(
-        seq_along(items), 
-        FUN = function(i) {
-          shiny::tags$li( 
-            `data-target` = indicatorsId,
-            `data-slide-to` = i - 1,
-            class = ""
-          )
-        }
-      )
-    ),
-    shiny::tags$div(class = "carousel-inner", items),
-    # display indicators if needed
-    if (indicators) {
-      shiny::tagList(
-        shiny::tags$a(
-          class = "left carousel-control",
-          href= indicatorsId,
-          `data-slide` = "prev",
-          shiny::tags$span(class="fa fa-angle-left")
-        ),
-        shiny::tags$a(
-          class = "right carousel-control",
-          href= indicatorsId,
-          `data-slide` = "next",
-          shiny::tags$span(class="fa fa-angle-right")
-        )
-      )
-    }
+    id = id
   )
   
-  shiny::column(width = width, carouselTag)
+  carouselTag <- shiny::tagAppendChildren(carouselTag, indicatorsTag, bodyTag, controlButtons)
+  
+  shiny::tags$div(
+    class = if (!is.null(width)) paste0("col-sm-", width),
+    carouselTag
+  )
   
 }
 
@@ -522,17 +560,18 @@ carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
 
 #' AdminLTE2 carousel item
 #'
-#' \link{carouselItem} creates a carousel item.
+#' \link{carouselItem} creates a carousel item to insert in a \link{carousel}.
 #' 
 #' @param ... Element such as images, iframe, ...
 #' @param caption Item caption.
+#' @param active Whether the item is active or not at start.
 #' 
 #' @rdname carousel
 #'
 #' @export
-carouselItem <- function(..., caption = NULL) {
+carouselItem <- function(..., caption = NULL, active = FALSE) {
   shiny::tags$div(
-    class = "item",
+    class = if (active) "item active" else "item",
     ...,
     if (!is.null(caption)) {
       shiny::tags$div(class = "carousel-caption", caption)
@@ -1168,7 +1207,10 @@ productList <- function(...) {
 productListItem <- function(..., image = NULL, title = NULL, 
                             subtitle = NULL, color = NULL) {
   cl <- "label pull-right"
-  if (!is.null(color)) cl <- paste0(cl, " label-", color)
+  if (!is.null(color)) {
+    validateColor(color)
+    cl <- paste0(cl, " label-", color)
+  }
   
   shiny::tags$li(
     class = "item",
@@ -1217,6 +1259,7 @@ productListItem <- function(..., image = NULL, title = NULL,
 #'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
 #' }
 #' @param size Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.
+#' @param label Progress label. NULL by default.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -1236,7 +1279,8 @@ productListItem <- function(..., image = NULL, title = NULL,
 #'        progressBar(
 #'         value = 10,
 #'         striped = TRUE,
-#'         animated = TRUE
+#'         animated = TRUE,
+#'         label = "10%"
 #'        ),
 #'        progressBar(
 #'         value = 50,
@@ -1278,7 +1322,8 @@ productListItem <- function(..., image = NULL, title = NULL,
 #' }
 #' @export
 progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = FALSE, 
-                        animated = FALSE, status = "primary", size = NULL) {
+                        animated = FALSE, status = "primary", size = NULL,
+                        label = NULL) {
   
   if (!is.null(status)) validateStatus(status)
   stopifnot(value >= min)
@@ -1304,7 +1349,7 @@ progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = F
       } else {
         paste0("width: ", paste0(value, "%"))
       },
-      shiny::tags$span(class = "sr-only", value)
+      if(!is.null(label)) label
     )
   )
 }
@@ -1367,7 +1412,7 @@ progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = F
 #' }
 #'
 #' @export
-starBlock <- function(maxstar = 5, grade, color = "yellow") {
+starBlock <- function(grade, maxstar = 5, color = "yellow") {
   
   stopifnot(!is.null(color))
   validateColor(color)
@@ -1398,10 +1443,11 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 
 #' AdminLTE2 timeline block
 #'
-#' Create a timeline block that may be inserted in a \link{box} or outside.
+#' \link{timelineBlock} creates a timeline block that may be inserted in a \link{box} or outside.
 #'
 #' @param ... slot for timelineLabel or timelineItem.
 #' @param reversed Whether the timeline is reversed or not.
+#' @param width Timeline width. Between 1 and 12.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' 
@@ -1423,6 +1469,7 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'       title = "Timeline",
 #'       status = "info",
 #'       timelineBlock(
+#'        width = 12,
 #'        timelineEnd(color = "red"),
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
@@ -1448,11 +1495,8 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'        timelineStart(color = "purple")
 #'       )
 #'      ),
-#'      
-#'      column(
-#'       width = 6,
-#'       h3("When Reversed = FALSE, can be displayed out of a box"),
-#'       timelineBlock(
+#'      h3("When Reversed = FALSE, can be displayed out of a box"),
+#'      timelineBlock(
 #'        reversed = FALSE,
 #'        timelineEnd(color = "red"),
 #'        timelineLabel(2018, color = "teal"),
@@ -1477,7 +1521,6 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #'         timelineItemMedia(image = "https://placehold.it/150x100")
 #'        ),
 #'        timelineStart(color = "purple")
-#'       )
 #'      )
 #'     ),
 #'     title = "timelineBlock"
@@ -1487,10 +1530,11 @@ starBlock <- function(maxstar = 5, grade, color = "yellow") {
 #' }
 #'
 #' @export
-timelineBlock <- function(..., reversed = TRUE) {
+timelineBlock <- function(..., reversed = TRUE, width = 6) {
   
   cl <- "timeline"
   if (isTRUE(reversed)) cl <- paste0(cl, " timeline-inverse")
+  if (!is.null(width)) cl <- paste0(cl, " col-sm-", width)
   
   shiny::tags$ul(
     class = cl,
@@ -1502,6 +1546,8 @@ timelineBlock <- function(..., reversed = TRUE) {
 #' AdminLTE2 timeline label
 #'
 #' \link{timelineLabel} creates a timeline label element to highlight an event.
+#' 
+#' @rdname timeline
 #'
 #' @param ... any element.
 #' @param color label color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
@@ -1524,15 +1570,14 @@ timelineBlock <- function(..., reversed = TRUE) {
 #'  \item \code{black}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#111")}.
 #'  \item \code{gray}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
 #' }
-#' @rdname timeline
 #' 
 #' @export
 timelineLabel <- function(..., color = NULL) {
   
-  cl <- "bg-"
+  cl <- NULL
   if (!is.null(color)) {
     validateColor(color)
-    cl <- paste0(cl, color)
+    cl <- paste0("bg-", color)
   }
   
   shiny::tags$li(
@@ -1547,7 +1592,7 @@ timelineLabel <- function(..., color = NULL) {
 
 #' AdminLTE2 timeline item
 #'
-#' \link{timelineItem} creates a timeline item that contains informations for a 
+#' \link{timelineItem} creates a timeline item that contains information for a 
 #' given event like the title, description, date, ...
 #'
 #' @param ... any element.
@@ -1589,7 +1634,7 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
   }
   
   itemCl <- "timeline-header no-border"
-  if (isTRUE(border)) itemCl <- "timeline-header"
+  if (border) itemCl <- "timeline-header"
   
   shiny::tags$li(
     
@@ -1812,7 +1857,7 @@ todoList <- function(..., sortable = TRUE) {
     ...
   )
   
-  if (isTRUE(sortable)) todoListTag <- shinyjqui::jqui_sortabled(todoListTag) 
+  if (sortable) todoListTag <- shinyjqui::jqui_sortabled(todoListTag) 
   
   todoListTag
   
@@ -1833,7 +1878,7 @@ todoList <- function(..., sortable = TRUE) {
 #' @export
 todoListItem <- function(..., checked = FALSE, label = NULL) {
   cl <- NULL
-  if (isTRUE(checked)) cl <- "done"
+  if (checked) cl <- "done"
   
   shiny::tags$li(
     class = cl,
@@ -1864,9 +1909,9 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
 
 #' AdminLTE2 user list container
 #'
-#' Creates a user list container to be inserted in a \link{box}.
+#' \link{userList} creates a user list container to be inserted in a \link{box}.
 #'
-#' @param ... slot for userListItem.
+#' @param ... slot for \link{userListItem}.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #' @rdname userList
@@ -1925,12 +1970,12 @@ userList <- function(...) {
 #'
 #' @param image image url or path.
 #' @param title Item title.
-#' @param subtitle Item subitle.
+#' @param subtitle Item subtitle.
 #'
 #' @rdname userList
 #'
 #' @export
-userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
+userListItem <- function(image, title, subtitle = NULL) {
   shiny::tags$li(
     shiny::tags$img(
       src = image, 
@@ -1947,7 +1992,7 @@ userListItem <- function(image = NULL, title = NULL, subtitle = NULL) {
 
 #' AdminLTE2 user post
 #'
-#' Creates a user post. This content may be inserted in a \link{box}.
+#' \link{userPost} creates a user post. This content may be inserted in a \link{box}.
 #'
 #' @param ... post content, also \link{userPostTagItems}.
 #' @param id unique id of the post.
@@ -2128,7 +2173,7 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 
 #' AdminLTE2 user message container
 #'
-#' Create a user message container. Maybe inserted in a \link{box}
+#' \link{userMessages} creates a user message container. Maybe inserted in a \link{box}.
 #'
 #' @param ... Slot for \link{userMessage}.
 #' @param id Optional. To use with \link{updateUserMessages}.
