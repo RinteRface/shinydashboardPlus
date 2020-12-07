@@ -7,7 +7,7 @@
 \usage{
 carousel(..., id, indicators = TRUE, width = 6, .list = NULL)
 
-carouselItem(..., caption = NULL)
+carouselItem(..., caption = NULL, active = FALSE)
 }
 \arguments{
 \item{...}{Element such as images, iframe, ...}
@@ -22,11 +22,13 @@ carouselItem(..., caption = NULL)
 put these item here instead of passing them in ...}
 
 \item{caption}{Item caption.}
+
+\item{active}{Whether the item is active or not at start.}
 }
 \description{
 \link{carousel} creates a carousel container to display media content.
 
-\link{carouselItem} creates a carousel item.
+\link{carouselItem} creates a carousel item to insert in a \link{carousel}.
 }
 \examples{
 if (interactive()) {

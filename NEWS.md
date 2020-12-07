@@ -4,10 +4,10 @@ This release is a major step for shinydashboardPlus. It is also a significant br
 change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.
 
 ## Breaking changes
+- Remove _footerPadding_ from `boxPlus()` to align with `{bs4Dash}`
 - Remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
 - remove _dropdownIcon_ parameter from `boxPlus()`. It is now part of the `dropdownItemList()`
 - Remove all label params from `boxPlus()`. This is to reduce the number of parameters of cards. Now part of `boxPlusLabel()`
-- _footer_padding_ becomes _footerPadding_ in `boxPlus()`, `gradientBox()`, `widgetUserBox()` and `socialBox()` to be consistent with the style (camelCase) ...
 - In `dropdownItemList()` _icon_ must be provided as `shiny::icon()` and not a simple string containing the icon name. This is to be consistent with {shinydashboard}
 - Replace _left_text_ and _right_text_ by _left_ and _right_, respectively in `dashboardFooter()`
 - Remove all sidebar related parameters of `dashboardPagePlus()`. They now belong to `dashboardSidebarPlus()` to Align with {shinydashboard}
@@ -80,6 +80,7 @@ list of available options
 - Toggle `box()` with `updateBox()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
+- Add _headerBorder_ to `box()`
 - add _width_ to `accordion()` (default to 12)
 - Simplified dependencies code (No end-user impact)
 

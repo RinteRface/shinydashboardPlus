@@ -9,18 +9,18 @@ flip_box <- 'flipBox(
     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
     occaecat cupidatat non proident, sunt in culpa qui officia 
     deserunt mollit anim id est laborum",
-    progressBar(
+    shinydashboardPlus::progressBar(
       value = 10,
       striped = TRUE,
       animated = TRUE
     ),
-    progressBar(
+    shinydashboardPlus::progressBar(
       value = 50,
       animated = TRUE,
       status = "warning",
       size = "xs"
     ),
-    progressBar(
+    shinydashboardPlus::progressBar(
       value = 20,
       status = "danger",
       size = "sm",

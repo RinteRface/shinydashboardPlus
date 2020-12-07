@@ -8,21 +8,21 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-  
+
 ## Boxes on Steroids!
-  
+
 ### The box state
 `box()` is without any doubt a central component of `{shinydashboard}`. Thanks to the AdminLTE API, `{shinydashboardPlus}` is able to provide more interactivity to this component. For instance, you may:
-  
-  - Know the state of any box at any time. This state captures different parameters such as
-  collapsed, closed, ...
-  - Toggle a box
-  - Close/Restore a box
-  - update box properties: title, status, solidHeader, background, width, height, 
-  collapsible and closable
-  
+
+- Know the state of any box at any time. This state captures different parameters such as
+collapsed, closed, ...
+- Toggle a box
+- Close/Restore a box
+- update box properties: title, status, solidHeader, background, width, height, 
+collapsible and closable
+
 To benefit from that feature, one must pass the _id_ parameter and access it on the server side with `input$<id>`. Let's consider an example:
-  
+
 ```{r boxAPI-code, eval=FALSE}
 library(shiny)
 library(shinydashboard)
@@ -79,7 +79,7 @@ server <- function(input, output, session) {
       "mybox", 
       action = "update", 
       options = list(
-        title = tagList(h2("New title"), dashboardLabel(1, status = "primary")),
+        title = h2("New title", dashboardLabel(1, status = "primary")),
         status = "danger", 
         solidHeader = TRUE,
         width = 4
@@ -149,6 +149,7 @@ shinyApp(
         actionButton("update", "Toggle card sidebar"),
         sidebar = boxSidebar(
           id = "mycardsidebar",
+          width = 25,
           sliderInput(
             "obs", 
             "Number of observations:",
@@ -207,7 +208,7 @@ shinyApp(
         solidHeader = FALSE, 
         collapsible = TRUE,
         dropdownMenu = boxDropdown(
-          boxDropdownItem("Click me", inputId = "dropdownItem", icon = icon("heart")),
+          boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
           boxDropdownItem("item 2", href = "https://www.google.com/"),
           dropdownDivider(),
           boxDropdownItem("item 3", icon = icon("th"))
@@ -239,12 +240,24 @@ to create a box with comments, with social content?
 #### userBox
 
 `userBox()` is intended to highlight user profiles. It has many common parameters with `box()` and overall the same layout.
-The 2 major diffences between `box()` and `userBox()` are:
+The 2 major differences between `box()` and `userBox()` are:
 
-- The ability to add a user image in the box header
-- Optionally add a background image in the box header
-- You cannot (not at the moment) modify them on the server side 
-- The _color_ parameter is only applied to the box header
+- The ability to add a user image in the box header.
+- Optionally add a background image in the box header.
+- The _color_ parameter is only applied to the box header.
+
+Additionally, you may also select 2 types: centered image or left-aligned image.
+
+The __title__ argument expects a `userDescription()`:
+
+```{r user-description, eval=FALSE}
+userDescription(
+  title = "Nadia Carmichael",
+  subtitle = "lead Developer",
+  type = 2,
+  image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+)
+```
 
 You may also select 2 types: centered image or left-aligned image, as shown in the Figure below.
 
@@ -261,11 +274,13 @@ shinyApp(
     dashboardSidebar(),
     dashboardBody(
       userBox(
-        title = "Nadia Carmichael",
-        subtitle = "lead Developer",
-        type = 2,
-        image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
-        color = "yellow",
+        title = userDescription(
+          title = "Nadia Carmichael",
+          subtitle = "lead Developer",
+          type = 2,
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+        ),
+        status = "warning",
         navPills(
           id = "pillItem",
           navPillsItem(
@@ -314,9 +329,72 @@ shinyApp(
 <div class="home"></div>
 </div>
 
+`userBox()` is also entirely updatable from the server side, as it is built on top the `box()` function:
+```{r update-userBox-code, eval=FALSE}
+shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+      actionButton("update_box", "Update"),
+      userBox(
+        id = "userbox",
+        title = userDescription(
+          title = "Nadia Carmichael",
+          subtitle = "lead Developer",
+          type = 2,
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+        ),
+        status = "primary",
+        gradient = TRUE,
+        background = "light-blue",
+        boxToolSize = "xl",
+        "Some text here!",
+        footer = "The footer here!"
+      )
+    ),
+    title = "userBox"
+  ),
+  server = function(input, output) {
+    observeEvent(input$update_box, {
+      updateBox(
+        "userbox",
+        action = "update",
+        options = list(
+          title = userDescription(
+            title = "Jean Box",
+            subtitle = "Developer",
+            type = 1,
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+          ),
+          status = "red",
+          background = NULL,
+          width = 4
+        )
+      )
+    })
+  }
+)
+```
+
 #### socialBox
 
-A `socialBox()` is dedicated to contain events, comments, anything related to people. Elements like `attachmentBlock()` and `userMessages()` are a good fit with this component. The _comment_ slot may hosts multiple `boxComment`, consisting in user comments. Right now, there is no programmatic way to handle them but a future release of `{shinydashboardPlus}` will obviously fill this gap. The figure below shows a combination of multiple elements in a `socialBox()`, as well as the code to reproduce it.
+A `socialBox()` is dedicated to contain events, comments, anything related to people. 
+The __title__ parameter hosts `userBlock()`:
+
+```{r user-block, eval=FALSE}
+userBlock(
+  image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+  title = "Social Box",
+  subtitle = "example-01.05.2018"
+)
+```
+
+Elements like `attachmentBlock()` and `userMessages()` are a good fit with this component. 
+The `...` slot may hosts multiple `boxComment`, consisting in user comments. 
+Right now, there is no programmatic way (understand no __update__ function is available) to handle them but a future release of `{shinydashboardPlus}` 
+will obviously fill this gap. The app below shows a combination of multiple elements in a 
+`socialBox()`, as well as the `updateBox()` feature:
 
 
 ```{r, eval=FALSE}
@@ -326,9 +404,13 @@ shinyApp(
     dashboardSidebar(),
     dashboardBody(
       socialBox(
-        title = "Social Box",
-        subtitle = "example-01.05.2018",
-        image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+        id = "socialbox",
+        title = userBlock(
+          image = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
+          title = "Social Box",
+          subtitle = "example-01.05.2018"
+        ),
+        actionButton("update_box", "Refresh"),
         "Some text here!",
         br(),
         tabsetPanel(
@@ -363,22 +445,34 @@ shinyApp(
             )
           )
         ),
-        comments = tagList(
-          lapply(X = 1:10, FUN = function(i) {
-            boxComment(
-              image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-              title = paste("Comment", i),
-              date = "01.05.2018",
-              paste0("The ", i, "-th comment")
-            )
-          })
-        ),
+        lapply(X = 1:10, FUN = function(i) {
+          boxComment(
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+            title = paste("Comment", i),
+            date = "01.05.2018",
+            paste0("The ", i, "-th comment")
+          )
+        }),
         footer = "The footer here!"
       )
     ),
     title = "Social Box"
   ),
-  server = function(input, output) { }
+  server = function(input, output) {
+    observeEvent(input$update_box, {
+      updateBox(
+        "socialbox",
+        action = "update",
+        options = list(
+          title = userBlock(
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+            title = "Social Box updated",
+            subtitle = "today"
+          )
+        )
+      )
+    })
+  }
 )
 ```
 
@@ -467,7 +561,7 @@ shinyApp(
     })
     
     observeEvent(input$toggle, {
-     updateFlipBox("myflipbox")
+      updateFlipBox("myflipbox")
     })
   }
 )

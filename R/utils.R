@@ -205,3 +205,220 @@ processDeps <- function (tags, session) {
   names(dependencies) <- NULL
   list(html = htmltools::doRenderTags(ui), deps = dependencies)
 }
+
+
+
+validateBoxProps <- function(title, label, sidebar, dropdownMenu, status, gradient, collapsible, 
+                             collapsed, solidHeader, background, width) {
+  
+  if (!is.null(status)) validateStatusPlus(status)
+  if (!is.null(background)) validateColor(background)
+  
+  if (is.null(title) && 
+      (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))) {
+    stop("Cannot use box tools without a title")
+  }
+  
+  if (!collapsible && collapsed) {
+    stop("Cannot collapse a card that is not collapsible.")
+  }
+  
+  if (is.null(status) && solidHeader) stop("solidHeader cannot be used when status is NULL.")
+  if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
+  
+  if (!is.null(width)) {
+    stopifnot(is.numeric(width))
+    # respect the bootstrap grid
+    stopifnot(width <= 12)
+    stopifnot(width >= 0)
+  }
+}
+
+
+
+setBoxStyle <- function(height, sidebar) {
+  style <- NULL
+  if (!is.null(height)) {
+    style <- paste0("height: ", shiny::validateCssUnit(height))
+  }
+  # add padding if box sidebar
+  if (!is.null(sidebar)) {
+    style <- paste(style, "padding: 10px;")
+  }
+}
+
+
+
+setBoxClass <- function(status, solidHeader, collapsible, collapsed,
+                        gradient, background, sidebar) {
+  
+  boxClass <- "box"
+  if (solidHeader) {
+    boxClass <- paste(boxClass, "box-solid")
+  }
+  
+  if (!is.null(status)) {
+    boxClass <- paste0(boxClass, " box-", status)
+  }
+  
+  if (collapsible && collapsed) {
+    boxClass <- paste(boxClass, "collapsed-box")
+  }
+  
+  if (!is.null(background)) {
+    boxClass <- paste0(boxClass, " bg-", background, if (gradient) "-gradient")
+  }
+  
+  if (!is.null(sidebar)) {
+    sidebarToggle <- sidebar[[1]]
+    startOpen <- sidebarToggle$attribs$`data-start-open`
+    if (startOpen == "true") {
+      boxClass <- paste0(boxClass, " direct-chat direct-chat-contacts-open")
+    } else {
+      boxClass <- paste0(boxClass, " direct-chat")
+    }
+  }
+  
+  boxClass
+}
+
+
+
+# create box icons and return a list of icons
+createBoxTools <- function(collapsible, collapsed, closable, 
+                           sidebar, dropdownMenu, boxToolSize, status, 
+                           background, solidHeader) {
+  
+  btnClass <- paste0(
+    "btn btn-box-tool", 
+    if (!is.null(boxToolSize)) paste0(" btn-", boxToolSize)
+  )
+  
+  if (is.null(status) && !is.null(background)) {
+    btnClass <- paste0(
+      btnClass,
+      if (background %in% validStatuses) {
+        paste0(" btn-", background)
+      }
+    )
+  }
+  
+  # status has always priority compared to background
+  if (!is.null(status) && solidHeader) {
+    btnClass <- paste0(
+      btnClass,
+      if (status %in% validStatuses) {
+        paste0(" btn-", status)
+      }
+    )
+  }
+  
+  collapseTag <- NULL
+  if (collapsible) {
+    collapseIcon <- if (collapsed) 
+      "plus"
+    else "minus"
+    collapseTag <- shiny::tags$button(
+      class = btnClass, 
+      type = "button",
+      `data-widget` = "collapse", 
+      shiny::icon(collapseIcon)
+    )
+  }
+  
+  closableTag <- NULL
+  if (closable) {
+    closableTag <- shiny::tags$button(
+      class = btnClass, 
+      `data-widget` = "remove", 
+      type = "button",
+      shiny::icon("times")
+    )
+  } 
+  
+  sidebarToolTag <- NULL
+  if (!is.null(sidebar)) {
+    sidebar[[1]]$attribs$class <- btnClass
+    sidebarToolTag <- sidebar[[1]]
+  }
+  
+  dropdownMenuToolTag <- NULL
+  if (!is.null(dropdownMenu)) {
+    dropdownMenu$children[[1]]$attribs$class <- paste0(btnClass, " dropdown-toggle")
+    dropdownMenuToolTag <- dropdownMenu
+  }
+  
+  dropNulls(list(dropdownMenuToolTag, collapseTag, closableTag, sidebarToolTag))
+}
+
+
+
+# extract social item in socialBox
+extractSocialItem <- function(items, isComment = TRUE) {
+  
+  if (length(items) > 0) {
+    dropNulls(lapply(items, function(item) {
+      if (inherits(item, "list")) {
+        lapply(item, function(nested) {
+          cond <- if (isComment) {
+            inherits(nested, "box-comment")
+          } else {
+            !inherits(nested, "box-comment")
+          }
+          if (cond) nested
+        })
+      } else {
+        cond <- if (isComment) {
+          inherits(item, "box-comment")
+        } else {
+          !inherits(item, "box-comment")
+        }
+        if (cond) item
+      }
+    }))
+  } else {
+    NULL
+  }
+}
+
+
+# Insert HTML tag at any position
+tagInsertChild <- function(tag, child, position) {
+  tag$children <- append(tag$children, list(child), position - 1)
+  tag
+}
+
+
+status_2_color <- function(status) {
+  switch(
+    status, 
+    "primary" = "light-blue",
+    "success" = "green",
+    "danger" = "red",
+    "warning" = "yellow",
+    "info" = "aqua",
+    "navy" = "navy",
+    "teal" = "teal",
+    "purple" = "purple",
+    "orange" = "orange",
+    "maroon" = "maroon",
+    "black" = "black"
+  )
+}
+
+color_2_status <- function(color) {
+  switch(
+    color, 
+    "light-blue" = "primary",
+    "green" = "success",
+    "red" = "danger",
+    "yellow" = "warning",
+    "aqua" = "info",
+    "navy" = "navy",
+    "teal" = "teal",
+    "purple" = "purple",
+    "orange" = "orange",
+    "maroon" = "maroon",
+    "black" = "black"
+  )
+}

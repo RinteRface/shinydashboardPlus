@@ -9,7 +9,7 @@
 \alias{timelineEnd}
 \title{AdminLTE2 timeline block}
 \usage{
-timelineBlock(..., reversed = TRUE)
+timelineBlock(..., reversed = TRUE, width = 6)
 
 timelineLabel(..., color = NULL)
 
@@ -33,6 +33,8 @@ timelineEnd(icon = shiny::icon("hourglass-end"), color = NULL)
 \item{...}{any element.}
 
 \item{reversed}{Whether the timeline is reversed or not.}
+
+\item{width}{media width in pixels.}
 
 \item{color}{item color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 See below:
@@ -68,15 +70,13 @@ See below:
 \item{image}{media url or path.}
 
 \item{height}{media height in pixels.}
-
-\item{width}{media width in pixels.}
 }
 \description{
-Create a timeline block that may be inserted in a \link{box} or outside.
+\link{timelineBlock} creates a timeline block that may be inserted in a \link{box} or outside.
 
 \link{timelineLabel} creates a timeline label element to highlight an event.
 
-\link{timelineItem} creates a timeline item that contains informations for a 
+\link{timelineItem} creates a timeline item that contains information for a 
 given event like the title, description, date, ...
 
 \link{timelineItemMedia} create a specific container for images.
@@ -101,6 +101,7 @@ if (interactive()) {
       title = "Timeline",
       status = "info",
       timelineBlock(
+       width = 12,
        timelineEnd(color = "red"),
        timelineLabel(2018, color = "teal"),
        timelineItem(
@@ -126,11 +127,8 @@ if (interactive()) {
        timelineStart(color = "purple")
       )
      ),
-     
-     column(
-      width = 6,
-      h3("When Reversed = FALSE, can be displayed out of a box"),
-      timelineBlock(
+     h3("When Reversed = FALSE, can be displayed out of a box"),
+     timelineBlock(
        reversed = FALSE,
        timelineEnd(color = "red"),
        timelineLabel(2018, color = "teal"),
@@ -155,7 +153,6 @@ if (interactive()) {
         timelineItemMedia(image = "https://placehold.it/150x100")
        ),
        timelineStart(color = "purple")
-      )
      )
     ),
     title = "timelineBlock"

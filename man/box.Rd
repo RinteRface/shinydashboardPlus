@@ -25,10 +25,10 @@ box(
   icon = NULL,
   gradient = FALSE,
   boxToolSize = "sm",
+  headerBorder = TRUE,
   label = NULL,
   dropdownMenu = NULL,
   sidebar = NULL,
-  footerPadding = TRUE,
   id = NULL
 )
 
@@ -128,13 +128,14 @@ the user to collapse the box.}
 
 \item{boxToolSize}{Size of the toolbox: choose among "xs", "sm", "md", "lg".}
 
+\item{headerBorder}{Whether to display a border between the header and body.
+TRUE by default.}
+
 \item{label}{Slot for \link{boxLabel}.}
 
 \item{dropdownMenu}{List of items in the boxtool dropdown menu. Use \link{boxDropdown}.}
 
 \item{sidebar}{Slot for \link{boxSidebar}.}
-
-\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
 
 \item{id}{If passed, the item will behave like an action button.}
 
@@ -259,7 +260,7 @@ if (interactive()) {
         ),
         sidebar = boxSidebar(
          startOpen = TRUE,
-         inputId = "mycardsidebar",
+         id = "mycardsidebar",
          sliderInput(
           "obs", 
           "Number of observations:",
@@ -348,7 +349,7 @@ if (interactive()) {
        "mybox", 
        action = "update", 
        options = list(
-         title = tagList(h2("hello"), dashboardLabel(1, status = "primary")),
+         title = h2("hello", dashboardLabel(1, status = "primary")),
          status = "warning", 
          solidHeader = TRUE, 
          width = 12, 

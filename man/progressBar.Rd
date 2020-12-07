@@ -12,7 +12,8 @@ progressBar(
   striped = FALSE,
   animated = FALSE,
   status = "primary",
-  size = NULL
+  size = NULL,
+  label = NULL
 )
 }
 \arguments{
@@ -41,6 +42,8 @@ Valid statuses are defined as follows:
 }}
 
 \item{size}{Progress bar size. NULL by default: "sm", "xs" or "xxs" also available.}
+
+\item{label}{Progress label. NULL by default.}
 }
 \description{
 This creates a vertical progress bar.
@@ -61,7 +64,8 @@ if (interactive()) {
        progressBar(
         value = 10,
         striped = TRUE,
-        animated = TRUE
+        animated = TRUE,
+        label = "10\%"
        ),
        progressBar(
         value = 50,

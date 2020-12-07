@@ -61,7 +61,7 @@ Valid statuses are defined as follows:
 \item{session}{Shiny session object.}
 }
 \description{
-Create a user message container. Maybe inserted in a \link{box}
+\link{userMessages} creates a user message container. Maybe inserted in a \link{box}.
 
 \link{userMessage} creates a user message html element.
 

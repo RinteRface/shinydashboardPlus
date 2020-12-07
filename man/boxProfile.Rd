@@ -23,7 +23,7 @@ boxProfileItem(title, description)
 \item{description}{item info.}
 }
 \description{
-\link{boxProfile} goes inside a \link{box}. Displays user informations in an elegant
+\link{boxProfile} goes inside a \link{box}. Displays user information in an elegant
 container.
 
 \link{boxProfileItem} is an sub-element of a \link{boxProfile}.

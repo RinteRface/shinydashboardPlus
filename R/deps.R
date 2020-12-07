@@ -2,8 +2,16 @@
 addDeps <- function(tag, md, options) {
   
   # always use minified files (https://www.minifier.org)
-  adminLTE_js <- "js/app.min.js"
-  shinydashboardPlus_js <- "js/shinydashboardPlus.js"
+  adminLTE_js <- if (getOption("shiny.minified", TRUE)) {
+    "js/app.min.js"
+  } else {
+    "js/app.js"
+  }
+  shinydashboardPlus_js <- if (getOption("shiny.minified", TRUE)) {
+    "js/shinydashboardPlus.min.js"
+  } else {
+    "js/shinydashboardPlus.js"
+  }
   adminLTE_css <- c("css/AdminLTE.min.css", "css/_all-skins.min.css")
   custom_css <- ("css/custom.css")
   
@@ -25,7 +33,7 @@ addDeps <- function(tag, md, options) {
     htmltools::htmlDependency(
       "options",
       as.character(utils::packageVersion("shinydashboardPlus")),
-      src = c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
+      src = c(file = system.file("shinydashboardPlus-2.0.0", package = "shinydashboardPlus")),
       head = if (!is.null(options)) {
         paste0(
           "<script>var AdminLTEOptions = ", 
@@ -42,7 +50,7 @@ addDeps <- function(tag, md, options) {
     htmltools::htmlDependency(
       "shinydashboardPlus",
       as.character(utils::packageVersion("shinydashboardPlus")),
-      c(file = system.file("shinydashboardPlus-0.6.0", package = "shinydashboardPlus")),
+      c(file = system.file("shinydashboardPlus-2.0.0", package = "shinydashboardPlus")),
       script = c(adminLTE_js, shinydashboardPlus_js),
       stylesheet = c(adminLTE_css, custom_css)
     ),

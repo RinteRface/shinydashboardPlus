@@ -2,37 +2,65 @@
 % Please edit documentation in R/boxes.R
 \name{userBox}
 \alias{userBox}
+\alias{userDescription}
 \title{AdminLTE2 user box}
 \usage{
 userBox(
   ...,
-  title,
-  subtitle = NULL,
+  title = NULL,
   footer = NULL,
-  color = NULL,
+  status = NULL,
+  background = NULL,
   width = 6,
   height = NULL,
   collapsible = TRUE,
   collapsed = FALSE,
   closable = FALSE,
-  type = c(1, 2),
-  image = NULL,
-  backgroundImage = NULL,
+  gradient = FALSE,
   boxToolSize = "sm",
-  footerPadding = TRUE
+  headerBorder = TRUE,
+  label = NULL,
+  dropdownMenu = NULL,
+  sidebar = NULL,
+  id = NULL
+)
+
+userDescription(
+  title,
+  subtitle = NULL,
+  image,
+  backgroundImage = NULL,
+  type = c(1, 2),
+  imageElevation = NULL
 )
 }
 \arguments{
-\item{...}{body content.}
+\item{...}{any element such as \link{descriptionBlock}.}
 
-\item{title}{box title.}
+\item{title}{User card title.}
 
-\item{subtitle}{box subtitle.}
+\item{footer}{Optional footer text.}
 
-\item{footer}{box footer.}
+\item{status}{The status of the item This determines the item's background
+  color.  Valid statuses are defined as follows:
+\itemize{
+  \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
+  \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
+  \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
+  \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
+  \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
+  \item \code{navy}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#001F3F")}
+  \item \code{teal}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#39CCCC")}
+  \item \code{purple}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#605ca8")}
+  \item \code{orange}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#ff851b")}
+  \item \code{maroon}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#D81B60")}
+  \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
+}
+Only primary, success, info, warning and danger are compatible with solidHeader!}
 
-\item{color}{background color: see here for a list of valid colors \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
-See below:
+\item{background}{If NULL (the default), the background of the box will be
+  white. Otherwise, a color string. Valid colors are listed in
+  \link{validColors}. See below:
 \itemize{
  \item \code{light-blue (primary status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}.
  \item \code{red (danger status)}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#dd4b39")}.
@@ -52,29 +80,53 @@ See below:
  \item \code{gray}: \Sexpr[results=rd, stage=install]{shinydashboardPlus:::rd_color_tag("#d2d6de")}.
 }}
 
-\item{width}{box width (between 1 and 12).}
+\item{width}{The width of the box, using the Bootstrap grid system. This is
+used for row-based layouts. The overall width of a region is 12, so the
+default valueBox width of 4 occupies 1/3 of that width. For column-based
+layouts, use \code{NULL} for the width; the width is set by the column that
+contains the box.}
 
-\item{height}{box height.}
+\item{height}{The height of a box, in pixels or other CSS unit. By default
+the height scales automatically with the content.}
 
-\item{collapsible}{If TRUE, display a button in the upper right that allows the user to collapse the box.}
+\item{collapsible}{If TRUE, display a button in the upper right that allows
+the user to collapse the box.}
 
-\item{collapsed}{If TRUE, start collapsed. This must be used with \code{collapsible=TRUE}.}
+\item{collapsed}{If TRUE, start collapsed. This must be used with
+\code{collapsible=TRUE}.}
 
 \item{closable}{If TRUE, display a button in the upper right that allows the user to close the box.}
 
-\item{type}{User box type. Either 1 or 2. 1 corresponds to a centered user image,
-while 2 is a left aligned user image.}
+\item{gradient}{Whether to allow gradient effect for the background color. Default to FALSE.}
 
-\item{image}{header image, if any (this is different of the background image).}
+\item{boxToolSize}{Size of the toolbox: choose among "xs", "sm", "md", "lg".}
+
+\item{headerBorder}{Whether to display a border between the header and body.
+TRUE by default.}
+
+\item{label}{Slot for \link{boxLabel}.}
+
+\item{dropdownMenu}{List of items in the boxtool dropdown menu. Use \link{boxDropdown}.}
+
+\item{sidebar}{Slot for \link{boxSidebar}.}
+
+\item{id}{If passed, the item will behave like an action button.}
+
+\item{subtitle}{User card subtitle.}
+
+\item{image}{User image url or path.}
 
 \item{backgroundImage}{image url, if any. Background needs to be TRUE.}
 
-\item{boxToolSize}{size of the toolbox: choose among "xs", "sm", "md", "lg".}
+\item{type}{User card type. Either 1 or 2. 1 corresponds to a centered user image,
+while 2 is a left aligned user image.}
 
-\item{footerPadding}{TRUE by default: whether the footer has margin or not.}
+\item{imageElevation}{User card image elevation (numeric). NULL by default.}
 }
 \description{
-Create user box
+\link{userBox} creates a user card.
+
+\link{userDescription} creates a customized title tag for \link{userBox}.
 }
 \examples{
 if (interactive()) {
@@ -83,43 +135,56 @@ if (interactive()) {
  library(shinydashboardPlus)
  
  shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     userBox(
-      title = "Nadia Carmichael",
-      subtitle = "lead Developer",
-      type = 2,
-      image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
-      color = "yellow",
-      "Some text here!",
-      footer = "The footer here!"
-     ),
-     userBox(
-      title = "Alexander Pierce",
-      subtitle = "Founder & CEO",
-      type = 1,
-      image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-      color = "aqua",
-      closable = TRUE,
-      "Some text here!",
-      footer = "The footer here!"
-     ),
-     userBox(
-      title = "Elizabeth Pierce",
-      subtitle = "Web Designer",
-      image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-      backgroundImage = "https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg",
-      closable = TRUE,
-      "Some text here!",
-      footer = "The footer here!"
-     )
+    ui = dashboardPage(
+      header = dashboardHeader(),
+      sidebar = dashboardSidebar(),
+      controlbar = dashboardControlbar(),
+      footer = dashboardFooter(),
+      title = "test",
+      body = dashboardBody(
+        userBox(
+          title = userDescription(
+            title = "Nadia Carmichael",
+            subtitle = "lead Developer",
+            type = 2,
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
+          ),
+          status = "primary",
+          gradient = TRUE,
+          background = "light-blue",
+          boxToolSize = "xl",
+          "Some text here!",
+          footer = "The footer here!"
+        ),
+        userBox(
+          title = userDescription(
+            title = "Alexander Pierce",
+            subtitle = "Founder & CEO",
+            type = 1,
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+          ),
+          status = "purple",
+          closable = TRUE,
+          "Some text here!",
+          footer = "The footer here!"
+        ),
+        userBox(
+          title = userDescription(
+            title = "Elizabeth Pierce",
+            subtitle = "Web Designer",
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+            backgroundImage = "https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg",
+          ),
+          status = "teal",
+          closable = TRUE,
+          maximizable = TRUE,
+          "Some text here!",
+          footer = "The footer here!"
+        )
+      )
     ),
-    title = "UserBox"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) {}
+  )
 }
 
 }
