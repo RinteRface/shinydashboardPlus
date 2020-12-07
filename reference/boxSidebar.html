@@ -170,7 +170,7 @@ updateBoxSidebar toggle a boxSidebar on the client." />
     <pre class="usage"><span class='fu'>boxSidebar</span><span class='op'>(</span>
   <span class='va'>...</span>,
   id <span class='op'>=</span> <span class='cn'>NULL</span>,
-  width <span class='op'>=</span> <span class='st'>"25%"</span>,
+  width <span class='op'>=</span> <span class='fl'>50</span>,
   background <span class='op'>=</span> <span class='st'>"#333a40"</span>,
   startOpen <span class='op'>=</span> <span class='cn'>FALSE</span>,
   icon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"cogs"</span><span class='op'>)</span>
@@ -191,7 +191,9 @@ updateBoxSidebar toggle a boxSidebar on the client." />
     </tr>
     <tr>
       <th>width</th>
-      <td><p>Sidebar width in percentage. 25% by default. A character value of any width CSS understands (e.g. "100px").</p></td>
+      <td><p>Sidebar opening width in percentage. 50% by default, 
+means the card sidebar will take 50<!-- % of the card width, when opened.  -->
+A numeric value between 25 and 100.</p></td>
     </tr>
     <tr>
       <th>background</th>

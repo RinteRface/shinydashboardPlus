@@ -198,10 +198,10 @@ to insert in a box</p>
   icon <span class='op'>=</span> <span class='cn'>NULL</span>,
   gradient <span class='op'>=</span> <span class='cn'>FALSE</span>,
   boxToolSize <span class='op'>=</span> <span class='st'>"sm"</span>,
+  headerBorder <span class='op'>=</span> <span class='cn'>TRUE</span>,
   label <span class='op'>=</span> <span class='cn'>NULL</span>,
   dropdownMenu <span class='op'>=</span> <span class='cn'>NULL</span>,
   sidebar <span class='op'>=</span> <span class='cn'>NULL</span>,
-  footerPadding <span class='op'>=</span> <span class='cn'>TRUE</span>,
   id <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span>
 
@@ -345,6 +345,11 @@ the user to collapse the box.</p></td>
       <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
     </tr>
     <tr>
+      <th>headerBorder</th>
+      <td><p>Whether to display a border between the header and body.
+TRUE by default.</p></td>
+    </tr>
+    <tr>
       <th>label</th>
       <td><p>Slot for <a href='boxLabel.html'>boxLabel</a>.</p></td>
     </tr>
@@ -355,10 +360,6 @@ the user to collapse the box.</p></td>
     <tr>
       <th>sidebar</th>
       <td><p>Slot for <a href='boxSidebar.html'>boxSidebar</a>.</p></td>
-    </tr>
-    <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
     </tr>
     <tr>
       <th>id</th>
@@ -526,7 +527,7 @@ descriptionBlock is used in a boxPad context.</p></td>
         <span class='op'>)</span>,
         sidebar <span class='op'>=</span> <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span><span class='op'>(</span>
          startOpen <span class='op'>=</span> <span class='cn'>TRUE</span>,
-         inputId <span class='op'>=</span> <span class='st'>"mycardsidebar"</span>,
+         id <span class='op'>=</span> <span class='st'>"mycardsidebar"</span>,
          <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>sliderInput</a></span><span class='op'>(</span>
           <span class='st'>"obs"</span>, 
           <span class='st'>"Number of observations:"</span>,
@@ -615,7 +616,7 @@ descriptionBlock is used in a boxPad context.</p></td>
        <span class='st'>"mybox"</span>, 
        action <span class='op'>=</span> <span class='st'>"update"</span>, 
        options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-         title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span><span class='op'>(</span><span class='st'>"hello"</span><span class='op'>)</span>, <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='fl'>1</span>, status <span class='op'>=</span> <span class='st'>"primary"</span><span class='op'>)</span><span class='op'>)</span>,
+         title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span><span class='op'>(</span><span class='st'>"hello"</span>, <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='fl'>1</span>, status <span class='op'>=</span> <span class='st'>"primary"</span><span class='op'>)</span><span class='op'>)</span>,
          status <span class='op'>=</span> <span class='st'>"warning"</span>, 
          solidHeader <span class='op'>=</span> <span class='cn'>TRUE</span>, 
          width <span class='op'>=</span> <span class='fl'>12</span>, 

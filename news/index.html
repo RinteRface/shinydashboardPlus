@@ -168,14 +168,14 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
+<li>Remove <em>footerPadding</em> from <code>boxPlus()</code> to align with <code>{bs4Dash}</code>
+</li>
 <li>Remove all sidebar related parameters from <code>boxPlus()</code>. This is now part of the new <code>boxPlusSidebar()</code>
 </li>
 <li>remove <em>dropdownIcon</em> parameter from <code>boxPlus()</code>. It is now part of the <code>dropdownItemList()</code>
 </li>
 <li>Remove all label params from <code>boxPlus()</code>. This is to reduce the number of parameters of cards. Now part of <code>boxPlusLabel()</code>
 </li>
-<li>
-<em>footer_padding</em> becomes <em>footerPadding</em> in <code>boxPlus()</code>, <code>gradientBox()</code>, <code>widgetUserBox()</code> and <code><a href="../reference/socialBox.html">socialBox()</a></code> to be consistent with the style (camelCase) …</li>
 <li>In <code>dropdownItemList()</code> <em>icon</em> must be provided as <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>Replace <em>left_text</em> and <em>right_text</em> by <em>left</em> and <em>right</em>, respectively in <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code>
 </li>
@@ -277,6 +277,8 @@
 <h2 class="hasAnchor">
 <a href="#minor-change" class="anchor"></a>Minor change</h2>
 <ul>
+<li>Add <em>headerBorder</em> to <code><a href="../reference/box.html">box()</a></code>
+</li>
 <li>add <em>width</em> to <code><a href="../reference/accordion.html">accordion()</a></code> (default to 12)</li>
 <li>Simplified dependencies code (No end-user impact)</li>
 </ul>

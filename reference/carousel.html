@@ -50,7 +50,7 @@
 
 <meta property="og:title" content="AdminLTE2 carousel container — carousel" />
 <meta property="og:description" content="carousel creates a carousel container to display media content.
-carouselItem creates a carousel item." />
+carouselItem creates a carousel item to insert in a carousel." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -164,12 +164,12 @@ carouselItem creates a carousel item." />
 
     <div class="ref-description">
     <p>carousel creates a carousel container to display media content.</p>
-<p>carouselItem creates a carousel item.</p>
+<p>carouselItem creates a carousel item to insert in a carousel.</p>
     </div>
 
     <pre class="usage"><span class='fu'>carousel</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>id</span>, indicators <span class='op'>=</span> <span class='cn'>TRUE</span>, width <span class='op'>=</span> <span class='fl'>6</span>, .list <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>carouselItem</span><span class='op'>(</span><span class='va'>...</span>, caption <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+<span class='fu'>carouselItem</span><span class='op'>(</span><span class='va'>...</span>, caption <span class='op'>=</span> <span class='cn'>NULL</span>, active <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -198,6 +198,10 @@ put these item here instead of passing them in ...</p></td>
     <tr>
       <th>caption</th>
       <td><p>Item caption.</p></td>
+    </tr>
+    <tr>
+      <th>active</th>
+      <td><p>Whether the item is active or not at start.</p></td>
     </tr>
     </table>
 
