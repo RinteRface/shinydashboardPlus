@@ -171,7 +171,7 @@ updateAccordion toggles an accordion on the client." />
 
     <pre class="usage"><span class='fu'>accordion</span><span class='op'>(</span><span class='va'>...</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, width <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>
 
-<span class='fu'>accordionItem</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>title</span>, status <span class='op'>=</span> <span class='cn'>NULL</span>, collapsed <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'>accordionItem</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>title</span>, status <span class='op'>=</span> <span class='cn'>NULL</span>, collapsed <span class='op'>=</span> <span class='cn'>TRUE</span>, solidHeader <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='fu'>updateAccordion</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>selected</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
@@ -180,7 +180,7 @@ updateAccordion toggles an accordion on the client." />
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>text to write in the item.</p></td>
+      <td><p>slot for accordionItem.</p></td>
     </tr>
     <tr>
       <th>id</th>
@@ -192,12 +192,12 @@ updateAccordion toggles an accordion on the client." />
     </tr>
     <tr>
       <th>title</th>
-      <td><p>item title.</p></td>
+      <td><p>Optional title.</p></td>
     </tr>
     <tr>
       <th>status</th>
-      <td><p>item status.
-Valid statuses are defined as follows:</p><ul>
+      <td><p>The status of the item This determines the item's background
+  color.  Valid statuses are defined as follows:</p><ul>
 <li><p><code>primary</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc</p></li>
 <li><p><code>success</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a</p></li>
 <li><p><code>info</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef</p></li>
@@ -209,11 +209,16 @@ Valid statuses are defined as follows:</p><ul>
 <li><p><code>orange</code>: <span style='width:12px;height:12px;background:#ff851b;border-radius:2px;display:inline-block;margin-right:5px;'></span>#ff851b</p></li>
 <li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60</p></li>
 <li><p><code>black</code>: <span style='width:12px;height:12px;background:#111111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111111</p></li>
-</ul></td>
+</ul><p>Only primary, success, info, warning and danger are compatible with solidHeader!</p></td>
     </tr>
     <tr>
       <th>collapsed</th>
-      <td><p>Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.</p></td>
+      <td><p>If TRUE, start collapsed. This must be used with
+<code>collapsible=TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>solidHeader</th>
+      <td><p>Should the header be shown with a solid color background?</p></td>
     </tr>
     <tr>
       <th>selected</th>
