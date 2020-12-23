@@ -8,21 +8,21 @@
 \usage{
 accordion(..., id = NULL, width = 12)
 
-accordionItem(..., title, status = NULL, collapsed = TRUE)
+accordionItem(..., title, status = NULL, collapsed = TRUE, solidHeader = TRUE)
 
 updateAccordion(id, selected, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{...}{text to write in the item.}
+\item{...}{slot for \link{accordionItem}.}
 
 \item{id}{Accordion to target.}
 
 \item{width}{The width of the accordion.}
 
-\item{title}{item title.}
+\item{title}{Optional title.}
 
-\item{status}{item status.
-Valid statuses are defined as follows:
+\item{status}{The status of the item This determines the item's background
+  color.  Valid statuses are defined as follows:
 \itemize{
   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
@@ -35,9 +35,13 @@ Valid statuses are defined as follows:
   \item \code{orange}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#ff851b")}
   \item \code{maroon}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#D81B60")}
   \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
-}}
+}
+Only primary, success, info, warning and danger are compatible with solidHeader!}
 
-\item{collapsed}{Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.}
+\item{collapsed}{If TRUE, start collapsed. This must be used with
+\code{collapsible=TRUE}.}
+
+\item{solidHeader}{Should the header be shown with a solid color background?}
 
 \item{selected}{Index of the newly selected \link{accordionItem}.}
 

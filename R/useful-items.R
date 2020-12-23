@@ -87,34 +87,21 @@ accordion <- function(..., id = NULL, width = 12) {
 #'
 #' \link{accordionItem} creates an accordion item to put inside an \link{accordion} container.
 #'
-#' @param ... text to write in the item.
-#' @param title item title.
-#' @param status item status.
-#' Valid statuses are defined as follows:
-#' \itemize{
-#'   \item \code{primary}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#3c8dbc")}
-#'   \item \code{success}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00a65a")}
-#'   \item \code{info}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#00c0ef")}
-#'   \item \code{warning}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f39c12")}
-#'   \item \code{danger}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#f56954")}
-#'   \item \code{navy}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#001F3F")}
-#'   \item \code{teal}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#39CCCC")}
-#'   \item \code{purple}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#605ca8")}
-#'   \item \code{orange}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#ff851b")}
-#'   \item \code{maroon}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#D81B60")}
-#'   \item \code{black}: \Sexpr[results=rd, stage=render]{shinydashboardPlus:::rd_color_tag("#111111")}
-#' }
-#' @param collapsed Whether to expand or collapse the item. TRUE by default. Set it to FALSE if you want to expand it.
+#' @inheritParams box
+#' 
 #' @rdname accordion
 #'
 #' @export
-accordionItem <- function(..., title, status = NULL, collapsed = TRUE) {
+accordionItem <- function(..., title, status = NULL, collapsed = TRUE,
+                          solidHeader = TRUE) {
   
   cl <- "panel box"
   if (!is.null(status)) {
     validateStatusPlus(status)
     cl <- paste0(cl, " box-", status)
   }
+  
+  if (solidHeader) cl <- paste0(cl, " box-solid")
   
   shiny::tags$div(
     class = cl,
