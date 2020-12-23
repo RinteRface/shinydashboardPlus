@@ -1155,7 +1155,7 @@ boxProfile <- function(..., image = NULL, title, subtitle = NULL, bordered = FAL
   cl <- if (isTRUE(bordered)) "list-group" else "list-group list-group-unbordered"
   
   shiny::tags$div(
-    class = "box-body box-profile",
+    class = "box-profile",
     if (!is.null(image)) {
       shiny::img(class = "profile-user-img img-responsive img-circle", src = image)
     },
