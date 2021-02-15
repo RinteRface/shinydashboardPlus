@@ -174,7 +174,7 @@ on the right side.</p>
   disable <span class='op'>=</span> <span class='cn'>FALSE</span>,
   .list <span class='op'>=</span> <span class='cn'>NULL</span>,
   leftUi <span class='op'>=</span> <span class='cn'>NULL</span>,
-  controlbarIcon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"gears"</span><span class='op'>)</span>,
+  controlbarIcon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"gears"</span><span class='op'>)</span>,
   fixed <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
@@ -234,20 +234,20 @@ in the left menu, since they will not be well displayed. Instead, wrap them in a
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://shiny.rstudio.com'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dreamRs/shinyWidgets'>shinyWidgets</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
     header <span class='op'>=</span> <span class='fu'>dashboardHeader</span><span class='op'>(</span>
       leftUi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span><span class='op'>(</span>
         <span class='fu'><a href='dropdownBlock.html'>dropdownBlock</a></span><span class='op'>(</span>
           id <span class='op'>=</span> <span class='st'>"mydropdown"</span>,
           title <span class='op'>=</span> <span class='st'>"Dropdown 1"</span>,
-          icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"sliders"</span><span class='op'>)</span>,
-          <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>sliderInput</a></span><span class='op'>(</span>
+          icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"sliders"</span><span class='op'>)</span>,
+          <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span><span class='op'>(</span>
             inputId <span class='op'>=</span> <span class='st'>"n"</span>,
             label <span class='op'>=</span> <span class='st'>"Number of observations"</span>,
             min <span class='op'>=</span> <span class='fl'>10</span>, max <span class='op'>=</span> <span class='fl'>100</span>, value <span class='op'>=</span> <span class='fl'>30</span>
@@ -256,14 +256,14 @@ in the left menu, since they will not be well displayed. Instead, wrap them in a
             inputId <span class='op'>=</span> <span class='st'>"na"</span>,
             label_on <span class='op'>=</span> <span class='st'>"NAs kept"</span>,
             label_off <span class='op'>=</span> <span class='st'>"NAs removed"</span>,
-            icon_on <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"check"</span><span class='op'>)</span>,
-            icon_off <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"remove"</span><span class='op'>)</span>
+            icon_on <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"check"</span><span class='op'>)</span>,
+            icon_off <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"remove"</span><span class='op'>)</span>
           <span class='op'>)</span>
         <span class='op'>)</span>,
         <span class='fu'><a href='dropdownBlock.html'>dropdownBlock</a></span><span class='op'>(</span>
           id <span class='op'>=</span> <span class='st'>"mydropdown2"</span>,
           title <span class='op'>=</span> <span class='st'>"Dropdown 2"</span>,
-          icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"sliders"</span><span class='op'>)</span>,
+          icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"sliders"</span><span class='op'>)</span>,
           <span class='fu'><a href='https://rdrr.io/pkg/shinyWidgets/man/prettySwitch.html'>prettySwitch</a></span><span class='op'>(</span>
             inputId <span class='op'>=</span> <span class='st'>"switch4"</span>,
             label <span class='op'>=</span> <span class='st'>"Fill switch with status:"</span>,

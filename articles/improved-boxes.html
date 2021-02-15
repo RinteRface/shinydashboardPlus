@@ -116,7 +116,7 @@
       <h1 data-toc-skip>Improved boxes</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-12-23</h4>
+            <h4 class="date">2021-02-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/improved-boxes.Rmd"><code>vignettes/improved-boxes.Rmd</code></a></small>
       <div class="hidden name"><code>improved-boxes.Rmd</code></div>
@@ -140,7 +140,7 @@
 </ul>
 <p>To benefit from that feature, one must pass the <em>id</em> parameter and access it on the server side with <code>input$&lt;id&gt;</code>. Let’s consider an example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://shiny.rstudio.com">shiny</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
 <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
@@ -149,48 +149,48 @@
   <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
     <span class="va">tags</span><span class="op">$</span><span class="fu">style</span><span class="op">(</span><span class="st">"body { background-color: ghostwhite}"</span><span class="op">)</span>,
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle_box"</span>, <span class="st">"Toggle Box"</span><span class="op">)</span>,
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"remove_box"</span>, <span class="st">"Remove Box"</span>, class <span class="op">=</span> <span class="st">"bg-danger"</span><span class="op">)</span>,
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class <span class="op">=</span> <span class="st">"bg-success"</span><span class="op">)</span>,
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Update Box"</span>, class <span class="op">=</span> <span class="st">"bg-primary"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle_box"</span>, <span class="st">"Toggle Box"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"remove_box"</span>, <span class="st">"Remove Box"</span>, class <span class="op">=</span> <span class="st">"bg-danger"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class <span class="op">=</span> <span class="st">"bg-success"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Update Box"</span>, class <span class="op">=</span> <span class="st">"bg-primary"</span><span class="op">)</span>
     <span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/box.html">box</a></span><span class="op">(</span>
-      title <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">textOutput</a></span><span class="op">(</span><span class="st">"box_state"</span><span class="op">)</span>,
+      title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span><span class="st">"box_state"</span><span class="op">)</span>,
       <span class="st">"Box body"</span>,
       id <span class="op">=</span> <span class="st">"mybox"</span>,
       collapsible <span class="op">=</span> <span class="cn">TRUE</span>,
       closable <span class="op">=</span> <span class="cn">TRUE</span>,
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"plot"</span><span class="op">)</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"plot"</span><span class="op">)</span>
     <span class="op">)</span>
   <span class="op">)</span>
 <span class="op">)</span>
 
 <span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/req.html">req</a></span><span class="op">(</span><span class="op">!</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">collapsed</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html">req</a></span><span class="op">(</span><span class="op">!</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">collapsed</span><span class="op">)</span>
     <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span><span class="op">)</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="va">output</span><span class="op">$</span><span class="va">box_state</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderText.html">renderText</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">box_state</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">state</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">collapsed</span><span class="op">)</span> <span class="st">"collapsed"</span> <span class="kw">else</span> <span class="st">"uncollapsed"</span>
     <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"My box is"</span>, <span class="va">state</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle_box</span>, <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle_box</span>, <span class="op">{</span>
     <span class="fu"><a href="../reference/box.html">updateBox</a></span><span class="op">(</span><span class="st">"mybox"</span>, action <span class="op">=</span> <span class="st">"toggle"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">remove_box</span>, <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">remove_box</span>, <span class="op">{</span>
     <span class="fu"><a href="../reference/box.html">updateBox</a></span><span class="op">(</span><span class="st">"mybox"</span>, action <span class="op">=</span> <span class="st">"remove"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">restore_box</span>, <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">restore_box</span>, <span class="op">{</span>
     <span class="fu"><a href="../reference/box.html">updateBox</a></span><span class="op">(</span><span class="st">"mybox"</span>, action <span class="op">=</span> <span class="st">"restore"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update_box</span>, <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update_box</span>, <span class="op">{</span>
     <span class="fu"><a href="../reference/box.html">updateBox</a></span><span class="op">(</span>
       <span class="st">"mybox"</span>, 
       action <span class="op">=</span> <span class="st">"update"</span>, 
@@ -203,15 +203,15 @@
     <span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">visible</span>, <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">visible</span>, <span class="op">{</span>
     <span class="va">collapsed</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">collapsed</span><span class="op">)</span> <span class="st">"collapsed"</span> <span class="kw">else</span> <span class="st">"uncollapsed"</span>
     <span class="va">visible</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mybox</span><span class="op">$</span><span class="va">visible</span><span class="op">)</span> <span class="st">"visible"</span> <span class="kw">else</span> <span class="st">"hidden"</span>
     <span class="va">message</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"My box is"</span>, <span class="va">collapsed</span>, <span class="st">"and"</span>, <span class="va">visible</span><span class="op">)</span>
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span><span class="op">(</span><span class="va">message</span>, type <span class="op">=</span> <span class="st">"warning"</span>, duration <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span><span class="op">(</span><span class="va">message</span>, type <span class="op">=</span> <span class="st">"warning"</span>, duration <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 <p>We call the <code><a href="../reference/box.html">updateBox()</a></code> function, specifying the action to accomplish:</p>
 <ul>
 <li>toggle</li>
@@ -253,7 +253,7 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <a href="#box-sidebar" class="anchor"></a>Box Sidebar</h4>
 <p><code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is invoked through the <code><a href="../reference/box.html">box()</a></code> sidebar parameter. The sidebar has an <em>id</em> allowing to programmatically toggle it on the server side with <code><a href="../reference/boxSidebar.html">updateBoxSidebar()</a></code>. This component is generally used to contain input element that you don’t want to show in the box, while the box body generally contains visualizations such as plots or tables. <code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is highly customizable as one may change the background color, the width and the icon trigger, the latter displayed on the very right side of the box header, as depicted in Figure @ref(fig:boxTools). Below is an example showing how to set up the sidebar and toggle it.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
@@ -264,11 +264,11 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
         height <span class="op">=</span> <span class="st">"500px"</span>,
         solidHeader <span class="op">=</span> <span class="cn">FALSE</span>, 
         collapsible <span class="op">=</span> <span class="cn">TRUE</span>,
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>, <span class="st">"Toggle card sidebar"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>, <span class="st">"Toggle card sidebar"</span><span class="op">)</span>,
         sidebar <span class="op">=</span> <span class="fu"><a href="../reference/boxSidebar.html">boxSidebar</a></span><span class="op">(</span>
           id <span class="op">=</span> <span class="st">"mycardsidebar"</span>,
           width <span class="op">=</span> <span class="fl">25</span>,
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span><span class="op">(</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span>
             <span class="st">"obs"</span>, 
             <span class="st">"Number of observations:"</span>,
             min <span class="op">=</span> <span class="fl">0</span>, 
@@ -276,19 +276,19 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
             value <span class="op">=</span> <span class="fl">500</span>
           <span class="op">)</span>
         <span class="op">)</span>,
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>
       <span class="op">)</span>
     <span class="op">)</span>,
     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mycardsidebar</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">mycardsidebar</span><span class="op">)</span><span class="op">)</span>
     
-    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
       <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">obs</span><span class="op">)</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
       <span class="fu"><a href="../reference/boxSidebar.html">updateBoxSidebar</a></span><span class="op">(</span><span class="st">"mycardsidebar"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
@@ -313,7 +313,7 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <a href="#box-dropdown" class="anchor"></a>Box Dropdown</h4>
 <p><code><a href="../reference/box.html">boxDropdown()</a></code> is a super powerful tool since all dropdown items may behave like action buttons. This feature allows to seamlessly add interactivity to the box component and gather features in one place. In the example below, clicking on the first item triggers a Shiny notification.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -326,18 +326,18 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
         solidHeader <span class="op">=</span> <span class="cn">FALSE</span>, 
         collapsible <span class="op">=</span> <span class="cn">TRUE</span>,
         dropdownMenu <span class="op">=</span> <span class="fu"><a href="../reference/box.html">boxDropdown</a></span><span class="op">(</span>
-          <span class="fu"><a href="../reference/box.html">boxDropdownItem</a></span><span class="op">(</span><span class="st">"Click me"</span>, id <span class="op">=</span> <span class="st">"dropdownItem"</span>, icon <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"heart"</span><span class="op">)</span><span class="op">)</span>,
+          <span class="fu"><a href="../reference/box.html">boxDropdownItem</a></span><span class="op">(</span><span class="st">"Click me"</span>, id <span class="op">=</span> <span class="st">"dropdownItem"</span>, icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"heart"</span><span class="op">)</span><span class="op">)</span>,
           <span class="fu"><a href="../reference/box.html">boxDropdownItem</a></span><span class="op">(</span><span class="st">"item 2"</span>, href <span class="op">=</span> <span class="st">"https://www.google.com/"</span><span class="op">)</span>,
           <span class="fu"><a href="../reference/box.html">dropdownDivider</a></span><span class="op">(</span><span class="op">)</span>,
-          <span class="fu"><a href="../reference/box.html">boxDropdownItem</a></span><span class="op">(</span><span class="st">"item 3"</span>, icon <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"th"</span><span class="op">)</span><span class="op">)</span>
+          <span class="fu"><a href="../reference/box.html">boxDropdownItem</a></span><span class="op">(</span><span class="st">"item 3"</span>, icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"th"</span><span class="op">)</span><span class="op">)</span>
         <span class="op">)</span>,
         <span class="st">"My box"</span>
       <span class="op">)</span>
     <span class="op">)</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dropdownItem</span>, <span class="op">{</span>
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span><span class="op">(</span><span class="st">"Hello"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dropdownItem</span>, <span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span><span class="op">(</span><span class="st">"Hello"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>
 <span class="op">)</span></code></pre></div>
@@ -385,7 +385,7 @@ Some userBox components
 </div>
 <p><code><a href="../reference/userBox.html">userBox()</a></code> plays well with other components like <code><a href="../reference/navPills.html">navPills()</a></code>, as shown below.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -408,7 +408,7 @@ Some userBox components
           <span class="fu"><a href="../reference/navPills.html">navPillsItem</a></span><span class="op">(</span>
             left <span class="op">=</span> <span class="st">"Item 2"</span>, 
             color <span class="op">=</span> <span class="st">"red"</span>,
-            icon <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"angle-down"</span><span class="op">)</span>, 
+            icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"angle-down"</span><span class="op">)</span>, 
             right <span class="op">=</span> <span class="st">"10%"</span>
           <span class="op">)</span>
         <span class="op">)</span>,
@@ -419,16 +419,16 @@ Some userBox components
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span>, <span class="op">{</span>
       <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showModal.html">showModal</a></span><span class="op">(</span>
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/modalDialog.html">modalDialog</a></span><span class="op">(</span><span class="st">"A modal"</span><span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showModal.html">showModal</a></span><span class="op">(</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/modalDialog.html">modalDialog</a></span><span class="op">(</span><span class="st">"A modal"</span><span class="op">)</span>
         <span class="op">)</span>
       <span class="op">}</span>
     <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span>, <span class="op">{</span>
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span>, <span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span><span class="op">(</span>
         <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You clicked on pill N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">pillItem</span><span class="op">)</span>, 
         type <span class="op">=</span> <span class="st">"warning"</span>,
         duration <span class="op">=</span> <span class="fl">1</span>
@@ -450,12 +450,12 @@ Some userBox components
 </div>
 <p><code><a href="../reference/userBox.html">userBox()</a></code> is also entirely updatable from the server side, as it is built on top the <code><a href="../reference/box.html">box()</a></code> function:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Update"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Update"</span><span class="op">)</span>,
       <span class="fu"><a href="../reference/userBox.html">userBox</a></span><span class="op">(</span>
         id <span class="op">=</span> <span class="st">"userbox"</span>,
         title <span class="op">=</span> <span class="fu"><a href="../reference/userBox.html">userDescription</a></span><span class="op">(</span>
@@ -475,7 +475,7 @@ Some userBox components
     title <span class="op">=</span> <span class="st">"userBox"</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update_box</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update_box</span>, <span class="op">{</span>
       <span class="fu"><a href="../reference/box.html">updateBox</a></span><span class="op">(</span>
         <span class="st">"userbox"</span>,
         action <span class="op">=</span> <span class="st">"update"</span>,
@@ -507,7 +507,7 @@ Some userBox components
 <span class="op">)</span></code></pre></div>
 <p>Elements like <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> and <code><a href="../reference/userMessages.html">userMessages()</a></code> are a good fit with this component. The <code>...</code> slot may hosts multiple <code>boxComment</code>, consisting in user comments. Right now, there is no programmatic way (understand no <strong>update</strong> function is available) to handle them but a future release of <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> will obviously fill this gap. The app below shows a combination of multiple elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>, as well as the <code><a href="../reference/box.html">updateBox()</a></code> feature:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -519,11 +519,11 @@ Some userBox components
           title <span class="op">=</span> <span class="st">"Social Box"</span>,
           subtitle <span class="op">=</span> <span class="st">"example-01.05.2018"</span>
         <span class="op">)</span>,
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Refresh"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Refresh"</span><span class="op">)</span>,
         <span class="st">"Some text here!"</span>,
         <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span><span class="op">(</span><span class="op">)</span>,
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabsetPanel.html">tabsetPanel</a></span><span class="op">(</span>
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabPanel.html">tabPanel</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html">tabsetPanel</a></span><span class="op">(</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span>
             <span class="st">"News"</span>,
             <span class="fu"><a href="../reference/attachmentBlock.html">attachmentBlock</a></span><span class="op">(</span>
               image <span class="op">=</span> <span class="st">"https://www.sammobile.com/wp-content/uploads/2017/11/Camel.png"</span>,
@@ -532,7 +532,7 @@ Some userBox components
               <span class="st">"This is the content"</span>
             <span class="op">)</span>
           <span class="op">)</span>,
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabPanel.html">tabPanel</a></span><span class="op">(</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span>
             <span class="st">"Messages"</span>,
             <span class="fu"><a href="../reference/userMessages.html">userMessages</a></span><span class="op">(</span>
               width <span class="op">=</span> <span class="fl">12</span>,
@@ -568,7 +568,7 @@ Some userBox components
     title <span class="op">=</span> <span class="st">"Social Box"</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update_box</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update_box</span>, <span class="op">{</span>
       <span class="fu"><a href="../reference/box.html">updateBox</a></span><span class="op">(</span>
         <span class="st">"socialbox"</span>,
         action <span class="op">=</span> <span class="st">"update"</span>,
@@ -601,16 +601,16 @@ Some userBox components
 <a href="#flipbox" class="anchor"></a>flipBox</h4>
 <p>The <code><a href="../reference/flipBox.html">flipBox()</a></code> is a simple container based on the W3C documentation. It is not originally part of AdminLTE but deserves a place in <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>. It has a front and back container, which may help to display extra information. Be sure to provide the <em>id</em> so that the box may flip. On the server side, a <code>flipBox</code> is toggled by <code>updateFlipBox</code>. There are currently 2 events, that is click and hover.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span><span class="op">(</span>
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
           width <span class="op">=</span> <span class="fl">6</span>,
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"active_side"</span><span class="op">)</span>, 
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle"</span>, <span class="st">"Toggle flip box"</span><span class="op">)</span>,
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"active_side"</span><span class="op">)</span>, 
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle"</span>, <span class="st">"Toggle flip box"</span><span class="op">)</span>,
           <span class="fu"><a href="../reference/flipBox.html">flipBox</a></span><span class="op">(</span>
             id <span class="op">=</span> <span class="st">"myflipbox"</span>, 
             trigger <span class="op">=</span> <span class="st">"hover"</span>,
@@ -633,9 +633,9 @@ Some userBox components
             <span class="op">)</span>
           <span class="op">)</span>
         <span class="op">)</span>,
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
           width <span class="op">=</span> <span class="fl">6</span>,
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"active_side_2"</span><span class="op">)</span>,
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"active_side_2"</span><span class="op">)</span>,
           <span class="fu"><a href="../reference/flipBox.html">flipBox</a></span><span class="op">(</span>
             id <span class="op">=</span> <span class="st">"myflipbox2"</span>,
             width <span class="op">=</span> <span class="fl">12</span>,
@@ -662,17 +662,17 @@ Some userBox components
   <span class="op">)</span>,
   
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">output</span><span class="op">$</span><span class="va">active_side</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">active_side</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
       <span class="va">side</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">myflipbox</span><span class="op">)</span> <span class="st">"front"</span> <span class="kw">else</span> <span class="st">"back"</span>
       <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="va">side</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
-    <span class="va">output</span><span class="op">$</span><span class="va">active_side_2</span><span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">active_side_2</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
       <span class="va">side</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">myflipbox2</span><span class="op">)</span> <span class="st">"front"</span> <span class="kw">else</span> <span class="st">"back"</span>
       <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="va">side</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle</span>, <span class="op">{</span>
       <span class="fu"><a href="../reference/flipBox.html">updateFlipBox</a></span><span class="op">(</span><span class="st">"myflipbox"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
   <span class="op">}</span>

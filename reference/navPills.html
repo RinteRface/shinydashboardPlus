@@ -175,7 +175,7 @@ selected navPillsItem on the client.</p>
 
     <pre class="usage"><span class='fu'>navPills</span><span class='op'>(</span><span class='va'>...</span>, id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>updateNavPills</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>selected</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>updateNavPills</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>selected</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'>navPillsItem</span><span class='op'>(</span>
   left <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -264,11 +264,11 @@ See below:</p><ul>
     <pre class="examples"><div class='input'>
 <span class='co'># navPills</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://shiny.rstudio.com'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
@@ -287,7 +287,7 @@ See below:</p><ul>
         <span class='fu'>navPillsItem</span><span class='op'>(</span>
           left <span class='op'>=</span> <span class='st'>"Item 2"</span>, 
           color <span class='op'>=</span> <span class='st'>"red"</span>,
-          icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"angle-down"</span><span class='op'>)</span>, 
+          icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"angle-down"</span><span class='op'>)</span>, 
           right <span class='op'>=</span> <span class='st'>"10%"</span>,
           active <span class='op'>=</span> <span class='cn'>TRUE</span>
         <span class='op'>)</span>
@@ -297,8 +297,8 @@ See below:</p><ul>
     title <span class='op'>=</span> <span class='st'>"Nav Pills"</span>
   <span class='op'>)</span>,
   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span>
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>pillItem</span>, <span class='op'>{</span>
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"You clicked on pill N° %s"</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>pillItem</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"message"</span><span class='op'>)</span>
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>pillItem</span>, <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"You clicked on pill N° %s"</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>pillItem</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"message"</span><span class='op'>)</span>
    <span class='op'>}</span><span class='op'>)</span>
   <span class='op'>}</span>
  <span class='op'>)</span>
@@ -307,16 +307,16 @@ See below:</p><ul>
 
 <span class='co'># update navPills</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://shiny.rstudio.com'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html'>radioButtons</a></span><span class='op'>(</span><span class='st'>"controller"</span>, <span class='st'>"Controller"</span>, choices <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/radioButtons.html'>radioButtons</a></span><span class='op'>(</span><span class='st'>"controller"</span>, <span class='st'>"Controller"</span>, choices <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>,
      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span><span class='op'>(</span><span class='op'>)</span>,
      <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>
       title <span class='op'>=</span> <span class='st'>"Nav Pills"</span>,
@@ -332,13 +332,13 @@ See below:</p><ul>
         <span class='fu'>navPillsItem</span><span class='op'>(</span>
           left <span class='op'>=</span> <span class='st'>"Item 2"</span>, 
           color <span class='op'>=</span> <span class='st'>"red"</span>,
-          icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"angle-down"</span><span class='op'>)</span>, 
+          icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"angle-down"</span><span class='op'>)</span>, 
           right <span class='op'>=</span> <span class='st'>"10%"</span>
         <span class='op'>)</span>,
         <span class='fu'>navPillsItem</span><span class='op'>(</span>
           left <span class='op'>=</span> <span class='st'>"Item 3"</span>, 
           color <span class='op'>=</span> <span class='st'>"blue"</span>,
-          icon <span class='op'>=</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"angle-up"</span><span class='op'>)</span>, 
+          icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"angle-up"</span><span class='op'>)</span>, 
           right <span class='op'>=</span> <span class='st'>"30%"</span>
         <span class='op'>)</span>
       <span class='op'>)</span>
@@ -347,11 +347,11 @@ See below:</p><ul>
     title <span class='op'>=</span> <span class='st'>"Nav Pills"</span>
   <span class='op'>)</span>,
   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>controller</span>, <span class='op'>{</span>
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>controller</span>, <span class='op'>{</span>
     <span class='fu'>updateNavPills</span><span class='op'>(</span>id <span class='op'>=</span> <span class='st'>"pills"</span>, selected <span class='op'>=</span> <span class='va'>input</span><span class='op'>$</span><span class='va'>controller</span><span class='op'>)</span>
    <span class='op'>}</span><span class='op'>)</span>
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>pills</span>, <span class='op'>{</span>
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"You selected pill N° %s"</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>pills</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"message"</span><span class='op'>)</span>
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>pills</span>, <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"You selected pill N° %s"</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>pills</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"message"</span><span class='op'>)</span>
    <span class='op'>}</span><span class='op'>)</span>
   <span class='op'>}</span>
  <span class='op'>)</span>

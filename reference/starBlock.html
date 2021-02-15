@@ -165,17 +165,17 @@
     <p>Create a starBlock item (ideal for rating)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>starBlock</span><span class='op'>(</span><span class='va'>grade</span>, maxstar <span class='op'>=</span> <span class='fl'>5</span>, color <span class='op'>=</span> <span class='st'>"yellow"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>starBlock</span><span class='op'>(</span><span class='va'>value</span>, max <span class='op'>=</span> <span class='fl'>5</span>, color <span class='op'>=</span> <span class='st'>"yellow"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>grade</th>
-      <td><p>Current score. Should be positive and lower or equal to maxstar.</p></td>
+      <th>value</th>
+      <td><p>Current score. Should be positive and lower or equal to max.</p></td>
     </tr>
     <tr>
-      <th>maxstar</th>
+      <th>max</th>
       <td><p>Maximum number of stars by block.</p></td>
     </tr>
     <tr>
@@ -224,21 +224,21 @@ See below:</p><ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://shiny.rstudio.com'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
      <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>
       title <span class='op'>=</span> <span class='st'>"Star example"</span>,
-      <span class='fu'>starBlock</span><span class='op'>(</span>grade <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>,
-      <span class='fu'>starBlock</span><span class='op'>(</span>grade <span class='op'>=</span> <span class='fl'>5</span>, color <span class='op'>=</span> <span class='st'>"olive"</span><span class='op'>)</span>,
-      <span class='fu'>starBlock</span><span class='op'>(</span>grade <span class='op'>=</span> <span class='fl'>1</span>, color <span class='op'>=</span> <span class='st'>"maroon"</span><span class='op'>)</span>,
-      <span class='fu'>starBlock</span><span class='op'>(</span>grade <span class='op'>=</span> <span class='fl'>3</span>, color <span class='op'>=</span> <span class='st'>"teal"</span><span class='op'>)</span>
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>5</span>, color <span class='op'>=</span> <span class='st'>"olive"</span><span class='op'>)</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>1</span>, color <span class='op'>=</span> <span class='st'>"maroon"</span><span class='op'>)</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>3</span>, color <span class='op'>=</span> <span class='st'>"teal"</span><span class='op'>)</span>
      <span class='op'>)</span>
     <span class='op'>)</span>,
     title <span class='op'>=</span> <span class='st'>"starBlock"</span>

@@ -116,7 +116,7 @@
       <h1 data-toc-skip>Enhanced Header Elements</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2020-12-23</h4>
+            <h4 class="date">2021-02-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/enhanced-header.Rmd"><code>vignettes/enhanced-header.Rmd</code></a></small>
       <div class="hidden name"><code>enhanced-header.Rmd</code></div>
@@ -130,20 +130,20 @@
 <a href="#left-navbar-elements" class="anchor"></a>Left Navbar Elements</h2>
 <p>By default with <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>, all elements included in the navbar will be displayed on the right side. <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> has a new option to add elements in the left part of the <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>. Such items must be passed in the <em>leftUi</em> argument (if multiple elements, they must be wrapped in a <code><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList()</a></code>, as shown below).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://shiny.rstudio.com">shiny</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+ <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span>
        leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton</a></span><span class="op">(</span>
            label <span class="op">=</span> <span class="st">"Controls"</span>,
-           icon <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,
+           icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,
            status <span class="op">=</span> <span class="st">"primary"</span>,
            circle <span class="op">=</span> <span class="cn">FALSE</span>,
-           <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span><span class="op">(</span>
+           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span>
              inputId <span class="op">=</span> <span class="st">"n"</span>,
              label <span class="op">=</span> <span class="st">"Number of observations"</span>,
              min <span class="op">=</span> <span class="fl">10</span>, max <span class="op">=</span> <span class="fl">100</span>, value <span class="op">=</span> <span class="fl">30</span>
@@ -152,8 +152,8 @@
              inputId <span class="op">=</span> <span class="st">"na"</span>,
              label_on <span class="op">=</span> <span class="st">"NAs kept"</span>,
              label_off <span class="op">=</span> <span class="st">"NAs removed"</span>,
-             icon_on <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"check"</span><span class="op">)</span>,
-             icon_off <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"remove"</span><span class="op">)</span>
+             icon_on <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"check"</span><span class="op">)</span>,
+             icon_off <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"remove"</span><span class="op">)</span>
            <span class="op">)</span>
          <span class="op">)</span>,
          <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span><span class="op">(</span>
@@ -173,7 +173,7 @@
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
  <span class="op">)</span></code></pre></div>
-<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from the <a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a> packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>. With other individual elements, the result may not be as good, mainly for a space reason. Indeed, a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput()</a></code> would not be optimized to be embedded in the header since its label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>.</p>
+<p>This new feature perfectly works with the <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code> from the <a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a> packages by <a href="https://twitter.com/_pvictorr">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu()</a></code> from <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>. With other individual elements, the result may not be as good, mainly for a space reason. Indeed, a <code><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput()</a></code> would not be optimized to be embedded in the header since its label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>.</p>
 </div>
 <div id="improved-dropdownmenu" class="section level2">
 <h2 class="hasAnchor">
@@ -181,7 +181,7 @@
 </h2>
 <p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed input elements in a left navbar menu. It does not hide when the user click inside and is optimized to correctly render on mobile devices (contrary to <code><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton()</a></code>, see above).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span>
       leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
@@ -189,7 +189,7 @@
           id <span class="op">=</span> <span class="st">"mydropdown"</span>,
           title <span class="op">=</span> <span class="st">"Dropdown 1"</span>,
           icon <span class="op">=</span> <span class="st">"sliders"</span>,
-          <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span><span class="op">(</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span>
             inputId <span class="op">=</span> <span class="st">"n"</span>,
             label <span class="op">=</span> <span class="st">"Number of observations"</span>,
             min <span class="op">=</span> <span class="fl">10</span>, max <span class="op">=</span> <span class="fl">100</span>, value <span class="op">=</span> <span class="fl">30</span>
@@ -198,8 +198,8 @@
             inputId <span class="op">=</span> <span class="st">"na"</span>,
             label_on <span class="op">=</span> <span class="st">"NAs kept"</span>,
             label_off <span class="op">=</span> <span class="st">"NAs removed"</span>,
-            icon_on <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"check"</span><span class="op">)</span>,
-            icon_off <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"remove"</span><span class="op">)</span>
+            icon_on <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"check"</span><span class="op">)</span>,
+            icon_off <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"remove"</span><span class="op">)</span>
           <span class="op">)</span>
         <span class="op">)</span>,
         <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span>
@@ -238,14 +238,14 @@
 <div id="enhanced-dropdownmenu-items" class="section level3">
 <h3 class="hasAnchor">
 <a href="#enhanced-dropdownmenu-items" class="anchor"></a>Enhanced dropdownMenu Items</h3>
-<p>In <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>, <code><a href="../reference/taskItem.html">taskItem()</a></code>, <code><a href="../reference/messageItem.html">messageItem()</a></code> and <code>notificationItem</code> have a new <em>inputId</em> parameter allowing them to behave like <code><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">shiny::actionButton</a></code>. This has always been quite frustrating not to be able to interact more with these elements in <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>.</p>
+<p>In <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>, <code><a href="../reference/taskItem.html">taskItem()</a></code>, <code><a href="../reference/messageItem.html">messageItem()</a></code> and <code>notificationItem</code> have a new <em>inputId</em> parameter allowing them to behave like <code><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">shiny::actionButton</a></code>. This has always been quite frustrating not to be able to interact more with these elements in <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>.</p>
 </div>
 <div id="dashboarduser-component" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dashboarduser-component" class="anchor"></a>dashboardUser Component</h3>
 <p>In the same spirit of the <code><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarUserPanel.html">sidebarUserPanel()</a></code> that display user informations on the sidebar, the brand new <code><a href="../reference/dashboardUser.html">dashboardUser()</a></code> dropdown component may be used as an admin panel or to display further information. <code><a href="../reference/dashboardUserItem.html">dashboardUserItem()</a></code> provides a refined column container.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="fu"><a href="../reference/userOutput.html">userOutput</a></span><span class="op">(</span><span class="st">"user"</span><span class="op">)</span><span class="op">)</span>,
     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
@@ -260,19 +260,19 @@
        title <span class="op">=</span> <span class="st">"shinydashboardPlus"</span>,
        subtitle <span class="op">=</span> <span class="st">"Author"</span>, 
        footer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"The footer"</span>, class <span class="op">=</span> <span class="st">"text-center"</span><span class="op">)</span>,
-       <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
         <span class="fu"><a href="../reference/dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span>
          width <span class="op">=</span> <span class="fl">6</span>,
          <span class="fu"><a href="../reference/socialButton.html">socialButton</a></span><span class="op">(</span>
           href <span class="op">=</span> <span class="st">"https://dropbox.com"</span>,
-          icon <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"dropbox"</span><span class="op">)</span>
+          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"dropbox"</span><span class="op">)</span>
          <span class="op">)</span>
         <span class="op">)</span>,
         <span class="fu"><a href="../reference/dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span>
          width <span class="op">=</span> <span class="fl">6</span>,
          <span class="fu"><a href="../reference/socialButton.html">socialButton</a></span><span class="op">(</span>
           href <span class="op">=</span> <span class="st">"https://github.com"</span>,
-          icon <span class="op">=</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span>
+          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span>
          <span class="op">)</span>
         <span class="op">)</span>
        <span class="op">)</span>

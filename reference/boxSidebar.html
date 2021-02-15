@@ -173,10 +173,10 @@ updateBoxSidebar toggle a boxSidebar on the client." />
   width <span class='op'>=</span> <span class='fl'>50</span>,
   background <span class='op'>=</span> <span class='st'>"#333a40"</span>,
   startOpen <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  icon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"cogs"</span><span class='op'>)</span>
+  icon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"cogs"</span><span class='op'>)</span>
 <span class='op'>)</span>
 
-<span class='fu'>updateBoxSidebar</span><span class='op'>(</span><span class='va'>id</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+<span class='fu'>updateBoxSidebar</span><span class='op'>(</span><span class='va'>id</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -205,7 +205,7 @@ A numeric value between 25 and 100.</p></td>
     </tr>
     <tr>
       <th>icon</th>
-      <td><p>Sidebar icon. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+      <td><p>Sidebar icon. Expect <code><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></code>.</p></td>
     </tr>
     <tr>
       <th>session</th>
@@ -218,11 +218,11 @@ A numeric value between 25 and 100.</p></td>
     <pre class="examples"><div class='input'>
 <span class='co'># Toggle a box sidebar</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://shiny.rstudio.com'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
     header <span class='op'>=</span> <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
     body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
@@ -233,7 +233,7 @@ A numeric value between 25 and 100.</p></td>
         height <span class='op'>=</span> <span class='st'>"500px"</span>,
         solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>, 
         collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
-        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"update"</span>, <span class='st'>"Toggle card sidebar"</span><span class='op'>)</span>,
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"update"</span>, <span class='st'>"Toggle card sidebar"</span><span class='op'>)</span>,
         sidebar <span class='op'>=</span> <span class='fu'>boxSidebar</span><span class='op'>(</span>
           id <span class='op'>=</span> <span class='st'>"mycardsidebar"</span>,
           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"Sidebar Content"</span><span class='op'>)</span>
@@ -243,9 +243,9 @@ A numeric value between 25 and 100.</p></td>
     sidebar <span class='op'>=</span> <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>
   <span class='op'>)</span>,
   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observe.html'>observe</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mycardsidebar</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observe.html'>observe</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mycardsidebar</span><span class='op'>)</span><span class='op'>)</span>
     
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>update</span>, <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>update</span>, <span class='op'>{</span>
       <span class='fu'>updateBoxSidebar</span><span class='op'>(</span><span class='st'>"mycardsidebar"</span><span class='op'>)</span>
     <span class='op'>}</span><span class='op'>)</span>
     

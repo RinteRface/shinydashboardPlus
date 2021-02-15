@@ -168,6 +168,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
+<li>Change <em>maxstar</em> and <em>grade</em> in <code><a href="../reference/starBlock.html">starBlock()</a></code> to <code>max</code> and <code>value</code>.</li>
 <li>Remove <em>footerPadding</em> from <code>boxPlus()</code> to align with <code>{bs4Dash}</code>
 </li>
 <li>Remove all sidebar related parameters from <code>boxPlus()</code>. This is now part of the new <code>boxPlusSidebar()</code>
@@ -176,14 +177,14 @@
 </li>
 <li>Remove all label params from <code>boxPlus()</code>. This is to reduce the number of parameters of cards. Now part of <code>boxPlusLabel()</code>
 </li>
-<li>In <code>dropdownItemList()</code> <em>icon</em> must be provided as <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code>dropdownItemList()</code> <em>icon</em> must be provided as <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>Replace <em>left_text</em> and <em>right_text</em> by <em>left</em> and <em>right</em>, respectively in <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code>
 </li>
 <li>Remove all sidebar related parameters of <code>dashboardPagePlus()</code>. They now belong to <code>dashboardSidebarPlus()</code> to Align with {shinydashboard}</li>
 <li>In <code>dashboardSidebarPlus()</code>: replace <em>rightSidebar</em> by <em>controlbar</em> (align with {bs4Dash}). Rename <em>enable_preloader</em> to <em>preloader</em> and <em>loading_duration</em> to <em>duration</em>
 </li>
 <li>Rename <code>rightSidebar()</code> to <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to align with {bs4Dash}</li>
-<li>Remove <em>enable_rightSidebar</em> from <code>dashboardHeaderPlus()</code>. This is now part of <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> as <em>disable</em> like in {shinydashboard}. <em>rightSidebarIcon</em> becomes <em>controlbarIcon</em> that accepts <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon</a></code> instead of a simple string containing the icon name to be consistent with {shinydashboard}. <em>left_menu</em> becomes <em>leftUi</em> like in {bs4Dash}</li>
+<li>Remove <em>enable_rightSidebar</em> from <code>dashboardHeaderPlus()</code>. This is now part of <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> as <em>disable</em> like in {shinydashboard}. <em>rightSidebarIcon</em> becomes <em>controlbarIcon</em> that accepts <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon</a></code> instead of a simple string containing the icon name to be consistent with {shinydashboard}. <em>left_menu</em> becomes <em>leftUi</em> like in {bs4Dash}</li>
 <li>Remove <code>rightSiderbarMenu()</code>, <code>rightSidebarTablist()</code>, <code>rightSidebarTabItem()</code>, <code>rightSidebarPanel()</code> and <code>rightSidebarTabContent()</code>. They are now replaces by <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code>, <code><a href="../reference/dashboardControlbar.html">controlbarMenu()</a></code> and <code><a href="../reference/dashboardControlbar.html">controlbarItem()</a></code>
 </li>
 <li>Remove <code>rightSidebarMenuItem()</code>, <code>menuIcon()</code> and <code>menuInfo()</code>
@@ -191,13 +192,13 @@
 <li>Rename <code>boxPlus()</code> to <code><a href="../reference/box.html">box()</a></code>, <code>dashboardPagePlus()</code> to <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> and <code>dashboardHeaderPlus()</code> to <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>
 </li>
 <li>
-<code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>In <code>gradientBox()</code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>In <code><a href="../reference/box.html">descriptionBlock()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>Rework <code><a href="../reference/navPills.html">navPillsItem()</a></code>: <em>pillName</em> becomes <em>left</em>, <em>pillText</em> becomes <em>right</em>, <em>pillColor</em> becomes <em>color</em>, <em>pillIcon</em> becomes <em>icon</em> and expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code>. Add <em>inputId</em> so that the item behaves like an action button</li>
+<code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code>gradientBox()</code> <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/box.html">descriptionBlock()</a></code> <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>Rework <code><a href="../reference/navPills.html">navPillsItem()</a></code>: <em>pillName</em> becomes <em>left</em>, <em>pillText</em> becomes <em>right</em>, <em>pillColor</em> becomes <em>color</em>, <em>pillIcon</em> becomes <em>icon</em> and expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code>. Add <em>inputId</em> so that the item behaves like an action button</li>
 <li>Rework <code><a href="../reference/productList.html">productListItem()</a></code>: <em>productTitle</em> becomes <em>title</em>, <em>productPrice</em> becomes <em>subtitle</em>, <em>priceColor</em> becomes <em>color</em>
 </li>
-<li>In <code><a href="../reference/timelineBlock.html">timelineItem()</a></code>, <code><a href="../reference/timelineBlock.html">timelineStart()</a></code> and <code><a href="../reference/timelineBlock.html">timelineEnd()</a></code>, <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/timelineBlock.html">timelineItem()</a></code>, <code><a href="../reference/timelineBlock.html">timelineStart()</a></code> and <code><a href="../reference/timelineBlock.html">timelineEnd()</a></code>, <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/userList.html">userListItem()</a></code>, <em>user_name</em> becomes <em>title</em>, <em>description</em> becomes <em>subtitle</em>
 </li>
 <li>
@@ -224,7 +225,7 @@
 <li>
 <em>color</em> becomes <em>status</em> in <code><a href="../reference/accordion.html">accordionItem()</a></code>. This is to be consistent with AdminLTE2 classes and {shinydashboard}</li>
 <li>In <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code>: <em>src</em> becomes <em>image</em> and <em>titleUrl</em> becomes <em>href</em>. <em>image</em> is mandatory</li>
-<li>In <code><a href="../reference/socialButton.html">socialButton()</a></code>: <em>url</em> becomes <em>href</em> and <em>type</em> becomes <em>icon</em> (expect <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon</a></code>)</li>
+<li>In <code><a href="../reference/socialButton.html">socialButton()</a></code>: <em>url</em> becomes <em>href</em> and <em>type</em> becomes <em>icon</em> (expect <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon</a></code>)</li>
 <li>In <code><a href="../reference/productList.html">productListItem()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/timelineBlock.html">timelineItemMedia()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/userList.html">userListItem()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
