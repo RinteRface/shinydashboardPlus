@@ -1347,9 +1347,9 @@ progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = F
 #' @title AdminLTE2 starBlock
 #'
 #' @description Create a starBlock item (ideal for rating)
-#'
-#' @param maxstar Maximum number of stars by block.
-#' @param grade Current score. Should be positive and lower or equal to maxstar.
+#' 
+#' @param value Current score. Should be positive and lower or equal to max.
+#' @param max Maximum number of stars by block.
 #' @param color Star color: see \code{validColors()} in the documentation.
 #' See below:
 #' \itemize{
@@ -1386,10 +1386,10 @@ progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = F
 #'     dashboardBody(
 #'      box(
 #'       title = "Star example",
-#'       starBlock(grade = 5),
-#'       starBlock(grade = 5, color = "olive"),
-#'       starBlock(grade = 1, color = "maroon"),
-#'       starBlock(grade = 3, color = "teal")
+#'       starBlock(5),
+#'       starBlock(5, color = "olive"),
+#'       starBlock(1, color = "maroon"),
+#'       starBlock(3, color = "teal")
 #'      )
 #'     ),
 #'     title = "starBlock"
@@ -1399,25 +1399,25 @@ progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = F
 #' }
 #'
 #' @export
-starBlock <- function(grade, maxstar = 5, color = "yellow") {
+starBlock <- function(value, max = 5, color = "yellow") {
   
   stopifnot(!is.null(color))
   validateColor(color)
-  stopifnot(!is.null(grade))
-  stopifnot(grade >= 0)
-  stopifnot(grade <= maxstar)
+  stopifnot(!is.null(value))
+  stopifnot(value >= 0)
+  stopifnot(value <= max)
   
   shiny::tags$td(
     class = "mailbox-star",
     shiny::tags$a(
       href = "javascript:void(0)",
-      if (grade > 0) {
-        full_star <- lapply(1:grade, FUN = function(i) {
+      if (value > 0) {
+        full_star <- lapply(seq_len(value), FUN = function(i) {
           shiny::tags$i(class = paste0("fa text-", color, " fa-star"))
         })
       },
-      if (grade < maxstar) {
-        empty_star <- lapply(1:(maxstar - grade), FUN = function(i) {
+      if (value < max) {
+        empty_star <- lapply(seq_len(max - value), FUN = function(i) {
           shiny::tags$i(class = paste0("fa text-", color, " fa-star-o"))
         })
       }

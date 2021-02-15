@@ -4,6 +4,7 @@ This release is a major step for shinydashboardPlus. It is also a significant br
 change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.
 
 ## Breaking changes
+- Change _maxstar_ and _grade_ in `starBlock()` to `max` and `value`.
 - Remove _footerPadding_ from `boxPlus()` to align with `{bs4Dash}`
 - Remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
 - remove _dropdownIcon_ parameter from `boxPlus()`. It is now part of the `dropdownItemList()`

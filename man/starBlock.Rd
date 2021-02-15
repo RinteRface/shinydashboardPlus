@@ -4,12 +4,12 @@
 \alias{starBlock}
 \title{AdminLTE2 starBlock}
 \usage{
-starBlock(grade, maxstar = 5, color = "yellow")
+starBlock(value, max = 5, color = "yellow")
 }
 \arguments{
-\item{grade}{Current score. Should be positive and lower or equal to maxstar.}
+\item{value}{Current score. Should be positive and lower or equal to max.}
 
-\item{maxstar}{Maximum number of stars by block.}
+\item{max}{Maximum number of stars by block.}
 
 \item{color}{Star color: see \code{validColors()} in the documentation.
 See below:
@@ -48,10 +48,10 @@ if (interactive()) {
     dashboardBody(
      box(
       title = "Star example",
-      starBlock(grade = 5),
-      starBlock(grade = 5, color = "olive"),
-      starBlock(grade = 1, color = "maroon"),
-      starBlock(grade = 3, color = "teal")
+      starBlock(5),
+      starBlock(5, color = "olive"),
+      starBlock(1, color = "maroon"),
+      starBlock(3, color = "teal")
      )
     ),
     title = "starBlock"

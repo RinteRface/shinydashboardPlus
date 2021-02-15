@@ -3,6 +3,7 @@ timeline1 <- 'box(
   status = "info",
   width = 12,
   timelineBlock(
+    width = 12,
     timelineEnd(color = "red"),
     timelineLabel(2018, color = "teal"),
     timelineItem(
@@ -32,6 +33,7 @@ timeline1 <- 'box(
 
 timeline2 <- 'timelineBlock(
   reversed = FALSE,
+  width = 12,
   timelineEnd(color = "red"),
   timelineLabel(2018, color = "teal"),
   timelineItem(

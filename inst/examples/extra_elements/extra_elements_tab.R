@@ -164,10 +164,10 @@ extra_elements_tab <- tabItem(
       box(
         title = "Star example",
         width = NULL,
-        starBlock(grade = 5),
-        starBlock(grade = 5, color = "olive"),
-        starBlock(grade = 1, color = "maroon"),
-        starBlock(grade = 3, color = "teal")
+        starBlock(5),
+        starBlock(5, color = "olive"),
+        starBlock(1, color = "maroon"),
+        starBlock(3, color = "teal")
       ) 
     ),
     # ace editor
@@ -183,10 +183,10 @@ extra_elements_tab <- tabItem(
           style_text(
             'box(
             title = "Star example",
-            starBlock(grade = 5),
-            starBlock(grade = 5, color = "olive"),
-            starBlock(grade = 1, color = "maroon"),
-            starBlock(grade = 3, color = "teal")
+            starBlock(5),
+            starBlock(5, color = "olive"),
+            starBlock(1, color = "maroon"),
+            starBlock(3, color = "teal")
           )'
           ), 
           collapse = "\n"

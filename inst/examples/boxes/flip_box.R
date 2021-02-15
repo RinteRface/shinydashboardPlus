@@ -1,5 +1,6 @@
 flip_box <- 'flipBox(
   id = 1,
+  width = 12,
   front = tagList(
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna 
