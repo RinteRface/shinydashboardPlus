@@ -86,6 +86,7 @@ list of available options
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
+- Fix #57: broken default `input$sidebarCollapsed`. 
 - Fix #86: controlbar should also trigger a window resize, like the left
 shinydashboard sidebar. Thanks @ajfisher83 
 - Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `box()`...

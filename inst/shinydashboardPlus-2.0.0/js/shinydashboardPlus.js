@@ -772,7 +772,11 @@ $(function() {
         .first();
     },
     getValue: function(el) {
-      return $(el).attr("data-collapsed") === "false";
+      if ($(el).attr('id') === "sidebarCollapsed") {
+        return $(el).attr("data-collapsed") === "true"; 
+      } else {
+        return $(el).attr("data-collapsed") === "false";
+      }
     },
     setValue: function(el, value) {
       $(el).attr("data-collapsed", value);
