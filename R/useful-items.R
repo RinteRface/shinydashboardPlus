@@ -1844,7 +1844,7 @@ todoList <- function(..., sortable = TRUE) {
     ...
   )
   
-  if (sortable) todoListTag <- shinyjqui::jqui_sortabled(todoListTag) 
+  if (sortable) todoListTag <- shinyjqui::jqui_sortable(todoListTag) 
   
   todoListTag
   
