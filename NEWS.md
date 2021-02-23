@@ -86,6 +86,8 @@ list of available options
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
+- Fix #78: Menu Item with Sub Menu Item Arrow Not Rotating.
+- Fix #105: box animation speed. Allow user defined options to prevail over internals.
 - Fix #57: broken default `input$sidebarCollapsed`. 
 - Fix #86: controlbar should also trigger a window resize, like the left
 shinydashboard sidebar. Thanks @ajfisher83 

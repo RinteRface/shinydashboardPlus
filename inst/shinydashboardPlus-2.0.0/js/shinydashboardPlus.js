@@ -807,6 +807,18 @@ $(function() {
   // sidebarmenuExpandedInputBinding
   // ------------------------------------------------------------------
   // This keeps tracks of what menuItem (if any) is expanded
+  $('section.sidebar a i').click(function() {
+    if ($(this).hasClass('fa-angle-down')) {
+      self = $(this);
+      setTimeout(function() {
+        self
+          .removeClass("fa-angle-down")
+          .addClass("fa-angle-left");
+      }, 500);
+    }
+  });
+          
+  
   var sidebarmenuExpandedInputBinding = new Shiny.InputBinding();
   $.extend(sidebarmenuExpandedInputBinding, {
     find: function(scope) {
@@ -815,8 +827,16 @@ $(function() {
     },
     getValue: function(el) {
       var $open = $(el).find("li ul.menu-open");
-      if ($open.length === 1) return $open.attr("data-expanded");
-      else return null;
+      var icon = $(el).find('.treeview.active > a i').eq(1);
+      if ($open.length === 1) {
+        $(icon)
+          .toggleClass("fa-angle-left")
+          .addClass("fa-angle-down");
+        return $open.attr("data-expanded");
+      }
+      else {
+        return null
+      };
     },
     setValue: function(el, value) {
       var $menuItem = $(el).find("[data-expanded='" + value + "']");
