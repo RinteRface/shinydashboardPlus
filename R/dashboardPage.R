@@ -126,6 +126,17 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
   addDeps(
     shiny::tags$body(
       # preloader, if any
+      if (!is.null(options)) {
+        shiny::tags$script(
+          type = "application/json",
+          `data-for` = "adminLTEConfig",
+          jsonlite::toJSON(
+            x = options,
+            auto_unbox = TRUE,
+            json_verbatim = TRUE
+          )
+        )
+      },
       if (!is.null(preloader)) {
         shiny::tagList(
           waiter::use_waiter(), # dependencies

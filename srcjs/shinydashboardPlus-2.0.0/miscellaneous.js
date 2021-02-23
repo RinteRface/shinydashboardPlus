@@ -62,7 +62,14 @@ $(function() {
   });
 
   // overwrite box animation speed. Putting 500 ms add unnecessary delay for Shiny.
-  $.AdminLTE.boxWidget.animationSpeed = 10;
+  $.AdminLTE.boxWidget.animationSpeed = 10; 
+  hasGlobalConfig = $(document).find("script[data-for='adminLTEConfig']");
+  if (hasGlobalConfig.length > 0) {
+    globalConfig = JSON.parse(hasGlobalConfig.html());
+    if (globalConfig.boxWidget.animationSpeed !== undefined) {
+      $.AdminLTE.boxWidget.animationSpeed = globalConfig.boxWidget.animationSpeed;
+    }
+  }
 
   /**
    * List of all the available skins
