@@ -422,3 +422,24 @@ color_2_status <- function(color) {
     "black" = "black"
   )
 }
+
+
+waiter_show_on_load <- function(
+  html = waiter::spin_1(), color = "#333e48"
+){
+  
+  html <- as.character(html)
+  html <- gsub("\n", "", html)
+  
+  show <- sprintf(
+    "show_waiter(
+      null,
+      html = '%s', 
+      color = '%s'
+    );",
+    html, color
+  )
+  
+  shiny::HTML(sprintf("<script>%s</script>", show))
+  
+}

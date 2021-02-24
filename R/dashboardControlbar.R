@@ -90,10 +90,10 @@ dashboardControlbar <- function(..., id = NULL, disable = FALSE, width = 230,
                   -o-transition: right 0.3s ease-in-out;
                   transition: right 0.3s ease-in-out;
                }
-                .control-sidebar-open .control-sidebar, .control-sidebar-open .control-sidebar-bg {
-                  right: ", -width, "px;
-                }
-               @media (min-width:768px) {
+              /* .control-sidebar-open .control-sidebar, .control-sidebar-open .control-sidebar-bg {
+                right: ", -width, "px;
+              } */
+              @media (min-width:768px) {
                 .control-sidebar-open .content-wrapper,
                 .control-sidebar-open .main-footer, 
                 .control-sidebar-open .right-side {

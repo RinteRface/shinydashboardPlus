@@ -662,22 +662,19 @@ $(function() {
 
   Shiny.inputBindings.register(controlbarBinding, "controlbar-input");
 
-  var controlbarChange = function() {
-    // 1) Trigger the resize event (so images are responsive and resize)
-    $(window).trigger("resize");
-  };
-
-  // Whenever the right sidebar (controlbar) finishes a transition (which it does every time it
-  // changes from collapsed to expanded and vice versa), call controlbarChange()
-  $(".control-sidebar").on(
-    "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
-    controlbarChange
-  );
+  // This prevent box content from going outside their container 
+  // when the control-bar is on push mode
+  $("[data-toggle='control-sidebar']").on("click",
+    function() {
+      if (!$.AdminLTE.options.controlSidebarOptions.slide) {
+        $(window).trigger("resize"); 
+      }
+  });
 
   // this step is to overwrite global adminLTE options
   // to set the controlbar slide value
-  var overlay = $(".control-sidebar").attr("data-overlay") === "true";
-  $.AdminLTE.options.controlSidebarOptions.slide = overlay;
+  //var overlay = $(".control-sidebar").attr("data-overlay") === "true";
+  //$.AdminLTE.options.controlSidebarOptions.slide = overlay;
 
   // toggle controlbar at start
   var controlbarCollapsed = $(".control-sidebar").attr("data-collapsed");
@@ -1011,6 +1008,7 @@ $(function() {
 });
 
 $(function() {
+  
   // box vertical overflow
   $(".content-wrapper").css("overflow-y", "auto");
 
@@ -1072,16 +1070,6 @@ $(function() {
   $(".carousel").on("slide.bs.carousel", function() {
     $(this).trigger("shown");
   });
-
-  // overwrite box animation speed. Putting 500 ms add unnecessary delay for Shiny.
-  $.AdminLTE.boxWidget.animationSpeed = 10; 
-  hasGlobalConfig = $(document).find("script[data-for='adminLTEConfig']");
-  if (hasGlobalConfig.length > 0) {
-    globalConfig = JSON.parse(hasGlobalConfig.html());
-    if (globalConfig.boxWidget.animationSpeed !== undefined) {
-      $.AdminLTE.boxWidget.animationSpeed = globalConfig.boxWidget.animationSpeed;
-    }
-  }
 
   /**
    * List of all the available skins

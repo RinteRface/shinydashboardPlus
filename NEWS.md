@@ -86,6 +86,7 @@ list of available options
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
+- Fix #56: When controlbar is expanded/collapsed, a plot does not fit in body. 
 - Fix #78: Menu Item with Sub Menu Item Arrow Not Rotating.
 - Fix #105: box animation speed. Allow user defined options to prevail over internals.
 - Fix #57: broken default `input$sidebarCollapsed`. 

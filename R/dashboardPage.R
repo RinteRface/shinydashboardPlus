@@ -16,7 +16,7 @@
 #' @param freshTheme A skin powered by the fresh package. Not compatible with skin.
 #' See \url{https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html}.
 #' @param preloader shinydashboardPlus uses waiter (see \url{https://waiter.john-coene.com/#/}).
-#' Pass a nested list with 2 elements like \code{list(waiter = list(html = spin_1(), color = "#333e48"), duration = 5)}.
+#' Pass a list like \code{list(html = spin_1(), color = "#333e48")}.
 #' \code{waiter} expects to provide a sub-list to configure \link[waiter]{waiter_show_on_load} (refer to
 #' the package help for all styles). \code{duration} defines the loader timeout.
 #' @param md Whether to enable material design. Experimental...
@@ -114,7 +114,6 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
     class = "wrapper",
     header, 
     sidebar, 
-    #if (preloader) preloader(),
     body, 
     footer,
     controlbar,
@@ -126,28 +125,20 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
   addDeps(
     shiny::tags$body(
       # preloader, if any
-      if (!is.null(options)) {
-        shiny::tags$script(
-          type = "application/json",
-          `data-for` = "adminLTEConfig",
-          jsonlite::toJSON(
-            x = options,
-            auto_unbox = TRUE,
-            json_verbatim = TRUE
-          )
-        )
-      },
       if (!is.null(preloader)) {
         shiny::tagList(
           waiter::use_waiter(), # dependencies
-          do.call(waiter::waiter_show_on_load, preloader$waiter)
+          do.call(waiter_show_on_load, preloader)
         )
       },
       onload = if (!is.null(preloader)) {
-        sprintf(
-          "setTimeout(function(){
-            window.loading_screen.finish();
-          }, %s);", preloader$duration * 1000
+        paste0(
+          "window.ran = false;",
+          "$(document).on('shiny:idle', function(event){
+            if(!window.ran)
+              $('.waiter-overlay').fadeOut(1000);
+            window.ran = true;
+          });"
         )
       },
       class = bodyCl,
