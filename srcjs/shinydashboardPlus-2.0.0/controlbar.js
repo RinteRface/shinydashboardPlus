@@ -11,12 +11,22 @@ $(function() {
 
     // Given the DOM element for the input, return the value
     getValue: function(el) {
-      // this depends on the overlay value. If overlay, the sidebar will have the class.
-      // If overlay is false, the body will have the class.
-      return (
-        $("body").hasClass("control-sidebar-open") ||
-        $(el).hasClass("control-sidebar-open")
-      );
+      // this handles the case where the controlbar is not collapsed at start
+      var controlbarCollapsed = $(el).attr('data-collapsed');
+      var overlay = $(".control-sidebar").attr("data-overlay") === "true";
+      // We have to overwrite the existing options by the user provided.
+      $.AdminLTE.options.controlSidebarOptions.slide = overlay;
+      if (controlbarCollapsed === "false") {
+        $("[data-toggle='control-sidebar']").click();
+        $(el).attr('data-collapsed', "true");
+        return true;
+      } else {
+        if (!overlay) {
+          return $("body").hasClass("control-sidebar-open"); 
+        } else {
+          return $(el).hasClass("control-sidebar-open");
+        }
+      }
     },
 
     // see updateControlbar
@@ -45,23 +55,6 @@ $(function() {
         $(window).trigger("resize"); 
       }
   });
-
-  // this step is to overwrite global adminLTE options
-  // to set the controlbar slide value
-  //var overlay = $(".control-sidebar").attr("data-overlay") === "true";
-  //$.AdminLTE.options.controlSidebarOptions.slide = overlay;
-
-  // toggle controlbar at start
-  var controlbarCollapsed = $(".control-sidebar").attr("data-collapsed");
-  if (controlbarCollapsed === "false") {
-    // this depends on the overlay value. If overlay, the sidebar will have the class.
-    // If overlay is false, the body will have the class.
-    if (overlay) {
-      $(".control-sidebar").addClass("control-sidebar-open");
-    } else {
-      $("body").addClass("control-sidebar-open");
-    }
-  }
 
   // hide the right sidebar toggle
   // if no right sidebar is specified

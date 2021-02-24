@@ -1,3 +1,81 @@
+
+const status_2_color = (status) => {
+  switch (status) {
+    case 'primary':
+      return 'light-blue';
+      break;
+    case 'success':
+      return 'green';
+      break;
+    case 'danger':
+      return 'red';
+      break;
+    case 'warning':
+      return 'yellow';
+      break;
+    case 'info':
+      return 'aqua';
+      break;
+    case 'navy':
+      return 'navy';
+      break;
+    case 'teal':
+      return 'teal';
+      break;
+    case 'purple':
+      return 'purple';
+      break;
+    case 'orange':
+      return 'orange';
+      break;
+    case 'maroon':
+      return 'maroon';
+      break;
+    case 'black':
+      return 'black';
+      break;
+  }
+}
+
+
+
+const color_2_status = (color) => {
+  switch (color) {
+    case 'light-blue':
+      return 'primary';
+      break;
+    case 'green':
+      return 'success';
+      break;
+    case 'red':
+      return 'danger';
+      break;
+    case 'yellow':
+      return 'warning';
+      break;
+    case 'aqua':
+      return 'info';
+      break;
+    case 'navy':
+      return 'navy';
+      break;
+    case 'teal':
+      return 'teal';
+      break;
+    case 'purple':
+      return 'purple';
+      break;
+    case 'orange':
+      return 'orange';
+      break;
+    case 'maroon':
+      return 'maroon';
+      break;
+    case 'black':
+      return 'black';
+      break;
+  }
+}
 // boxBinding
 // ------------------------------------------------------------------
 // This code creates an input binding for the boxPlus component
@@ -63,7 +141,7 @@ $.extend(boxBinding, {
             // remove any existing background
             $(btns).removeClass("btn-" + config.status);
             // apply new background
-            if (config.background != null) {
+            if (config.background !== null) {
               $(btns)
                 .find(".btn")
                 .addClass("btn-" + config.background);
@@ -98,7 +176,7 @@ $.extend(boxBinding, {
             }
 
             // add background color
-            if (value.options.status != null) {
+            if (value.options.status !== null) {
               if (value.options.gradient) {
                 $(el)
                   .find(".widget-user-header")
@@ -135,22 +213,30 @@ $.extend(boxBinding, {
               statusTarget = $(statusTarget).find(".widget-user-header");
               oldClass = "bg-" + config.status;
               newClass = "bg-" + value.options.status;
+              
+              // update class if gradient
+              if (value.options.gradient || config.gradient) {
+                oldClass = oldClass + "-gradient";
+                newClass = newClass + "-gradient";
+              }
+              
             } else {
               oldClass = "box-" + config.status;
               newClass = "box-" + value.options.status;
             }
 
-            if (value.options.gradient || config.gradient) {
-              oldClass = oldClass + "-gradient";
-              newClass = newClass + "-gradient";
-            }
-
             // don't touch if null
-            if (config.status != null) {
-              $(statusTarget).removeClass(oldClass);
+            if (config.status !== null) {
+              $(statusTarget).removeClass("bg-" + status_2_color(config.status));
+              $(statusTarget)
+                .find('.btn-box-tool')
+                .removeClass("btn-" + config.status);
             }
-            if (value.options.status != null) {
-              $(statusTarget).addClass(newClass);
+            if (value.options.status !== null) {
+              $(statusTarget).addClass("bg-" + status_2_color(value.options.status));
+              $(statusTarget)
+                .find('.btn-box-tool')
+                .addClass('btn-' + value.options.status);
             }
 
             config.status = value.options.status;
@@ -172,7 +258,7 @@ $.extend(boxBinding, {
         if (value.options.background !== config.background) {
           var newBoxClass = "bg-";
           // don't touch if null
-          if (config.background != null) {
+          if (config.background !== null && config.background !== undefined) {
             // if gradient, the class has a gradient at the end!
             newBoxClass = newBoxClass + config.background;
             if (config.gradient) {
@@ -188,9 +274,9 @@ $.extend(boxBinding, {
             $(el).toggleClass(newBoxClass);
             $(el)
               .find(".btn-box-tool")
-              .toggleClass("btn-" + config.background);
+              .toggleClass("btn-" + color_2_status(config.background));
           }
-          if (value.options.background != null) {
+          if (value.options.background !== null) {
             newBoxClass = newBoxClass + value.options.background;
             if (config.gradient) {
               newBoxClass = newBoxClass + "-gradient";
@@ -200,9 +286,14 @@ $.extend(boxBinding, {
               $(header).addClass(newBoxClass);
             }
             $(el).addClass(newBoxClass);
+            if (config.background === undefined && config.status !== undefined) {
+              $(el)
+              .find(".btn-box-tool")
+              .toggleClass("btn-" + config.status);
+            } 
             $(el)
               .find(".btn-box-tool")
-              .toggleClass("btn-" + value.options.background);
+              .toggleClass("btn-" + color_2_status(value.options.background));
           }
           config.background = value.options.background;
         }
@@ -215,7 +306,7 @@ $.extend(boxBinding, {
       }
       if (value.options.hasOwnProperty("height")) {
         if (value.options.height !== config.height) {
-          if (value.options.height == null) {
+          if (value.options.height === null) {
             $(el)
               .find(".box-body")
               .css("height", "");
