@@ -160,7 +160,7 @@ $.extend(boxBinding, {
       // Don't apply to userBox and socialBox in AdminLTE2!!!
       if (value.options.hasOwnProperty("solidHeader")) {
         // only update if config an new value are different
-        if (!isSocialCard && !userCard) {
+        if (!isSocialCard && !isUserCard) {
           if (value.options.solidHeader !== config.solidHeader) {
             $(el).toggleClass("box-solid");
             config.solidHeader = value.options.solidHeader;
@@ -319,21 +319,21 @@ $.extend(boxBinding, {
     $(el).on("click", '[data-widget="collapse"]', function(event) {
       setTimeout(function() {
         callback();
-      }, 50);
+      }, 550);
     });
 
     // handle manual click on remove button
     $(el).on("click", '[data-widget="remove"]', function(event) {
       setTimeout(function() {
         callback();
-      }, 50);
+      }, 550);
     });
 
     // handle change event triggered in the setValue method
     $(el).on("change", function(event) {
       setTimeout(function() {
         callback();
-      }, 50);
+      }, 550);
     });
   },
   unsubscribe: function(el) {
