@@ -86,6 +86,8 @@ list of available options
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
+- Fix #102: dashboardUser not displayed when using shinydashboard::sidebarMenuOutput. ensureActivatedTab was not
+in the global scope, whereas it was needed by the output binding code 
 - Fix #107: `collapsed = FALSE` not working for dashboardControlbar. 
 - Fix #56: When controlbar is expanded/collapsed, a plot does not fit in body. 
 - Fix #78: Menu Item with Sub Menu Item Arrow Not Rotating.

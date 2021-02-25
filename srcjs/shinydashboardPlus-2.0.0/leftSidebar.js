@@ -1,3 +1,29 @@
+var ensureActivatedTab = function() {
+  var $tablinks = $(".sidebar-menu a[data-toggle='tab']");
+
+  // If there's a `data-start-selected` attribute and we can find a tab with
+  // that name, activate it.
+  var $startTab = $tablinks.filter("[data-start-selected='1']");
+  if ($startTab.length === 0) {
+    // If no tab starts selected, use the first one, if present
+    $startTab = $tablinks.first();
+  }
+
+  // If there are no tabs, $startTab.length will be 0.
+  if ($startTab.length !== 0) {
+    $startTab.tab("show");
+
+    // This is indirectly setting the value of the Shiny input by setting
+    // an attribute on the html element it is bound to. We cannot use the
+    // inputBinding's setValue() method here because this is called too
+    // early (before Shiny has fully initialized)
+    $(".sidebarMenuSelectedTabItem").attr(
+      "data-value",
+      $startTab.attr("data-value")
+    );
+  }
+};
+
 $(function() {
   // tabItemInputBinding
   // ------------------------------------------------------------------
@@ -65,8 +91,8 @@ $(function() {
         .first();
     },
     getValue: function(el) {
-      if ($(el).attr('id') === "sidebarCollapsed") {
-        return $(el).attr("data-collapsed") === "true"; 
+      if ($(el).attr("id") === "sidebarCollapsed") {
+        return $(el).attr("data-collapsed") === "true";
       } else {
         return $(el).attr("data-collapsed") === "false";
       }
@@ -100,18 +126,15 @@ $(function() {
   // sidebarmenuExpandedInputBinding
   // ------------------------------------------------------------------
   // This keeps tracks of what menuItem (if any) is expanded
-  $('section.sidebar a i').click(function() {
-    if ($(this).hasClass('fa-angle-down')) {
+  $("section.sidebar a i").click(function() {
+    if ($(this).hasClass("fa-angle-down")) {
       self = $(this);
       setTimeout(function() {
-        self
-          .removeClass("fa-angle-down")
-          .addClass("fa-angle-left");
+        self.removeClass("fa-angle-down").addClass("fa-angle-left");
       }, 500);
     }
   });
-          
-  
+
   var sidebarmenuExpandedInputBinding = new Shiny.InputBinding();
   $.extend(sidebarmenuExpandedInputBinding, {
     find: function(scope) {
@@ -120,16 +143,17 @@ $(function() {
     },
     getValue: function(el) {
       var $open = $(el).find("li ul.menu-open");
-      var icon = $(el).find('.treeview.active > a i').eq(1);
+      var icon = $(el)
+        .find(".treeview.active > a i")
+        .eq(1);
       if ($open.length === 1) {
         $(icon)
           .toggleClass("fa-angle-left")
           .addClass("fa-angle-down");
         return $open.attr("data-expanded");
+      } else {
+        return null;
       }
-      else {
-        return null
-      };
     },
     setValue: function(el, value) {
       var $menuItem = $(el).find("[data-expanded='" + value + "']");
@@ -274,32 +298,6 @@ $(function() {
   // When document is ready, if there is a sidebar menu with no activated tabs,
   // activate the one specified by `data-start-selected`, or if that's not
   // present, the first one.
-  var ensureActivatedTab = function() {
-    var $tablinks = $(".sidebar-menu a[data-toggle='tab']");
-
-    // If there's a `data-start-selected` attribute and we can find a tab with
-    // that name, activate it.
-    var $startTab = $tablinks.filter("[data-start-selected='1']");
-    if ($startTab.length === 0) {
-      // If no tab starts selected, use the first one, if present
-      $startTab = $tablinks.first();
-    }
-
-    // If there are no tabs, $startTab.length will be 0.
-    if ($startTab.length !== 0) {
-      $startTab.tab("show");
-
-      // This is indirectly setting the value of the Shiny input by setting
-      // an attribute on the html element it is bound to. We cannot use the
-      // inputBinding's setValue() method here because this is called too
-      // early (before Shiny has fully initialized)
-      $(".sidebarMenuSelectedTabItem").attr(
-        "data-value",
-        $startTab.attr("data-value")
-      );
-    }
-  };
-
   ensureActivatedTab();
 });
 
