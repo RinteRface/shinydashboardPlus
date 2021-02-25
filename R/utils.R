@@ -226,7 +226,6 @@ validateBoxProps <- function(title, label, sidebar, dropdownMenu, status, gradie
   if (!is.null(status) && !is.null(background) && !solidHeader) {
     stop("solidHeader must be TRUE whenever background and status are not NULL at the same time.")
   }
-  if (is.null(status) && solidHeader) stop("solidHeader cannot be used when status is NULL.")
   if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
   
   if (!is.null(width)) {
@@ -256,7 +255,7 @@ setBoxClass <- function(status, solidHeader, collapsible, collapsed,
                         gradient, background, sidebar) {
   
   boxClass <- "box"
-  if (solidHeader || (!is.null(background) && is.null(status))) {
+  if (solidHeader) {
     boxClass <- paste(boxClass, "box-solid")
   }
   

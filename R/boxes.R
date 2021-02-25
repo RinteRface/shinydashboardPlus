@@ -127,6 +127,8 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
                 headerBorder = TRUE, label = NULL, dropdownMenu = NULL,
                 sidebar = NULL, id = NULL) {
   
+  if (is.null(status)) solidHeader <- TRUE
+  
   # multiple validation
   validateBoxProps(
     title = title,
