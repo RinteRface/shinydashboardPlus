@@ -223,6 +223,9 @@ validateBoxProps <- function(title, label, sidebar, dropdownMenu, status, gradie
     stop("Cannot collapse a card that is not collapsible.")
   }
   
+  if (!is.null(status) && !is.null(background) && !solidHeader) {
+    stop("solidHeader must be TRUE whenever background and status are not NULL at the same time.")
+  }
   if (is.null(status) && solidHeader) stop("solidHeader cannot be used when status is NULL.")
   if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
   
@@ -253,7 +256,7 @@ setBoxClass <- function(status, solidHeader, collapsible, collapsed,
                         gradient, background, sidebar) {
   
   boxClass <- "box"
-  if (solidHeader) {
+  if (solidHeader || (!is.null(background) && is.null(status))) {
     boxClass <- paste(boxClass, "box-solid")
   }
   
@@ -297,8 +300,8 @@ createBoxTools <- function(collapsible, collapsed, closable,
   if (is.null(status) && !is.null(background)) {
     btnClass <- paste0(
       btnClass,
-      if (background %in% validStatuses) {
-        paste0(" btn-", background)
+      if (background %in% validStatusesPlus) {
+        paste0(" bg-", background)
       }
     )
   }
