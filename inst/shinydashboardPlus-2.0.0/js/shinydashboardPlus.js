@@ -256,7 +256,13 @@ $.extend(boxBinding, {
       // handle HTML tags (harder)
       if (value.options.hasOwnProperty("title")) {
         if (value.options.title !== config.title) {
-          var newTitle = $.parseHTML(value.options.title);
+          var newTitle;
+          if (typeof value.options.title  !== "string") {
+            newTitle = $.parseHTML(value.options.title[0]);
+          } else {
+            newTitle = $.parseHTML(value.options.title);
+          }
+           
           var tools = $(el).find(".box-tools");
           // social box
           if (isSocialCard) {
@@ -265,7 +271,7 @@ $.extend(boxBinding, {
               .replaceWith($(newTitle));
           } else if (isUserCard) {
             // handle 2 cards types
-            if (newTitle.length === 3) {
+            if (typeof value.options.title  === "string") {
               // don't take newTitle[1] (contains some text)
               newTitle = [newTitle[0], newTitle[2]];
               // change widget-use class
@@ -281,6 +287,10 @@ $.extend(boxBinding, {
               $(el)
                 .removeClass("widget-user")
                 .addClass("widget-user-2");
+              // remove old user inage if old type was 1
+              $(el)
+                .find(".widget-user-image")
+                .remove();
               $(el)
                 .find(".widget-user-header")
                 .replaceWith($(newTitle));
