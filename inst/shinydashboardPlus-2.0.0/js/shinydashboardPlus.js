@@ -82,122 +82,113 @@ $.extend(accordionBinding, {
 Shiny.inputBindings.register(accordionBinding, "accordion-input");
 
 // Buttons valid colors are part of statuses
-const validStatuses = [
-  "primary", 
-  "success", 
-  "info", 
-  "warning", 
-  "danger"
-];
+const validStatuses = ["primary", "success", "info", "warning", "danger"];
 
 // Background goes in colors
 const validColors = [
-  "red", 
-  "yellow",     
-  "aqua",       
-  "blue",      
-  "light-blue", 
-  "green",      
-  "navy",       
-  "teal",       
-  "olive",      
-  "lime",     
-  "orange",     
-  "fuchsia",    
-  "purple",     
-  "maroon",     
-  "black",      
-  "gray" 
+  "red",
+  "yellow",
+  "aqua",
+  "blue",
+  "light-blue",
+  "green",
+  "navy",
+  "teal",
+  "olive",
+  "lime",
+  "orange",
+  "fuchsia",
+  "purple",
+  "maroon",
+  "black",
+  "gray"
 ];
 
-// Cards may have 6 additional statuses 
+// Cards may have 6 additional statuses
 const validStatusesPlus = [
-  "navy",    
-  "teal",    
-  "purple",  
-  "orange",  
-  "maroon",  
+  "navy",
+  "teal",
+  "purple",
+  "orange",
+  "maroon",
   "black"
 ];
 
-
-const status_2_color = (status) => {
+const status_2_color = status => {
   switch (status) {
-    case 'primary':
-      return 'light-blue';
+    case "primary":
+      return "light-blue";
       break;
-    case 'success':
-      return 'green';
+    case "success":
+      return "green";
       break;
-    case 'danger':
-      return 'red';
+    case "danger":
+      return "red";
       break;
-    case 'warning':
-      return 'yellow';
+    case "warning":
+      return "yellow";
       break;
-    case 'info':
-      return 'aqua';
+    case "info":
+      return "aqua";
       break;
-    case 'navy':
-      return 'navy';
+    case "navy":
+      return "navy";
       break;
-    case 'teal':
-      return 'teal';
+    case "teal":
+      return "teal";
       break;
-    case 'purple':
-      return 'purple';
+    case "purple":
+      return "purple";
       break;
-    case 'orange':
-      return 'orange';
+    case "orange":
+      return "orange";
       break;
-    case 'maroon':
-      return 'maroon';
+    case "maroon":
+      return "maroon";
       break;
-    case 'black':
-      return 'black';
+    case "black":
+      return "black";
       break;
   }
-}
+};
 
-
-
-const color_2_status = (color) => {
+const color_2_status = color => {
   switch (color) {
-    case 'light-blue':
-      return 'primary';
+    case "light-blue":
+      return "primary";
       break;
-    case 'green':
-      return 'success';
+    case "green":
+      return "success";
       break;
-    case 'red':
-      return 'danger';
+    case "red":
+      return "danger";
       break;
-    case 'yellow':
-      return 'warning';
+    case "yellow":
+      return "warning";
       break;
-    case 'aqua':
-      return 'info';
+    case "aqua":
+      return "info";
       break;
-    case 'navy':
-      return 'navy';
+    case "navy":
+      return "navy";
       break;
-    case 'teal':
-      return 'teal';
+    case "teal":
+      return "teal";
       break;
-    case 'purple':
-      return 'purple';
+    case "purple":
+      return "purple";
       break;
-    case 'orange':
-      return 'orange';
+    case "orange":
+      return "orange";
       break;
-    case 'maroon':
-      return 'maroon';
+    case "maroon":
+      return "maroon";
       break;
-    case 'black':
-      return 'black';
+    case "black":
+      return "black";
       break;
   }
-}
+};
 // boxBinding
 // ------------------------------------------------------------------
 // This code creates an input binding for the boxPlus component
@@ -257,12 +248,12 @@ $.extend(boxBinding, {
       if (value.options.hasOwnProperty("title")) {
         if (value.options.title !== config.title) {
           var newTitle;
-          if (typeof value.options.title  !== "string") {
+          if (typeof value.options.title !== "string") {
             newTitle = $.parseHTML(value.options.title[0]);
           } else {
             newTitle = $.parseHTML(value.options.title);
           }
-           
+
           var tools = $(el).find(".box-tools");
           // social box
           if (isSocialCard) {
@@ -271,7 +262,7 @@ $.extend(boxBinding, {
               .replaceWith($(newTitle));
           } else if (isUserCard) {
             // handle 2 cards types
-            if (typeof value.options.title  === "string") {
+            if (typeof value.options.title === "string") {
               // don't take newTitle[1] (contains some text)
               newTitle = [newTitle[0], newTitle[2]];
               // change widget-use class
@@ -306,10 +297,10 @@ $.extend(boxBinding, {
               .find(".box-title")
               .replaceWith($(newTitle));
           }
-          config.title = value.options.title
+          config.title = value.options.title;
         }
       }
-      
+
       // Box tools must come before status, background as they are being changed after
       // to add background or status color, depending on user options.
       if (value.options.hasOwnProperty("collapsible")) {
@@ -334,7 +325,7 @@ $.extend(boxBinding, {
           }
         }
       }
-      
+
       if (value.options.hasOwnProperty("closable")) {
         if (value.options.closable !== config.closable) {
           if (!value.options.closable) {
@@ -356,32 +347,37 @@ $.extend(boxBinding, {
           }
         }
       }
-      
+
       // Must come before status and background since status relies on soliHeader
       // Don't apply to userBox and socialBox in AdminLTE2!!!
       if (value.options.hasOwnProperty("solidHeader")) {
         // only update if config an new value are different
         if (!isSocialCard && !isUserCard) {
-          if ((value.options.solidHeader !== config.solidHeader) && !$(el).hasClass("box-solid")) {
+          if (
+            value.options.solidHeader !== config.solidHeader &&
+            !$(el).hasClass("box-solid")
+          ) {
             $(el).addClass("box-solid");
             config.solidHeader = true;
           } else {
             if ($(el).hasClass("box-solid") && !value.options.solidHeader) {
-              var cond = (config.status || value.options.status);
+              var cond = config.status || value.options.status;
               // solidheader cannot be removed if status and background exist or if status is null
               if (!(value.options.background && cond)) {
-                $(el).removeClass("box-solid"); 
+                $(el).removeClass("box-solid");
                 config.solidHeader = false;
-              } else if (value.options.background === null && 
-              !(config.background && cond)) {
+              } else if (
+                value.options.background === null &&
+                !(config.background && cond)
+              ) {
                 $(el).removeClass("box-solid");
                 config.solidHeader = false;
               }
             } else if (!$(el).hasClass("box-solid")) {
-              var cond = (config.status || value.options.status);
+              var cond = config.status || value.options.status;
               // solidheader cannot be removed if status and background exist or if status is null
               if (value.options.background && cond) {
-                $(el).addClass("box-solid"); 
+                $(el).addClass("box-solid");
                 config.solidHeader = true;
               } else if (config.background && cond) {
                 $(el).addClass("box-solid");
@@ -398,57 +394,69 @@ $.extend(boxBinding, {
         if (!isSocialCard) {
           if (value.options.status !== config.status) {
             var oldClass, newClass;
-            if (isUserCard) {
-              statusTarget = $(el).find(".widget-user-header");
-              oldClass = "bg-" + config.status;
-              newClass = "bg-" + value.options.status;
-              
-              // update class if gradient
-              if (value.options.gradient || config.gradient) {
-                oldClass = oldClass + "-gradient";
-                newClass = newClass + "-gradient";
+            // If there was a status and the user decide to remove any status
+            if (value.options.status === null && config.status !== null) {
+              if (!isUserCard) $(el).removeClass("box-" + config.status);
+              // add class box-solid for better render (status = NULL)
+              // renders with grey border which is not nice
+              if (!$(el).hasClass("box-solid") && !isUserCard) {
+                $(el).addClass("box-solid");
               }
-              
-            } else {
-              // Handle classic box
-              
-              // If there was a status and the user decide to remove any status
-              if (value.options.status === null && config.status !== null) {
-                $(el).removeClass("box-" + config.status);
-                // add class box-solid for better render (status = NULL) 
-                // renders with grey border which is not nice
-                if (!$(el).hasClass('box-solid')) {
-                  $(el).addClass('box-solid')
+
+              // Apply new background color to buttons if any
+              if (value.options.background) {
+                var background = color_2_status(value.options.background);
+                if (validStatusesPlus.indexOf(background) > -1) {
+                  $(el)
+                    .find(".btn-box-tool")
+                    .addClass("bg-" + background);
+                } else if (validStatuses.indexOf(background) > -1) {
+                  $(el)
+                    .find(".btn-box-tool")
+                    .addClass("btn-" + background);
                 }
-                
-                // Apply new background color to buttons if any
-                if (value.options.background) {
-                  var background = color_2_status(value.options.background);
-                  if (validStatusesPlus.indexOf(background) > -1) {
-                    $(el)
-                      .find(".btn-box-tool")
-                      .addClass("bg-" + background);
-                  } else if (validStatuses.indexOf(background) > -1) {
-                    $(el)
-                      .find(".btn-box-tool")
-                      .addClass("btn-" + background);
-                  } 
+              }
+
+              // in case there is a status and it is not null (indeed we can send null through R)
+            } else if (value.options.status) {
+              // apply new status
+              if (isUserCard) {
+                newClass = "bg-" + status_2_color(value.options.status);
+                if (value.options.gradient) {
+                  newClass = newClass + "-gradient";
                 }
-                
-                // in case there is a status and it is not null (indeed we can send null through R)
-              } else if (value.options.status) {
-                // apply new status
+                $(el)
+                  .find(".widget-user-header")
+                  .addClass(newClass);
+              } else {
                 newClass = "box-" + value.options.status;
                 $(el).addClass(newClass);
-                // remove old status, if there was one ...
-                if (config.status) {
+              }
+              
+              // remove old status, if there was one ...
+              if (config.status) {
+                if (isUserCard) {
+                  oldClass = "bg-" + status_2_color(config.status);
+                  if (config.gradient) {
+                    oldClass = oldClass + "-gradient";
+                  }
+                  $(el)
+                    .find(".widget-user-header")
+                    .removeClass(oldClass);
+                } else {
                   oldClass = "box-" + config.status;
                   $(el).removeClass(oldClass);
-                } 
-                
-                // Add new color for Buttons. We handle extra statuses in which case
-                // the button class changes. Only if solidHeader
-                if ($(el).hasClass('box-solid')) {
+                }
+              }
+
+              // Add new color for Buttons. We handle extra statuses in which case
+              // the button class changes. Only if solidHeader
+              if ($(el).hasClass("box-solid") || isUserCard) {
+                if (isUserCard) {
+                  $(el)
+                    .find(".btn-box-tool")
+                    .addClass("bg-" + status_2_color(value.options.status));
+                } else {
                   if (validStatusesPlus.indexOf(value.options.status) > -1) {
                     $(el)
                       .find(".btn-box-tool")
@@ -457,23 +465,29 @@ $.extend(boxBinding, {
                     $(el)
                       .find(".btn-box-tool")
                       .addClass("btn-" + value.options.status);
-                  } 
+                  }
                 }
                 
               }
-              
-              // If there was a status or background, we must cleanup the old button status
-              // since status predominate over background. We also handle extra 
-              // statuses ...
-              var status;
-              if (config.status || config.background) {
-                // status dominates
-                if (config.status) {
-                  status = config.status;
-                } else if (config.background) {
-                  status = config.background;
-                } 
-                
+            }
+
+            // If there was a status or background, we must cleanup the old button status
+            // since status predominate over background. We also handle extra
+            // statuses ...
+            var status;
+            if (config.status || config.background) {
+              // status dominates
+              if (config.status) {
+                status = config.status;
+              } else if (config.background) {
+                status = config.background;
+              }
+
+              if (isUserCard) {
+                $(el)
+                    .find(".btn-box-tool")
+                    .removeClass("bg-" + status_2_color(status));
+              } else {
                 if (validStatusesPlus.indexOf(status) > -1) {
                   $(el)
                     .find(".btn-box-tool")
@@ -482,20 +496,19 @@ $.extend(boxBinding, {
                   $(el)
                     .find(".btn-box-tool")
                     .removeClass("btn-" + status);
-                } 
-                
+                }
               }
-              
             }
             config.status = value.options.status;
           }
         }
       }
-      
+
       // To remove background explicitly set background = NULL in updateBox
       if (value.options.hasOwnProperty("background")) {
         if (value.options.background !== config.background) {
-          var oldBgClass = "bg-", newBgClass = oldBgClass;
+          var oldBgClass = "bg-",
+            newBgClass = oldBgClass;
           // don't touch if null
           if (config.background) {
             // if gradient, the class has a gradient at the end!
@@ -506,11 +519,11 @@ $.extend(boxBinding, {
             // handle userBox
             // for which we also have to toggle the header bg color
             // and the box tools buttons color
-            if (isUserCard) {
+            if (isUserCard && !(config.status || value.options.status)) {
               var header = $(el).find(".widget-user-header");
               $(header).removeClass(oldBgClass);
             }
-            
+
             $(el).removeClass(oldBgClass);
           }
           if (value.options.background) {
@@ -518,7 +531,7 @@ $.extend(boxBinding, {
             if (config.gradient || value.options.gradient) {
               newBgClass = newBgClass + "-gradient";
             }
-            if (isUserCard) {
+            if (isUserCard && !(config.status || value.options.status)) {
               var header = $(el).find(".widget-user-header");
               $(header).addClass(newBgClass);
             }
@@ -530,14 +543,14 @@ $.extend(boxBinding, {
           config.background = value.options.background;
         }
       }
-      
+
       if (value.options.hasOwnProperty("width")) {
         if (value.options.width !== config.width) {
           this._updateWidth(el, config.width, value.options.width);
           config.width = value.options.width;
         }
       }
-      
+
       if (value.options.hasOwnProperty("height")) {
         if (value.options.height !== config.height) {
           if (value.options.height === null) {
