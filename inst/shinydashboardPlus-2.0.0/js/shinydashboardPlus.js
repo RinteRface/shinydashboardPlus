@@ -352,16 +352,32 @@ $.extend(boxBinding, {
       if (value.options.hasOwnProperty("solidHeader")) {
         // only update if config an new value are different
         if (!isSocialCard && !isUserCard) {
-          if (value.options.solidHeader !== config.solidHeader) {
-            // solidheader cannot be removed if status and background exist or if status is null
-            if (value.options.solidHeader && !$(el).hasClass("box-solid")) {
-              $(el).addClass("box-solid");
-            } else {
-              if (config.status !== null || value.options.status !== null) {
+          if ((value.options.solidHeader !== config.solidHeader) && !$(el).hasClass("box-solid")) {
+            $(el).addClass("box-solid");
+            config.solidHeader = true;
+          } else {
+            if ($(el).hasClass("box-solid") && !value.options.solidHeader) {
+              var cond = (config.status || value.options.status);
+              // solidheader cannot be removed if status and background exist or if status is null
+              if (!(value.options.background && cond)) {
                 $(el).removeClass("box-solid"); 
+                config.solidHeader = false;
+              } else if (value.options.background === null && 
+              !(config.background && cond)) {
+                $(el).removeClass("box-solid");
+                config.solidHeader = false;
+              }
+            } else if (!$(el).hasClass("box-solid")) {
+              var cond = (config.status || value.options.status);
+              // solidheader cannot be removed if status and background exist or if status is null
+              if (value.options.background && cond) {
+                $(el).addClass("box-solid"); 
+                config.solidHeader = true;
+              } else if (config.background && cond) {
+                $(el).addClass("box-solid");
+                config.solidHeader = false;
               }
             }
-            config.solidHeader = value.options.solidHeader;
           }
         }
       }
