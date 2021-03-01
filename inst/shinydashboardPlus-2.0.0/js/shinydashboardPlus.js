@@ -537,7 +537,8 @@ $.extend(boxBinding, {
             }
             $(el).addClass(newBgClass);
           }
-          if (config.gradient !== value.options.gradient) {
+          if (config.gradient !== value.options.gradient &&
+          value.options.gradient !== undefined) {
             config.gradient = value.options.gradient;
           }
           config.background = value.options.background;
