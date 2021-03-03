@@ -127,6 +127,8 @@ box <- function(..., title = NULL, footer = NULL, status = NULL, solidHeader = F
                 headerBorder = TRUE, label = NULL, dropdownMenu = NULL,
                 sidebar = NULL, id = NULL) {
   
+  if (is.null(status)) solidHeader <- TRUE
+  
   # multiple validation
   validateBoxProps(
     title = title,
@@ -801,11 +803,14 @@ userBox <- function(..., title = NULL, footer = NULL, status = NULL,
     boxTools$children[[2]] <- lapply(boxTools$children[[2]], function(tool) {
       tool$attribs$class <- paste0(
         tool$attribs$class, 
-        " btn-", 
         if (!is.null(status)) {
-          color_2_status(status)
-        } else {
-          color_2_status(background)
+          if (status %in% validStatuses) {
+            paste0(" btn-", status)
+          } else if (status %in% validStatusesPlus) {
+            paste0(" bg-", status)
+          }
+        } else  {
+          paste0(" bg-", background)
         }
       )
       tool
