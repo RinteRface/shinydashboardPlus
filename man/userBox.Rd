@@ -149,7 +149,6 @@ if (interactive()) {
             type = 2,
             image = "https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg",
           ),
-          solideHeader = TRUE,
           status = "primary",
           gradient = TRUE,
           background = "light-blue",
