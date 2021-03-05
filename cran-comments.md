@@ -5,7 +5,8 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-This release will fix warnings and notes shown [here](https://cran.r-project.org/web/checks/check_results_shinydashboardPlus.htmll) due to breaking change in a dependency.
+  - This release will fix warnings and notes shown [here](https://cran.r-project.org/web/checks/check_results_shinydashboardPlus.html) due to breaking change in a dependency.
+  - Fix broken tidyverse link. Thanks @Uwe Ligges.
 
 ## Reverse dependencies:
 using `devtools::revdep()` 

@@ -70,13 +70,13 @@ knitr::include_graphics("figures/skin-midnight-overview.png")
 
 This is the fastest option to get a dark design. You'll see below that the `{fresh}` package is able to provide a similar look and feel, with much more options (but more effort).
 
-Important: this feature is still <a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>!
+Important: this feature is still <a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>!
 
 
 ## Material Design + AdminLTE
 To activate the material design feature, set _md_ to TRUE in `dashboardPage()`. 
 This feature is powered by [MaterialAdminLTE](https://github.com/DucThanhNguyen/MaterialAdminLTE), built on top of AdminLTE2 and [material design for Bootstrap 3](https://fezvrasta.github.io/bootstrap-material-design/)
-<a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>!
+<a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>!
 
 ```{r md-code, eval=FALSE}
 shinyApp(
