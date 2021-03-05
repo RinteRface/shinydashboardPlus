@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -47,7 +47,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -96,7 +96,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -116,7 +116,7 @@
       <h1 data-toc-skip>shinydashboardPlus</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">21 September, 2020</h4>
+            <h4 class="date">05 March, 2021</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/shinydashboardPlus.Rmd"><code>vignettes/shinydashboardPlus.Rmd</code></a></small>
       <div class="hidden name"><code>shinydashboardPlus.Rmd</code></div>
@@ -125,30 +125,10 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
-<span class="co">#&gt; Warning: package 'shiny' was built under R version 3.6.2</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://rstudio.github.io/shinydashboard">shinydashboard</a></span>)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'shinydashboard'</span>
-<span class="co">#&gt; The following object is masked from 'package:graphics':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     box</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span>)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'shinydashboardPlus'</span>
-<span class="co">#&gt; The following objects are masked from 'package:shinydashboard':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     box, dashboardHeader, dashboardPage, dashboardSidebar, messageItem,</span>
-<span class="co">#&gt;     notificationItem, taskItem</span>
-<span class="co">#&gt; The following object is masked from 'package:graphics':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     box</span>
-</pre></div>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p><code>{shinydashboardPlus}</code> relies on the same basis as <code>{shinydashboard}</code>, that is the AdminLTE HTML <a href="https://adminlte.io/themes/AdminLTE/index2.html">template</a>. It provides extra elements that will help you to develop Shiny apps with a more professional look and feel. Below is a summary of the main features.</p>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> relies on the same basis as <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>, that is the AdminLTE HTML <a href="https://adminlte.io/themes/AdminLTE/index2.html">template</a>. It provides extra elements that will help you to develop Shiny apps with a more professional look and feel. Below is a summary of the main features.</p>
 <table class="table">
 <thead><tr class="header">
 <th>Features (sample)</th>
@@ -233,7 +213,7 @@
 </tr>
 </tbody>
 </table>
-<p>Since the 2.0.0 release, <code>{shinydashboardPlus}</code> overwrites most of the <code>{shinydashboard}</code> functions such as <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> and <code><a href="../reference/box.html">box()</a></code> to facilitate the transition from one package to another.</p>
+<p>Since the 2.0.0 release, <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> overwrites most of the <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a> functions such as <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> and <code><a href="../reference/box.html">box()</a></code> to facilitate the transition from one package to another.</p>
 </div>
 <div id="what-changes-in-v2-0-0" class="section level2">
 <h2 class="hasAnchor">
@@ -241,7 +221,7 @@
 <div id="breaking-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h3>
-<p>v2.0.0 is clearly a <strong>major breaking change</strong> for <code>{shinydashboardPlus}</code>. It means that coming from v0.7.5 (latest CRAN version to date), you will have to rewrite most of the code. It was not an easy decision to take but necessary to improve the package quality (naming consistency, …). Now the transition from <code>{shinydashboard}</code> to <code>{shinydashboardPlus}</code> will be easier since function parameters have been harmonized. The old <code>rightSidebar()</code> component becomes the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to ease the transition from <code>{shinydashboardPlus}</code> to <code>{bs4Dash}</code>, the latter being the Bootstrap 4 <a href="https://github.com/RinteRface/bs4Dash">version</a> with a more modern look and feel.</p>
+<p>v2.0.0 is clearly a <strong>major breaking change</strong> for <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>. It means that coming from v0.7.5 (latest CRAN version to date), you will have to rewrite most of the code. It was not an easy decision to take but necessary to improve the package quality (naming consistency, …). Now the transition from <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a> to <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> will be easier since function parameters have been harmonized. The old <code>rightSidebar()</code> component becomes the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to ease the transition from <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> to <a href="https://rinterface.github.io/bs4Dash/index.html">bs4Dash</a>, the latter being the Bootstrap 4 <a href="https://github.com/RinteRface/bs4Dash">version</a> with a more modern look and feel.</p>
 </div>
 <div id="more-checks" class="section level3">
 <h3 class="hasAnchor">
@@ -251,34 +231,36 @@
 <div id="new-features" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h3>
-<p>The most exiting features of 2.0.0 are probably the ability to leverage the awesome <code>{fresh}</code> package (see <a href="https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html">here</a> for more details) through the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> <em>freshTheme</em> parameter. Additionally, the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> allows to dynamically change the dashboard skin on the client side. There are also more <code>update_</code> functions to programmatically control elements from the server. Now the <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> may be collapsed, so it the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code>. The <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> <em>options</em> parameter is an easy way to fine tune the AdminLTE behavior (see <a href="https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options">here</a> for the list of available options). The <code><a href="../reference/box.html">box()</a></code> component has been reworked to reduce the number of parameters and include new sub-components like the <code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> that may be programmatically collapsed, or the <code><a href="../reference/boxLabel.html">boxLabel()</a></code>. <code><a href="../reference/box.html">box()</a></code> has an input binding indicating its current state on the server side, to perform specific tasks. Finally, colors are better documented thanks to Victor Perrier from dreamRs. For instance, the primary color is shown as <span style="width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;"></span>, danger is <span style="width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;"></span>, which eventually helps users to choose between all available options.</p>
+<p>The most exiting features of 2.0.0 are probably the ability to leverage the awesome <a href="https://github.com/dreamRs/fresh">fresh</a> package (see <a href="https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html">here</a> for more details) through the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> <em>freshTheme</em> parameter. Additionally, the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> allows to dynamically change the dashboard skin on the client side. There are also more <code>update_</code> functions to programmatically control elements from the server. Now the <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> may be collapsed, so it the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code>. The <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> <em>options</em> parameter is an easy way to fine tune the AdminLTE behavior (see <a href="https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options">here</a> for the list of available options). The <code><a href="../reference/box.html">box()</a></code> component has been reworked to reduce the number of parameters and include new sub-components like the <code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> that may be programmatically collapsed, or the <code><a href="../reference/boxLabel.html">boxLabel()</a></code>. <code><a href="../reference/box.html">box()</a></code> has an input binding indicating its current state on the server side, to perform specific tasks. Finally, colors are better documented thanks to Victor Perrier from dreamRs. For instance, the primary color is shown as <span style="width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;"></span>, danger is <span style="width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;"></span>, which eventually helps users to choose between all available options.</p>
 </div>
 </div>
 <div id="basic-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#basic-example" class="anchor"></a>Basic Example</h2>
-<p>Below is a simple app you may build with <code>{shinydashboardPlus}</code>. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you’ll be able to notice the scroll to top button feature if you scroll to the bottom (bottom-right corner).</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-   ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-     options = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(sidebarExpandOnHover = <span class="fl">TRUE</span>),
-     header = <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-     sidebar = <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(minified = <span class="fl">TRUE</span>, collapsed = <span class="fl">TRUE</span>),
-     body = <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, <span class="kw">box</span>, width = <span class="fl">12</span>, title = <span class="st">"box"</span>)
-     ),
-     controlbar = <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span>(),
-     title = <span class="st">"DashboardPage"</span>
-   ),
-   server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) { }
- )
-</pre></div>
+<p>Below is a simple app you may build with <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a>. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you’ll be able to notice the scroll to top button feature if you scroll to the bottom (bottom-right corner).</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
+     options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>sidebarExpandOnHover <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
+     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span>minified <span class="op">=</span> <span class="cn">TRUE</span>, collapsed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, <span class="va">box</span>, width <span class="op">=</span> <span class="fl">12</span>, title <span class="op">=</span> <span class="st">"box"</span><span class="op">)</span>
+     <span class="op">)</span>,
+     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
+     title <span class="op">=</span> <span class="st">"DashboardPage"</span>
+   <span class="op">)</span>,
+   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
 </div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-scrollToTop/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-scrollToTop/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
 </iframe>
 </div>
 <div class="home">
@@ -303,7 +285,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

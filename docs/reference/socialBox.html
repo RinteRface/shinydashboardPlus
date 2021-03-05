@@ -50,6 +50,7 @@
 
 <meta property="og:title" content="AdminLTE2 social box — socialBox" />
 <meta property="og:description" content="socialBox creates a special box dedicated for social content.
+userBlock goes in the title of socialBox.
 boxComment has to be inserted in the comment slot of socialBox." />
 <meta property="og:image" content="/logo.svg" />
 
@@ -83,7 +84,7 @@ boxComment has to be inserted in the comment slot of socialBox." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -91,7 +92,7 @@ boxComment has to be inserted in the comment slot of socialBox." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -140,7 +141,7 @@ boxComment has to be inserted in the comment slot of socialBox." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -164,24 +165,30 @@ boxComment has to be inserted in the comment slot of socialBox." />
 
     <div class="ref-description">
     <p>socialBox creates a special box dedicated for social content.</p>
+<p>userBlock goes in the title of socialBox.</p>
 <p>boxComment has to be inserted in the comment slot of socialBox.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>socialBox</span>(
-  <span class='kw'>...</span>,
-  <span class='kw'>image</span>,
-  <span class='kw'>title</span>,
-  subtitle = <span class='kw'>NULL</span>,
-  comments = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  width = <span class='fl'>6</span>,
-  height = <span class='kw'>NULL</span>,
-  collapsible = <span class='fl'>TRUE</span>,
-  closable = <span class='fl'>FALSE</span>,
-  footerPadding = <span class='fl'>TRUE</span>
-)
+    <pre class="usage"><span class='fu'>socialBox</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  footer <span class='op'>=</span> <span class='cn'>NULL</span>,
+  width <span class='op'>=</span> <span class='fl'>6</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  collapsed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  closable <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  boxToolSize <span class='op'>=</span> <span class='st'>"sm"</span>,
+  headerBorder <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  label <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dropdownMenu <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sidebar <span class='op'>=</span> <span class='cn'>NULL</span>,
+  id <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>boxComment</span>(<span class='kw'>...</span>, <span class='kw'>image</span>, <span class='kw'>title</span>, date = <span class='kw'>NULL</span>)</pre>
+<span class='fu'>userBlock</span><span class='op'>(</span><span class='va'>image</span>, <span class='va'>title</span>, subtitle <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+
+<span class='fu'>boxComment</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>image</span>, title <span class='op'>=</span> <span class='cn'>NULL</span>, date <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,44 +198,72 @@ boxComment has to be inserted in the comment slot of socialBox." />
       <td><p>comment content.</p></td>
     </tr>
     <tr>
-      <th>image</th>
-      <td><p>author image, if any.</p></td>
-    </tr>
-    <tr>
       <th>title</th>
       <td><p>comment title.</p></td>
     </tr>
     <tr>
-      <th>subtitle</th>
-      <td><p>box subtitle.</p></td>
-    </tr>
-    <tr>
-      <th>comments</th>
-      <td><p>slot for boxComment.</p></td>
-    </tr>
-    <tr>
       <th>footer</th>
-      <td><p>box footer, if any.</p></td>
+      <td><p>Optional footer text.</p></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>box width (between 1 and 12).</p></td>
+      <td><p>The width of the box, using the Bootstrap grid system. This is
+used for row-based layouts. The overall width of a region is 12, so the
+default valueBox width of 4 occupies 1/3 of that width. For column-based
+layouts, use <code>NULL</code> for the width; the width is set by the column that
+contains the box.</p></td>
     </tr>
     <tr>
       <th>height</th>
-      <td><p>box height.</p></td>
+      <td><p>The height of a box, in pixels or other CSS unit. By default
+the height scales automatically with the content.</p></td>
     </tr>
     <tr>
       <th>collapsible</th>
-      <td><p>If TRUE, display a button in the upper right that allows the user to collapse the box.</p></td>
+      <td><p>If TRUE, display a button in the upper right that allows
+the user to collapse the box.</p></td>
+    </tr>
+    <tr>
+      <th>collapsed</th>
+      <td><p>If TRUE, start collapsed. This must be used with
+<code>collapsible=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>closable</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to close the box.</p></td>
     </tr>
     <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+      <th>boxToolSize</th>
+      <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
+    </tr>
+    <tr>
+      <th>headerBorder</th>
+      <td><p>Whether to display a border between the header and body.
+TRUE by default.</p></td>
+    </tr>
+    <tr>
+      <th>label</th>
+      <td><p>Slot for <a href='boxLabel.html'>boxLabel</a>.</p></td>
+    </tr>
+    <tr>
+      <th>dropdownMenu</th>
+      <td><p>List of items in the boxtool dropdown menu. Use <a href='box.html'>boxDropdown</a>.</p></td>
+    </tr>
+    <tr>
+      <th>sidebar</th>
+      <td><p>Slot for <a href='boxSidebar.html'>boxSidebar</a>.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>If passed, the item will behave like an action button.</p></td>
+    </tr>
+    <tr>
+      <th>image</th>
+      <td><p>author image, if any.</p></td>
+    </tr>
+    <tr>
+      <th>subtitle</th>
+      <td><p>Any subtitle.</p></td>
     </tr>
     <tr>
       <th>date</th>
@@ -241,45 +276,46 @@ boxComment has to be inserted in the comment slot of socialBox." />
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>socialBox</span>(
-      title = <span class='st'>"Social Box"</span>,
-      subtitle = <span class='st'>"example-01.05.2018"</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
-      <span class='st'>"Some text here!"</span>,
-      <span class='fu'><a href='attachmentBlock.html'>attachmentBlock</a></span>(
-       image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
-       title = <span class='st'>"Test"</span>,
-       href = <span class='st'>"https://google.com"</span>,
-       <span class='st'>"This is the content"</span>
-      ),
-      comments = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-       <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(X = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN = <span class='fu'>function</span>(<span class='kw'>i</span>) {
-        <span class='fu'>boxComment</span>(
-          image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-          title = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Comment"</span>, <span class='kw'>i</span>),
-          date = <span class='st'>"01.05.2018"</span>,
-          <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"The "</span>, <span class='kw'>i</span>, <span class='st'>"-th comment"</span>)
-        )
-       })
-      ),
-      footer = <span class='st'>"The footer here!"</span>
-     )
-    ),
-    title = <span class='st'>"socialBox"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+    ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+      <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+      <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+        <span class='fu'>socialBox</span><span class='op'>(</span>
+          title <span class='op'>=</span> <span class='fu'>userBlock</span><span class='op'>(</span>
+            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
+            title <span class='op'>=</span> <span class='st'>"Social Box"</span>,
+            subtitle <span class='op'>=</span> <span class='st'>"example-01.05.2018"</span>
+          <span class='op'>)</span>,
+          <span class='st'>"Some text here!"</span>,
+          <span class='fu'><a href='attachmentBlock.html'>attachmentBlock</a></span><span class='op'>(</span>
+            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
+            title <span class='op'>=</span> <span class='st'>"Test"</span>,
+            href <span class='op'>=</span> <span class='st'>"https://google.com"</span>,
+            <span class='st'>"This is the content"</span>
+          <span class='op'>)</span>,
+          <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span> <span class='op'>{</span>
+            <span class='fu'>boxComment</span><span class='op'>(</span>
+              image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+              title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Comment"</span>, <span class='va'>i</span><span class='op'>)</span>,
+              date <span class='op'>=</span> <span class='st'>"01.05.2018"</span>,
+              <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"The "</span>, <span class='va'>i</span>, <span class='st'>"-th comment"</span><span class='op'>)</span>
+            <span class='op'>)</span>
+          <span class='op'>}</span><span class='op'>)</span>,
+          footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>,
+      controlbar <span class='op'>=</span> <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span><span class='op'>(</span><span class='op'>)</span>,
+      title <span class='op'>=</span> <span class='st'>"socialBox"</span>
+    <span class='op'>)</span>,
+    server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+  <span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
@@ -297,7 +333,7 @@ boxComment has to be inserted in the comment slot of socialBox." />
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

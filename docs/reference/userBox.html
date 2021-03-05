@@ -49,7 +49,8 @@
   
 
 <meta property="og:title" content="AdminLTE2 user box — userBox" />
-<meta property="og:description" content="Create user box" />
+<meta property="og:description" content="userBox creates a user card.
+userDescription creates a customized title tag for userBox." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -82,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -90,7 +91,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +140,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,51 +163,77 @@
     </div>
 
     <div class="ref-description">
-    <p>Create user box</p>
+    <p>userBox creates a user card.</p>
+<p>userDescription creates a customized title tag for userBox.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>userBox</span>(
-  <span class='kw'>...</span>,
-  <span class='kw'>title</span>,
-  subtitle = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  color = <span class='kw'>NULL</span>,
-  width = <span class='fl'>6</span>,
-  height = <span class='kw'>NULL</span>,
-  collapsible = <span class='fl'>TRUE</span>,
-  collapsed = <span class='fl'>FALSE</span>,
-  closable = <span class='fl'>FALSE</span>,
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
-  image = <span class='kw'>NULL</span>,
-  backgroundImage = <span class='kw'>NULL</span>,
-  boxToolSize = <span class='st'>"sm"</span>,
-  footerPadding = <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>userBox</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  footer <span class='op'>=</span> <span class='cn'>NULL</span>,
+  status <span class='op'>=</span> <span class='cn'>NULL</span>,
+  background <span class='op'>=</span> <span class='cn'>NULL</span>,
+  width <span class='op'>=</span> <span class='fl'>6</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  collapsed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  closable <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  gradient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  boxToolSize <span class='op'>=</span> <span class='st'>"sm"</span>,
+  headerBorder <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  label <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dropdownMenu <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sidebar <span class='op'>=</span> <span class='cn'>NULL</span>,
+  id <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
+
+<span class='fu'>userDescription</span><span class='op'>(</span>
+  <span class='va'>title</span>,
+  subtitle <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>image</span>,
+  backgroundImage <span class='op'>=</span> <span class='cn'>NULL</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  imageElevation <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>body content.</p></td>
+      <td><p>any element such as <a href='box.html'>descriptionBlock</a>.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>box title.</p></td>
-    </tr>
-    <tr>
-      <th>subtitle</th>
-      <td><p>box subtitle.</p></td>
+      <td><p>User card title.</p></td>
     </tr>
     <tr>
       <th>footer</th>
-      <td><p>box footer.</p></td>
+      <td><p>Optional footer text.</p></td>
     </tr>
     <tr>
-      <th>color</th>
-      <td><p>background color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
-See below:</p><ul>
-<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+      <th>status</th>
+      <td><p>The status of the item This determines the item's background
+  color.  Valid statuses are defined as follows:</p><ul>
+<li><p><code>primary</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc</p></li>
+<li><p><code>success</code>: <span style='width:12px;height:12px;background:#00a65a;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00a65a</p></li>
+<li><p><code>info</code>: <span style='width:12px;height:12px;background:#00c0ef;border-radius:2px;display:inline-block;margin-right:5px;'></span>#00c0ef</p></li>
+<li><p><code>warning</code>: <span style='width:12px;height:12px;background:#f39c12;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f39c12</p></li>
+<li><p><code>danger</code>: <span style='width:12px;height:12px;background:#f56954;border-radius:2px;display:inline-block;margin-right:5px;'></span>#f56954</p></li>
+<li><p><code>navy</code>: <span style='width:12px;height:12px;background:#001F3F;border-radius:2px;display:inline-block;margin-right:5px;'></span>#001F3F</p></li>
+<li><p><code>teal</code>: <span style='width:12px;height:12px;background:#39CCCC;border-radius:2px;display:inline-block;margin-right:5px;'></span>#39CCCC</p></li>
+<li><p><code>purple</code>: <span style='width:12px;height:12px;background:#605ca8;border-radius:2px;display:inline-block;margin-right:5px;'></span>#605ca8</p></li>
+<li><p><code>orange</code>: <span style='width:12px;height:12px;background:#ff851b;border-radius:2px;display:inline-block;margin-right:5px;'></span>#ff851b</p></li>
+<li><p><code>maroon</code>: <span style='width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;'></span>#D81B60</p></li>
+<li><p><code>black</code>: <span style='width:12px;height:12px;background:#111111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111111</p></li>
+</ul><p>Only primary, success, info, warning and danger are compatible with solidHeader!</p></td>
+    </tr>
+    <tr>
+      <th>background</th>
+      <td><p>If NULL (the default), the background of the box will be
+  white. Otherwise, a color string. Valid colors are listed in
+  <a href='validColors.html'>validColors</a>. See below:</p><ul>
+<li><p><code>light-blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
 .</p></li>
 <li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
 .</p></li>
@@ -236,50 +263,86 @@ See below:</p><ul>
 .</p></li>
 <li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
 .</p></li>
-<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+<li><p><code>gray</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
 .</p></li>
 </ul></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>box width (between 1 and 12).</p></td>
+      <td><p>The width of the box, using the Bootstrap grid system. This is
+used for row-based layouts. The overall width of a region is 12, so the
+default valueBox width of 4 occupies 1/3 of that width. For column-based
+layouts, use <code>NULL</code> for the width; the width is set by the column that
+contains the box.</p></td>
     </tr>
     <tr>
       <th>height</th>
-      <td><p>box height.</p></td>
+      <td><p>The height of a box, in pixels or other CSS unit. By default
+the height scales automatically with the content.</p></td>
     </tr>
     <tr>
       <th>collapsible</th>
-      <td><p>If TRUE, display a button in the upper right that allows the user to collapse the box.</p></td>
+      <td><p>If TRUE, display a button in the upper right that allows
+the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>collapsed</th>
-      <td><p>If TRUE, start collapsed. This must be used with <code>collapsible=TRUE</code>.</p></td>
+      <td><p>If TRUE, start collapsed. This must be used with
+<code>collapsible=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>closable</th>
       <td><p>If TRUE, display a button in the upper right that allows the user to close the box.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>User box type. Either 1 or 2. 1 corresponds to a centered user image,
-while 2 is a left aligned user image.</p></td>
+      <th>gradient</th>
+      <td><p>Whether to allow gradient effect for the background color. Default to FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>boxToolSize</th>
+      <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
+    </tr>
+    <tr>
+      <th>headerBorder</th>
+      <td><p>Whether to display a border between the header and body.
+TRUE by default.</p></td>
+    </tr>
+    <tr>
+      <th>label</th>
+      <td><p>Slot for <a href='boxLabel.html'>boxLabel</a>.</p></td>
+    </tr>
+    <tr>
+      <th>dropdownMenu</th>
+      <td><p>List of items in the boxtool dropdown menu. Use <a href='box.html'>boxDropdown</a>.</p></td>
+    </tr>
+    <tr>
+      <th>sidebar</th>
+      <td><p>Slot for <a href='boxSidebar.html'>boxSidebar</a>.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>If passed, the item will behave like an action button.</p></td>
+    </tr>
+    <tr>
+      <th>subtitle</th>
+      <td><p>User card subtitle.</p></td>
     </tr>
     <tr>
       <th>image</th>
-      <td><p>header image, if any (this is different of the background image).</p></td>
+      <td><p>User image url or path.</p></td>
     </tr>
     <tr>
       <th>backgroundImage</th>
       <td><p>image url, if any. Background needs to be TRUE.</p></td>
     </tr>
     <tr>
-      <th>boxToolSize</th>
-      <td><p>size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
+      <th>type</th>
+      <td><p>User card type. Either 1 or 2. 1 corresponds to a centered user image,
+while 2 is a left aligned user image.</p></td>
     </tr>
     <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
+      <th>imageElevation</th>
+      <td><p>User card image elevation (numeric). NULL by default.</p></td>
     </tr>
     </table>
 
@@ -288,50 +351,63 @@ while 2 is a left aligned user image.</p></td>
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>userBox</span>(
-      title = <span class='st'>"Nadia Carmichael"</span>,
-      subtitle = <span class='st'>"lead Developer"</span>,
-      type = <span class='fl'>2</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
-      color = <span class='st'>"yellow"</span>,
-      <span class='st'>"Some text here!"</span>,
-      footer = <span class='st'>"The footer here!"</span>
-     ),
-     <span class='fu'>userBox</span>(
-      title = <span class='st'>"Alexander Pierce"</span>,
-      subtitle = <span class='st'>"Founder &amp; CEO"</span>,
-      type = <span class='fl'>1</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-      color = <span class='st'>"aqua"</span>,
-      closable = <span class='fl'>TRUE</span>,
-      <span class='st'>"Some text here!"</span>,
-      footer = <span class='st'>"The footer here!"</span>
-     ),
-     <span class='fu'>userBox</span>(
-      title = <span class='st'>"Elizabeth Pierce"</span>,
-      subtitle = <span class='st'>"Web Designer"</span>,
-      image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-      backgroundImage = <span class='st'>"https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg"</span>,
-      closable = <span class='fl'>TRUE</span>,
-      <span class='st'>"Some text here!"</span>,
-      footer = <span class='st'>"The footer here!"</span>
-     )
-    ),
-    title = <span class='st'>"UserBox"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+    ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+      header <span class='op'>=</span> <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+      sidebar <span class='op'>=</span> <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+      controlbar <span class='op'>=</span> <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span><span class='op'>(</span><span class='op'>)</span>,
+      footer <span class='op'>=</span> <span class='fu'><a href='dashboardFooter.html'>dashboardFooter</a></span><span class='op'>(</span><span class='op'>)</span>,
+      title <span class='op'>=</span> <span class='st'>"test"</span>,
+      body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+        <span class='fu'>userBox</span><span class='op'>(</span>
+          title <span class='op'>=</span> <span class='fu'>userDescription</span><span class='op'>(</span>
+            title <span class='op'>=</span> <span class='st'>"Nadia Carmichael"</span>,
+            subtitle <span class='op'>=</span> <span class='st'>"lead Developer"</span>,
+            type <span class='op'>=</span> <span class='fl'>2</span>,
+            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,
+          <span class='op'>)</span>,
+          status <span class='op'>=</span> <span class='st'>"primary"</span>,
+          gradient <span class='op'>=</span> <span class='cn'>TRUE</span>,
+          background <span class='op'>=</span> <span class='st'>"light-blue"</span>,
+          boxToolSize <span class='op'>=</span> <span class='st'>"xl"</span>,
+          <span class='st'>"Some text here!"</span>,
+          footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+        <span class='op'>)</span>,
+        <span class='fu'>userBox</span><span class='op'>(</span>
+          title <span class='op'>=</span> <span class='fu'>userDescription</span><span class='op'>(</span>
+            title <span class='op'>=</span> <span class='st'>"Alexander Pierce"</span>,
+            subtitle <span class='op'>=</span> <span class='st'>"Founder &amp; CEO"</span>,
+            type <span class='op'>=</span> <span class='fl'>1</span>,
+            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+          <span class='op'>)</span>,
+          status <span class='op'>=</span> <span class='st'>"purple"</span>,
+          closable <span class='op'>=</span> <span class='cn'>TRUE</span>,
+          <span class='st'>"Some text here!"</span>,
+          footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+        <span class='op'>)</span>,
+        <span class='fu'>userBox</span><span class='op'>(</span>
+          title <span class='op'>=</span> <span class='fu'>userDescription</span><span class='op'>(</span>
+            title <span class='op'>=</span> <span class='st'>"Elizabeth Pierce"</span>,
+            subtitle <span class='op'>=</span> <span class='st'>"Web Designer"</span>,
+            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+            backgroundImage <span class='op'>=</span> <span class='st'>"https://cdn.statically.io/img/wallpaperaccess.com/full/1119564.jpg"</span>,
+          <span class='op'>)</span>,
+          status <span class='op'>=</span> <span class='st'>"teal"</span>,
+          closable <span class='op'>=</span> <span class='cn'>TRUE</span>,
+          maximizable <span class='op'>=</span> <span class='cn'>TRUE</span>,
+          <span class='st'>"Some text here!"</span>,
+          footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>,
+    server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span><span class='op'>}</span>
+  <span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
@@ -349,7 +425,7 @@ while 2 is a left aligned user image.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -138,7 +138,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -159,31 +159,32 @@
       <small>Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="shinydashboardplus-2009000" class="section level1">
-<h1 class="page-header" data-toc-text="2.0.0.9000">
-<a href="#shinydashboardplus-2009000" class="anchor"></a>shinydashboardPlus 2.0.0.9000<small> Unreleased </small>
+    <div id="shinydashboardplus-200" class="section level1">
+<h1 class="page-header" data-toc-text="2.0.0">
+<a href="#shinydashboardplus-200" class="anchor"></a>shinydashboardPlus 2.0.0<small> Unreleased </small>
 </h1>
 <p>This release is a major step for shinydashboardPlus. It is also a significant breaking change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.</p>
 <div id="breaking-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
+<li>Change <em>maxstar</em> and <em>grade</em> in <code><a href="../reference/starBlock.html">starBlock()</a></code> to <code>max</code> and <code>value</code>.</li>
+<li>Remove <em>footerPadding</em> from <code>boxPlus()</code> to align with <a href="https://rinterface.github.io/bs4Dash/index.html">bs4Dash</a>
+</li>
 <li>Remove all sidebar related parameters from <code>boxPlus()</code>. This is now part of the new <code>boxPlusSidebar()</code>
 </li>
 <li>remove <em>dropdownIcon</em> parameter from <code>boxPlus()</code>. It is now part of the <code>dropdownItemList()</code>
 </li>
 <li>Remove all label params from <code>boxPlus()</code>. This is to reduce the number of parameters of cards. Now part of <code>boxPlusLabel()</code>
 </li>
-<li>
-<em>footer_padding</em> becomes <em>footerPadding</em> in <code>boxPlus()</code>, <code>gradientBox()</code>, <code>widgetUserBox()</code> and <code><a href="../reference/socialBox.html">socialBox()</a></code> to be consistent with the style (camelCase) …</li>
-<li>In <code>dropdownItemList()</code> <em>icon</em> must be provided as <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code>dropdownItemList()</code> <em>icon</em> must be provided as <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>Replace <em>left_text</em> and <em>right_text</em> by <em>left</em> and <em>right</em>, respectively in <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code>
 </li>
 <li>Remove all sidebar related parameters of <code>dashboardPagePlus()</code>. They now belong to <code>dashboardSidebarPlus()</code> to Align with {shinydashboard}</li>
 <li>In <code>dashboardSidebarPlus()</code>: replace <em>rightSidebar</em> by <em>controlbar</em> (align with {bs4Dash}). Rename <em>enable_preloader</em> to <em>preloader</em> and <em>loading_duration</em> to <em>duration</em>
 </li>
 <li>Rename <code>rightSidebar()</code> to <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to align with {bs4Dash}</li>
-<li>Remove <em>enable_rightSidebar</em> from <code>dashboardHeaderPlus()</code>. This is now part of <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> as <em>disable</em> like in {shinydashboard}. <em>rightSidebarIcon</em> becomes <em>controlbarIcon</em> that accepts <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon</a></code> instead of a simple string containing the icon name to be consistent with {shinydashboard}. <em>left_menu</em> becomes <em>leftUi</em> like in {bs4Dash}</li>
+<li>Remove <em>enable_rightSidebar</em> from <code>dashboardHeaderPlus()</code>. This is now part of <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> as <em>disable</em> like in {shinydashboard}. <em>rightSidebarIcon</em> becomes <em>controlbarIcon</em> that accepts <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon</a></code> instead of a simple string containing the icon name to be consistent with {shinydashboard}. <em>left_menu</em> becomes <em>leftUi</em> like in {bs4Dash}</li>
 <li>Remove <code>rightSiderbarMenu()</code>, <code>rightSidebarTablist()</code>, <code>rightSidebarTabItem()</code>, <code>rightSidebarPanel()</code> and <code>rightSidebarTabContent()</code>. They are now replaces by <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code>, <code><a href="../reference/dashboardControlbar.html">controlbarMenu()</a></code> and <code><a href="../reference/dashboardControlbar.html">controlbarItem()</a></code>
 </li>
 <li>Remove <code>rightSidebarMenuItem()</code>, <code>menuIcon()</code> and <code>menuInfo()</code>
@@ -191,13 +192,13 @@
 <li>Rename <code>boxPlus()</code> to <code><a href="../reference/box.html">box()</a></code>, <code>dashboardPagePlus()</code> to <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> and <code>dashboardHeaderPlus()</code> to <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>
 </li>
 <li>
-<code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>In <code>gradientBox()</code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>In <code><a href="../reference/box.html">descriptionBlock()</a></code> <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
-<li>Rework <code><a href="../reference/navPills.html">navPillsItem()</a></code>: <em>pillName</em> becomes <em>left</em>, <em>pillText</em> becomes <em>right</em>, <em>pillColor</em> becomes <em>color</em>, <em>pillIcon</em> becomes <em>icon</em> and expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code>. Add <em>inputId</em> so that the item behaves like an action button</li>
+<code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code>gradientBox()</code> <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/box.html">descriptionBlock()</a></code> <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>Rework <code><a href="../reference/navPills.html">navPillsItem()</a></code>: <em>pillName</em> becomes <em>left</em>, <em>pillText</em> becomes <em>right</em>, <em>pillColor</em> becomes <em>color</em>, <em>pillIcon</em> becomes <em>icon</em> and expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code>. Add <em>inputId</em> so that the item behaves like an action button</li>
 <li>Rework <code><a href="../reference/productList.html">productListItem()</a></code>: <em>productTitle</em> becomes <em>title</em>, <em>productPrice</em> becomes <em>subtitle</em>, <em>priceColor</em> becomes <em>color</em>
 </li>
-<li>In <code><a href="../reference/timelineBlock.html">timelineItem()</a></code>, <code><a href="../reference/timelineBlock.html">timelineStart()</a></code> and <code><a href="../reference/timelineBlock.html">timelineEnd()</a></code>, <em>icon</em> expects a <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
+<li>In <code><a href="../reference/timelineBlock.html">timelineItem()</a></code>, <code><a href="../reference/timelineBlock.html">timelineStart()</a></code> and <code><a href="../reference/timelineBlock.html">timelineEnd()</a></code>, <em>icon</em> expects a <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon()</a></code> and not a simple string containing the icon name. This is to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/userList.html">userListItem()</a></code>, <em>user_name</em> becomes <em>title</em>, <em>description</em> becomes <em>subtitle</em>
 </li>
 <li>
@@ -224,7 +225,7 @@
 <li>
 <em>color</em> becomes <em>status</em> in <code><a href="../reference/accordion.html">accordionItem()</a></code>. This is to be consistent with AdminLTE2 classes and {shinydashboard}</li>
 <li>In <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code>: <em>src</em> becomes <em>image</em> and <em>titleUrl</em> becomes <em>href</em>. <em>image</em> is mandatory</li>
-<li>In <code><a href="../reference/socialButton.html">socialButton()</a></code>: <em>url</em> becomes <em>href</em> and <em>type</em> becomes <em>icon</em> (expect <code><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">shiny::icon</a></code>)</li>
+<li>In <code><a href="../reference/socialButton.html">socialButton()</a></code>: <em>url</em> becomes <em>href</em> and <em>type</em> becomes <em>icon</em> (expect <code><a href="https://rdrr.io/pkg/shiny/man/icon.html">shiny::icon</a></code>)</li>
 <li>In <code><a href="../reference/productList.html">productListItem()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/timelineBlock.html">timelineItemMedia()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
 <li>In <code><a href="../reference/userList.html">userListItem()</a></code>: <em>src</em> becomes <em>image</em> to be consistent with {shinydashboard}</li>
@@ -249,16 +250,16 @@
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
 <li>Completely redesigned pkgdown website with much better documentation</li>
-<li>New <code><a href="../reference/updateUserMessages.html">updateUserMessages()</a></code> function</li>
+<li>New <code><a href="../reference/userMessages.html">updateUserMessages()</a></code> function</li>
 <li>New <code><a href="../reference/accordion.html">updateAccordion()</a></code> to toggle <code><a href="../reference/accordion.html">accordion()</a></code> on the client</li>
 <li>Automatic “scroll to top” feature to quickly go to the top of the dashboard</li>
-<li>Use <code>{waiter}</code> for custom preloaders</li>
+<li>Use <a href="https://waiter.john-coene.com/">waiter</a> for custom preloaders</li>
 <li>Add <em>inputId</em> to <code><a href="../reference/taskItem.html">taskItem()</a></code>, <code><a href="../reference/notificationItem.html">notificationItem()</a></code> and <code><a href="../reference/messageItem.html">messageItem()</a></code>
 </li>
-<li>New <em>inputId</em> and <em>icon</em> to <code><a href="../reference/box.html">boxDropdownItem()</a></code>, that behaves like an action button if passed</li>
+<li>New <em>id</em> and <em>icon</em> to <code><a href="../reference/box.html">boxDropdownItem()</a></code>, that behaves like an action button if passed</li>
 <li>New <code><a href="../reference/navPills.html">updateNavPills()</a></code> to programmatically change the selected item in <code><a href="../reference/navPills.html">navPills()</a></code>
 </li>
-<li>Add <em>freshTheme</em> parameter to <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This allows to use the awsesome <code>{fresh}</code> package. See <a href="https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html">here</a> for more details.</li>
+<li>Add <em>freshTheme</em> parameter to <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This allows to use the awsesome <a href="https://github.com/dreamRs/fresh">fresh</a> package. See <a href="https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html">here</a> for more details.</li>
 <li>Add <code><a href="../reference/skinSelector.html">skinSelector()</a></code> to allow dynamically change the dashboard skin on the client side.</li>
 <li>Add <code><a href="../reference/dashboardControlbar.html">updateControlbarMenu()</a></code> to programmatically change the selected controlbar item</li>
 <li>Add <em>id</em> to <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> to be able to use <code><a href="../reference/dashboardControlbar.html">updateControlbar()</a></code>
@@ -277,6 +278,8 @@
 <h2 class="hasAnchor">
 <a href="#minor-change" class="anchor"></a>Minor change</h2>
 <ul>
+<li>Add <em>headerBorder</em> to <code><a href="../reference/box.html">box()</a></code>
+</li>
 <li>add <em>width</em> to <code><a href="../reference/accordion.html">accordion()</a></code> (default to 12)</li>
 <li>Simplified dependencies code (No end-user impact)</li>
 </ul>
@@ -285,6 +288,12 @@
 <h2 class="hasAnchor">
 <a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/102'>#102</a>: dashboardUser not displayed when using shinydashboard::sidebarMenuOutput. ensureActivatedTab was not in the global scope, whereas it was needed by the output binding code</li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/107'>#107</a>: <code>collapsed = FALSE</code> not working for dashboardControlbar.</li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/56'>#56</a>: When controlbar is expanded/collapsed, a plot does not fit in body.</li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/78'>#78</a>: Menu Item with Sub Menu Item Arrow Not Rotating.</li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/105'>#105</a>: box animation speed. Allow user defined options to prevail over internals.</li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/57'>#57</a>: broken default <code>input$sidebarCollapsed</code>.</li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/86'>#86</a>: controlbar should also trigger a window resize, like the left shinydashboard sidebar. Thanks <a href='https://github.com/ajfisher83'>@ajfisher83</a></li>
 <li>Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in <code><a href="../reference/box.html">box()</a></code>…</li>
 <li>
@@ -330,7 +339,7 @@
 <h2 class="hasAnchor">
 <a href="#bug-fixes-1" class="anchor"></a>Bug Fixes</h2>
 <ul>
-<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/61'>#61</a>: uniqness of <code><a href="../reference/accordion.html">accordion()</a></code> id. Thanks <a href='https://github.com/RegaCaska'>@RegaCaska</a></li>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/61'>#61</a>: uniqueness of <code><a href="../reference/accordion.html">accordion()</a></code> id. Thanks <a href='https://github.com/RegaCaska'>@RegaCaska</a></li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/23'>#23</a>: rework id arg in <code><a href="../reference/flipBox.html">flipBox()</a></code>. Thanks <a href='https://github.com/vinpogo'>@vinpogo</a></li>
 <li>Add class btn-box-tool to close button in <code>widgetUserBox()</code>. Prevent from ugly rendering</li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/51'>#51</a>: change card sidebar z-index so that it is not displayed on top of the page preloader. Thanks <a href='https://github.com/leungi'>@leungi</a></li>
@@ -524,7 +533,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -1,6 +1,14 @@
 pandoc: 2.7.3
-pkgdown: 1.6.0
+pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: []
-last_built: 2020-09-21T09:45Z
+articles:
+  box-elements: box-elements.html
+  controlbar: controlbar.html
+  css-preloader: css-preloader.html
+  enhanced-header: enhanced-header.html
+  extra-elements: extra-elements.html
+  improved-boxes: improved-boxes.html
+  more-skins: more-skins.html
+  shinydashboardPlus: shinydashboardPlus.html
+last_built: 2021-03-05T11:22Z
 

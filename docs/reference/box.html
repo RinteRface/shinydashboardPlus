@@ -91,7 +91,7 @@ to insert in a box" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -99,7 +99,7 @@ to insert in a box" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -148,7 +148,7 @@ to insert in a box" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -183,52 +183,52 @@ It has to be included in a box.</p>
 to insert in a box</p>
     </div>
 
-    <pre class="usage"><span class='fu'>box</span>(
-  <span class='kw'>...</span>,
-  title = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  status = <span class='kw'>NULL</span>,
-  solidHeader = <span class='fl'>FALSE</span>,
-  background = <span class='kw'>NULL</span>,
-  width = <span class='fl'>6</span>,
-  height = <span class='kw'>NULL</span>,
-  collapsible = <span class='fl'>FALSE</span>,
-  collapsed = <span class='fl'>FALSE</span>,
-  closable = <span class='fl'>FALSE</span>,
-  icon = <span class='kw'>NULL</span>,
-  gradient = <span class='fl'>FALSE</span>,
-  boxToolSize = <span class='st'>"sm"</span>,
-  label = <span class='kw'>NULL</span>,
-  dropdownMenu = <span class='kw'>NULL</span>,
-  sidebar = <span class='kw'>NULL</span>,
-  footerPadding = <span class='fl'>TRUE</span>,
-  id = <span class='kw'>NULL</span>
-)
+    <pre class="usage"><span class='fu'>box</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  footer <span class='op'>=</span> <span class='cn'>NULL</span>,
+  status <span class='op'>=</span> <span class='cn'>NULL</span>,
+  solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  background <span class='op'>=</span> <span class='cn'>NULL</span>,
+  width <span class='op'>=</span> <span class='fl'>6</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  collapsible <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  collapsed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  closable <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  icon <span class='op'>=</span> <span class='cn'>NULL</span>,
+  gradient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  boxToolSize <span class='op'>=</span> <span class='st'>"sm"</span>,
+  headerBorder <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  label <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dropdownMenu <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sidebar <span class='op'>=</span> <span class='cn'>NULL</span>,
+  id <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>updateBox</span>(
-  <span class='kw'>id</span>,
-  action = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"remove"</span>, <span class='st'>"toggle"</span>, <span class='st'>"restore"</span>, <span class='st'>"update"</span>),
-  options = <span class='kw'>NULL</span>,
-  session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>()
-)
+<span class='fu'>updateBox</span><span class='op'>(</span>
+  <span class='va'>id</span>,
+  action <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"remove"</span>, <span class='st'>"toggle"</span>, <span class='st'>"restore"</span>, <span class='st'>"update"</span><span class='op'>)</span>,
+  options <span class='op'>=</span> <span class='cn'>NULL</span>,
+  session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'>boxDropdown</span>(<span class='kw'>...</span>, icon = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"wrench"</span>))
+<span class='fu'>boxDropdown</span><span class='op'>(</span><span class='va'>...</span>, icon <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"wrench"</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>boxDropdownItem</span>(<span class='kw'>...</span>, inputId = <span class='kw'>NULL</span>, href = <span class='kw'>NULL</span>, icon = <span class='kw'>NULL</span>)
+<span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='va'>...</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, href <span class='op'>=</span> <span class='cn'>NULL</span>, icon <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>dropdownDivider</span>()
+<span class='fu'>dropdownDivider</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>boxPad</span>(<span class='kw'>...</span>, color = <span class='kw'>NULL</span>, style = <span class='kw'>NULL</span>)
+<span class='fu'>boxPad</span><span class='op'>(</span><span class='va'>...</span>, color <span class='op'>=</span> <span class='cn'>NULL</span>, style <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>descriptionBlock</span>(
-  number = <span class='kw'>NULL</span>,
-  numberColor = <span class='kw'>NULL</span>,
-  numberIcon = <span class='kw'>NULL</span>,
-  header = <span class='kw'>NULL</span>,
-  text = <span class='kw'>NULL</span>,
-  rightBorder = <span class='fl'>TRUE</span>,
-  marginBottom = <span class='fl'>FALSE</span>
-)</pre>
+<span class='fu'>descriptionBlock</span><span class='op'>(</span>
+  number <span class='op'>=</span> <span class='cn'>NULL</span>,
+  numberColor <span class='op'>=</span> <span class='cn'>NULL</span>,
+  numberIcon <span class='op'>=</span> <span class='cn'>NULL</span>,
+  header <span class='op'>=</span> <span class='cn'>NULL</span>,
+  text <span class='op'>=</span> <span class='cn'>NULL</span>,
+  rightBorder <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  marginBottom <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -271,7 +271,7 @@ to insert in a box</p>
       <td><p>If NULL (the default), the background of the box will be
   white. Otherwise, a color string. Valid colors are listed in
   <a href='validColors.html'>validColors</a>. See below:</p><ul>
-<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+<li><p><code>light-blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
 .</p></li>
 <li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
 .</p></li>
@@ -301,7 +301,7 @@ to insert in a box</p>
 .</p></li>
 <li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
 .</p></li>
-<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+<li><p><code>gray</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
 .</p></li>
 </ul></td>
     </tr>
@@ -334,7 +334,7 @@ the user to collapse the box.</p></td>
     </tr>
     <tr>
       <th>icon</th>
-      <td><p>Optional icon. Expect <a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a>.</p></td>
+      <td><p>Optional icon. Expect <a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a>.</p></td>
     </tr>
     <tr>
       <th>gradient</th>
@@ -343,6 +343,11 @@ the user to collapse the box.</p></td>
     <tr>
       <th>boxToolSize</th>
       <td><p>Size of the toolbox: choose among "xs", "sm", "md", "lg".</p></td>
+    </tr>
+    <tr>
+      <th>headerBorder</th>
+      <td><p>Whether to display a border between the header and body.
+TRUE by default.</p></td>
     </tr>
     <tr>
       <th>label</th>
@@ -357,12 +362,8 @@ the user to collapse the box.</p></td>
       <td><p>Slot for <a href='boxSidebar.html'>boxSidebar</a>.</p></td>
     </tr>
     <tr>
-      <th>footerPadding</th>
-      <td><p>TRUE by default: whether the footer has margin or not.</p></td>
-    </tr>
-    <tr>
       <th>id</th>
-      <td><p>Box to toggle.</p></td>
+      <td><p>If passed, the item will behave like an action button.</p></td>
     </tr>
     <tr>
       <th>action</th>
@@ -381,10 +382,6 @@ if you want to remove the background value.</p></td>
       <td><p>Shiny session object.</p></td>
     </tr>
     <tr>
-      <th>inputId</th>
-      <td><p>If passed, the item will behave like an action button.</p></td>
-    </tr>
-    <tr>
       <th>href</th>
       <td><p>Target url or page.</p></td>
     </tr>
@@ -392,7 +389,7 @@ if you want to remove the background value.</p></td>
       <th>color</th>
       <td><p>background color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
 See below:</p><ul>
-<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+<li><p><code>light-blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
 .</p></li>
 <li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
 .</p></li>
@@ -422,7 +419,7 @@ See below:</p><ul>
 .</p></li>
 <li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
 .</p></li>
-<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+<li><p><code>gray</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
 .</p></li>
 </ul></td>
     </tr>
@@ -438,7 +435,7 @@ See below:</p><ul>
       <th>numberColor</th>
       <td><p>number color: see here for a list of valid colors <a href='https://adminlte.io/themes/AdminLTE/pages/UI/general.html'>https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
 See below:</p><ul>
-<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+<li><p><code>light-blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
 .</p></li>
 <li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
 .</p></li>
@@ -468,13 +465,13 @@ See below:</p><ul>
 .</p></li>
 <li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
 .</p></li>
-<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+<li><p><code>gray</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
 .</p></li>
 </ul></td>
     </tr>
     <tr>
       <th>numberIcon</th>
-      <td><p>number icon, if any. Expect <code><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></code>.</p></td>
+      <td><p>number icon, if any. Expect <code><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></code>.</p></td>
     </tr>
     <tr>
       <th>header</th>
@@ -500,291 +497,291 @@ descriptionBlock is used in a boxPad context.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># A box with label, sidebar, dropdown menu</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
 
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-      <span class='fu'>box</span>(
-        title = <span class='st'>"Closable Box with dropdown"</span>, 
-        closable = <span class='fl'>TRUE</span>, 
-        width = <span class='fl'>12</span>,
-        status = <span class='st'>"warning"</span>, 
-        solidHeader = <span class='fl'>FALSE</span>, 
-        collapsible = <span class='fl'>TRUE</span>,
-        label = <span class='fu'><a href='boxLabel.html'>boxLabel</a></span>(
-         text = <span class='fl'>1</span>,
-         status = <span class='st'>"danger"</span>,
-         style = <span class='st'>"circle"</span>
-        ),
-        dropdownMenu = <span class='fu'>boxDropdown</span>(
-         <span class='fu'>boxDropdownItem</span>(<span class='st'>"Link to google"</span>, href = <span class='st'>"http://www.google.com"</span>),
-         <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 2"</span>, href = <span class='st'>"#"</span>),
-         <span class='fu'>dropdownDivider</span>(),
-         <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 3"</span>, href = <span class='st'>"#"</span>, icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"th"</span>))
-        ),
-        sidebar = <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span>(
-         startOpen = <span class='fl'>TRUE</span>,
-         inputId = <span class='st'>"mycardsidebar"</span>,
-         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>sliderInput</a></span>(
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+      <span class='fu'>box</span><span class='op'>(</span>
+        title <span class='op'>=</span> <span class='st'>"Closable Box with dropdown"</span>, 
+        closable <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+        width <span class='op'>=</span> <span class='fl'>12</span>,
+        status <span class='op'>=</span> <span class='st'>"warning"</span>, 
+        solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+        collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
+        label <span class='op'>=</span> <span class='fu'><a href='boxLabel.html'>boxLabel</a></span><span class='op'>(</span>
+         text <span class='op'>=</span> <span class='fl'>1</span>,
+         status <span class='op'>=</span> <span class='st'>"danger"</span>,
+         style <span class='op'>=</span> <span class='st'>"circle"</span>
+        <span class='op'>)</span>,
+        dropdownMenu <span class='op'>=</span> <span class='fu'>boxDropdown</span><span class='op'>(</span>
+         <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"Link to google"</span>, href <span class='op'>=</span> <span class='st'>"http://www.google.com"</span><span class='op'>)</span>,
+         <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"item 2"</span>, href <span class='op'>=</span> <span class='st'>"#"</span><span class='op'>)</span>,
+         <span class='fu'>dropdownDivider</span><span class='op'>(</span><span class='op'>)</span>,
+         <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"item 3"</span>, href <span class='op'>=</span> <span class='st'>"#"</span>, icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"th"</span><span class='op'>)</span><span class='op'>)</span>
+        <span class='op'>)</span>,
+        sidebar <span class='op'>=</span> <span class='fu'><a href='boxSidebar.html'>boxSidebar</a></span><span class='op'>(</span>
+         startOpen <span class='op'>=</span> <span class='cn'>TRUE</span>,
+         id <span class='op'>=</span> <span class='st'>"mycardsidebar"</span>,
+         <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span><span class='op'>(</span>
           <span class='st'>"obs"</span>, 
           <span class='st'>"Number of observations:"</span>,
-          min = <span class='fl'>0</span>, 
-          max = <span class='fl'>1000</span>, 
-          value = <span class='fl'>500</span>
-         )
-        ),
-        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"distPlot"</span>)
-       )
-     )
-   ),
-   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
-    <span class='kw'>output</span><span class='op'>$</span><span class='kw'>distPlot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html'>renderPlot</a></span>({
-     <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>obs</span>))
-    })
-   }
- )
-}
+          min <span class='op'>=</span> <span class='fl'>0</span>, 
+          max <span class='op'>=</span> <span class='fl'>1000</span>, 
+          value <span class='op'>=</span> <span class='fl'>500</span>
+         <span class='op'>)</span>
+        <span class='op'>)</span>,
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span><span class='op'>(</span><span class='st'>"distPlot"</span><span class='op'>)</span>
+       <span class='op'>)</span>
+     <span class='op'>)</span>
+   <span class='op'>)</span>,
+   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='va'>output</span><span class='op'>$</span><span class='va'>distPlot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span><span class='op'>(</span><span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>obs</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+   <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
 <span class='co'># Toggle a box on the client</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-   <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-   <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-   <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>style</span>(<span class='st'>"body { background-color: ghostwhite}"</span>),
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
-       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"toggle_box"</span>, <span class='st'>"Toggle Box"</span>),
-       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"remove_box"</span>, <span class='st'>"Remove Box"</span>, class = <span class='st'>"bg-danger"</span>),
-       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"restore_box"</span>, <span class='st'>"Restore Box"</span>, class = <span class='st'>"bg-success"</span>)
-     ),
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"update_box"</span>, <span class='st'>"Update Box"</span>, class = <span class='st'>"bg-info"</span>), 
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"update_box2"</span>, <span class='st'>"Update Box 2"</span>, class = <span class='st'>"bg-info"</span>),
-     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
-     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span>(),
-     <span class='fu'>box</span>(
-       title = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>textOutput</a></span>(<span class='st'>"box_state"</span>),
-       id = <span class='st'>"mybox"</span>,
-       status = <span class='st'>"danger"</span>, 
-       background = <span class='st'>"maroon"</span>, 
-       gradient = <span class='fl'>TRUE</span>,
-       collapsible = <span class='fl'>TRUE</span>,
-       closable = <span class='fl'>TRUE</span>,
-       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html'>plotOutput</a></span>(<span class='st'>"plot"</span>)
-     )
-   )
- )
+ <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+   <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+   <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+   <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+     <span class='va'>tags</span><span class='op'>$</span><span class='fu'>style</span><span class='op'>(</span><span class='st'>"body { background-color: ghostwhite}"</span><span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span>
+       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"toggle_box"</span>, <span class='st'>"Toggle Box"</span><span class='op'>)</span>,
+       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"remove_box"</span>, <span class='st'>"Remove Box"</span>, class <span class='op'>=</span> <span class='st'>"bg-danger"</span><span class='op'>)</span>,
+       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"restore_box"</span>, <span class='st'>"Restore Box"</span>, class <span class='op'>=</span> <span class='st'>"bg-success"</span><span class='op'>)</span>
+     <span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"update_box"</span>, <span class='st'>"Update Box"</span>, class <span class='op'>=</span> <span class='st'>"bg-info"</span><span class='op'>)</span>, 
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"update_box2"</span>, <span class='st'>"Update Box 2"</span>, class <span class='op'>=</span> <span class='st'>"bg-info"</span><span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span><span class='op'>(</span><span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span><span class='op'>(</span><span class='op'>)</span>,
+     <span class='fu'>box</span><span class='op'>(</span>
+       title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textOutput.html'>textOutput</a></span><span class='op'>(</span><span class='st'>"box_state"</span><span class='op'>)</span>,
+       id <span class='op'>=</span> <span class='st'>"mybox"</span>,
+       status <span class='op'>=</span> <span class='st'>"danger"</span>, 
+       background <span class='op'>=</span> <span class='st'>"maroon"</span>, 
+       gradient <span class='op'>=</span> <span class='cn'>TRUE</span>,
+       collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
+       closable <span class='op'>=</span> <span class='cn'>TRUE</span>,
+       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span><span class='op'>(</span><span class='st'>"plot"</span><span class='op'>)</span>
+     <span class='op'>)</span>
+   <span class='op'>)</span>
+ <span class='op'>)</span>
  
- <span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
-   <span class='kw'>output</span><span class='op'>$</span><span class='kw'>plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html'>renderPlot</a></span>({
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/req.html'>req</a></span>(<span class='op'>!</span><span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>)
-     <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>200</span>))
-   })
+ <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
+   <span class='va'>output</span><span class='op'>$</span><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span><span class='op'>(</span><span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/req.html'>req</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mybox</span><span class='op'>$</span><span class='va'>collapsed</span><span class='op'>)</span>
+     <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>200</span><span class='op'>)</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
    
-   <span class='kw'>output</span><span class='op'>$</span><span class='kw'>box_state</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderText.html'>renderText</a></span>({
-     <span class='kw'>state</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='co'>else</span> <span class='st'>"uncollapsed"</span>
-     <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>state</span>)
-   })
+   <span class='va'>output</span><span class='op'>$</span><span class='va'>box_state</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPrint.html'>renderText</a></span><span class='op'>(</span><span class='op'>{</span>
+     <span class='va'>state</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mybox</span><span class='op'>$</span><span class='va'>collapsed</span><span class='op'>)</span> <span class='st'>"collapsed"</span> <span class='kw'>else</span> <span class='st'>"uncollapsed"</span>
+     <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"My box is"</span>, <span class='va'>state</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
    
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>toggle_box</span>, {
-     <span class='fu'>updateBox</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"toggle"</span>)
-   })
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>toggle_box</span>, <span class='op'>{</span>
+     <span class='fu'>updateBox</span><span class='op'>(</span><span class='st'>"mybox"</span>, action <span class='op'>=</span> <span class='st'>"toggle"</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
    
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>remove_box</span>, {
-     <span class='fu'>updateBox</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"remove"</span>)
-   })
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>remove_box</span>, <span class='op'>{</span>
+     <span class='fu'>updateBox</span><span class='op'>(</span><span class='st'>"mybox"</span>, action <span class='op'>=</span> <span class='st'>"remove"</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
    
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>restore_box</span>, {
-     <span class='fu'>updateBox</span>(<span class='st'>"mybox"</span>, action = <span class='st'>"restore"</span>)
-   })
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>restore_box</span>, <span class='op'>{</span>
+     <span class='fu'>updateBox</span><span class='op'>(</span><span class='st'>"mybox"</span>, action <span class='op'>=</span> <span class='st'>"restore"</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
    
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>, {
-     <span class='kw'>collapsed</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>collapsed</span>) <span class='st'>"collapsed"</span> <span class='co'>else</span> <span class='st'>"uncollapsed"</span>
-     <span class='kw'>visible</span> <span class='op'>&lt;-</span> <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>mybox</span><span class='op'>$</span><span class='kw'>visible</span>) <span class='st'>"visible"</span> <span class='co'>else</span> <span class='st'>"hidden"</span>
-     <span class='kw'>message</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"My box is"</span>, <span class='kw'>collapsed</span>, <span class='st'>"and"</span>, <span class='kw'>visible</span>)
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='kw'>message</span>, type = <span class='st'>"warning"</span>, duration = <span class='fl'>1</span>)
-   })
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mybox</span><span class='op'>$</span><span class='va'>visible</span>, <span class='op'>{</span>
+     <span class='va'>collapsed</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mybox</span><span class='op'>$</span><span class='va'>collapsed</span><span class='op'>)</span> <span class='st'>"collapsed"</span> <span class='kw'>else</span> <span class='st'>"uncollapsed"</span>
+     <span class='va'>visible</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mybox</span><span class='op'>$</span><span class='va'>visible</span><span class='op'>)</span> <span class='st'>"visible"</span> <span class='kw'>else</span> <span class='st'>"hidden"</span>
+     <span class='va'>message</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"My box is"</span>, <span class='va'>collapsed</span>, <span class='st'>"and"</span>, <span class='va'>visible</span><span class='op'>)</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='va'>message</span>, type <span class='op'>=</span> <span class='st'>"warning"</span>, duration <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
    
-   <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>update_box</span>, {
-     <span class='fu'>updateBox</span>(
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>update_box</span>, <span class='op'>{</span>
+     <span class='fu'>updateBox</span><span class='op'>(</span>
        <span class='st'>"mybox"</span>, 
-       action = <span class='st'>"update"</span>, 
-       options = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-         title = <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span>(<span class='st'>"hello"</span>), <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span>(<span class='fl'>1</span>, status = <span class='st'>"primary"</span>)),
-         status = <span class='st'>"warning"</span>, 
-         solidHeader = <span class='fl'>TRUE</span>, 
-         width = <span class='fl'>12</span>, 
-         background = <span class='kw'>NULL</span>, 
-         height = <span class='st'>"900px"</span>, 
-         closable = <span class='fl'>FALSE</span>
-       )
-     )
-   })
+       action <span class='op'>=</span> <span class='st'>"update"</span>, 
+       options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+         title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span><span class='op'>(</span><span class='st'>"hello"</span>, <span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='fl'>1</span>, status <span class='op'>=</span> <span class='st'>"primary"</span><span class='op'>)</span><span class='op'>)</span>,
+         status <span class='op'>=</span> <span class='st'>"warning"</span>, 
+         solidHeader <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+         width <span class='op'>=</span> <span class='fl'>12</span>, 
+         background <span class='op'>=</span> <span class='cn'>NULL</span>, 
+         height <span class='op'>=</span> <span class='st'>"900px"</span>, 
+         closable <span class='op'>=</span> <span class='cn'>FALSE</span>
+       <span class='op'>)</span>
+     <span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
     
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>update_box2</span>, {
-      <span class='fu'>updateBox</span>(
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>update_box2</span>, <span class='op'>{</span>
+      <span class='fu'>updateBox</span><span class='op'>(</span>
         <span class='st'>"mybox"</span>, 
-        action = <span class='st'>"update"</span>, 
-        options = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-          status = <span class='kw'>NULL</span>, 
-          solidHeader = <span class='fl'>FALSE</span>,
-          width = <span class='fl'>4</span>, 
-          background = <span class='st'>"green"</span>, 
-          height = <span class='st'>"500px"</span>, 
-          closable = <span class='fl'>TRUE</span>
-        )
-      )
-    })
+        action <span class='op'>=</span> <span class='st'>"update"</span>, 
+        options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+          status <span class='op'>=</span> <span class='cn'>NULL</span>, 
+          solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>,
+          width <span class='op'>=</span> <span class='fl'>4</span>, 
+          background <span class='op'>=</span> <span class='st'>"green"</span>, 
+          height <span class='op'>=</span> <span class='st'>"500px"</span>, 
+          closable <span class='op'>=</span> <span class='cn'>TRUE</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
    
- }
+ <span class='op'>}</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 <span class='co'># Box with dropdown items and input</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-       <span class='fu'>box</span>(
-         title = <span class='st'>"Closable Box with dropdown"</span>, 
-         closable = <span class='fl'>TRUE</span>, 
-         width = <span class='fl'>12</span>,
-         status = <span class='st'>"warning"</span>, 
-         solidHeader = <span class='fl'>FALSE</span>, 
-         collapsible = <span class='fl'>TRUE</span>,
-         dropdownMenu = <span class='fu'>boxDropdown</span>(
-           <span class='fu'>boxDropdownItem</span>(<span class='st'>"Click me"</span>, inputId = <span class='st'>"dropdownItem"</span>, icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"heart"</span>)),
-           <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 2"</span>, href = <span class='st'>"https://www.google.com/"</span>),
-           <span class='fu'>dropdownDivider</span>(),
-           <span class='fu'>boxDropdownItem</span>(<span class='st'>"item 3"</span>, icon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"th"</span>))
-         ),
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+       <span class='fu'>box</span><span class='op'>(</span>
+         title <span class='op'>=</span> <span class='st'>"Closable Box with dropdown"</span>, 
+         closable <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+         width <span class='op'>=</span> <span class='fl'>12</span>,
+         status <span class='op'>=</span> <span class='st'>"warning"</span>, 
+         solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+         collapsible <span class='op'>=</span> <span class='cn'>TRUE</span>,
+         dropdownMenu <span class='op'>=</span> <span class='fu'>boxDropdown</span><span class='op'>(</span>
+           <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"Click me"</span>, id <span class='op'>=</span> <span class='st'>"dropdownItem"</span>, icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"heart"</span><span class='op'>)</span><span class='op'>)</span>,
+           <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"item 2"</span>, href <span class='op'>=</span> <span class='st'>"https://www.google.com/"</span><span class='op'>)</span>,
+           <span class='fu'>dropdownDivider</span><span class='op'>(</span><span class='op'>)</span>,
+           <span class='fu'>boxDropdownItem</span><span class='op'>(</span><span class='st'>"item 3"</span>, icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"th"</span><span class='op'>)</span><span class='op'>)</span>
+         <span class='op'>)</span>,
          <span class='st'>"My box"</span>
-       )
-     )
-   ),
-   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) {
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>dropdownItem</span>, {
-       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showNotification.html'>showNotification</a></span>(<span class='st'>"Hello"</span>, duration = <span class='fl'>1</span>, type = <span class='st'>"message"</span>)
-     })
-   }
- )
-}
+       <span class='op'>)</span>
+     <span class='op'>)</span>
+   <span class='op'>)</span>,
+   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>dropdownItem</span>, <span class='op'>{</span>
+       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='st'>"Hello"</span>, duration <span class='op'>=</span> <span class='fl'>1</span>, type <span class='op'>=</span> <span class='st'>"message"</span><span class='op'>)</span>
+     <span class='op'>}</span><span class='op'>)</span>
+   <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
 <span class='co'># Box with boxPad container + descriptionBlock</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>box</span>(title = <span class='st'>"Box with right pad"</span>,
-      status = <span class='st'>"warning"</span>,
-      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
-        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(width = <span class='fl'>6</span>),
-        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
-          width = <span class='fl'>6</span>,
-          <span class='fu'>boxPad</span>(
-            color = <span class='st'>"green"</span>,
-            <span class='fu'>descriptionBlock</span>(
-              header = <span class='st'>"8390"</span>, 
-              text = <span class='st'>"VISITS"</span>, 
-              rightBorder = <span class='fl'>FALSE</span>,
-              marginBottom = <span class='fl'>TRUE</span>
-            ),
-            <span class='fu'>descriptionBlock</span>(
-              header = <span class='st'>"30%"</span>, 
-              text = <span class='st'>"REFERRALS"</span>, 
-              rightBorder = <span class='fl'>FALSE</span>,
-              marginBottom = <span class='fl'>TRUE</span>
-            ),
-            <span class='fu'>descriptionBlock</span>(
-              header = <span class='st'>"70%"</span>, 
-              text = <span class='st'>"ORGANIC"</span>, 
-              rightBorder = <span class='fl'>FALSE</span>,
-              marginBottom = <span class='fl'>FALSE</span>
-            )
-          )
-        )
-      )
-     )
-    ),
-    title = <span class='st'>"boxPad"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+     <span class='fu'>box</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Box with right pad"</span>,
+      status <span class='op'>=</span> <span class='st'>"warning"</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span>
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>,
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
+          width <span class='op'>=</span> <span class='fl'>6</span>,
+          <span class='fu'>boxPad</span><span class='op'>(</span>
+            color <span class='op'>=</span> <span class='st'>"green"</span>,
+            <span class='fu'>descriptionBlock</span><span class='op'>(</span>
+              header <span class='op'>=</span> <span class='st'>"8390"</span>, 
+              text <span class='op'>=</span> <span class='st'>"VISITS"</span>, 
+              rightBorder <span class='op'>=</span> <span class='cn'>FALSE</span>,
+              marginBottom <span class='op'>=</span> <span class='cn'>TRUE</span>
+            <span class='op'>)</span>,
+            <span class='fu'>descriptionBlock</span><span class='op'>(</span>
+              header <span class='op'>=</span> <span class='st'>"30%"</span>, 
+              text <span class='op'>=</span> <span class='st'>"REFERRALS"</span>, 
+              rightBorder <span class='op'>=</span> <span class='cn'>FALSE</span>,
+              marginBottom <span class='op'>=</span> <span class='cn'>TRUE</span>
+            <span class='op'>)</span>,
+            <span class='fu'>descriptionBlock</span><span class='op'>(</span>
+              header <span class='op'>=</span> <span class='st'>"70%"</span>, 
+              text <span class='op'>=</span> <span class='st'>"ORGANIC"</span>, 
+              rightBorder <span class='op'>=</span> <span class='cn'>FALSE</span>,
+              marginBottom <span class='op'>=</span> <span class='cn'>FALSE</span>
+            <span class='op'>)</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+     <span class='op'>)</span>
+    <span class='op'>)</span>,
+    title <span class='op'>=</span> <span class='st'>"boxPad"</span>
+  <span class='op'>)</span>,
+  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
 
 <span class='co'># Box with descriptionBlock</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'>box</span>(
-      solidHeader = <span class='fl'>FALSE</span>,
-      title = <span class='st'>"Status summary"</span>,
-      background = <span class='kw'>NULL</span>,
-      width = <span class='fl'>4</span>,
-      status = <span class='st'>"danger"</span>,
-      footer = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidRow</a></span>(
-        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
-          width = <span class='fl'>6</span>,
-          <span class='fu'>descriptionBlock</span>(
-            number = <span class='st'>"17%"</span>, 
-            numberColor = <span class='st'>"green"</span>, 
-            numberIcon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"caret-up"</span>),
-            header = <span class='st'>"$35,210.43"</span>, 
-            text = <span class='st'>"TOTAL REVENUE"</span>, 
-            rightBorder = <span class='fl'>TRUE</span>,
-            marginBottom = <span class='fl'>FALSE</span>
-          )
-        ),
-        <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/column.html'>column</a></span>(
-          width = <span class='fl'>6</span>,
-          <span class='fu'>descriptionBlock</span>(
-            number = <span class='st'>"18%"</span>, 
-            numberColor = <span class='st'>"red"</span>, 
-            numberIcon = <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/icon.html'>icon</a></span>(<span class='st'>"caret-down"</span>),
-            header = <span class='st'>"1200"</span>, 
-            text = <span class='st'>"GOAL COMPLETION"</span>, 
-            rightBorder = <span class='fl'>FALSE</span>,
-            marginBottom = <span class='fl'>FALSE</span>
-          )
-        )
-      )
-     )
-    ),
-    title = <span class='st'>"Description Blocks"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+     <span class='fu'>box</span><span class='op'>(</span>
+      solidHeader <span class='op'>=</span> <span class='cn'>FALSE</span>,
+      title <span class='op'>=</span> <span class='st'>"Status summary"</span>,
+      background <span class='op'>=</span> <span class='cn'>NULL</span>,
+      width <span class='op'>=</span> <span class='fl'>4</span>,
+      status <span class='op'>=</span> <span class='st'>"danger"</span>,
+      footer <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span>
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
+          width <span class='op'>=</span> <span class='fl'>6</span>,
+          <span class='fu'>descriptionBlock</span><span class='op'>(</span>
+            number <span class='op'>=</span> <span class='st'>"17%"</span>, 
+            numberColor <span class='op'>=</span> <span class='st'>"green"</span>, 
+            numberIcon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"caret-up"</span><span class='op'>)</span>,
+            header <span class='op'>=</span> <span class='st'>"$35,210.43"</span>, 
+            text <span class='op'>=</span> <span class='st'>"TOTAL REVENUE"</span>, 
+            rightBorder <span class='op'>=</span> <span class='cn'>TRUE</span>,
+            marginBottom <span class='op'>=</span> <span class='cn'>FALSE</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>,
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
+          width <span class='op'>=</span> <span class='fl'>6</span>,
+          <span class='fu'>descriptionBlock</span><span class='op'>(</span>
+            number <span class='op'>=</span> <span class='st'>"18%"</span>, 
+            numberColor <span class='op'>=</span> <span class='st'>"red"</span>, 
+            numberIcon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"caret-down"</span><span class='op'>)</span>,
+            header <span class='op'>=</span> <span class='st'>"1200"</span>, 
+            text <span class='op'>=</span> <span class='st'>"GOAL COMPLETION"</span>, 
+            rightBorder <span class='op'>=</span> <span class='cn'>FALSE</span>,
+            marginBottom <span class='op'>=</span> <span class='cn'>FALSE</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+     <span class='op'>)</span>
+    <span class='op'>)</span>,
+    title <span class='op'>=</span> <span class='st'>"Description Blocks"</span>
+  <span class='op'>)</span>,
+  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
@@ -802,7 +799,7 @@ descriptionBlock is used in a boxPad context.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

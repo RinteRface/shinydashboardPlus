@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +139,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -165,20 +165,20 @@
     <p>This creates a dashboard page for use in a Shiny app.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dashboardPage</span>(
-  <span class='kw'>header</span>,
-  <span class='kw'>sidebar</span>,
-  <span class='kw'>body</span>,
-  controlbar = <span class='kw'>NULL</span>,
-  footer = <span class='kw'>NULL</span>,
-  title = <span class='kw'>NULL</span>,
-  skin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"blue"</span>, <span class='st'>"blue-light"</span>, <span class='st'>"black"</span>, <span class='st'>"black-light"</span>, <span class='st'>"purple"</span>, <span class='st'>"purple-light"</span>,
-    <span class='st'>"green"</span>, <span class='st'>"green-light"</span>, <span class='st'>"red"</span>, <span class='st'>"red-light"</span>, <span class='st'>"yellow"</span>, <span class='st'>"yellow-light"</span>, <span class='st'>"midnight"</span>),
-  freshTheme = <span class='kw'>NULL</span>,
-  preloader = <span class='kw'>NULL</span>,
-  md = <span class='fl'>FALSE</span>,
-  options = <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>dashboardPage</span><span class='op'>(</span>
+  <span class='va'>header</span>,
+  <span class='va'>sidebar</span>,
+  <span class='va'>body</span>,
+  controlbar <span class='op'>=</span> <span class='cn'>NULL</span>,
+  footer <span class='op'>=</span> <span class='cn'>NULL</span>,
+  title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  skin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"blue"</span>, <span class='st'>"blue-light"</span>, <span class='st'>"black"</span>, <span class='st'>"black-light"</span>, <span class='st'>"purple"</span>, <span class='st'>"purple-light"</span>,
+    <span class='st'>"green"</span>, <span class='st'>"green-light"</span>, <span class='st'>"red"</span>, <span class='st'>"red-light"</span>, <span class='st'>"yellow"</span>, <span class='st'>"yellow-light"</span>, <span class='st'>"midnight"</span><span class='op'>)</span>,
+  freshTheme <span class='op'>=</span> <span class='cn'>NULL</span>,
+  preloader <span class='op'>=</span> <span class='cn'>NULL</span>,
+  md <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  options <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -223,7 +223,7 @@ See <a href='https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html'>
     <tr>
       <th>preloader</th>
       <td><p>shinydashboardPlus uses waiter (see <a href='https://waiter.john-coene.com/#/'>https://waiter.john-coene.com/#/</a>).
-Pass a nested list with 2 elements like <code><a href='https://rdrr.io/r/base/list.html'>list(waiter = list(html = spin_1(), color = "#333e48"), duration = 5)</a></code>.
+Pass a list like <code><a href='https://rdrr.io/r/base/list.html'>list(html = spin_1(), color = "#333e48")</a></code>.
 <code>waiter</code> expects to provide a sub-list to configure <a href='https://rdrr.io/pkg/waiter/man/waiter.html'>waiter_show_on_load</a> (refer to
 the package help for all styles). <code>duration</code> defines the loader timeout.</p></td>
     </tr>
@@ -245,46 +245,46 @@ Expect a list.</p></td>
   <code><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/dreamRs/fresh'>fresh</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dreamRs/fresh'>fresh</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-   ui = <span class='fu'>dashboardPage</span>(
-     freshTheme = <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/create_theme.html'>create_theme</a></span>(
-      <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/adminlte_color.html'>adminlte_color</a></span>(
-        light_blue = <span class='st'>"#55e7ff"</span>,
-        blue = <span class='st'>"#2011a2"</span>,
-        navy = <span class='st'>"#201148"</span>,
-        red = <span class='st'>"#ff34b3"</span>
-      ),
-      <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/adminlte_sidebar.html'>adminlte_sidebar</a></span>(
-        dark_bg = <span class='st'>"#D8DEE9"</span>,
-        dark_hover_bg = <span class='st'>"#81A1C1"</span>,
-        dark_color = <span class='st'>"#2E3440"</span>
-      ),
-      <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/adminlte_global.html'>adminlte_global</a></span>(
-        content_bg = <span class='st'>"#FFF"</span>,
-        box_bg = <span class='st'>"#D8DEE9"</span>, 
-        info_box_bg = <span class='st'>"#D8DEE9"</span>
-      )
-     ),
-     options = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(sidebarExpandOnHover = <span class='fl'>TRUE</span>),
-     header = <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-     sidebar = <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-     body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-      <span class='fu'><a href='box.html'>box</a></span>(background = <span class='st'>"red"</span>),
-      <span class='fu'><a href='box.html'>box</a></span>(background = <span class='st'>"blue"</span>),
-      <span class='fu'><a href='box.html'>box</a></span>(background = <span class='st'>"navy"</span>)
-     ),
-     controlbar = <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span>(),
-     title = <span class='st'>"DashboardPage"</span>
-   ),
-   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+   ui <span class='op'>=</span> <span class='fu'>dashboardPage</span><span class='op'>(</span>
+     freshTheme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/create_theme.html'>create_theme</a></span><span class='op'>(</span>
+      <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/adminlte_color.html'>adminlte_color</a></span><span class='op'>(</span>
+        light_blue <span class='op'>=</span> <span class='st'>"#55e7ff"</span>,
+        blue <span class='op'>=</span> <span class='st'>"#2011a2"</span>,
+        navy <span class='op'>=</span> <span class='st'>"#201148"</span>,
+        red <span class='op'>=</span> <span class='st'>"#ff34b3"</span>
+      <span class='op'>)</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/adminlte_sidebar.html'>adminlte_sidebar</a></span><span class='op'>(</span>
+        dark_bg <span class='op'>=</span> <span class='st'>"#D8DEE9"</span>,
+        dark_hover_bg <span class='op'>=</span> <span class='st'>"#81A1C1"</span>,
+        dark_color <span class='op'>=</span> <span class='st'>"#2E3440"</span>
+      <span class='op'>)</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/fresh/man/adminlte_global.html'>adminlte_global</a></span><span class='op'>(</span>
+        content_bg <span class='op'>=</span> <span class='st'>"#FFF"</span>,
+        box_bg <span class='op'>=</span> <span class='st'>"#D8DEE9"</span>, 
+        info_box_bg <span class='op'>=</span> <span class='st'>"#D8DEE9"</span>
+      <span class='op'>)</span>
+     <span class='op'>)</span>,
+     options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>sidebarExpandOnHover <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+     header <span class='op'>=</span> <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+     sidebar <span class='op'>=</span> <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+     body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+      <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>background <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>,
+      <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>background <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span>,
+      <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>background <span class='op'>=</span> <span class='st'>"navy"</span><span class='op'>)</span>
+     <span class='op'>)</span>,
+     controlbar <span class='op'>=</span> <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span><span class='op'>(</span><span class='op'>)</span>,
+     title <span class='op'>=</span> <span class='st'>"DashboardPage"</span>
+   <span class='op'>)</span>,
+   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -301,7 +301,7 @@ Expect a list.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

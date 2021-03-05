@@ -49,8 +49,10 @@
   
 
 <meta property="og:title" content="AdminLTE2 user message container — userMessages" />
-<meta property="og:description" content="Create a user message container. Maybe inserted in a box
-userMessage creates a user message html element." />
+<meta property="og:description" content="userMessages creates a user message container. Maybe inserted in a box.
+userMessage creates a user message html element.
+updateUserMessages allows to interact with a userMessages container,
+such as sending, removing or editing messages." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -83,7 +85,7 @@ userMessage creates a user message html element." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -91,7 +93,7 @@ userMessage creates a user message html element." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -140,7 +142,7 @@ userMessage creates a user message html element." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -163,19 +165,29 @@ userMessage creates a user message html element." />
     </div>
 
     <div class="ref-description">
-    <p>Create a user message container. Maybe inserted in a <a href='box.html'>box</a></p>
+    <p>userMessages creates a user message container. Maybe inserted in a <a href='box.html'>box</a>.</p>
 <p>userMessage creates a user message html element.</p>
+<p>updateUserMessages allows to interact with a userMessages container,
+such as sending, removing or editing messages.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>userMessages</span>(<span class='kw'>...</span>, id = <span class='kw'>NULL</span>, <span class='kw'>status</span>, width = <span class='fl'>4</span>, height = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>userMessages</span><span class='op'>(</span><span class='va'>...</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>status</span>, width <span class='op'>=</span> <span class='fl'>4</span>, height <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>userMessage</span>(
-  <span class='kw'>...</span>,
-  <span class='kw'>author</span>,
-  date = <span class='kw'>NULL</span>,
-  image = <span class='kw'>NULL</span>,
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sent"</span>, <span class='st'>"received"</span>)
-)</pre>
+<span class='fu'>userMessage</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  <span class='va'>author</span>,
+  date <span class='op'>=</span> <span class='cn'>NULL</span>,
+  image <span class='op'>=</span> <span class='cn'>NULL</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sent"</span>, <span class='st'>"received"</span><span class='op'>)</span>
+<span class='op'>)</span>
+
+<span class='fu'>updateUserMessages</span><span class='op'>(</span>
+  <span class='va'>id</span>,
+  action <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"add"</span>, <span class='st'>"remove"</span>, <span class='st'>"update"</span><span class='op'>)</span>,
+  index <span class='op'>=</span> <span class='cn'>NULL</span>,
+  content <span class='op'>=</span> <span class='cn'>NULL</span>,
+  session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -186,7 +198,7 @@ userMessage creates a user message html element." />
     </tr>
     <tr>
       <th>id</th>
-      <td><p>Optional. To use with <a href='updateUserMessages.html'>updateUserMessages</a>.</p></td>
+      <td><p>userMessages to target.</p></td>
     </tr>
     <tr>
       <th>status</th>
@@ -224,6 +236,22 @@ Valid statuses are defined as follows:</p><ul>
       <th>type</th>
       <td><p>Message type: <code><a href='https://rdrr.io/r/base/c.html'>c("sent", "received")</a></code>.</p></td>
     </tr>
+    <tr>
+      <th>action</th>
+      <td><p>Action to perform: add, remove or update.</p></td>
+    </tr>
+    <tr>
+      <th>index</th>
+      <td><p>Index of item to update or remove.</p></td>
+    </tr>
+    <tr>
+      <th>content</th>
+      <td><p>New message content in a list. For actions like add and update only! See example.</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>Shiny session object.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
@@ -231,64 +259,159 @@ Valid statuses are defined as follows:</p><ul>
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='box.html'>box</a></span>(
-      title = <span class='st'>"Box with messages"</span>,
-      solidHeader = <span class='fl'>TRUE</span>,
-      status = <span class='st'>"warning"</span>,
-      <span class='fu'>userMessages</span>(
-       width = <span class='fl'>12</span>,
-       status = <span class='st'>"success"</span>,
-       <span class='fu'>userMessage</span>(
-         author = <span class='st'>"Alexander Pierce"</span>,
-         date = <span class='st'>"20 Jan 2:00 pm"</span>,
-         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-         type = <span class='st'>"sent"</span>,
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+     <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"Box with messages"</span>,
+      solidHeader <span class='op'>=</span> <span class='cn'>TRUE</span>,
+      status <span class='op'>=</span> <span class='st'>"warning"</span>,
+      <span class='fu'>userMessages</span><span class='op'>(</span>
+       width <span class='op'>=</span> <span class='fl'>12</span>,
+       status <span class='op'>=</span> <span class='st'>"success"</span>,
+       <span class='fu'>userMessage</span><span class='op'>(</span>
+         author <span class='op'>=</span> <span class='st'>"Alexander Pierce"</span>,
+         date <span class='op'>=</span> <span class='st'>"20 Jan 2:00 pm"</span>,
+         image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+         type <span class='op'>=</span> <span class='st'>"sent"</span>,
          <span class='st'>"Is this template really for free? That's unbelievable!"</span>
-       ),
-       <span class='fu'>userMessage</span>(
-         author = <span class='st'>"Sarah Bullock"</span>,
-         date = <span class='st'>"23 Jan 2:05 pm"</span>,
-         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-         type = <span class='st'>"received"</span>,
+       <span class='op'>)</span>,
+       <span class='fu'>userMessage</span><span class='op'>(</span>
+         author <span class='op'>=</span> <span class='st'>"Sarah Bullock"</span>,
+         date <span class='op'>=</span> <span class='st'>"23 Jan 2:05 pm"</span>,
+         image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+         type <span class='op'>=</span> <span class='st'>"received"</span>,
          <span class='st'>"You better believe it!"</span>
-       )
-      )
-     ),
-     <span class='fu'>userMessages</span>(
-       width = <span class='fl'>6</span>,
-       status = <span class='st'>"danger"</span>,
-        <span class='fu'>userMessage</span>(
-         author = <span class='st'>"Alexander Pierce"</span>,
-         date = <span class='st'>"20 Jan 2:00 pm"</span>,
-         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-         type = <span class='st'>"received"</span>,
+       <span class='op'>)</span>
+      <span class='op'>)</span>
+     <span class='op'>)</span>,
+     <span class='fu'>userMessages</span><span class='op'>(</span>
+       width <span class='op'>=</span> <span class='fl'>6</span>,
+       status <span class='op'>=</span> <span class='st'>"danger"</span>,
+        <span class='fu'>userMessage</span><span class='op'>(</span>
+         author <span class='op'>=</span> <span class='st'>"Alexander Pierce"</span>,
+         date <span class='op'>=</span> <span class='st'>"20 Jan 2:00 pm"</span>,
+         image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+         type <span class='op'>=</span> <span class='st'>"received"</span>,
          <span class='st'>"Is this template really for free? That's unbelievable!"</span>
-       ),
-       <span class='fu'>userMessage</span>(
-         author = <span class='st'>"Sarah Bullock"</span>,
-         date = <span class='st'>"23 Jan 2:05 pm"</span>,
-         image = <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-         type = <span class='st'>"sent"</span>,
+       <span class='op'>)</span>,
+       <span class='fu'>userMessage</span><span class='op'>(</span>
+         author <span class='op'>=</span> <span class='st'>"Sarah Bullock"</span>,
+         date <span class='op'>=</span> <span class='st'>"23 Jan 2:05 pm"</span>,
+         image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+         type <span class='op'>=</span> <span class='st'>"sent"</span>,
          <span class='st'>"You better believe it!"</span>
-       )
-      )
-    ),
-    title = <span class='st'>"user Message"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+       <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>,
+    title <span class='op'>=</span> <span class='st'>"user Message"</span>
+  <span class='op'>)</span>,
+  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
+ 
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span>
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"remove"</span>, <span class='st'>"Remove message"</span><span class='op'>)</span>,
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"add"</span>, <span class='st'>"Add message"</span><span class='op'>)</span>,
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"update"</span>, <span class='st'>"Update message"</span><span class='op'>)</span>
+      <span class='op'>)</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/numericInput.html'>numericInput</a></span><span class='op'>(</span><span class='st'>"index"</span>, <span class='st'>"Message index:"</span>, <span class='fl'>1</span>, min <span class='op'>=</span> <span class='fl'>1</span>, max <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span><span class='op'>(</span><span class='op'>)</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>br</a></span><span class='op'>(</span><span class='op'>)</span>,
+      <span class='fu'>userMessages</span><span class='op'>(</span>
+        width <span class='op'>=</span> <span class='fl'>6</span>,
+        status <span class='op'>=</span> <span class='st'>"danger"</span>,
+        id <span class='op'>=</span> <span class='st'>"message"</span>,
+        <span class='fu'>userMessage</span><span class='op'>(</span>
+          author <span class='op'>=</span> <span class='st'>"Alexander Pierce"</span>,
+          date <span class='op'>=</span> <span class='st'>"20 Jan 2:00 pm"</span>,
+          image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+          type <span class='op'>=</span> <span class='st'>"received"</span>,
+          <span class='st'>"Is this template really for free? That's unbelievable!"</span>
+        <span class='op'>)</span>,
+        <span class='fu'>userMessage</span><span class='op'>(</span>
+          author <span class='op'>=</span> <span class='st'>"Sarah Bullock"</span>,
+          date <span class='op'>=</span> <span class='st'>"23 Jan 2:05 pm"</span>,
+          image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+          type <span class='op'>=</span> <span class='st'>"sent"</span>,
+          <span class='st'>"You better believe it!"</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>,
+    title <span class='op'>=</span> <span class='st'>"user Message"</span>
+  <span class='op'>)</span>,
+  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>remove</span>, <span class='op'>{</span>
+      <span class='fu'>updateUserMessages</span><span class='op'>(</span><span class='st'>"message"</span>, action <span class='op'>=</span> <span class='st'>"remove"</span>, index <span class='op'>=</span> <span class='va'>input</span><span class='op'>$</span><span class='va'>index</span><span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>add</span>, <span class='op'>{</span>
+      <span class='fu'>updateUserMessages</span><span class='op'>(</span>
+        <span class='st'>"message"</span>, 
+        action <span class='op'>=</span> <span class='st'>"add"</span>, 
+        content <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+          author <span class='op'>=</span> <span class='st'>"David"</span>,
+          date <span class='op'>=</span> <span class='st'>"Now"</span>,
+          image <span class='op'>=</span> <span class='st'>"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,
+          type <span class='op'>=</span> <span class='st'>"received"</span>,
+          text <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span><span class='op'>(</span>
+           <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span><span class='op'>(</span>
+            <span class='st'>"obs"</span>, 
+            <span class='st'>"Number of observations:"</span>,
+            min <span class='op'>=</span> <span class='fl'>0</span>, 
+            max <span class='op'>=</span> <span class='fl'>1000</span>, 
+            value <span class='op'>=</span> <span class='fl'>500</span>
+           <span class='op'>)</span>,
+           <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span><span class='op'>(</span><span class='st'>"distPlot"</span><span class='op'>)</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+    
+    <span class='va'>output</span><span class='op'>$</span><span class='va'>distPlot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span><span class='op'>(</span><span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>obs</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+    
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>update</span>, <span class='op'>{</span>
+      <span class='fu'>updateUserMessages</span><span class='op'>(</span>
+        <span class='st'>"message"</span>, 
+        action <span class='op'>=</span> <span class='st'>"update"</span>, 
+        index <span class='op'>=</span> <span class='va'>input</span><span class='op'>$</span><span class='va'>index</span>,
+        content <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+         text <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span><span class='op'>(</span>
+          <span class='fu'><a href='appButton.html'>appButton</a></span><span class='op'>(</span>
+           inputId <span class='op'>=</span> <span class='st'>"reload"</span>,
+           label <span class='op'>=</span> <span class='st'>"Click me!"</span>, 
+           icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"sync"</span><span class='op'>)</span>, 
+           <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='fl'>1</span>, color <span class='op'>=</span> <span class='st'>"orange"</span><span class='op'>)</span>
+          <span class='op'>)</span>
+         <span class='op'>)</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+    
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>reload</span>, <span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showNotification.html'>showNotification</a></span><span class='op'>(</span><span class='st'>"Yeah!"</span>, duration <span class='op'>=</span> <span class='fl'>1</span>, type <span class='op'>=</span> <span class='st'>"default"</span><span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+  <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -305,7 +428,7 @@ Valid statuses are defined as follows:</p><ul>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

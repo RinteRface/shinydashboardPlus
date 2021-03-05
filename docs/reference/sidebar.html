@@ -84,7 +84,7 @@ updateSidebar allows to toggle a dashboardSidebar on the client." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -92,7 +92,7 @@ updateSidebar allows to toggle a dashboardSidebar on the client." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -141,7 +141,7 @@ updateSidebar allows to toggle a dashboardSidebar on the client." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -169,16 +169,16 @@ it may also contain a <code><a href='https://rdrr.io/pkg/shinydashboard/man/side
 <p>updateSidebar allows to toggle a dashboardSidebar on the client.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dashboardSidebar</span>(
-  <span class='kw'>...</span>,
-  disable = <span class='fl'>FALSE</span>,
-  width = <span class='kw'>NULL</span>,
-  collapsed = <span class='fl'>FALSE</span>,
-  minified = <span class='fl'>TRUE</span>,
-  id = <span class='kw'>NULL</span>
-)
+    <pre class="usage"><span class='fu'>dashboardSidebar</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  disable <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  collapsed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  minified <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  id <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>updateSidebar</span>(<span class='kw'>id</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre>
+<span class='fu'>updateSidebar</span><span class='op'>(</span><span class='va'>id</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,42 +218,42 @@ to TRUE.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-   ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-     header = <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-     sidebar = <span class='fu'>dashboardSidebar</span>(id = <span class='st'>"sidebar"</span>),
-     body = <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-       <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(inputId = <span class='st'>"sidebarToggle"</span>, label = <span class='st'>"Toggle Sidebar"</span>)
-     )
-   ),
-   server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+     header <span class='op'>=</span> <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+     sidebar <span class='op'>=</span> <span class='fu'>dashboardSidebar</span><span class='op'>(</span>id <span class='op'>=</span> <span class='st'>"sidebar"</span><span class='op'>)</span>,
+     body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span>inputId <span class='op'>=</span> <span class='st'>"sidebarToggle"</span>, label <span class='op'>=</span> <span class='st'>"Toggle Sidebar"</span><span class='op'>)</span>
+     <span class='op'>)</span>
+   <span class='op'>)</span>,
+   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
      
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>sidebar</span>, {
-       <span class='co'>if</span> (<span class='kw'>input</span><span class='op'>$</span><span class='kw'>sidebar</span>) {
-         <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/showModal.html'>showModal</a></span>(<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/modalDialog.html'>modalDialog</a></span>(
-           title = <span class='st'>"Alert"</span>,
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>sidebar</span>, <span class='op'>{</span>
+       <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>sidebar</span><span class='op'>)</span> <span class='op'>{</span>
+         <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showModal.html'>showModal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/modalDialog.html'>modalDialog</a></span><span class='op'>(</span>
+           title <span class='op'>=</span> <span class='st'>"Alert"</span>,
            <span class='st'>"The sidebar is opened."</span>,
-           easyClose = <span class='fl'>TRUE</span>,
-           footer = <span class='kw'>NULL</span>
-         ))
-       }
-     })
+           easyClose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+           footer <span class='op'>=</span> <span class='cn'>NULL</span>
+         <span class='op'>)</span><span class='op'>)</span>
+       <span class='op'>}</span>
+     <span class='op'>}</span><span class='op'>)</span>
      
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>sidebarToggle</span>, {
-       <span class='fu'>updateSidebar</span>(<span class='st'>"sidebar"</span>)
-     })
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>sidebarToggle</span>, <span class='op'>{</span>
+       <span class='fu'>updateSidebar</span><span class='op'>(</span><span class='st'>"sidebar"</span><span class='op'>)</span>
+     <span class='op'>}</span><span class='op'>)</span>
      
-     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observe.html'>observe</a></span>({
-       <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>sidebar</span>)
-     })
-   }
- )
-}
+     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observe.html'>observe</a></span><span class='op'>(</span><span class='op'>{</span>
+       <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>sidebar</span><span class='op'>)</span>
+     <span class='op'>}</span><span class='op'>)</span>
+   <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -270,7 +270,7 @@ to TRUE.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
