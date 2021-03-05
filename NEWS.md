@@ -1,4 +1,4 @@
-# shinydashboardPlus 2.0.0.9000
+# shinydashboardPlus 2.0.0
 
 This release is a major step for shinydashboardPlus. It is also a significant breaking
 change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.
