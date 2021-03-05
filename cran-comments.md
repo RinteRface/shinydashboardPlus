@@ -5,9 +5,7 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs or NOTEs
-
-The [error](https://www.r-project.org/nosvn/R.check/r-release-macos-x86_64/shinydashboardPlus-00check.html) should also be fixed
+This release will fix warnings and notes shown [here](https://cran.r-project.org/web/checks/check_results_shinydashboardPlus.htmll) due to breaking change in a dependency.
 
 ## Reverse dependencies:
 using `devtools::revdep()` 
