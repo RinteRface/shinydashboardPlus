@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +139,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -165,24 +165,24 @@
     <p>Create a starBlock item (ideal for rating)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>starBlock</span>(maxstar = <span class='fl'>5</span>, <span class='kw'>grade</span>, color = <span class='st'>"yellow"</span>)</pre>
+    <pre class="usage"><span class='fu'>starBlock</span><span class='op'>(</span><span class='va'>value</span>, max <span class='op'>=</span> <span class='fl'>5</span>, color <span class='op'>=</span> <span class='st'>"yellow"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>maxstar</th>
-      <td><p>Maximum number of stars by block.</p></td>
+      <th>value</th>
+      <td><p>Current score. Should be positive and lower or equal to max.</p></td>
     </tr>
     <tr>
-      <th>grade</th>
-      <td><p>Current score. Should be positive and lower or equal to maxstar.</p></td>
+      <th>max</th>
+      <td><p>Maximum number of stars by block.</p></td>
     </tr>
     <tr>
       <th>color</th>
       <td><p>Star color: see <code><a href='validColors.html'>validColors()</a></code> in the documentation.
 See below:</p><ul>
-<li><p><code>light_blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
+<li><p><code>light-blue (primary status)</code>: <span style='width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;'></span>#3c8dbc
 .</p></li>
 <li><p><code>red (danger status)</code>: <span style='width:12px;height:12px;background:#dd4b39;border-radius:2px;display:inline-block;margin-right:5px;'></span>#dd4b39
 .</p></li>
@@ -212,7 +212,7 @@ See below:</p><ul>
 .</p></li>
 <li><p><code>black</code>: <span style='width:12px;height:12px;background:#111;border-radius:2px;display:inline-block;margin-right:5px;'></span>#111
 .</p></li>
-<li><p><code>gray_lte</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
+<li><p><code>gray</code>: <span style='width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;'></span>#d2d6de
 .</p></li>
 </ul></td>
     </tr>
@@ -223,29 +223,29 @@ See below:</p><ul>
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rstudio.github.io/shinydashboard'>shinydashboard</a></span>)
- <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
  
- <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(
-  ui = <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span>(
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span>(),
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span>(),
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span>(
-     <span class='fu'><a href='box.html'>box</a></span>(
-      title = <span class='st'>"Star example"</span>,
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>5</span>),
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>5</span>, color = <span class='st'>"olive"</span>),
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>1</span>, color = <span class='st'>"maroon"</span>),
-      <span class='fu'>starBlock</span>(grade = <span class='fl'>3</span>, color = <span class='st'>"teal"</span>)
-     )
-    ),
-    title = <span class='st'>"starBlock"</span>
-  ),
-  server = <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>) { }
- )
-}
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
+  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
+    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
+     <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"Star example"</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>5</span>, color <span class='op'>=</span> <span class='st'>"olive"</span><span class='op'>)</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>1</span>, color <span class='op'>=</span> <span class='st'>"maroon"</span><span class='op'>)</span>,
+      <span class='fu'>starBlock</span><span class='op'>(</span><span class='fl'>3</span>, color <span class='op'>=</span> <span class='st'>"teal"</span><span class='op'>)</span>
+     <span class='op'>)</span>
+    <span class='op'>)</span>,
+    title <span class='op'>=</span> <span class='st'>"starBlock"</span>
+  <span class='op'>)</span>,
+  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
+ <span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
@@ -263,7 +263,7 @@ See below:</p><ul>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

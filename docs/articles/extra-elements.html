@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -47,7 +47,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -96,7 +96,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -129,66 +129,68 @@
 <h2 class="hasAnchor">
 <a href="#accordion" class="anchor"></a>Accordion</h2>
 <p>Accordions are a category of collapsible elements. While collapsible items don’t alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. <code><a href="../reference/accordion.html">accordion()</a></code> expects to contain <code>accordionItems</code>. Importantly, to guaranty the uniqueness of each accordion, we must provide an <em>id</em> parameter. This parameter allows to programmatically toggle any accordion item, through an <code>updateAccordion</code> function.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
- <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/radioButtons.html">radioButtons</a></span>(<span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)),
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
-      <span class="fu"><a href="../reference/accordion.html">accordion</a></span>(
-       id = <span class="st">"accordion1"</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 1 Item 1"</span>,
-          status = <span class="st">"danger"</span>,
-          collapsed = <span class="fl">TRUE</span>,
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
+ <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
+    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span><span class="op">(</span><span class="op">)</span>,
+      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span>
+       id <span class="op">=</span> <span class="st">"accordion1"</span>,
+        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
+          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,
+          status <span class="op">=</span> <span class="st">"danger"</span>,
+          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,
           <span class="st">"This is some text!"</span>
-        ),
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 1 Item 2"</span>,
-          status = <span class="st">"warning"</span>,
-          collapsed = <span class="fl">FALSE</span>,
+        <span class="op">)</span>,
+        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
+          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,
+          status <span class="op">=</span> <span class="st">"warning"</span>,
+          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,
           <span class="st">"This is some text!"</span>
-        )
-      ),
-      <span class="fu"><a href="../reference/accordion.html">accordion</a></span>(
-       id = <span class="st">"accordion2"</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 2 Item 1"</span>,
-          status = <span class="st">"info"</span>,
-          collapsed = <span class="fl">TRUE</span>,
+        <span class="op">)</span>
+      <span class="op">)</span>,
+      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span>
+       id <span class="op">=</span> <span class="st">"accordion2"</span>,
+        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
+          title <span class="op">=</span> <span class="st">"Accordion 2 Item 1"</span>,
+          status <span class="op">=</span> <span class="st">"info"</span>,
+          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,
           <span class="st">"This is some text!"</span>
-        ),
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span>(
-          title = <span class="st">"Accordion 2 Item 2"</span>,
-          status = <span class="st">"success"</span>,
-          collapsed = <span class="fl">FALSE</span>,
+        <span class="op">)</span>,
+        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
+          title <span class="op">=</span> <span class="st">"Accordion 2 Item 2"</span>,
+          status <span class="op">=</span> <span class="st">"success"</span>,
+          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,
           <span class="st">"This is some text!"</span>
-        )
-      )
-    ),
-    title = <span class="st">"Accordion"</span>
-  ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">controller</span>, {
-      <span class="fu"><a href="../reference/navPills.html">updateNavPills</a></span>(id = <span class="st">"accordion1"</span>, selected = <span class="kw">input</span><span class="op">$</span><span class="kw">controller</span>)
-    })
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">)</span>,
+    title <span class="op">=</span> <span class="st">"Accordion"</span>
+  <span class="op">)</span>,
+  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span>
+      <span class="fu"><a href="../reference/accordion.html">updateAccordion</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"accordion1"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html">observe</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">accordion1</span>))
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">accordion1</span>, {
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">"You selected accordion N° %s"</span>, <span class="kw">input</span><span class="op">$</span><span class="kw">accordion1</span>), type = <span class="st">"message"</span>)
-    })
-  }
- )
-</pre></div>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span>, <span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You selected accordion N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+  <span class="op">}</span>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
 </div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-accordions/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-accordions/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
 </iframe>
 </div>
 <div class="home">
@@ -199,7 +201,7 @@
 <div id="user-messages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#user-messages" class="anchor"></a>User messages</h2>
-<p><code>{shinydashboardPlus}</code> make it possible to create an entire chat system within a Shiny app. <code><a href="../reference/userMessages.html">userMessages()</a></code> is the main container, <code><a href="../reference/userMessages.html">userMessage()</a></code> being the message element. <code><a href="../reference/updateUserMessages.html">updateUserMessages()</a></code> looks for the <code><a href="../reference/userMessages.html">userMessages()</a></code> <em>id</em> so as to:</p>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> make it possible to create an entire chat system within a Shiny app. <code><a href="../reference/userMessages.html">userMessages()</a></code> is the main container, <code><a href="../reference/userMessages.html">userMessage()</a></code> being the message element. <code><a href="../reference/userMessages.html">updateUserMessages()</a></code> looks for the <code><a href="../reference/userMessages.html">userMessages()</a></code> <em>id</em> so as to:</p>
 <ul>
 <li>remove an existing message</li>
 <li>add a new message</li>
@@ -222,103 +224,102 @@
 <span id="cb2-14"><a href="#cb2-14"></a>    <span class="kw">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
 <span id="cb2-15"><a href="#cb2-15"></a>  )</span></code></pre></div>
 <p>The <em>type</em> parameter controls the message background color. For a sent message, the color is inherited from the <code><a href="../reference/userMessages.html">userMessages()</a></code> status, while for a received message, the color is gray by default. The <em>text</em> argument refers to the message content. It may be simple text, shiny tags or event any combinations of shiny inputs/ouput, as shown in the below example.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(
-  ui = <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span>(
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span>(),
-    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span>(),
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span>(
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"remove"</span>, <span class="st">"Remove message"</span>),
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"add"</span>, <span class="st">"Add message"</span>),
-        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"update"</span>, <span class="st">"Update message"</span>)
-      ),
-      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/numericInput.html">numericInput</a></span>(<span class="st">"index"</span>, <span class="st">"Message index:"</span>, <span class="fl">1</span>, min = <span class="fl">1</span>, max = <span class="fl">3</span>),
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span>(),
-      <span class="fu"><a href="../reference/userMessages.html">userMessages</a></span>(
-        width = <span class="fl">6</span>,
-        status = <span class="st">"danger"</span>,
-        id = <span class="st">"message"</span>,
-        <span class="fu"><a href="../reference/userMessages.html">userMessage</a></span>(
-          author = <span class="st">"Alexander Pierce"</span>,
-          date = <span class="st">"20 Jan 2:00 pm"</span>,
-          image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-          type = <span class="st">"received"</span>,
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
+    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"remove"</span>, <span class="st">"Remove message"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"add"</span>, <span class="st">"Add message"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>, <span class="st">"Update message"</span><span class="op">)</span>
+      <span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"index"</span>, <span class="st">"Message index:"</span>, <span class="fl">1</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span><span class="op">(</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">br</a></span><span class="op">(</span><span class="op">)</span>,
+      <span class="fu"><a href="../reference/userMessages.html">userMessages</a></span><span class="op">(</span>
+        width <span class="op">=</span> <span class="fl">6</span>,
+        status <span class="op">=</span> <span class="st">"danger"</span>,
+        id <span class="op">=</span> <span class="st">"message"</span>,
+        <span class="fu"><a href="../reference/userMessages.html">userMessage</a></span><span class="op">(</span>
+          author <span class="op">=</span> <span class="st">"Alexander Pierce"</span>,
+          date <span class="op">=</span> <span class="st">"20 Jan 2:00 pm"</span>,
+          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
+          type <span class="op">=</span> <span class="st">"received"</span>,
           <span class="st">"Is this template really for free? That's unbelievable!"</span>
-        ),
-        <span class="fu"><a href="../reference/userMessages.html">userMessage</a></span>(
-          author = <span class="st">"Sarah Bullock"</span>,
-          date = <span class="st">"23 Jan 2:05 pm"</span>,
-          image = <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-          type = <span class="st">"sent"</span>,
+        <span class="op">)</span>,
+        <span class="fu"><a href="../reference/userMessages.html">userMessage</a></span><span class="op">(</span>
+          author <span class="op">=</span> <span class="st">"Sarah Bullock"</span>,
+          date <span class="op">=</span> <span class="st">"23 Jan 2:05 pm"</span>,
+          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
+          type <span class="op">=</span> <span class="st">"sent"</span>,
           <span class="st">"You better believe it!"</span>
-        )
-      )
-    ),
-    title = <span class="st">"user Message"</span>
-  ),
-  server = <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>, <span class="kw">session</span>) {
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">remove</span>, {
-      <span class="fu"><a href="../reference/updateUserMessages.html">updateUserMessages</a></span>(<span class="st">"message"</span>, action = <span class="st">"remove"</span>, index = <span class="kw">input</span><span class="op">$</span><span class="kw">index</span>)
-    })
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">add</span>, {
-      <span class="fu"><a href="../reference/updateUserMessages.html">updateUserMessages</a></span>(
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">)</span>,
+    title <span class="op">=</span> <span class="st">"user Message"</span>
+  <span class="op">)</span>,
+  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">remove</span>, <span class="op">{</span>
+      <span class="fu"><a href="../reference/userMessages.html">updateUserMessages</a></span><span class="op">(</span><span class="st">"message"</span>, action <span class="op">=</span> <span class="st">"remove"</span>, index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span>
+      <span class="fu"><a href="../reference/userMessages.html">updateUserMessages</a></span><span class="op">(</span>
         <span class="st">"message"</span>, 
-        action = <span class="st">"add"</span>, 
-        content = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-          author = <span class="st">"David"</span>,
-          date = <span class="st">"Now"</span>,
-          image = <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,
-          type = <span class="st">"received"</span>,
-          text = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-           <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html">sliderInput</a></span>(
+        action <span class="op">=</span> <span class="st">"add"</span>, 
+        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+          author <span class="op">=</span> <span class="st">"David"</span>,
+          date <span class="op">=</span> <span class="st">"Now"</span>,
+          image <span class="op">=</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,
+          type <span class="op">=</span> <span class="st">"received"</span>,
+          text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
+           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span>
             <span class="st">"obs"</span>, 
             <span class="st">"Number of observations:"</span>,
-            min = <span class="fl">0</span>, 
-            max = <span class="fl">1000</span>, 
-            value = <span class="fl">500</span>
-           ),
-           <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html">plotOutput</a></span>(<span class="st">"distPlot"</span>)
-          )
-        )
-      )
-    })
+            min <span class="op">=</span> <span class="fl">0</span>, 
+            max <span class="op">=</span> <span class="fl">1000</span>, 
+            value <span class="op">=</span> <span class="fl">500</span>
+           <span class="op">)</span>,
+           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>
+          <span class="op">)</span>
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
     
-    <span class="kw">output</span><span class="op">$</span><span class="kw">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPlot.html">renderPlot</a></span>({
-     <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">obs</span>))
-    })
+    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
+     <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">obs</span><span class="op">)</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">update</span>, {
-      <span class="fu"><a href="../reference/updateUserMessages.html">updateUserMessages</a></span>(
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+      <span class="fu"><a href="../reference/userMessages.html">updateUserMessages</a></span><span class="op">(</span>
         <span class="st">"message"</span>, 
-        action = <span class="st">"update"</span>, 
-        index = <span class="kw">input</span><span class="op">$</span><span class="kw">index</span>,
-        content = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-         text = <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-          <span class="fu"><a href="../reference/appButton.html">appButton</a></span>(
-           inputId = <span class="st">"reload"</span>,
-           label = <span class="st">"Click me!"</span>, 
-           icon = <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/icon.html">icon</a></span>(<span class="st">"sync"</span>), 
-           <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span>(<span class="fl">1</span>, color = <span class="st">"orange"</span>)
-          )
-         )
-        )
-      )
-    })
+        action <span class="op">=</span> <span class="st">"update"</span>, 
+        index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span>,
+        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+         text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
+          <span class="fu"><a href="../reference/appButton.html">appButton</a></span><span class="op">(</span>
+           inputId <span class="op">=</span> <span class="st">"reload"</span>,
+           label <span class="op">=</span> <span class="st">"Click me!"</span>, 
+           icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"sync"</span><span class="op">)</span>, 
+           <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="fl">1</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span>
+          <span class="op">)</span>
+         <span class="op">)</span>
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">reload</span>, {
-     <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/showNotification.html">showNotification</a></span>(<span class="st">"Yeah!"</span>, duration = <span class="fl">1</span>, type = <span class="st">"default"</span>)
-    })
-  }
- )
-</pre></div>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reload</span>, <span class="op">{</span>
+     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span><span class="op">(</span><span class="st">"Yeah!"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+  <span class="op">}</span>
+ <span class="op">)</span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
 </div>
 <div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userMessages/" allowfullscreen frameborder="0" scrolling="no" height="770px">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userMessages/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
 </iframe>
 </div>
 <div class="home">
@@ -343,7 +344,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
