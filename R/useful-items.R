@@ -964,7 +964,7 @@ loadingState <- function() {
 #' @rdname navPills
 navPills <- function(..., id = NULL) {
   shiny::tags$ul(
-    class = "nav nav-pills nav-stacked",
+    class = "nav nav-pills nav-stacked shinydashboardplus-custom",
     id = if (!is.null(id)) id,
     ...
   )

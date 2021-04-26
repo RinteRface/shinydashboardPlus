@@ -5,7 +5,7 @@ var navPillsBinding = new Shiny.InputBinding();
 
 $.extend(navPillsBinding, {
   find: function(scope) {
-    return $(scope).find(".nav.nav-pills.nav-stacked");
+    return $(scope).find(".nav.nav-pills.nav-stacked.shinydashboardplus-custom");
   },
   // Given the DOM element for the input, return the value
   getValue: function(el) {
