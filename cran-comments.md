@@ -1,5 +1,5 @@
 ## Test environments
-* local OS X install, R 3.6.1
+* Local OS X install, R 3.6.1
 * `rhub::check_for_cran()`
 * Github actions
 * win-builder (devel and release)
@@ -8,7 +8,8 @@
   - 0 error, 0 warnings, 0 Notes.
 
 ## Notes
-This release only provides bug fixes. 
+- Removed `'LazyData' is specified without a 'data' directory` NOTE by removing `LazyData: True` from DESCRIPTION.
+- Move `{lifecycle}` to `Suggests`.
 
 ## Reverse dependencies:
 using `devtools::revdep()` 
