@@ -23,6 +23,8 @@
 #' @param options Extra option to overwrite the vanilla AdminLTE configuration. See 
 #' \url{https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options}.
 #' Expect a list.
+#' @param scrollToTop Whether to display a scroll to top button whenever the page height is too large.
+#' Default to FALSE.
 #'
 #' @seealso \code{\link{dashboardHeader}}, \code{\link{dashboardSidebar}},
 #'   \code{\link[shinydashboard]{dashboardBody}}.
@@ -75,7 +77,7 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
                             "red","red-light", "yellow","yellow-light", "midnight"
                           ),
                           freshTheme = NULL, preloader = NULL,
-                          md = FALSE, options = NULL) {
+                          md = FALSE, options = NULL, scrollToTop = FALSE) {
   
   skin <- match.arg(skin)
   if (!is.null(freshTheme) && !is.null(skin)) {
@@ -124,6 +126,7 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
   
   addDeps(
     shiny::tags$body(
+      `data-scrollToTop` = if (scrollToTop) 1 else 0,
       # preloader, if any
       if (!is.null(preloader)) {
         shiny::tagList(

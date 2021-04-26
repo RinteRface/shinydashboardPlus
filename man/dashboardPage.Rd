@@ -16,7 +16,8 @@ dashboardPage(
   freshTheme = NULL,
   preloader = NULL,
   md = FALSE,
-  options = NULL
+  options = NULL,
+  scrollToTop = FALSE
 )
 }
 \arguments{
@@ -51,6 +52,9 @@ the package help for all styles). \code{duration} defines the loader timeout.}
 \item{options}{Extra option to overwrite the vanilla AdminLTE configuration. See 
 \url{https://adminlte.io/themes/AdminLTE/documentation/index.html#adminlte-options}.
 Expect a list.}
+
+\item{scrollToTop}{Whether to display a scroll to top button whenever the page height is too large.
+Default to FALSE.}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.
