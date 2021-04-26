@@ -1,12 +1,14 @@
 ## Test environments
 * local OS X install, R 3.6.1
 * `rhub::check_for_cran()`
-* travis-ci
+* Github actions
 * win-builder (devel and release)
 
 ## R CMD check results
-  - This release will fix warnings and notes shown [here](https://cran.r-project.org/web/checks/check_results_shinydashboardPlus.html) due to breaking change in a dependency.
-  - Fix broken tidyverse link. Thanks @Uwe Ligges.
+  - 0 error, 0 warnings, 0 Notes.
+
+## Notes
+This release only provides bug fixes. 
 
 ## Reverse dependencies:
 using `devtools::revdep()` 

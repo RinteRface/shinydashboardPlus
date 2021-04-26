@@ -1,10 +1,9 @@
 # shinydashboardPlus 2.0.1
 
-This release is a patch without major changes, except fixing the
-broken `userBox()` in 2.0.0.
+This release is a patch without major changes.
 
 ## Minor change
-- Fix #132: Option to disable the "scroll to top" button.
+- Fix #132: Option to disable the "scroll to top" button in `dashboardPage()`
 
 ## Bug fix
 - Fix #127: `shiny::navlistPanel()` in `dashboardControlbar()` not behaving as expected. 
