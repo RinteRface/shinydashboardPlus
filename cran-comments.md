@@ -9,7 +9,6 @@
 
 ## Notes
 - Removed `'LazyData' is specified without a 'data' directory` NOTE by removing `LazyData: True` from DESCRIPTION.
-- Move `{lifecycle}` to `Suggests`.
 
 ## Reverse dependencies:
 using `devtools::revdep()` 

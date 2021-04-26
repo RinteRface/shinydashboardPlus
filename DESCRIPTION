@@ -20,7 +20,8 @@ Imports:
     htmltools,
     shinydashboard,
     fresh,
-    waiter
+    waiter,
+    lifecycle
 Suggests:
     styler (>= 1.2.0),
     shinyAce,
@@ -29,8 +30,7 @@ Suggests:
     shinyjqui,
     knitr,
     rmarkdown,
-    jsonlite,
-    lifecycle
+    jsonlite
 URL: https://github.com/RinteRface/shinydashboardPlus, https://rinterface.com/shiny/shinydashboardPlus/
 BugReports: https://github.com/RinteRface/shinydashboardPlus/issues
 Encoding: UTF-8
