@@ -1,18 +1,18 @@
 # Packages ----------------------------------------------------------------
 
 library(jstools)
-
+pkg_version <- as.character(utils::packageVersion("shinydashboardPlus"))
 # Validate ----------------------------------------------------------------
 
 shinydashboardPlusJS <- list.files(
-  path = "srcjs/shinydashboardPlus-2.0.0",
+  path = sprintf("srcjs/shinydashboardPlus-%s", pkg_version),
   recursive = TRUE,
   full.names = TRUE
 )
 
 # jshint_file(input = shinydashboardPlusJS, options = jshint_options(jquery = TRUE, globals = list("Shiny", "app")))
 
-outputDir <- "inst/shinydashboardPlus-2.0.0/js"
+outputDir <- sprintf("inst/shinydashboardPlus-%s/js", pkg_version)
 
 # Concat -----------------------------------------------------------------
 

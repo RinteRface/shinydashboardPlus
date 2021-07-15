@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.2</span>
       </span>
     </div>
 
@@ -116,7 +116,7 @@
       <h1 data-toc-skip>Enhanced Header Elements</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2021-04-26</h4>
+            <h4 class="date">2021-07-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/enhanced-header.Rmd"><code>vignettes/enhanced-header.Rmd</code></a></small>
       <div class="hidden name"><code>enhanced-header.Rmd</code></div>
@@ -128,7 +128,7 @@
 <div id="left-navbar-elements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#left-navbar-elements" class="anchor"></a>Left Navbar Elements</h2>
-<p>By default with <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>, all elements included in the navbar will be displayed on the right side. <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> has a new option to add elements in the left part of the <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>. Such items must be passed in the <em>leftUi</em> argument (if multiple elements, they must be wrapped in a <code><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList()</a></code>, as shown below).</p>
+<p>By default with <a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a>, all elements included in the navbar will be displayed on the right side. <a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> has a new option to add elements in the left part of the <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>. Such items must be passed in the <em>leftUi</em> argument (if multiple elements, they must be wrapped in a <code><a href="https://rdrr.io/pkg/htmltools/man/tagList.html">tagList()</a></code>, as shown below).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a></span><span class="op">)</span>
@@ -137,7 +137,7 @@
  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span>
-       leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
+       leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html">tagList</a></span><span class="op">(</span>
          <span class="fu"><a href="https://rdrr.io/pkg/shinyWidgets/man/dropdownButton.html">dropdownButton</a></span><span class="op">(</span>
            label <span class="op">=</span> <span class="st">"Controls"</span>,
            icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,
@@ -184,7 +184,7 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span>
-      leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
+      leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html">tagList</a></span><span class="op">(</span>
         <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span>
           id <span class="op">=</span> <span class="st">"mydropdown"</span>,
           title <span class="op">=</span> <span class="st">"Dropdown 1"</span>,

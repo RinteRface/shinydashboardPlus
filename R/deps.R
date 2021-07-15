@@ -28,12 +28,14 @@ addDeps <- function(tag, md, options) {
     md_init_js <- "js/init.js"
   }
   
+  pkg_version <- as.character(utils::packageVersion("shinydashboardPlus"))
+  
   dashboardDeps <- list(
     # additional options (this needs to be loaded before shinydashboardPlus deps)
     htmltools::htmlDependency(
       "options",
-      as.character(utils::packageVersion("shinydashboardPlus")),
-      src = c(file = system.file("shinydashboardPlus-2.0.0", package = "shinydashboardPlus")),
+      pkg_version,
+      src = c(file = system.file(sprintf("shinydashboardPlus-%s", pkg_version), package = "shinydashboardPlus")),
       head = if (!is.null(options)) {
         paste0(
           "<script>var AdminLTEOptions = ", 
@@ -49,15 +51,15 @@ addDeps <- function(tag, md, options) {
     # custom adminLTE js and css for shinydashboardPlus
     htmltools::htmlDependency(
       "shinydashboardPlus",
-      as.character(utils::packageVersion("shinydashboardPlus")),
-      c(file = system.file("shinydashboardPlus-2.0.0", package = "shinydashboardPlus")),
+      pkg_version,
+      c(file = system.file(sprintf("shinydashboardPlus-%s", pkg_version), package = "shinydashboardPlus")),
       script = c(adminLTE_js, shinydashboardPlus_js),
       stylesheet = c(adminLTE_css, custom_css)
     ),
     # shinydashboard css and js deps
     htmltools::htmlDependency(
       "shinydashboard",
-      as.character(utils::packageVersion("shinydashboard")),
+      pkg_version,
       c(file = system.file(package = "shinydashboard")),
       stylesheet = "shinydashboard.css"
     ),
@@ -65,7 +67,7 @@ addDeps <- function(tag, md, options) {
     if (md) {
       htmltools::htmlDependency(
         "materialDesign",
-        as.character(utils::packageVersion("shinydashboardPlus")),
+        pkg_version,
         c(file = system.file("materialDesign-1.0", package = "shinydashboardPlus")),
         script = c(md_js, ripples_js, md_init_js),
         stylesheet = c(md_bootstrap_css, ripples_css, md_adminLTE_css, md_skins_css)

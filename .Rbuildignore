@@ -9,6 +9,6 @@
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
 ^index\.md$
-^inst/vignettes-demos$
+^inst/vignettes-demos/.*./rsconnect$
 ^tools$
 ^srcjs$

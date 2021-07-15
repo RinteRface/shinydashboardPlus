@@ -8,7 +8,7 @@
   - 0 error, 0 warnings, 0 Notes.
 
 ## Notes
-- Removed `'LazyData' is specified without a 'data' directory` NOTE by removing `LazyData: True` from DESCRIPTION.
+- Simple patch to fix wrong .Rbuildignore rule (see: https://github.com/DivadNojnarg/outstanding-shiny-ui/issues/52)
 
 ## Reverse dependencies:
 using `devtools::revdep()` 
