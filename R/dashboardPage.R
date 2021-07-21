@@ -17,7 +17,7 @@
 #' See \url{https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html}.
 #' @param preloader shinydashboardPlus uses waiter (see \url{https://waiter.john-coene.com/#/}).
 #' Pass a list like \code{list(html = spin_1(), color = "#333e48")}.
-#' \code{waiter} expects to provide a sub-list to configure \link[waiter]{waiter_show_on_load} (refer to
+#' \code{waiter} expects to provide a sub-list to configure \link[waiter]{waiterShowOnLoad} (refer to
 #' the package help for all styles). \code{duration} defines the loader timeout.
 #' @param md Whether to enable material design. Experimental...
 #' @param options Extra option to overwrite the vanilla AdminLTE configuration. See 
@@ -130,8 +130,8 @@ dashboardPage <- function(header, sidebar, body, controlbar = NULL, footer = NUL
       # preloader, if any
       if (!is.null(preloader)) {
         shiny::tagList(
-          waiter::use_waiter(), # dependencies
-          do.call(waiter_show_on_load, preloader)
+          waiter::useWaiter(), # dependencies
+          do.call(waiterShowOnLoad, preloader)
         )
       },
       onload = if (!is.null(preloader)) {

@@ -20,7 +20,7 @@ Imports:
     htmltools,
     shinydashboard,
     fresh,
-    waiter,
+    waiter (>= 0.2.3),
     lifecycle
 Suggests:
     styler (>= 1.2.0),
