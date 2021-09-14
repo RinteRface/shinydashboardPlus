@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## How to set up a preloader?
 
-Pass the argument `preloader` to the `dashboardPage()` function. It expects a nested list containing all parameters necessary to `waiter::waiter_show_on_load`. Please have a look to the `{waiter}` 
+Pass the argument `preloader` to the `dashboardPage()` function. It expects a nested list containing all parameters necessary to `waiter::waiterShowOnLoad`. Please have a look to the `{waiter}` 
 [documentation](https://waiter.john-coene.com/) for more details.
 
 That's all!
