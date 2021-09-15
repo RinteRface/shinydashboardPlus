@@ -1,3 +1,10 @@
+# shinydashboardPlus 2.0.3
+This release is a patch to fix an [issue](https://github.com/RinteRface/shinydashboardPlus/pull/151) preventing the release of 
+Shiny 1.7.0. Thanks @wch.
+
+## Minor change
+- Internal change regarding the `{waiter}` package but no user impact. Thanks @JohnCoene. 
+
 # shinydashboardPlus 2.0.2
 
 - Simple patch to fix wrong .Rbuildignore [rule](https://github.com/DivadNojnarg/outstanding-shiny-ui/issues/52).

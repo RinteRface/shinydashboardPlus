@@ -8,7 +8,5 @@
   - 0 error, 0 warnings, 0 Notes.
 
 ## Notes
-- Simple patch to fix wrong .Rbuildignore rule (see: https://github.com/DivadNojnarg/outstanding-shiny-ui/issues/52)
-
-## Reverse dependencies:
-using `devtools::revdep()` 
+This release is a patch to fix an [issue](https://github.com/RinteRface/shinydashboardPlus/pull/151) preventing the release of 
+Shiny 1.7.0.
