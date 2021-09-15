@@ -5,6 +5,9 @@ Shiny 1.7.0. Thanks @wch.
 ## Minor change
 - Internal change regarding the `{waiter}` package but no user impact. Thanks @JohnCoene. 
 
+## Bug fix
+- Fix #150: Warning when using controlbarMenu. 
+
 # shinydashboardPlus 2.0.2
 
 - Simple patch to fix wrong .Rbuildignore [rule](https://github.com/DivadNojnarg/outstanding-shiny-ui/issues/52).

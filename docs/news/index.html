@@ -171,6 +171,13 @@
 <li>Internal change regarding the <a href="https://waiter.john-coene.com/">waiter</a> package but no user impact. Thanks <a href='https://github.com/JohnCoene'>@JohnCoene</a>.</li>
 </ul>
 </div>
+<div id="bug-fix" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fix" class="anchor"></a>Bug fix</h2>
+<ul>
+<li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/150'>#150</a>: Warning when using controlbarMenu.</li>
+</ul>
+</div>
 </div>
     <div id="shinydashboardplus-202" class="section level1">
 <h1 class="page-header" data-toc-text="2.0.2">
@@ -196,9 +203,9 @@
 </li>
 </ul>
 </div>
-<div id="bug-fix" class="section level2">
+<div id="bug-fix-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bug-fix" class="anchor"></a>Bug fix</h2>
+<a href="#bug-fix-1" class="anchor"></a>Bug fix</h2>
 <ul>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/127'>#127</a>: <code><a href="https://rdrr.io/pkg/shiny/man/navlistPanel.html">shiny::navlistPanel()</a></code> in <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> not behaving as expected.</li>
 <li>Fix <a href='https://github.com/RinteRface/shinydashboardPlus/issues/112'>#112</a>: <code><a href="../reference/userBox.html">userBox()</a></code> is not working. Introduced in 2.0.0.</li>
@@ -404,7 +411,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
 <ul>
-<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
+<li>remove all CSS functions, namely <code>setShadow()</code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
 </li>
 </ul>
 </div>
@@ -463,7 +470,7 @@
 <li><p>new “left_menu” argument in the <code>dashboardHeaderPlus()</code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</p></li>
 <li><p>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</p></li>
 <li><p>new “fixed” argument to the navbar (<code>dashboardHeaderPlus()</code>). If TRUE, the navbar is fixed-top. (static-top by default)</p></li>
-<li><p>new <code>setZoom()</code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
+<li><p>new <code>setZoom()</code> function (similar as <code>setShadow()</code>)</p></li>
 <li><p>new <code>setPulse()</code> function</p></li>
 <li><p>new <code>setShake()</code> function</p></li>
 <li><p>add “enable_preloader” and “loading_duration” to <code>dashboardPagePlus()</code> (custom preloader)</p></li>
@@ -507,7 +514,7 @@
 <h2 id="major-changes-1">Major changes</h2>
 </li>
 <li><p>add a “width” argument to the <code>rightSidebar()</code> (set to 230 pixels by default) to improve customization.</p></li>
-<li><p>new function <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code> to set shadow and hover effects on any elements</p></li>
+<li><p>new function <code>setShadow()</code> to set shadow and hover effects on any elements</p></li>
 <li><p>add an “active” argument to <code>rightSidebarTabContent()</code>: see <a href="https://github.com/RinteRface/shinydashboardPlus/issues/4"><a href='https://github.com/RinteRface/shinydashboardPlus/issues/4'>#4</a></a></p></li>
 <li><p>add a “sidebar_background” argument to <code>dashboardPagePlus()</code></p></li>
 <li><p>new <code>verticalProgress()</code> bars!</p></li>

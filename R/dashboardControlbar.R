@@ -223,8 +223,7 @@ controlbarMenu <- function(..., id = NULL, selected = NULL) {
     ...,
     id = id,
     selected = selected,
-    type = "tabs",
-    position = NULL
+    type = "tabs"
   )
   
   # remove parent div causing CSS margin issues
