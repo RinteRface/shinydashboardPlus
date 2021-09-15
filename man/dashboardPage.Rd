@@ -44,7 +44,7 @@ See \url{https://dreamrs.github.io/fresh/articles/vars-shinydashboard.html}.}
 
 \item{preloader}{shinydashboardPlus uses waiter (see \url{https://waiter.john-coene.com/#/}).
 Pass a list like \code{list(html = spin_1(), color = "#333e48")}.
-\code{waiter} expects to provide a sub-list to configure \link[waiter]{waiter_show_on_load} (refer to
+\code{waiter} expects to provide a sub-list to configure \link[waiter]{waiterShowOnLoad} (refer to
 the package help for all styles). \code{duration} defines the loader timeout.}
 
 \item{md}{Whether to enable material design. Experimental...}
