@@ -374,7 +374,13 @@ userOutput <- function(id, tag = shiny::tags$li) {
 #'   and examples.
 #' @family user outputs
 #' @export
-renderUser <- shiny::renderUI
+renderUser <- function(expr, env = parent.frame(), quoted = FALSE, outputArgs = list()) {
+  if (!quoted) {
+    expr <- substitute(expr)
+    quoted <- TRUE
+  }
+  shiny::renderUI(expr, env = env, quoted = quoted, outputArgs = outputArgs)
+}
 
 # make R CMD check happy
 globalVariables("func")
