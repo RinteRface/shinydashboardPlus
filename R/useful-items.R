@@ -1461,7 +1461,7 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
 #'         title = "Item 1",
-#'         icon = icon("gears"),
+#'         icon = icon("cogs"),
 #'         color = "olive",
 #'         time = "now",
 #'         footer = "Here is the footer",
@@ -1489,7 +1489,7 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
 #'         title = "Item 1",
-#'         icon = icon("gears"),
+#'         icon = icon("cogs"),
 #'         color = "olive",
 #'         time = "now",
 #'         footer = "Here is the footer",

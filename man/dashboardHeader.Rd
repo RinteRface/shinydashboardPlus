@@ -11,7 +11,7 @@ dashboardHeader(
   disable = FALSE,
   .list = NULL,
   leftUi = NULL,
-  controlbarIcon = shiny::icon("gears"),
+  controlbarIcon = shiny::icon("cogs"),
   fixed = FALSE
 )
 }

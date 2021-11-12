@@ -8,7 +8,7 @@ timeline1 <- 'box(
     timelineLabel(2018, color = "teal"),
     timelineItem(
       title = "Item 1",
-      icon = icon("gears"),
+      icon = icon("cogs"),
       color = "olive",
       time = "now",
       footer = "Here is the footer",
@@ -38,7 +38,7 @@ timeline2 <- 'timelineBlock(
   timelineLabel(2018, color = "teal"),
   timelineItem(
     title = "Item 1",
-    icon = icon("gears"),
+    icon = icon("cogs"),
     color = "olive",
     time = "now",
     footer = "Here is the footer",
