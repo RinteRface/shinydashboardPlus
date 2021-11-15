@@ -21,7 +21,7 @@ shinyApp(
             attachmentBlock(
               image = "https://www.sammobile.com/wp-content/uploads/2017/11/Camel.png",
               title = "Test",
-              href = "http://google.com",
+              href = "https://google.com",
               "This is the content"
             )
           ),

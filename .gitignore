@@ -6,4 +6,5 @@ inst/doc
 .vscode
 **/.DS_Store
 inst/vignettes-demos/**/rsconnect
+inst/examples/rsconnect
 docs

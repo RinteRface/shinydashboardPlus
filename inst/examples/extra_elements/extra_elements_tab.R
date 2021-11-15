@@ -218,7 +218,7 @@ extra_elements_tab <- tabItem(
         attachmentBlock(
           image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
           title = "Test",
-          href = "http://google.com",
+          href = "https://google.com",
           "This is the content"
         )
       ) 
@@ -237,7 +237,7 @@ extra_elements_tab <- tabItem(
             'attachmentBlock(
             image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
             title = "Test",
-            href = "http://google.com",
+            href = "https://google.com",
             "This is the content"
           )'
           ), 

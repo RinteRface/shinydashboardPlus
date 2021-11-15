@@ -6,9 +6,7 @@
 \alias{shinydashboardPlus-package}
 \title{shinydashboardPlus}
 \description{
-Extend 'shinydashboard' with 'AdminLTE2' components. 
-             'AdminLTE2' is a free 'Bootstrap 3' dashboard template available
-             at <https://adminlte.io>. Customize boxes, add timelines and a lot more.
+Extend 'shinydashboard' with 'AdminLTE2' components. 'AdminLTE2' is a free 'Bootstrap 3' dashboard template available at <https://adminlte.io>. Customize boxes, add timelines and a lot more.
 }
 \seealso{
 Useful links:
