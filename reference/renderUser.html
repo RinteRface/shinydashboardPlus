@@ -177,12 +177,17 @@ or a list of such objects.</p></td>
     </tr>
     <tr>
       <th>env</th>
-      <td><p>The environment in which to evaluate <code>expr</code>.</p></td>
+      <td><p>The parent environment for the reactive expression. By default,
+this is the calling environment, the same as when defining an ordinary
+non-reactive expression. If <code>expr</code> is a quosure and <code>quoted</code> is <code>TRUE</code>,
+then <code>env</code> is ignored.</p></td>
     </tr>
     <tr>
       <th>quoted</th>
-      <td><p>Is <code>expr</code> a quoted expression (with <code><a href='https://rdrr.io/r/base/substitute.html'>quote()</a></code>)? This
-is useful if you want to save an expression in a variable.</p></td>
+      <td><p>If it is <code>TRUE</code>, then the <code><a href='https://rdrr.io/r/base/substitute.html'>quote()</a></code>ed value of <code>expr</code>
+will be used when <code>expr</code> is evaluated. If <code>expr</code> is a quosure and you
+would like to use its expression as a value for <code>expr</code>, then you must set
+<code>quoted</code> to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>outputArgs</th>
