@@ -93,7 +93,7 @@ userPostMedia creates a container to include an image in userPost." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -142,7 +142,7 @@ userPostMedia creates a container to include an image in userPost." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -237,54 +237,54 @@ userPostMedia creates a container to include an image in userPost." />
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
- 
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
-     <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span>
-      title <span class='op'>=</span> <span class='st'>"Box with user comment"</span>,
-      status <span class='op'>=</span> <span class='st'>"primary"</span>,
-      <span class='fu'>userPost</span><span class='op'>(</span>
-       id <span class='op'>=</span> <span class='fl'>1</span>,
-       image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-       author <span class='op'>=</span> <span class='st'>"Jonathan Burke Jr."</span>,
-       description <span class='op'>=</span> <span class='st'>"Shared publicly - 7:30 PM today"</span>,
-       <span class='st'>"Lorem ipsum represents a long-held tradition for designers, 
-       typographers and the like. Some people hate it and argue for 
-       its demise, but others ignore the hate as they create awesome 
-       tools to help create filler text for everyone from bacon 
-       lovers to Charlie Sheen fans."</span>,
-       collapsible <span class='op'>=</span> <span class='cn'>FALSE</span>,
-       <span class='fu'>userPostTagItems</span><span class='op'>(</span>
-        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 1"</span>, status <span class='op'>=</span> <span class='st'>"info"</span><span class='op'>)</span><span class='op'>)</span>,
-        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 2"</span>, status <span class='op'>=</span> <span class='st'>"danger"</span><span class='op'>)</span>, side <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span>
-       <span class='op'>)</span>
-      <span class='op'>)</span>,
-      <span class='fu'>userPost</span><span class='op'>(</span>
-       id <span class='op'>=</span> <span class='fl'>2</span>,
-       image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg"</span>,
-       author <span class='op'>=</span> <span class='st'>"Adam Jones"</span>,
-       <span class='fu'>userPostMedia</span><span class='op'>(</span>image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"</span><span class='op'>)</span>,
-       <span class='fu'>userPostTagItems</span><span class='op'>(</span>
-        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 1"</span>, status <span class='op'>=</span> <span class='st'>"success"</span><span class='op'>)</span><span class='op'>)</span>,
-        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 2"</span>, status <span class='op'>=</span> <span class='st'>"danger"</span><span class='op'>)</span>, side <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span>
-       <span class='op'>)</span>
-      <span class='op'>)</span>
-     <span class='op'>)</span>
-    <span class='op'>)</span>,
-    title <span class='op'>=</span> <span class='st'>"userPost"</span>
-  <span class='op'>)</span>,
-  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
- <span class='op'>)</span>
-<span class='op'>}</span>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span></span>
+<span class='r-in'> </span>
+<span class='r-in'> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span></span>
+<span class='r-in'>  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span></span>
+<span class='r-in'>     <span class='fu'><a href='box.html'>box</a></span><span class='op'>(</span></span>
+<span class='r-in'>      title <span class='op'>=</span> <span class='st'>"Box with user comment"</span>,</span>
+<span class='r-in'>      status <span class='op'>=</span> <span class='st'>"primary"</span>,</span>
+<span class='r-in'>      <span class='fu'>userPost</span><span class='op'>(</span></span>
+<span class='r-in'>       id <span class='op'>=</span> <span class='fl'>1</span>,</span>
+<span class='r-in'>       image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,</span>
+<span class='r-in'>       author <span class='op'>=</span> <span class='st'>"Jonathan Burke Jr."</span>,</span>
+<span class='r-in'>       description <span class='op'>=</span> <span class='st'>"Shared publicly - 7:30 PM today"</span>,</span>
+<span class='r-in'>       <span class='st'>"Lorem ipsum represents a long-held tradition for designers, </span>
+<span class='r-in'>       typographers and the like. Some people hate it and argue for </span>
+<span class='r-in'>       its demise, but others ignore the hate as they create awesome </span>
+<span class='r-in'>       tools to help create filler text for everyone from bacon </span>
+<span class='r-in'>       lovers to Charlie Sheen fans."</span>,</span>
+<span class='r-in'>       collapsible <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>       <span class='fu'>userPostTagItems</span><span class='op'>(</span></span>
+<span class='r-in'>        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 1"</span>, status <span class='op'>=</span> <span class='st'>"info"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span class='r-in'>        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 2"</span>, status <span class='op'>=</span> <span class='st'>"danger"</span><span class='op'>)</span>, side <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span></span>
+<span class='r-in'>       <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>)</span>,</span>
+<span class='r-in'>      <span class='fu'>userPost</span><span class='op'>(</span></span>
+<span class='r-in'>       id <span class='op'>=</span> <span class='fl'>2</span>,</span>
+<span class='r-in'>       image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg"</span>,</span>
+<span class='r-in'>       author <span class='op'>=</span> <span class='st'>"Adam Jones"</span>,</span>
+<span class='r-in'>       <span class='fu'>userPostMedia</span><span class='op'>(</span>image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"</span><span class='op'>)</span>,</span>
+<span class='r-in'>       <span class='fu'>userPostTagItems</span><span class='op'>(</span></span>
+<span class='r-in'>        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 1"</span>, status <span class='op'>=</span> <span class='st'>"success"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span class='r-in'>        <span class='fu'>userPostTagItem</span><span class='op'>(</span><span class='fu'><a href='dashboardLabel.html'>dashboardLabel</a></span><span class='op'>(</span><span class='st'>"item 2"</span>, status <span class='op'>=</span> <span class='st'>"danger"</span><span class='op'>)</span>, side <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span></span>
+<span class='r-in'>       <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>)</span></span>
+<span class='r-in'>     <span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>)</span>,</span>
+<span class='r-in'>    title <span class='op'>=</span> <span class='st'>"userPost"</span></span>
+<span class='r-in'>  <span class='op'>)</span>,</span>
+<span class='r-in'>  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span></span>
+<span class='r-in'> <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

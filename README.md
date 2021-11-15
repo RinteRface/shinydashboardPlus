@@ -24,9 +24,10 @@ your dashboard with all additional functions of shinydashboardPlus!
 
 ## Demo
 
-See a demonstration [here](https://rinterface.com/shiny/shinydashboardPlus/)
+See a demonstration [here](https://dgranjon.shinyapps.io/shinydashboardPlusDemo)
 or run:
 ```r
+library(shinydashboardPlus)
 shinydashboardPlusGallery()
 ```
 

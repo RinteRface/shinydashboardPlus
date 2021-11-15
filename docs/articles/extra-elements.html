@@ -47,7 +47,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -96,7 +96,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -110,7 +110,7 @@
 
       
 
-      </header><script src="extra-elements_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="extra-elements_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Extra Elements</h1>
@@ -208,21 +208,21 @@
 <li>edit an existing message</li>
 </ul>
 <p>Importantly, we assume that a message structure is composed as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">list</span>(</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">author =</span> <span class="st">"David"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="dt">date =</span> <span class="st">"Now"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">image =</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="dt">type =</span> <span class="st">"received"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  <span class="dt">text =</span> <span class="kw">tagList</span>(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    <span class="kw">sliderInput</span>(</span>
-<span id="cb2-8"><a href="#cb2-8"></a>      <span class="st">"obs"</span>, </span>
-<span id="cb2-9"><a href="#cb2-9"></a>      <span class="st">"Number of observations:"</span>,</span>
-<span id="cb2-10"><a href="#cb2-10"></a>      <span class="dt">min =</span> <span class="dv">0</span>, </span>
-<span id="cb2-11"><a href="#cb2-11"></a>      <span class="dt">max =</span> <span class="dv">1000</span>, </span>
-<span id="cb2-12"><a href="#cb2-12"></a>      <span class="dt">value =</span> <span class="dv">500</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>    ),</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    <span class="kw">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
-<span id="cb2-15"><a href="#cb2-15"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">author =</span> <span class="st">"David"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"Now"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">image =</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"received"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">tagList</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sliderInput</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"obs"</span>, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Number of observations:"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">min =</span> <span class="dv">0</span>, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">max =</span> <span class="dv">1000</span>, </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">value =</span> <span class="dv">500</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>The <em>type</em> parameter controls the message background color. For a sent message, the color is inherited from the <code><a href="../reference/userMessages.html">userMessages()</a></code> status, while for a received message, the color is gray by default. The <em>text</em> argument refers to the message content. It may be simple text, shiny tags or event any combinations of shiny inputs/ouput, as shown in the below example.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>

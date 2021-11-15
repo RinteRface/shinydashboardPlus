@@ -92,7 +92,7 @@ server." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -141,7 +141,7 @@ server." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -160,7 +160,7 @@ server." />
     <div class="page-header">
     <h1>A flipBox based on the W3C example</h1>
     <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinydashboardPlus/blob/master/R/boxes.R'><code>R/boxes.R</code></a></small>
-    <div class="hidden name"><code>flipbox.Rd</code></div>
+    <div class="hidden name"><code>flipBox.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -209,127 +209,127 @@ For example, if your flipBox's id is myawesomeflipbox, you can access its state 
 <code>input$myawesomeflipbox</code> where TRUE corresponds to the front, FALSE to the back.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
-    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
-    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
-    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span>
-        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
-          width <span class='op'>=</span> <span class='fl'>6</span>,
-          <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"active_side"</span><span class='op'>)</span>, 
-          <span class='fu'>flipBox</span><span class='op'>(</span>
-            id <span class='op'>=</span> <span class='st'>"myflipbox"</span>, 
-            trigger <span class='op'>=</span> <span class='st'>"hover"</span>,
-            width <span class='op'>=</span> <span class='fl'>12</span>,
-            front <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span>
-              class <span class='op'>=</span> <span class='st'>"text-center"</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on hover"</span><span class='op'>)</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span>
-                src <span class='op'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
-                height <span class='op'>=</span> <span class='st'>"300px"</span>,
-                width <span class='op'>=</span> <span class='st'>"100%"</span>
-              <span class='op'>)</span>
-            <span class='op'>)</span>,
-            back <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span>
-              class <span class='op'>=</span> <span class='st'>"text-center"</span>,
-              height <span class='op'>=</span> <span class='st'>"300px"</span>,
-              width <span class='op'>=</span> <span class='st'>"100%"</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on hover"</span><span class='op'>)</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"More information...."</span><span class='op'>)</span>
-            <span class='op'>)</span>
-          <span class='op'>)</span>
-        <span class='op'>)</span>,
-        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
-          width <span class='op'>=</span> <span class='fl'>6</span>,
-          <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"active_side_2"</span><span class='op'>)</span>,
-          <span class='fu'>flipBox</span><span class='op'>(</span>
-            id <span class='op'>=</span> <span class='st'>"myflipbox2"</span>,
-            width <span class='op'>=</span> <span class='fl'>12</span>,
-            front <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span>
-              class <span class='op'>=</span> <span class='st'>"text-center"</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on click"</span><span class='op'>)</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span>
-                src <span class='op'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
-                height <span class='op'>=</span> <span class='st'>"300px"</span>,
-                width <span class='op'>=</span> <span class='st'>"100%"</span>
-              <span class='op'>)</span>
-            <span class='op'>)</span>,
-            back <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span>
-              class <span class='op'>=</span> <span class='st'>"text-center"</span>,
-              height <span class='op'>=</span> <span class='st'>"300px"</span>,
-              width <span class='op'>=</span> <span class='st'>"100%"</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on click"</span><span class='op'>)</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"More information...."</span><span class='op'>)</span>
-            <span class='op'>)</span>
-          <span class='op'>)</span>
-        <span class='op'>)</span>
-      <span class='op'>)</span>
-    <span class='op'>)</span>
-  <span class='op'>)</span>,
-  
-  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-    <span class='va'>output</span><span class='op'>$</span><span class='va'>active_side</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderUI.html'>renderUI</a></span><span class='op'>(</span><span class='op'>{</span>
-      <span class='va'>side</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>myflipbox</span><span class='op'>)</span> <span class='st'>"front"</span> <span class='kw'>else</span> <span class='st'>"back"</span>
-      <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='va'>side</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span>
-    <span class='op'>}</span><span class='op'>)</span>
-    
-    <span class='va'>output</span><span class='op'>$</span><span class='va'>active_side_2</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderUI.html'>renderUI</a></span><span class='op'>(</span><span class='op'>{</span>
-      <span class='va'>side</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>myflipbox2</span><span class='op'>)</span> <span class='st'>"front"</span> <span class='kw'>else</span> <span class='st'>"back"</span>
-      <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='va'>side</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span>
-    <span class='op'>}</span><span class='op'>)</span>
-  <span class='op'>}</span>
- <span class='op'>)</span>
-<span class='op'>}</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
-     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
-     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
-       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"toggle"</span>, <span class='st'>"Toggle flip box"</span><span class='op'>)</span>,
-       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"active_side"</span><span class='op'>)</span>, 
-       <span class='fu'>flipBox</span><span class='op'>(</span>
-         id <span class='op'>=</span> <span class='st'>"myflipbox"</span>,
-         front <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span>
-           class <span class='op'>=</span> <span class='st'>"text-center"</span>,
-           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span>
-             src <span class='op'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,
-             height <span class='op'>=</span> <span class='st'>"300px"</span>,
-             width <span class='op'>=</span> <span class='st'>"100%"</span>
-           <span class='op'>)</span>
-         <span class='op'>)</span>,
-         back <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span>
-           class <span class='op'>=</span> <span class='st'>"text-center"</span>,
-           height <span class='op'>=</span> <span class='st'>"300px"</span>,
-           width <span class='op'>=</span> <span class='st'>"100%"</span>,
-           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Details...."</span><span class='op'>)</span>,
-           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"More information...."</span><span class='op'>)</span>
-         <span class='op'>)</span>
-       <span class='op'>)</span>
-     <span class='op'>)</span>
-   <span class='op'>)</span>,
-   
-   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-    <span class='va'>output</span><span class='op'>$</span><span class='va'>active_side</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderUI.html'>renderUI</a></span><span class='op'>(</span><span class='op'>{</span>
-     <span class='va'>side</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>myflipbox</span><span class='op'>)</span> <span class='st'>"front"</span> <span class='kw'>else</span> <span class='st'>"back"</span>
-     <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='va'>side</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span>
-    <span class='op'>}</span><span class='op'>)</span>
-    
-    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>toggle</span>, <span class='op'>{</span>
-     <span class='fu'>updateFlipBox</span><span class='op'>(</span><span class='st'>"myflipbox"</span><span class='op'>)</span>
-    <span class='op'>}</span><span class='op'>)</span>
-   <span class='op'>}</span>
- <span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span></span>
+<span class='r-in'>  ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span></span>
+<span class='r-in'>      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span></span>
+<span class='r-in'>        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span></span>
+<span class='r-in'>          width <span class='op'>=</span> <span class='fl'>6</span>,</span>
+<span class='r-in'>          <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"active_side"</span><span class='op'>)</span>, </span>
+<span class='r-in'>          <span class='fu'>flipBox</span><span class='op'>(</span></span>
+<span class='r-in'>            id <span class='op'>=</span> <span class='st'>"myflipbox"</span>, </span>
+<span class='r-in'>            trigger <span class='op'>=</span> <span class='st'>"hover"</span>,</span>
+<span class='r-in'>            width <span class='op'>=</span> <span class='fl'>12</span>,</span>
+<span class='r-in'>            front <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span></span>
+<span class='r-in'>              class <span class='op'>=</span> <span class='st'>"text-center"</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on hover"</span><span class='op'>)</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span></span>
+<span class='r-in'>                src <span class='op'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
+<span class='r-in'>                height <span class='op'>=</span> <span class='st'>"300px"</span>,</span>
+<span class='r-in'>                width <span class='op'>=</span> <span class='st'>"100%"</span></span>
+<span class='r-in'>              <span class='op'>)</span></span>
+<span class='r-in'>            <span class='op'>)</span>,</span>
+<span class='r-in'>            back <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span></span>
+<span class='r-in'>              class <span class='op'>=</span> <span class='st'>"text-center"</span>,</span>
+<span class='r-in'>              height <span class='op'>=</span> <span class='st'>"300px"</span>,</span>
+<span class='r-in'>              width <span class='op'>=</span> <span class='st'>"100%"</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on hover"</span><span class='op'>)</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"More information...."</span><span class='op'>)</span></span>
+<span class='r-in'>            <span class='op'>)</span></span>
+<span class='r-in'>          <span class='op'>)</span></span>
+<span class='r-in'>        <span class='op'>)</span>,</span>
+<span class='r-in'>        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span></span>
+<span class='r-in'>          width <span class='op'>=</span> <span class='fl'>6</span>,</span>
+<span class='r-in'>          <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"active_side_2"</span><span class='op'>)</span>,</span>
+<span class='r-in'>          <span class='fu'>flipBox</span><span class='op'>(</span></span>
+<span class='r-in'>            id <span class='op'>=</span> <span class='st'>"myflipbox2"</span>,</span>
+<span class='r-in'>            width <span class='op'>=</span> <span class='fl'>12</span>,</span>
+<span class='r-in'>            front <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span></span>
+<span class='r-in'>              class <span class='op'>=</span> <span class='st'>"text-center"</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on click"</span><span class='op'>)</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span></span>
+<span class='r-in'>                src <span class='op'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
+<span class='r-in'>                height <span class='op'>=</span> <span class='st'>"300px"</span>,</span>
+<span class='r-in'>                width <span class='op'>=</span> <span class='st'>"100%"</span></span>
+<span class='r-in'>              <span class='op'>)</span></span>
+<span class='r-in'>            <span class='op'>)</span>,</span>
+<span class='r-in'>            back <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span></span>
+<span class='r-in'>              class <span class='op'>=</span> <span class='st'>"text-center"</span>,</span>
+<span class='r-in'>              height <span class='op'>=</span> <span class='st'>"300px"</span>,</span>
+<span class='r-in'>              width <span class='op'>=</span> <span class='st'>"100%"</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Flip on click"</span><span class='op'>)</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"More information...."</span><span class='op'>)</span></span>
+<span class='r-in'>            <span class='op'>)</span></span>
+<span class='r-in'>          <span class='op'>)</span></span>
+<span class='r-in'>        <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>)</span>,</span>
+<span class='r-in'>  </span>
+<span class='r-in'>  server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>    <span class='va'>output</span><span class='op'>$</span><span class='va'>active_side</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderUI.html'>renderUI</a></span><span class='op'>(</span><span class='op'>{</span></span>
+<span class='r-in'>      <span class='va'>side</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>myflipbox</span><span class='op'>)</span> <span class='st'>"front"</span> <span class='kw'>else</span> <span class='st'>"back"</span></span>
+<span class='r-in'>      <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='va'>side</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-in'>    </span>
+<span class='r-in'>    <span class='va'>output</span><span class='op'>$</span><span class='va'>active_side_2</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderUI.html'>renderUI</a></span><span class='op'>(</span><span class='op'>{</span></span>
+<span class='r-in'>      <span class='va'>side</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>myflipbox2</span><span class='op'>)</span> <span class='st'>"front"</span> <span class='kw'>else</span> <span class='st'>"back"</span></span>
+<span class='r-in'>      <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='va'>side</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>}</span></span>
+<span class='r-in'> <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span></span>
+<span class='r-in'>   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span></span>
+<span class='r-in'>       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"toggle"</span>, <span class='st'>"Toggle flip box"</span><span class='op'>)</span>,</span>
+<span class='r-in'>       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"active_side"</span><span class='op'>)</span>, </span>
+<span class='r-in'>       <span class='fu'>flipBox</span><span class='op'>(</span></span>
+<span class='r-in'>         id <span class='op'>=</span> <span class='st'>"myflipbox"</span>,</span>
+<span class='r-in'>         front <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span></span>
+<span class='r-in'>           class <span class='op'>=</span> <span class='st'>"text-center"</span>,</span>
+<span class='r-in'>           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span></span>
+<span class='r-in'>             src <span class='op'>=</span> <span class='st'>"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
+<span class='r-in'>             height <span class='op'>=</span> <span class='st'>"300px"</span>,</span>
+<span class='r-in'>             width <span class='op'>=</span> <span class='st'>"100%"</span></span>
+<span class='r-in'>           <span class='op'>)</span></span>
+<span class='r-in'>         <span class='op'>)</span>,</span>
+<span class='r-in'>         back <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span><span class='op'>(</span></span>
+<span class='r-in'>           class <span class='op'>=</span> <span class='st'>"text-center"</span>,</span>
+<span class='r-in'>           height <span class='op'>=</span> <span class='st'>"300px"</span>,</span>
+<span class='r-in'>           width <span class='op'>=</span> <span class='st'>"100%"</span>,</span>
+<span class='r-in'>           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span><span class='op'>(</span><span class='st'>"Details...."</span><span class='op'>)</span>,</span>
+<span class='r-in'>           <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span><span class='op'>(</span><span class='st'>"More information...."</span><span class='op'>)</span></span>
+<span class='r-in'>         <span class='op'>)</span></span>
+<span class='r-in'>       <span class='op'>)</span></span>
+<span class='r-in'>     <span class='op'>)</span></span>
+<span class='r-in'>   <span class='op'>)</span>,</span>
+<span class='r-in'>   </span>
+<span class='r-in'>   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>    <span class='va'>output</span><span class='op'>$</span><span class='va'>active_side</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderUI.html'>renderUI</a></span><span class='op'>(</span><span class='op'>{</span></span>
+<span class='r-in'>     <span class='va'>side</span> <span class='op'>&lt;-</span> <span class='kw'>if</span> <span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>myflipbox</span><span class='op'>)</span> <span class='st'>"front"</span> <span class='kw'>else</span> <span class='st'>"back"</span></span>
+<span class='r-in'>     <span class='fu'><a href='dashboardBadge.html'>dashboardBadge</a></span><span class='op'>(</span><span class='va'>side</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-in'>    </span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>toggle</span>, <span class='op'>{</span></span>
+<span class='r-in'>     <span class='fu'>updateFlipBox</span><span class='op'>(</span><span class='st'>"myflipbox"</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-in'>   <span class='op'>}</span></span>
+<span class='r-in'> <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

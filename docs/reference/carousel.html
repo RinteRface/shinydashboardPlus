@@ -91,7 +91,7 @@ carouselItem creates a carousel item to insert in a carousel." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -140,7 +140,7 @@ carouselItem creates a carousel item to insert in a carousel." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -210,34 +210,34 @@ put these item here instead of passing them in ...</p></td>
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
- 
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
-     header <span class='op'>=</span> <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
-     sidebar <span class='op'>=</span> <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
-     body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
-      <span class='fu'>carousel</span><span class='op'>(</span>
-       id <span class='op'>=</span> <span class='st'>"mycarousel"</span>,
-       <span class='fu'>carouselItem</span><span class='op'>(</span>
-        caption <span class='op'>=</span> <span class='st'>"Item 1"</span>,
-        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>img</span><span class='op'>(</span>src <span class='op'>=</span> <span class='st'>"https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap"</span><span class='op'>)</span>
-       <span class='op'>)</span>,
-       <span class='fu'>carouselItem</span><span class='op'>(</span>
-        caption <span class='op'>=</span> <span class='st'>"Item 2"</span>,
-        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>img</span><span class='op'>(</span>src <span class='op'>=</span> <span class='st'>"https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap"</span><span class='op'>)</span>
-       <span class='op'>)</span>
-      <span class='op'>)</span>
-     <span class='op'>)</span>,
-     title <span class='op'>=</span> <span class='st'>"Carousel"</span>
-   <span class='op'>)</span>,
-   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
- <span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span></span>
+<span class='r-in'> </span>
+<span class='r-in'> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span></span>
+<span class='r-in'>   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>     header <span class='op'>=</span> <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>     sidebar <span class='op'>=</span> <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>     body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span></span>
+<span class='r-in'>      <span class='fu'>carousel</span><span class='op'>(</span></span>
+<span class='r-in'>       id <span class='op'>=</span> <span class='st'>"mycarousel"</span>,</span>
+<span class='r-in'>       <span class='fu'>carouselItem</span><span class='op'>(</span></span>
+<span class='r-in'>        caption <span class='op'>=</span> <span class='st'>"Item 1"</span>,</span>
+<span class='r-in'>        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>img</span><span class='op'>(</span>src <span class='op'>=</span> <span class='st'>"https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap"</span><span class='op'>)</span></span>
+<span class='r-in'>       <span class='op'>)</span>,</span>
+<span class='r-in'>       <span class='fu'>carouselItem</span><span class='op'>(</span></span>
+<span class='r-in'>        caption <span class='op'>=</span> <span class='st'>"Item 2"</span>,</span>
+<span class='r-in'>        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>img</span><span class='op'>(</span>src <span class='op'>=</span> <span class='st'>"https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap"</span><span class='op'>)</span></span>
+<span class='r-in'>       <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>)</span></span>
+<span class='r-in'>     <span class='op'>)</span>,</span>
+<span class='r-in'>     title <span class='op'>=</span> <span class='st'>"Carousel"</span></span>
+<span class='r-in'>   <span class='op'>)</span>,</span>
+<span class='r-in'>   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span></span>
+<span class='r-in'> <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -47,7 +47,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -96,7 +96,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -110,13 +110,13 @@
 
       
 
-      </header><script src="controlbar_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="controlbar_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Extra Skeleton Elements</h1>
                         <h4 class="author">David Granjon</h4>
             
-            <h4 class="date">2021-09-15</h4>
+            <h4 class="date">2021-11-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/controlbar.Rmd"><code>vignettes/controlbar.Rmd</code></a></small>
       <div class="hidden name"><code>controlbar.Rmd</code></div>
@@ -215,8 +215,8 @@
     <span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
-<p><code>input$sidebarMenu</code> takes values in <code>menu_1</code>, <code>menu_2</code> and <code>menu_3</code>. On the server side, we only recover the item index by splitting the input value as follows <code>strsplit(input$sidebarMenu, "_")[[1]][2]</code>. Then we may conditionally open the controlbar depending on the index value. The update controlbar menu function will update the controlbar menu item according to the index value, that is <code><a href="../reference/dashboardControlbar.html">updateControlbarMenu("controlbarMenu", selected = idx)</a></code>.</p>
-<p>To include even more interactivity, we listen to <code>input$controlbarMenu</code>. When the second item is clicked, we toggle the box sidebar with <code><a href="../reference/boxSidebar.html">updateBoxSidebar("boxSidebar")</a></code>.</p>
+<p><code>input$sidebarMenu</code> takes values in <code>menu_1</code>, <code>menu_2</code> and <code>menu_3</code>. On the server side, we only recover the item index by splitting the input value as follows <code>strsplit(input$sidebarMenu, "_")[[1]][2]</code>. Then we may conditionally open the controlbar depending on the index value. The update controlbar menu function will update the controlbar menu item according to the index value, that is <code>updateControlbarMenu("controlbarMenu", selected = idx)</code>.</p>
+<p>To include even more interactivity, we listen to <code>input$controlbarMenu</code>. When the second item is clicked, we toggle the box sidebar with <code>updateBoxSidebar("boxSidebar")</code>.</p>
 <p>In conclusion, you may imagine a lot of other situations.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>

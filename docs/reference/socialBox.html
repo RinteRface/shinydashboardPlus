@@ -92,7 +92,7 @@ boxComment has to be inserted in the comment slot of socialBox." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -141,7 +141,7 @@ boxComment has to be inserted in the comment slot of socialBox." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -276,48 +276,48 @@ TRUE by default.</p></td>
     <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
- 
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-    ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
-      <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,
-      <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span>
-        <span class='fu'>socialBox</span><span class='op'>(</span>
-          title <span class='op'>=</span> <span class='fu'>userBlock</span><span class='op'>(</span>
-            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,
-            title <span class='op'>=</span> <span class='st'>"Social Box"</span>,
-            subtitle <span class='op'>=</span> <span class='st'>"example-01.05.2018"</span>
-          <span class='op'>)</span>,
-          <span class='st'>"Some text here!"</span>,
-          <span class='fu'><a href='attachmentBlock.html'>attachmentBlock</a></span><span class='op'>(</span>
-            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,
-            title <span class='op'>=</span> <span class='st'>"Test"</span>,
-            href <span class='op'>=</span> <span class='st'>"https://google.com"</span>,
-            <span class='st'>"This is the content"</span>
-          <span class='op'>)</span>,
-          <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span> <span class='op'>{</span>
-            <span class='fu'>boxComment</span><span class='op'>(</span>
-              image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-              title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Comment"</span>, <span class='va'>i</span><span class='op'>)</span>,
-              date <span class='op'>=</span> <span class='st'>"01.05.2018"</span>,
-              <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"The "</span>, <span class='va'>i</span>, <span class='st'>"-th comment"</span><span class='op'>)</span>
-            <span class='op'>)</span>
-          <span class='op'>}</span><span class='op'>)</span>,
-          footer <span class='op'>=</span> <span class='st'>"The footer here!"</span>
-        <span class='op'>)</span>
-      <span class='op'>)</span>,
-      controlbar <span class='op'>=</span> <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span><span class='op'>(</span><span class='op'>)</span>,
-      title <span class='op'>=</span> <span class='st'>"socialBox"</span>
-    <span class='op'>)</span>,
-    server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
-  <span class='op'>)</span>
-<span class='op'>}</span>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span></span>
+<span class='r-in'> </span>
+<span class='r-in'> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span></span>
+<span class='r-in'>    ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>      <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>      <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>      <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span></span>
+<span class='r-in'>        <span class='fu'>socialBox</span><span class='op'>(</span></span>
+<span class='r-in'>          title <span class='op'>=</span> <span class='fu'>userBlock</span><span class='op'>(</span></span>
+<span class='r-in'>            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,</span>
+<span class='r-in'>            title <span class='op'>=</span> <span class='st'>"Social Box"</span>,</span>
+<span class='r-in'>            subtitle <span class='op'>=</span> <span class='st'>"example-01.05.2018"</span></span>
+<span class='r-in'>          <span class='op'>)</span>,</span>
+<span class='r-in'>          <span class='st'>"Some text here!"</span>,</span>
+<span class='r-in'>          <span class='fu'><a href='attachmentBlock.html'>attachmentBlock</a></span><span class='op'>(</span></span>
+<span class='r-in'>            image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/photo1.png"</span>,</span>
+<span class='r-in'>            title <span class='op'>=</span> <span class='st'>"Test"</span>,</span>
+<span class='r-in'>            href <span class='op'>=</span> <span class='st'>"https://google.com"</span>,</span>
+<span class='r-in'>            <span class='st'>"This is the content"</span></span>
+<span class='r-in'>          <span class='op'>)</span>,</span>
+<span class='r-in'>          <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>            <span class='fu'>boxComment</span><span class='op'>(</span></span>
+<span class='r-in'>              image <span class='op'>=</span> <span class='st'>"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,</span>
+<span class='r-in'>              title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Comment"</span>, <span class='va'>i</span><span class='op'>)</span>,</span>
+<span class='r-in'>              date <span class='op'>=</span> <span class='st'>"01.05.2018"</span>,</span>
+<span class='r-in'>              <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"The "</span>, <span class='va'>i</span>, <span class='st'>"-th comment"</span><span class='op'>)</span></span>
+<span class='r-in'>            <span class='op'>)</span></span>
+<span class='r-in'>          <span class='op'>}</span><span class='op'>)</span>,</span>
+<span class='r-in'>          footer <span class='op'>=</span> <span class='st'>"The footer here!"</span></span>
+<span class='r-in'>        <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>)</span>,</span>
+<span class='r-in'>      controlbar <span class='op'>=</span> <span class='fu'><a href='dashboardControlbar.html'>dashboardControlbar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>      title <span class='op'>=</span> <span class='st'>"socialBox"</span></span>
+<span class='r-in'>    <span class='op'>)</span>,</span>
+<span class='r-in'>    server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

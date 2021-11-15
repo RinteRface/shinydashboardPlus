@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +139,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -195,45 +195,45 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span>
- <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span>
- 
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span>
-     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span>
-       <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html'>dropdownMenu</a></span><span class='op'>(</span>
-         type <span class='op'>=</span> <span class='st'>"tasks"</span>, 
-         badgeStatus <span class='op'>=</span> <span class='st'>"danger"</span>,
-         <span class='fu'>taskItem</span><span class='op'>(</span>
-           inputId <span class='op'>=</span> <span class='st'>"mytask"</span>,
-           value <span class='op'>=</span> <span class='fl'>20</span>, 
-           color <span class='op'>=</span> <span class='st'>"aqua"</span>,
-           text <span class='op'>=</span> <span class='st'>"Click me!"</span>
-         <span class='op'>)</span>,
-         <span class='fu'>taskItem</span><span class='op'>(</span>
-           value <span class='op'>=</span> <span class='fl'>40</span>, 
-           color <span class='op'>=</span> <span class='st'>"green"</span>,
-           text <span class='op'>=</span> <span class='st'>"Basic item"</span>
-         <span class='op'>)</span>
-       <span class='op'>)</span>
-     <span class='op'>)</span>,
-     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,
-     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span><span class='op'>)</span>,
-     title <span class='op'>=</span> <span class='st'>"Dashboard example"</span>
-   <span class='op'>)</span>,
-   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span>
-     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mytask</span>, <span class='op'>{</span>
-       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showModal.html'>showModal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/modalDialog.html'>modalDialog</a></span><span class='op'>(</span>
-         title <span class='op'>=</span> <span class='st'>"Important message"</span>,
-         <span class='st'>"This is an important message!"</span>
-       <span class='op'>)</span><span class='op'>)</span>
-     <span class='op'>}</span><span class='op'>)</span>
-   <span class='op'>}</span>
- <span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/shinydashboard/'>shinydashboard</a></span><span class='op'>)</span></span>
+<span class='r-in'> <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RinteRface/shinydashboardPlus'>shinydashboardPlus</a></span><span class='op'>)</span></span>
+<span class='r-in'> </span>
+<span class='r-in'> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span></span>
+<span class='r-in'>   ui <span class='op'>=</span> <span class='fu'><a href='dashboardPage.html'>dashboardPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>     <span class='fu'><a href='dashboardHeader.html'>dashboardHeader</a></span><span class='op'>(</span></span>
+<span class='r-in'>       <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html'>dropdownMenu</a></span><span class='op'>(</span></span>
+<span class='r-in'>         type <span class='op'>=</span> <span class='st'>"tasks"</span>, </span>
+<span class='r-in'>         badgeStatus <span class='op'>=</span> <span class='st'>"danger"</span>,</span>
+<span class='r-in'>         <span class='fu'>taskItem</span><span class='op'>(</span></span>
+<span class='r-in'>           inputId <span class='op'>=</span> <span class='st'>"mytask"</span>,</span>
+<span class='r-in'>           value <span class='op'>=</span> <span class='fl'>20</span>, </span>
+<span class='r-in'>           color <span class='op'>=</span> <span class='st'>"aqua"</span>,</span>
+<span class='r-in'>           text <span class='op'>=</span> <span class='st'>"Click me!"</span></span>
+<span class='r-in'>         <span class='op'>)</span>,</span>
+<span class='r-in'>         <span class='fu'>taskItem</span><span class='op'>(</span></span>
+<span class='r-in'>           value <span class='op'>=</span> <span class='fl'>40</span>, </span>
+<span class='r-in'>           color <span class='op'>=</span> <span class='st'>"green"</span>,</span>
+<span class='r-in'>           text <span class='op'>=</span> <span class='st'>"Basic item"</span></span>
+<span class='r-in'>         <span class='op'>)</span></span>
+<span class='r-in'>       <span class='op'>)</span></span>
+<span class='r-in'>     <span class='op'>)</span>,</span>
+<span class='r-in'>     <span class='fu'><a href='dashboardSidebar.html'>dashboardSidebar</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>     <span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>     title <span class='op'>=</span> <span class='st'>"Dashboard example"</span></span>
+<span class='r-in'>   <span class='op'>)</span>,</span>
+<span class='r-in'>   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>mytask</span>, <span class='op'>{</span></span>
+<span class='r-in'>       <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showModal.html'>showModal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/modalDialog.html'>modalDialog</a></span><span class='op'>(</span></span>
+<span class='r-in'>         title <span class='op'>=</span> <span class='st'>"Important message"</span>,</span>
+<span class='r-in'>         <span class='st'>"This is an important message!"</span></span>
+<span class='r-in'>       <span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'>     <span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-in'>   <span class='op'>}</span></span>
+<span class='r-in'> <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

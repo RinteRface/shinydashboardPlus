@@ -89,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -138,7 +138,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RinteRface/shinydashboardPlus">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -161,7 +161,7 @@
 
     <div id="shinydashboardplus-203" class="section level1">
 <h1 class="page-header" data-toc-text="2.0.3">
-<a href="#shinydashboardplus-203" class="anchor"></a>shinydashboardPlus 2.0.3<small> Unreleased </small>
+<a href="#shinydashboardplus-203" class="anchor"></a>shinydashboardPlus 2.0.3<small> 2021-09-15 </small>
 </h1>
 <p>This release is a patch to fix an <a href="https://github.com/RinteRface/shinydashboardPlus/pull/151">issue</a> preventing the release of Shiny 1.7.0. Thanks <a href='https://github.com/wch'>@wch</a>.</p>
 <div id="minor-change" class="section level2">
@@ -411,7 +411,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
 <ul>
-<li>remove all CSS functions, namely <code>setShadow()</code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
+<li>remove all CSS functions, namely <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>, <code>setPulse()</code>, <code>setShake()</code> and <code>setZoom()</code>, since they are contained in <a href="https://github.com/RinteRface/shinyEffects">shinyEffects</a>
 </li>
 </ul>
 </div>
@@ -470,7 +470,7 @@
 <li><p>new “left_menu” argument in the <code>dashboardHeaderPlus()</code> to include elements in the left part of the navbar. (In addition to what you can already do in the right part with shinydashboard)</p></li>
 <li><p>new <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> to include shiny input elements in a navbar left menu (optimized for all screen sizes)</p></li>
 <li><p>new “fixed” argument to the navbar (<code>dashboardHeaderPlus()</code>). If TRUE, the navbar is fixed-top. (static-top by default)</p></li>
-<li><p>new <code>setZoom()</code> function (similar as <code>setShadow()</code>)</p></li>
+<li><p>new <code>setZoom()</code> function (similar as <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code>)</p></li>
 <li><p>new <code>setPulse()</code> function</p></li>
 <li><p>new <code>setShake()</code> function</p></li>
 <li><p>add “enable_preloader” and “loading_duration” to <code>dashboardPagePlus()</code> (custom preloader)</p></li>
@@ -503,7 +503,7 @@
 <ul>
 <li><p>Fix an important issue in the <code>rightSidebar()</code>. When the function was called without any element, it triggered an error because the number of items was 0</p></li>
 <li><p>clicking on <code><a href="../reference/starBlock.html">starBlock()</a></code>, <code><a href="../reference/navPills.html">navPillsItem()</a></code> and the <code>socialBlock()</code> title does not reload or redirect at the top of the page</p></li>
-<li><p>clicking on the <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> link open a new page in a new tab (target = "_blank")</p></li>
+<li><p>clicking on the <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> link open a new page in a new tab (target = “_blank”)</p></li>
 <li>
 <p>correct vignettes title (<a href="https://cran.r-project.org/package=shinydashboardPlus" class="uri">https://cran.r-project.org/package=shinydashboardPlus</a>)</p>
 <h2 id="breaking-changes-3">Breaking changes</h2>
@@ -514,7 +514,7 @@
 <h2 id="major-changes-1">Major changes</h2>
 </li>
 <li><p>add a “width” argument to the <code>rightSidebar()</code> (set to 230 pixels by default) to improve customization.</p></li>
-<li><p>new function <code>setShadow()</code> to set shadow and hover effects on any elements</p></li>
+<li><p>new function <code><a href="https://rdrr.io/pkg/shinyWidgets/man/setShadow.html">setShadow()</a></code> to set shadow and hover effects on any elements</p></li>
 <li><p>add an “active” argument to <code>rightSidebarTabContent()</code>: see <a href="https://github.com/RinteRface/shinydashboardPlus/issues/4"><a href='https://github.com/RinteRface/shinydashboardPlus/issues/4'>#4</a></a></p></li>
 <li><p>add a “sidebar_background” argument to <code>dashboardPagePlus()</code></p></li>
 <li><p>new <code>verticalProgress()</code> bars!</p></li>
