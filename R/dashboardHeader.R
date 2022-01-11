@@ -97,7 +97,7 @@
 #' @export
 dashboardHeader <- function(..., title = NULL, titleWidth = NULL, 
                             disable = FALSE, .list = NULL, leftUi = NULL,
-                            controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
+                            controlbarIcon = shiny::icon("cogs"), fixed = FALSE) {
   # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
