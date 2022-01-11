@@ -1044,17 +1044,18 @@ socialBox <- function(..., title = NULL, footer = NULL, width = 6, height = NULL
 #' @param image User image.
 #' @param title A title, user name,...
 #' @param subtitle Any subtitle.
+#' @param href Target url or page.
 #'
 #' @rdname socialBox
 #'
 #' @export
-userBlock <- function(image, title, subtitle = NULL) {
+userBlock <- function(image, title, subtitle = NULL, href = "javascript:void(0)") {
   shiny::tags$div(
     class = "user-block",
     shiny::img(class = "img-circle", src = image),
     shiny::tags$span(
       class = "username",
-      shiny::a(href = "javascript:void(0)", title)
+      shiny::a(href, title)
     ),
     if (!is.null(subtitle)) shiny::tags$span(class = "description", subtitle)
   )
