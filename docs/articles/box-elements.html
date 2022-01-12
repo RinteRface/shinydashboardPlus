@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
       </span>
     </div>
 
@@ -65,7 +67,8 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li class="divider">
-    <li class="dropdown-header">User Guide</li>
+    </li>
+<li class="dropdown-header">User Guide</li>
     <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
@@ -95,8 +98,14 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/RinteRface/shinydashboardPlus">
+  <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">
     <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://twitter.com/divadnojnarg" class="external-link">
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
@@ -110,67 +119,67 @@
 
       
 
-      </header><script src="box-elements_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Box Elements</h1>
-                        <h4 class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David Granjon</h4>
             
-            <h4 class="date">2021-11-15</h4>
+            <h4 data-toc-skip class="date">2022-01-12</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/box-elements.Rmd"><code>vignettes/box-elements.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/box-elements.Rmd" class="external-link"><code>vignettes/box-elements.Rmd</code></a></small>
       <div class="hidden name"><code>box-elements.Rmd</code></div>
 
     </div>
 
     
     
-<div id="boxes-components" class="section level2">
-<h2 class="hasAnchor">
-<a href="#boxes-components" class="anchor"></a>Boxes components</h2>
-<p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> brings tons of new elements to include in boxes or elsewhere. Some of them has partially been described in the previous vignette.</p>
+<div class="section level2">
+<h2 id="boxes-components">Boxes components<a class="anchor" aria-label="anchor" href="#boxes-components"></a>
+</h2>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> brings tons of new elements to include in boxes or elsewhere. Some of them has partially been described in the previous vignette.</p>
 <p><br></p>
 <div style="text-align:center;">
 <a href="improved-boxes.html" class="btn btn-outline-secondary btn-lg">Go to previous vignette</a>
 </div>
-<div id="description-block" class="section level3">
-<h3 class="hasAnchor">
-<a href="#description-block" class="anchor"></a>Description Block</h3>
+<div class="section level3">
+<h3 id="description-block">Description Block<a class="anchor" aria-label="anchor" href="#description-block"></a>
+</h3>
 <p><code><a href="../reference/box.html">descriptionBlock()</a></code> is a sub-container that may be included in any <code><a href="../reference/box.html">box()</a></code>. It is convenient to display metrics.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
- <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span>
+ <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
+    <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span>
      <span class="fu"><a href="../reference/box.html">box</a></span><span class="op">(</span>
       solidHeader <span class="op">=</span> <span class="cn">FALSE</span>,
       title <span class="op">=</span> <span class="st">"Status summary"</span>,
       background <span class="op">=</span> <span class="cn">NULL</span>,
       width <span class="op">=</span> <span class="fl">4</span>,
       status <span class="op">=</span> <span class="st">"danger"</span>,
-      footer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
+      footer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html" class="external-link">column</a></span><span class="op">(</span>
           width <span class="op">=</span> <span class="fl">6</span>,
           <span class="fu"><a href="../reference/box.html">descriptionBlock</a></span><span class="op">(</span>
             number <span class="op">=</span> <span class="st">"17%"</span>, 
             numberColor <span class="op">=</span> <span class="st">"green"</span>, 
-            numberIcon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"caret-up"</span><span class="op">)</span>,
+            numberIcon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"caret-up"</span><span class="op">)</span>,
             header <span class="op">=</span> <span class="st">"$35,210.43"</span>, 
             text <span class="op">=</span> <span class="st">"TOTAL REVENUE"</span>, 
             rightBorder <span class="op">=</span> <span class="cn">TRUE</span>,
             marginBottom <span class="op">=</span> <span class="cn">FALSE</span>
           <span class="op">)</span>
         <span class="op">)</span>,
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html" class="external-link">column</a></span><span class="op">(</span>
           width <span class="op">=</span> <span class="fl">6</span>,
           <span class="fu"><a href="../reference/box.html">descriptionBlock</a></span><span class="op">(</span>
             number <span class="op">=</span> <span class="st">"18%"</span>, 
             numberColor <span class="op">=</span> <span class="st">"red"</span>, 
-            numberIcon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"caret-down"</span><span class="op">)</span>,
+            numberIcon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"caret-down"</span><span class="op">)</span>,
             header <span class="op">=</span> <span class="st">"1200"</span>, 
             text <span class="op">=</span> <span class="st">"GOAL COMPLETION"</span>, 
             rightBorder <span class="op">=</span> <span class="cn">FALSE</span>,
@@ -197,9 +206,9 @@
 </div>
 </div>
 </div>
-<div id="coming-soon" class="section level3">
-<h3 class="hasAnchor">
-<a href="#coming-soon" class="anchor"></a>Coming soon …</h3>
+<div class="section level3">
+<h3 id="coming-soon">Coming soon …<a class="anchor" aria-label="anchor" href="#coming-soon"></a>
+</h3>
 </div>
 </div>
   </div>
@@ -215,11 +224,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by David Granjon.</p>
+  <p></p>
+<p>Developed by David Granjon.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -227,6 +238,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -2,12 +2,22 @@
 % Please edit documentation in R/skinSelector.R
 \name{skinSelector}
 \alias{skinSelector}
+\alias{skinSelectorItem}
 \title{AdminLTE2 skin selector}
 \usage{
 skinSelector()
+
+skinSelectorItem(color)
+}
+\arguments{
+\item{color}{Skin color: "blue", "black", "purple", "red", "green", "yellow" as well as
+"blue-light", "black-light", "purple-light", "red-light", "green-light" and  "yellow-light".}
 }
 \description{
-This creates a skin selector element.
+\link{skinSelector} creates a skin selector element.
+
+\link{skinSelectorItem} creates an item to insert in a skin selector object.
+Used internally by \link{skinSelector}.
 }
 \examples{
 if (interactive()) {
@@ -30,3 +40,4 @@ if (interactive()) {
 \author{
 David Granjon, \email{dgranjon@ymail.com}
 }
+\keyword{internal}

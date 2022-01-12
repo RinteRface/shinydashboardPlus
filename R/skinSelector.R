@@ -1,8 +1,10 @@
 #' AdminLTE2 skin selector
 #'
-#' This creates a skin selector element.
+#' \link{skinSelector} creates a skin selector element.
 #' 
 #' @author David Granjon, \email{dgranjon@@ymail.com}
+#' 
+#' @rdname skinSelector
 #'
 #' @examples
 #' if (interactive()) {
@@ -37,12 +39,14 @@ skinSelector <- function() {
 
 #' AdminLTE2 skin selector item
 #'
-#' This creates an item to insert in a skin selector object.
+#' \link{skinSelectorItem} creates an item to insert in a skin selector object.
+#' Used internally by \link{skinSelector}.
 #' 
 #' @param color Skin color: "blue", "black", "purple", "red", "green", "yellow" as well as
 #' "blue-light", "black-light", "purple-light", "red-light", "green-light" and  "yellow-light".
-#' 
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+
+#' @rdname skinSelector
+#' @keywords internal
 skinSelectorItem <- function(color) {
   bg_color <- strsplit(x = color, split = "-")[[1]][1]
   skin <- paste0("skin-", color)

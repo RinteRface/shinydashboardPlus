@@ -1,5 +1,5 @@
 pandoc: 2.14.0.3
-pkgdown: 1.6.1
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   box-elements: box-elements.html
@@ -10,5 +10,5 @@ articles:
   improved-boxes: improved-boxes.html
   more-skins: more-skins.html
   shinydashboardPlus: shinydashboardPlus.html
-last_built: 2021-11-15T10:39Z
+last_built: 2022-01-12T10:56Z
 

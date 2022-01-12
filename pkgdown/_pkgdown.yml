@@ -119,7 +119,7 @@ navbar:
     - articles
     - tutorials
     - news
-    right: github
+    right: [search, github, twitter]
   components:
     home:
       icon: fa-home fa-lg
@@ -133,6 +133,11 @@ navbar:
     github:
       icon: fa-github fa-lg
       href: https://github.com/RinteRface/shinydashboardPlus
+    twitter:
+      icon: fa-twitter
+      href: http://twitter.com/divadnojnarg
+      aria-label: Twitter
+    
       
       
 articles:

@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
       </span>
     </div>
 
@@ -65,7 +67,8 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li class="divider">
-    <li class="dropdown-header">User Guide</li>
+    </li>
+<li class="dropdown-header">User Guide</li>
     <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
@@ -95,8 +98,14 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/RinteRface/shinydashboardPlus">
+  <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">
     <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://twitter.com/divadnojnarg" class="external-link">
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
@@ -110,86 +119,86 @@
 
       
 
-      </header><script src="controlbar_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Extra Skeleton Elements</h1>
-                        <h4 class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David Granjon</h4>
             
-            <h4 class="date">2021-11-15</h4>
+            <h4 data-toc-skip class="date">2022-01-12</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/controlbar.Rmd"><code>vignettes/controlbar.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/controlbar.Rmd" class="external-link"><code>vignettes/controlbar.Rmd</code></a></small>
       <div class="hidden name"><code>controlbar.Rmd</code></div>
 
     </div>
 
     
     
-<div id="extra-template-elements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#extra-template-elements" class="anchor"></a>Extra template elements</h2>
-<p><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a> skeleton elements are :</p>
+<div class="section level2">
+<h2 id="extra-template-elements">Extra template elements<a class="anchor" aria-label="anchor" href="#extra-template-elements"></a>
+</h2>
+<p><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a> skeleton elements are :</p>
 <ul>
 <li>
 <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> (page wrapper)</li>
 <li>
 <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code> (navbar)</li>
 <li>
-<code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> (left sidebar)</li>
+<code><a href="../reference/sidebar.html">dashboardSidebar()</a></code> (left sidebar)</li>
 </ul>
 <p>However, AdminLTE has a footer and a right sidebar, also known as controlbar. The footer is usually a good place to put contact information like mail, authors and copyrights, while the controlbar may contain secondary inputs or extra options that are not necessary to be shown in the app.</p>
-<div id="controlbar" class="section level3">
-<h3 class="hasAnchor">
-<a href="#controlbar" class="anchor"></a>Controlbar</h3>
-<div id="basics" class="section level4">
-<h4 class="hasAnchor">
-<a href="#basics" class="anchor"></a>Basics</h4>
-<p>To include the controlbar, use <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> in the dedicated <em>controlbar</em> parameter. It has several options:</p>
+<div class="section level3">
+<h3 id="controlbar">Controlbar<a class="anchor" aria-label="anchor" href="#controlbar"></a>
+</h3>
+<div class="section level4">
+<h4 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
+</h4>
+<p>To include the controlbar, use <code><a href="../reference/controlbar.html">dashboardControlbar()</a></code> in the dedicated <em>controlbar</em> parameter. It has several options:</p>
 <ul>
-<li>id is used to capture the current state of the controlbar (open or closed) and to programmatically toggle it with <code><a href="../reference/dashboardControlbar.html">updateControlbar()</a></code>. This is useful if the controlbar would have to open as a result of another action, to indicate users they have to play with it</li>
+<li>id is used to capture the current state of the controlbar (open or closed) and to programmatically toggle it with <code><a href="../reference/controlbar.html">updateControlbar()</a></code>. This is useful if the controlbar would have to open as a result of another action, to indicate users they have to play with it</li>
 <li>collapsed indicated whether the sidebar is opened or closed at start</li>
 <li>overlay controls the collapse behavior, that is whether the controlbar has to push the body content to the left. By default, it will cover the body content. Note that you may also control this behavior via the <code>dashboardPagge()</code> <em>option</em> parameter!</li>
 <li>skin is a cosmetic parameter with 2 values: dark or light with a default value to dark. Importantly, the global theme option do not impact the controlbar background</li>
 </ul>
 <p>The app below will show an open controlbar at start.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
-    controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span>collapsed <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,
+    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
+    controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span>collapsed <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,
     title <span class="op">=</span> <span class="st">"DashboardPage"</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
 <span class="op">)</span></code></pre></div>
 </div>
-<div id="include-menus" class="section level4">
-<h4 class="hasAnchor">
-<a href="#include-menus" class="anchor"></a>Include menus</h4>
-<p>The <code>dashboardControlbar</code> function also accepts to contain tabs, similarly to the <code><a href="../reference/dashboardSidebar.html">dashboardSidebar()</a></code> navigation menu. <code><a href="../reference/dashboardControlbar.html">controlbarMenu()</a></code> is a modified <code><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html">shiny::tabsetPanel()</a></code> that has an optional <em>id</em> to control the select item on the server side with <code><a href="../reference/dashboardControlbar.html">updateControlbarMenu()</a></code>. <em>selected</em> indicates which item must be selected by default. Below is a use case of the controlbar menu:</p>
+<div class="section level4">
+<h4 id="include-menus">Include menus<a class="anchor" aria-label="anchor" href="#include-menus"></a>
+</h4>
+<p>The <code>dashboardControlbar</code> function also accepts to contain tabs, similarly to the <code><a href="../reference/sidebar.html">dashboardSidebar()</a></code> navigation menu. <code><a href="../reference/controlbar.html">controlbarMenu()</a></code> is a modified <code><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html" class="external-link">shiny::tabsetPanel()</a></code> that has an optional <em>id</em> to control the select item on the server side with <code><a href="../reference/controlbar.html">updateControlbarMenu()</a></code>. <em>selected</em> indicates which item must be selected by default. Below is a use case of the controlbar menu:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">menu</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardControlbar.html">controlbarMenu</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">menu</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/controlbar.html">controlbarMenu</a></span><span class="op">(</span>
   id <span class="op">=</span> <span class="st">"controlbarMenu"</span>,
-  <span class="fu"><a href="../reference/dashboardControlbar.html">controlbarItem</a></span><span class="op">(</span>
+  <span class="fu"><a href="../reference/controlbar.html">controlbarItem</a></span><span class="op">(</span>
     <span class="st">"Tab 1"</span>,
     <span class="st">"Welcome to tab 1"</span>
   <span class="op">)</span>,
-  <span class="fu"><a href="../reference/dashboardControlbar.html">controlbarItem</a></span><span class="op">(</span>
+  <span class="fu"><a href="../reference/controlbar.html">controlbarItem</a></span><span class="op">(</span>
     <span class="st">"Tab 2"</span>,
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"num"</span>, <span class="st">"Observations:"</span>, <span class="fl">200</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">1000</span>, step <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html" class="external-link">numericInput</a></span><span class="op">(</span><span class="st">"num"</span>, <span class="st">"Observations:"</span>, <span class="fl">200</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">1000</span>, step <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
   <span class="op">)</span>
 <span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
-    controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span>
+    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
+    controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span>
       skin <span class="op">=</span> <span class="st">"dark"</span>,
       <span class="va">menu</span>
     <span class="op">)</span>,
@@ -199,19 +208,19 @@
 <span class="op">)</span></code></pre></div>
 <p>It is best practice to limit the number of <code>controlbarItem</code> to 5 since the horizontal space is rather limited.</p>
 </div>
-<div id="the-controlbar-api" class="section level4">
-<h4 class="hasAnchor">
-<a href="#the-controlbar-api" class="anchor"></a>The controlbar API</h4>
+<div class="section level4">
+<h4 id="the-controlbar-api">The controlbar API<a class="anchor" aria-label="anchor" href="#the-controlbar-api"></a>
+</h4>
 <p>As mentioned above, the most powerful feature is the possibility to control elements on the server. In the example below, the main sidebar has 3 items, each item will open a specific menu item in the controlbar.</p>
 <p>We first create 3 generic sidebar menu items using <code>lapply</code>. Note that the controlbar menu is defined above in the previous example.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">sidebarMenu</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">sidebarMenu</a></span><span class="op">(</span>
   id <span class="op">=</span> <span class="st">"sidebarMenu"</span>,
-  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">menuItem</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"Menu %s"</span>, <span class="va">i</span><span class="op">)</span>, 
-      tabName <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"menu_%s"</span>, <span class="va">i</span><span class="op">)</span>, 
-      icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"circle"</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">menuItem</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"Menu %s"</span>, <span class="va">i</span><span class="op">)</span>, 
+      tabName <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"menu_%s"</span>, <span class="va">i</span><span class="op">)</span>, 
+      icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"circle"</span><span class="op">)</span>
     <span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
@@ -219,37 +228,37 @@
 <p>To include even more interactivity, we listen to <code>input$controlbarMenu</code>. When the second item is clicked, we toggle the box sidebar with <code>updateBoxSidebar("boxSidebar")</code>.</p>
 <p>In conclusion, you may imagine a lot of other situations.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span>
+    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span>
       minified <span class="op">=</span> <span class="cn">TRUE</span>, 
       collapsed <span class="op">=</span> <span class="cn">TRUE</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">sidebarMenu</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">sidebarMenu</a></span><span class="op">(</span>
         id <span class="op">=</span> <span class="st">"sidebarMenu"</span>,
-        <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span>
-          <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">menuItem</a></span><span class="op">(</span>
-            <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"Menu %s"</span>, <span class="va">i</span><span class="op">)</span>, 
-            tabName <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"menu_%s"</span>, <span class="va">i</span><span class="op">)</span>, 
-            icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"circle"</span><span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">menuItem</a></span><span class="op">(</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"Menu %s"</span>, <span class="va">i</span><span class="op">)</span>, 
+            tabName <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"menu_%s"</span>, <span class="va">i</span><span class="op">)</span>, 
+            icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"circle"</span><span class="op">)</span>
           <span class="op">)</span>
         <span class="op">}</span><span class="op">)</span>
       <span class="op">)</span>
     <span class="op">)</span>,
-    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/tabItems.html">tabItems</a></span><span class="op">(</span>
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/tabItem.html">tabItem</a></span><span class="op">(</span>tabName <span class="op">=</span> <span class="st">"menu_1"</span>, <span class="st">"Content 1"</span><span class="op">)</span>, 
-        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/tabItem.html">tabItem</a></span><span class="op">(</span>
+    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/tabItems.html" class="external-link">tabItems</a></span><span class="op">(</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/tabItem.html" class="external-link">tabItem</a></span><span class="op">(</span>tabName <span class="op">=</span> <span class="st">"menu_1"</span>, <span class="st">"Content 1"</span><span class="op">)</span>, 
+        <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/tabItem.html" class="external-link">tabItem</a></span><span class="op">(</span>
           tabName <span class="op">=</span> <span class="st">"menu_2"</span>,
           <span class="fu"><a href="../reference/box.html">box</a></span><span class="op">(</span>
             title <span class="op">=</span> <span class="st">"Always the same plot!"</span>,
             collapsible <span class="op">=</span> <span class="cn">TRUE</span>, 
-            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>,
+            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>,
             sidebar <span class="op">=</span> <span class="fu"><a href="../reference/boxSidebar.html">boxSidebar</a></span><span class="op">(</span>
               id <span class="op">=</span> <span class="st">"boxSidebar"</span>,
               background <span class="op">=</span> <span class="st">"#808080"</span>,
               width <span class="op">=</span> <span class="st">"50%"</span>,
-              <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span>
+              <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span>
                 <span class="st">"obs"</span>, 
                 <span class="st">"Number of observations:"</span>,
                 min <span class="op">=</span> <span class="fl">0</span>,
@@ -261,33 +270,33 @@
         <span class="op">)</span>
       <span class="op">)</span>
     <span class="op">)</span>,
-    controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span>
+    controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span>
       id <span class="op">=</span> <span class="st">"controlbar"</span>,
       <span class="va">menu</span>
     <span class="op">)</span>,
     title <span class="op">=</span> <span class="st">"DashboardPage"</span>
   <span class="op">)</span>,
   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">obs</span><span class="op">)</span><span class="op">)</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">obs</span><span class="op">)</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     <span class="co"># Switch controlbar menu based on sidebar item value. Moreover</span>
     <span class="co"># if the sidebar menu item is 2, the controlbar opens</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">sidebarMenu</span>, <span class="op">{</span>
-      <span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">sidebarMenu</span>, <span class="st">"_"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">sidebarMenu</span>, <span class="op">{</span>
+      <span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">sidebarMenu</span>, <span class="st">"_"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
       <span class="kw">if</span> <span class="op">(</span><span class="va">idx</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
-        <span class="fu"><a href="../reference/dashboardControlbar.html">updateControlbar</a></span><span class="op">(</span><span class="st">"controlbar"</span><span class="op">)</span>
+        <span class="fu"><a href="../reference/controlbar.html">updateControlbar</a></span><span class="op">(</span><span class="st">"controlbar"</span><span class="op">)</span>
       <span class="op">}</span>
-      <span class="fu"><a href="../reference/dashboardControlbar.html">updateControlbarMenu</a></span><span class="op">(</span><span class="st">"controlbarMenu"</span>, selected <span class="op">=</span> <span class="va">idx</span><span class="op">)</span>
+      <span class="fu"><a href="../reference/controlbar.html">updateControlbarMenu</a></span><span class="op">(</span><span class="st">"controlbarMenu"</span>, selected <span class="op">=</span> <span class="va">idx</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
     <span class="co"># Clicking on the second controlbar item makes the box sidebar open</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controlbarMenu</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controlbarMenu</span>, <span class="op">{</span>
       <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controlbarMenu</span> <span class="op">==</span> <span class="st">"Tab 2"</span><span class="op">)</span> <span class="fu"><a href="../reference/boxSidebar.html">updateBoxSidebar</a></span><span class="op">(</span><span class="st">"boxSidebar"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">num</span>, <span class="op">{</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateSliderInput.html">updateSliderInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"obs"</span>, value <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">num</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">num</span>, <span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateSliderInput.html" class="external-link">updateSliderInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"obs"</span>, value <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">num</span><span class="op">)</span>
     <span class="op">}</span>, ignoreInit <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     
   <span class="op">}</span>
@@ -306,16 +315,16 @@
 </div>
 </div>
 </div>
-<div id="footer" class="section level3">
-<h3 class="hasAnchor">
-<a href="#footer" class="anchor"></a>Footer</h3>
+<div class="section level3">
+<h3 id="footer">Footer<a class="anchor" aria-label="anchor" href="#footer"></a>
+</h3>
 <p>Not surprisingly <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code> creates a footer element. It has 2 slots, left and right, respectively.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
+     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
      footer <span class="op">=</span> <span class="fu"><a href="../reference/dashboardFooter.html">dashboardFooter</a></span><span class="op">(</span>left <span class="op">=</span> <span class="st">"Left content"</span>, right <span class="op">=</span> <span class="st">"Right content"</span><span class="op">)</span>,
      title <span class="op">=</span> <span class="st">"DashboardPage"</span>
    <span class="op">)</span>,
@@ -336,11 +345,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by David Granjon.</p>
+  <p></p>
+<p>Developed by David Granjon.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -348,6 +359,8 @@
 
   
 
+
+  
 
   </body>
 </html>

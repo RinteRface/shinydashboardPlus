@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
       </span>
     </div>
 
@@ -65,7 +67,8 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li class="divider">
-    <li class="dropdown-header">User Guide</li>
+    </li>
+<li class="dropdown-header">User Guide</li>
     <li>
       <a href="../articles/improved-boxes.html">Improved boxes</a>
     </li>
@@ -95,8 +98,14 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/RinteRface/shinydashboardPlus">
+  <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">
     <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://twitter.com/divadnojnarg" class="external-link">
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
@@ -110,35 +119,35 @@
 
       
 
-      </header><script src="more-skins_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Improved Skins</h1>
-                        <h4 class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David Granjon</h4>
             
-            <h4 class="date">2021-11-15</h4>
+            <h4 data-toc-skip class="date">2022-01-12</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/more-skins.Rmd"><code>vignettes/more-skins.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/more-skins.Rmd" class="external-link"><code>vignettes/more-skins.Rmd</code></a></small>
       <div class="hidden name"><code>more-skins.Rmd</code></div>
 
     </div>
 
     
     
-<div id="a-real-time-skin-selector" class="section level2">
-<h2 class="hasAnchor">
-<a href="#a-real-time-skin-selector" class="anchor"></a>A Real Time Skin Selector</h2>
-<p><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a> has a new feature called the <code><a href="../reference/skinSelector.html">skinSelector()</a></code>. This is a JavaScript based widget allowing the end user to change the app skin. According to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>, there are 6 unique colors with 2 versions, light or dark. Note that the <code><a href="../reference/dashboardControlbar.html">dashboardControlbar()</a></code> is the perfect place to host the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> since it may be seen as a secondary input (your app may still work without :))</p>
+<div class="section level2">
+<h2 id="a-real-time-skin-selector">A Real Time Skin Selector<a class="anchor" aria-label="anchor" href="#a-real-time-skin-selector"></a>
+</h2>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> has a new feature called the <code><a href="../reference/skinSelector.html">skinSelector()</a></code>. This is a JavaScript based widget allowing the end user to change the app skin. According to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>, there are 6 unique colors with 2 versions, light or dark. Note that the <code><a href="../reference/controlbar.html">dashboardControlbar()</a></code> is the perfect place to host the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> since it may be seen as a secondary input (your app may still work without :))</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/">shinydashboard</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
-     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span>collapsed <span class="op">=</span> <span class="cn">FALSE</span>, <span class="fu"><a href="../reference/skinSelector.html">skinSelector</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
+     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
+     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span>collapsed <span class="op">=</span> <span class="cn">FALSE</span>, <span class="fu"><a href="../reference/skinSelector.html">skinSelector</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
      title <span class="op">=</span> <span class="st">"Skin Selector"</span>
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
@@ -156,18 +165,18 @@
 </div>
 </div>
 </div>
-<div id="a-new-dark-skin-midnight" class="section level2">
-<h2 class="hasAnchor">
-<a href="#a-new-dark-skin-midnight" class="anchor"></a>A New Dark Skin: midnight</h2>
-<p>The midnight theme is powered by the corresponding Github <a href="https://github.com/anvyst/adminlte-skin-midnight">project</a>. It provides a plug and play dark theme.</p>
+<div class="section level2">
+<h2 id="a-new-dark-skin-midnight">A New Dark Skin: midnight<a class="anchor" aria-label="anchor" href="#a-new-dark-skin-midnight"></a>
+</h2>
+<p>The midnight theme is powered by the corresponding Github <a href="https://github.com/anvyst/adminlte-skin-midnight" class="external-link">project</a>. It provides a plug and play dark theme.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      skin <span class="op">=</span> <span class="st">"midnight"</span>,
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
-     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
+     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
+     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
      footer <span class="op">=</span> <span class="fu"><a href="../reference/dashboardFooter.html">dashboardFooter</a></span><span class="op">(</span><span class="op">)</span>,
      title <span class="op">=</span> <span class="st">"Midnight Skin"</span>
    <span class="op">)</span>,
@@ -178,22 +187,22 @@
 Midnight skin overview
 </p>
 </div>
-<p>This is the fastest option to get a dark design. You’ll see below that the <a href="https://github.com/dreamRs/fresh">fresh</a> package is able to provide a similar look and feel, with much more options (but more effort).</p>
-<p>Important: this feature is still <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
+<p>This is the fastest option to get a dark design. You’ll see below that the <a href="https://github.com/dreamRs/fresh" class="external-link">fresh</a> package is able to provide a similar look and feel, with much more options (but more effort).</p>
+<p>Important: this feature is still <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
 </div>
-<div id="material-design-adminlte" class="section level2">
-<h2 class="hasAnchor">
-<a href="#material-design-adminlte" class="anchor"></a>Material Design + AdminLTE</h2>
-<p>To activate the material design feature, set <em>md</em> to TRUE in <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This feature is powered by <a href="https://github.com/DucThanhNguyen/MaterialAdminLTE">MaterialAdminLTE</a>, built on top of AdminLTE2 and <a href="https://fezvrasta.github.io/bootstrap-material-design/">material design for Bootstrap 3</a> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
+<div class="section level2">
+<h2 id="material-design-adminlte">Material Design + AdminLTE<a class="anchor" aria-label="anchor" href="#material-design-adminlte"></a>
+</h2>
+<p>To activate the material design feature, set <em>md</em> to TRUE in <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code>. This feature is powered by <a href="https://github.com/DucThanhNguyen/MaterialAdminLTE" class="external-link">MaterialAdminLTE</a>, built on top of AdminLTE2 and <a href="https://fezvrasta.github.io/bootstrap-material-design/" class="external-link">material design for Bootstrap 3</a> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      md <span class="op">=</span> <span class="cn">TRUE</span>,
      skin <span class="op">=</span> <span class="st">"blue"</span>,
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
-     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
+     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
+     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,
+     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
      footer <span class="op">=</span> <span class="fu"><a href="../reference/dashboardFooter.html">dashboardFooter</a></span><span class="op">(</span><span class="op">)</span>,
      title <span class="op">=</span> <span class="st">"Midnight Skin"</span>
    <span class="op">)</span>,
@@ -212,16 +221,16 @@ Midnight skin overview
 </div>
 </div>
 </div>
-<div id="fresh" class="section level2">
-<h2 class="hasAnchor">
-<a href="#fresh" class="anchor"></a>Fresh</h2>
-<p><a href="https://dreamrs.github.io/fresh/index.html"><code>{fresh}</code></a> is developed by the <a href="https://www.dreamrs.fr/">dreamRs</a> team. It is built on top of <a href="https://github.com/rstudio/sass">sass</a>, which provides a solid R <a href="https://github.com/rstudio/sass">API</a> to write SASS variables and compile into CSS. <a href="https://github.com/dreamRs/fresh">fresh</a> captures most of the AdminLTE2 (as well as AdminLTE3 for Bootstrap 4) SASS variables to allow deep customization, hiding all the compilation burden under the hood.</p>
-<p><code><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color()</a></code> provides an interface to all available AdminLTE colors and allow to overwrite the default. I strongly suggest to avoid setting the default green to blue, as it might become confusing. Instead, it is better to play with color palettes. Similarly, <code>adminlte_sidebar</code> allows to re-style the sidebar component. The fresh theme below is based on some cyberpunk color palettes.</p>
+<div class="section level2">
+<h2 id="fresh">Fresh<a class="anchor" aria-label="anchor" href="#fresh"></a>
+</h2>
+<p><a href="https://dreamrs.github.io/fresh/index.html" class="external-link"><code>{fresh}</code></a> is developed by the <a href="https://www.dreamrs.fr/" class="external-link">dreamRs</a> team. It is built on top of <a href="https://github.com/rstudio/sass" class="external-link">sass</a>, which provides a solid R <a href="https://github.com/rstudio/sass" class="external-link">API</a> to write SASS variables and compile into CSS. <a href="https://github.com/dreamRs/fresh" class="external-link">fresh</a> captures most of the AdminLTE2 (as well as AdminLTE3 for Bootstrap 4) SASS variables to allow deep customization, hiding all the compilation burden under the hood.</p>
+<p><code><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html" class="external-link">adminlte_color()</a></code> provides an interface to all available AdminLTE colors and allow to overwrite the default. I strongly suggest to avoid setting the default green to blue, as it might become confusing. Instead, it is better to play with color palettes. Similarly, <code>adminlte_sidebar</code> allows to re-style the sidebar component. The fresh theme below is based on some cyberpunk color palettes.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/fresh">fresh</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/fresh" class="external-link">fresh</a></span><span class="op">)</span>
 <span class="co"># create the theme with a cyberpunk color palette</span>
-<span class="va">theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/create_theme.html">create_theme</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html">adminlte_color</a></span><span class="op">(</span>
+<span class="va">theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/create_theme.html" class="external-link">create_theme</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_color.html" class="external-link">adminlte_color</a></span><span class="op">(</span>
     green <span class="op">=</span> <span class="st">"#3fff2d"</span>,
     blue <span class="op">=</span> <span class="st">"#2635ff"</span>,
     red <span class="op">=</span> <span class="st">" #ff2b2b"</span>,
@@ -232,18 +241,18 @@ Midnight skin overview
     maroon <span class="op">=</span> <span class="st">"#b659c9"</span>,
     light_blue <span class="op">=</span> <span class="st">"#5691cc"</span>
   <span class="op">)</span>,
-  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_sidebar.html">adminlte_sidebar</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_sidebar.html" class="external-link">adminlte_sidebar</a></span><span class="op">(</span>
     dark_bg <span class="op">=</span> <span class="st">"#D8DEE9"</span>,
     dark_hover_bg <span class="op">=</span> <span class="st">"#81A1C1"</span>,
     dark_color <span class="op">=</span> <span class="st">"#2E3440"</span>
   <span class="op">)</span>,
-  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_global.html">adminlte_global</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/fresh/man/adminlte_global.html" class="external-link">adminlte_global</a></span><span class="op">(</span>
     content_bg <span class="op">=</span> <span class="st">"#aaaaaa"</span>
   <span class="op">)</span>
 <span class="op">)</span>
 
 <span class="co"># create tribble for box global config</span>
-<span class="va">box_config</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+<span class="va">box_config</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span>
   <span class="op">~</span><span class="va">background</span>, <span class="op">~</span><span class="va">labelStatus</span>,
   <span class="st">"red"</span>, <span class="st">"warning"</span>,
   <span class="st">"purple"</span>, <span class="st">"success"</span>,
@@ -264,15 +273,15 @@ Midnight skin overview
 <span class="op">}</span>
 
 <span class="co"># pmap magic</span>
-<span class="va">boxes</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span><span class="op">(</span><span class="va">box_config</span>, <span class="va">box_factory</span><span class="op">)</span>
+<span class="va">boxes</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html" class="external-link">pmap</a></span><span class="op">(</span><span class="va">box_config</span>, <span class="va">box_factory</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
    ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
      freshTheme <span class="op">=</span> <span class="va">theme</span>,
      skin <span class="op">=</span> <span class="st">"blue"</span>,
-     options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>sidebarExpandOnHover <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+     options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>sidebarExpandOnHover <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
      header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span>
-       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html">dropdownMenu</a></span><span class="op">(</span>
+       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html" class="external-link">dropdownMenu</a></span><span class="op">(</span>
          type <span class="op">=</span> <span class="st">"messages"</span>, 
          badgeStatus <span class="op">=</span> <span class="st">"success"</span>,
          <span class="fu"><a href="../reference/messageItem.html">messageItem</a></span><span class="op">(</span>
@@ -287,14 +296,14 @@ Midnight skin overview
          <span class="op">)</span>
        <span class="op">)</span>
      <span class="op">)</span>,
-     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardSidebar.html">dashboardSidebar</a></span><span class="op">(</span>
-       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">sidebarMenu</a></span><span class="op">(</span>
-         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">menuItem</a></span><span class="op">(</span><span class="st">"Item 1"</span>, badgeLabel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"heart"</span><span class="op">)</span>, badgeColor <span class="op">=</span> <span class="st">"light-blue"</span><span class="op">)</span>,
-         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html">menuItem</a></span><span class="op">(</span><span class="st">"Item 2"</span>, badgeLabel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"poo"</span><span class="op">)</span>, badgeColor <span class="op">=</span> <span class="st">"maroon"</span><span class="op">)</span>
+     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span>
+       <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">sidebarMenu</a></span><span class="op">(</span>
+         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">menuItem</a></span><span class="op">(</span><span class="st">"Item 1"</span>, badgeLabel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"heart"</span><span class="op">)</span>, badgeColor <span class="op">=</span> <span class="st">"light-blue"</span><span class="op">)</span>,
+         <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">menuItem</a></span><span class="op">(</span><span class="st">"Item 2"</span>, badgeLabel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"poo"</span><span class="op">)</span>, badgeColor <span class="op">=</span> <span class="st">"maroon"</span><span class="op">)</span>
        <span class="op">)</span>
      <span class="op">)</span>,
-     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html">dashboardBody</a></span><span class="op">(</span><span class="va">boxes</span><span class="op">)</span>,
-     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/dashboardControlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
+     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="va">boxes</span><span class="op">)</span>,
+     controlbar <span class="op">=</span> <span class="fu"><a href="../reference/controlbar.html">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,
      title <span class="op">=</span> <span class="st">"Fresh theming"</span>
    <span class="op">)</span>,
    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>
@@ -325,11 +334,13 @@ Midnight skin overview
 
 
       <footer><div class="copyright">
-  <p>Developed by David Granjon.</p>
+  <p></p>
+<p>Developed by David Granjon.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -337,6 +348,8 @@ Midnight skin overview
 
   
 
+
+  
 
   </body>
 </html>

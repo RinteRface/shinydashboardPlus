@@ -29,6 +29,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -41,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
       </span>
     </div>
 
@@ -67,7 +69,8 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li class="divider">
-    <li class="dropdown-header">User Guide</li>
+    </li>
+<li class="dropdown-header">User Guide</li>
     <li>
       <a href="articles/improved-boxes.html">Improved boxes</a>
     </li>
@@ -97,8 +100,14 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/RinteRface/shinydashboardPlus">
+  <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">
     <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://twitter.com/divadnojnarg" class="external-link">
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
@@ -114,37 +123,37 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="shinydashboardplus" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#shinydashboardplus" class="anchor"></a>shinydashboardPlus</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="shinydashboardplus">shinydashboardPlus<a class="anchor" aria-label="anchor" href="#shinydashboardplus"></a>
+</h1></div>
 
 <blockquote>
 <p>extensions for shinydashboard</p>
 </blockquote>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># for the CRAN version</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"shinydashboardPlus"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"shinydashboardPlus"</span><span class="op">)</span>
 <span class="co"># for the latest version</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"RinteRface/shinydashboardPlus"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"RinteRface/shinydashboardPlus"</span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <div style="text-align:center;">
 <a href="articles/shinydashboardPlus.html" class="btn btn-outline-secondary btn-lg">Go to Get Started</a>
 </div>
 </div>
-<div id="motivations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#motivations" class="anchor"></a>Motivations</h2>
-<p>shinydashboardPlus is based on the idea of <a href="https://github.com/gyang274/ygdashboard/tree/master/R">ygdashboard</a>, the latter not compatible with shinydashboard (you cannot use shinydashboard and ygdashboard at the same time). With shinydashboardPlus you can still work with the shinydashboard classic functions and enrich your dashboard with all additional functions of shinydashboardPlus!</p>
+<div class="section level2">
+<h2 id="motivations">Motivations<a class="anchor" aria-label="anchor" href="#motivations"></a>
+</h2>
+<p>shinydashboardPlus is based on the idea of <a href="https://github.com/gyang274/ygdashboard/tree/master/R" class="external-link">ygdashboard</a>, the latter not compatible with shinydashboard (you cannot use shinydashboard and ygdashboard at the same time). With shinydashboardPlus you can still work with the shinydashboard classic functions and enrich your dashboard with all additional functions of shinydashboardPlus!</p>
 </div>
-<div id="demo" class="section level2">
-<h2 class="hasAnchor">
-<a href="#demo" class="anchor"></a>Demo</h2>
-<p>See a demonstration <a href="https://dgranjon.shinyapps.io/shinydashboardPlusDemo">here</a> or run:</p>
+<div class="section level2">
+<h2 id="demo">Demo<a class="anchor" aria-label="anchor" href="#demo"></a>
+</h2>
+<p>See a demonstration <a href="https://dgranjon.shinyapps.io/shinydashboardPlusDemo" class="external-link">here</a> or run:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus">shinydashboardPlus</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/shinydashboardPlusGallery.html">shinydashboardPlusGallery</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Below an example of application in medicine:</p>
 <p><img src="reference/figures/shinydashPlus_demo.png" width="848" height="530"><br></p>
@@ -161,77 +170,87 @@
 </div>
 </div>
 </div>
-<div id="acknowledgements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
+<div class="section level2">
+<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h2>
 <ul>
-<li>The <a href="https://adminlte.io">adminLTE team</a>
+<li>The <a href="https://adminlte.io" class="external-link">adminLTE team</a>
 </li>
 <li>
-<a href="https://github.com/pvictor">Victor Perrier</a> from <a href="https://www.dreamrs.fr">Dream’R</a>
+<a href="https://github.com/pvictor" class="external-link">Victor Perrier</a> from <a href="https://www.dreamrs.fr" class="external-link">Dream’R</a>
 </li>
 </ul>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the shinydashboardPlus project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
+<p>Please note that the shinydashboardPlus project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=shinydashboardPlus">https://​cloud.r-project.org/​package=shinydashboardPlus</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/RinteRface/shinydashboardPlus/">https://​github.com/​RinteRface/​shinydashboardPlus/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/RinteRface/shinydashboardPlus/issues">https://​github.com/​RinteRface/​shinydashboardPlus/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=shinydashboardPlus" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/RinteRface/shinydashboardPlus/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/RinteRface/shinydashboardPlus/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 2) | file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>David Granjon <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing shinydashboardPlus</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/RinteRface/shinydashboardPlus/actions"><img src="https://github.com/RinteRface/shinydashboardPlus/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://CRAN.R-project.org/package=shinydashboardPlus"><img src="https://www.r-pkg.org/badges/version/shinydashboardPlus" alt="version"></a></li>
-<li><a href="https://CRAN.R-project.org/package=shinydashboardPlus"><img src="https://cranlogs.r-pkg.org/badges/shinydashboardPlus" alt="cranlogs"></a></li>
-<li><a href="https://www.rpackages.io/package/shinydashboardPlus"><img src="https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus" alt="total"></a></li>
+<li>David Granjon <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/RinteRface/shinydashboardPlus/actions" class="external-link"><img src="https://github.com/RinteRface/shinydashboardPlus/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=shinydashboardPlus" class="external-link"><img src="https://www.r-pkg.org/badges/version/shinydashboardPlus" alt="version"></a></li>
+<li><a href="https://CRAN.R-project.org/package=shinydashboardPlus" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/shinydashboardPlus" alt="cranlogs"></a></li>
+<li><a href="https://www.rpackages.io/package/shinydashboardPlus" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus" alt="total"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by David Granjon.</p>
+  <p></p>
+<p>Developed by David Granjon.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -239,6 +258,8 @@
 
   
 
+
+  
 
   </body>
 </html>
