@@ -25,7 +25,7 @@ timelineItem(
 
 timelineItemMedia(image = NULL, height = NULL, width = NULL)
 
-timelineStart(icon = shiny::icon("clock-o"), color = NULL)
+timelineStart(icon = shiny::icon("clock"), color = NULL)
 
 timelineEnd(icon = shiny::icon("hourglass-end"), color = NULL)
 }

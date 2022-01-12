@@ -34,7 +34,7 @@ library(shinydashboardPlus)
        leftUi = tagList(
          dropdownButton(
            label = "Controls",
-           icon = icon("sliders"),
+           icon = icon("sliders-h"),
            status = "primary",
            circle = FALSE,
            sliderInput(
@@ -47,7 +47,7 @@ library(shinydashboardPlus)
              label_on = "NAs kept",
              label_off = "NAs removed",
              icon_on = icon("check"),
-             icon_off = icon("remove")
+             icon_off = icon("trash")
            )
          ),
          dropdownMenu(
@@ -87,7 +87,7 @@ shinyApp(
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
-          icon = "sliders",
+          icon = "sliders-h",
           sliderInput(
             inputId = "n",
             label = "Number of observations",
@@ -98,13 +98,13 @@ shinyApp(
             label_on = "NAs kept",
             label_off = "NAs removed",
             icon_on = icon("check"),
-            icon_off = icon("remove")
+            icon_off = icon("trash")
           )
         ),
         dropdownBlock(
           id = "mydropdown2",
           title = "Dropdown 2",
-          icon = "sliders",
+          icon = "sliders-h",
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",

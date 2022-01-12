@@ -1635,7 +1635,7 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
       #timelineItem time/date
       shiny::tags$span(
         class = "time",
-        shiny::icon("clock-o"),
+        shiny::icon("clock"),
         time
       ),
       
@@ -1714,7 +1714,7 @@ timelineItemMedia <- function(image = NULL, height = NULL, width = NULL) {
 #' @rdname timeline
 #' 
 #' @export
-timelineStart <- function(icon = shiny::icon("clock-o"), color = NULL) {
+timelineStart <- function(icon = shiny::icon("clock"), color = NULL) {
   
   iconTag <- icon
   if (!is.null(color)) {

@@ -13,7 +13,7 @@ shinyApp(
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
-          icon = icon("sliders"),
+          icon = icon("sliders-h"),
           sliderInput(
             inputId = "n",
             label = "Number of observations",
@@ -26,13 +26,13 @@ shinyApp(
             label_on = "NAs kept",
             label_off = "NAs removed",
             icon_on = icon("check"),
-            icon_off = icon("remove")
+            icon_off = icon("trash")
           )
         ),
         dropdownBlock(
           id = "mydropdown2",
           title = "Dropdown 2",
-          icon = icon("sliders"),
+          icon = icon("sliders-h"),
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",
@@ -208,7 +208,7 @@ shinyApp(
             descriptionBlock(
               number = "17%", 
               numberColor = "green", 
-              numberIcon = icon("fa fa-caret-up"),
+              numberIcon = icon("caret-up"),
               header = "$35,210.43", 
               text = "TOTAL REVENUE", 
               rightBorder = TRUE,
@@ -220,7 +220,7 @@ shinyApp(
             descriptionBlock(
               number = "18%", 
               numberColor = "red", 
-              numberIcon = icon("fa fa-caret-down"),
+              numberIcon = icon("caret-down"),
               header = "1200", 
               text = "GOAL COMPLETION", 
               rightBorder = FALSE,

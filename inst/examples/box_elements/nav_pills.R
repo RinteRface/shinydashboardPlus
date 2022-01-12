@@ -13,7 +13,7 @@ nav_pills <- 'box(
     navPillsItem(
       left = "Item 2", 
       color = "red",
-      icon = icon("fa fa-angle-down"), 
+      icon = icon("angle-down"), 
       right = "10%"
     )
   )
