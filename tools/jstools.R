@@ -2,10 +2,22 @@
 
 library(jstools)
 pkg_version <- as.character(utils::packageVersion("shinydashboardPlus"))
+
+# Rename srcjs folder in case pkg version changes
+tmp_old_version <- list.dirs("srcjs", full.names = FALSE, recursive = FALSE)
+old_version <- strsplit(tmp_old_version, "-")[[1]][2]
+new_srcjs_folder_name <- sprintf("srcjs/shinydashboardPlus-%s", pkg_version)
+
+if (old_version != pkg_version) {
+  file.rename(
+    file.path("srcjs", tmp_old_version), 
+    new_srcjs_folder_name
+  )
+}
 # Validate ----------------------------------------------------------------
 
 shinydashboardPlusJS <- list.files(
-  path = sprintf("srcjs/shinydashboardPlus-%s", pkg_version),
+  path = new_srcjs_folder_name,
   recursive = TRUE,
   full.names = TRUE
 )

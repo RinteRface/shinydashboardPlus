@@ -23,7 +23,7 @@ socialBox(
   id = NULL
 )
 
-userBlock(image, title, subtitle = NULL)
+userBlock(image, title, subtitle = NULL, href = "javascript:void(0)")
 
 boxComment(..., image, title = NULL, date = NULL)
 }
@@ -67,6 +67,8 @@ TRUE by default.}
 \item{image}{author image, if any.}
 
 \item{subtitle}{Any subtitle.}
+
+\item{href}{Target url or page.}
 
 \item{date}{date of publication.}
 }
