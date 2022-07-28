@@ -42,7 +42,7 @@
 #'         dropdownBlock(
 #'           id = "mydropdown",
 #'           title = "Dropdown 1",
-#'           icon = icon("sliders-h"),
+#'           icon = icon("sliders"),
 #'           sliderInput(
 #'             inputId = "n",
 #'             label = "Number of observations",
@@ -59,7 +59,7 @@
 #'         dropdownBlock(
 #'           id = "mydropdown2",
 #'           title = "Dropdown 2",
-#'           icon = icon("sliders-h"),
+#'           icon = icon("sliders"),
 #'           prettySwitch(
 #'             inputId = "switch4",
 #'             label = "Fill switch with status:",
@@ -97,7 +97,7 @@
 #' @export
 dashboardHeader <- function(..., title = NULL, titleWidth = NULL, 
                             disable = FALSE, .list = NULL, leftUi = NULL,
-                            controlbarIcon = shiny::icon("cogs"), fixed = FALSE) {
+                            controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
   # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")

@@ -78,7 +78,7 @@ shinyApp(
             appButton(
               inputId = "reload",
               label = "Click me!", 
-              icon = icon("sync"), 
+              icon = icon("arrows-rotate"), 
               dashboardBadge(1, color = "orange")
             )
           )

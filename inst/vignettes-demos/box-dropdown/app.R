@@ -19,7 +19,7 @@ shinyApp(
           boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
           boxDropdownItem("item 2", href = "https://www.google.com/"),
           dropdownDivider(),
-          boxDropdownItem("item 3", icon = icon("th"))
+          boxDropdownItem("item 3", icon = icon("table-cells"))
         ),
         "My box"
       )

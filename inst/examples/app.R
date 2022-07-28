@@ -13,7 +13,7 @@ shinyApp(
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
-          icon = icon("sliders-h"),
+          icon = icon("sliders"),
           sliderInput(
             inputId = "n",
             label = "Number of observations",
@@ -32,7 +32,7 @@ shinyApp(
         dropdownBlock(
           id = "mydropdown2",
           title = "Dropdown 2",
-          icon = icon("sliders-h"),
+          icon = icon("sliders"),
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",
@@ -81,14 +81,14 @@ shinyApp(
           tabName = "boxelements",
           badgeLabel = "new", 
           badgeColor = "green",
-          icon = icon("th")
+          icon = icon("table-cells")
         ),
         menuItem(
           text = "New extra elements", 
           tabName = "extraelements",
           badgeLabel = "new", 
           badgeColor = "green",
-          icon = icon("plus-circle")
+          icon = icon("circle-plus")
         )
       ),
       hr(),
