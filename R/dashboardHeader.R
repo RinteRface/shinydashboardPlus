@@ -53,7 +53,7 @@
 #'             label_on = "NAs kept",
 #'             label_off = "NAs removed",
 #'             icon_on = icon("check"),
-#'             icon_off = icon("trash")
+#'             icon_off = icon("trash-can")
 #'           )
 #'         ),
 #'         dropdownBlock(
@@ -549,7 +549,7 @@ taskItem <- function (text, value = 0, color = "aqua", href = NULL, inputId = NU
 #' @inheritParams shinydashboard::notificationItem
 #' @param inputId If not NULL, this item behaves like an action button.
 #' @export
-notificationItem <- function (text, icon = shiny::icon("warning"), status = "success", 
+notificationItem <- function (text, icon = shiny::icon("triangle-exclamation"), status = "success", 
                               href = NULL, inputId = NULL) {
   tagAssert(icon, type = "i")
   validateStatus(status)

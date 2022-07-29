@@ -26,7 +26,7 @@ shinyApp(
             label_on = "NAs kept",
             label_off = "NAs removed",
             icon_on = icon("check"),
-            icon_off = icon("trash")
+            icon_off = icon("trash-can")
           )
         ),
         dropdownBlock(
