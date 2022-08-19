@@ -6,7 +6,7 @@
 \usage{
 notificationItem(
   text,
-  icon = shiny::icon("warning"),
+  icon = shiny::icon("triangle-exclamation"),
   status = "success",
   href = NULL,
   inputId = NULL

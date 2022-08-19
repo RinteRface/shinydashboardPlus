@@ -11,7 +11,7 @@ dashboardHeader(
   disable = FALSE,
   .list = NULL,
   leftUi = NULL,
-  controlbarIcon = shiny::icon("cogs"),
+  controlbarIcon = shiny::icon("gears"),
   fixed = FALSE
 )
 }
@@ -63,7 +63,7 @@ if (interactive()) {
         dropdownBlock(
           id = "mydropdown",
           title = "Dropdown 1",
-          icon = icon("sliders-h"),
+          icon = icon("sliders"),
           sliderInput(
             inputId = "n",
             label = "Number of observations",
@@ -74,13 +74,13 @@ if (interactive()) {
             label_on = "NAs kept",
             label_off = "NAs removed",
             icon_on = icon("check"),
-            icon_off = icon("trash")
+            icon_off = icon("trash-can")
           )
         ),
         dropdownBlock(
           id = "mydropdown2",
           title = "Dropdown 2",
-          icon = icon("sliders-h"),
+          icon = icon("sliders"),
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",
