@@ -37,7 +37,7 @@ updateAccordion toggles an accordion on the client."><meta property="og:image" c
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -102,23 +102,31 @@ updateAccordion toggles an accordion on the client."><meta property="og:image" c
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">accordion</span><span class="op">(</span><span class="va">...</span>, id <span class="op">=</span> <span class="cn">NULL</span>, width <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>
-
-<span class="fu">accordionItem</span><span class="op">(</span><span class="va">...</span>, <span class="va">title</span>, status <span class="op">=</span> <span class="cn">NULL</span>, collapsed <span class="op">=</span> <span class="cn">TRUE</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="fu">updateAccordion</span><span class="op">(</span><span class="va">id</span>, <span class="va">selected</span>, session <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/domains.html" class="external-link">getDefaultReactiveDomain</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">accordion</span><span class="op">(</span><span class="va">...</span>, id <span class="op">=</span> <span class="cn">NULL</span>, width <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">accordionItem</span><span class="op">(</span><span class="va">...</span>, <span class="va">title</span>, status <span class="op">=</span> <span class="cn">NULL</span>, collapsed <span class="op">=</span> <span class="cn">TRUE</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">updateAccordion</span><span class="op">(</span><span class="va">id</span>, <span class="va">selected</span>, session <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/domains.html" class="external-link">getDefaultReactiveDomain</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>slot for accordionItem.</p></dd>
+
+
 <dt>id</dt>
 <dd><p>Accordion to target.</p></dd>
+
+
 <dt>width</dt>
 <dd><p>The width of the accordion.</p></dd>
+
+
 <dt>title</dt>
 <dd><p>Optional title.</p></dd>
+
+
 <dt>status</dt>
 <dd><p>The status of the item This determines the item's background
   color.  Valid statuses are defined as follows:</p><ul><li><p><code>primary</code>: <span style="width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;"></span>#3c8dbc</p></li>
@@ -133,15 +141,24 @@ updateAccordion toggles an accordion on the client."><meta property="og:image" c
 <li><p><code>maroon</code>: <span style="width:12px;height:12px;background:#D81B60;border-radius:2px;display:inline-block;margin-right:5px;"></span>#D81B60</p></li>
 <li><p><code>black</code>: <span style="width:12px;height:12px;background:#111111;border-radius:2px;display:inline-block;margin-right:5px;"></span>#111111</p></li>
 </ul><p>Only primary, success, info, warning and danger are compatible with solidHeader!</p></dd>
+
+
 <dt>collapsed</dt>
 <dd><p>If TRUE, start collapsed. This must be used with
 <code>collapsible=TRUE</code>.</p></dd>
+
+
 <dt>solidHeader</dt>
 <dd><p>Should the header be shown with a solid color background?</p></dd>
+
+
 <dt>selected</dt>
 <dd><p>Index of the newly selected accordionItem.</p></dd>
+
+
 <dt>session</dt>
 <dd><p>Shiny session object.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -150,96 +167,96 @@ updateAccordion toggles an accordion on the client."><meta property="og:image" c
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">      <span class="fu">accordion</span><span class="op">(</span></span>
-<span class="r-in">       id <span class="op">=</span> <span class="st">"accordion1"</span>,</span>
-<span class="r-in">        <span class="fu">accordionItem</span><span class="op">(</span></span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,</span>
-<span class="r-in">          status <span class="op">=</span> <span class="st">"danger"</span>,</span>
-<span class="r-in">          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">          <span class="st">"This is some text!"</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">accordionItem</span><span class="op">(</span></span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,</span>
-<span class="r-in">          status <span class="op">=</span> <span class="st">"warning"</span>,</span>
-<span class="r-in">          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">          <span class="st">"This is some text!"</span></span>
-<span class="r-in">        <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu">accordion</span><span class="op">(</span></span>
-<span class="r-in">       id <span class="op">=</span> <span class="st">"accordion2"</span>,</span>
-<span class="r-in">        <span class="fu">accordionItem</span><span class="op">(</span></span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Accordion 2 Item 1"</span>,</span>
-<span class="r-in">          status <span class="op">=</span> <span class="st">"info"</span>,</span>
-<span class="r-in">          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">          <span class="st">"This is some text!"</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">accordionItem</span><span class="op">(</span></span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Accordion 2 Item 2"</span>,</span>
-<span class="r-in">          status <span class="op">=</span> <span class="st">"success"</span>,</span>
-<span class="r-in">          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">          <span class="st">"This is some text!"</span></span>
-<span class="r-in">        <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"Accordion"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Update accordion</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu">accordion</span><span class="op">(</span></span>
-<span class="r-in">        id <span class="op">=</span> <span class="st">"accordion1"</span>,</span>
-<span class="r-in">        <span class="fu">accordionItem</span><span class="op">(</span></span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,</span>
-<span class="r-in">          status <span class="op">=</span> <span class="st">"danger"</span>,</span>
-<span class="r-in">          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">          <span class="st">"This is some text!"</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">accordionItem</span><span class="op">(</span></span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,</span>
-<span class="r-in">          status <span class="op">=</span> <span class="st">"warning"</span>,</span>
-<span class="r-in">          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">          <span class="st">"This is some text!"</span></span>
-<span class="r-in">        <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"Update Accordion"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span></span>
-<span class="r-in">      <span class="fu">updateAccordion</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"accordion1"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span></span>
-<span class="r-in">    <span class="op">}</span><span class="op">)</span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span>, <span class="op">{</span></span>
-<span class="r-in">      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You selected accordion N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span>
-<span class="r-in">    <span class="op">}</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fu">accordion</span><span class="op">(</span></span></span>
+<span class="r-in"><span>       id <span class="op">=</span> <span class="st">"accordion1"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">accordionItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,</span></span>
+<span class="r-in"><span>          status <span class="op">=</span> <span class="st">"danger"</span>,</span></span>
+<span class="r-in"><span>          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>          <span class="st">"This is some text!"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">accordionItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,</span></span>
+<span class="r-in"><span>          status <span class="op">=</span> <span class="st">"warning"</span>,</span></span>
+<span class="r-in"><span>          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>          <span class="st">"This is some text!"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">accordion</span><span class="op">(</span></span></span>
+<span class="r-in"><span>       id <span class="op">=</span> <span class="st">"accordion2"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">accordionItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Accordion 2 Item 1"</span>,</span></span>
+<span class="r-in"><span>          status <span class="op">=</span> <span class="st">"info"</span>,</span></span>
+<span class="r-in"><span>          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>          <span class="st">"This is some text!"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">accordionItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Accordion 2 Item 2"</span>,</span></span>
+<span class="r-in"><span>          status <span class="op">=</span> <span class="st">"success"</span>,</span></span>
+<span class="r-in"><span>          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>          <span class="st">"This is some text!"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Accordion"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Update accordion</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">accordion</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        id <span class="op">=</span> <span class="st">"accordion1"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">accordionItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,</span></span>
+<span class="r-in"><span>          status <span class="op">=</span> <span class="st">"danger"</span>,</span></span>
+<span class="r-in"><span>          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>          <span class="st">"This is some text!"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">accordionItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,</span></span>
+<span class="r-in"><span>          status <span class="op">=</span> <span class="st">"warning"</span>,</span></span>
+<span class="r-in"><span>          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>          <span class="st">"This is some text!"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Update Accordion"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>      <span class="fu">updateAccordion</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"accordion1"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You selected accordion N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -254,7 +271,7 @@ updateAccordion toggles an accordion on the client."><meta property="og:image" c
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

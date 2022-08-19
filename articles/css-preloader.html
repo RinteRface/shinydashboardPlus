@@ -60,7 +60,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -125,7 +125,7 @@
       <h1 data-toc-skip>CSS preloaders</h1>
                         <h4 data-toc-skip class="author">David Granjon</h4>
             
-            <h4 data-toc-skip class="date">2022-01-12</h4>
+            <h4 data-toc-skip class="date">2022-08-19</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/css-preloader.Rmd" class="external-link"><code>vignettes/css-preloader.Rmd</code></a></small>
       <div class="hidden name"><code>css-preloader.Rmd</code></div>
@@ -140,27 +140,27 @@
 <p>Pass the argument <code>preloader</code> to the <code><a href="../reference/dashboardPage.html">dashboardPage()</a></code> function. It expects a nested list containing all parameters necessary to <code><a href="https://rdrr.io/pkg/waiter/man/waiter.html" class="external-link">waiter::waiterShowOnLoad</a></code>. Please have a look to the <a href="https://waiter.john-coene.com/" class="external-link">waiter</a> <a href="https://waiter.john-coene.com/" class="external-link">documentation</a> for more details.</p>
 <p>That’s all!</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://waiter.john-coene.com/" class="external-link">waiter</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
-  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
-    preloader <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>html <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/waiter/man/spinners.html" class="external-link">spin_1</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"Loading ..."</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#3c8dbc"</span><span class="op">)</span>,
-    header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"reload"</span>, <span class="st">"Reload"</span><span class="op">)</span>
-    <span class="op">)</span>,
-    title <span class="op">=</span> <span class="st">"Preloader"</span>
-  <span class="op">)</span>,
-  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-    <span class="co"># fake reload</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reload</span>, <span class="op">{</span>
-      <span class="va">session</span><span class="op">$</span><span class="fu">reload</span><span class="op">(</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-  <span class="op">}</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://waiter.john-coene.com/" class="external-link">waiter</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
+<span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
+<span>    preloader <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>html <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/waiter/man/spinners.html" class="external-link">spin_1</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"Loading ..."</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#3c8dbc"</span><span class="op">)</span>,</span>
+<span>    header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"reload"</span>, <span class="st">"Reload"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Preloader"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># fake reload</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reload</span>, <span class="op">{</span></span>
+<span>      <span class="va">session</span><span class="op">$</span><span class="fu">reload</span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -193,7 +193,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

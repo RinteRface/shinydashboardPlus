@@ -36,7 +36,7 @@ to the classic Shiny action button."><meta property="og:image" content="/logo.sv
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -100,23 +100,32 @@ to the classic Shiny action button.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">appButton</span><span class="op">(</span><span class="va">...</span>, <span class="va">inputId</span>, <span class="va">label</span>, icon <span class="op">=</span> <span class="cn">NULL</span>, width <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">appButton</span><span class="op">(</span><span class="va">...</span>, <span class="va">inputId</span>, <span class="va">label</span>, icon <span class="op">=</span> <span class="cn">NULL</span>, width <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Named attributes to be applied to the button or link.</p></dd>
+
+
 <dt>inputId</dt>
 <dd><p>The <code>input</code> slot that will be used to access the value.</p></dd>
+
+
 <dt>label</dt>
 <dd><p>The contents of the button or link--usually a text label, but
 you could also use any other HTML, like an image.</p></dd>
+
+
 <dt>icon</dt>
 <dd><p>An optional <code><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon()</a></code> to appear on the button.</p></dd>
+
+
 <dt>width</dt>
 <dd><p>The width of the input, e.g. <code>'400px'</code>, or <code>'100%'</code>;
 see <code><a href="https://rdrr.io/pkg/htmltools/man/validateCssUnit.html" class="external-link">validateCssUnit()</a></code>.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -125,35 +134,35 @@ see <code><a href="https://rdrr.io/pkg/htmltools/man/validateCssUnit.html" class
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span>
-<span class="r-in">      title <span class="op">=</span> <span class="st">"App Buttons"</span>,</span>
-<span class="r-in">      status <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span class="r-in">      <span class="fu">appButton</span><span class="op">(</span></span>
-<span class="r-in">        inputId <span class="op">=</span> <span class="st">"myAppButton"</span>,</span>
-<span class="r-in">        label <span class="op">=</span> <span class="st">"Users"</span>, </span>
-<span class="r-in">        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"users"</span><span class="op">)</span>, </span>
-<span class="r-in">        <span class="fu"><a href="dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">textOutput</a></span><span class="op">(</span><span class="st">"btnVal"</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"App buttons"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">   <span class="va">output</span><span class="op">$</span><span class="va">btnVal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderText</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">myAppButton</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"App Buttons"</span>,</span></span>
+<span class="r-in"><span>      status <span class="op">=</span> <span class="cn">NULL</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">appButton</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        inputId <span class="op">=</span> <span class="st">"myAppButton"</span>,</span></span>
+<span class="r-in"><span>        label <span class="op">=</span> <span class="st">"Users"</span>, </span></span>
+<span class="r-in"><span>        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"users"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>        <span class="fu"><a href="dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">textOutput</a></span><span class="op">(</span><span class="st">"btnVal"</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"App buttons"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>   <span class="va">output</span><span class="op">$</span><span class="va">btnVal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderText</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">myAppButton</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -168,7 +177,7 @@ see <code><a href="https://rdrr.io/pkg/htmltools/man/validateCssUnit.html" class
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

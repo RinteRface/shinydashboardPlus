@@ -60,7 +60,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -139,61 +139,61 @@
 </h2>
 <p>Accordions are a category of collapsible elements. While collapsible items don’t alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. <code><a href="../reference/accordion.html">accordion()</a></code> expects to contain <code>accordionItems</code>. Importantly, to guaranty the uniqueness of each accordion, we must provide an <em>id</em> parameter. This parameter allows to programmatically toggle any accordion item, through an <code>updateAccordion</code> function.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span>
- <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
-  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,
-      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span>
-       id <span class="op">=</span> <span class="st">"accordion1"</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
-          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,
-          status <span class="op">=</span> <span class="st">"danger"</span>,
-          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,
-          <span class="st">"This is some text!"</span>
-        <span class="op">)</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
-          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,
-          status <span class="op">=</span> <span class="st">"warning"</span>,
-          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,
-          <span class="st">"This is some text!"</span>
-        <span class="op">)</span>
-      <span class="op">)</span>,
-      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span>
-       id <span class="op">=</span> <span class="st">"accordion2"</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
-          title <span class="op">=</span> <span class="st">"Accordion 2 Item 1"</span>,
-          status <span class="op">=</span> <span class="st">"info"</span>,
-          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,
-          <span class="st">"This is some text!"</span>
-        <span class="op">)</span>,
-        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span>
-          title <span class="op">=</span> <span class="st">"Accordion 2 Item 2"</span>,
-          status <span class="op">=</span> <span class="st">"success"</span>,
-          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,
-          <span class="st">"This is some text!"</span>
-        <span class="op">)</span>
-      <span class="op">)</span>
-    <span class="op">)</span>,
-    title <span class="op">=</span> <span class="st">"Accordion"</span>
-  <span class="op">)</span>,
-  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/accordion.html">updateAccordion</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"accordion1"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-    
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span><span class="op">)</span>
-    
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span>, <span class="op">{</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You selected accordion N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-  <span class="op">}</span>
- <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
+<span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span></span>
+<span>       id <span class="op">=</span> <span class="st">"accordion1"</span>,</span>
+<span>        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span></span>
+<span>          title <span class="op">=</span> <span class="st">"Accordion 1 Item 1"</span>,</span>
+<span>          status <span class="op">=</span> <span class="st">"danger"</span>,</span>
+<span>          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          <span class="st">"This is some text!"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span></span>
+<span>          title <span class="op">=</span> <span class="st">"Accordion 1 Item 2"</span>,</span>
+<span>          status <span class="op">=</span> <span class="st">"warning"</span>,</span>
+<span>          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          <span class="st">"This is some text!"</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span></span>
+<span>       id <span class="op">=</span> <span class="st">"accordion2"</span>,</span>
+<span>        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span></span>
+<span>          title <span class="op">=</span> <span class="st">"Accordion 2 Item 1"</span>,</span>
+<span>          status <span class="op">=</span> <span class="st">"info"</span>,</span>
+<span>          collapsed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          <span class="st">"This is some text!"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span></span>
+<span>          title <span class="op">=</span> <span class="st">"Accordion 2 Item 2"</span>,</span>
+<span>          status <span class="op">=</span> <span class="st">"success"</span>,</span>
+<span>          collapsed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          <span class="st">"This is some text!"</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Accordion"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span></span>
+<span>      <span class="fu"><a href="../reference/accordion.html">updateAccordion</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"accordion1"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">accordion1</span>, <span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You selected accordion N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">accordion1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span> <span class="op">)</span></span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -234,95 +234,95 @@
 <span id="cb2-15"><a href="#cb2-15"></a>  )</span></code></pre></div>
 <p>The <em>type</em> parameter controls the message background color. For a sent message, the color is inherited from the <code><a href="../reference/userMessage.html">userMessages()</a></code> status, while for a received message, the color is gray by default. The <em>text</em> argument refers to the message content. It may be simple text, shiny tags or event any combinations of shiny inputs/ouput, as shown in the below example.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>
-  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span>
-    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span>
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"remove"</span>, <span class="st">"Remove message"</span><span class="op">)</span>,
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"add"</span>, <span class="st">"Add message"</span><span class="op">)</span>,
-        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>, <span class="st">"Update message"</span><span class="op">)</span>
-      <span class="op">)</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html" class="external-link">numericInput</a></span><span class="op">(</span><span class="st">"index"</span>, <span class="st">"Message index:"</span>, <span class="fl">1</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,
-      <span class="fu"><a href="../reference/userMessage.html">userMessages</a></span><span class="op">(</span>
-        width <span class="op">=</span> <span class="fl">6</span>,
-        status <span class="op">=</span> <span class="st">"danger"</span>,
-        id <span class="op">=</span> <span class="st">"message"</span>,
-        <span class="fu"><a href="../reference/userMessage.html">userMessage</a></span><span class="op">(</span>
-          author <span class="op">=</span> <span class="st">"Alexander Pierce"</span>,
-          date <span class="op">=</span> <span class="st">"20 Jan 2:00 pm"</span>,
-          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,
-          type <span class="op">=</span> <span class="st">"received"</span>,
-          <span class="st">"Is this template really for free? That's unbelievable!"</span>
-        <span class="op">)</span>,
-        <span class="fu"><a href="../reference/userMessage.html">userMessage</a></span><span class="op">(</span>
-          author <span class="op">=</span> <span class="st">"Sarah Bullock"</span>,
-          date <span class="op">=</span> <span class="st">"23 Jan 2:05 pm"</span>,
-          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,
-          type <span class="op">=</span> <span class="st">"sent"</span>,
-          <span class="st">"You better believe it!"</span>
-        <span class="op">)</span>
-      <span class="op">)</span>
-    <span class="op">)</span>,
-    title <span class="op">=</span> <span class="st">"user Message"</span>
-  <span class="op">)</span>,
-  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">remove</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/userMessage.html">updateUserMessages</a></span><span class="op">(</span><span class="st">"message"</span>, action <span class="op">=</span> <span class="st">"remove"</span>, index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/userMessage.html">updateUserMessages</a></span><span class="op">(</span>
-        <span class="st">"message"</span>, 
-        action <span class="op">=</span> <span class="st">"add"</span>, 
-        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-          author <span class="op">=</span> <span class="st">"David"</span>,
-          date <span class="op">=</span> <span class="st">"Now"</span>,
-          image <span class="op">=</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,
-          type <span class="op">=</span> <span class="st">"received"</span>,
-          text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span>
-           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span>
-            <span class="st">"obs"</span>, 
-            <span class="st">"Number of observations:"</span>,
-            min <span class="op">=</span> <span class="fl">0</span>, 
-            max <span class="op">=</span> <span class="fl">1000</span>, 
-            value <span class="op">=</span> <span class="fl">500</span>
-           <span class="op">)</span>,
-           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>
-          <span class="op">)</span>
-        <span class="op">)</span>
-      <span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-    
-    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-     <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">obs</span><span class="op">)</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-    
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
-      <span class="fu"><a href="../reference/userMessage.html">updateUserMessages</a></span><span class="op">(</span>
-        <span class="st">"message"</span>, 
-        action <span class="op">=</span> <span class="st">"update"</span>, 
-        index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span>,
-        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-         text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span>
-          <span class="fu"><a href="../reference/appButton.html">appButton</a></span><span class="op">(</span>
-           inputId <span class="op">=</span> <span class="st">"reload"</span>,
-           label <span class="op">=</span> <span class="st">"Click me!"</span>, 
-           icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sync"</span><span class="op">)</span>, 
-           <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="fl">1</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span>
-          <span class="op">)</span>
-         <span class="op">)</span>
-        <span class="op">)</span>
-      <span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-    
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reload</span>, <span class="op">{</span>
-     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="st">"Yeah!"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-  <span class="op">}</span>
- <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
+<span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"remove"</span>, <span class="st">"Remove message"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"add"</span>, <span class="st">"Add message"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>, <span class="st">"Update message"</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html" class="external-link">numericInput</a></span><span class="op">(</span><span class="st">"index"</span>, <span class="st">"Message index:"</span>, <span class="fl">1</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/userMessage.html">userMessages</a></span><span class="op">(</span></span>
+<span>        width <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>        status <span class="op">=</span> <span class="st">"danger"</span>,</span>
+<span>        id <span class="op">=</span> <span class="st">"message"</span>,</span>
+<span>        <span class="fu"><a href="../reference/userMessage.html">userMessage</a></span><span class="op">(</span></span>
+<span>          author <span class="op">=</span> <span class="st">"Alexander Pierce"</span>,</span>
+<span>          date <span class="op">=</span> <span class="st">"20 Jan 2:00 pm"</span>,</span>
+<span>          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg"</span>,</span>
+<span>          type <span class="op">=</span> <span class="st">"received"</span>,</span>
+<span>          <span class="st">"Is this template really for free? That's unbelievable!"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/userMessage.html">userMessage</a></span><span class="op">(</span></span>
+<span>          author <span class="op">=</span> <span class="st">"Sarah Bullock"</span>,</span>
+<span>          date <span class="op">=</span> <span class="st">"23 Jan 2:05 pm"</span>,</span>
+<span>          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg"</span>,</span>
+<span>          type <span class="op">=</span> <span class="st">"sent"</span>,</span>
+<span>          <span class="st">"You better believe it!"</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"user Message"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">remove</span>, <span class="op">{</span></span>
+<span>      <span class="fu"><a href="../reference/userMessage.html">updateUserMessages</a></span><span class="op">(</span><span class="st">"message"</span>, action <span class="op">=</span> <span class="st">"remove"</span>, index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span></span>
+<span>      <span class="fu"><a href="../reference/userMessage.html">updateUserMessages</a></span><span class="op">(</span></span>
+<span>        <span class="st">"message"</span>, </span>
+<span>        action <span class="op">=</span> <span class="st">"add"</span>, </span>
+<span>        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>          author <span class="op">=</span> <span class="st">"David"</span>,</span>
+<span>          date <span class="op">=</span> <span class="st">"Now"</span>,</span>
+<span>          image <span class="op">=</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,</span>
+<span>          type <span class="op">=</span> <span class="st">"received"</span>,</span>
+<span>          text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span></span>
+<span>            <span class="st">"obs"</span>, </span>
+<span>            <span class="st">"Number of observations:"</span>,</span>
+<span>            min <span class="op">=</span> <span class="fl">0</span>, </span>
+<span>            max <span class="op">=</span> <span class="fl">1000</span>, </span>
+<span>            value <span class="op">=</span> <span class="fl">500</span></span>
+<span>           <span class="op">)</span>,</span>
+<span>           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>     <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">obs</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span></span>
+<span>      <span class="fu"><a href="../reference/userMessage.html">updateUserMessages</a></span><span class="op">(</span></span>
+<span>        <span class="st">"message"</span>, </span>
+<span>        action <span class="op">=</span> <span class="st">"update"</span>, </span>
+<span>        index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span>,</span>
+<span>        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>         text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>          <span class="fu"><a href="../reference/appButton.html">appButton</a></span><span class="op">(</span></span>
+<span>           inputId <span class="op">=</span> <span class="st">"reload"</span>,</span>
+<span>           label <span class="op">=</span> <span class="st">"Click me!"</span>, </span>
+<span>           icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sync"</span><span class="op">)</span>, </span>
+<span>           <span class="fu"><a href="../reference/dashboardBadge.html">dashboardBadge</a></span><span class="op">(</span><span class="fl">1</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>         <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reload</span>, <span class="op">{</span></span>
+<span>     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="st">"Yeah!"</span>, duration <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span> <span class="op">)</span></span></code></pre></div>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -355,7 +355,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

@@ -41,7 +41,7 @@ timelineEnd indicates an end point."><meta property="og:image" content="/logo.sv
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -110,35 +110,41 @@ given event like the title, description, date, ...</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">timelineBlock</span><span class="op">(</span><span class="va">...</span>, reversed <span class="op">=</span> <span class="cn">TRUE</span>, width <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
-
-<span class="fu">timelineLabel</span><span class="op">(</span><span class="va">...</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">timelineItem</span><span class="op">(</span>
-  <span class="va">...</span>,
-  icon <span class="op">=</span> <span class="cn">NULL</span>,
-  color <span class="op">=</span> <span class="cn">NULL</span>,
-  time <span class="op">=</span> <span class="cn">NULL</span>,
-  title <span class="op">=</span> <span class="cn">NULL</span>,
-  border <span class="op">=</span> <span class="cn">TRUE</span>,
-  footer <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="cn">NULL</span>, height <span class="op">=</span> <span class="cn">NULL</span>, width <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">timelineStart</span><span class="op">(</span>icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"clock"</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">timelineEnd</span><span class="op">(</span>icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"hourglass-end"</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">timelineBlock</span><span class="op">(</span><span class="va">...</span>, reversed <span class="op">=</span> <span class="cn">TRUE</span>, width <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">timelineLabel</span><span class="op">(</span><span class="va">...</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">timelineItem</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  icon <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  color <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  time <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  border <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  footer <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="cn">NULL</span>, height <span class="op">=</span> <span class="cn">NULL</span>, width <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">timelineStart</span><span class="op">(</span>icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"clock"</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">timelineEnd</span><span class="op">(</span>icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"hourglass-end"</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>any element.</p></dd>
+
+
 <dt>reversed</dt>
 <dd><p>Whether the timeline is reversed or not.</p></dd>
+
+
 <dt>width</dt>
 <dd><p>media width in pixels.</p></dd>
+
+
 <dt>color</dt>
 <dd><p>item color: see here for a list of valid colors <a href="https://adminlte.io/themes/AdminLTE/pages/UI/general.html" class="external-link">https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
 See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;"></span>#3c8dbc
@@ -174,20 +180,35 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 <li><p><code>gray</code>: <span style="width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;"></span>#d2d6de
 .</p></li>
 </ul></dd>
+
+
 <dt>icon</dt>
 <dd><p>item icon. Expect <code><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></code>.</p></dd>
+
+
 <dt>time</dt>
 <dd><p>item date or time.</p></dd>
+
+
 <dt>title</dt>
 <dd><p>item title.</p></dd>
+
+
 <dt>border</dt>
 <dd><p>Whether to display a border between the header and the body. TRUE by default.</p></dd>
+
+
 <dt>footer</dt>
 <dd><p>item footer if any.</p></dd>
+
+
 <dt>image</dt>
 <dd><p>media url or path.</p></dd>
+
+
 <dt>height</dt>
 <dd><p>media height in pixels.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -196,81 +217,81 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h3</a></span><span class="op">(</span><span class="st">"When Reversed = TRUE, can be displayed inside a box"</span><span class="op">)</span>,</span>
-<span class="r-in">     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span>
-<span class="r-in">      title <span class="op">=</span> <span class="st">"Timeline"</span>,</span>
-<span class="r-in">      status <span class="op">=</span> <span class="st">"info"</span>,</span>
-<span class="r-in">      <span class="fu">timelineBlock</span><span class="op">(</span></span>
-<span class="r-in">       width <span class="op">=</span> <span class="fl">12</span>,</span>
-<span class="r-in">       <span class="fu">timelineEnd</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2018</span>, color <span class="op">=</span> <span class="st">"teal"</span><span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineItem</span><span class="op">(</span></span>
-<span class="r-in">        title <span class="op">=</span> <span class="st">"Item 1"</span>,</span>
-<span class="r-in">        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"cogs"</span><span class="op">)</span>,</span>
-<span class="r-in">        color <span class="op">=</span> <span class="st">"olive"</span>,</span>
-<span class="r-in">        time <span class="op">=</span> <span class="st">"now"</span>,</span>
-<span class="r-in">        footer <span class="op">=</span> <span class="st">"Here is the footer"</span>,</span>
-<span class="r-in">        <span class="st">"This is the body"</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineItem</span><span class="op">(</span></span>
-<span class="r-in">        title <span class="op">=</span> <span class="st">"Item 2"</span>,</span>
-<span class="r-in">        border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2015</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineItem</span><span class="op">(</span></span>
-<span class="r-in">        title <span class="op">=</span> <span class="st">"Item 3"</span>,</span>
-<span class="r-in">        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"paint-brush"</span><span class="op">)</span>,</span>
-<span class="r-in">        color <span class="op">=</span> <span class="st">"maroon"</span>,</span>
-<span class="r-in">        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineStart</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span>,</span>
-<span class="r-in">     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h3</a></span><span class="op">(</span><span class="st">"When Reversed = FALSE, can be displayed out of a box"</span><span class="op">)</span>,</span>
-<span class="r-in">     <span class="fu">timelineBlock</span><span class="op">(</span></span>
-<span class="r-in">       reversed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">       <span class="fu">timelineEnd</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2018</span>, color <span class="op">=</span> <span class="st">"teal"</span><span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineItem</span><span class="op">(</span></span>
-<span class="r-in">        title <span class="op">=</span> <span class="st">"Item 1"</span>,</span>
-<span class="r-in">        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"cogs"</span><span class="op">)</span>,</span>
-<span class="r-in">        color <span class="op">=</span> <span class="st">"olive"</span>,</span>
-<span class="r-in">        time <span class="op">=</span> <span class="st">"now"</span>,</span>
-<span class="r-in">        footer <span class="op">=</span> <span class="st">"Here is the footer"</span>,</span>
-<span class="r-in">        <span class="st">"This is the body"</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineItem</span><span class="op">(</span></span>
-<span class="r-in">        title <span class="op">=</span> <span class="st">"Item 2"</span>,</span>
-<span class="r-in">        border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2015</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineItem</span><span class="op">(</span></span>
-<span class="r-in">        title <span class="op">=</span> <span class="st">"Item 3"</span>,</span>
-<span class="r-in">        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"paint-brush"</span><span class="op">)</span>,</span>
-<span class="r-in">        color <span class="op">=</span> <span class="st">"maroon"</span>,</span>
-<span class="r-in">        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">timelineStart</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"timelineBlock"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h3</a></span><span class="op">(</span><span class="st">"When Reversed = TRUE, can be displayed inside a box"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"Timeline"</span>,</span></span>
+<span class="r-in"><span>      status <span class="op">=</span> <span class="st">"info"</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">timelineBlock</span><span class="op">(</span></span></span>
+<span class="r-in"><span>       width <span class="op">=</span> <span class="fl">12</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineEnd</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2018</span>, color <span class="op">=</span> <span class="st">"teal"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Item 1"</span>,</span></span>
+<span class="r-in"><span>        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"gears"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        color <span class="op">=</span> <span class="st">"olive"</span>,</span></span>
+<span class="r-in"><span>        time <span class="op">=</span> <span class="st">"now"</span>,</span></span>
+<span class="r-in"><span>        footer <span class="op">=</span> <span class="st">"Here is the footer"</span>,</span></span>
+<span class="r-in"><span>        <span class="st">"This is the body"</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Item 2"</span>,</span></span>
+<span class="r-in"><span>        border <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2015</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Item 3"</span>,</span></span>
+<span class="r-in"><span>        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"paint-brush"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        color <span class="op">=</span> <span class="st">"maroon"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineStart</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span>,</span></span>
+<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h3</a></span><span class="op">(</span><span class="st">"When Reversed = FALSE, can be displayed out of a box"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     <span class="fu">timelineBlock</span><span class="op">(</span></span></span>
+<span class="r-in"><span>       reversed <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineEnd</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2018</span>, color <span class="op">=</span> <span class="st">"teal"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Item 1"</span>,</span></span>
+<span class="r-in"><span>        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"gears"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        color <span class="op">=</span> <span class="st">"olive"</span>,</span></span>
+<span class="r-in"><span>        time <span class="op">=</span> <span class="st">"now"</span>,</span></span>
+<span class="r-in"><span>        footer <span class="op">=</span> <span class="st">"Here is the footer"</span>,</span></span>
+<span class="r-in"><span>        <span class="st">"This is the body"</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Item 2"</span>,</span></span>
+<span class="r-in"><span>        border <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineLabel</span><span class="op">(</span><span class="fl">2015</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Item 3"</span>,</span></span>
+<span class="r-in"><span>        icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"paint-brush"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        color <span class="op">=</span> <span class="st">"maroon"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">timelineItemMedia</span><span class="op">(</span>image <span class="op">=</span> <span class="st">"https://placehold.it/150x100"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">timelineStart</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"timelineBlock"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -285,7 +306,7 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

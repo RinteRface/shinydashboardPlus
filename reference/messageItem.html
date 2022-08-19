@@ -35,7 +35,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -98,33 +98,44 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">messageItem</span><span class="op">(</span>
-  <span class="va">from</span>,
-  <span class="va">message</span>,
-  icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"user"</span><span class="op">)</span>,
-  time <span class="op">=</span> <span class="cn">NULL</span>,
-  href <span class="op">=</span> <span class="cn">NULL</span>,
-  inputId <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">messageItem</span><span class="op">(</span></span>
+<span>  <span class="va">from</span>,</span>
+<span>  <span class="va">message</span>,</span>
+<span>  icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"user"</span><span class="op">)</span>,</span>
+<span>  time <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  href <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  inputId <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>from</dt>
 <dd><p>Who the message is from.</p></dd>
+
+
 <dt>message</dt>
 <dd><p>Text of the message.</p></dd>
+
+
 <dt>icon</dt>
 <dd><p>An icon tag, created by <code><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></code>.</p></dd>
+
+
 <dt>time</dt>
 <dd><p>String representing the time the message was sent. Any string may
 be used. For example, it could be a relative date/time like "5 minutes",
 "today", or "12:30pm yesterday", or an absolute time, like "2014-12-01 13:45".
 If NULL, no time will be displayed.</p></dd>
+
+
 <dt>href</dt>
 <dd><p>An optional URL to link to.</p></dd>
+
+
 <dt>inputId</dt>
 <dd><p>If not NULL, this item behaves like an action button.</p></dd>
+
 </dl></div>
 
   </div>
@@ -139,7 +150,7 @@ If NULL, no time will be displayed.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

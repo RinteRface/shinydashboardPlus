@@ -35,7 +35,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -98,15 +98,19 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">starBlock</span><span class="op">(</span><span class="va">value</span>, max <span class="op">=</span> <span class="fl">5</span>, color <span class="op">=</span> <span class="st">"yellow"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">starBlock</span><span class="op">(</span><span class="va">value</span>, max <span class="op">=</span> <span class="fl">5</span>, color <span class="op">=</span> <span class="st">"yellow"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>value</dt>
 <dd><p>Current score. Should be positive and lower or equal to max.</p></dd>
+
+
 <dt>max</dt>
 <dd><p>Maximum number of stars by block.</p></dd>
+
+
 <dt>color</dt>
 <dd><p>Star color: see <code><a href="validColors.html">validColors()</a></code> in the documentation.
 See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;"></span>#3c8dbc
@@ -142,6 +146,7 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 <li><p><code>gray</code>: <span style="width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;"></span>#d2d6de
 .</p></li>
 </ul></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -150,30 +155,30 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span>
-<span class="r-in">      title <span class="op">=</span> <span class="st">"Star example"</span>,</span>
-<span class="r-in">      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">5</span>, color <span class="op">=</span> <span class="st">"olive"</span><span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">1</span>, color <span class="op">=</span> <span class="st">"maroon"</span><span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">3</span>, color <span class="op">=</span> <span class="st">"teal"</span><span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"starBlock"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"Star example"</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">5</span>, color <span class="op">=</span> <span class="st">"olive"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">1</span>, color <span class="op">=</span> <span class="st">"maroon"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu">starBlock</span><span class="op">(</span><span class="fl">3</span>, color <span class="op">=</span> <span class="st">"teal"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"starBlock"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -188,7 +193,7 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

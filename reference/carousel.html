@@ -36,7 +36,7 @@ carouselItem creates a carousel item to insert in a carousel."><meta property="o
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -100,28 +100,41 @@ carouselItem creates a carousel item to insert in a carousel."><meta property="o
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">carousel</span><span class="op">(</span><span class="va">...</span>, <span class="va">id</span>, indicators <span class="op">=</span> <span class="cn">TRUE</span>, width <span class="op">=</span> <span class="fl">6</span>, .list <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">carouselItem</span><span class="op">(</span><span class="va">...</span>, caption <span class="op">=</span> <span class="cn">NULL</span>, active <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">carousel</span><span class="op">(</span><span class="va">...</span>, <span class="va">id</span>, indicators <span class="op">=</span> <span class="cn">TRUE</span>, width <span class="op">=</span> <span class="fl">6</span>, .list <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">carouselItem</span><span class="op">(</span><span class="va">...</span>, caption <span class="op">=</span> <span class="cn">NULL</span>, active <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Element such as images, iframe, ...</p></dd>
+
+
 <dt>id</dt>
 <dd><p>Carousel id. Must be unique.</p></dd>
+
+
 <dt>indicators</dt>
 <dd><p>Whether to display left and right indicators.</p></dd>
+
+
 <dt>width</dt>
 <dd><p>Carousel width. 6 by default.</p></dd>
+
+
 <dt>.list</dt>
 <dd><p>Should you need to pass carouselItem via <a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a> or similar,
 put these item here instead of passing them in ...</p></dd>
+
+
 <dt>caption</dt>
 <dd><p>Item caption.</p></dd>
+
+
 <dt>active</dt>
 <dd><p>Whether the item is active or not at start.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -130,33 +143,33 @@ put these item here instead of passing them in ...</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">   ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">     header <span class="op">=</span> <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">     sidebar <span class="op">=</span> <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">      <span class="fu">carousel</span><span class="op">(</span></span>
-<span class="r-in">       id <span class="op">=</span> <span class="st">"mycarousel"</span>,</span>
-<span class="r-in">       <span class="fu">carouselItem</span><span class="op">(</span></span>
-<span class="r-in">        caption <span class="op">=</span> <span class="st">"Item 1"</span>,</span>
-<span class="r-in">        <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap"</span><span class="op">)</span></span>
-<span class="r-in">       <span class="op">)</span>,</span>
-<span class="r-in">       <span class="fu">carouselItem</span><span class="op">(</span></span>
-<span class="r-in">        caption <span class="op">=</span> <span class="st">"Item 2"</span>,</span>
-<span class="r-in">        <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap"</span><span class="op">)</span></span>
-<span class="r-in">       <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span>,</span>
-<span class="r-in">     title <span class="op">=</span> <span class="st">"Carousel"</span></span>
-<span class="r-in">   <span class="op">)</span>,</span>
-<span class="r-in">   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>   ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     header <span class="op">=</span> <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     sidebar <span class="op">=</span> <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fu">carousel</span><span class="op">(</span></span></span>
+<span class="r-in"><span>       id <span class="op">=</span> <span class="st">"mycarousel"</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">carouselItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        caption <span class="op">=</span> <span class="st">"Item 1"</span>,</span></span>
+<span class="r-in"><span>        <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span>,</span></span>
+<span class="r-in"><span>       <span class="fu">carouselItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        caption <span class="op">=</span> <span class="st">"Item 2"</span>,</span></span>
+<span class="r-in"><span>        <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span>,</span></span>
+<span class="r-in"><span>     title <span class="op">=</span> <span class="st">"Carousel"</span></span></span>
+<span class="r-in"><span>   <span class="op">)</span>,</span></span>
+<span class="r-in"><span>   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -171,7 +184,7 @@ put these item here instead of passing them in ...</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

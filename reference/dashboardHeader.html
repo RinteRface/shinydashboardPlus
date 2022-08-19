@@ -36,7 +36,7 @@ on the right side."><meta property="og:image" content="/logo.svg"><!-- mathjax -
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -100,44 +100,59 @@ on the right side.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dashboardHeader</span><span class="op">(</span>
-  <span class="va">...</span>,
-  title <span class="op">=</span> <span class="cn">NULL</span>,
-  titleWidth <span class="op">=</span> <span class="cn">NULL</span>,
-  disable <span class="op">=</span> <span class="cn">FALSE</span>,
-  .list <span class="op">=</span> <span class="cn">NULL</span>,
-  leftUi <span class="op">=</span> <span class="cn">NULL</span>,
-  controlbarIcon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"cogs"</span><span class="op">)</span>,
-  fixed <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dashboardHeader</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  titleWidth <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  disable <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  .list <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  leftUi <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  controlbarIcon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"gears"</span><span class="op">)</span>,</span>
+<span>  fixed <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Items to put in the header. Should be <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html" class="external-link">dropdownMenu</a></code>s.</p></dd>
+
+
 <dt>title</dt>
 <dd><p>An optional title to show in the header bar.. By default, this
 will also be used as the title shown in the browser's title bar. If you
 want that to be different from the text in the dashboard header bar, set
 the <code>title</code> in <code><a href="dashboardPage.html">dashboardPage</a></code>.</p></dd>
+
+
 <dt>titleWidth</dt>
 <dd><p>The width of the title area. This must either be a number
 which specifies the width in pixels, or a string that specifies the width
 in CSS units.</p></dd>
+
+
 <dt>disable</dt>
 <dd><p>If <code>TRUE</code>, don't display the header bar.</p></dd>
+
+
 <dt>.list</dt>
 <dd><p>An optional list containing items to put in the header. Same as
 the <code>...</code> arguments, but in list format. This can be useful when
 working with programmatically generated items.</p></dd>
+
+
 <dt>leftUi</dt>
 <dd><p>Items that will appear on the left part of the navbar. Should
 be wrapped in a tagList.</p></dd>
+
+
 <dt>controlbarIcon</dt>
 <dd><p>Customize the trigger icon of the right sidebar.</p></dd>
+
+
 <dt>fixed</dt>
 <dd><p>Whether the navbar is fixed-top or not. FALSE by default.</p></dd>
+
 </dl></div>
     <div id="note">
     <h2>Note</h2>
@@ -152,71 +167,71 @@ in the left menu, since they will not be well displayed. Instead, wrap them in a
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    header <span class="op">=</span> <span class="fu">dashboardHeader</span><span class="op">(</span></span>
-<span class="r-in">      leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
-<span class="r-in">        <span class="fu"><a href="dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span></span>
-<span class="r-in">          id <span class="op">=</span> <span class="st">"mydropdown"</span>,</span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Dropdown 1"</span>,</span>
-<span class="r-in">          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sliders-h"</span><span class="op">)</span>,</span>
-<span class="r-in">          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span></span>
-<span class="r-in">            inputId <span class="op">=</span> <span class="st">"n"</span>,</span>
-<span class="r-in">            label <span class="op">=</span> <span class="st">"Number of observations"</span>,</span>
-<span class="r-in">            min <span class="op">=</span> <span class="fl">10</span>, max <span class="op">=</span> <span class="fl">100</span>, value <span class="op">=</span> <span class="fl">30</span></span>
-<span class="r-in">          <span class="op">)</span>,</span>
-<span class="r-in">          <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/prettyToggle.html" class="external-link">prettyToggle</a></span><span class="op">(</span></span>
-<span class="r-in">            inputId <span class="op">=</span> <span class="st">"na"</span>,</span>
-<span class="r-in">            label_on <span class="op">=</span> <span class="st">"NAs kept"</span>,</span>
-<span class="r-in">            label_off <span class="op">=</span> <span class="st">"NAs removed"</span>,</span>
-<span class="r-in">            icon_on <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"check"</span><span class="op">)</span>,</span>
-<span class="r-in">            icon_off <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"trash"</span><span class="op">)</span></span>
-<span class="r-in">          <span class="op">)</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu"><a href="dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span></span>
-<span class="r-in">          id <span class="op">=</span> <span class="st">"mydropdown2"</span>,</span>
-<span class="r-in">          title <span class="op">=</span> <span class="st">"Dropdown 2"</span>,</span>
-<span class="r-in">          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sliders-h"</span><span class="op">)</span>,</span>
-<span class="r-in">          <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/prettySwitch.html" class="external-link">prettySwitch</a></span><span class="op">(</span></span>
-<span class="r-in">            inputId <span class="op">=</span> <span class="st">"switch4"</span>,</span>
-<span class="r-in">            label <span class="op">=</span> <span class="st">"Fill switch with status:"</span>,</span>
-<span class="r-in">            fill <span class="op">=</span> <span class="cn">TRUE</span>, </span>
-<span class="r-in">            status <span class="op">=</span> <span class="st">"primary"</span></span>
-<span class="r-in">          <span class="op">)</span>,</span>
-<span class="r-in">          <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/prettyCheckboxGroup.html" class="external-link">prettyCheckboxGroup</a></span><span class="op">(</span></span>
-<span class="r-in">            inputId <span class="op">=</span> <span class="st">"checkgroup2"</span>,</span>
-<span class="r-in">            label <span class="op">=</span> <span class="st">"Click me!"</span>, </span>
-<span class="r-in">            thick <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">            choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span><span class="op">)</span>,</span>
-<span class="r-in">            animation <span class="op">=</span> <span class="st">"pulse"</span>, </span>
-<span class="r-in">            status <span class="op">=</span> <span class="st">"info"</span></span>
-<span class="r-in">          <span class="op">)</span></span>
-<span class="r-in">        <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span>,</span>
-<span class="r-in">      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html" class="external-link">dropdownMenu</a></span><span class="op">(</span></span>
-<span class="r-in">        type <span class="op">=</span> <span class="st">"tasks"</span>, </span>
-<span class="r-in">        badgeStatus <span class="op">=</span> <span class="st">"danger"</span>,</span>
-<span class="r-in">        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">20</span>, color <span class="op">=</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span><span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">40</span>, color <span class="op">=</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span><span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">60</span>, color <span class="op">=</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span><span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">80</span>, color <span class="op">=</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span><span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    sidebar <span class="op">=</span> <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">      <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/setShadow.html" class="external-link">setShadow</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dropdown-menu"</span><span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"DashboardPage"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    header <span class="op">=</span> <span class="fu">dashboardHeader</span><span class="op">(</span></span></span>
+<span class="r-in"><span>      leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>        <span class="fu"><a href="dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          id <span class="op">=</span> <span class="st">"mydropdown"</span>,</span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Dropdown 1"</span>,</span></span>
+<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            inputId <span class="op">=</span> <span class="st">"n"</span>,</span></span>
+<span class="r-in"><span>            label <span class="op">=</span> <span class="st">"Number of observations"</span>,</span></span>
+<span class="r-in"><span>            min <span class="op">=</span> <span class="fl">10</span>, max <span class="op">=</span> <span class="fl">100</span>, value <span class="op">=</span> <span class="fl">30</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/prettyToggle.html" class="external-link">prettyToggle</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            inputId <span class="op">=</span> <span class="st">"na"</span>,</span></span>
+<span class="r-in"><span>            label_on <span class="op">=</span> <span class="st">"NAs kept"</span>,</span></span>
+<span class="r-in"><span>            label_off <span class="op">=</span> <span class="st">"NAs removed"</span>,</span></span>
+<span class="r-in"><span>            icon_on <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"check"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            icon_off <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"trash-can"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu"><a href="dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          id <span class="op">=</span> <span class="st">"mydropdown2"</span>,</span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"Dropdown 2"</span>,</span></span>
+<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/prettySwitch.html" class="external-link">prettySwitch</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            inputId <span class="op">=</span> <span class="st">"switch4"</span>,</span></span>
+<span class="r-in"><span>            label <span class="op">=</span> <span class="st">"Fill switch with status:"</span>,</span></span>
+<span class="r-in"><span>            fill <span class="op">=</span> <span class="cn">TRUE</span>, </span></span>
+<span class="r-in"><span>            status <span class="op">=</span> <span class="st">"primary"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/prettyCheckboxGroup.html" class="external-link">prettyCheckboxGroup</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            inputId <span class="op">=</span> <span class="st">"checkgroup2"</span>,</span></span>
+<span class="r-in"><span>            label <span class="op">=</span> <span class="st">"Click me!"</span>, </span></span>
+<span class="r-in"><span>            thick <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>            choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Click me !"</span>, <span class="st">"Me !"</span>, <span class="st">"Or me !"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            animation <span class="op">=</span> <span class="st">"pulse"</span>, </span></span>
+<span class="r-in"><span>            status <span class="op">=</span> <span class="st">"info"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html" class="external-link">dropdownMenu</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>        type <span class="op">=</span> <span class="st">"tasks"</span>, </span></span>
+<span class="r-in"><span>        badgeStatus <span class="op">=</span> <span class="st">"danger"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">20</span>, color <span class="op">=</span> <span class="st">"aqua"</span>, <span class="st">"Refactor code"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">40</span>, color <span class="op">=</span> <span class="st">"green"</span>, <span class="st">"Design new layout"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">60</span>, color <span class="op">=</span> <span class="st">"yellow"</span>, <span class="st">"Another task"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu"><a href="taskItem.html">taskItem</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fl">80</span>, color <span class="op">=</span> <span class="st">"red"</span>, <span class="st">"Write documentation"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    sidebar <span class="op">=</span> <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/setShadow.html" class="external-link">setShadow</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dropdown-menu"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"DashboardPage"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -231,7 +246,7 @@ in the left menu, since they will not be well displayed. Instead, wrap them in a
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

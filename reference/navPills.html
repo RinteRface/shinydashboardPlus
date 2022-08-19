@@ -39,7 +39,7 @@ navPillsItem creates a nav pill item."><meta property="og:image" content="/logo.
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -106,33 +106,45 @@ selected navPillsItem on the client.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">navPills</span><span class="op">(</span><span class="va">...</span>, id <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">updateNavPills</span><span class="op">(</span><span class="va">id</span>, <span class="va">selected</span>, session <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/domains.html" class="external-link">getDefaultReactiveDomain</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu">navPillsItem</span><span class="op">(</span>
-  left <span class="op">=</span> <span class="cn">NULL</span>,
-  right <span class="op">=</span> <span class="cn">NULL</span>,
-  color <span class="op">=</span> <span class="cn">NULL</span>,
-  icon <span class="op">=</span> <span class="cn">NULL</span>,
-  selected <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">navPills</span><span class="op">(</span><span class="va">...</span>, id <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">updateNavPills</span><span class="op">(</span><span class="va">id</span>, <span class="va">selected</span>, session <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/domains.html" class="external-link">getDefaultReactiveDomain</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">navPillsItem</span><span class="op">(</span></span>
+<span>  left <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  right <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  color <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  icon <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  selected <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>slot for navPillsItem.</p></dd>
+
+
 <dt>id</dt>
 <dd><p>navPills unique id to target.</p></dd>
+
+
 <dt>selected</dt>
 <dd><p>Whether the item is active or not. FALSE by default.</p></dd>
+
+
 <dt>session</dt>
 <dd><p>Shiny session object.</p></dd>
+
+
 <dt>left</dt>
 <dd><p>pill left text.</p></dd>
+
+
 <dt>right</dt>
 <dd><p>pill right text.</p></dd>
+
+
 <dt>color</dt>
 <dd><p>pill color: see here for a list of valid colors <a href="https://adminlte.io/themes/AdminLTE/pages/UI/general.html" class="external-link">https://adminlte.io/themes/AdminLTE/pages/UI/general.html</a>.
 See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="width:12px;height:12px;background:#3c8dbc;border-radius:2px;display:inline-block;margin-right:5px;"></span>#3c8dbc
@@ -168,8 +180,11 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 <li><p><code>gray</code>: <span style="width:12px;height:12px;background:#d2d6de;border-radius:2px;display:inline-block;margin-right:5px;"></span>#d2d6de
 .</p></li>
 </ul></dd>
+
+
 <dt>icon</dt>
 <dd><p>pill icon, if any.</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -178,101 +193,101 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co"># navPills</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span>
-<span class="r-in">      title <span class="op">=</span> <span class="st">"Nav Pills"</span>,</span>
-<span class="r-in">      status <span class="op">=</span> <span class="st">"info"</span>,</span>
-<span class="r-in">      <span class="st">"Box Body"</span>,</span>
-<span class="r-in">      footer <span class="op">=</span> <span class="fu">navPills</span><span class="op">(</span></span>
-<span class="r-in">        id <span class="op">=</span> <span class="st">"pillItem"</span>,</span>
-<span class="r-in">        <span class="fu">navPillsItem</span><span class="op">(</span></span>
-<span class="r-in">          left <span class="op">=</span> <span class="st">"Item 1"</span>, </span>
-<span class="r-in">          color <span class="op">=</span> <span class="st">"green"</span>,</span>
-<span class="r-in">          right <span class="op">=</span> <span class="fl">10</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">navPillsItem</span><span class="op">(</span></span>
-<span class="r-in">          left <span class="op">=</span> <span class="st">"Item 2"</span>, </span>
-<span class="r-in">          color <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span class="r-in">          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"angle-down"</span><span class="op">)</span>, </span>
-<span class="r-in">          right <span class="op">=</span> <span class="st">"10%"</span>,</span>
-<span class="r-in">          active <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in">        <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"Nav Pills"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span>, <span class="op">{</span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You clicked on pill N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">pillItem</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span>
-<span class="r-in">   <span class="op">}</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># update navPills</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
-<span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
-<span class="r-in"> </span>
-<span class="r-in"> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
-<span class="r-in">  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span class="r-in">     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span>
-<span class="r-in">      title <span class="op">=</span> <span class="st">"Nav Pills"</span>,</span>
-<span class="r-in">      status <span class="op">=</span> <span class="st">"info"</span>,</span>
-<span class="r-in">      <span class="st">"Box Body"</span>,</span>
-<span class="r-in">      footer <span class="op">=</span> <span class="fu">navPills</span><span class="op">(</span></span>
-<span class="r-in">        inputId <span class="op">=</span> <span class="st">"pills"</span>,</span>
-<span class="r-in">        <span class="fu">navPillsItem</span><span class="op">(</span></span>
-<span class="r-in">          left <span class="op">=</span> <span class="st">"Item 1"</span>, </span>
-<span class="r-in">          color <span class="op">=</span> <span class="st">"green"</span>,</span>
-<span class="r-in">          right <span class="op">=</span> <span class="fl">10</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">navPillsItem</span><span class="op">(</span></span>
-<span class="r-in">          left <span class="op">=</span> <span class="st">"Item 2"</span>, </span>
-<span class="r-in">          color <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span class="r-in">          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"angle-down"</span><span class="op">)</span>, </span>
-<span class="r-in">          right <span class="op">=</span> <span class="st">"10%"</span></span>
-<span class="r-in">        <span class="op">)</span>,</span>
-<span class="r-in">        <span class="fu">navPillsItem</span><span class="op">(</span></span>
-<span class="r-in">          left <span class="op">=</span> <span class="st">"Item 3"</span>, </span>
-<span class="r-in">          color <span class="op">=</span> <span class="st">"blue"</span>,</span>
-<span class="r-in">          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"angle-up"</span><span class="op">)</span>, </span>
-<span class="r-in">          right <span class="op">=</span> <span class="st">"30%"</span></span>
-<span class="r-in">        <span class="op">)</span></span>
-<span class="r-in">      <span class="op">)</span></span>
-<span class="r-in">     <span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span>,</span>
-<span class="r-in">    title <span class="op">=</span> <span class="st">"Nav Pills"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span></span>
-<span class="r-in">    <span class="fu">updateNavPills</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"pills"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span></span>
-<span class="r-in">   <span class="op">}</span><span class="op">)</span></span>
-<span class="r-in">   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pills</span>, <span class="op">{</span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You selected pill N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">pills</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span>
-<span class="r-in">   <span class="op">}</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">}</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># navPills</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"Nav Pills"</span>,</span></span>
+<span class="r-in"><span>      status <span class="op">=</span> <span class="st">"info"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"Box Body"</span>,</span></span>
+<span class="r-in"><span>      footer <span class="op">=</span> <span class="fu">navPills</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        id <span class="op">=</span> <span class="st">"pillItem"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">navPillsItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          left <span class="op">=</span> <span class="st">"Item 1"</span>, </span></span>
+<span class="r-in"><span>          color <span class="op">=</span> <span class="st">"green"</span>,</span></span>
+<span class="r-in"><span>          right <span class="op">=</span> <span class="fl">10</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">navPillsItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          left <span class="op">=</span> <span class="st">"Item 2"</span>, </span></span>
+<span class="r-in"><span>          color <span class="op">=</span> <span class="st">"red"</span>,</span></span>
+<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"angle-down"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>          right <span class="op">=</span> <span class="st">"10%"</span>,</span></span>
+<span class="r-in"><span>          active <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Nav Pills"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pillItem</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You clicked on pill N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">pillItem</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># update navPills</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     <span class="fu"><a href="box.html">box</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"Nav Pills"</span>,</span></span>
+<span class="r-in"><span>      status <span class="op">=</span> <span class="st">"info"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"Box Body"</span>,</span></span>
+<span class="r-in"><span>      footer <span class="op">=</span> <span class="fu">navPills</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        inputId <span class="op">=</span> <span class="st">"pills"</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">navPillsItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          left <span class="op">=</span> <span class="st">"Item 1"</span>, </span></span>
+<span class="r-in"><span>          color <span class="op">=</span> <span class="st">"green"</span>,</span></span>
+<span class="r-in"><span>          right <span class="op">=</span> <span class="fl">10</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">navPillsItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          left <span class="op">=</span> <span class="st">"Item 2"</span>, </span></span>
+<span class="r-in"><span>          color <span class="op">=</span> <span class="st">"red"</span>,</span></span>
+<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"angle-down"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>          right <span class="op">=</span> <span class="st">"10%"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu">navPillsItem</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          left <span class="op">=</span> <span class="st">"Item 3"</span>, </span></span>
+<span class="r-in"><span>          color <span class="op">=</span> <span class="st">"blue"</span>,</span></span>
+<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"angle-up"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>          right <span class="op">=</span> <span class="st">"30%"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Nav Pills"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">controller</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">updateNavPills</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"pills"</span>, selected <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">controller</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">pills</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html" class="external-link">showNotification</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"You selected pill N° %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">pills</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -287,7 +302,7 @@ See below:</p><ul><li><p><code>light-blue (primary status)</code>: <span style="
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
