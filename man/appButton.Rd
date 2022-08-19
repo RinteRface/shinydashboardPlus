@@ -17,7 +17,7 @@ you could also use any other HTML, like an image.}
 \item{icon}{An optional \code{\link[shiny:icon]{icon()}} to appear on the button.}
 
 \item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
-see \code{\link[shiny:reexports]{validateCssUnit()}}.}
+see \code{\link[shiny:validateCssUnit]{validateCssUnit()}}.}
 }
 \description{
 Create a large button ideal for web applications but identical

@@ -1461,7 +1461,7 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
 #'         title = "Item 1",
-#'         icon = icon("cogs"),
+#'         icon = icon("gears"),
 #'         color = "olive",
 #'         time = "now",
 #'         footer = "Here is the footer",
@@ -1489,7 +1489,7 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #'        timelineLabel(2018, color = "teal"),
 #'        timelineItem(
 #'         title = "Item 1",
-#'         icon = icon("cogs"),
+#'         icon = icon("gears"),
 #'         color = "olive",
 #'         time = "now",
 #'         footer = "Here is the footer",
@@ -2421,7 +2421,7 @@ userMessage <- function(..., author, date = NULL,
 #'           appButton(
 #'            inputId = "reload",
 #'            label = "Click me!", 
-#'            icon = icon("sync"), 
+#'            icon = icon("arrows-rotate"), 
 #'            dashboardBadge(1, color = "orange")
 #'           )
 #'          )

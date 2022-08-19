@@ -256,7 +256,7 @@ if (interactive()) {
          boxDropdownItem("Link to google", href = "https://www.google.com"),
          boxDropdownItem("item 2", href = "#"),
          dropdownDivider(),
-         boxDropdownItem("item 3", href = "#", icon = icon("th"))
+         boxDropdownItem("item 3", href = "#", icon = icon("table-cells"))
         ),
         sidebar = boxSidebar(
          startOpen = TRUE,
@@ -402,7 +402,7 @@ if (interactive()) {
            boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
            boxDropdownItem("item 2", href = "https://www.google.com/"),
            dropdownDivider(),
-           boxDropdownItem("item 3", icon = icon("th"))
+           boxDropdownItem("item 3", icon = icon("table-cells"))
          ),
          "My box"
        )

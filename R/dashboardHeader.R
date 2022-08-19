@@ -42,7 +42,7 @@
 #'         dropdownBlock(
 #'           id = "mydropdown",
 #'           title = "Dropdown 1",
-#'           icon = icon("sliders-h"),
+#'           icon = icon("sliders"),
 #'           sliderInput(
 #'             inputId = "n",
 #'             label = "Number of observations",
@@ -53,13 +53,13 @@
 #'             label_on = "NAs kept",
 #'             label_off = "NAs removed",
 #'             icon_on = icon("check"),
-#'             icon_off = icon("trash")
+#'             icon_off = icon("trash-can")
 #'           )
 #'         ),
 #'         dropdownBlock(
 #'           id = "mydropdown2",
 #'           title = "Dropdown 2",
-#'           icon = icon("sliders-h"),
+#'           icon = icon("sliders"),
 #'           prettySwitch(
 #'             inputId = "switch4",
 #'             label = "Fill switch with status:",
@@ -97,7 +97,7 @@
 #' @export
 dashboardHeader <- function(..., title = NULL, titleWidth = NULL, 
                             disable = FALSE, .list = NULL, leftUi = NULL,
-                            controlbarIcon = shiny::icon("cogs"), fixed = FALSE) {
+                            controlbarIcon = shiny::icon("gears"), fixed = FALSE) {
   # handle right menu items
   items <- c(list(...), .list)
   lapply(items, tagAssert, type = "li", class = "dropdown")
@@ -549,7 +549,7 @@ taskItem <- function (text, value = 0, color = "aqua", href = NULL, inputId = NU
 #' @inheritParams shinydashboard::notificationItem
 #' @param inputId If not NULL, this item behaves like an action button.
 #' @export
-notificationItem <- function (text, icon = shiny::icon("warning"), status = "success", 
+notificationItem <- function (text, icon = shiny::icon("triangle-exclamation"), status = "success", 
                               href = NULL, inputId = NULL) {
   tagAssert(icon, type = "i")
   validateStatus(status)

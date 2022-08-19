@@ -106,7 +106,7 @@ if (interactive()) {
        timelineLabel(2018, color = "teal"),
        timelineItem(
         title = "Item 1",
-        icon = icon("cogs"),
+        icon = icon("gears"),
         color = "olive",
         time = "now",
         footer = "Here is the footer",
@@ -134,7 +134,7 @@ if (interactive()) {
        timelineLabel(2018, color = "teal"),
        timelineItem(
         title = "Item 1",
-        icon = icon("cogs"),
+        icon = icon("gears"),
         color = "olive",
         time = "now",
         footer = "Here is the footer",
