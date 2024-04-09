@@ -12,3 +12,4 @@
 ^inst/vignettes-demos/.*./rsconnect$
 ^tools$
 ^srcjs$
+^CRAN-SUBMISSION$
