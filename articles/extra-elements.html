@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4</span>
       </span>
     </div>
 
@@ -119,11 +119,12 @@
 
       
 
-      </header><script src="extra-elements_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Extra Elements</h1>
-                        <h4 data-toc-skip class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David
+Granjon</h4>
             
             <h4 data-toc-skip class="date">9/21/2020</h4>
       
@@ -137,9 +138,16 @@
 <div class="section level2">
 <h2 id="accordion">Accordion<a class="anchor" aria-label="anchor" href="#accordion"></a>
 </h2>
-<p>Accordions are a category of collapsible elements. While collapsible items don’t alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. <code><a href="../reference/accordion.html">accordion()</a></code> expects to contain <code>accordionItems</code>. Importantly, to guaranty the uniqueness of each accordion, we must provide an <em>id</em> parameter. This parameter allows to programmatically toggle any accordion item, through an <code>updateAccordion</code> function.</p>
+<p>Accordions are a category of collapsible elements. While collapsible
+items don’t alter the state of other items in the same collapsible
+container, each accordion item will toggle any other opened accordion,
+to ensure that only 1 item is visible at once. <code><a href="../reference/accordion.html">accordion()</a></code>
+expects to contain <code>accordionItems</code>. Importantly, to guaranty
+the uniqueness of each accordion, we must provide an <em>id</em>
+parameter. This parameter allows to programmatically toggle any
+accordion item, through an <code>updateAccordion</code> function.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
@@ -148,7 +156,7 @@
 <span>    <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html" class="external-link">radioButtons</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"Controller"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="../reference/accordion.html">accordion</a></span><span class="op">(</span></span>
 <span>       id <span class="op">=</span> <span class="st">"accordion1"</span>,</span>
 <span>        <span class="fu"><a href="../reference/accordion.html">accordionItem</a></span><span class="op">(</span></span>
@@ -210,29 +218,39 @@
 <div class="section level2">
 <h2 id="user-messages">User messages<a class="anchor" aria-label="anchor" href="#user-messages"></a>
 </h2>
-<p><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> make it possible to create an entire chat system within a Shiny app. <code><a href="../reference/userMessage.html">userMessages()</a></code> is the main container, <code><a href="../reference/userMessage.html">userMessage()</a></code> being the message element. <code><a href="../reference/userMessage.html">updateUserMessages()</a></code> looks for the <code><a href="../reference/userMessage.html">userMessages()</a></code> <em>id</em> so as to:</p>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> make it possible to create an
+entire chat system within a Shiny app. <code><a href="../reference/userMessage.html">userMessages()</a></code> is
+the main container, <code><a href="../reference/userMessage.html">userMessage()</a></code> being the message
+element. <code><a href="../reference/userMessage.html">updateUserMessages()</a></code> looks for the
+<code><a href="../reference/userMessage.html">userMessages()</a></code> <em>id</em> so as to:</p>
 <ul>
 <li>remove an existing message</li>
 <li>add a new message</li>
 <li>edit an existing message</li>
 </ul>
-<p>Importantly, we assume that a message structure is composed as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">list</span>(</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">author =</span> <span class="st">"David"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="dt">date =</span> <span class="st">"Now"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">image =</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="dt">type =</span> <span class="st">"received"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  <span class="dt">text =</span> <span class="kw">tagList</span>(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    <span class="kw">sliderInput</span>(</span>
-<span id="cb2-8"><a href="#cb2-8"></a>      <span class="st">"obs"</span>, </span>
-<span id="cb2-9"><a href="#cb2-9"></a>      <span class="st">"Number of observations:"</span>,</span>
-<span id="cb2-10"><a href="#cb2-10"></a>      <span class="dt">min =</span> <span class="dv">0</span>, </span>
-<span id="cb2-11"><a href="#cb2-11"></a>      <span class="dt">max =</span> <span class="dv">1000</span>, </span>
-<span id="cb2-12"><a href="#cb2-12"></a>      <span class="dt">value =</span> <span class="dv">500</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>    ),</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    <span class="kw">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
-<span id="cb2-15"><a href="#cb2-15"></a>  )</span></code></pre></div>
-<p>The <em>type</em> parameter controls the message background color. For a sent message, the color is inherited from the <code><a href="../reference/userMessage.html">userMessages()</a></code> status, while for a received message, the color is gray by default. The <em>text</em> argument refers to the message content. It may be simple text, shiny tags or event any combinations of shiny inputs/ouput, as shown in the below example.</p>
+<p>Importantly, we assume that a message structure is composed as
+follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">author =</span> <span class="st">"David"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"Now"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="at">image =</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"received"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">tagList</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    <span class="fu">sliderInput</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>      <span class="st">"obs"</span>, </span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>      <span class="st">"Number of observations:"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>      <span class="at">min =</span> <span class="dv">0</span>, </span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>      <span class="at">max =</span> <span class="dv">1000</span>, </span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>      <span class="at">value =</span> <span class="dv">500</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>    ),</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>  )</span></code></pre></div>
+<p>The <em>type</em> parameter controls the message background color.
+For a sent message, the color is inherited from the
+<code><a href="../reference/userMessage.html">userMessages()</a></code> status, while for a received message, the
+color is gray by default. The <em>text</em> argument refers to the
+message content. It may be simple text, shiny tags or event any
+combinations of shiny inputs/ouput, as shown in the below example.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -245,8 +263,8 @@
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>, <span class="st">"Update message"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html" class="external-link">numericInput</a></span><span class="op">(</span><span class="st">"index"</span>, <span class="st">"Message index:"</span>, <span class="fl">1</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="../reference/userMessage.html">userMessages</a></span><span class="op">(</span></span>
 <span>        width <span class="op">=</span> <span class="fl">6</span>,</span>
 <span>        status <span class="op">=</span> <span class="st">"danger"</span>,</span>
@@ -282,7 +300,7 @@
 <span>          date <span class="op">=</span> <span class="st">"Now"</span>,</span>
 <span>          image <span class="op">=</span> <span class="st">"https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg"</span>,</span>
 <span>          type <span class="op">=</span> <span class="st">"received"</span>,</span>
-<span>          text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>          text <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span></span>
 <span>            <span class="st">"obs"</span>, </span>
 <span>            <span class="st">"Number of observations:"</span>,</span>
@@ -306,7 +324,7 @@
 <span>        action <span class="op">=</span> <span class="st">"update"</span>, </span>
 <span>        index <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">index</span>,</span>
 <span>        content <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>         text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>         text <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>          <span class="fu"><a href="../reference/appButton.html">appButton</a></span><span class="op">(</span></span>
 <span>           inputId <span class="op">=</span> <span class="st">"reload"</span>,</span>
 <span>           label <span class="op">=</span> <span class="st">"Click me!"</span>, </span>
@@ -355,7 +373,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

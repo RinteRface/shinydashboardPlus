@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4</span>
       </span>
     </div>
 
@@ -119,13 +119,14 @@
 
       
 
-      </header><script src="controlbar_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Extra Skeleton Elements</h1>
-                        <h4 data-toc-skip class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David
+Granjon</h4>
             
-            <h4 data-toc-skip class="date">2022-08-19</h4>
+            <h4 data-toc-skip class="date">2024-04-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/controlbar.Rmd" class="external-link"><code>vignettes/controlbar.Rmd</code></a></small>
       <div class="hidden name"><code>controlbar.Rmd</code></div>
@@ -146,23 +147,38 @@
 <li>
 <code><a href="../reference/sidebar.html">dashboardSidebar()</a></code> (left sidebar)</li>
 </ul>
-<p>However, AdminLTE has a footer and a right sidebar, also known as controlbar. The footer is usually a good place to put contact information like mail, authors and copyrights, while the controlbar may contain secondary inputs or extra options that are not necessary to be shown in the app.</p>
+<p>However, AdminLTE has a footer and a right sidebar, also known as
+controlbar. The footer is usually a good place to put contact
+information like mail, authors and copyrights, while the controlbar may
+contain secondary inputs or extra options that are not necessary to be
+shown in the app.</p>
 <div class="section level3">
 <h3 id="controlbar">Controlbar<a class="anchor" aria-label="anchor" href="#controlbar"></a>
 </h3>
 <div class="section level4">
 <h4 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
 </h4>
-<p>To include the controlbar, use <code><a href="../reference/controlbar.html">dashboardControlbar()</a></code> in the dedicated <em>controlbar</em> parameter. It has several options:</p>
+<p>To include the controlbar, use <code><a href="../reference/controlbar.html">dashboardControlbar()</a></code> in
+the dedicated <em>controlbar</em> parameter. It has several options:</p>
 <ul>
-<li>id is used to capture the current state of the controlbar (open or closed) and to programmatically toggle it with <code><a href="../reference/controlbar.html">updateControlbar()</a></code>. This is useful if the controlbar would have to open as a result of another action, to indicate users they have to play with it</li>
-<li>collapsed indicated whether the sidebar is opened or closed at start</li>
-<li>overlay controls the collapse behavior, that is whether the controlbar has to push the body content to the left. By default, it will cover the body content. Note that you may also control this behavior via the <code>dashboardPagge()</code> <em>option</em> parameter!</li>
-<li>skin is a cosmetic parameter with 2 values: dark or light with a default value to dark. Importantly, the global theme option do not impact the controlbar background</li>
+<li>id is used to capture the current state of the controlbar (open or
+closed) and to programmatically toggle it with
+<code><a href="../reference/controlbar.html">updateControlbar()</a></code>. This is useful if the controlbar would
+have to open as a result of another action, to indicate users they have
+to play with it</li>
+<li>collapsed indicated whether the sidebar is opened or closed at
+start</li>
+<li>overlay controls the collapse behavior, that is whether the
+controlbar has to push the body content to the left. By default, it will
+cover the body content. Note that you may also control this behavior via
+the <code>dashboardPagge()</code> <em>option</em> parameter!</li>
+<li>skin is a cosmetic parameter with 2 values: dark or light with a
+default value to dark. Importantly, the global theme option do not
+impact the controlbar background</li>
 </ul>
 <p>The app below will show an open controlbar at start.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
@@ -179,7 +195,14 @@
 <div class="section level4">
 <h4 id="include-menus">Include menus<a class="anchor" aria-label="anchor" href="#include-menus"></a>
 </h4>
-<p>The <code>dashboardControlbar</code> function also accepts to contain tabs, similarly to the <code><a href="../reference/sidebar.html">dashboardSidebar()</a></code> navigation menu. <code><a href="../reference/controlbar.html">controlbarMenu()</a></code> is a modified <code><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html" class="external-link">shiny::tabsetPanel()</a></code> that has an optional <em>id</em> to control the select item on the server side with <code><a href="../reference/controlbar.html">updateControlbarMenu()</a></code>. <em>selected</em> indicates which item must be selected by default. Below is a use case of the controlbar menu:</p>
+<p>The <code>dashboardControlbar</code> function also accepts to contain
+tabs, similarly to the <code><a href="../reference/sidebar.html">dashboardSidebar()</a></code> navigation menu.
+<code><a href="../reference/controlbar.html">controlbarMenu()</a></code> is a modified
+<code><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html" class="external-link">shiny::tabsetPanel()</a></code> that has an optional <em>id</em> to
+control the select item on the server side with
+<code><a href="../reference/controlbar.html">updateControlbarMenu()</a></code>. <em>selected</em> indicates which
+item must be selected by default. Below is a use case of the controlbar
+menu:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">menu</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/controlbar.html">controlbarMenu</a></span><span class="op">(</span></span>
 <span>  id <span class="op">=</span> <span class="st">"controlbarMenu"</span>,</span>
@@ -206,13 +229,20 @@
 <span>  <span class="op">)</span>,</span>
 <span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>It is best practice to limit the number of <code>controlbarItem</code> to 5 since the horizontal space is rather limited.</p>
+<p>It is best practice to limit the number of
+<code>controlbarItem</code> to 5 since the horizontal space is rather
+limited.</p>
 </div>
 <div class="section level4">
 <h4 id="the-controlbar-api">The controlbar API<a class="anchor" aria-label="anchor" href="#the-controlbar-api"></a>
 </h4>
-<p>As mentioned above, the most powerful feature is the possibility to control elements on the server. In the example below, the main sidebar has 3 items, each item will open a specific menu item in the controlbar.</p>
-<p>We first create 3 generic sidebar menu items using <code>lapply</code>. Note that the controlbar menu is defined above in the previous example.</p>
+<p>As mentioned above, the most powerful feature is the possibility to
+control elements on the server. In the example below, the main sidebar
+has 3 items, each item will open a specific menu item in the
+controlbar.</p>
+<p>We first create 3 generic sidebar menu items using
+<code>lapply</code>. Note that the controlbar menu is defined above in
+the previous example.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarMenu.html" class="external-link">sidebarMenu</a></span><span class="op">(</span></span>
 <span>  id <span class="op">=</span> <span class="st">"sidebarMenu"</span>,</span>
@@ -224,8 +254,18 @@
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><code>input$sidebarMenu</code> takes values in <code>menu_1</code>, <code>menu_2</code> and <code>menu_3</code>. On the server side, we only recover the item index by splitting the input value as follows <code>strsplit(input$sidebarMenu, "_")[[1]][2]</code>. Then we may conditionally open the controlbar depending on the index value. The update controlbar menu function will update the controlbar menu item according to the index value, that is <code>updateControlbarMenu("controlbarMenu", selected = idx)</code>.</p>
-<p>To include even more interactivity, we listen to <code>input$controlbarMenu</code>. When the second item is clicked, we toggle the box sidebar with <code>updateBoxSidebar("boxSidebar")</code>.</p>
+<p><code>input$sidebarMenu</code> takes values in <code>menu_1</code>,
+<code>menu_2</code> and <code>menu_3</code>. On the server side, we only
+recover the item index by splitting the input value as follows
+<code>strsplit(input$sidebarMenu, "_")[[1]][2]</code>. Then we may
+conditionally open the controlbar depending on the index value. The
+update controlbar menu function will update the controlbar menu item
+according to the index value, that is
+<code>updateControlbarMenu("controlbarMenu", selected = idx)</code>.</p>
+<p>To include even more interactivity, we listen to
+<code>input$controlbarMenu</code>. When the second item is clicked, we
+toggle the box sidebar with
+<code>updateBoxSidebar("boxSidebar")</code>.</p>
 <p>In conclusion, you may imagine a lot of other situations.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
@@ -318,7 +358,8 @@
 <div class="section level3">
 <h3 id="footer">Footer<a class="anchor" aria-label="anchor" href="#footer"></a>
 </h3>
-<p>Not surprisingly <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code> creates a footer element. It has 2 slots, left and right, respectively.</p>
+<p>Not surprisingly <code><a href="../reference/dashboardFooter.html">dashboardFooter()</a></code> creates a footer
+element. It has 2 slots, left and right, respectively.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -351,7 +392,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

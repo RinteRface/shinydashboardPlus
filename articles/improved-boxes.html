@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4</span>
       </span>
     </div>
 
@@ -119,13 +119,14 @@
 
       
 
-      </header><script src="improved-boxes_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Improved boxes</h1>
-                        <h4 data-toc-skip class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David
+Granjon</h4>
             
-            <h4 data-toc-skip class="date">2022-08-19</h4>
+            <h4 data-toc-skip class="date">2024-04-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/improved-boxes.Rmd" class="external-link"><code>vignettes/improved-boxes.Rmd</code></a></small>
       <div class="hidden name"><code>improved-boxes.Rmd</code></div>
@@ -140,16 +141,23 @@
 <div class="section level3">
 <h3 id="the-box-state">The box state<a class="anchor" aria-label="anchor" href="#the-box-state"></a>
 </h3>
-<p><code><a href="../reference/box.html">box()</a></code> is without any doubt a central component of <a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>. Thanks to the AdminLTE API, <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> is able to provide more interactivity to this component. For instance, you may:</p>
+<p><code><a href="../reference/box.html">box()</a></code> is without any doubt a central component of
+<a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>. Thanks to the AdminLTE API,
+<a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> is able to provide more interactivity
+to this component. For instance, you may:</p>
 <ul>
-<li>Know the state of any box at any time. This state captures different parameters such as collapsed, closed, …</li>
+<li>Know the state of any box at any time. This state captures different
+parameters such as collapsed, closed, …</li>
 <li>Toggle a box</li>
 <li>Close/Restore a box</li>
-<li>update box properties: title, status, solidHeader, background, width, height, collapsible and closable</li>
+<li>update box properties: title, status, solidHeader, background,
+width, height, collapsible and closable</li>
 </ul>
-<p>To benefit from that feature, one must pass the <em>id</em> parameter and access it on the server side with <code>input$&lt;id&gt;</code>. Let’s consider an example:</p>
+<p>To benefit from that feature, one must pass the <em>id</em> parameter
+and access it on the server side with <code>input$&lt;id&gt;</code>.
+Let’s consider an example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -164,7 +172,7 @@
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"restore_box"</span>, <span class="st">"Restore Box"</span>, class <span class="op">=</span> <span class="st">"bg-success"</span><span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Update Box"</span>, class <span class="op">=</span> <span class="st">"bg-primary"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="../reference/box.html">box</a></span><span class="op">(</span></span>
 <span>      title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">textOutput</a></span><span class="op">(</span><span class="st">"box_state"</span><span class="op">)</span>,</span>
 <span>      <span class="st">"Box body"</span>,</span>
@@ -204,7 +212,7 @@
 <span>      <span class="st">"mybox"</span>, </span>
 <span>      action <span class="op">=</span> <span class="st">"update"</span>, </span>
 <span>      options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"New title"</span>, <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span><span class="op">(</span><span class="fl">1</span>, status <span class="op">=</span> <span class="st">"primary"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        title <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"New title"</span>, <span class="fu"><a href="../reference/dashboardLabel.html">dashboardLabel</a></span><span class="op">(</span><span class="fl">1</span>, status <span class="op">=</span> <span class="st">"primary"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>        status <span class="op">=</span> <span class="st">"danger"</span>, </span>
 <span>        solidHeader <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>        width <span class="op">=</span> <span class="fl">4</span></span>
@@ -221,15 +229,20 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
-<p>We call the <code><a href="../reference/box.html">updateBox()</a></code> function, specifying the action to accomplish:</p>
+<p>We call the <code><a href="../reference/box.html">updateBox()</a></code> function, specifying the action
+to accomplish:</p>
 <ul>
 <li>toggle</li>
 <li>remove</li>
 <li>restore</li>
 <li>update</li>
 </ul>
-<p>Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.</p>
-<p>If you want to know more about the underlying mechanisms, have a look at the box widget <a href="https://adminlte.io/docs/2.4/js-box-widget" class="external-link">documentation</a>.</p>
+<p>Knowing the state of a box significantly opens new possibilities
+within the application, thereby increasing interactivity. Additionally,
+the toggle animation has been speed up (from 0.5s to 0.1s) so as to
+reduce the latency.</p>
+<p>If you want to know more about the underlying mechanisms, have a look
+at the box widget <a href="https://adminlte.io/docs/2.4/js-box-widget" class="external-link">documentation</a>.</p>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -246,21 +259,34 @@
 <div class="section level3">
 <h3 id="box-components">Box components<a class="anchor" aria-label="anchor" href="#box-components"></a>
 </h3>
-<p>With <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>, you may embed labels, a sidebar and dropdown menus in the box header.</p>
+<p>With <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>, you may embed labels, a
+sidebar and dropdown menus in the box header.</p>
 <div class="figure" style="text-align: center">
 <img src="figures/boxTools.png" alt="Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable buttons, boxSidebar trigger." width="50%"><p class="caption">
-Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable buttons, boxSidebar trigger.
+Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and
+closable buttons, boxSidebar trigger.
 </p>
 </div>
 <div class="section level4">
 <h4 id="box-labels">Box Labels<a class="anchor" aria-label="anchor" href="#box-labels"></a>
 </h4>
-<p><code><a href="../reference/boxLabel.html">boxLabel()</a></code> are passed in the <code><a href="../reference/box.html">box()</a></code> <em>label</em> slot. They typically contain number or a short text.</p>
+<p><code><a href="../reference/boxLabel.html">boxLabel()</a></code> are passed in the <code><a href="../reference/box.html">box()</a></code>
+<em>label</em> slot. They typically contain number or a short text.</p>
 </div>
 <div class="section level4">
 <h4 id="box-sidebar">Box Sidebar<a class="anchor" aria-label="anchor" href="#box-sidebar"></a>
 </h4>
-<p><code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is invoked through the <code><a href="../reference/box.html">box()</a></code> sidebar parameter. The sidebar has an <em>id</em> allowing to programmatically toggle it on the server side with <code><a href="../reference/boxSidebar.html">updateBoxSidebar()</a></code>. This component is generally used to contain input element that you don’t want to show in the box, while the box body generally contains visualizations such as plots or tables. <code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is highly customizable as one may change the background color, the width and the icon trigger, the latter displayed on the very right side of the box header, as depicted in Figure @ref(fig:boxTools). Below is an example showing how to set up the sidebar and toggle it.</p>
+<p><code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is invoked through the <code><a href="../reference/box.html">box()</a></code>
+sidebar parameter. The sidebar has an <em>id</em> allowing to
+programmatically toggle it on the server side with
+<code><a href="../reference/boxSidebar.html">updateBoxSidebar()</a></code>. This component is generally used to
+contain input element that you don’t want to show in the box, while the
+box body generally contains visualizations such as plots or tables.
+<code><a href="../reference/boxSidebar.html">boxSidebar()</a></code> is highly customizable as one may change the
+background color, the width and the icon trigger, the latter displayed
+on the very right side of the box header, as depicted in Figure
+@ref(fig:boxTools). Below is an example showing how to set up the
+sidebar and toggle it.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -303,7 +329,9 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <span>    </span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>What is the interest of being able to toggle the sidebar on the server? Image you want to open the sidebar as soon as the user clicks on a specific action button. This is definitely possible.</p>
+<p>What is the interest of being able to toggle the sidebar on the
+server? Image you want to open the sidebar as soon as the user clicks on
+a specific action button. This is definitely possible.</p>
 <div class="marvel-device ipad black">
 <div class="camera">
 
@@ -320,7 +348,11 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <div class="section level4">
 <h4 id="box-dropdown">Box Dropdown<a class="anchor" aria-label="anchor" href="#box-dropdown"></a>
 </h4>
-<p><code><a href="../reference/box.html">boxDropdown()</a></code> is a super powerful tool since all dropdown items may behave like action buttons. This feature allows to seamlessly add interactivity to the box component and gather features in one place. In the example below, clicking on the first item triggers a Shiny notification.</p>
+<p><code><a href="../reference/box.html">boxDropdown()</a></code> is a super powerful tool since all
+dropdown items may behave like action buttons. This feature allows to
+seamlessly add interactivity to the box component and gather features in
+one place. In the example below, clicking on the first item triggers a
+Shiny notification.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -367,18 +399,25 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <div class="section level3">
 <h3 id="other-boxes">Other Boxes<a class="anchor" aria-label="anchor" href="#other-boxes"></a>
 </h3>
-<p><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> provides more box components to be able to adapt to various situations. What if you wanted to create a box with comments, with social content?</p>
+<p><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> provides more box components to be
+able to adapt to various situations. What if you wanted to create a box
+with comments, with social content?</p>
 <div class="section level4">
 <h4 id="userbox">userBox<a class="anchor" aria-label="anchor" href="#userbox"></a>
 </h4>
-<p><code><a href="../reference/userBox.html">userBox()</a></code> is intended to highlight user profiles. It has many common parameters with <code><a href="../reference/box.html">box()</a></code> and overall the same layout. The 2 major differences between <code><a href="../reference/box.html">box()</a></code> and <code><a href="../reference/userBox.html">userBox()</a></code> are:</p>
+<p><code><a href="../reference/userBox.html">userBox()</a></code> is intended to highlight user profiles. It has
+many common parameters with <code><a href="../reference/box.html">box()</a></code> and overall the same
+layout. The 2 major differences between <code><a href="../reference/box.html">box()</a></code> and
+<code><a href="../reference/userBox.html">userBox()</a></code> are:</p>
 <ul>
 <li>The ability to add a user image in the box header.</li>
 <li>Optionally add a background image in the box header.</li>
 <li>The <em>color</em> parameter is only applied to the box header.</li>
 </ul>
-<p>Additionally, you may also select 2 types: centered image or left-aligned image.</p>
-<p>The <strong>title</strong> argument expects a <code><a href="../reference/userBox.html">userDescription()</a></code>:</p>
+<p>Additionally, you may also select 2 types: centered image or
+left-aligned image.</p>
+<p>The <strong>title</strong> argument expects a
+<code><a href="../reference/userBox.html">userDescription()</a></code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/userBox.html">userDescription</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"Nadia Carmichael"</span>,</span>
@@ -386,13 +425,15 @@ Box Tools. DFrom left to right: boxLabel, boxDropdown, collapsible and closable 
 <span>  type <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg"</span>,</span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>You may also select 2 types: centered image or left-aligned image, as shown in the Figure below.</p>
+<p>You may also select 2 types: centered image or left-aligned image, as
+shown in the Figure below.</p>
 <div class="figure" style="text-align: center">
 <img src="figures/userBox.png" alt="Some userBox components" width="100%"><p class="caption">
 Some userBox components
 </p>
 </div>
-<p><code><a href="../reference/userBox.html">userBox()</a></code> plays well with other components like <code><a href="../reference/navPills.html">navPills()</a></code>, as shown below.</p>
+<p><code><a href="../reference/userBox.html">userBox()</a></code> plays well with other components like
+<code><a href="../reference/navPills.html">navPills()</a></code>, as shown below.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -457,7 +498,8 @@ Some userBox components
 
 </div>
 </div>
-<p><code><a href="../reference/userBox.html">userBox()</a></code> is also entirely updatable from the server side, as it is built on top the <code><a href="../reference/box.html">box()</a></code> function:</p>
+<p><code><a href="../reference/userBox.html">userBox()</a></code> is also entirely updatable from the server
+side, as it is built on top the <code><a href="../reference/box.html">box()</a></code> function:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -507,14 +549,24 @@ Some userBox components
 <div class="section level4">
 <h4 id="socialbox">socialBox<a class="anchor" aria-label="anchor" href="#socialbox"></a>
 </h4>
-<p>A <code><a href="../reference/socialBox.html">socialBox()</a></code> is dedicated to contain events, comments, anything related to people. The <strong>title</strong> parameter hosts <code><a href="../reference/socialBox.html">userBlock()</a></code>:</p>
+<p>A <code><a href="../reference/socialBox.html">socialBox()</a></code> is dedicated to contain events, comments,
+anything related to people. The <strong>title</strong> parameter hosts
+<code><a href="../reference/socialBox.html">userBlock()</a></code>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/socialBox.html">userBlock</a></span><span class="op">(</span></span>
 <span>  image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg"</span>,</span>
 <span>  title <span class="op">=</span> <span class="st">"Social Box"</span>,</span>
 <span>  subtitle <span class="op">=</span> <span class="st">"example-01.05.2018"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Elements like <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> and <code><a href="../reference/userMessage.html">userMessages()</a></code> are a good fit with this component. The <code>...</code> slot may hosts multiple <code>boxComment</code>, consisting in user comments. Right now, there is no programmatic way (understand no <strong>update</strong> function is available) to handle them but a future release of <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> will obviously fill this gap. The app below shows a combination of multiple elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>, as well as the <code><a href="../reference/box.html">updateBox()</a></code> feature:</p>
+<p>Elements like <code><a href="../reference/attachmentBlock.html">attachmentBlock()</a></code> and
+<code><a href="../reference/userMessage.html">userMessages()</a></code> are a good fit with this component. The
+<code>...</code> slot may hosts multiple <code>boxComment</code>,
+consisting in user comments. Right now, there is no programmatic way
+(understand no <strong>update</strong> function is available) to handle
+them but a future release of <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> will
+obviously fill this gap. The app below shows a combination of multiple
+elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>, as well as the
+<code><a href="../reference/box.html">updateBox()</a></code> feature:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -530,7 +582,7 @@ Some userBox components
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"update_box"</span>, <span class="st">"Refresh"</span><span class="op">)</span>,</span>
 <span>        <span class="st">"Some text here!"</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html" class="external-link">tabsetPanel</a></span><span class="op">(</span></span>
 <span>          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html" class="external-link">tabPanel</a></span><span class="op">(</span></span>
 <span>            <span class="st">"News"</span>,</span>
@@ -608,7 +660,13 @@ Some userBox components
 <div class="section level4">
 <h4 id="flipbox">flipBox<a class="anchor" aria-label="anchor" href="#flipbox"></a>
 </h4>
-<p>The <code><a href="../reference/flipbox.html">flipBox()</a></code> is a simple container based on the W3C documentation. It is not originally part of AdminLTE but deserves a place in <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>. It has a front and back container, which may help to display extra information. Be sure to provide the <em>id</em> so that the box may flip. On the server side, a <code>flipBox</code> is toggled by <code>updateFlipBox</code>. There are currently 2 events, that is click and hover.</p>
+<p>The <code><a href="../reference/flipbox.html">flipBox()</a></code> is a simple container based on the W3C
+documentation. It is not originally part of AdminLTE but deserves a
+place in <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>. It has a front and back
+container, which may help to display extra information. Be sure to
+provide the <em>id</em> so that the box may flip. On the server side, a
+<code>flipBox</code> is toggled by <code>updateFlipBox</code>. There are
+currently 2 events, that is click and hover.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -624,21 +682,21 @@ Some userBox components
 <span>            id <span class="op">=</span> <span class="st">"myflipbox"</span>, </span>
 <span>            trigger <span class="op">=</span> <span class="st">"hover"</span>,</span>
 <span>            width <span class="op">=</span> <span class="fl">12</span>,</span>
-<span>            front <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            front <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">img</a></span><span class="op">(</span></span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">img</a></span><span class="op">(</span></span>
 <span>                src <span class="op">=</span> <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
 <span>                height <span class="op">=</span> <span class="st">"300px"</span>,</span>
 <span>                width <span class="op">=</span> <span class="st">"100%"</span></span>
 <span>              <span class="op">)</span></span>
 <span>            <span class="op">)</span>,</span>
-<span>            back <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            back <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
 <span>              height <span class="op">=</span> <span class="st">"300px"</span>,</span>
 <span>              width <span class="op">=</span> <span class="st">"100%"</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"More information...."</span><span class="op">)</span></span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"More information...."</span><span class="op">)</span></span>
 <span>            <span class="op">)</span></span>
 <span>          <span class="op">)</span></span>
 <span>        <span class="op">)</span>,</span>
@@ -648,21 +706,21 @@ Some userBox components
 <span>          <span class="fu"><a href="../reference/flipbox.html">flipBox</a></span><span class="op">(</span></span>
 <span>            id <span class="op">=</span> <span class="st">"myflipbox2"</span>,</span>
 <span>            width <span class="op">=</span> <span class="fl">12</span>,</span>
-<span>            front <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            front <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">img</a></span><span class="op">(</span></span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">img</a></span><span class="op">(</span></span>
 <span>                src <span class="op">=</span> <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
 <span>                height <span class="op">=</span> <span class="st">"300px"</span>,</span>
 <span>                width <span class="op">=</span> <span class="st">"100%"</span></span>
 <span>              <span class="op">)</span></span>
 <span>            <span class="op">)</span>,</span>
-<span>            back <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            back <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
 <span>              height <span class="op">=</span> <span class="st">"300px"</span>,</span>
 <span>              width <span class="op">=</span> <span class="st">"100%"</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"More information...."</span><span class="op">)</span></span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"More information...."</span><span class="op">)</span></span>
 <span>            <span class="op">)</span></span>
 <span>          <span class="op">)</span></span>
 <span>        <span class="op">)</span></span>
@@ -720,7 +778,7 @@ Some userBox components
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

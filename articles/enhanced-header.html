@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4</span>
       </span>
     </div>
 
@@ -119,13 +119,14 @@
 
       
 
-      </header><script src="enhanced-header_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Enhanced Header Elements</h1>
-                        <h4 data-toc-skip class="author">David Granjon</h4>
+                        <h4 data-toc-skip class="author">David
+Granjon</h4>
             
-            <h4 data-toc-skip class="date">2022-08-19</h4>
+            <h4 data-toc-skip class="date">2024-04-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/HEAD/vignettes/enhanced-header.Rmd" class="external-link"><code>vignettes/enhanced-header.Rmd</code></a></small>
       <div class="hidden name"><code>enhanced-header.Rmd</code></div>
@@ -137,16 +138,21 @@
 <div class="section level2">
 <h2 id="left-navbar-elements">Left Navbar Elements<a class="anchor" aria-label="anchor" href="#left-navbar-elements"></a>
 </h2>
-<p>By default with <a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>, all elements included in the navbar will be displayed on the right side. <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> has a new option to add elements in the left part of the <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>. Such items must be passed in the <em>leftUi</em> argument (if multiple elements, they must be wrapped in a <code><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList()</a></code>, as shown below).</p>
+<p>By default with <a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>, all elements included
+in the navbar will be displayed on the right side.
+<a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a> has a new option to add elements in
+the left part of the <code><a href="../reference/dashboardHeader.html">dashboardHeader()</a></code>. Such items must be
+passed in the <em>leftUi</em> argument (if multiple elements, they must
+be wrapped in a <code><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList()</a></code>, as shown below).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
 <span>     header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span></span>
-<span>       leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>       leftUi <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>         <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/dropdownButton.html" class="external-link">dropdownButton</a></span><span class="op">(</span></span>
 <span>           label <span class="op">=</span> <span class="st">"Controls"</span>,</span>
 <span>           icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sliders-h"</span><span class="op">)</span>,</span>
@@ -176,23 +182,36 @@
 <span>     <span class="op">)</span>,</span>
 <span>     sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>     body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span>       <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/setShadow.html" class="external-link">setShadow</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dropdown-menu"</span><span class="op">)</span></span>
+<span>       <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/deprecated.html" class="external-link">setShadow</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dropdown-menu"</span><span class="op">)</span></span>
 <span>     <span class="op">)</span>,</span>
 <span>     title <span class="op">=</span> <span class="st">"DashboardPage"</span></span>
 <span>   <span class="op">)</span>,</span>
 <span>   server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
 <span> <span class="op">)</span></span></code></pre></div>
-<p>This new feature perfectly works with the <code><a href="https://dreamrs.github.io/shinyWidgets/reference/dropdownButton.html" class="external-link">dropdownButton()</a></code> from the <a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a> packages by <a href="https://twitter.com/_pvictorr" class="external-link">dreamRs</a> (as long as the screen size is large enough), as well as the classic <code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html" class="external-link">dropdownMenu()</a></code> from <a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>. With other individual elements, the result may not be as good, mainly for a space reason. Indeed, a <code><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput()</a></code> would not be optimized to be embedded in the header since its label which takes too much space. This would require some CSS tricks, namely, reducing the slider size, and this is not the philosophy of <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>.</p>
+<p>This new feature perfectly works with the
+<code><a href="https://dreamrs.github.io/shinyWidgets/reference/dropdownButton.html" class="external-link">dropdownButton()</a></code> from the <a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a>
+packages by <a href="https://twitter.com/_pvictorr" class="external-link">dreamRs</a> (as long
+as the screen size is large enough), as well as the classic
+<code><a href="https://rdrr.io/pkg/shinydashboard/man/dropdownMenu.html" class="external-link">dropdownMenu()</a></code> from <a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>. With
+other individual elements, the result may not be as good, mainly for a
+space reason. Indeed, a <code><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput()</a></code> would not be
+optimized to be embedded in the header since its label which takes too
+much space. This would require some CSS tricks, namely, reducing the
+slider size, and this is not the philosophy of
+<a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="improved-dropdownmenu">Improved <code>dropdownMenu()</code><a class="anchor" aria-label="anchor" href="#improved-dropdownmenu"></a>
 </h2>
-<p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed input elements in a left navbar menu. It does not hide when the user click inside and is optimized to correctly render on mobile devices (contrary to <code><a href="https://dreamrs.github.io/shinyWidgets/reference/dropdownButton.html" class="external-link">dropdownButton()</a></code>, see above).</p>
+<p>The new function <code><a href="../reference/dropdownBlock.html">dropdownBlock()</a></code> make it easy to embed
+input elements in a left navbar menu. It does not hide when the user
+click inside and is optimized to correctly render on mobile devices
+(contrary to <code><a href="https://dreamrs.github.io/shinyWidgets/reference/dropdownButton.html" class="external-link">dropdownButton()</a></code>, see above).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
 <span>    header <span class="op">=</span> <span class="fu"><a href="../reference/dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span></span>
-<span>      leftUi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>      leftUi <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="../reference/dropdownBlock.html">dropdownBlock</a></span><span class="op">(</span></span>
 <span>          id <span class="op">=</span> <span class="st">"mydropdown"</span>,</span>
 <span>          title <span class="op">=</span> <span class="st">"Dropdown 1"</span>,</span>
@@ -233,7 +252,7 @@
 <span>    <span class="op">)</span>,</span>
 <span>    sidebar <span class="op">=</span> <span class="fu"><a href="../reference/sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span>      <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/setShadow.html" class="external-link">setShadow</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dropdown-menu"</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://dreamrs.github.io/shinyWidgets/reference/deprecated.html" class="external-link">setShadow</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dropdown-menu"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"DashboardPage"</span></span>
 <span>  <span class="op">)</span>,</span>
@@ -246,12 +265,22 @@
 <div class="section level3">
 <h3 id="enhanced-dropdownmenu-items">Enhanced dropdownMenu Items<a class="anchor" aria-label="anchor" href="#enhanced-dropdownmenu-items"></a>
 </h3>
-<p>In <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>, <code><a href="../reference/taskItem.html">taskItem()</a></code>, <code><a href="../reference/messageItem.html">messageItem()</a></code> and <code>notificationItem</code> have a new <em>inputId</em> parameter allowing them to behave like <code><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">shiny::actionButton</a></code>. This has always been quite frustrating not to be able to interact more with these elements in <a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>.</p>
+<p>In <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a>, <code><a href="../reference/taskItem.html">taskItem()</a></code>,
+<code><a href="../reference/messageItem.html">messageItem()</a></code> and <code>notificationItem</code> have a new
+<em>inputId</em> parameter allowing them to behave like
+<code><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">shiny::actionButton</a></code>. This has always been quite frustrating
+not to be able to interact more with these elements in
+<a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="dashboarduser-component">dashboardUser Component<a class="anchor" aria-label="anchor" href="#dashboarduser-component"></a>
 </h3>
-<p>In the same spirit of the <code><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarUserPanel.html" class="external-link">sidebarUserPanel()</a></code> that display user informations on the sidebar, the brand new <code><a href="../reference/dashboardUser.html">dashboardUser()</a></code> dropdown component may be used as an admin panel or to display further information. <code><a href="../reference/dashboardUserItem.html">dashboardUserItem()</a></code> provides a refined column container.</p>
+<p>In the same spirit of the <code><a href="https://rdrr.io/pkg/shinydashboard/man/sidebarUserPanel.html" class="external-link">sidebarUserPanel()</a></code> that
+display user informations on the sidebar, the brand new
+<code><a href="../reference/dashboardUser.html">dashboardUser()</a></code> dropdown component may be used as an admin
+panel or to display further information.
+<code><a href="../reference/dashboardUserItem.html">dashboardUserItem()</a></code> provides a refined column
+container.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -267,7 +296,7 @@
 <span>       image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>, </span>
 <span>       title <span class="op">=</span> <span class="st">"shinydashboardPlus"</span>,</span>
 <span>       subtitle <span class="op">=</span> <span class="st">"Author"</span>, </span>
-<span>       footer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"The footer"</span>, class <span class="op">=</span> <span class="st">"text-center"</span><span class="op">)</span>,</span>
+<span>       footer <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"The footer"</span>, class <span class="op">=</span> <span class="st">"text-center"</span><span class="op">)</span>,</span>
 <span>       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="../reference/dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span></span>
 <span>         width <span class="op">=</span> <span class="fl">6</span>,</span>
@@ -321,7 +350,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4</span>
       </span>
     </div>
 
@@ -143,46 +143,46 @@ dynamically-generating <code>dashboardUser</code>.</p></div>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> </span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    header <span class="op">=</span> <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="fu"><a href="userOutput.html">userOutput</a></span><span class="op">(</span><span class="st">"user"</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    sidebar <span class="op">=</span> <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"DashboardPage"</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span>,</span></span>
-<span class="r-in"><span>  server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>   <span class="va">output</span><span class="op">$</span><span class="va">user</span> <span class="op">&lt;-</span> <span class="fu"><a href="renderUser.html">renderUser</a></span><span class="op">(</span><span class="op">{</span></span></span>
-<span class="r-in"><span>    <span class="fu">dashboardUser</span><span class="op">(</span></span></span>
-<span class="r-in"><span>       name <span class="op">=</span> <span class="st">"Divad Nojnarg"</span>, </span></span>
-<span class="r-in"><span>       image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>, </span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"shinydashboardPlus"</span>,</span></span>
-<span class="r-in"><span>       subtitle <span class="op">=</span> <span class="st">"Author"</span>, </span></span>
-<span class="r-in"><span>       footer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"The footer"</span>, class <span class="op">=</span> <span class="st">"text-center"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>        <span class="fu"><a href="dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>         width <span class="op">=</span> <span class="fl">6</span>,</span></span>
-<span class="r-in"><span>         <span class="fu"><a href="socialButton.html">socialButton</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>          href <span class="op">=</span> <span class="st">"https://dropbox.com"</span>,</span></span>
-<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"dropbox"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>         <span class="op">)</span></span></span>
-<span class="r-in"><span>        <span class="op">)</span>,</span></span>
-<span class="r-in"><span>        <span class="fu"><a href="dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>         width <span class="op">=</span> <span class="fl">6</span>,</span></span>
-<span class="r-in"><span>         <span class="fu"><a href="socialButton.html">socialButton</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>          href <span class="op">=</span> <span class="st">"https://github.com"</span>,</span></span>
-<span class="r-in"><span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>         <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinyWidgets" class="external-link">shinyWidgets</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    ui <span class="op">=</span> <span class="fu"><a href="dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      header <span class="op">=</span> <span class="fu"><a href="dashboardHeader.html">dashboardHeader</a></span><span class="op">(</span><span class="fu"><a href="userOutput.html">userOutput</a></span><span class="op">(</span><span class="st">"user"</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      sidebar <span class="op">=</span> <span class="fu"><a href="sidebar.html">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"DashboardPage"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    server <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>      <span class="va">output</span><span class="op">$</span><span class="va">user</span> <span class="op">&lt;-</span> <span class="fu"><a href="renderUser.html">renderUser</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>        <span class="fu">dashboardUser</span><span class="op">(</span></span></span>
+<span class="r-in"><span>          name <span class="op">=</span> <span class="st">"Divad Nojnarg"</span>,</span></span>
+<span class="r-in"><span>          image <span class="op">=</span> <span class="st">"https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"</span>,</span></span>
+<span class="r-in"><span>          title <span class="op">=</span> <span class="st">"shinydashboardPlus"</span>,</span></span>
+<span class="r-in"><span>          subtitle <span class="op">=</span> <span class="st">"Author"</span>,</span></span>
+<span class="r-in"><span>          footer <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"The footer"</span>, class <span class="op">=</span> <span class="st">"text-center"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            <span class="fu"><a href="dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>              width <span class="op">=</span> <span class="fl">6</span>,</span></span>
+<span class="r-in"><span>              <span class="fu"><a href="socialButton.html">socialButton</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>                href <span class="op">=</span> <span class="st">"https://dropbox.com"</span>,</span></span>
+<span class="r-in"><span>                icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"dropbox"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>              <span class="op">)</span></span></span>
+<span class="r-in"><span>            <span class="op">)</span>,</span></span>
+<span class="r-in"><span>            <span class="fu"><a href="dashboardUserItem.html">dashboardUserItem</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>              width <span class="op">=</span> <span class="fl">6</span>,</span></span>
+<span class="r-in"><span>              <span class="fu"><a href="socialButton.html">socialButton</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>                href <span class="op">=</span> <span class="st">"https://github.com"</span>,</span></span>
+<span class="r-in"><span>                icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>              <span class="op">)</span></span></span>
+<span class="r-in"><span>            <span class="op">)</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
 <span class="r-in"><span>        <span class="op">)</span></span></span>
-<span class="r-in"><span>       <span class="op">)</span></span></span>
-<span class="r-in"><span>      <span class="op">)</span></span></span>
-<span class="r-in"><span>   <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">}</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
@@ -199,7 +199,7 @@ dynamically-generating <code>dashboardUser</code>.</p></div>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
