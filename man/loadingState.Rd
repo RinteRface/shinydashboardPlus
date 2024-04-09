@@ -14,24 +14,24 @@ Loading state can be programmatically used when a conputation is running for ins
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "loading spinner",
-      loadingState()
-      )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "loading spinner",
+          loadingState()
+        )
+      ),
+      title = "Loading State"
     ),
-    title = "Loading State"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

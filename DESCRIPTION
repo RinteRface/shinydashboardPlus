@@ -1,7 +1,7 @@
 Package: shinydashboardPlus
 Type: Package
 Title: Add More 'AdminLTE2' Components to 'shinydashboard'
-Version: 2.0.4.9000
+Version: 2.0.4
 Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person(family = "RinteRface", role = "cph"),
@@ -34,6 +34,6 @@ Suggests:
 URL: https://github.com/RinteRface/shinydashboardPlus, https://rinterface.com/shiny/shinydashboardPlus/
 BugReports: https://github.com/RinteRface/shinydashboardPlus/issues
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 RdMacros: lifecycle

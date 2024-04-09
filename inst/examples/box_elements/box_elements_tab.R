@@ -1,24 +1,45 @@
 box_elements_tab <- tabItem(
   tabName = "boxelements",
-  
   br(),
-  
+
   # ################ #
-  # demo box Sidebar # 
+  # demo box Sidebar #
   # ################ #
-  
+
   column(
     width = 12,
     align = "center",
     h1("Create box with sidebar")
   ),
   br(),
-  
   fluidRow(
     # element
     column(
       width = 6,
-      eval(parse(text = box_sidebar))
+      box(
+        id = "mybox",
+        width = 12,
+        title = "boxPlus with sidebar",
+        closable = TRUE,
+        status = "warning",
+        solidHeader = FALSE,
+        collapsible = TRUE,
+        sidebar = boxSidebar(
+          id = "boxsidebar",
+          width = 25,
+          startOpen = TRUE,
+          checkboxInput("somevalue", "Some value", FALSE),
+          verbatimTextOutput("value"),
+          sliderInput(
+            "slider_boxsidebar",
+            "Number of observations:",
+            min = 0,
+            max = 1000,
+            value = 500
+          )
+        ),
+        plotOutput("boxSidebarPlot")
+      )
     ),
     # code editor
     column(
@@ -33,19 +54,17 @@ box_elements_tab <- tabItem(
       )
     )
   ),
-  
+
   # ##################### #
-  # demo descriptionBlock # 
+  # demo descriptionBlock #
   # ##################### #
-  
+
   column(
     width = 12,
     align = "center",
     h1("descriptionBlock()")
   ),
-  
   br(),
-  
   fluidRow(
     column(
       width = 6,
@@ -65,21 +84,18 @@ box_elements_tab <- tabItem(
       )
     )
   ),
-  
+
   # ##################### #
-  #   demo boxPad         # 
+  #   demo boxPad         #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("boxPad()")
   ),
-  
   br(),
-  
   fluidRow(
     # descriptionBlock demo in box side
     column(
@@ -96,10 +112,9 @@ box_elements_tab <- tabItem(
         outputId = "boxPad1_code",
         readOnly = TRUE,
         value = paste(box_pad1, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
   fluidRow(
     # element
     column(
@@ -116,25 +131,21 @@ box_elements_tab <- tabItem(
         outputId = "boxPad2_code",
         readOnly = TRUE,
         value = paste(box_pad2, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
+
   # ##################### #
-  #   demo userList()     # 
+  #   demo userList()     #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("userList()")
   ),
-  
   br(),
-  
-  
   fluidRow(
     # userList examples
     column(
@@ -151,24 +162,21 @@ box_elements_tab <- tabItem(
         outputId = "userlist_code",
         readOnly = TRUE,
         value = paste(user_list, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
+
   # ##################### #
-  #   demo navPills()     # 
+  #   demo navPills()     #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("navPills()")
   ),
-  
   br(),
-  
   fluidRow(
     # navPills demo
     column(
@@ -188,21 +196,18 @@ box_elements_tab <- tabItem(
       )
     )
   ),
-  
+
   # ##################### #
-  #   demo productList()  # 
+  #   demo productList()  #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("productList()")
   ),
-  
   br(),
-  
   fluidRow(
     # product list demo
     column(
@@ -222,11 +227,11 @@ box_elements_tab <- tabItem(
       )
     )
   ),
-  
+
   # ##################### #
-  #   demo accordion()    # 
+  #   demo accordion()    #
   # ##################### #
-  
+
   br(),
   column(
     width = 12,
@@ -234,7 +239,6 @@ box_elements_tab <- tabItem(
     h1("accordion()")
   ),
   br(),
-  
   fluidRow(
     # demo accordion
     column(
@@ -251,29 +255,26 @@ box_elements_tab <- tabItem(
         outputId = "accordion_code",
         readOnly = TRUE,
         value = paste(accordion, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
+
   # ##################### #
-  #   demo todoList()    # 
+  #   demo todoList()    #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("todoList()")
   ),
-  
   br(),
-  
   fluidRow(
     # element
     column(
       width = 6,
-      eval(parse(text = todo_list1)) 
+      eval(parse(text = todo_list1))
     ),
     # code editor
     column(
@@ -285,13 +286,13 @@ box_elements_tab <- tabItem(
         outputId = "todolist1_code",
         readOnly = TRUE,
         value = paste(todo_list1, collapse = "\n")
-      ) 
+      )
     ),
-    
+
     # element
     column(
       width = 6,
-      eval(parse(text = todo_list2)) 
+      eval(parse(text = todo_list2))
     ),
     # ace editor
     column(
@@ -303,29 +304,26 @@ box_elements_tab <- tabItem(
         outputId = "todolist2_code",
         readOnly = TRUE,
         value = paste(todo_list2, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
+
   # ##################### #
-  # demo timelineBlock()  # 
+  # demo timelineBlock()  #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("timelineBlock()")
   ),
-  
   br(),
-  
   fluidRow(
     # element
     column(
       width = 6,
-      eval(parse(text = timeline1)) 
+      eval(parse(text = timeline1))
     ),
     # ace editor
     column(
@@ -337,10 +335,9 @@ box_elements_tab <- tabItem(
         outputId = "timelineBlock1_code",
         readOnly = TRUE,
         value = paste(timeline1, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
   fluidRow(
     h3("Timeline non reversed: ideal to include oustide of a box"),
     column(
@@ -361,26 +358,23 @@ box_elements_tab <- tabItem(
       )
     )
   ),
-  
+
   # ##################### #
-  #   demo boxProfile()   # 
+  #   demo boxProfile()   #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("boxProfile()")
   ),
-  
   br(),
-  
   fluidRow(
     # element
     column(
       width = 6,
-      eval(parse(text = box_profile)) 
+      eval(parse(text = box_profile))
     ),
     # ace editor
     column(
@@ -392,29 +386,26 @@ box_elements_tab <- tabItem(
         outputId = "boxProfile_code",
         readOnly = TRUE,
         value = paste(box_profile, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
+
   # ##################### #
-  #   demo userPost()   # 
+  #   demo userPost()   #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("userPost()")
   ),
-  
   br(),
-  
   fluidRow(
     # element
     column(
       width = 6,
-      eval(parse(text = user_post)) 
+      eval(parse(text = user_post))
     ),
     # ace editor
     column(
@@ -426,30 +417,27 @@ box_elements_tab <- tabItem(
         outputId = "userPost_code",
         readOnly = TRUE,
         value = paste(user_post, collapse = "\n")
-      ) 
+      )
     )
   ),
-  
-  
+
+
   # ##################### #
-  #   demo userMessages()   # 
+  #   demo userMessages()   #
   # ##################### #
-  
+
   br(),
-  
   column(
     width = 12,
     align = "center",
     h1("userMessages()")
   ),
-  
   br(),
-  
   fluidRow(
     # element
     column(
       width = 6,
-      eval(parse(text = user_messages)) 
+      eval(parse(text = user_messages))
     ),
     # ace editor
     column(
@@ -461,8 +449,7 @@ box_elements_tab <- tabItem(
         outputId = "userMessages_code",
         readOnly = TRUE,
         value = paste(user_messages, collapse = "\n")
-      ) 
+      )
     )
   )
-  
 )

@@ -3,10 +3,7 @@
 \name{productList}
 \alias{productList}
 \alias{productListItem}
-\title{AdminLTE2 product list container
-
-\link{productList} creates a container to display commercial items in an elegant container.
-Insert in a \link{box}.}
+\title{AdminLTE2 product list container}
 \usage{
 productList(...)
 
@@ -43,46 +40,49 @@ See below:
 }}
 }
 \description{
+\link{productList} creates a container to display commercial items in an elegant container.
+Insert in a \link{box}.
+
 \link{productListItem} creates a product item to insert in \link{productList}.
 }
 \examples{
 
 # Box with productList
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Product List",
-      status = "primary",
-      productList(
-        productListItem(
-          image = "https://www.pngmart.com/files/1/Haier-TV-PNG.png", 
-          title = "Samsung TV", 
-          subtitle = "$1800", 
-          color = "yellow",
-          "This is an amazing TV, but I don't like TV!"
-        ),
-        productListItem(
-          image = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg", 
-          title = "Imac 27", 
-          subtitle = "$4999", 
-          color = "red",
-          "This is were I spend most of my time!"
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Product List",
+          status = "primary",
+          productList(
+            productListItem(
+              image = "https://www.pngmart.com/files/1/Haier-TV-PNG.png",
+              title = "Samsung TV",
+              subtitle = "$1800",
+              color = "yellow",
+              "This is an amazing TV, but I don't like TV!"
+            ),
+            productListItem(
+              image = "https://upload.wikimedia.org/wikipedia/commons/7/77/IMac_Pro.svg",
+              title = "Imac 27",
+              subtitle = "$4999",
+              color = "red",
+              "This is were I spend most of my time!"
+            )
+          )
         )
-      )
-     )
+      ),
+      title = "Product List"
     ),
-    title = "Product List"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

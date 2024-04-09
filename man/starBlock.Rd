@@ -37,27 +37,27 @@ Create a starBlock item (ideal for rating)
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Star example",
-      starBlock(5),
-      starBlock(5, color = "olive"),
-      starBlock(1, color = "maroon"),
-      starBlock(3, color = "teal")
-     )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Star example",
+          starBlock(5),
+          starBlock(5, color = "olive"),
+          starBlock(1, color = "maroon"),
+          starBlock(3, color = "teal")
+        )
+      ),
+      title = "starBlock"
     ),
-    title = "starBlock"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

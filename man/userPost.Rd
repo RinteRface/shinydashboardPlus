@@ -55,50 +55,50 @@ userPostMedia(image, height = NULL, width = NULL)
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Box with user comment",
-      status = "primary",
-      userPost(
-       id = 1,
-       image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-       author = "Jonathan Burke Jr.",
-       description = "Shared publicly - 7:30 PM today",
-       "Lorem ipsum represents a long-held tradition for designers, 
-       typographers and the like. Some people hate it and argue for 
-       its demise, but others ignore the hate as they create awesome 
-       tools to help create filler text for everyone from bacon 
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Box with user comment",
+          status = "primary",
+          userPost(
+            id = 1,
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+            author = "Jonathan Burke Jr.",
+            description = "Shared publicly - 7:30 PM today",
+            "Lorem ipsum represents a long-held tradition for designers,
+       typographers and the like. Some people hate it and argue for
+       its demise, but others ignore the hate as they create awesome
+       tools to help create filler text for everyone from bacon
        lovers to Charlie Sheen fans.",
-       collapsible = FALSE,
-       userPostTagItems(
-        userPostTagItem(dashboardLabel("item 1", status = "info")),
-        userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
-       )
+            collapsible = FALSE,
+            userPostTagItems(
+              userPostTagItem(dashboardLabel("item 1", status = "info")),
+              userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
+            )
+          ),
+          userPost(
+            id = 2,
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
+            author = "Adam Jones",
+            userPostMedia(image = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
+            userPostTagItems(
+              userPostTagItem(dashboardLabel("item 1", status = "success")),
+              userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
+            )
+          )
+        )
       ),
-      userPost(
-       id = 2,
-       image = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
-       author = "Adam Jones",
-       userPostMedia(image = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
-       userPostTagItems(
-        userPostTagItem(dashboardLabel("item 1", status = "success")),
-        userPostTagItem(dashboardLabel("item 2", status = "danger"), side = "right")
-       )
-      )
-     )
+      title = "userPost"
     ),
-    title = "userPost"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

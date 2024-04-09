@@ -25,22 +25,22 @@ Create a label
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     dashboardLabel("Label 1", status = "info"),
-     dashboardLabel("Label 2", status = "danger", style = "circle"),
-     dashboardLabel("Label 3", status = "success", style = "square")
-    )
-  ),
-  server = function(input, output) { }
- )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        dashboardLabel("Label 1", status = "info"),
+        dashboardLabel("Label 2", status = "danger", style = "circle"),
+        dashboardLabel("Label 3", status = "success", style = "square")
+      )
+    ),
+    server = function(input, output) { }
+  )
 }
 
 }

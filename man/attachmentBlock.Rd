@@ -23,29 +23,29 @@ and insert in a \link{box}.
 
 # Box with attachmentBlock
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Attachment example",
-      attachmentBlock(
-       image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
-       title = "Test",
-       href = "https://google.com",
-       "This is the content"
-      )
-     )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Attachment example",
+          attachmentBlock(
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/photo1.png",
+            title = "Test",
+            href = "https://google.com",
+            "This is the content"
+          )
+        )
+      ),
+      title = "AttachmentBlock"
     ),
-    title = "AttachmentBlock"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

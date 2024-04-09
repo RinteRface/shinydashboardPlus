@@ -224,7 +224,7 @@ dropdown menu container.
 \link{boxPad} creates a vertical container for \link{descriptionBlock}.
 It has to be included in a \link{box}.
 
-\link{descriptionBlock} creates a description block, perfect for writing statistics 
+\link{descriptionBlock} creates a description block, perfect for writing statistics
 to insert in a \link{box}
 }
 \examples{
@@ -418,102 +418,103 @@ if (interactive()) {
 
 # Box with boxPad container + descriptionBlock
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(title = "Box with right pad",
-      status = "warning",
-      fluidRow(
-        column(width = 6),
-        column(
-          width = 6,
-          boxPad(
-            color = "green",
-            descriptionBlock(
-              header = "8390", 
-              text = "VISITS", 
-              rightBorder = FALSE,
-              marginBottom = TRUE
-            ),
-            descriptionBlock(
-              header = "30\%", 
-              text = "REFERRALS", 
-              rightBorder = FALSE,
-              marginBottom = TRUE
-            ),
-            descriptionBlock(
-              header = "70\%", 
-              text = "ORGANIC", 
-              rightBorder = FALSE,
-              marginBottom = FALSE
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Box with right pad",
+          status = "warning",
+          fluidRow(
+            column(width = 6),
+            column(
+              width = 6,
+              boxPad(
+                color = "green",
+                descriptionBlock(
+                  header = "8390",
+                  text = "VISITS",
+                  rightBorder = FALSE,
+                  marginBottom = TRUE
+                ),
+                descriptionBlock(
+                  header = "30\%",
+                  text = "REFERRALS",
+                  rightBorder = FALSE,
+                  marginBottom = TRUE
+                ),
+                descriptionBlock(
+                  header = "70\%",
+                  text = "ORGANIC",
+                  rightBorder = FALSE,
+                  marginBottom = FALSE
+                )
+              )
             )
           )
         )
-      )
-     )
+      ),
+      title = "boxPad"
     ),
-    title = "boxPad"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 
 # Box with descriptionBlock
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      solidHeader = FALSE,
-      title = "Status summary",
-      background = NULL,
-      width = 4,
-      status = "danger",
-      footer = fluidRow(
-        column(
-          width = 6,
-          descriptionBlock(
-            number = "17\%", 
-            numberColor = "green", 
-            numberIcon = icon("caret-up"),
-            header = "$35,210.43", 
-            text = "TOTAL REVENUE", 
-            rightBorder = TRUE,
-            marginBottom = FALSE
-          )
-        ),
-        column(
-          width = 6,
-          descriptionBlock(
-            number = "18\%", 
-            numberColor = "red", 
-            numberIcon = icon("caret-down"),
-            header = "1200", 
-            text = "GOAL COMPLETION", 
-            rightBorder = FALSE,
-            marginBottom = FALSE
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          solidHeader = FALSE,
+          title = "Status summary",
+          background = NULL,
+          width = 4,
+          status = "danger",
+          footer = fluidRow(
+            column(
+              width = 6,
+              descriptionBlock(
+                number = "17\%",
+                numberColor = "green",
+                numberIcon = icon("caret-up"),
+                header = "$35,210.43",
+                text = "TOTAL REVENUE",
+                rightBorder = TRUE,
+                marginBottom = FALSE
+              )
+            ),
+            column(
+              width = 6,
+              descriptionBlock(
+                number = "18\%",
+                numberColor = "red",
+                numberIcon = icon("caret-down"),
+                header = "1200",
+                text = "GOAL COMPLETION",
+                rightBorder = FALSE,
+                marginBottom = FALSE
+              )
+            )
           )
         )
-      )
-     )
+      ),
+      title = "Description Blocks"
     ),
-    title = "Description Blocks"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

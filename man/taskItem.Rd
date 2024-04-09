@@ -23,41 +23,41 @@ Custom taskItem
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-   ui = dashboardPage(
-     dashboardHeader(
-       dropdownMenu(
-         type = "tasks", 
-         badgeStatus = "danger",
-         taskItem(
-           inputId = "mytask",
-           value = 20, 
-           color = "aqua",
-           text = "Click me!"
-         ),
-         taskItem(
-           value = 40, 
-           color = "green",
-           text = "Basic item"
-         )
-       )
-     ),
-     dashboardSidebar(),
-     dashboardBody(),
-     title = "Dashboard example"
-   ),
-   server = function(input, output) {
-     observeEvent(input$mytask, {
-       showModal(modalDialog(
-         title = "Important message",
-         "This is an important message!"
-       ))
-     })
-   }
- )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(
+        dropdownMenu(
+          type = "tasks",
+          badgeStatus = "danger",
+          taskItem(
+            inputId = "mytask",
+            value = 20,
+            color = "aqua",
+            text = "Click me!"
+          ),
+          taskItem(
+            value = 40,
+            color = "green",
+            text = "Basic item"
+          )
+        )
+      ),
+      dashboardSidebar(),
+      dashboardBody(),
+      title = "Dashboard example"
+    ),
+    server = function(input, output) {
+      observeEvent(input$mytask, {
+        showModal(modalDialog(
+          title = "Important message",
+          "This is an important message!"
+        ))
+      })
+    }
+  )
 }
 }

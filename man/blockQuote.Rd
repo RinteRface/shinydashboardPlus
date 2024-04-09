@@ -16,25 +16,25 @@ If you want to quote text
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "BlockQuote example",
-      blockQuote("I quote some text here!"),
-      blockQuote("I quote some text here!", side = "right")
-     )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "BlockQuote example",
+          blockQuote("I quote some text here!"),
+          blockQuote("I quote some text here!", side = "right")
+        )
+      ),
+      title = "blockQuote"
     ),
-    title = "blockQuote"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

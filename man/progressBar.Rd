@@ -50,60 +50,60 @@ This creates a vertical progress bar.
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-   ui = dashboardPage(
-     header = dashboardHeader(),
-     sidebar = dashboardSidebar(),
-     body = dashboardBody(
-      box(
-       title = "Horizontal",
-       progressBar(
-        value = 10,
-        striped = TRUE,
-        animated = TRUE,
-        label = "10\%"
-       ),
-       progressBar(
-        value = 50,
-        status = "warning",
-        size = "xs"
-       ),
-       progressBar(
-        value = 20,
-        status = "danger",
-        size = "sm"
-       )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      header = dashboardHeader(),
+      sidebar = dashboardSidebar(),
+      body = dashboardBody(
+        box(
+          title = "Horizontal",
+          progressBar(
+            value = 10,
+            striped = TRUE,
+            animated = TRUE,
+            label = "10\%"
+          ),
+          progressBar(
+            value = 50,
+            status = "warning",
+            size = "xs"
+          ),
+          progressBar(
+            value = 20,
+            status = "danger",
+            size = "sm"
+          )
+        ),
+        box(
+          title = "Vertical",
+          progressBar(
+            value = 10,
+            striped = TRUE,
+            animated = TRUE,
+            vertical = TRUE
+          ),
+          progressBar(
+            value = 50,
+            status = "warning",
+            size = "xs",
+            vertical = TRUE
+          ),
+          progressBar(
+            value = 20,
+            status = "danger",
+            size = "sm",
+            vertical = TRUE
+          )
+        )
       ),
-      box(
-       title = "Vertical",
-       progressBar(
-        value = 10,
-        striped = TRUE,
-        animated = TRUE,
-        vertical = TRUE
-       ),
-       progressBar(
-        value = 50,
-        status = "warning",
-        size = "xs",
-        vertical = TRUE
-       ),
-       progressBar(
-        value = 20,
-        status = "danger",
-        size = "sm",
-        vertical = TRUE
-       )
-      )
-     ),
-     title = "Progress bars"
-   ),
-   server = function(input, output) { }
- )
+      title = "Progress bars"
+    ),
+    server = function(input, output) { }
+  )
 }
 }
 \author{

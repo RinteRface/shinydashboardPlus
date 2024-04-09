@@ -31,32 +31,32 @@ See below:
 }}
 }
 \description{
-Create a badge. It may be inserted in any element like inside 
+Create a badge. It may be inserted in any element like inside
 a \link[shiny]{actionButton} or a \link{dashboardSidebar}.
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     dashboardBadge("Badge 1", color = "blue"),
-     actionButton(
-      inputId = "badge", 
-      label = "Hello", 
-      icon = NULL, 
-      width = NULL, 
-      dashboardBadge(1, color = "orange")
-     )
-    )
-  ),
-  server = function(input, output) { }
- )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        dashboardBadge("Badge 1", color = "blue"),
+        actionButton(
+          inputId = "badge",
+          label = "Hello",
+          icon = NULL,
+          width = NULL,
+          dashboardBadge(1, color = "orange")
+        )
+      )
+    ),
+    server = function(input, output) { }
+  )
 }
 
 }

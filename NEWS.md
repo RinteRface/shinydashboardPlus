@@ -1,7 +1,8 @@
-# shinydashboardPlus 2.0.4.9000
+# shinydashboardPlus 2.0.4
 
 ## Minor change
-- Update github actions
+- Fix [#181](https://github.com/RinteRface/shinydashboardPlus/issues/181).
+- Update github actions.
 - Icon [change](https://github.com/RinteRface/shinydashboardPlus/commit/0abe127a1ce0e7f8cb74883968c83b796cc9c73e) in `dashboardHeader()`. Thanks @zhanxw.
 - Allow [hyperlink](https://github.com/RinteRface/shinydashboardPlus/commit/12fab3b92b2b5e459304b385e7ed7a94cb9dbd98) in User block. Thanks @robertkck.
 - Fix multiple fontawesome icon issues (deprecated names in fontawesome 6).

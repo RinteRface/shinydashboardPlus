@@ -67,97 +67,97 @@ selected \link{navPillsItem} on the client.
 
 # navPills
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Nav Pills",
-      status = "info",
-      "Box Body",
-      footer = navPills(
-        id = "pillItem",
-        navPillsItem(
-          left = "Item 1", 
-          color = "green",
-          right = 10
-        ),
-        navPillsItem(
-          left = "Item 2", 
-          color = "red",
-          icon = icon("angle-down"), 
-          right = "10\%",
-          active = TRUE
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Nav Pills",
+          status = "info",
+          "Box Body",
+          footer = navPills(
+            id = "pillItem",
+            navPillsItem(
+              left = "Item 1",
+              color = "green",
+              right = 10
+            ),
+            navPillsItem(
+              left = "Item 2",
+              color = "red",
+              icon = icon("angle-down"),
+              right = "10\%",
+              active = TRUE
+            )
+          )
         )
-      )
-     )
+      ),
+      title = "Nav Pills"
     ),
-    title = "Nav Pills"
-  ),
-  server = function(input, output) {
-   observeEvent(input$pillItem, {
-    showNotification(sprintf("You clicked on pill N° \%s", input$pillItem), type = "message")
-   })
-  }
- )
+    server = function(input, output) {
+      observeEvent(input$pillItem, {
+        showNotification(sprintf("You clicked on pill N° \%s", input$pillItem), type = "message")
+      })
+    }
+  )
 }
 
 
 # update navPills
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     radioButtons("controller", "Controller", choices = c(1, 2, 3)),
-     br(),
-     box(
-      title = "Nav Pills",
-      status = "info",
-      "Box Body",
-      footer = navPills(
-        inputId = "pills",
-        navPillsItem(
-          left = "Item 1", 
-          color = "green",
-          right = 10
-        ),
-        navPillsItem(
-          left = "Item 2", 
-          color = "red",
-          icon = icon("angle-down"), 
-          right = "10\%"
-        ),
-        navPillsItem(
-          left = "Item 3", 
-          color = "blue",
-          icon = icon("angle-up"), 
-          right = "30\%"
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        radioButtons("controller", "Controller", choices = c(1, 2, 3)),
+        br(),
+        box(
+          title = "Nav Pills",
+          status = "info",
+          "Box Body",
+          footer = navPills(
+            inputId = "pills",
+            navPillsItem(
+              left = "Item 1",
+              color = "green",
+              right = 10
+            ),
+            navPillsItem(
+              left = "Item 2",
+              color = "red",
+              icon = icon("angle-down"),
+              right = "10\%"
+            ),
+            navPillsItem(
+              left = "Item 3",
+              color = "blue",
+              icon = icon("angle-up"),
+              right = "30\%"
+            )
+          )
         )
-      )
-     )
+      ),
+      title = "Nav Pills"
     ),
-    title = "Nav Pills"
-  ),
-  server = function(input, output, session) {
-   observeEvent(input$controller, {
-    updateNavPills(id = "pills", selected = input$controller)
-   })
-   observeEvent(input$pills, {
-    showNotification(sprintf("You selected pill N° \%s", input$pills), type = "message")
-   })
-  }
- )
+    server = function(input, output, session) {
+      observeEvent(input$controller, {
+        updateNavPills(id = "pills", selected = input$controller)
+      })
+      observeEvent(input$pills, {
+        showNotification(sprintf("You selected pill N° \%s", input$pills), type = "message")
+      })
+    }
+  )
 }
 }
 \author{

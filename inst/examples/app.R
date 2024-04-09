@@ -2,13 +2,11 @@ source("global.R")
 
 shinyApp(
   ui = dashboardPage(
-    md = FALSE,
-    #skin = "midnight",
     dashboardHeader(
-      fixed = TRUE,
       title = tagList(
-        span(class = "logo-lg", "shinydashboardPlus"), 
-        img(src = "ShinyDashboardPlus_FINAL.svg")),
+        span(class = "logo-lg", "shinydashboardPlus"),
+        img(src = "https://camo.githubusercontent.com/25bb653d828cc411aa1eabc6e4a097977fc6cae173c89c9056d77937f0588790/68747470733a2f2f72696e746572666163652e636f6d2f696e73742f696d616765732f7368696e7964617368626f617264506c75732e737667")
+      ),
       leftUi = tagList(
         dropdownBlock(
           id = "mydropdown",
@@ -17,8 +15,8 @@ shinyApp(
           sliderInput(
             inputId = "n",
             label = "Number of observations",
-            min = 10, 
-            max = 100, 
+            min = 10,
+            max = 100,
             value = 30
           ),
           prettyToggle(
@@ -36,57 +34,58 @@ shinyApp(
           prettySwitch(
             inputId = "switch4",
             label = "Fill switch with status:",
-            fill = TRUE, 
+            fill = TRUE,
             status = "primary"
           ),
           prettyCheckboxGroup(
             inputId = "checkgroup2",
-            label = "Click me!", 
+            label = "Click me!",
             thick = TRUE,
             choices = c("Click me !", "Me !", "Or me !"),
-            animation = "pulse", 
+            animation = "pulse",
             status = "info"
           )
         )
       ),
       dropdownMenu(
-        type = "tasks", 
+        type = "tasks",
         badgeStatus = "danger",
         taskItem(value = 20, color = "aqua", "Refactor code"),
         taskItem(value = 40, color = "green", "Design new layout"),
         taskItem(value = 60, color = "yellow", "Another task"),
         taskItem(value = 80, color = "red", "Write documentation")
       ),
-      userOutput("user")
+      userOutput("user"),
+      fixed = TRUE
     ),
     dashboardSidebar(
       id = "mysidebar",
       sidebarMenu(
         menuItem(
-          text = "New boxes", 
+          text = "New boxes",
           tabName = "boxes",
-          badgeLabel = "new", 
+          badgeLabel = "new",
           badgeColor = "green",
           icon = icon("briefcase")
         ),
         menuItem(
-          text = "New buttons", 
+          text = "New buttons",
           tabName = "buttons",
-          badgeLabel = "new", 
+          badgeLabel = "new",
           badgeColor = "green",
           icon = icon("cubes")
         ),
         menuItem(
-          text = "New Box elements", 
+          text = "New Box elements",
           tabName = "boxelements",
-          badgeLabel = "new", 
+          badgeLabel = "new",
           badgeColor = "green",
           icon = icon("table-cells")
         ),
         menuItem(
-          text = "New extra elements", 
+          text = "New extra elements",
           tabName = "extraelements",
-          badgeLabel = "new", 
+          badgeLabel = "new",
           badgeColor = "green",
           icon = icon("circle-plus")
         )
@@ -102,10 +101,10 @@ shinyApp(
           icon = icon("desktop"),
           active = TRUE,
           sliderInput(
-            inputId = "inputsidebar1", 
+            inputId = "inputsidebar1",
             label = "Number of observations:",
-            min = 0, 
-            max = 1000, 
+            min = 0,
+            max = 1000,
             value = 500
           )
         ),
@@ -113,21 +112,21 @@ shinyApp(
           icon = icon("paint-brush"),
           title = "Tab 2",
           numericInput(
-            inputId = "inputsidebar2", 
-            label = "Observations:", 
-            value = 10, 
-            min = 1, 
+            inputId = "inputsidebar2",
+            label = "Observations:",
+            value = 10,
+            min = 1,
             max = 100
           )
         )
       )
     ),
     dashboardBody(
-      
+
       # use a bit of shinyEffects
       setShadow(class = "dropdown-menu"),
       setShadow(class = "box"),
-      
+
       # some styling
       tags$head(
         tags$style(
@@ -147,7 +146,7 @@ shinyApp(
           "
         )
       ),
-      
+
       # All tabs
       tabItems(
         boxes_tab,
@@ -171,46 +170,50 @@ shinyApp(
         "Thanks for clicking on me!"
       ))
     })
-    
-    
+
     output$distPlot <- renderPlot({
       hist(rnorm(input$obs))
     })
-    
+
     output$distPlot2 <- renderPlot({
       hist(rnorm(input$obs2))
     })
-    
+
     output$flipPlot <- renderPlot({
       hist(rnorm(input$flip_obs))
     })
-    
-    output$data <- renderTable({
-      head(mtcars[, c("mpg", input$variable), drop = FALSE])
-    }, rownames = TRUE)
-    
-    output$value <- renderText({input$somevalue})
-    
+
+    output$data <- renderTable(
+      {
+        head(mtcars[, c("mpg", input$variable), drop = FALSE])
+      },
+      rownames = TRUE
+    )
+
+    output$value <- renderText({
+      input$somevalue
+    })
+
     output$boxSidebarPlot <- renderPlot({
       hist(rnorm(input$slider_boxsidebar))
     })
-    
+
     output$user <- renderUser({
       dashboardUser(
-        name = "Divad Nojnarg", 
-        image = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg", 
+        name = "Divad Nojnarg",
+        image = "https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg",
         title = "shinydashboardPlus",
-        subtitle = "Author", 
+        subtitle = "Author",
         footer = p("The footer", class = "text-center"),
         fluidRow(
           dashboardUserItem(
             width = 6,
             descriptionBlock(
-              number = "17%", 
-              numberColor = "green", 
+              number = "17%",
+              numberColor = "green",
               numberIcon = icon("caret-up"),
-              header = "$35,210.43", 
-              text = "TOTAL REVENUE", 
+              header = "$35,210.43",
+              text = "TOTAL REVENUE",
               rightBorder = TRUE,
               marginBottom = FALSE
             )
@@ -218,11 +221,11 @@ shinyApp(
           dashboardUserItem(
             width = 6,
             descriptionBlock(
-              number = "18%", 
-              numberColor = "red", 
+              number = "18%",
+              numberColor = "red",
               numberIcon = icon("caret-down"),
-              header = "1200", 
-              text = "GOAL COMPLETION", 
+              header = "1200",
+              text = "GOAL COMPLETION",
               rightBorder = FALSE,
               marginBottom = FALSE
             )
@@ -230,6 +233,5 @@ shinyApp(
         )
       )
     })
-    
   }
 )

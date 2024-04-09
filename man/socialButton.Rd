@@ -16,32 +16,32 @@ Create a social button
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Social Buttons",
-      status = NULL,
-      socialButton(
-        href = "https://dropbox.com",
-        icon = icon("dropbox")
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Social Buttons",
+          status = NULL,
+          socialButton(
+            href = "https://dropbox.com",
+            icon = icon("dropbox")
+          ),
+          socialButton(
+            href = "https://github.com",
+            icon = icon("github")
+          )
+        )
       ),
-      socialButton(
-        href = "https://github.com",
-        icon = icon("github")
-      )
-     )
+      title = "Social Buttons"
     ),
-    title = "Social Buttons"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 }

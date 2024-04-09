@@ -29,7 +29,7 @@ updateUserMessages(
 
 \item{id}{\link{userMessages} to target.}
 
-\item{status}{Messages status. See here for a list of valid colors 
+\item{status}{Messages status. See here for a list of valid colors
 \url{https://adminlte.io/themes/AdminLTE/pages/UI/general.html}.
 Valid statuses are defined as follows:
 \itemize{
@@ -70,157 +70,157 @@ such as sending, removing or editing messages.
 }
 \examples{
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-     box(
-      title = "Box with messages",
-      solidHeader = TRUE,
-      status = "warning",
-      userMessages(
-       width = 12,
-       status = "success",
-       userMessage(
-         author = "Alexander Pierce",
-         date = "20 Jan 2:00 pm",
-         image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-         type = "sent",
-         "Is this template really for free? That's unbelievable!"
-       ),
-       userMessage(
-         author = "Sarah Bullock",
-         date = "23 Jan 2:05 pm",
-         image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-         type = "received",
-         "You better believe it!"
-       )
-      )
-     ),
-     userMessages(
-       width = 6,
-       status = "danger",
-        userMessage(
-         author = "Alexander Pierce",
-         date = "20 Jan 2:00 pm",
-         image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-         type = "received",
-         "Is this template really for free? That's unbelievable!"
-       ),
-       userMessage(
-         author = "Sarah Bullock",
-         date = "23 Jan 2:05 pm",
-         image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-         type = "sent",
-         "You better believe it!"
-       )
-      )
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        box(
+          title = "Box with messages",
+          solidHeader = TRUE,
+          status = "warning",
+          userMessages(
+            width = 12,
+            status = "success",
+            userMessage(
+              author = "Alexander Pierce",
+              date = "20 Jan 2:00 pm",
+              image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+              type = "sent",
+              "Is this template really for free? That's unbelievable!"
+            ),
+            userMessage(
+              author = "Sarah Bullock",
+              date = "23 Jan 2:05 pm",
+              image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+              type = "received",
+              "You better believe it!"
+            )
+          )
+        ),
+        userMessages(
+          width = 6,
+          status = "danger",
+          userMessage(
+            author = "Alexander Pierce",
+            date = "20 Jan 2:00 pm",
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+            type = "received",
+            "Is this template really for free? That's unbelievable!"
+          ),
+          userMessage(
+            author = "Sarah Bullock",
+            date = "23 Jan 2:05 pm",
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+            type = "sent",
+            "You better believe it!"
+          )
+        )
+      ),
+      title = "user Message"
     ),
-    title = "user Message"
-  ),
-  server = function(input, output) { }
- )
+    server = function(input, output) { }
+  )
 }
 
 if (interactive()) {
- library(shiny)
- library(shinydashboard)
- library(shinydashboardPlus)
- 
- shinyApp(
-  ui = dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody(
-      fluidRow(
-        actionButton("remove", "Remove message"),
-        actionButton("add", "Add message"),
-        actionButton("update", "Update message")
-      ),
-      numericInput("index", "Message index:", 1, min = 1, max = 3),
-      br(),
-      br(),
-      userMessages(
-        width = 6,
-        status = "danger",
-        id = "message",
-        userMessage(
-          author = "Alexander Pierce",
-          date = "20 Jan 2:00 pm",
-          image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-          type = "received",
-          "Is this template really for free? That's unbelievable!"
+  library(shiny)
+  library(shinydashboard)
+  library(shinydashboardPlus)
+
+  shinyApp(
+    ui = dashboardPage(
+      dashboardHeader(),
+      dashboardSidebar(),
+      dashboardBody(
+        fluidRow(
+          actionButton("remove", "Remove message"),
+          actionButton("add", "Add message"),
+          actionButton("update", "Update message")
         ),
-        userMessage(
-          author = "Sarah Bullock",
-          date = "23 Jan 2:05 pm",
-          image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-          type = "sent",
-          "You better believe it!"
+        numericInput("index", "Message index:", 1, min = 1, max = 3),
+        br(),
+        br(),
+        userMessages(
+          width = 6,
+          status = "danger",
+          id = "message",
+          userMessage(
+            author = "Alexander Pierce",
+            date = "20 Jan 2:00 pm",
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
+            type = "received",
+            "Is this template really for free? That's unbelievable!"
+          ),
+          userMessage(
+            author = "Sarah Bullock",
+            date = "23 Jan 2:05 pm",
+            image = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
+            type = "sent",
+            "You better believe it!"
+          )
         )
-      )
+      ),
+      title = "user Message"
     ),
-    title = "user Message"
-  ),
-  server = function(input, output, session) {
-    observeEvent(input$remove, {
-      updateUserMessages("message", action = "remove", index = input$index)
-    })
-    observeEvent(input$add, {
-      updateUserMessages(
-        "message", 
-        action = "add", 
-        content = list(
-          author = "David",
-          date = "Now",
-          image = "https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg",
-          type = "received",
-          text = tagList(
-           sliderInput(
-            "obs", 
-            "Number of observations:",
-            min = 0, 
-            max = 1000, 
-            value = 500
-           ),
-           plotOutput("distPlot")
+    server = function(input, output, session) {
+      observeEvent(input$remove, {
+        updateUserMessages("message", action = "remove", index = input$index)
+      })
+      observeEvent(input$add, {
+        updateUserMessages(
+          "message",
+          action = "add",
+          content = list(
+            author = "David",
+            date = "Now",
+            image = "https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg",
+            type = "received",
+            text = tagList(
+              sliderInput(
+                "obs",
+                "Number of observations:",
+                min = 0,
+                max = 1000,
+                value = 500
+              ),
+              plotOutput("distPlot")
+            )
           )
         )
-      )
-    })
-    
-    output$distPlot <- renderPlot({
-     hist(rnorm(input$obs))
-    })
-    
-    observeEvent(input$update, {
-      updateUserMessages(
-        "message", 
-        action = "update", 
-        index = input$index,
-        content = list(
-         text = tagList(
-          appButton(
-           inputId = "reload",
-           label = "Click me!", 
-           icon = icon("arrows-rotate"), 
-           dashboardBadge(1, color = "orange")
+      })
+
+      output$distPlot <- renderPlot({
+        hist(rnorm(input$obs))
+      })
+
+      observeEvent(input$update, {
+        updateUserMessages(
+          "message",
+          action = "update",
+          index = input$index,
+          content = list(
+            text = tagList(
+              appButton(
+                inputId = "reload",
+                label = "Click me!",
+                icon = icon("arrows-rotate"),
+                dashboardBadge(1, color = "orange")
+              )
+            )
           )
-         )
         )
-      )
-    })
-    
-    observeEvent(input$reload, {
-     showNotification("Yeah!", duration = 1, type = "default")
-    })
-  }
- )
+      })
+
+      observeEvent(input$reload, {
+        showNotification("Yeah!", duration = 1, type = "default")
+      })
+    }
+  )
 }
 }
 \author{

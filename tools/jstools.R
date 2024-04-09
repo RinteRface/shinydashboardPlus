@@ -10,7 +10,7 @@ new_srcjs_folder_name <- sprintf("srcjs/shinydashboardPlus-%s", pkg_version)
 
 if (old_version != pkg_version) {
   file.rename(
-    file.path("srcjs", tmp_old_version), 
+    file.path("srcjs", tmp_old_version),
     new_srcjs_folder_name
   )
 }
