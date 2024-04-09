@@ -56,37 +56,37 @@ server <- function(input, output, session) {
     req(!input$mybox$collapsed)
     plot(rnorm(200))
   })
-  
+
   output$box_state <- renderText({
     state <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
     paste("My box is", state)
   })
-  
+
   observeEvent(input$toggle_box, {
     updateBox("mybox", action = "toggle")
   })
-  
+
   observeEvent(input$remove_box, {
     updateBox("mybox", action = "remove")
   })
-  
+
   observeEvent(input$restore_box, {
     updateBox("mybox", action = "restore")
   })
-  
+
   observeEvent(input$update_box, {
     updateBox(
-      "mybox", 
-      action = "update", 
+      "mybox",
+      action = "update",
       options = list(
         title = h2("New title", dashboardLabel(1, status = "primary")),
-        status = "danger", 
+        status = "danger",
         solidHeader = TRUE,
         width = 4
       )
     )
   })
-  
+
   observeEvent(input$mybox$visible, {
     collapsed <- if (input$mybox$collapsed) "collapsed" else "uncollapsed"
     visible <- if (input$mybox$visible) "visible" else "hidden"
@@ -107,7 +107,7 @@ We call the `updateBox()` function, specifying the action to accomplish:
 
 Knowing the state of a box significantly opens new possibilities within the application, thereby increasing interactivity. Additionally, the toggle animation has been speed up (from 0.5s to 0.1s) so as to reduce the latency.
 
-If you want to know more about the underlying mechanisms, have a look at the box widget [documentation](https://adminlte.io/docs/2.4/js-box-widget). 
+If you want to know more about the underlying mechanisms, have a look at the box widget [documentation](https://github.com/ColorlibHQ/AdminLTE/tree/86990d5b48f5b9d747ee14d67df7bb200ffc6f85/documentation). 
 
 <div class="marvel-device ipad black">
 <div class="camera"></div>
@@ -140,21 +140,21 @@ shinyApp(
     header = dashboardHeader(),
     body = dashboardBody(
       box(
-        title = "Update box sidebar", 
-        closable = TRUE, 
+        title = "Update box sidebar",
+        closable = TRUE,
         width = 12,
         height = "500px",
-        solidHeader = FALSE, 
+        solidHeader = FALSE,
         collapsible = TRUE,
         actionButton("update", "Toggle card sidebar"),
         sidebar = boxSidebar(
           id = "mycardsidebar",
           width = 25,
           sliderInput(
-            "obs", 
+            "obs",
             "Number of observations:",
-            min = 0, 
-            max = 1000, 
+            min = 0,
+            max = 1000,
             value = 500
           )
         ),
@@ -165,15 +165,14 @@ shinyApp(
   ),
   server = function(input, output, session) {
     observe(print(input$mycardsidebar))
-    
+
     output$distPlot <- renderPlot({
       hist(rnorm(input$obs))
     })
-    
+
     observeEvent(input$update, {
       updateBoxSidebar("mycardsidebar")
     })
-    
   }
 )
 ```
@@ -201,11 +200,11 @@ shinyApp(
     dashboardSidebar(),
     dashboardBody(
       box(
-        title = "Closable Box with dropdown", 
-        closable = TRUE, 
+        title = "Closable Box with dropdown",
+        closable = TRUE,
         width = 12,
-        status = "warning", 
-        solidHeader = FALSE, 
+        status = "warning",
+        solidHeader = FALSE,
         collapsible = TRUE,
         dropdownMenu = boxDropdown(
           boxDropdownItem("Click me", id = "dropdownItem", icon = icon("heart")),
@@ -284,14 +283,14 @@ shinyApp(
         navPills(
           id = "pillItem",
           navPillsItem(
-            left = "Item 1", 
+            left = "Item 1",
             color = "green",
             right = 10
           ),
           navPillsItem(
-            left = "Item 2", 
+            left = "Item 2",
             color = "red",
-            icon = icon("angle-down"), 
+            icon = icon("angle-down"),
             right = "10%"
           )
         ),
@@ -301,7 +300,6 @@ shinyApp(
     title = "userBox"
   ),
   server = function(input, output) {
-    
     observeEvent(input$pillItem, {
       if (input$pillItem == 2) {
         showModal(
@@ -309,10 +307,10 @@ shinyApp(
         )
       }
     })
-    
+
     observeEvent(input$pillItem, {
       showNotification(
-        sprintf("You clicked on pill N° %s", input$pillItem), 
+        sprintf("You clicked on pill N° %s", input$pillItem),
         type = "warning",
         duration = 1
       )
@@ -497,10 +495,10 @@ shinyApp(
       fluidRow(
         column(
           width = 6,
-          uiOutput("active_side"), 
+          uiOutput("active_side"),
           actionButton("toggle", "Toggle flip box"),
           flipBox(
-            id = "myflipbox", 
+            id = "myflipbox",
             trigger = "hover",
             width = 12,
             front = div(
@@ -548,18 +546,17 @@ shinyApp(
       )
     )
   ),
-  
   server = function(input, output, session) {
     output$active_side <- renderUI({
       side <- if (input$myflipbox) "front" else "back"
       dashboardBadge(side, color = "blue")
     })
-    
-    output$active_side_2<- renderUI({
+
+    output$active_side_2 <- renderUI({
       side <- if (input$myflipbox2) "front" else "back"
       dashboardBadge(side, color = "blue")
     })
-    
+
     observeEvent(input$toggle, {
       updateFlipBox("myflipbox")
     })

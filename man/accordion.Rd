@@ -140,7 +140,10 @@ if (interactive()) {
       })
       observe(print(input$accordion1))
       observeEvent(input$accordion1, {
-        showNotification(sprintf("You selected accordion N° \%s", input$accordion1), type = "message")
+        showNotification(
+          sprintf("You selected accordion N° \%s", input$accordion1),
+          type = "message"
+        )
       })
     }
   )
