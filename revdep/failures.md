@@ -1,24 +1,28 @@
-# polished
+# pRolocGUI
 
 <details>
 
-* Version: 0.2.0
-* Source code: https://github.com/cran/polished
-* URL: https://github.com/tychobra/polished, https://polished.tech
-* BugReports: https://github.com/tychobra/polished/issues
-* Date/Publication: 2020-09-29 06:50:02 UTC
-* Number of recursive dependencies: 71
+* Version: 2.12.0
+* GitHub: https://github.com/lgatto/pRolocGUI
+* Source code: https://github.com/cran/pRolocGUI
+* Date/Publication: 2023-10-24
+* Number of recursive dependencies: 244
 
-Run `revdep_details(,"polished")` for more info
+Run `revdepcheck::revdep_details(, "pRolocGUI")` for more info
 
 </details>
 
-## Newly broken
+## In both
 
-*   checking whether package 'polished' can be installed ... ERROR
+*   checking whether package ‘pRolocGUI’ can be installed ... ERROR
     ```
     Installation failed.
-    See '/Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/checks.noindex/polished/new/polished.Rcheck/00install.out' for details.
+    See ‘/Users/davidgranjon/david/RinteRface/shinydashboardPlus/revdep/checks.noindex/pRolocGUI/new/pRolocGUI.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘pRolocdata’
     ```
 
 ## Installation
@@ -26,64 +30,36 @@ Run `revdep_details(,"polished")` for more info
 ### Devel
 
 ```
-Using libraries at paths:
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/shinydashboardPlus/new
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/polished
-- /Library/Frameworks/R.framework/Versions/3.6/Resources/library
-Working for open source
-* installing *source* package 'polished' ...
-** package 'polished' successfully unpacked and MD5 sums checked
+* installing *source* package ‘pRolocGUI’ ...
 ** using staged installation
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
-Using libraries at paths:
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/shinydashboardPlus/new
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/polished
-- /Library/Frameworks/R.framework/Versions/3.6/Resources/library
-Working for open source
-Error: object 'dashboardHeaderPlus' is not exported by 'namespace:shinydashboardPlus'
+Error: package or namespace load failed for ‘mzR’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ there is no package called ‘ncdf4’
+In addition: Warning message:
+package ‘MSnbase’ was built under R version 4.3.3 
 Execution halted
-ERROR: lazy loading failed for package 'polished'
-* removing '/Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/checks.noindex/polished/new/polished.Rcheck/polished'
+ERROR: lazy loading failed for package ‘pRolocGUI’
+* removing ‘/Users/davidgranjon/david/RinteRface/shinydashboardPlus/revdep/checks.noindex/pRolocGUI/new/pRolocGUI.Rcheck/pRolocGUI’
+
 
 ```
 ### CRAN
 
 ```
-Using libraries at paths:
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/shinydashboardPlus/old
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/polished
-- /Library/Frameworks/R.framework/Versions/3.6/Resources/library
-Working for open source
-* installing *source* package 'polished' ...
-** package 'polished' successfully unpacked and MD5 sums checked
+* installing *source* package ‘pRolocGUI’ ...
 ** using staged installation
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
-Using libraries at paths:
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/shinydashboardPlus/old
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/polished
-- /Library/Frameworks/R.framework/Versions/3.6/Resources/library
-Working for open source
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-Using libraries at paths:
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/shinydashboardPlus/old
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/polished
-- /Library/Frameworks/R.framework/Versions/3.6/Resources/library
-Working for open source
-** testing if installed package can be loaded from final location
-Using libraries at paths:
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/shinydashboardPlus/old
-- /Users/granjda1/Documents/RinteRface/shinydashboardPlus/revdep/library.noindex/polished
-- /Library/Frameworks/R.framework/Versions/3.6/Resources/library
-Working for open source
-** testing if installed package keeps a record of temporary installation path
-* DONE (polished)
+Error: package or namespace load failed for ‘mzR’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ there is no package called ‘ncdf4’
+In addition: Warning message:
+package ‘MSnbase’ was built under R version 4.3.3 
+Execution halted
+ERROR: lazy loading failed for package ‘pRolocGUI’
+* removing ‘/Users/davidgranjon/david/RinteRface/shinydashboardPlus/revdep/checks.noindex/pRolocGUI/old/pRolocGUI.Rcheck/pRolocGUI’
+
 
 ```
