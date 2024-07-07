@@ -13,3 +13,4 @@
 ^tools$
 ^srcjs$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$

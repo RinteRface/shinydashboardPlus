@@ -1,3 +1,6 @@
+template:
+  bootstrap: 5
+
 reference:
 - title: Skeleton Functions
   desc: Page and header wrappers
