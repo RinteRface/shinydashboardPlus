@@ -141,12 +141,12 @@ card(
 ```
 
 <div class="text-center mt-4">
-<a class="btn btn-primary" data-bs-toggle="collapse" href="#accordions" role="button" aria-expanded="false" aria-controls="tabLayout">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#user-messages" role="button" aria-expanded="false" aria-controls="tabLayout">
 Code
 </a>
 </div>
 
-<div class="collapse" id="accordions">
+<div class="collapse" id="user-messages">
 ```{r, eval=FALSE}
 shinyApp(
   ui = dashboardPage(
