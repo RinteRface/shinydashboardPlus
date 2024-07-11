@@ -14,3 +14,4 @@
 ^srcjs$
 ^CRAN-SUBMISSION$
 ^_pkgdown\.yml$
+^index\.Rmd$
