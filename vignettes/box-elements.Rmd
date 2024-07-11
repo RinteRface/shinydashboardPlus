@@ -10,6 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
+library(bslib)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -28,9 +29,33 @@ knitr::opts_chunk$set(
 ### Description Block
 
 `descriptionBlock()` is a sub-container that may be included in any `box()`. 
-It is convenient to display metrics. 
+It is convenient to display metrics.
 
-```{r descriptionBlock-code, eval=FALSE}
+```{r, eval=TRUE, echo=FALSE}
+card(
+  shiny::tags$iframe(
+    class = "html-fill-item", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVQAIp-AILp2IixZO0LAXgu7ui5YagBzOAcIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0MUAD2DQ0M4iOhlo2Pj3CwAxGwAZDIBRAsanUlpSajguoTAM0ihSMysTGBgJWZHR3IIAa39GIhMIGS6AOQBVPr6txoB3bNJuLoAWW6aFpc4ZsDkIQMYm2qoQAZkQiORGF0QaZslgiHcGqMnMRTDAIEjkU4HjInl0AGzvZFxTgERi0VDjEilahEPaYrFOCCreidDyzACMAHYAKSbCzAxnMmCsxgAYRaRCh7LABzgFH5gqxwtFAEliCEPLQNQ5CCw4KQALQmVCzJJK5HcGJxaUCsAAEgAzABWXAAJg5AAYMC9HYrCoyxnBaqQfgAVADyYf6FiwgwAaoNLoN-YHQuT-NxSOUDGyLGGsBdhhbRutGP4+OVSKQiDAur0BimA1jLC2iaFUasMSXsY9nh5CT3PHBSeTKbRqbT6UOmSy85yABx8vAC5tCufiyW22aMOAyVNpiwq+LqkhdbUkXUEfVGmQIiBm9uW63zsAct2ez0HtPkEM-ADiEYxmKEYALKGH0gxhqqEZnN+gYZlmOY2vW-RDE+pYsBWEBVjWdYeA2QxDq2yIkaEZEWGR5rNuMkzTDKAAiI5khSVIhDSdK7LMKTUU4nDxAAbnmILHAQbHsHwqAmKQuAWEcpBSaQAgWCAFgAL6OAIYBqQAukAA", 
+    height = "800", 
+    width = "100%", 
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
+    allowfullscreen = "", 
+    allow = "autoplay", 
+    `data-external` = "1"
+  ),
+  full_screen = TRUE,
+  style = "margin: 0 auto; float: none;"
+)
+```
+
+<div class="text-center mt-4">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#description-block" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code
+</a>
+</div>
+
+<div class="collapse" id="description-block">
+```{r, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
@@ -78,14 +103,6 @@ library(shinydashboardPlus)
   server = function(input, output) { }
  )
 ```
-
-<div class="marvel-device ipad black">
-<div class="camera"></div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-descriptionBlock/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
 </div>
-<div class="home"></div>
-</div>
-
 
 ### Coming soon ...
