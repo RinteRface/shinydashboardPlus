@@ -7,6 +7,23 @@
 
 > extensions for shinydashboard
 
+```{r, eval=TRUE, echo=FALSE}
+card(
+  shiny::tags$iframe(
+    class = "html-fill-item", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgugAitRl1adyMDADNa1OOyFg4AA9YVB9Of1wAAlQoAgBrKABzOEiAXkj-K1l5bkVlYzN-AQEwAF8AXSA", 
+    height = "800", 
+    width = "100%", 
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
+    allowfullscreen = "", 
+    allow = "autoplay", 
+    `data-external` = "1"
+  ),
+  full_screen = TRUE,
+  style = "margin: 0 auto; float: none;"
+)
+```
+
 ## Installation
 
 ```r
