@@ -1,6 +1,4 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # shinydashboardPlus
 
 [![R build
@@ -11,7 +9,7 @@ status](https://github.com/RinteRface/shinydashboardPlus/workflows/R-CMD-check/b
 
 > extensions for shinydashboard
 
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-5962" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-1999" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgugAitRl1adyMDADNa1OOyFg4AA9YVB9Of1wAAlQoAgBrKABzOEiAXkj-K1l5bkVlYzN-AQEwAF8AXSA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -53,7 +51,8 @@ shinydashboardPlus!
 ## Demo
 
 See a demonstration
-[here](https://dgranjon.shinyapps.io/shinydashboardPlusDemo) or run:
+[here](https://shinylive.io/r/editor/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgugAitRl1adyMDADNa1OOyFg4AA9YVB9Of1wAAlQoAgBrKABzOEiAXkj-K1l5bkVlYzN-AQEwAF8AXSA)
+or run:
 
 ``` r
 library(shinydashboardPlus)

@@ -24,7 +24,7 @@ your dashboard with all additional functions of shinydashboardPlus!
 
 ## Demo
 
-See a demonstration [here](https://dgranjon.shinyapps.io/shinydashboardPlusDemo)
+See a demonstration [here](https://shinylive.io/r/editor/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgugAitRl1adyMDADNa1OOyFg4AA9YVB9Of1wAAlQoAgBrKABzOEiAXkj-K1l5bkVlYzN-AQEwAF8AXSA)
 or run:
 ```r
 library(shinydashboardPlus)
