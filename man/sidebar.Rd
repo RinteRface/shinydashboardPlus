@@ -35,8 +35,8 @@ to TRUE.}
 \item{session}{Shiny session object.}
 }
 \description{
-A dashboard sidebar typically contains a \code{\link{sidebarMenu}}, although
-it may also contain a \code{\link{sidebarSearchForm}}, or other Shiny inputs.
+A dashboard sidebar typically contains a \code{\link[shinydashboard]{sidebarMenu}}, although
+it may also contain a \code{\link[shinydashboard]{sidebarSearchForm}}, or other Shiny inputs.
 
 \link{updateSidebar} allows to toggle a \link{dashboardSidebar} on the client.
 }

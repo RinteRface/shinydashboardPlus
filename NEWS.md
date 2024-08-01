@@ -2,6 +2,9 @@
 
 - Add shinylive to support the different demo apps.
 
+## Minor change
+- Fix NOTE in CRAN checks.
+
 # shinydashboardPlus 2.0.4
 
 ## Minor change

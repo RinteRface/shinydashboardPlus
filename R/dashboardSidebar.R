@@ -1,7 +1,7 @@
 #' Create a dashboard sidebar.
 #'
-#' A dashboard sidebar typically contains a \code{\link{sidebarMenu}}, although
-#' it may also contain a \code{\link{sidebarSearchForm}}, or other Shiny inputs.
+#' A dashboard sidebar typically contains a \code{\link[shinydashboard]{sidebarMenu}}, although
+#' it may also contain a \code{\link[shinydashboard]{sidebarSearchForm}}, or other Shiny inputs.
 #'
 #' @param ... Items to put in the sidebar.
 #' @param disable If \code{TRUE}, the sidebar will be disabled.

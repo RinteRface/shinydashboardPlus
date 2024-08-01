@@ -30,10 +30,11 @@ Suggests:
     shinyjqui,
     knitr,
     rmarkdown,
-    jsonlite
+    jsonlite,
+    bslib
 URL: https://github.com/RinteRface/shinydashboardPlus, https://shinydashboardPlus.rinterface.com/
 BugReports: https://github.com/RinteRface/shinydashboardPlus/issues
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 RdMacros: lifecycle
