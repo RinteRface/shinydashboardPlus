@@ -9,6 +9,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, include = FALSE}
+library(bslib)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 ## Extra template elements
 
 `{shinydashboard}` skeleton elements are :
@@ -112,7 +120,31 @@ To include even more interactivity, we listen to `input$controlbarMenu`. When th
 
 In conclusion, you may imagine a lot of other situations. 
 
-```{r controlbar-api-code, eval=FALSE}
+```{r, eval=TRUE, echo=FALSE}
+card(
+  shiny::tags$iframe(
+    class = "html-fill-item", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSPgQTAAgA8AWhvEyjItXosAshRPsRNja0MjYAvDZChCSkbh7evpG4Ac7RsZ6MAJLkMP4QgYGRACpQ9DYAjInJBWAA6nDUxPA2pETNJeWRyQJJeSmu7ulZcDlVEWDFpQBMlb2B1vCMtAQZEKgmpP6QJjCJYwDy9JxwjABuUKS0JJyIu5MADHe4NjB8YeVPMFAAHm9lD482TjkVC-B6qQKqCwQKT8ACC6FygRMtDeum4imUhigAHM4Ij8tw4FAZMdUfJ0foZAAJIkkxjsbqjTjBODpMl6ZQAZRZ6Xx+WefFoADNaHAQuFClgAKoAUSeo0CxGo1DQR3FNklsp6-MCzJJ6R81j5OuCb0ietZ8WsMx1+RV6GoHDKiAAzE8hSYIAQLiR2LQBDYQAqdVYTEMRrNbflOKhFmQhZtDbYAKScXb++WRqNtegAOVgcDeMbjpATkVDAH1U+nuhEs1GliQ3o2IJsCLRGARqHBIuDszY+7aAL6D-KjxmRxQyVjsinKABCRGnxsCpBK4c4K-ya-o4fYO-zTXC5d8FYqeDGAGFohRSB0wLXg6v19kt-yDwWzWBK9M8E-8ooXxvjqFykN2X6wtQADuUCsJwzSEoCn6oNQRCkAAhDa-aKu49rMvQ4EStKcp1thgQoWhezrGsGyRDItBAsYaG9tqZEWmy4SAdy+osMBtqmseYBcTyLBYWRNieAQADW2JuJ66qRAAxAAHHcqmqWJbF0HSKw0XxUaREQhy7P+2aRLm2z0KSRBCjYRlHKc5yXNCNx-vW2EvHk4SPKZUafD84R-A8mbifyZymIW4QAKwPL5-KjtmCU6klELBuOrE4f0cSMLOGIGNeWW8sGAljC4MQDKJbm2qGowTu+tBgZFYwACLknlRg4j2YBdKxDknKS4Qel6PqtnwNFPEQ1HrE8RycMyJABkGkaTaQNEACT0YxqF3o4NiMBQdJMRsS22rwQLsIwEBEIwORjesa32QIo4jqMik2JyUENQQ3B9OV2XPL4EnyGKdl5OxLBBNkNjhSYcAYDYXjXXARD9Ywr1BLZpCIeDOWhpDwxBPBkxPFjhZlWkENEKgFBpsthzHP1Mr9WQfqrPdONJk8J0mjIPy7UCjAxnQGx3aQa0c748pgBWvbAMAZQALoK8AkwK8Vtl+rzYThJMi3-iYqByOQBV-UVUSFZVSVDsGBtG3AJsU4wSZtqkFVOwkF5HN23og+EwRfM9o7o5edDSXw2KgwhhZHC4ITk27+MwM8UBSXA8GkxJRA-DjdnUxAoz2QzcBM7erPrfH2Wc4G6s2GX90VwagOhIJEw2L+Aa2+ccCLl83GWvSkTCTxaMPqML2RgX9OnMXzMi2zYvzFzNuG13nLaccunrFwafzRAUv2bsMNNaLa3zM9Ty0NiV37SsDVvJqMpB701sQAIYBDgrQA", 
+    height = "800", 
+    width = "100%", 
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
+    allowfullscreen = "", 
+    allow = "autoplay", 
+    `data-external` = "1"
+  ),
+  full_screen = TRUE,
+  style = "margin: 0 auto; float: none;"
+)
+```
+
+<div class="text-center mt-4">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#controlbar" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code
+</a>
+</div>
+
+<div class="collapse" id="controlbar">
+```{r, eval=FALSE}
 shinyApp(
   ui = dashboardPage(
     header = dashboardHeader(),
@@ -187,13 +219,6 @@ shinyApp(
   }
 )
 ```
-
-<div class="marvel-device ipad black">
-<div class="camera"></div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
-</div>
-<div class="home"></div>
 </div>
 
 

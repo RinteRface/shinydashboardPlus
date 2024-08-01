@@ -1,6 +1,7 @@
 # Packages ----------------------------------------------------------------
 
 library(jstools)
+devtools::install()
 pkg_version <- as.character(utils::packageVersion("shinydashboardPlus"))
 
 # Rename srcjs folder in case pkg version changes
@@ -23,19 +24,26 @@ shinydashboardPlusJS <- list.files(
 )
 
 # jshint_file(input = shinydashboardPlusJS, options = jshint_options(jquery = TRUE, globals = list("Shiny", "app")))
+outputDir <- sprintf("inst/shinydashboardPlus-%s", pkg_version)
+if (!dir.exists(outputDir)) dir.create(outputDir)
 
-outputDir <- sprintf("inst/shinydashboardPlus-%s/js", pkg_version)
+jsDir <- sprintf("%s/js", outputDir)
+cssDir <- sprintf("%s/css", outputDir)
+if (!dir.exists(jsDir)) {
+  dir.create(jsDir)
+  dir.create(cssDir)
+}
 
 # Concat -----------------------------------------------------------------
 
 # This just aggregates all srcjs files into one big .js file. There is no minifications, ... See next step for terser
-system(sprintf("cat %s > %s/shinydashboardPlus.js", paste(shinydashboardPlusJS, collapse = " "), outputDir))
+system(sprintf("cat %s > %s/shinydashboardPlus.js", paste(shinydashboardPlusJS, collapse = " "), jsDir))
 
 # Concat + Compress + source maps ----------------------------------------------------------------
 
 terser_file(
   input = shinydashboardPlusJS,
-  output = sprintf("%s/shinydashboardPlus.min.js", outputDir),
+  output = sprintf("%s/shinydashboardPlus.min.js", jsDir),
   options = terser_options(
     sourceMap = list(
       root = "../../shinydashboardPlus-build",

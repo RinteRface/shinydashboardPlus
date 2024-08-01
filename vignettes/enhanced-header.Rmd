@@ -10,6 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
+library(bslib)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -143,7 +144,35 @@ In `{shinydashboardPlus}`, `taskItem()`, `messageItem()` and `notificationItem` 
 In the same spirit of the `sidebarUserPanel()` that display user informations on the sidebar,
 the brand new `dashboardUser()` dropdown component may be used as an admin panel or to display further information. `dashboardUserItem()` provides a refined column container.
 
-```{r dashboardUser-code, eval=FALSE}
+```{r, eval=TRUE, echo=FALSE}
+card(
+  shiny::tags$iframe(
+    class = "html-fill-item", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJyduOCgZOEZ3T3lvfRkACQioxnYzaIB5E1JUXPswTMYhMAEBXEdQzloo+hZYrx8DAGVauHr0iqqnRRlWRvjmmQAhIn72bpDQ0lpSajhY0oBVTmjPRiJUGSIAdwhSqqmnNcYAN3WPADMTCAJZknY+fNJcByJcl4EHEB6PvNyABJig4ADwAWgcjAoaVW0XYv2mTiaiTh6R6oQc0HgSzAABFaGdIg4AHJEABW0EY-lKbwxoVoMACiw8pW4pDynEQAHpuZEYHxqOQMLQiNzSOF4JxudYZAKIAAZAAqAFFuTJaJxSNzGf5ucUAEzggCMADYAAwADzN5ow5NQNLwDnpTlm8xZzrAVlkQ0SxjMtJdDk4JnoboWuOsuW4RBKTqDVyIRHIMQ8qEKSvCDkTyeitIcBGo8k4uPIltI4IIFBTpWOmKcV1MtSwe2C9dCKOUaIAkuQYG3205drUJbFTZUke3OEQCLQoNQRrlSI8g6FuNCrrj2ZyeerNqhFJaMMQYIHJ+3aMQQh5LyuwDJ94fa6uHKpB6+J+-OwYe32B4PhxkUcPHHF9p1nedFw5Fdz3rdc4E3VkwG3VAuV5fw5m4UNjyIU88BfBxb2vQir0KDCJVDZ9YNCN9B1o+t6JonoAF9aOYxwBDAZiAF0gA", 
+    height = "800", 
+    width = "100%", 
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
+    allowfullscreen = "", 
+    allow = "autoplay", 
+    `data-external` = "1"
+  ),
+  full_screen = TRUE,
+  style = "margin: 0 auto; float: none;"
+)
+```
+
+<div class="text-center mt-4">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#dashboard-user" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code
+</a>
+</div>
+
+<div class="collapse" id="dashboard-user">
+```{r, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+
 shinyApp(
   ui = dashboardPage(
     header = dashboardHeader(userOutput("user")),
@@ -180,11 +209,4 @@ shinyApp(
   }
  )
 ```
-
-<div class="marvel-device ipad black">
-<div class="camera"></div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-dashboardUser/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
-</div>
-<div class="home"></div>
 </div>

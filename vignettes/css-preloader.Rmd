@@ -10,6 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
+library(bslib)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -23,7 +24,31 @@ Pass the argument `preloader` to the `dashboardPage()` function. It expects a ne
 
 That's all!
 
-```{r waiter-code, eval=FALSE}
+```{r, eval=TRUE, echo=FALSE}
+card(
+  shiny::tags$iframe(
+    class = "html-fill-item", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVWI0cA7lFrlGqqfwCC6diIAEnk7U8BeT11uRWVDKABzOA8Ib29URjhqJRk4RgDPOk5Sdm5SGGoM0kiAGVpsrlQ+AH0ARnYBXE8hMBKUvgjPDG6Wxs9iZPTAloBiAGYCAA4ZegJe3C847jgoVKGg+RD9GQAJFbWGhdi4zlpU+hYM4NCDAGUzuAvGQ8XvRRlWK82bmQAhIg+MTicSgBFItBIvxMpFIJA8YESyVWLSaLSwSRSvVenka2PBpGocAyLUMiJSaRai1xx04aQAbmkMgAzEwQMEQiDsPioaFNIjQnmkJq0zinEgCTwgbEjTxMqAAayJZORx28RHotMYDIAogyyFyIIKACTKmRNKWqk5wUUck0Y1YNbEAX1U3idIgEYCdAF0gA", 
+    height = "800", 
+    width = "100%", 
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
+    allowfullscreen = "", 
+    allow = "autoplay", 
+    `data-external` = "1"
+  ),
+  full_screen = TRUE,
+  style = "margin: 0 auto; float: none;"
+)
+```
+
+<div class="text-center mt-4">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#preloader" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code
+</a>
+</div>
+
+<div class="collapse" id="preloader">
+```{r, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
@@ -46,11 +71,5 @@ shinyApp(
   }
 )
 ```
+</div>
 
-<div class="marvel-device ipad black">
-<div class="camera"></div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-preloader/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
-</div>
-<div class="home"></div>
-</div>

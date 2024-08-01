@@ -10,6 +10,7 @@ vignette: >
 ---
 
 ```{r, include = FALSE}
+library(bslib)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -59,7 +60,31 @@ list of available options). The `box()` component has been reworked to reduce th
 ## Basic Example
 Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly configured the sidebar to expand on hover, through the options parameters. Interestingly, you'll be able to notice the scroll to top button feature if you scroll to the bottom (bottom-right corner).
 
-```{r basic-demo-code, eval=FALSE}
+```{r, eval=TRUE, echo=FALSE}
+card(
+  shiny::tags$iframe(
+    class = "html-fill-item", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVVP4BBdOxEACRydr2AvPd3dFyw1ADmcHYQjiFEqKS0JJxu9nScpFy0MnD0LACiAB6oUBAyAPIQABJEAG5wjDEAKlgAqmkCuA4h9txwUMkV7p7eBoVtHewNTSGcSSksMd36MgDKY6mM7DB8tABmtHAyVbVpuPbE1NRonJvbdUPBzYoyrJPyXtMAQkQ3Qc2OR+jUHACMiABMAAY9ooMnsAO5JUjcGI-f57CKkahwGJCMCgtGqd4Xd7EMiMIjUBZ3PTKADCJFIBKJLEGjUuIURyNRYAAIvcekZ-HA0cMcY4Towyp17KsTBACBESOw+KgTKQ9kR5XLSAJ7CB7ABfBwCMCagC6QA", 
+    height = "800", 
+    width = "100%", 
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
+    allowfullscreen = "", 
+    allow = "autoplay", 
+    `data-external` = "1"
+  ),
+  full_screen = TRUE,
+  style = "margin: 0 auto; float: none;"
+)
+```
+
+<div class="text-center mt-4">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#basic-demo" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code
+</a>
+</div>
+
+<div class="collapse" id="basic-demo">
+```{r, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
@@ -77,12 +102,4 @@ shinyApp(
    server = function(input, output) { }
  )
 ```
-
-
-<div class="marvel-device ipad black">
-<div class="camera"></div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-scrollToTop/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
-</div>
-<div class="home"></div>
 </div>
