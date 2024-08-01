@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Improved boxes • shinydashboardPlus</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -12,123 +12,74 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Improved boxes">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<script src="../extra.js"></script><meta property="og:title" content="Improved boxes">
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">shinydashboardPlus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.4</span>
-      </span>
-    </div>
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <a class="navbar-brand me-2" href="../index.html">shinydashboardPlus</a>
 
-  </a>
-</li>
-<li>
-  <a href="../articles/shinydashboardPlus.html">Get started</a>
-</li>
-<li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.5</small>
 
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li class="divider">
-    </li>
-<li class="dropdown-header">User Guide</li>
-    <li>
-      <a href="../articles/improved-boxes.html">Improved boxes</a>
-    </li>
-    <li>
-      <a href="../articles/box-elements.html">Box Elements</a>
-    </li>
-    <li>
-      <a href="../articles/extra-elements.html">Extra Elements</a>
-    </li>
-    <li>
-      <a href="../articles/controlbar.html">Extra Skeleton Elements</a>
-    </li>
-    <li>
-      <a href="../articles/more-skins.html">Improved Skins</a>
-    </li>
-    <li>
-      <a href="../articles/css-preloader.html">CSS preloaders</a>
-    </li>
-    <li>
-      <a href="../articles/enhanced-header.html">Enhanced Header Elements</a>
-    </li>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/shinydashboardPlus.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/improved-boxes.html">Improved boxes</a></li>
+    <li><a class="dropdown-item" href="../articles/box-elements.html">Box Elements</a></li>
+    <li><a class="dropdown-item" href="../articles/extra-elements.html">Extra Elements</a></li>
+    <li><a class="dropdown-item" href="../articles/controlbar.html">Extra Skeleton Elements</a></li>
+    <li><a class="dropdown-item" href="../articles/more-skins.html">Improved Skins</a></li>
+    <li><a class="dropdown-item" href="../articles/css-preloader.html">CSS preloaders</a></li>
+    <li><a class="dropdown-item" href="../articles/enhanced-header.html">Enhanced Header Elements</a></li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">
-    <span class="fa fa-github fa-lg"></span>
-
-  </a>
-</li>
-<li>
-  <a href="http://twitter.com/divadnojnarg" class="external-link">
-    <span class="fa fa-twitter"></span>
-
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/RinteRface/shinydashboardPlus"><span class="fa fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/divadnojnarg" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
+</nav><div class="container template-article">
 
 
 
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Improved boxes</h1>
+<link href="improved-boxes_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="improved-boxes_files/bslib-component-js-0.8.0/components.min.js"></script><script src="improved-boxes_files/bslib-component-js-0.8.0/web-components.min.js" type="module"></script><link href="improved-boxes_files/bslib-component-css-0.8.0/components.css" rel="stylesheet">
+<script src="improved-boxes_files/bslib-tag-require-0.8.0/tag-require.js"></script><div class="row">
+  <main id="main" class="col-md-9"><div class="page-header">
+      <img src="../logo.svg" class="logo" alt=""><h1>Improved boxes</h1>
                         <h4 data-toc-skip class="author">David
 Granjon</h4>
             
             <h4 data-toc-skip class="date">2024-08-01</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/v2.0.4/vignettes/improved-boxes.Rmd" class="external-link"><code>vignettes/improved-boxes.Rmd</code></a></small>
-      <div class="hidden name"><code>improved-boxes.Rmd</code></div>
-
+      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/v2.0.5/vignettes/improved-boxes.Rmd" class="external-link"><code>vignettes/improved-boxes.Rmd</code></a></small>
+      <div class="d-none name"><code>improved-boxes.Rmd</code></div>
     </div>
 
     
@@ -153,7 +104,19 @@ width, height, collapsible and closable</li>
 </ul>
 <p>To benefit from that feature, one must pass the <em>id</em> parameter
 and access it on the server side with <code>input$&lt;id&gt;</code>.
-Let’s consider an example:</p>
+Let’s consider an example.</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-6323" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSdoACADwBaK7u6LlhqAHM47EVaulapNRwVgC8VkJgAEJEAB5WAIKGAJIRuD6O8s76MgAScFAycIzsAmkQvk4uBgDKtIX0LCVlFZlVMtEyHOm+pB6cACScpKxB3mCKnVYgVg0EANbujEQmEDJ2xNREjIhW7txEQwDuvOQAvhGl3VYAZqZ1WESH3uW+r1AE-iSRJqSkJGN-dzuIIAfUUMVS4TAABUiECglZohCwJcXq8rO9PhBvr9-hFGHAYEQAG5wMGxSERLCEknBJGQgjUeScUJQ+juOxyCCeRgXZrojEfWhfH5-CBjAlDLZk8GUsDUqUExEUvBWRnM1kRdl2TgmAgEOCcTh8q6+THC7GivFgEyoOTkcnI3BQgCqdqg5GVTrVTKNmvGHNQjFoMAkFyuqPRTCaV3BzwFfgCCLC5BipAA8j9UD8xuCQUMPXATWjXhEkTMiJ1UqarHV-TBWLK8DWNkzUJwGMmrNCsC6AKL89GMg5Qehdnv9wevVCbDNZnMRGdEUjhkuqXyqVQiThFUmMWwOa4rIX-PjZ0jO5akc-OndGi0CKbpK-n-pL0gHqwE1ZFYzL9ggFcBIAI7sAAhGePz9A24L9K2aA7ioVzvuwjAQFsMDsAATAADDhAjrlYpxbi8L5QXmBaevYX4UIUjDQnAaYAVclHBNRtDXFY7CQaQ0GNrEcFENQbaIY+ETwe2cAyBEVhwNQO5QseQkiVJETIfI5BjAAsqwFZxLQxqqqxhHESIz70DujCkn2pJkNxECvoCwIyrEzqASWtr2nASJjDBKrOuaJD+k5QSrr4pkQOZlnWbZpD2a+BJEqSjpuVcnmFj5ER+d6gXlGE+I0qSYVESRvhEBZu5wDZFBxTx-SSn8BIpU+HnuuQmVgNlkK5f6DXSsVEVRZV1V2XV6UOuCqWtV5mUlr4WX8U6NY9flNptUWzZzVYRCoFiLJhHQQzxgmiaBMEYTcFhYwAHJwIcp2haqlTZAAMqOcnsAAjLevSkGY-pBiGYYopGJ2Uf9q1cjy1Zbb4nBCXUeQFEUrITgONa+IcdSkNwrIACw1oRG7pINpEVVZVWxfFUHZf0xIGZ2cBTUOykIVJn4cVxdW0xJolQrzqlgLJ8nBBESnCWz0lgFc9MdmObEOJz1O8bTsuM2JYBq-LMlyQpES8DIhSRdLJbwEaHgK1YqAaV4EQ6XptaGc6AsyM6ERQKskJa0ERNWDwjzXcuHG0AQHoWuwZucBbzrDKg51QocLAQHw7iQjIJjMFirKfSZqjnJFEBSPw8ToOwli3pVjACGApwALpAA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#box-api" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="box-api" class="collapse">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
@@ -227,6 +190,7 @@ Let’s consider an example:</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
 <p>We call the <code><a href="../reference/box.html">updateBox()</a></code> function, specifying the action
 to accomplish:</p>
 <ul>
@@ -241,18 +205,6 @@ the toggle animation has been speed up (from 0.5s to 0.1s) so as to
 reduce the latency.</p>
 <p>If you want to know more about the underlying mechanisms, have a look
 at the box widget <a href="https://github.com/ColorlibHQ/AdminLTE/tree/86990d5b48f5b9d747ee14d67df7bb200ffc6f85/documentation" class="external-link">documentation</a>.</p>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-api/" allowfullscreen frameborder="0" scrolling="no" height="770px">
-</iframe>
-</div>
-<div class="home">
-
-</div>
-</div>
 </div>
 <div class="section level3">
 <h3 id="box-components">Box components<a class="anchor" aria-label="anchor" href="#box-components"></a>
@@ -285,6 +237,18 @@ background color, the width and the icon trigger, the latter displayed
 on the very right side of the box header, as depicted in Figure
 @ref(fig:boxTools). Below is an example showing how to set up the
 sidebar and toggle it.</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-3494" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJyduOCgZOEZ3T3lvfRkACQioxnYBXEdQxRlWWK8fAwAhIjzg0JyiAA8KytDSWlJqOFihMABVVDlyB0Vqh05aKPoWdqyQ+qcCaiJOKHoW2IAVLA6AUQmppwB3YdJuWIBGACYt7fDaf25SNrAAVgAGR9Rq8eypziI6ZNTo2IAYtYADIAZU2H3qxGo1DQQ0WrQ8qw25ymUAIjRIxRMpFIJHsYBM3Sg5HGDnayyI-n8SwIykGwzgo0Y7UykMqQxGLFi-VBjOZdW2DmGdxgrDpBk5TLGeHZ9T2MgOsRO91R204P2iAEkIKgcYKheSwER6Jx3pNDUaAHImGD0f5EABmDhNnGiADcSbQSJxEObLU4YHxYo81UKYFABh4js9Q3Kpp7TIiHE9HvHQqohWyLfVULNSAB5HF60gEmS0TikYxEUisuWZjNqqXMgrxIoyPlc9IN7NON2Md3-DyOkwQDHeiDsPgl3Au4s42duzhDEgCBwgSGuj1BVCMPil6c4gAkYolMmbLAEFhzRHnpCP5cr1duAB4ALQORgUNLP9gbnNhBWpaMBARCMDAU66serpXpCAC+16VFuA5wOsg5kJBJZHkSPRwLO-5TDhJJwKU1SdtK6TtKeygXiyYANk4CHZHBIgCGAcEALpAA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#box-sidebar" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="box-sidebar" class="collapse">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -326,21 +290,10 @@ sidebar and toggle it.</p>
 <span>    <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+</div>
 <p>What is the interest of being able to toggle the sidebar on the
 server? Image you want to open the sidebar as soon as the user clicks on
 a specific action button. This is definitely possible.</p>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-sidebar/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
-</iframe>
-</div>
-<div class="home">
-
-</div>
-</div>
 </div>
 <div class="section level4">
 <h4 id="box-dropdown">Box Dropdown<a class="anchor" aria-label="anchor" href="#box-dropdown"></a>
@@ -350,6 +303,18 @@ dropdown items may behave like action buttons. This feature allows to
 seamlessly add interactivity to the box component and gather features in
 one place. In the example below, clicking on the first item triggers a
 Shiny notification.</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-5348" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0IdFAA9gmprSWlJqOHcHITAAYWoiTih6dodyuocAd1buT0YiVBkiCYhugqbQgn7B4Y6PABUsAFUAUTX1yezSGY8ARgAmM-XOUihSM07uiZYIPn9V6qanCIdBk0Vi8U6ADFrAAZDKnAE1YjUahoTgMEb7I4IwrrGRzBZLCAAWQoJk69QAIgTFstGucnFSaUSAJLkGD2Xp0AgAawc8FWDmyHzA+PmtIgbLgMEFtGIIQ8cpInO4MUYpG6AiSiKaTPFrPZnNa0ocd0F3EYcAAZiLuKRSKhOIgAPTOibujD+IhEfztDDEGDOzWPc5iwnLSm0ABu2Xi+R1NT14clhu6xpgDgAzLL5Z0lRBOVdNaoGdrcU1usTWLUiHVujqS6FG2WnJx4lGIR4rSYIAQWsq+KgTKRcA4iMOh6QBA4QACiPQ24wO8cO2R2IPhwASMMSqUwUez8ut7hLAByRBaVrlr1oyu60RRREFMhMzH7CocN1HpFYqF2XTAeBOEGQJNQBABfRtwJEAQwHAgBdIA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#box-dropdown" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="box-dropdown" class="collapse">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -379,17 +344,6 @@ Shiny notification.</p>
 <span>    <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-box-dropdown/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
-</iframe>
-</div>
-<div class="home">
-
-</div>
 </div>
 </div>
 </div>
@@ -431,6 +385,18 @@ Some userBox components
 </div>
 <p><code><a href="../reference/userBox.html">userBox()</a></code> plays well with other components like
 <code><a href="../reference/navPills.html">navPills()</a></code>, as shown below.</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-2892" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0OdOePKAD2CamtJaUmo4d1r4gBE4TgJGWlQ2kmaW1vbO7qEwADlY2igHAGEWGFoCbig4ajmCyZrOE3o2jq6POc7Yh36ANz2iVHiD6qPSVhfugCZDo6ctBgAUuDjm3FIpFQnEQAHpYbFNqJyBhaERYaRuHB4JxYdYZEiADIAFQAorCZLROKRYUD-LCzPEAOwAWgAjD8ABwNDmcjAAK1Q-jehUmSXex1IUFIZlmYAA7iwIHxhXgJaFoPdDLRqNROBMAdk5agddQAJLkGAigFOTXa3WcC3Yg02zoAM1IcqdMAcbOtNqcxGoREYcv8jDgFH9AeG-gh3TZAAZ1TVxaKjnbTY7LS6Ae7PVcwN6HD9ozagyG5RGZGXDcQQh4tuM5lAIP5OiyZER5RA5mmA05Y-HC0mAKRzFOhVQA-tHN1EIjkUOF4lYhzzxfxBxYiMAQgn6ac06n-yc5xmhcZjEaB6P-zqjEey-XJggBDGEHYfFQJlIuAcRC-j+pACA4IDvEQ9APo8pKPGQX4QMBAAkJq6t6-7gYeDi0G6DgIchqHmpa7geD8oGYQCPDdgAshUUDULmLQwHR1C9Mswb+PYYDWA4zFyPsYDHmK6oAL7vCJFjppB0FwLBFCkPhv4oaa6FgeqVHyvMi44Vs0pop+k6cKgwxkG6XEAJqAQ4BB0AQADWcAyABISEQ48wAA0OKOnAHNhiFKYR3qzpMnzfIWiqMMqba1qkJjMB+CbqkJDgSSkYkQAIYAiQAukAA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#user-box" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="user-box" class="collapse">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -482,20 +448,21 @@ Some userBox components
 <span>    <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userBox/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
-</iframe>
-</div>
-<div class="home">
-
-</div>
 </div>
 <p><code><a href="../reference/userBox.html">userBox()</a></code> is also entirely updatable from the server
 side, as it is built on top the <code><a href="../reference/box.html">box()</a></code> function:</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-3023" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0IcoAlJaElKTUlISezATVDlyAH1FAA8hPAdhgFVuqHJhpOrQs3jygeCamuz3Uc7OeMHhgtXQhtJqOA2FxgAROE4CRlpUBva5g6OTjeGAOVjaKAcAYRYMFoBG4UDg1D2z1WnBM9Fepw8wxOsQcVwAbuCiKh4pDCgcnKRWNiNgAmfb4py0GABBGbbitVCcRAAemZsSBonIGEazNI3Dg8E4zOsMg5ABkACoAUWZMlonFIzKp-mZ5wA7ABaACMJIAHAMdbqMAArVD+XEU2Z46GkKZmd5gVB3alsC34-zMOUUUgbCVYMZS8kHXIEADWHqIJggMgddH89I19FMcDdwaIAwlRCI1CyAC9acMBhC8FCnMMMkR4A5yAMffzGHAAISp1YAMyz5EYDol-Ic7aInYc9abwyhqhqVpq8Id5yWo8Kk4c20YGK7HlbUfqjQg7D4qBauAckdI+9IAgcIDmRHoy4xUoxZF3EFPABIuj04P104fL9anO+pjgJYVnxYZzl2Es-1COpHhCRFOkmaZIIpLFYM4DY6AVECKWnDxziuG47gebdsIpataGOAswAAKRiEI52QsinBhOEKLeeD0UxbFGBbHCiVpLUgzIqkaQdekTyZVl2T4aguR5PkBWuYVRT4SUZTlBUlRgFVzgAZm1PUDT1E0zV41ZFwpBU7XQ+CGxkMyahDcNGEjaMNg+MYxTFISDgAd2yPkNgAFlLBxx3MuYAF9wsikQBDASKAF0gA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#update-user-box" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="update-user-box" class="collapse">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -542,6 +509,7 @@ side, as it is built on top the <code><a href="../reference/box.html">box()</a><
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
+</div>
 <div class="section level4">
 <h4 id="socialbox">socialBox<a class="anchor" aria-label="anchor" href="#socialbox"></a>
 </h4>
@@ -563,6 +531,18 @@ them but a future release of <a href="https://github.com/RinteRface/shinydashboa
 obviously fill this gap. The app below shows a combination of multiple
 elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>, as well as the
 <code><a href="../reference/box.html">updateBox()</a></code> feature:</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-6836" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0IdOIgJaKGpygA9gmprs9wchMDqGpsUW3oKO0NJaUmo4brN40up6gGt2sdDaGACZj17uUlJUTkQAemPYmD5qcgxaImPSbjh4TmPrGQuIABkAFQBRY5ktE4pGOG38xzmjAALABaACMACYABwtRFIjAAK1Q-hG1TWEym2x6YAy9Ua1AcrVxhTWtRM9AJ026vTgLVgqGmMIADHCMFyAKwYBE8pG9PE1JLi0JQAgTEilEz7Ej2MAmVBycgAfSGI2JWDgADNGHAeL1JTSOr1SfAHOQWqQHI9jQBCam0pj5KVOUhQeicOCkPwQODUVa0n30IMhsO04kAOTgAHdOG7Y04oPsZdx4GQFssY2mNltmWA9gcjqdE1WMJxYDAiPRaNMMMQYMdE6gYcQyBQQWrFrEXsK4QB2Y5wuHHADCsBDGFQEBxeC9+MmTJ2YG+JtIqbTTm4xoNJbLhxOx38RCI-mbrd3e96314nAcQNtjwc3fIZDFFtpqjT5pphGUahiuNS9AAsiataBCmy6-mskJQZwMEmgWsaJtkDzdIiox7k4wIZmYJZyIu8R3mmSHQVs6FplAircEQjAltY0xshAcTMYYtDxAQcAUXuGpEr0woOAAUlAIQIogXJcg4qAwAJhabIEx77KepznJc1y3PcjzPK87x8D8-yAsCoIwOCkJwvCyKosimLYkpsakKwqDCWAxp8bQABucAyM5tK9AAks+DyvuQMAchmMzGk01CsA4BpMUlxpwAA-A4j4ZgA5M+JgQPQIY8T5vrTK6YBgR0gH4c4-qMMhqG0bG9EPClG4ZCwUDcJSJjUIsBBLIFaxCSWCIAMziZJDjSQK8mKfBtXrCpHknhWZxGaIOl3A8TwmoZHwmQCQIgmCEL1eNtkomijlLnhS2ue5Jb+t+i1LcSACaRAmA4RX7PEv3FXAfkvqQFVVRKEMOP+sYw2MNVjNQaAchwAAaOGIHCXK4A4ABiACqcbdAaBWyrcEDsLQAgOCAVVDFORAwDmpDNZ0K1qeWZ5aVtcA3Dt+n7W8h1-Md5lnZCl1ovZ6JYndUOMkSqDyOQKoM0zva6lT92xqNG48nygrDqKb1pkrwJwFyKqPjMms470MLYa2zNmlVcMdAAvgjHTJUQ5DMRu1tJZefuOvEcDgwhbtewrJakgMFJUpVhQ1fVfn+0lpNyhTfCoIqOPfQcirU7TFoNqncC-H5ZCUxAuekAAJGqQnakQLQ4yXYxNzFrTNb0-TkjqJsdDKWcll35DOUQqBZ8+Hh0MCrO2muRKQnmg2L04RaqRua1c5tVy87pu0GULxki2Zp2Wed8SS3ZN2y8N3rL7HZJNJSrfOOqMUBUPtKcPSMcNykAqFAVgP4AIrjdk4N2nsUjuxEAIMA7sAC6QA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#update-social-box" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="update-social-box" class="collapse">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -640,17 +620,6 @@ elements in a <code><a href="../reference/socialBox.html">socialBox()</a></code>
 <span>    <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-socialBox/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
-</iframe>
-</div>
-<div class="home">
-
-</div>
 </div>
 </div>
 <div class="section level4">
@@ -663,6 +632,18 @@ container, which may help to display extra information. Be sure to
 provide the <em>id</em> so that the box may flip. On the server side, a
 <code>flipBox</code> is toggled by <code>updateFlipBox</code>. There are
 currently 2 events, that is click and hover.</p>
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-6867" style="margin: 0 auto; float: none;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0IcAM1NsrCIAd2CamuJTGAg29prm7NJudwcANgK+mpcAeRNSVDn7FAJSWgA3OAB9Tmy4ITAk6smoFdoSUrnSEiWr-39qPbwHfYAVIjuHurpUB0UAD32h0Kky+tFQ5T+vRBTmyI32MFY9TB-32E2hTlIjFod3icLA3CIG0YqKOIIGMiGIwAjAAmNHo2qMEikEYydZQ9EOAjUeScPHkP6kAC0BAo5GJeFJ0O4VKWADFvg4SA4CUTAfTObQYP4uIwCHjuKR5pxEAB6U2oHmignUGQYYim0YABidfwALC7AVK+kDOb8TgBrVns72Tbm8-lwQUisXxEnAzncODYw14gDMLtQAMlCfR5MpHn2VJdAFJ436nDL5Yrlaq4wcNejUEsALJERhwBx8WrtmBQVYkDBDjBe3OTVToifjxuhTombocvr54YecahpwzOYLUhLE6rDbbXabGnq9eg8FESFnmEyPEIpGof4nnN+5fUunXupMsjBtaL6HhpwfKFmAArCqKZD1jOIJVvsCpgkqITcrQBABqeY4glqOqcHqBpGqgJrmpaJxwDadoOs6roek6o5+r6nK5Khv7-iCgHAc8oFRuBsYStBkxJimLIgRmTpZuWFZviBxZOmWL4VrBYDwT8yrIah6EVg4zb7G2HZdhAPaMH2A4QMOI4HJ+U4gpZ7TWU41lTvRnDxESIy1CYECnNcfDbrgSpbnMvlOUBZwQAIDggEcRD+aQAAke7rFsOxxA4AA8QoOB2EBxIwACqACS7ARWOSWdmlXa1A47DeXMMX3t8-xhfsjLMvsDhwNQTkcYxaFgFKaTKKUsSBFwuy+Z07Z4vQpiPNZAC+FgJlF8w1fFB4lceqXpZl2X5YVUolZt5WVdVsV1cil40o1YDNWQrXtZ1+zdfsfXFBEMiDTIw0lWNRDUBNIFTSYM1HPNIiRfQTmMBsACiGxkFVEDbjFtz3HAvlFX0JioHI5BKRCSxnY+l60aEoOFLNIgCGAs0ALpAA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"><template>Expand</template><button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip><script data-bslib-card-init>bslib.Card.initializeAllCards();</script>
+</div>
+<div class="text-center mt-4">
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#flip-box" role="button" aria-expanded="false" aria-controls="tabLayout">
+Code </a></p>
+</div>
+<div id="flip-box" class="collapse">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -681,11 +662,7 @@ currently 2 events, that is click and hover.</p>
 <span>            front <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
 <span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on hover"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">img</a></span><span class="op">(</span></span>
-<span>                src <span class="op">=</span> <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
-<span>                height <span class="op">=</span> <span class="st">"300px"</span>,</span>
-<span>                width <span class="op">=</span> <span class="st">"100%"</span></span>
-<span>              <span class="op">)</span></span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">img</a></span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://placehold.co/600x400"</span><span class="op">)</span></span>
 <span>            <span class="op">)</span>,</span>
 <span>            back <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
@@ -705,11 +682,7 @@ currently 2 events, that is click and hover.</p>
 <span>            front <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
 <span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Flip on click"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">img</a></span><span class="op">(</span></span>
-<span>                src <span class="op">=</span> <span class="st">"https://image.flaticon.com/icons/svg/149/149076.svg"</span>,</span>
-<span>                height <span class="op">=</span> <span class="st">"300px"</span>,</span>
-<span>                width <span class="op">=</span> <span class="st">"100%"</span></span>
-<span>              <span class="op">)</span></span>
+<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">img</a></span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://placehold.co/600x400"</span><span class="op">)</span></span>
 <span>            <span class="op">)</span>,</span>
 <span>            back <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"text-center"</span>,</span>
@@ -739,44 +712,26 @@ currently 2 events, that is click and hover.</p>
 <span>    <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="marvel-device ipad black">
-<div class="camera">
-
-</div>
-<div class="screen">
-<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-flipBox/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
-</iframe>
-</div>
-<div class="home">
-
 </div>
 </div>
 </div>
 </div>
-</div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
-      </div>
-
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
 
-      <footer><div class="copyright">
-  <p></p>
-<p>Developed by David Granjon.</p>
+    <footer><div class="pkgdown-footer-left">
+  <p>Developed by David Granjon.</p>
 </div>
 
-<div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+<div class="pkgdown-footer-right">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
-
 
 
 
