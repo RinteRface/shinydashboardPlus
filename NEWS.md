@@ -1,3 +1,7 @@
+# shinydashboardPlus 2.0.5
+
+- Add shinylive to support the different demo apps.
+
 # shinydashboardPlus 2.0.4
 
 ## Minor change
