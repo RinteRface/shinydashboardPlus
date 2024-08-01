@@ -4,7 +4,7 @@ library(shinydashboardPlus)
 
 shinyApp(
   ui = dashboardPage(
-    options = list(sidebarExpandOnHover = TRUE),
+    scrollToTop = TRUE,
     header = dashboardHeader(),
     sidebar = dashboardSidebar(minified = TRUE, collapsed = TRUE),
     body = dashboardBody(

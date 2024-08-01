@@ -64,7 +64,7 @@ Below is a simple app you may build with `{shinydashboardPlus}`. We explicitly c
 card(
   shiny::tags$iframe(
     class = "html-fill-item", 
-    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVVP4BBdOxEACRydr2AvPd3dFyw1ADmcHYQjiFEqKS0JJxu9nScpFy0MnD0LACiAB6oUBAyAPIQABJEAG5wjDEAKlgAqmkCuA4h9txwUMkV7p7eBoVtHewNTSGcSSksMd36MgDKY6mM7DB8tABmtHAyVbVpuPbE1NRonJvbdUPBzYoyrJPyXtMAQkQ3Qc2OR+jUHACMiABMAAY9ooMnsAO5JUjcGI-f57CKkahwGJCMCgtGqd4Xd7EMiMIjUBZ3PTKADCJFIBKJLEGjUuIURyNRYAAIvcekZ-HA0cMcY4Towyp17KsTBACBESOw+KgTKQ9kR5XLSAJ7CB7ABfBwCMCagC6QA", 
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVVP4BBdOxEACRydr2AvPd3dFyw1ADmcHYQjiGcBIxE1NQAKkSxqG720VgAqgCiuA4h9txwUDJwjIme3gYAEnkFjOwCmcHZnLQF9CzF8l76MgDKTXAt1TB8tABmtHAyicnpuPbEUWic45OpabVZIYoyrG16ygBCRFtB2Y7UaKjUHACMiABMAAwzigAeMwDuTaTciVe3M6S0UjUOCJIRgF5g1QnNb1ELEMgRaj9HYdZQAYRIpER-RqdROAKBIPcYIAIu1SkZ-HAwesYaFCgA3QqJYYmCAEAEkdh8VAmUgzIh83mkAT2ED2AC+DgEYAlAF0gA", 
     height = "800", 
     width = "100%", 
     style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 

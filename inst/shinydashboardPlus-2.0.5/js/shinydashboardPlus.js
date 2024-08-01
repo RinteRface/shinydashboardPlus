@@ -1219,7 +1219,7 @@ $(function() {
   if ($("body").attr("data-scrollToTop") == 1) {
     var $slideToTop = $("<div />");
 
-    $slideToTop.html('<i class="fa fa-chevron-up"></i>');
+    $slideToTop.html('<i class="fas fa-chevron-up"></i>');
 
     $slideToTop.css({
       position: "fixed",
