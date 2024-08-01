@@ -145,8 +145,7 @@ navbar:
       
 articles:
 - title: User guide
-  desc: ~
-  navbar: User Guide
+  navbar: ~
   contents:
   - '`improved-boxes`'
   - '`box-elements`'
