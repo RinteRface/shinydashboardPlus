@@ -1,47 +1,56 @@
+# shinydashboardPlus 2.0.6
+
+- Fix NOTES in CRAN checks.
+
 # shinydashboardPlus 2.0.5
 
 - Add shinylive to support the different demo apps.
 
 ## Minor change
+
 - Fix NOTE in CRAN checks.
 
 # shinydashboardPlus 2.0.4
 
 ## Minor change
+
 - Fix [#181](https://github.com/RinteRface/shinydashboardPlus/issues/181).
 - Update github actions.
 - Icon [change](https://github.com/RinteRface/shinydashboardPlus/commit/0abe127a1ce0e7f8cb74883968c83b796cc9c73e) in `dashboardHeader()`. Thanks @zhanxw.
 - Allow [hyperlink](https://github.com/RinteRface/shinydashboardPlus/commit/12fab3b92b2b5e459304b385e7ed7a94cb9dbd98) in User block. Thanks @robertkck.
 - Fix multiple fontawesome icon issues (deprecated names in fontawesome 6).
 
-
 # shinydashboardPlus 2.0.3
-This release is a patch to fix an [issue](https://github.com/RinteRface/shinydashboardPlus/pull/151) preventing the release of 
+
+This release is a patch to fix an [issue](https://github.com/RinteRface/shinydashboardPlus/pull/151) preventing the release of
 Shiny 1.7.0. Thanks @wch.
 
 ## Minor change
-- Internal change regarding the `{waiter}` package but no user impact. Thanks @JohnCoene. 
+
+- Internal change regarding the `{waiter}` package but no user impact. Thanks @JohnCoene.
 
 ## Bug fix
-- Fix #150: Warning when using controlbarMenu. 
+
+- Fix #150: Warning when using controlbarMenu.
 
 # shinydashboardPlus 2.0.2
 
 - Simple patch to fix wrong .Rbuildignore [rule](https://github.com/DivadNojnarg/outstanding-shiny-ui/issues/52).
-- Update internal file structure. 
-- Clean NOTE: https://cran.rstudio.com//web/checks/check_results_shinydashboardPlus.html
+- Update internal file structure.
+- Clean NOTE: <https://CRAN.R-project.org//web/checks/check_results_shinydashboardPlus.html>
 
 # shinydashboardPlus 2.0.1
 
 This release is a patch without major changes.
 
 ## Minor change
+
 - Fix #132: Option to disable the "scroll to top" button in `dashboardPage()`
 
 ## Bug fix
-- Fix #127: `shiny::navlistPanel()` in `dashboardControlbar()` not behaving as expected. 
-- Fix #112: `userBox()` is not working. Introduced in 2.0.0.
 
+- Fix #127: `shiny::navlistPanel()` in `dashboardControlbar()` not behaving as expected.
+- Fix #112: `userBox()` is not working. Introduced in 2.0.0.
 
 # shinydashboardPlus 2.0.0
 
@@ -49,6 +58,7 @@ This release is a major step for shinydashboardPlus. It is also a significant br
 change compared to the latest CRAN version. Overall this release will simplify the transition from shinydashboard to shinydashboardPlus and bring more consistency, more interactivity between components. Below is the changelog.
 
 ## Breaking changes
+
 - Change _maxstar_ and _grade_ in `starBlock()` to `max` and `value`.
 - Remove _footerPadding_ from `boxPlus()` to align with `{bs4Dash}`
 - Remove all sidebar related parameters from `boxPlus()`. This is now part of the new `boxPlusSidebar()`
@@ -105,8 +115,9 @@ _name_ is removed
 - In `navPillsItem()`: _active_ becomes _selected_
 
 ## New features
+
 - Completely redesigned pkgdown website with much better documentation
-- New `updateUserMessages()` function 
+- New `updateUserMessages()` function
 - New `updateAccordion()` to toggle `accordion()` on the client
 - Automatic "scroll to top" feature to quickly go to the top of the dashboard
 - Use `{waiter}` for custom preloaders
@@ -126,53 +137,57 @@ list of available options
 - Toggle `box()` with `updateBox()` (see #10 and #69, @happyshows and @daatali)
 
 ## Minor change
+
 - Add _headerBorder_ to `box()`
 - add _width_ to `accordion()` (default to 12)
 - Simplified dependencies code (No end-user impact)
 
 ## Bug fixes
+
 - Fix #102: dashboardUser not displayed when using shinydashboard::sidebarMenuOutput. ensureActivatedTab was not
-in the global scope, whereas it was needed by the output binding code 
-- Fix #107: `collapsed = FALSE` not working for dashboardControlbar. 
-- Fix #56: When controlbar is expanded/collapsed, a plot does not fit in body. 
+in the global scope, whereas it was needed by the output binding code
+- Fix #107: `collapsed = FALSE` not working for dashboardControlbar.
+- Fix #56: When controlbar is expanded/collapsed, a plot does not fit in body.
 - Fix #78: Menu Item with Sub Menu Item Arrow Not Rotating.
 - Fix #105: box animation speed. Allow user defined options to prevail over internals.
-- Fix #57: broken default `input$sidebarCollapsed`. 
+- Fix #57: broken default `input$sidebarCollapsed`.
 - Fix #86: controlbar should also trigger a window resize, like the left
-shinydashboard sidebar. Thanks @ajfisher83 
+shinydashboard sidebar. Thanks @ajfisher83
 - Fix ugly layout of the box body (wrong padding and margins) when one puts a sidebar in `box()`...
 - _title_ is mandatory in `accordionItem()` (Setting title to NULL would prevent the item
 to be able to collapse ...)
 
-
-
-
-
 # shinydashboardPlus 0.7.5
 
 ## Experimental
+
 - New dark theme: midnight (still work in progress, some elements are missing)
 
 ## Breaking Changes
+
 - `accordion()` id becomes inputId. `accordionItem()` id parameter is removed
 - rework `appButton()` : this is a classic shiny actionButton, with improved styling.
 - change title_url in titleUrl in `attachmentBlock()`
 change number_color, number_icon, margin_bottom and rightBorder to camelcase params
 in `descriptionBlock()`
 - numberIcon in `descriptionBlock()` only need the name of the icon ('times') instead of the full class (like fa fa-times)
+
 ## New features
+
 - add `userMessages()` and `userMessage()`
-- add `dashboardBadge()`: use in elements like `appButton()`. This is different from 
+- add `dashboardBadge()`: use in elements like `appButton()`. This is different from
 `dashboardLabel()`
 
 ## Minor Change
+
 - Fix #52: add collapsed arg to `widgetUserBox()`. Thanks @terpsrule
 - Fix #40: add sidebar_icon argument to `boxPlus()`. Thanks @jmw86069 for the suggestion
 
 ## Bug Fixes
+
 - Fix #61: uniqueness of `accordion()` id. Thanks @RegaCaska
 - Fix #23: rework id arg in `flipBox()`. Thanks @vinpogo
-- Add class btn-box-tool to close button in `widgetUserBox()`. 
+- Add class btn-box-tool to close button in `widgetUserBox()`.
 Prevent from ugly rendering
 - Fix #51: change card sidebar z-index so that it is not displayed on top of
  the page preloader. Thanks @leungi
@@ -181,16 +196,18 @@ Prevent from ugly rendering
 - Replace http links by https
 - Fix #36: make sure that a `carousel()` item is displayed when it is generated via a shiny Output function. Thanks @daattali for the report
 
-
 # shinydashboardPlus 0.7.0
+
 ## Breaking Changes
+
 - remove all CSS functions, namely `setShadow()`, `setPulse()`, `setShake()` and
 `setZoom()`, since they are contained in [shinyEffects](https://github.com/RinteRface/shinyEffects)
 
 ## New features
-- 6 new color statuses for `boxPlus()` headers: navy, teal, orange, maroon, black and purple 
-- add new argument .items to `rightSidebar()`: useful if we do not want to 
-embed elements in tabs. 
+
+- 6 new color statuses for `boxPlus()` headers: navy, teal, orange, maroon, black and purple
+- add new argument .items to `rightSidebar()`: useful if we do not want to
+embed elements in tabs.
 - add `dashboardFooter()`
 - add `dashboardUser()`, `dashboardUserItem()`, `renderUser()` and `userOutput()`
 - add `carousel()` and `carouselItem()`
@@ -200,19 +217,24 @@ sidebar to be fully collapsed as in shinydashboard. Fix #24, thanks @serkserk
 similarly as the left sidebar
 
 ## major changes
+
 - shindashboardPlus is now moved on [RinteRface](https://github.com/RinteRface/shinydashboardPlus)
 
 ## Minor changes
+
 - new hex icons
 - update gallery
 - update vignettes (RinteRface)
 
 ## Fixes
+
 - fix issue when the `dashboardHeaderPlus()` title was NULL
 - fix #22 thanks to @trallard (missing licence)
 
 # shinydashboardPlus 0.6.0
+
 ## New features
+
 - add new `flipBox()`
 - new sidebar in the `boxPlus()` function: set up with the following arguments
 "enable_sidebar", "sidebar_content", "sidebar_width", "sidebar_background" and
@@ -220,9 +242,9 @@ similarly as the left sidebar
 - new "left_menu" argument in the `dashboardHeaderPlus()` to include elements
 in the left part of the navbar. (In addition to what you can already do in the
 right part with shinydashboard)
-- new `dropdownBlock()` to include shiny input elements in a navbar left menu 
+- new `dropdownBlock()` to include shiny input elements in a navbar left menu
 (optimized for all screen sizes)
-- new "fixed" argument to the navbar (`dashboardHeaderPlus()`). 
+- new "fixed" argument to the navbar (`dashboardHeaderPlus()`).
 If TRUE, the navbar is fixed-top. (static-top by default)
 - new `setZoom()` function (similar as `setShadow()`)
 - new `setPulse()` function
@@ -233,7 +255,9 @@ If TRUE, the navbar is fixed-top. (static-top by default)
 - change the website images
 - add "collapsed argument" to `userPost()` to show or hide comments when the
 application starts.
+
 ## Bug fixes
+
 - now `appButton()` open a new window when clicked
 - now `socialButton()` open a new window when clicked
 - do not show comments when there are no comments in `socialBox()`
@@ -244,23 +268,28 @@ application starts.
 - center images in `userPostMedia()`
 - fix #8 thanks to @scottyraymond (`dropdownBlock()` icon not displaying)
 
-
 # shinydashboardPlus 0.5.0
+
 ## Bug fixes
+
 - Fix an important issue in the `rightSidebar()`. When the function was called without
 any element, it triggered an error because the number of items was 0
-- clicking on `starBlock()`, `navPillsItem()` and the `socialBlock()` title does not reload 
+- clicking on `starBlock()`, `navPillsItem()` and the `socialBlock()` title does not reload
 or redirect at the top of the page
 - clicking on the `attachmentBlock()` link open a new page in a new tab (target = "_blank")
-- correct vignettes title (https://cran.r-project.org/package=shinydashboardPlus)
+- correct vignettes title (<https://cran.r-project.org/package=shinydashboardPlus>)
+
 ## Breaking changes
+
 - change argument name in `dropdownItem()` (`boxPlus()`): "target" is replaced by "url".
 - Widely simplify the `rightSidebar()` function: remove `rightSidebarTabList()`, `rightSidebarTabItem()` and
-`rightSidebarPanel()` from the user interface. See [here](https://shinydashboardplus.rinterface.com/articles/controlbar#controlbar) to discover how to set up 
+`rightSidebarPanel()` from the user interface. See [here](https://shinydashboardplus.rinterface.com/articles/controlbar#controlbar) to discover how to set up
 a new `rightSidebar()`
+
 ## Major changes
-- add a "width" argument to the `rightSidebar()` (set to 230 pixels by default) to 
-improve customization. 
+
+- add a "width" argument to the `rightSidebar()` (set to 230 pixels by default) to
+improve customization.
 - new function `setShadow()` to set shadow and hover effects on any elements
 - add an "active" argument to `rightSidebarTabContent()`: see [#4](https://github.com/RinteRface/shinydashboardPlus/issues/4)
 - add a "sidebar_background" argument to `dashboardPagePlus()`
@@ -270,24 +299,26 @@ and `menuInfo()` (see `shinydashboardPlusGallery()`)
 - new dropdown menu for `boxPlus()`: add `dropdownItemList()`, `dropdownItem()` and `dropdownDivider()` functions (see          `shinydashboardPlusGallery()`)
 - add "width" and "height" args to `timelineItemMedia()` and `userPostMedia()`
 - remove useless content
+
 ## New Side content
+
 - add a pkgdown website
 - add cran downloads to readme
 
-
 # shinydashboardPlus 0.2.0
+
 - new timelines: `timeLineBlock()` either inside or outside a box
-- new userPost function: `userPostToolItemList()`, `userPostToolItem()`, `userPostMedia()`, 
-`userPostToolItem()` 
+- new userPost function: `userPostToolItemList()`, `userPostToolItem()`, `userPostMedia()`,
+`userPostToolItem()`
 - new boxProfile function: `boxProfileItemList()`, `boxProfileItem()`
 - update `shinydashboardPlusGallery()`
 - add `shinydashboardPlusGallery()`
-- update all examples 
+- update all examples
 - some minor fixes
 - NOTE: mailForm is not working at the moment!
 
-
 # shinydashboardPlus 0.1.0
+
 - new right sidebar: `rightSidebar()`
 - improved classic boxes: `boxPlus()`
 - new boxes: `gradientBox()`, `widgetUserBox()`, `socialBox()`

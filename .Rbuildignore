@@ -15,3 +15,4 @@
 ^CRAN-SUBMISSION$
 ^_pkgdown\.yml$
 ^index\.Rmd$
+^README\.Rmd$

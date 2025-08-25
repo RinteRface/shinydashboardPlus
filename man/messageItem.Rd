@@ -18,7 +18,7 @@ messageItem(
 
 \item{message}{Text of the message.}
 
-\item{icon}{An icon tag, created by \code{\link[shiny]{icon}}.}
+\item{icon}{An icon tag, created by \code{\link[shiny:icon]{shiny::icon()}}.}
 
 \item{time}{String representing the time the message was sent. Any string may
 be used. For example, it could be a relative date/time like "5 minutes",
