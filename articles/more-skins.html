@@ -6,16 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Improved Skins • shinydashboardPlus</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <script src="../extra.js"></script><meta property="og:title" content="Improved Skins">
 </head>
@@ -27,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">shinydashboardPlus</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,16 +68,16 @@
 
 
 <link href="more-skins_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="more-skins_files/bslib-component-js-0.8.0/components.min.js"></script><script src="more-skins_files/bslib-component-js-0.8.0/web-components.min.js" type="module"></script><link href="more-skins_files/bslib-component-css-0.8.0/components.css" rel="stylesheet">
-<script src="more-skins_files/bslib-tag-require-0.8.0/tag-require.js"></script><div class="row">
+<script src="more-skins_files/bslib-component-js-0.9.0/components.min.js"></script><script src="more-skins_files/bslib-component-js-0.9.0/web-components.min.js" type="module"></script><link href="more-skins_files/bslib-component-css-0.9.0/components.css" rel="stylesheet">
+<script src="more-skins_files/bslib-tag-require-0.9.0/tag-require.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Improved Skins</h1>
                         <h4 data-toc-skip class="author">David
 Granjon</h4>
             
-            <h4 data-toc-skip class="date">2024-08-01</h4>
+            <h4 data-toc-skip class="date">2025-08-25</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/v2.0.5/vignettes/more-skins.Rmd" class="external-link"><code>vignettes/more-skins.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/more-skins.Rmd" class="external-link"><code>vignettes/more-skins.Rmd</code></a></small>
       <div class="d-none name"><code>more-skins.Rmd</code></div>
     </div>
 
@@ -94,7 +93,7 @@ the end user to change the app skin. According to the
 light or dark. Note that the <code><a href="../reference/controlbar.html">dashboardControlbar()</a></code> is the
 perfect place to host the <code><a href="../reference/skinSelector.html">skinSelector()</a></code> since it may be
 seen as a secondary input (your app may still work without :))</p>
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-2695" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-2693" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVVP4BBdOxEACRydr2AvPd3dFyw1ADmcHYQjiHccFAycIxuHvJe+jIAEuGRjOwCuA4h9py0kfQsMZ7eBgDKeXAFaRlZIYoyrEVxJTIAQkQN6ZnB2cRkjETUVU16ygDCJKQDQyzsxNTUaJxwMjEAYlYAMqUAorg5ANZ8pXDUcASkRNU1PSGktKRnMUJgpUfBJ2cXVy+1NyHLRgANyiMQAZiYIBdaCR2HxUCZSPsiIiEaQBPYQPYAL4OARgbEAXSAA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -108,7 +107,7 @@ Code </a></p>
 <div id="skin-selector" class="collapse">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>   ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -127,7 +126,7 @@ Code </a></p>
 </h2>
 <p>The midnight theme is powered by the corresponding Github <a href="https://github.com/anvyst/adminlte-skin-midnight" class="external-link">project</a>. It
 provides a plug and play dark theme.</p>
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-3137" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-7251" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABE5O0HAXge7ui5YagBzOHsIJ1DOAGs+dwchMBhaGQhaf25SWNxHUIduOCgZOEZorx8DAAlc-MZ2AQyQrM4EuHoWIvlvfRkAZUbmqprM0MUZVla9ZQAhImHgrMGiAA8Z2dDSWlJqOGjYgFkRxXnYgazVWf660OIyRiJqXtH25QBhElJr25Zq2tmAMyIickKHmKHQAYn8AZ8jg5VutNh4dgkkilSA5OpEIIdzmcwgUAG4FaLfEwQAirEjsPioEykXAOIjUqmkAQOEAOAC+jgEYDZAF0gA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -141,7 +140,7 @@ Code </a></p>
 <div id="skin-midnight" class="collapse">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
@@ -180,7 +179,7 @@ and feel, with much more options (but more effort).</p>
 built on top of AdminLTE2 and <a href="https://fezvrasta.github.io/bootstrap-material-design/" class="external-link">material
 design for Bootstrap 3</a>
 <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>!</p>
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-5972" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-1499" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABE5O0HAXge7ui5YagBzOHsIJ1CYGXcHABUsAFUAUVxHUIdOAGs+SKEwelM4bKSQlO44KBk4RkivHwMACVLyxnYBQpTU2nL6Fir5b30ZAGUOuC6mluTQxRlWHr1lACEiaeC2p0UAD3ZSWlJqOCywAFkZjezVNvGi0OIyRiJqUdm+5QBhElI7h5Zm1pSAMyIRHIlQ81X6ADFAcCfhMnNtdvsPNlDlBgbQoNRPHBOLR-BBshNLqFOBUAG4VSJ-EwQAjbEjsPioEykXAOIjMpmkAQOEAOAC+jgEYD5AF0gA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -194,7 +193,7 @@ Code </a></p>
 <div id="material-skin" class="collapse">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
@@ -230,7 +229,7 @@ to avoid setting the default green to blue, as it might become
 confusing. Instead, it is better to play with color palettes. Similarly,
 <code>adminlte_sidebar</code> allows to re-style the sidebar component.
 The fresh theme below is based on some cyberpunk color palettes.</p>
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-4875" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-9271" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVWI0cAZozg9VAYgAEBO1HLPS3OF5-xnAHdab2coV1Z6OEZUEwgAa1ciaiJGZ1QoajhSchFvOACAHgBaV3dyAH18+HYRZzCZGD5qSuIUxlqIevqAczsKZwBeZyEwRwBmaymAJhlR3Dru+lNfYdHHaYA2cYBWKfnF+rsZIZGwIVJHGfpp+gOu7tY4ahTA0-XrOCnNuHvu52sJgI3E4tHCazGUx29GsAA4-t1oAA3VjvMbjADsABYCABOaYI+qxGJZNGOTYARh2BBhhOcMBYRBIZPomx2uLxdLoPW4pAqyxMqzOjh2m1xFIIBFGiwECweUEazUqoJkcHoLE6-zkjHi-J6ZIAIrCDQBRE24una3XcIhI6J6smwikAQQpAGEKZaWLq2qkydMTeMsViAAzSh6yxYKpqiSo9FLq6ia7rEMgUPn0fUQxxQXN58P1VSqEQuNxwDy+UiMBjLXzWP2KAAeznjRETSQg1loPRETYqqa7+pKXhrWUQiCro7gyYAfuqCPE+kQ4jJcM4Z9QoFFqABlUgeMxy+qjY7zM6BFgQPg9vCLUbE1BZM+jThAgj2TgI0Z9OAUZ9gVBqwZNgvzAJ4XiIQJ-zkCAemiUDAWBUEoH-Ph63DYsIBcJsASgAhSFSVFAQgfDaBIXsiEbCprDwgi2GcYdiNIkh2HnRdGGXCBV2cTdtz3A9zGcEBFibZN6lIEJSQhN1ImiWIEmcAAhSjnweeo2k3VBQVrU4ABUsAAVRNNdDmcNilxXU5zI4lcj26Hxu15NFphDENUEbLkt2eKzKIAGS8pMKTXXjnn40gzFUQsRAAXxEEt0gZVB6SgHpaClCAm3sBjSmJRhGHHVBEtYyj+xIQc1z7Gj8MIzCpH4Z10DEkxaFOXRuEUZRDBS6dTIBOweF0-whWqOA7O6Th4j4NEBV+W81PqIhUAkkhOFOOhOFILhaFVdVGBNRsMi4gB5CAAAlbWiPTDJNSN5ucHwFUu4Y2o6gxTvLVUOl6+oZA41AZEgiAAFkKBMMT-nE1hUCFUZ4E4Thus-PARju-51RkOCwrMNFX0lD86QhuGEbggBJcgYHBiH6lsIgYDRHcTHQVJSGcXTyxgAmqaJ7q0UG2hVv5vxfFTcgyGcIhrDCekP26jBOYhiSAghHZ6T4JHvu6W6qe6bnSfJymqZpumIQZpnGBZtnYHl-5dZhsA+YF1b8g7UWWYlsIICIfI0ltuW5u1-5Fbt6Z7uXRh1dRzWNci-4tf+FU1RYVr5Ha-QZB3bbE6+yOE92kGIDBjX6ngAuyYKWowDLunPWR9G4P87dTjSljRge83RllMyFTgt1kj9CFuV5YoZo7saudBquK6r5wCVr7u4Ab7zhmbiAK9QJlR67jG4F79o0WApkIA76PerjpYiBkVFnpT16ZGUy-isbewz-Ukgq2SXbk70ZRe7IDjqF2uwF+I5SBSTOAAMX6twIWMYbyHDPpwaIdo0jDCYstVefBYikDXMuUgWCBBCWcLFLoAgwDRQALpAA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -337,7 +336,7 @@ Code </a></p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>

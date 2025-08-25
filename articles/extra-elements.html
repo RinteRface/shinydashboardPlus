@@ -6,16 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Extra Elements • shinydashboardPlus</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <script src="../extra.js"></script><meta property="og:title" content="Extra Elements">
 </head>
@@ -27,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">shinydashboardPlus</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +68,8 @@
 
 
 <link href="extra-elements_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="extra-elements_files/bslib-component-js-0.8.0/components.min.js"></script><script src="extra-elements_files/bslib-component-js-0.8.0/web-components.min.js" type="module"></script><link href="extra-elements_files/bslib-component-css-0.8.0/components.css" rel="stylesheet">
-<script src="extra-elements_files/bslib-tag-require-0.8.0/tag-require.js"></script><div class="row">
+<script src="extra-elements_files/bslib-component-js-0.9.0/components.min.js"></script><script src="extra-elements_files/bslib-component-js-0.9.0/web-components.min.js" type="module"></script><link href="extra-elements_files/bslib-component-css-0.9.0/components.css" rel="stylesheet">
+<script src="extra-elements_files/bslib-tag-require-0.9.0/tag-require.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Extra Elements</h1>
                         <h4 data-toc-skip class="author">David
@@ -78,7 +77,7 @@ Granjon</h4>
             
             <h4 data-toc-skip class="date">9/21/2020</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/v2.0.5/vignettes/extra-elements.Rmd" class="external-link"><code>vignettes/extra-elements.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/RinteRface/shinydashboardPlus/blob/master/vignettes/extra-elements.Rmd" class="external-link"><code>vignettes/extra-elements.Rmd</code></a></small>
       <div class="d-none name"><code>extra-elements.Rmd</code></div>
     </div>
 
@@ -95,7 +94,7 @@ expects to contain <code>accordionItems</code>. Importantly, to guaranty
 the uniqueness of each accordion, we must provide an <em>id</em>
 parameter. This parameter allows to programmatically toggle any
 accordion item, through an <code>updateAccordion</code> function.</p>
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-8264" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-1339" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0IdmGVoiUpNSUhJOe0ISUkYiamp4oTwHQYBhLp6+gaGCbiJaAjhOdwcCdgBGXAcAJgEk6tCmfP2nKAJiAwaIYJqa7OXB0-P6kjXBgpvQx6ILkgBJchg1w+oVItFI-XuYGsZ2+zxCawc-zgMAcrzwxxunFIUFIZkhcgggUYbwxNWIfTQnDgMmWABUsABVACi72BTkGtN4S1oS04RHgDnIAA9SABCQakhx7QofL4-CBIwGSpyg8FwSHQp6XVGIgHbEky4FYnF4jyDADuLAgfH8BrZTnJ1Ep1OWADFrAAZDIs5XDMCcnkOQN8gXCsUSw01VQfaWymHyoEfO5mlDxuFbO3AuVwxWJ4GqiEpzWw7VbXXI1GZtnG3FLFN8ABmRCrwMdzppHnpzNZbI5XKDvP56rD4rAktjWbTl1zvoL6qLU5I23LKIz6MjmOxtchnBMZ0WnBbHzbqCpHYc7q9Po3NT7geDQ8FcBFo-HGOjoQnKrBhb9xflEZOBOVKMAAbvEywNiYEAEKCJDsHwqDNJsRDNEhpCbFSnCcJcAgOCA+xEPQIHgUy4FkAhEDoQAJMQZATP0jCbARG4mKgcjkP+cIIeeDyLhAaKYXA-SwS6HiIc0tHjL0jEfk4AC+cnDIaREkUEqCMHwpCUTR2aXGsuz7IRxHxKR5HaRJpDUXpLzMRiPBEOaAByRCgg28w4pceY1JwGlaQ2HQAJqoQ4VIieQNI2SETkAA0OAApIeQyWdZ-EGZskqkKwqDzn68DYQEcBHqkJjMHBIQeK8G5KYpKTySIqhgPJAC6QA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -109,7 +108,7 @@ Code </a></p>
 <div id="accordions" class="collapse">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/shinydashboard/" class="external-link">shinydashboard</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RinteRface/shinydashboardPlus" class="external-link">shinydashboardPlus</a></span><span class="op">)</span></span>
 <span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span></span>
 <span>  ui <span class="op">=</span> <span class="fu"><a href="../reference/dashboardPage.html">dashboardPage</a></span><span class="op">(</span></span>
@@ -192,7 +191,7 @@ For a sent message, the color is inherited from the
 color is gray by default. The <em>text</em> argument refers to the
 message content. It may be simple text, shiny tags or event any
 combinations of shiny inputs/ouput, as shown in the below example.</p>
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-8185" style="margin: 0 auto; float: none;">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-7487" style="margin: 0 auto; float: none;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
 <iframe class="html-fill-item" src="https://shinylive.io/r/app/#h=0&amp;code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgunYiABA5O0HAXge7ui5YagBzOHsIJycvHwMACTgoGThGdgFcR1Dw-RkAZVo4+hZE5JDU+W90gCEiGQ4U0IcAM1NsrCIAd2CamqgCUloSUpNSUhJ7MEY4GCIANzghPAcZrDHJuAd4Tk4A6bAk6vbO7t7+wYhh2JkZ3DmwaxkZFbg1jZntwvaHPZ6IPoGhmZNUOXI50uAFV-lByHcHoEnjsnM9XhATPBGLQCABJCCofrDPhxAAeQJmAFl7utAg5cXA8YggQBGC4wPjuBz0lZQPHMgDM8PaTHysIcfJ5NTM8RJUPubVeDma2VI3GZADYCtKHJxSOCzMyZnIIIFGOcBU5stqwKsyZsVdLRYxxRapaqoP1uERGKbrNQqVAIHE3YZaPECJajUUIR4ZgAmAAMDgAUt6HBHEFGY6gYIaXtLaDANqbuANUJxEAB6YuxRmicgYHrF+Vje7F64VgAyABUAKLFmS0dXF7P+Ys22kAWlpEYAHHix+OMAArVD+DOqpykVioZbhkZwIO0KZnPAhpwzNGcBzyntnsaoajg5ajKDUaisOquuqjOAAfgcre44IA5KeJgQPQcB0HAExQPQnoAIQzCGwrtDadobA60pOvKr6bhkLBQAqfSPkQBAANZLsuAIbpcEacnGCZJlGACsDhpqRqrZrmm75qQhYlmWMgVtQVY1nWqyNnxfBtp23a9v2g6cPEnKjhOU4TnOC4sdKq7rqaclkOprwzAAmkQJiCnAAzxKZYFTBSpCwWA8ECqoNQId0pCeqaNoOMh0L2YUPJyYwUxuh4tRAV0HzsHwWKkBcxlcf0FxyWsHwCA4IA7EQ9ABVM7ZTGQkWYv0AAkozjFMFzpZmTh-ORwIBd5kozOajyzO8JCmqVSxApSHIeFFxU9U5oQAL5DU4mXZXAuUUKQBXRUVpwVQKNW3nVYqkhsnCoTUTUbT5Fwhm1ISbqchJVaExBkDNzJ0Oq227M6mGXAAIlAEzZHp7TkaaAByLSfTUbHkhxBZFqWtAYKgfD9hgxAwMWrq0P4fAPpwxa1LSxa0vRXa1OjtLYzItQEAAnAQkFRoqnL0STADs9BjhGtIyFG2MkyTir0JyJOqYuB7nTUmkUTMow7nuAOhOQeKkO6DgQHAzSQhacECw4Y2hOro07BlWXxDleWzf1pBFSt5BLedptwGttp7Y1qu7RKZ2OuF7WbpbTtZj6VLMkbRU9VaryXeQZA3T2s2HlLMseBq-jNmH90dOgXxHAngOFaQaK3JuozUEo+4B6qN4gdQpoAMJ0MRdx2QdquhKirsUpdwycKwEAEE8NfLmExQRDIpSxIE7CssQufBZcrrej56uvNPzkOedmvqzrk3Tflvs53n5vtDwLR-d0tSouCEWGTE3DV54JjMPsx0shcQumnEtROgJMKZlrhTDY4AhgMNAC6QA" height="800" width="100%" style="border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
 </div>
@@ -298,7 +297,7 @@ Code </a></p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>
