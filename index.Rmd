@@ -18,20 +18,20 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/RinteRface/shinydashboardPlus/workflows/R-CMD-check/badge.svg)](https://github.com/RinteRface/shinydashboardPlus/actions)
 [![version](https://www.r-pkg.org/badges/version/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 [![cranlogs](https://cranlogs.r-pkg.org/badges/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
-[![total](https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://www.rpackages.io/package/shinydashboardPlus)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/shinydashboardPlus)](https://CRAN.R-project.org/package=shinydashboardPlus)
 
 > extensions for shinydashboard
 
 ```{r, eval=TRUE, echo=FALSE}
 card(
   shiny::tags$iframe(
-    class = "html-fill-item", 
-    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgugAitRl1adyMDADNa1OOyFg4AA9YVB9Of1wAAlQoAgBrKABzOEiAXkj-K1l5bkVlYzN-AQEwAF8AXSA", 
-    height = "800", 
-    width = "100%", 
-    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;", 
-    allowfullscreen = "", 
-    allow = "autoplay", 
+    class = "html-fill-item",
+    src = "https://shinylive.io/r/app/#h=0&code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IdJiw48+rACZQe9IixnDRDZmy69+chUsYyACtQCunVSKn8AgugAitRl1adyMDADNa1OOyFg4AA9YVB9Of1wAAlQoAgBrKABzOEiAXkj-K1l5bkVlYzN-AQEwAF8AXSA",
+    height = "800",
+    width = "100%",
+    style = "border: 1px solid rgba(0,0,0,0.175); border-radius: .375rem;",
+    allowfullscreen = "",
+    allow = "autoplay",
     `data-external` = "1"
   ),
   full_screen = TRUE,
