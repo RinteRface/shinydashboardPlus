@@ -1,12 +1,16 @@
 # Returns TRUE if a status is valid; throws error otherwise.
 validateStatus <- function(status) {
-  
   if (status %in% validStatuses) {
     return(TRUE)
   }
-  
-  stop("Invalid status: ", status, ". Valid statuses are: ",
-       paste(validStatuses, collapse = ", "), ".")
+
+  stop(
+    "Invalid status: ",
+    status,
+    ". Valid statuses are: ",
+    paste(validStatuses, collapse = ", "),
+    "."
+  )
 }
 
 
@@ -33,13 +37,17 @@ validStatuses <- c("primary", "success", "info", "warning", "danger")
 
 # Returns TRUE if a status is valid; throws error otherwise.
 validateStatusPlus <- function(status) {
-  
   if (status %in% validStatusesPlus) {
     return(TRUE)
   }
-  
-  stop("Invalid status: ", status, ". Valid statuses are: ",
-       paste(validStatusesPlus, collapse = ", "), ".")
+
+  stop(
+    "Invalid status: ",
+    status,
+    ". Valid statuses are: ",
+    paste(validStatusesPlus, collapse = ", "),
+    "."
+  )
 }
 
 
@@ -67,14 +75,36 @@ validateStatusPlus <- function(status) {
 #' @format NULL
 #'
 #' @keywords internal
-validStatusesPlus <- c("primary", "success", "info", "warning", "danger", 
-                       "navy", "teal", "purple", "orange", "maroon", "black")
+validStatusesPlus <- c(
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "danger",
+  "navy",
+  "teal",
+  "purple",
+  "orange",
+  "maroon",
+  "black"
+)
 
 
 # all AdminLTE2 skins
-validSkins <- c("blue", "blue-light","black","black-light", 
-                "purple","purple-light", "green","green-light",
-                "red","red-light", "yellow","yellow-light")
+validSkins <- c(
+  "blue",
+  "blue-light",
+  "black",
+  "black-light",
+  "purple",
+  "purple-light",
+  "green",
+  "green-light",
+  "red",
+  "red-light",
+  "yellow",
+  "yellow-light"
+)
 
 # Returns TRUE if a color is a valid color defined in AdminLTE, throws error
 # otherwise.
@@ -82,9 +112,14 @@ validateColor <- function(color) {
   if (color %in% validColors) {
     return(TRUE)
   }
-  
-  stop("Invalid color: ", color, ". Valid colors are: ",
-       paste(validColors, collapse = ", "), ".")
+
+  stop(
+    "Invalid color: ",
+    color,
+    ". Valid colors are: ",
+    paste(validColors, collapse = ", "),
+    "."
+  )
 }
 
 #' Valid colors
@@ -114,9 +149,24 @@ validateColor <- function(color) {
 #' @format NULL
 #'
 #' @keywords internal
-validColors <- c("red", "yellow", "aqua", "blue", "light-blue", "green",
-                 "navy", "teal", "olive", "lime", "orange", "fuchsia",
-                 "purple", "maroon", "black", "gray")
+validColors <- c(
+  "red",
+  "yellow",
+  "aqua",
+  "blue",
+  "light-blue",
+  "green",
+  "navy",
+  "teal",
+  "olive",
+  "lime",
+  "orange",
+  "fuchsia",
+  "purple",
+  "maroon",
+  "black",
+  "gray"
+)
 
 #' Assert that a tag has specified properties
 #' @param tag A tag object.
@@ -132,23 +182,24 @@ tagAssert <- function(tag, type = NULL, class = NULL, allowUI = TRUE) {
     print(tag)
     stop("Expected an object with class 'shiny.tag'.")
   }
-  
+
   # Skip dynamic output elements
-  if (allowUI &&
+  if (
+    allowUI &&
       (hasCssClass(tag, "shiny-html-output") ||
-       hasCssClass(tag, "shinydashboard-menu-output") ||
-       hasCssClass(tag, "ygdashboard-module-output"))) {
+        hasCssClass(tag, "shinydashboard-menu-output") ||
+        hasCssClass(tag, "ygdashboard-module-output"))
+  ) {
     return()
   }
-  
+
   if (!is.null(type) && tag$name != type) {
     stop("Expected tag to be of type ", type)
   }
-  
+
   if (!is.null(class)) {
     if (is.null(tag$attribs$class)) {
       stop("Expected tag to have class '", class, "'")
-      
     } else {
       tagClasses <- strsplit(tag$attribs$class, " ")[[1]]
       if (!(class %in% tagClasses)) {
@@ -163,9 +214,10 @@ tagAssert <- function(tag, type = NULL, class = NULL, allowUI = TRUE) {
 
 # Return TRUE if a shiny.tag object has a CSS class, FALSE otherwise.
 hasCssClass <- function(tag, class) {
-  if (is.null(tag$attribs) || is.null(tag$attribs$class))
+  if (is.null(tag$attribs) || is.null(tag$attribs$class)) {
     return(FALSE)
-  
+  }
+
   classes <- strsplit(tag$attribs$class, " +")[[1]]
   return(class %in% classes)
 }
@@ -190,44 +242,70 @@ rd_color_tag <- function(color, label = color) {
     color
   )
   sprintf(
-    "\\ifelse{html}{\\out{<span style='%s'></span>%s}}{%s}",
-    style, label, label
+    "\\ifelse{html}{\\out{<span style=%s></span>%s}}{%s}",
+    style,
+    label,
+    label
   )
 }
 
 
-
-processDeps <- function (tags, session) {
-  ui <- htmltools::takeSingletons(tags, session$singletons, desingleton = FALSE)$ui
+processDeps <- function(tags, session) {
+  ui <- htmltools::takeSingletons(
+    tags,
+    session$singletons,
+    desingleton = FALSE
+  )$ui
   ui <- htmltools::surroundSingletons(ui)
-  dependencies <- lapply(htmltools::resolveDependencies(htmltools::findDependencies(ui)), 
-                         shiny::createWebDependency)
+  dependencies <- lapply(
+    htmltools::resolveDependencies(htmltools::findDependencies(ui)),
+    shiny::createWebDependency
+  )
   names(dependencies) <- NULL
   list(html = htmltools::doRenderTags(ui), deps = dependencies)
 }
 
 
+validateBoxProps <- function(
+  title,
+  label,
+  sidebar,
+  dropdownMenu,
+  status,
+  gradient,
+  collapsible,
+  collapsed,
+  solidHeader,
+  background,
+  width
+) {
+  if (!is.null(status)) {
+    validateStatusPlus(status)
+  }
+  if (!is.null(background)) {
+    validateColor(background)
+  }
 
-validateBoxProps <- function(title, label, sidebar, dropdownMenu, status, gradient, collapsible, 
-                             collapsed, solidHeader, background, width) {
-  
-  if (!is.null(status)) validateStatusPlus(status)
-  if (!is.null(background)) validateColor(background)
-  
-  if (is.null(title) && 
-      (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))) {
+  if (
+    is.null(title) &&
+      (!is.null(label) || !is.null(sidebar) || !is.null(dropdownMenu))
+  ) {
     stop("Cannot use box tools without a title")
   }
-  
+
   if (!collapsible && collapsed) {
     stop("Cannot collapse a card that is not collapsible.")
   }
-  
+
   if (!is.null(status) && !is.null(background) && !solidHeader) {
-    stop("solidHeader must be TRUE whenever background and status are not NULL at the same time.")
+    stop(
+      "solidHeader must be TRUE whenever background and status are not NULL at the same time."
+    )
   }
-  if (gradient && is.null(background)) stop("gradient cannot be used when background is NULL.")
-  
+  if (gradient && is.null(background)) {
+    stop("gradient cannot be used when background is NULL.")
+  }
+
   if (!is.null(width)) {
     stopifnot(is.numeric(width))
     # respect the bootstrap grid
@@ -235,7 +313,6 @@ validateBoxProps <- function(title, label, sidebar, dropdownMenu, status, gradie
     stopifnot(width >= 0)
   }
 }
-
 
 
 setBoxStyle <- function(height, sidebar) {
@@ -250,27 +327,32 @@ setBoxStyle <- function(height, sidebar) {
 }
 
 
-
-setBoxClass <- function(status, solidHeader, collapsible, collapsed,
-                        gradient, background, sidebar) {
-  
+setBoxClass <- function(
+  status,
+  solidHeader,
+  collapsible,
+  collapsed,
+  gradient,
+  background,
+  sidebar
+) {
   boxClass <- "box"
   if (solidHeader) {
     boxClass <- paste(boxClass, "box-solid")
   }
-  
+
   if (!is.null(status)) {
     boxClass <- paste0(boxClass, " box-", status)
   }
-  
+
   if (collapsible && collapsed) {
     boxClass <- paste(boxClass, "collapsed-box")
   }
-  
+
   if (!is.null(background)) {
     boxClass <- paste0(boxClass, " bg-", background, if (gradient) "-gradient")
   }
-  
+
   if (!is.null(sidebar)) {
     sidebarToggle <- sidebar[[1]]
     startOpen <- sidebarToggle$attribs$`data-start-open`
@@ -280,22 +362,28 @@ setBoxClass <- function(status, solidHeader, collapsible, collapsed,
       boxClass <- paste0(boxClass, " direct-chat")
     }
   }
-  
+
   boxClass
 }
 
 
-
 # create box icons and return a list of icons
-createBoxTools <- function(collapsible, collapsed, closable, 
-                           sidebar, dropdownMenu, boxToolSize, status, 
-                           background, solidHeader) {
-  
+createBoxTools <- function(
+  collapsible,
+  collapsed,
+  closable,
+  sidebar,
+  dropdownMenu,
+  boxToolSize,
+  status,
+  background,
+  solidHeader
+) {
   btnClass <- paste0(
-    "btn btn-box-tool", 
+    "btn btn-box-tool",
     if (!is.null(boxToolSize)) paste0(" btn-", boxToolSize)
   )
-  
+
   if (is.null(status) && !is.null(background)) {
     btnClass <- paste0(
       btnClass,
@@ -304,7 +392,7 @@ createBoxTools <- function(collapsible, collapsed, closable,
       }
     )
   }
-  
+
   # status has always priority compared to background
   if (!is.null(status) && solidHeader) {
     btnClass <- paste0(
@@ -314,50 +402,53 @@ createBoxTools <- function(collapsible, collapsed, closable,
       }
     )
   }
-  
+
   collapseTag <- NULL
   if (collapsible) {
-    collapseIcon <- if (collapsed) 
+    collapseIcon <- if (collapsed) {
       "plus"
-    else "minus"
+    } else {
+      "minus"
+    }
     collapseTag <- shiny::tags$button(
-      class = btnClass, 
+      class = btnClass,
       type = "button",
-      `data-widget` = "collapse", 
+      `data-widget` = "collapse",
       shiny::icon(collapseIcon)
     )
   }
-  
+
   closableTag <- NULL
   if (closable) {
     closableTag <- shiny::tags$button(
-      class = btnClass, 
-      `data-widget` = "remove", 
+      class = btnClass,
+      `data-widget` = "remove",
       type = "button",
       shiny::icon("xmark")
     )
-  } 
-  
+  }
+
   sidebarToolTag <- NULL
   if (!is.null(sidebar)) {
     sidebar[[1]]$attribs$class <- btnClass
     sidebarToolTag <- sidebar[[1]]
   }
-  
+
   dropdownMenuToolTag <- NULL
   if (!is.null(dropdownMenu)) {
-    dropdownMenu$children[[1]]$attribs$class <- paste0(btnClass, " dropdown-toggle")
+    dropdownMenu$children[[1]]$attribs$class <- paste0(
+      btnClass,
+      " dropdown-toggle"
+    )
     dropdownMenuToolTag <- dropdownMenu
   }
-  
+
   dropNulls(list(dropdownMenuToolTag, collapseTag, closableTag, sidebarToolTag))
 }
 
 
-
 # extract social item in socialBox
 extractSocialItem <- function(items, isComment = TRUE) {
-  
   if (length(items) > 0) {
     dropNulls(lapply(items, function(item) {
       if (inherits(item, "list")) {
@@ -393,7 +484,7 @@ tagInsertChild <- function(tag, child, position) {
 
 status_2_color <- function(status) {
   switch(
-    status, 
+    status,
     "primary" = "light-blue",
     "success" = "green",
     "danger" = "red",
@@ -410,7 +501,7 @@ status_2_color <- function(status) {
 
 color_2_status <- function(color) {
   switch(
-    color, 
+    color,
     "light-blue" = "primary",
     "green" = "success",
     "red" = "danger",
@@ -427,21 +518,21 @@ color_2_status <- function(color) {
 
 
 waiterShowOnLoad <- function(
-  html = waiter::spin_1(), color = "#333e48"
-){
-  
+  html = waiter::spin_1(),
+  color = "#333e48"
+) {
   html <- as.character(html)
   html <- gsub("\n", "", html)
-  
+
   show <- sprintf(
     "waiter.show({
       id: null,
       html: '%s', 
       color: '%s'
     });",
-    html, color
+    html,
+    color
   )
-  
+
   shiny::HTML(sprintf("<script>%s</script>", show))
-  
 }
