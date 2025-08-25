@@ -66,8 +66,12 @@ accordion <- function(..., id = NULL, width = 12) {
   # we add the data-parent non standard attribute to each
   # item. Each accordion must have a unique id.
   lapply(seq_len(len), FUN = function(i) {
-    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["data-parent"]] <<- paste0("#", id)
-    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[["href"]] <<- paste0("#collapse_", id, "_", i)
+    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[[
+      "data-parent"
+    ]] <<- paste0("#", id)
+    items[[i]]$children[[1]]$children[[1]]$children[[1]]$attribs[[
+      "href"
+    ]] <<- paste0("#collapse_", id, "_", i)
     items[[i]]$children[[2]]$attribs[["id"]] <<- paste0("collapse_", id, "_", i)
   })
 
@@ -91,15 +95,22 @@ accordion <- function(..., id = NULL, width = 12) {
 #' @rdname accordion
 #'
 #' @export
-accordionItem <- function(..., title, status = NULL, collapsed = TRUE,
-                          solidHeader = TRUE) {
+accordionItem <- function(
+  ...,
+  title,
+  status = NULL,
+  collapsed = TRUE,
+  solidHeader = TRUE
+) {
   cl <- "panel box"
   if (!is.null(status)) {
     validateStatusPlus(status)
     cl <- paste0(cl, " box-", status)
   }
 
-  if (solidHeader) cl <- paste0(cl, " box-solid")
+  if (solidHeader) {
+    cl <- paste0(cl, " box-solid")
+  }
 
   shiny::tags$div(
     class = cl,
@@ -132,8 +143,6 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE,
     )
   )
 }
-
-
 
 
 #' Update an accordion on the client
@@ -193,11 +202,13 @@ accordionItem <- function(..., title, status = NULL, collapsed = TRUE,
 #'     }
 #'   )
 #' }
-updateAccordion <- function(id, selected, session = shiny::getDefaultReactiveDomain()) {
+updateAccordion <- function(
+  id,
+  selected,
+  session = shiny::getDefaultReactiveDomain()
+) {
   session$sendInputMessage(id, selected)
 }
-
-
 
 
 #' AdminLTE2 attachment container
@@ -273,7 +284,6 @@ attachmentBlock <- function(..., image, title = NULL, href = NULL) {
 }
 
 
-
 #' @title AdminLTE2 block quote
 #'
 #' @description If you want to quote text
@@ -313,7 +323,6 @@ blockQuote <- function(..., side = "left") {
     ...
   )
 }
-
 
 
 #' AdminLTE2 vertical block container
@@ -412,8 +421,6 @@ boxPad <- function(..., color = NULL, style = NULL) {
 }
 
 
-
-
 #' AdminLTE2 carousel container
 #'
 #' \link{carousel} creates a carousel container to display media content.
@@ -470,7 +477,9 @@ carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
         sum(grep(x = items[[i]]$attribs$class, pattern = "active")) == 1
       }
       # if the item has active class and no item was found before, we found the active item
-      if (active && !found_active) found_active <- TRUE
+      if (active && !found_active) {
+        found_active <- TRUE
+      }
 
       shiny::tags$li(
         `data-target` = paste0("#", id),
@@ -532,15 +541,18 @@ carousel <- function(..., id, indicators = TRUE, width = 6, .list = NULL) {
     id = id
   )
 
-  carouselTag <- shiny::tagAppendChildren(carouselTag, indicatorsTag, bodyTag, controlButtons)
+  carouselTag <- shiny::tagAppendChildren(
+    carouselTag,
+    indicatorsTag,
+    bodyTag,
+    controlButtons
+  )
 
   shiny::tags$div(
     class = if (!is.null(width)) paste0("col-sm-", width),
     carouselTag
   )
 }
-
-
 
 
 #' AdminLTE2 carousel item
@@ -563,8 +575,6 @@ carouselItem <- function(..., caption = NULL, active = FALSE) {
     }
   )
 }
-
-
 
 
 #' @title AdminLTE2 social button
@@ -608,7 +618,9 @@ carouselItem <- function(..., caption = NULL, active = FALSE) {
 #'
 #' @export
 socialButton <- function(href, icon) {
-  if (!is.null(icon)) tagAssert(icon, type = "i")
+  if (!is.null(icon)) {
+    tagAssert(icon, type = "i")
+  }
 
   name <- strsplit(icon$attribs$class, "-")[[1]][2]
   cl <- sprintf("btn btn-social-icon btn-%s", name)
@@ -620,8 +632,6 @@ socialButton <- function(href, icon) {
     icon
   )
 }
-
-
 
 
 #' @title AdminLTE2 badge
@@ -685,8 +695,6 @@ dashboardBadge <- function(..., color) {
 }
 
 
-
-
 #' @title AdminLTE2 label
 #'
 #' @description Create a label
@@ -739,8 +747,6 @@ dashboardLabel <- function(..., status, style = "default") {
     ...
   )
 }
-
-
 
 
 #' AdminLTE2 description block
@@ -833,15 +839,27 @@ dashboardLabel <- function(..., status, style = "default") {
 #' }
 #'
 #' @export
-descriptionBlock <- function(number = NULL, numberColor = NULL, numberIcon = NULL,
-                             header = NULL, text = NULL, rightBorder = TRUE,
-                             marginBottom = FALSE) {
+descriptionBlock <- function(
+  number = NULL,
+  numberColor = NULL,
+  numberIcon = NULL,
+  header = NULL,
+  text = NULL,
+  rightBorder = TRUE,
+  marginBottom = FALSE
+) {
   # icon check. Fails if the user does not pass icon("...")
-  if (!is.null(numberIcon)) tagAssert(numberIcon, type = "i")
+  if (!is.null(numberIcon)) {
+    tagAssert(numberIcon, type = "i")
+  }
 
   cl <- "description-block"
-  if (isTRUE(rightBorder)) cl <- paste0(cl, " border-right")
-  if (isTRUE(marginBottom)) cl <- paste0(cl, " margin-bottom")
+  if (isTRUE(rightBorder)) {
+    cl <- paste0(cl, " border-right")
+  }
+  if (isTRUE(marginBottom)) {
+    cl <- paste0(cl, " margin-bottom")
+  }
 
   numcl <- "description-percentage"
   if (!is.null(numberColor)) {
@@ -860,7 +878,6 @@ descriptionBlock <- function(number = NULL, numberColor = NULL, numberIcon = NUL
     shiny::tags$span(class = "description-text", text)
   )
 }
-
 
 
 #' @title AdminLTE2 loading state element
@@ -900,7 +917,6 @@ loadingState <- function() {
     shiny::tags$i(class = "fa fa-refresh fa-spin")
   )
 }
-
 
 
 #' AdminLTE2 nav pill container
@@ -969,8 +985,6 @@ navPills <- function(..., id = NULL) {
 }
 
 
-
-
 #' Update navPills on the client
 #'
 #' \link{updateNavPills} allows to programmatically change the currently
@@ -1036,10 +1050,13 @@ navPills <- function(..., id = NULL) {
 #'     }
 #'   )
 #' }
-updateNavPills <- function(id, selected, session = shiny::getDefaultReactiveDomain()) {
+updateNavPills <- function(
+  id,
+  selected,
+  session = shiny::getDefaultReactiveDomain()
+) {
   session$sendInputMessage(id, selected)
 }
-
 
 
 #' AdminLTE2 nav pill item
@@ -1074,11 +1091,17 @@ updateNavPills <- function(id, selected, session = shiny::getDefaultReactiveDoma
 #' @rdname navPills
 #'
 #' @export
-navPillsItem <- function(left = NULL, right = NULL,
-                         color = NULL, icon = NULL,
-                         selected = FALSE) {
+navPillsItem <- function(
+  left = NULL,
+  right = NULL,
+  color = NULL,
+  icon = NULL,
+  selected = FALSE
+) {
   cl <- "pull-right"
-  if (!is.null(color)) cl <- paste0(cl, " text-", color)
+  if (!is.null(color)) {
+    cl <- paste0(cl, " text-", color)
+  }
 
   shiny::tags$li(
     class = if (selected) "active" else NULL,
@@ -1093,8 +1116,6 @@ navPillsItem <- function(left = NULL, right = NULL,
     )
   )
 }
-
-
 
 
 #' AdminLTE2 product list container
@@ -1156,8 +1177,6 @@ productList <- function(...) {
 }
 
 
-
-
 #' AdminLTE2 product item
 #'
 #' \link{productListItem} creates a product item to insert in \link{productList}.
@@ -1189,8 +1208,13 @@ productList <- function(...) {
 #' @rdname productList
 #'
 #' @export
-productListItem <- function(..., image = NULL, title = NULL,
-                            subtitle = NULL, color = NULL) {
+productListItem <- function(
+  ...,
+  image = NULL,
+  title = NULL,
+  subtitle = NULL,
+  color = NULL
+) {
   cl <- "label pull-right"
   if (!is.null(color)) {
     validateColor(color)
@@ -1218,8 +1242,6 @@ productListItem <- function(..., image = NULL, title = NULL,
     )
   )
 }
-
-
 
 
 #' AdminLTE2 vertical progress bar
@@ -1306,20 +1328,38 @@ productListItem <- function(..., image = NULL, title = NULL,
 #'   )
 #' }
 #' @export
-progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = FALSE,
-                        animated = FALSE, status = "primary", size = NULL,
-                        label = NULL) {
-  if (!is.null(status)) validateStatus(status)
+progressBar <- function(
+  value,
+  min = 0,
+  max = 100,
+  vertical = FALSE,
+  striped = FALSE,
+  animated = FALSE,
+  status = "primary",
+  size = NULL,
+  label = NULL
+) {
+  if (!is.null(status)) {
+    validateStatus(status)
+  }
   stopifnot(value >= min)
   stopifnot(value <= max)
 
   progressCl <- if (isTRUE(vertical)) "progress vertical" else "progress mb-3"
-  if (animated) progressCl <- paste0(progressCl, " active")
-  if (!is.null(size)) progressCl <- paste0(progressCl, " progress-", size)
+  if (animated) {
+    progressCl <- paste0(progressCl, " active")
+  }
+  if (!is.null(size)) {
+    progressCl <- paste0(progressCl, " progress-", size)
+  }
 
   barCl <- "progress-bar"
-  if (striped) barCl <- paste0(barCl, " progress-bar-striped")
-  if (!is.null(status)) barCl <- paste0(barCl, " progress-bar-", status)
+  if (striped) {
+    barCl <- paste0(barCl, " progress-bar-striped")
+  }
+  if (!is.null(status)) {
+    barCl <- paste0(barCl, " progress-bar-", status)
+  }
 
   shiny::tags$div(
     class = progressCl,
@@ -1337,8 +1377,6 @@ progressBar <- function(value, min = 0, max = 100, vertical = FALSE, striped = F
     )
   )
 }
-
-
 
 
 #' @title AdminLTE2 starBlock
@@ -1423,7 +1461,6 @@ starBlock <- function(value, max = 5, color = "yellow") {
 }
 
 
-
 #' AdminLTE2 timeline block
 #'
 #' \link{timelineBlock} creates a timeline block that may be inserted in a \link{box} or outside.
@@ -1472,8 +1509,8 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #'               title = "Item 3",
 #'               icon = icon("paint-brush"),
 #'               color = "maroon",
-#'               timelineItemMedia(image = "https://placehold.it/150x100"),
-#'               timelineItemMedia(image = "https://placehold.it/150x100")
+#'               timelineItemMedia(image = "placeholders/150x150.png"),
+#'               timelineItemMedia(image = "placeholders/150x150.png")
 #'             ),
 #'             timelineStart(color = "purple")
 #'           )
@@ -1500,8 +1537,8 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #'             title = "Item 3",
 #'             icon = icon("paint-brush"),
 #'             color = "maroon",
-#'             timelineItemMedia(image = "https://placehold.it/150x100"),
-#'             timelineItemMedia(image = "https://placehold.it/150x100")
+#'             timelineItemMedia(image = "placeholders/150x150.png"),
+#'             timelineItemMedia(image = "placeholders/150x150.png")
 #'           ),
 #'           timelineStart(color = "purple")
 #'         )
@@ -1515,8 +1552,12 @@ starBlock <- function(value, max = 5, color = "yellow") {
 #' @export
 timelineBlock <- function(..., reversed = TRUE, width = 6) {
   cl <- "timeline"
-  if (isTRUE(reversed)) cl <- paste0(cl, " timeline-inverse")
-  if (!is.null(width)) cl <- paste0(cl, " col-sm-", width)
+  if (isTRUE(reversed)) {
+    cl <- paste0(cl, " timeline-inverse")
+  }
+  if (!is.null(width)) {
+    cl <- paste0(cl, " col-sm-", width)
+  }
 
   shiny::tags$ul(
     class = cl,
@@ -1606,14 +1647,26 @@ timelineLabel <- function(..., color = NULL) {
 #' @rdname timeline
 #'
 #' @export
-timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
-                         title = NULL, border = TRUE, footer = NULL) {
+timelineItem <- function(
+  ...,
+  icon = NULL,
+  color = NULL,
+  time = NULL,
+  title = NULL,
+  border = TRUE,
+  footer = NULL
+) {
   if (!is.null(icon)) {
     icon$attribs$class <- sub("fas", "fa", icon$attribs$class)
   }
 
   timeIcon <- shiny::icon("clock")
-  timeIcon$attribs$class <- sub("fa(r|s)", "fa", timeIcon$attribs$class, perl = TRUE)
+  timeIcon$attribs$class <- sub(
+    "fa(r|s)",
+    "fa",
+    timeIcon$attribs$class,
+    perl = TRUE
+  )
 
   if (!is.null(color)) {
     validateColor(color)
@@ -1621,10 +1674,11 @@ timelineItem <- function(..., icon = NULL, color = NULL, time = NULL,
   }
 
   itemCl <- "timeline-header no-border"
-  if (border) itemCl <- "timeline-header"
+  if (border) {
+    itemCl <- "timeline-header"
+  }
 
   shiny::tags$li(
-
     # timelineItem icon and color
     icon,
 
@@ -1682,8 +1736,6 @@ timelineItemMedia <- function(image = NULL, height = NULL, width = NULL) {
     width = width
   )
 }
-
-
 
 
 #' AdminLTE2 timeline starting point
@@ -1781,7 +1833,6 @@ timelineEnd <- function(icon = shiny::icon("hourglass-end"), color = NULL) {
 }
 
 
-
 #' AdminLTE2 todo list container
 #'
 #' Create a todo list container. May be included in \link{box}.
@@ -1855,11 +1906,12 @@ todoList <- function(..., sortable = TRUE) {
     ...
   )
 
-  if (sortable) todoListTag <- shinyjqui::jqui_sortable(todoListTag)
+  if (sortable) {
+    todoListTag <- shinyjqui::jqui_sortable(todoListTag)
+  }
 
   todoListTag
 }
-
 
 
 #' AdminLTE2 todo list item
@@ -1875,7 +1927,9 @@ todoList <- function(..., sortable = TRUE) {
 #' @export
 todoListItem <- function(..., checked = FALSE, label = NULL) {
   cl <- NULL
-  if (checked) cl <- "done"
+  if (checked) {
+    cl <- "done"
+  }
 
   shiny::tags$li(
     class = cl,
@@ -1900,7 +1954,6 @@ todoListItem <- function(..., checked = FALSE, label = NULL) {
     )
   )
 }
-
 
 
 #' AdminLTE2 user list container
@@ -1985,7 +2038,6 @@ userListItem <- function(image, title, subtitle = NULL) {
 }
 
 
-
 #' AdminLTE2 user post
 #'
 #' \link{userPost} creates a user post. This content may be inserted in a \link{box}.
@@ -2050,14 +2102,26 @@ userListItem <- function(image, title, subtitle = NULL) {
 #' }
 #'
 #' @export
-userPost <- function(..., id = NULL, image, author,
-                     description = NULL, collapsible = TRUE,
-                     collapsed = FALSE) {
+userPost <- function(
+  ...,
+  id = NULL,
+  image,
+  author,
+  description = NULL,
+  collapsible = TRUE,
+  collapsed = FALSE
+) {
   cl <- "collapse"
   id <- paste0("post-", id)
 
-  if (!isTRUE(collapsed)) cl <- paste0(cl, " in")
-  if (collapsed) collapsed <- "false" else collapsed <- "true"
+  if (!isTRUE(collapsed)) {
+    cl <- paste0(cl, " in")
+  }
+  if (collapsed) {
+    collapsed <- "false"
+  } else {
+    collapsed <- "true"
+  }
 
   shiny::tags$div(
     class = "post",
@@ -2094,8 +2158,6 @@ userPost <- function(..., id = NULL, image, author,
 }
 
 
-
-
 #' AdminLTE2 user post tool item container
 #'
 #' \link{userPostTagItems} creates a container to host \link{userPostTagItem}.
@@ -2111,8 +2173,6 @@ userPostTagItems <- function(...) {
     ...
   )
 }
-
-
 
 
 #' AdminLTE2 user post tool item
@@ -2135,7 +2195,6 @@ userPostTagItem <- function(..., side = "left") {
 }
 
 
-
 #' AdminLTE2 user post media
 #'
 #' \link{userPostMedia} creates a container to include an image in \link{userPost}.
@@ -2156,9 +2215,6 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
     width = width
   )
 }
-
-
-
 
 
 #' AdminLTE2 user message container
@@ -2245,7 +2301,9 @@ userPostMedia <- function(image, height = NULL, width = NULL) {
 #' @export
 userMessages <- function(..., id = NULL, status, width = 4, height = NULL) {
   cl <- "direct-chat-messages direct-chat"
-  if (!is.null(height)) shiny::validateCssUnit(height)
+  if (!is.null(height)) {
+    shiny::validateCssUnit(height)
+  }
   if (!is.null(status)) {
     validateStatus(status)
     cl <- paste0(cl, " direct-chat-", status)
@@ -2280,11 +2338,18 @@ userMessages <- function(..., id = NULL, status, width = 4, height = NULL) {
 #' @rdname userMessage
 #'
 #' @export
-userMessage <- function(..., author, date = NULL,
-                        image = NULL, type = c("sent", "received")) {
+userMessage <- function(
+  ...,
+  author,
+  date = NULL,
+  image = NULL,
+  type = c("sent", "received")
+) {
   type <- match.arg(type)
   messageCl <- "direct-chat-msg"
-  if (type == "sent") messageCl <- paste0(messageCl, " right")
+  if (type == "sent") {
+    messageCl <- paste0(messageCl, " right")
+  }
 
   # message info
   messageInfo <- shiny::tags$div(
@@ -2322,9 +2387,6 @@ userMessage <- function(..., author, date = NULL,
     messageTxt
   )
 }
-
-
-
 
 
 #' Update a messages container in the server side
@@ -2436,9 +2498,13 @@ userMessage <- function(..., author, date = NULL,
 #'     }
 #'   )
 #' }
-updateUserMessages <- function(id, action = c("add", "remove", "update"),
-                               index = NULL, content = NULL,
-                               session = shiny::getDefaultReactiveDomain()) {
+updateUserMessages <- function(
+  id,
+  action = c("add", "remove", "update"),
+  index = NULL,
+  content = NULL,
+  session = shiny::getDefaultReactiveDomain()
+) {
   action <- match.arg(action)
 
   content <- lapply(content, function(c) {

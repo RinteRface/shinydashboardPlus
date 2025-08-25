@@ -23,8 +23,8 @@ timeline1 <- 'box(
       title = "Item 3",
       icon = icon("paint-brush"),
       color = "maroon",
-      timelineItemMedia(image = "https://placehold.it/150x100"),
-      timelineItemMedia(image = "https://placehold.it/150x100")
+      timelineItemMedia(image = "placeholders/150x150.png"),
+      timelineItemMedia(image = "placeholders/150x150.png")
     ),
     timelineStart(color = "purple")
   )
@@ -53,8 +53,8 @@ timeline2 <- 'timelineBlock(
     title = "Item 3",
     icon = icon("paint-brush"),
     color = "maroon",
-    timelineItemMedia(image = "https://placehold.it/150x100"),
-    timelineItemMedia(image = "https://placehold.it/150x100")
+    timelineItemMedia(image = "placeholders/150x150.png"),
+    timelineItemMedia(image = "placeholders/150x150.png")
   ),
   timelineStart(color = "purple")
 )'
